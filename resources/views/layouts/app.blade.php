@@ -2,10 +2,10 @@
 <html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8"/>
-    <title>@yield('title',setting('site_title','')) - Лучшая база поставщиков услуг</title>
+    <title>@yield('title',setting('site_title','')) ORCHID - Laravel admin panel - Laravel platform, laravel admin panel</title>
     <meta name="description" content="@yield('description',setting('site_description',''))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
-
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta http-equiv="X-DNS-Prefetch-Control" content="on">
     <link rel="dns-prefetch" href="{{ config('app.url') }}">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="{{ mix('/css/app.css')}}" type="text/css"/>
 
-    <meta property="og:title" content="@yield('title',setting('site_title','')) - Лучшая база поставщиков услуг">
+    <meta property="og:title" content="@yield('title',setting('site_title','')) ORCHID - Laravel admin panel - Laravel platform, laravel admin panel">
     <meta property="og:description" content="@yield('description',setting('site_description',''))">
     <meta property="og:type" content="article">
     <meta property="og:image" content="@yield('image', config('app.url').'/img/tour/logo.png')">
@@ -27,14 +27,12 @@
 
     <link rel="shortcut icon" type="image/png" href="/img/logo.png">
 
-    <!--
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#58666e">
-    <meta name="theme-color" content="#f1f3f5">
-    -->
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac5ca0">
+    <meta name="theme-color" content="#ffffff">
 
         <style>
 

@@ -166,7 +166,7 @@
 
 @section('footer')
     <div id="registation" class="bg-black hidden-xs"
-         style="background: url(https://static.pexels.com/photos/140945/pexels-photo-140945.jpeg)  center center; background-size: cover">
+         style="background: url(/img/footer.jpg)  center center; background-size: cover">
         <div class="bg-black-opacity">
             <div class="container">
                 <div class="row  m-t-xxl m-b-xxl">
