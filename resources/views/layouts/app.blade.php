@@ -83,7 +83,7 @@
           <i class="fa fa-bars"></i>
         </button>
         <a href="{{ url('/') }}" class="navbar-brand m-r-lg">
-            <img src="http://demo-orchid.tk/orchid/img/orchid.svg" style="height: 20px;">
+            <img src="/img/orchid.svg" style="height: 20px;">
         </a>
       </div>
         <div class="collapse navbar-collapse">
