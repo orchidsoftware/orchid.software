@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Core\Behaviors\Single;
+namespace App\Core\Behaviors\Many;
 
-use Orchid\CMS\Behaviors\Single;
+use Orchid\CMS\Behaviors\Many;
+use Orchid\CMS\Http\Forms\Posts\BasePostForm;
 use Orchid\CMS\Http\Forms\Posts\UploadPostForm;
 
-class DemoPage extends Single
+class BlogPost extends Many
 {
     /**
      * @var string
      */
-    public $name = 'Demo page';
+    public $name = 'Blog post';
 
     /**
      * @var string
      */
-    public $description = 'Demonstrative page';
+    public $description = 'Demonstrative post';
 
     /**
      * @var string
      */
-    public $slug = 'demo-page';
+    public $slug = 'blog';
 
     /**
      * Slug url /news/{name}.
@@ -58,7 +59,6 @@ class DemoPage extends Single
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Short description',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Keywords|help:SEO keywords',
             'robot'       => 'tag:robot|name:robot|max:255|required|title:Indexing|help:Allow search bots to index page',
-            'test' => 'tag:package|name:package|slug:premium|title:Premium package includes',
         ];
     }
 
@@ -68,7 +68,20 @@ class DemoPage extends Single
     public function modules() : array
     {
         return [
+            BasePostForm::class,
             UploadPostForm::class,
+        ];
+    }
+
+    /**
+     * Grid View for post type.
+     */
+    public function grid() : array
+    {
+        return [
+            'name'       => 'Name',
+            'publish_at' => 'Date of publication',
+            'created_at' => 'Date of creation',
         ];
     }
 }

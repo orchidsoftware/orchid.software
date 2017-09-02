@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
+@section('title',$title)
+@section('description',$description)
+
+
 @section('content')
 
-    <div class="bg-white-only">
+<div class="bg-white-only">
 
     <div class="container">
                 <div class="row m-t-md m-b-md">

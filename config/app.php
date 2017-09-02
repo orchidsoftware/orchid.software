@@ -170,6 +170,9 @@ return [
         Orchid\Platform\Providers\FoundationServiceProvider::class,
         Orchid\CMS\Providers\FoundationServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
+        Roumen\Feed\FeedServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -229,6 +232,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Localization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+        'Feed' => Roumen\Feed\Feed::class,
+        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
+
         'Dashboard' =>  Orchid\Platform\Facades\Dashboard::class,
         'Alert' =>  Orchid\Alert\Facades\Alert::class,
         'Active' => Watson\Active\Facades\Active::class,

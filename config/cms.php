@@ -25,7 +25,7 @@ return [
     */
 
     'many' => [
-        App\Core\Behaviors\Many\DemoPost::class,
+        App\Core\Behaviors\Many\BlogPost::class,
     ],
 
     /*

@@ -47,6 +47,7 @@ return [
         'checkbox' => Orchid\Platform\Fields\CheckBoxField::class,
         'code'     => Orchid\Platform\Fields\CodeField::class,
         'wysiwyg'  => Orchid\Platform\Fields\SummernoteField::class,
+        'package' => \App\Core\Fields\PackagesField::class,
     ],
 
     /*

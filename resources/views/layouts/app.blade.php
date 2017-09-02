@@ -2,9 +2,10 @@
 <html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8"/>
-    <title>@yield('title',setting('site_title','')) ORCHID - Laravel admin panel - Laravel platform, laravel admin panel</title>
+    <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Simple and flexible control panel</title>
     <meta name="description" content="@yield('description',setting('site_description',''))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
+    <meta name="author" content="Alexandr Chernyaev">
     <link rel="shortcut icon" href="/favicon.ico">
     <meta http-equiv="X-DNS-Prefetch-Control" content="on">
     <link rel="dns-prefetch" href="{{ config('app.url') }}">
@@ -19,6 +20,9 @@
     <meta property="og:type" content="article">
     <meta property="og:image" content="@yield('image', config('app.url').'/img/tour/logo.png')">
     <meta property="og:url" content="{{url()->current()}}">
+
+
+    {!! Feed::link(route('rss'), 'atom', 'News', App::getLocale()) !!}
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -66,7 +70,7 @@
 
     @stack('stylesheet')
 </head>
-<body>
+<body itemscope itemtype="http://schema.org/WebPage">
 
 <div id="app">
 
@@ -95,6 +99,11 @@
                 <li>
                     <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
                 </li>
+                {{--
+                <li>
+                    <a href="{{route('articles')}}">Блог</a>
+                </li>
+                --}}
                 <li>
                     <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
                 </li>
@@ -198,8 +207,15 @@
                     <div class="col-md-6 hidden-xs">
                         <div class="m-t">
                             <ul class="list-inline">
-                                <li><a href="https://github.com/theOrchid">Github</a></li>
-                                <li><a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">{{trans('welcome.support')}}</a></li>
+                                <li>
+                                    <a href="https://github.com/theOrchid">Github</a>
+                                </li>
+                                <li>
+                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">{{trans('welcome.support')}}</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">Slack</a>
+                                </li>
                             </ul>
                         </div>
                     </div>

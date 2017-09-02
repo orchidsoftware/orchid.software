@@ -7,10 +7,14 @@
     "require": {
         "php": ">=5.6.4",
         "erusev/parsedown": "^1.6",
+        "htmlmin/htmlmin": "^5.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "mcamara/laravel-localization": "^1.2",
-        "orchid/cms": "dev-master"
+        "orchid/cms": "^1.0",
+        "predis/predis": "^1.1",
+        "roumen/feed": "^2.10",
+        "symfony/dom-crawler": "^3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -18,6 +22,10 @@
         "phpunit/phpunit": "~5.7"
     },
     "autoload": {
+        "files": [
+            "app/Helpers/Str.php",
+            "app/Helpers/Page.php"
+        ],
         "classmap": [
             "database"
         ],
@@ -50,6 +58,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "minimum-stability": "dev"
+    }
 }

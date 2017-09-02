@@ -63,6 +63,11 @@ $router->group([
     $this->get('/', 'AboutController@welcome');
 
 
+    $this->get('blog', 'BlogController@index')->name('articles');
+    $this->get('rss', 'BlogController@rss')->name('rss');
+    $this->get('blog/{blog}', 'BlogController@show')->name('article');
+    $this->put('/comment/{item}', 'CommentController@update')->name('comment.add');
+
     $this->get('/news',function (){
         return view('pages.news');
     });
