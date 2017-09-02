@@ -5,14 +5,19 @@
 @section('content')
 
 
-    <div class="m-t-md m-b-md">
-    <div class="container bg-white b box-shadow m-b-xl">
-    <div class="row">
+    <div class="bg-white-only">
 
+    <div class="container">
 
+        <div style="height: 80vh;  display: flex;
+  align-items: center;
+  justify-content: center;">
+            <h1 class="text-center">404</h1>
+        </div>
 
     </div>
+
     </div>
-    </div>
+
 
 @endsection
