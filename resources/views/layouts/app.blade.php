@@ -2,7 +2,7 @@
 <html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8"/>
-    <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Simple and flexible control panel</title>
+    <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Simple Laravel CMS</title>
     <meta name="description" content="@yield('description',setting('site_description',''))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
     <meta name="author" content="Alexandr Chernyaev">
@@ -99,6 +99,11 @@
                 <li>
                     <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
                 </li>
+
+                <li>
+                   <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">Slack</a>
+                </li>
+
                 {{--
                 <li>
                     <a href="{{route('articles')}}">Блог</a>

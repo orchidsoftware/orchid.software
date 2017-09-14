@@ -55,15 +55,15 @@
 
                       <div class="col-sm-6 text-right hidden-xs" role="group" aria-label="Social Links">
 
-                          <a onclick="popupCenter('http://vk.com/share.php?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-google"></i></a>
+                          <a onclick="popupCenter('http://vk.com/share.php?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-default"><i class="fa fa-google"></i></a>
 
-                          <a onclick="popupCenter('http://www.ok.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-facebook"></i></a>
+                          <a onclick="popupCenter('http://www.ok.ru/dk?st.cmd=addShare&amp;st.s=1&amp;st._surl=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-default"><i class="fa fa-facebook"></i></a>
 
-                          <a onclick="popupCenter('http://www.facebook.com/sharer.php?u=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-twitter"></i></a>
+                          <a onclick="popupCenter('http://www.facebook.com/sharer.php?u=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-default"><i class="fa fa-twitter"></i></a>
 
-                          <a onclick="popupCenter('https://plus.google.com/share?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-vk"></i></a>
+                          <a onclick="popupCenter('https://plus.google.com/share?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-default"><i class="fa fa-vk"></i></a>
 
-                          <a onclick="popupCenter('https://twitter.com/share?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-dark"><i class="fa fa-odnoklassniki"></i></a>
+                          <a onclick="popupCenter('https://twitter.com/share?url=http://localhost:8001/catalog/festivals/klassicheskiy-tekst-lorem-ipsum-ispolzuemyy-s-xvi-veka-1', '',600,400);" href="javascript:void(0);" class="btn btn-icon btn-rounded btn-default"><i class="fa fa-odnoklassniki"></i></a>
                       </div>
                   </div>
               </div>
@@ -81,7 +81,7 @@
                               <div class="item">
                                   <div class="pos-rlt">
                                       <div class="top">
-                                          <span class="badge bg-danger m-l-sm m-t-sm">04:10</span>
+                                          <span class="badge bg-primary m-l-sm m-t-sm">04:10</span>
                                       </div>
                                       <div class="item-overlay bg-black-opacity r r-2x r r-2x">
                                           <div class="center text-center m-t-n w-full">
@@ -89,7 +89,7 @@
                                           </div>
                                       </div>
                                       <a href="#">
-                                          <img src="http://allboxing.ru/sites/default/files/styles/news_page_illustrate/public/102014-ufc-tonight-daniel-cormier-jw-pi_0.jpg?itok=I0-GnmBT" alt="" class="img-full r r-2x">
+                                          <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" alt="" class="img-full r r-2x">
                                       </a>
                                   </div>
                                   <div class="padder-v">
@@ -103,7 +103,7 @@
                               <div class="item">
                                   <div class="pos-rlt">
                                       <div class="top">
-                                          <span class="badge bg-danger m-l-sm m-t-sm">04:10</span>
+                                          <span class="badge bg-primary m-l-sm m-t-sm">04:10</span>
                                       </div>
                                       <div class="item-overlay bg-black-opacity r r-2x r r-2x">
                                           <div class="center text-center m-t-n w-full">
@@ -111,7 +111,7 @@
                                           </div>
                                       </div>
                                       <a href="#">
-                                          <img src="http://allboxing.ru/sites/default/files/styles/news_page_illustrate/public/hi-res-d4535e07edcc10a0e26c7bd35542fe9b_crop_north.jpg?itok=F8jlypjd" alt="" class="img-full r r-2x">
+                                          <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" alt="" class="img-full r r-2x">
                                       </a>
                                   </div>
                                   <div class="padder-v">
@@ -126,7 +126,7 @@
                               <div class="item">
                                   <div class="pos-rlt">
                                       <div class="top">
-                                          <span class="badge bg-danger m-l-sm m-t-sm">04:10</span>
+                                          <span class="badge bg-primary m-l-sm m-t-sm">04:10</span>
                                       </div>
                                       <div class="item-overlay bg-black-opacity r r-2x r r-2x">
                                           <div class="center text-center m-t-n w-full">
@@ -134,7 +134,7 @@
                                           </div>
                                       </div>
                                       <a href="#">
-                                          <img src="http://allboxing.ru/sites/default/files/styles/news_page_illustrate/public/cirkunov.jpg?itok=cqqRNpY9" alt="" class="img-full r r-2x">
+                                          <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" alt="" class="img-full r r-2x">
                                       </a>
                                   </div>
                                   <div class="padder-v">
@@ -163,7 +163,7 @@
                       <article class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 padder-v">
 
                           <a href="#448" title="5 величайших реваншей в истории бокса">
-                              <img src="http://mmaboxing.ru/images/cache/44353f82de7c75b1e2a5dc0fab857a81_728xx415x1.JPG" class="img-responsive" alt=""> </a>
+                              <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" class="img-responsive" alt=""> </a>
 
                           <div>
 
@@ -181,7 +181,7 @@
                       <article class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 padder-v">
 
                           <a href="#448" title="5 величайших реваншей в истории бокса">
-                              <img src="http://allboxing.ru/sites/default/files/styles/news_page_illustrate/public/georges-st-pierre_1.jpg?itok=zyi7w47G" class="img-responsive" alt=""> </a>
+                              <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" class="img-responsive" alt=""> </a>
 
                           <div>
 
@@ -199,7 +199,7 @@
                       <article class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 padder-v">
 
                           <a href="#448" title="5 величайших реваншей в истории бокса">
-                              <img src="http://allboxing.ru/sites/default/files/styles/news_page_illustrate/public/aleksandr_gustafsson_2.jpg?itok=qn503xh6" class="img-responsive" alt=""> </a>
+                              <img src="http://localhost:8000/storage/2017/09/02/02c1b217b2c4213060e5606f0466f96691662b00_medium.jpg" class="img-responsive" alt=""> </a>
 
                           <div>
 
