@@ -58,7 +58,6 @@ class DemoPage extends Single
             'description' => 'tag:textarea|name:description|max:255|required|rows:5|title:Short description',
             'keywords'    => 'tag:tags|name:keywords|max:255|required|title:Keywords|help:SEO keywords',
             'robot'       => 'tag:robot|name:robot|max:255|required|title:Indexing|help:Allow search bots to index page',
-            'test' => 'tag:package|name:package|slug:premium|title:Premium package includes',
         ];
     }
 

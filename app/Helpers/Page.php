@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Orchid\CMS\Core\Models\Page;
 
+
 /**
  * Get page by slug
  */
+/*
 if (!function_exists('getPage')) {
     function getPage(string $slug) : Page
     {
@@ -16,3 +18,4 @@ if (!function_exists('getPage')) {
 
     }
 }
+*/

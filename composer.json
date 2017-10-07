@@ -6,10 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "composer/semver": "^1.4",
         "erusev/parsedown": "^1.6",
+        "guzzlehttp/guzzle": "~6.0",
         "htmlmin/htmlmin": "^5.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0",
         "mcamara/laravel-localization": "^1.2",
         "orchid/cms": "^1.0",
         "predis/predis": "^1.1",

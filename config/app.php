@@ -166,9 +166,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Orchid\Platform\Providers\FoundationServiceProvider::class,
-        Orchid\CMS\Providers\FoundationServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
         HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
         Roumen\Feed\FeedServiceProvider::class,

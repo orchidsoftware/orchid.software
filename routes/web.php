@@ -72,6 +72,10 @@ $router->group([
         return view('pages.news');
     });
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    $this->get('/plugins', 'PluginController@index')->name('plugins');
+
+    $this->view('/ui','pages.ui');
+
+    $this->get('/home', 'HomeController@index')->name('home');
 
 });
