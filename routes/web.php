@@ -61,7 +61,8 @@ $router->group([
     $this->get('docs/{catalog?}', 'Documentation@show')->name('docs');
 
     $this->get('/', 'AboutController@welcome');
-
+    $this->view('developer','pages.developer');
+    $this->view('order','pages.order');
 
     $this->get('blog', 'BlogController@index')->name('articles');
     $this->get('rss', 'BlogController@rss')->name('rss');

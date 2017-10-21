@@ -54,7 +54,7 @@
 }
 
 .ico {
-    color             : #1c7cd6;
+    color             : #AC5CA0;
     font-size         : 40px;
     position          : absolute;
     top               : 50%;
@@ -96,6 +96,7 @@
             <ul class="nav navbar-nav">
 
 
+                {{--
                 <li>
                     <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
                 </li>
@@ -104,20 +105,32 @@
                    <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">Slack</a>
                 </li>
 
-                {{--
+
+
                 <li>
                     <a href="{{route('articles')}}">Блог</a>
                 </li>
-                --}}
+--}}
+
+                <li>
+                    <a href="/news">Новости</a>
+                </li>
+
+                <li>
+                    <a href="/developer">Разработчикам</a>
+                </li>
+
+                <li>
+                    <a href="/plugins">Плагины</a>
+                </li>
+
+                <li class="b-r">
+                    <a href="/order">Заказать</a>
+                </li>
+
                 <li>
                     <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
                 </li>
-                {{--
-            <li>
-                <a href="/news">Новости</a>
-            </li>
-            --}}
-
         </ul>
 
             {{--
@@ -152,7 +165,7 @@
 
             <ul class="nav navbar-nav navbar-right text-center-xs">
                     <div class="m-t-sm">
-                        <a href="https://www.paypal.me/tabuna/10usd" class="btn btn-sm btn-primary btn-rounded m-l"><strong>{{trans('welcome.donate')}}</strong></a>
+                        <a href="https://github.com/theOrchid" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l"><strong>View on Github</strong></a>
                     </div>
               </ul>
 
@@ -172,54 +185,38 @@
     </div>
 
 
-{{--
-    <div class="bg-white b-t m-t-md">
-        <div class="container">
-            <div class="row m-t-xxl m-b-lg">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <p class="h2 text-black font-thin">Спонсоры</p>
-                            <p class="text-muted">
-                                Компании, которые нас поддерживают
-                            </p>
-                        </div>
-            </div>
-
-            <div class="row m-b-xxl v-center">
-                        <div class="col-sm-3">
-                            <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="https://theorchid.github.io/assets/img/sponsors/do.png" class="img-responsive"></a>
-                        </div>
-                                       <div class="col-sm-3">
-                            <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="https://pantheon.io/sites/default/files/logos-int/logo-int-phpstorm.png" class="img-responsive"></a>
-                        </div>
-
-
-            </div>
-
-        </div>
-    </div>
---}}
-
-
-
 
 <!-- footer -->
     <footer id="footer">
         @yield('footer')
 
-        <section class="bg-white b-t">
+        <section class="b-t">
             <div class="container">
                 <div class="row m-t-xl m-b-xl">
                     <div class="col-md-6 hidden-xs">
-                        <div class="m-t">
+
+
+                        <div class="m-t text-xs">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="https://github.com/theOrchid">Github</a>
+                                    <a href="https://github.com/theOrchid" target="_blank">
+                                        <i class="icon-social-github m-r-xs"></i> Github
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">{{trans('welcome.support')}}</a>
+                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
+                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.support')}}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">Slack</a>
+                                    <a href="https://packagist.org/packages/orchid/" target="_blank">
+                                        <i class="icon-briefcase m-r-xs"></i> Packagist
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">
+                                        <i class="icon-bubbles m-r-xs"></i> Slack
+                                    </a>
                                 </li>
                             </ul>
                         </div>

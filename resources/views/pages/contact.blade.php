@@ -3,38 +3,6 @@
 @section('content')
 
 
-    <section class="container-fluid">
-        <div class="row">
-
-
-            <div style="background:url(/img/contact.jpg) center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt">
-                    <div class="row m-t-xxl m-b-xxl">
-
-
-                        <div class="container m-t-md top-desc-block">
-
-
-                            <div class="col-md-6  pull-bottom text-white">
-
-
-                                <h1 class="text-white text-ellipsis padder-v xs-x-scroll">Контакты</h1>
-
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-
 
     <div class="bg-white box-shadow-lg">
 
@@ -42,7 +10,7 @@
         <section class="container">
             <div class="row wrapper-md  m-t-md m-b-xs">
                 <div id="helpletter" class="col-md-6 hidden-xs hidden-sm">
-                    <p class="h3 font-thin m-b-md">Вам нужна <span class="text-info">помощь</span>?</p>
+                    <p class="h3 font-thin m-b-md">Вам нужна <span class="text-primary">помощь</span>?</p>
 
 
                     <p class="semi-bold no-margin">Заполните эту форму, чтобы связаться с нами, если у вас есть
@@ -106,7 +74,7 @@
                 </div>
                 <div class="col-md-6 col-xs-12 col-sm-12">
 
-                    <p class="h3 font-thin m-b-md"><span class="text-info">Контакты</span> для связи</p>
+                    <p class="h3 font-thin m-b-md"><span class="text-primary">Контакты</span> для связи</p>
 
                     <div class="row">
                         <div class="col-sm-6">

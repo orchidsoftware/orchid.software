@@ -4,7 +4,7 @@
 @section('content')
 
 
-<div class="m-t-md m-b-md">
+<div class="m-t-md">
 <div class="container bg-white b box-shadow m-b-xl">
 
 
@@ -13,107 +13,138 @@
       <div class="col-md-7">
         <h3 class="font-thin m-b-md">New Package</h3>
         <div class="row row-sm">
-          @for($i = 1; $i < 10; $i++)
+        @foreach($plugins as $plugin)
+
             <div class="col-xs-6 col-sm-3">
-                <div class="item">
-                  <div class="pos-rlt">
-                    <div class="item-overlay bg-black-opacity r r-2x">
-                      <div class="center text-center m-t-n w-full">
-                        <a ui-sref="music.detail" href="#/music/detail"><i class="fa fa-2x fa-github-alt text-white"></i></a>
-                      </div>
+              <div class="item">
+                <div class="pos-rlt">
+                  <div class="item-overlay bg-black-opacity r r-2x">
+                    <div class="center text-center m-t-n w-full">
+                      <a href="{{$plugin->content['repository']}}" target="_blank">
+                        <i class="fa fa-2x fa-github text-white"></i>
+                      </a>
                     </div>
-                    <a ui-sref="music.detail" href="#/music/detail"><img src="https://orchid.software/img/cms/{{$i}}.png" alt="" class="img-full r r-2x"></a>
                   </div>
-                  <div class="padder-v">
-                    <a ui-sref="music.detail" class="text-ellipsis" href="#/music/detail">Spring rain</a>
-                    <a ui-sref="music.detail" class="text-ellipsis text-xs text-muted" href="#/music/detail">Miaow</a>
-                  </div>
+                  <a href="{{$plugin->content['repository']}}" target="_blank">
+                    <img src="{{$plugin->content['info']['extra']['orchid']['image'] or ''}}" alt="" class="img-responsive r r-2x">
+                  </a>
+                </div>
+                <div class="padder-v">
+                  <a class="text-ellipsis" href="{{$plugin->content['repository']}}" target="_blank">
+                    {{$plugin->content['description'] or ''}}
+                  </a>
+                  <a class="text-ellipsis text-xs text-muted" href="{{$plugin->content['repository']}}" target="_blank">
+                    {{$plugin->content['name'] or ''}}
+                  </a>
+                </div>
+              </div>
             </div>
-            </div>
-          @endfor
+
+          @endforeach
         </div>
       </div>
       <div class="col-md-5">
         <h3 class="font-thin m-b-md">Top Package</h3>
         <div class="list-group bg-white list-group-lg no-bg auto">
-          <a ui-sref="music.detail" class="list-group-item clearfix" href="#/music/detail">
-            <span class="pull-right h2 text-muted m-l">1</span>
-            <span class="pull-left thumb-sm avatar m-r">
-              <img src="http://flatfull.com/themes/angulr/angular/img/a4.jpg" alt="..." class="r">
-            </span>
-            <span class="clear">
-              <span>Little Town</span>
-              <small class="text-muted clear text-ellipsis">by Chris Fox</small>
-            </span>
-          </a>
-          <a ui-sref="music.detail" class="list-group-item clearfix" href="#/music/detail">
-            <span class="pull-right h2 text-muted m-l">2</span>
-            <span class="pull-left thumb-sm avatar m-r">
-              <img src="http://flatfull.com/themes/angulr/angular/img/a5.jpg" alt="..." class="r">
-            </span>
-            <span class="clear">
-              <span>Lementum ligula vitae</span>
-              <small class="text-muted clear text-ellipsis">by Amanda Conlan</small>
-            </span>
-          </a>
-          <a ui-sref="music.detail" class="list-group-item clearfix" href="#/music/detail">
-            <span class="pull-right h2 text-muted m-l">3</span>
-            <span class="pull-left thumb-sm avatar m-r">
-              <img src="http://flatfull.com/themes/angulr/angular/img/a6.jpg" alt="..." class="r">
-            </span>
-            <span class="clear">
-              <span>Aliquam sollicitudin venenatis</span>
-              <small class="text-muted clear text-ellipsis">by Dan Doorack</small>
-            </span>
-          </a>
-          <a ui-sref="music.detail" class="list-group-item clearfix" href="#/music/detail">
-            <span class="pull-right h2 text-muted m-l">4</span>
-            <span class="pull-left thumb-sm avatar m-r">
-              <img src="http://flatfull.com/themes/angulr/angular/img/a7.jpg" alt="..." class="r">
-            </span>
-            <span class="clear">
-              <span>Aliquam sollicitudin venenatis ipsum</span>
-              <small class="text-muted clear text-ellipsis">by Lauren Taylor</small>
-            </span>
-          </a>
-          <a ui-sref="music.detail" class="list-group-item clearfix" href="#/music/detail">
-            <span class="pull-right h2 text-muted m-l">5</span>
-            <span class="pull-left thumb-sm avatar m-r">
-              <img src="http://flatfull.com/themes/angulr/angular/img/a8.jpg" alt="..." class="r">
-            </span>
-            <span class="clear">
-              <span>Vestibulum ullamcorper</span>
-              <small class="text-muted clear text-ellipsis">by Dan Doorack</small>
-            </span>
-          </a>
+            @foreach($top as $key => $plugin)
+              <a class="list-group-item clearfix" href="{{$plugin->content['repository']}}" target="_blank">
+                <span class="pull-right h2 text-muted m-l">{{$key + 1}}</span>
+                <span class="pull-left thumb-sm m-r">
+                  <img src="{{$plugin->content['info']['extra']['orchid']['image'] or ''}}" class="r">
+                </span>
+                <span class="clear">
+                  <span>{{$plugin->content['name'] or ''}}</span>
+                  <small class="text-muted clear text-ellipsis"> {{$plugin->content['description'] or ''}}</small>
+                </span>
+              </a>
+            @endforeach
         </div>
       </div>
     </div>
 
-    <div class="row">
-         <div class="row row-sm">
-        @foreach($plugins as $plugin)
-
-
-        <div class="col-xs-6 col-sm-2"> <div class="item"> <div class="pos-rlt"> <div class="item-overlay bg-black-opacity r r-2x"> <div
-                                class="center text-center m-t-n w-full"> <a ui-sref="music.detail"
-                                                                            href="#/music/detail"><i class="fa fa-2x fa-play-circle text-white"></i></a> </div> </div> <a
-                            ui-sref="music.detail"
-                            href="#/music/detail"><img src="{{$plugin->content['info']['extra']['orchid']['image'] or ''}}"
-                                                       alt=""
-                                                       class="img-responsive r r-2x"></a> </div> <div class="padder-v"> <a
-                            ui-sref="music.detail"
-                            class="text-ellipsis"
-                            href="#/music/detail">{{$plugin->content['description'] or ''}}</a> <a ui-sref="music.detail"
-                                                                     class="text-ellipsis text-xs text-muted"
-                                                                     href="#/music/detail">{{$plugin->content['name'] or ''}}</a> </div> </div> </div>
-
-        @endforeach
-         </div>
-    </div>
-
 
 </div>
+
+
+
+    <section class="bg-white">
+        <div class="container-fluid">
+
+            <div class="row box-shadow-lg">
+
+                <div class="container">
+
+                    <div class="row wrapper-lg">
+                        <div class="col-md-10 col-md-offset-1">
+                            <p class="h1 font-thin text-black">Как добавить своё <span class="text-primary">Расширение</span>?</p>
+
+                            <div class="col-md-8 pull-in m-t-md  text-justify">
+                                <small>
+                                    Уважаемые исполнители - зарабатывать с нами легко и удобно. Здесь размещают любые студенческие заказы: рефераты, курсовые, дипломные, контрольные и другие работы.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row wrapper-lg">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3  font-thin">
+                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                        1. Заказать
+                                    </div>
+                                    <div class=" text-muted m-t-md l-h-1x">
+                                        <strong>Сайт бесплатно разошлёт ваш заказ исполнителям</strong>
+                                        <p>А исполнители предложат цены. Это удобнее, чем искать кого-то по интернету. Тем более если у вас срочный заказ студенческой работы. Оформите заявку и узнайте стоимость работы уже сегодня.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3  font-thin">
+                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                        2. Выбрать
+                                    </div>
+                                    <div class=" text-muted m-t-md l-h-1x">
+                                        Выберите исполнителя по цене и отзывам
+                                        С выбранным исполнителем вы сможете связаться в любое время и узнать о ходе выполнения. Кроме того, вы сможете получать работу по частям — так вы будете уверены, что работа идёт в нужном русле.
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3  font-thin">
+                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                        3. Оплатить
+                                    </div>
+                                    <div class=" text-muted m-t-md l-h-1x">
+                                        Получите выполненный заказ и отправьте преподавателю
+                                        На все выполненные работы мы даём гарантию. После защиты работы вы сможете оставить исполнителю отзыв. Теперь вы знаете, почему стоит заказывать студенческие работы на сайте помощи студентам.
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3  font-thin">
+                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                        4. Скачать
+                                    </div>
+                                    <div class=" text-muted m-t-md l-h-1x">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis .
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
 </div>
 
 @endsection

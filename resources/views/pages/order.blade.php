@@ -3,42 +3,15 @@
 @section('content')
 
 
-    <section class="container-fluid hidden-xs">
-        <div class="row">
-            <div style="background:url(https://static.pexels.com/photos/140945/pexels-photo-140945.jpeg) center center; background-size:cover">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row  m-t-xxl m-b-xxl">
-                        <div class="container m-t-md top-desc-block">
-
-                            <div class="col-xs-12">
-                                <div class="page-hero-content">
-                                    <h1 class="text-white">
-                                        <span class="text-info">Бизнес сеть.</span> Найди <span
-                                                class="main-typed-element"></span> <br>
-                                        о котором всегда хотел.
-                                    </h1>
-                                    <p class="text-white">
-                                        <span class="text-info">405</span> новых предприятий за последние
-                                        <span class="text-info">7</span> дней. Ищи сейчас.
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
 
 
-    <div class="bg-white">
+
+    <div class="bg-white b-b">
 
 
 
-        <section class="bg-white b-b box-shadow-lg">
+        <section class="bg-white  box-shadow-lg">
             <div class="container">
                 <div class="row  m-t-xxl m-b-xxl v-center">
 
@@ -103,7 +76,7 @@
 
                     </div>
                     <div class="col-md-5 col-sm-5 hidden-xs">
-                        <img class="img-responsive" src="/img/image-01.png" alt="">
+                        <img class="img-responsive" src="/img/cms/6.png" alt="">
                     </div>
 
                 </div>
@@ -111,73 +84,79 @@
         </section>
 
 
-        <section class="container bg-white">
+    </div>
+
+
+
+
+    <div id="features" class="bg-white-only box-shadow">
+        <div class="container">
             <div class="row m-t-xl m-b-xxl">
-                <div class="col-md-6">
-                    <h1 class="font-thin m-t-n l-h-1x padder-v text-black">Мы предлогаем</h1>
-                    <div>
-                        <p>
-                            Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское
-                            обеспечение нашей деятельности требуют определения и уточнения позиций, занимаемых
-                            участниками в отношении поставленных задач. Товарищи! рамки и место обучения кадров влечет
-                            за собой процесс внедрения и модернизации направлений прогрессивного развития. Товарищи!
-                            дальнейшее развитие различных форм деятельности влечет за собой процесс внедрения и
-                            модернизации позиций, занимаемых участниками в отношении поставленных задач. Значимость этих
-                            проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности
-                            требуют от нас анализа систем массового участия. Товарищи! дальнейшее развитие различных
-                            форм деятельности позволяет выполнять важные задания по разработке позиций, занимаемых
-                            участниками в отношении поставленных задач. Не следует, однако забывать, что дальнейшее
-                            развитие различных форм деятельности способствует подготовки и реализации позиций,
-                            занимаемых участниками в отношении поставленных задач.
-                        </p>
+                <div class="col-sm-6 fadeInLeft animated" data-ride="animated" data-animation="fadeInLeft" data-delay="300">
+                    <div class="m-t-xxl">
+                        <div class="m-b">
+                            <a href="" class="pull-left thumb-sm avatar"><img src="/1.jpg" alt="..."></a>
+                            <div class="m-l-sm inline">
+                                <div class="pos-rlt wrapper b b-light r r-2x">
+                                    <span class="arrow left pull-up"></span>
+                                    <p class="m-b-none">Привет, нужно веб-приложение</p>
+                                </div>
+                                <small class="text-muted"><i class="fa fa-ok text-success"></i> 1 час назад</small>
+                            </div>
+                        </div>
+                        <div class="m-b text-right">
+                            <a href="" class="pull-right thumb-sm avatar"><img src="/2.jpg" class="img-circle" alt="..."></a>
+                            <div class="m-r-sm inline text-left">
+                                <div class="pos-rlt wrapper bg-primary r r-2x">
+                                    <span class="arrow right pull-up arrow-primary"></span>
+                                    <p class="m-b-none">Привет, не проблема звони</p>
+                                </div>
+                                <small class="text-muted">31 минуту назад</small>
+                            </div>
+                        </div>
+                        <div class="m-b">
+                            <a href="" class="pull-left thumb-sm avatar"><img src="/1.jpg" alt="..."></a>
+                            <div class="m-l-sm inline">
+                                <div class="pos-rlt wrapper b b-light r r-2x">
+                                    <span class="arrow left pull-up"></span>
+                                    <p class="m-b-none">Работали над ТЗ в течение многих часов...</p>
+                                </div>
+                                <small class="text-muted"><i class="fa fa-ok text-success"></i> 2 минуты назад</small>
+                            </div>
+                        </div>
+                        <div class="m-b text-right">
+                            <a href="" class="pull-right thumb-sm avatar"><img src="/2.jpg" class="img-circle" alt="..."></a>
+                            <div class="m-r-sm inline text-left">
+                                <div class="pos-rlt wrapper bg-primary r r-2x">
+                                    <span class="arrow right pull-up arrow-primary"></span>
+                                    <p class="m-b-none">Не могу дождаться, чтобы увидеть его:)</p>
+                                </div>
+                                <small class="text-muted">1 минуту назад</small>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-                <div class="col-md-6">
-                    <p class="h2 font-thin m-t-n l-h-1x padder-v text-black">Поиск новых клиентов и источников</p>
-                    <p>
-                        Значимость этих проблем настолько очевидна
-                    </p>
-                    <div class="row transport_block">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="">
-                                <h5 class="padder-v v-center">
-                                    <i class="fa fa-plane m-r-md  fa-2x text-info" aria-hidden="true"></i>
-                                    Значимость этих проблем настолько очевидна</h5>
-                                <p class="text-muted">
-                                    Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения позиций
-                                </p>
-                            </div>
-                            <div class="">
+                <div class="col-sm-6 wrapper-xl">
+                    <p class="h3 l-h-1x text-dark m-b-lg">Экономьте свое время с лучшими инструментами</p>
 
+                    <ul class="list-unstyled  m-t-xl">
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm"></i>
+                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm"></i>
+                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm"></i>
+                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
 
-                                <h5 class="padder-v v-center">
-                                    <i class="fa fa-car m-r-md  fa-2x text-info" aria-hidden="true"></i>
-                                    Значимость этих проблем настолько очевидна</h5>
-                                <p class="text-muted">
-                                    Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения позиций
-                                </p>
-
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="">
-
-                                <h5 class="padder-v v-center">
-                                    <i class="fa fa-train m-r-md  fa-2x text-info" aria-hidden="true"></i>
-                                    Значимость этих проблем настолько очевидна</h5>
-                                <p class="text-muted">
-                                    Значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения позиций
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-
+        </div>
     </div>
 
 
@@ -203,7 +182,7 @@
             <div class="row m-t-xxl">
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-cloud-download"></i></div>
+                        <div class="ico column text-primary"><i class="icon-cloud-download"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Простота установки</h4>
                             <p>
@@ -214,7 +193,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-layers"></i></div>
+                        <div class="ico column text-primary"><i class="icon-layers"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Расширяемый</h4>
                             <p>
@@ -225,7 +204,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-globe"></i></div>
+                        <div class="ico column text-primary"><i class="icon-globe"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Локализация</h4>
                             <p>
@@ -240,7 +219,7 @@
             <div class="row m-b-xxl">
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-screen-desktop"></i></div>
+                        <div class="ico column text-primary"><i class="icon-screen-desktop"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Light Design</h4>
                             <p>
@@ -251,7 +230,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-rocket"></i></div>
+                        <div class="ico column text-primary"><i class="icon-rocket"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Экономит время</h4>
                             <p>
@@ -262,7 +241,7 @@
                 </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="m-t-md m-b-md wrapper-lg  b">
-                        <div class="ico column"><i class="icon-support"></i></div>
+                        <div class="ico column text-primary"><i class="icon-support"></i></div>
                         <div class="desc">
                             <h4 class="font-thin">Большая поддержка</h4>
                             <p>
@@ -273,6 +252,28 @@
                 </div>
             </div>
             <!--End row-->
+
+                <div class="row m-t-lg m-b-lg">
+                    <div class="col-md-8 col-md-offset-2">
+                    <div class="col-sm-6">
+                      <div class="bg-white wrapper-md r">
+                        <a href="#">
+                          <span class="h4 m-b-xs block"><i class=" icon-user-follow m-r-sm"></i> Login or Create account</span>
+                          <span class="text-muted">Get free musics when you logged in, and give your comments to them.</span>
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="bg-info dker wrapper-md r">
+                        <a href="#">
+                          <span class="h4 m-b-xs block"><i class="icon-cloud-download  m-r-sm"></i> Download our app</span>
+                          <span class="text-muted">Get the apps for desktop and mobile to start listening music at anywhere and anytime.</span>
+                        </a>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+
         </div>
         <!--End container-->
     </section>
@@ -284,7 +285,7 @@
             <div class="row vertical-align v-center m-t-xxl m-b-xxl">
                 <div class="hidden-xs col-md-5 col-sm-5 m-b-xxl">
                     <div class="block-shot b box-shadow-lg">
-                        <img src="https://theorchid.github.io/assets/img/monitor.png" class="img-responsive" alt="" style="
+                        <img src="/img/monitor.png" class="img-responsive" alt="" style="
 height: 600px;
     object-fit: none;
     object-position: top left;
