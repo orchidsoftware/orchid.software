@@ -64,14 +64,12 @@ $router->group([
     $this->view('developer','pages.developer');
     $this->view('order','pages.order');
 
-    $this->get('blog', 'BlogController@index')->name('articles');
+
     $this->get('rss', 'BlogController@rss')->name('rss');
-    $this->get('blog/{blog}', 'BlogController@show')->name('article');
     $this->put('/comment/{item}', 'CommentController@update')->name('comment.add');
 
-    $this->get('/news',function (){
-        return view('pages.news');
-    });
+    $this->get('/news','NewsController@index')->name('news.list');
+    $this->get('/news/{blog}','NewsController@show')->name('news.show');
 
     $this->get('/plugins', 'PluginController@index')->name('plugins');
 

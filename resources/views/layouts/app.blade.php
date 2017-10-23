@@ -95,40 +95,9 @@
 
             <ul class="nav navbar-nav">
 
+                @widget("header_menu")
 
-                {{--
-                <li>
-                    <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
-                </li>
-
-                <li>
-                   <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">Slack</a>
-                </li>
-
-
-
-                <li>
-                    <a href="{{route('articles')}}">Блог</a>
-                </li>
---}}
-
-                <li>
-                    <a href="/news">Новости</a>
-                </li>
-
-                <li>
-                    <a href="/developer">Разработчикам</a>
-                </li>
-
-                <li>
-                    <a href="/plugins">Плагины</a>
-                </li>
-
-                <li class="b-r">
-                    <a href="/order">Заказать</a>
-                </li>
-
-                <li>
+                <li class="b-l xs-hidden">
                     <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
                 </li>
         </ul>

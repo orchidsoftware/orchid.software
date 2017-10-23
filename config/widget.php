@@ -14,5 +14,6 @@ return [
     */
     'widgets' => [
         //'advertising' => \Orchid\Http\Widgets\AdvertisingWidget::class,
+        'header_menu' => \App\Http\Widgets\HeaderMenu::class,
     ],
 ];
