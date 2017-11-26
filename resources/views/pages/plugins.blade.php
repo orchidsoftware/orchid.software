@@ -4,11 +4,10 @@
 @section('content')
 
 
-<div class="m-t-md">
-<div class="container bg-white b box-shadow m-b-xl">
+<div class="bg-white b-b box-shadow">
 
 
-
+    <div class="container">
     <div class="row">
       <div class="col-md-7">
         <h3 class="font-thin m-b-md">New Package</h3>
@@ -61,13 +60,13 @@
         </div>
       </div>
     </div>
-
+    </div>
 
 </div>
 
 
 
-    <section class="bg-white">
+<section class="bg-white">
         <div class="container-fluid">
 
             <div class="row box-shadow-lg">
@@ -75,7 +74,7 @@
                 <div class="container">
 
                     <div class="row wrapper-lg">
-                        <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-12">
                             <p class="h1 font-thin text-black">Как добавить своё <span class="text-primary">Расширение</span>?</p>
 
                             <div class="col-md-8 pull-in m-t-md  text-justify">
@@ -87,11 +86,11 @@
                     </div>
 
                     <div class="row wrapper-lg">
-                        <div class="col-md-10 col-md-offset-1">
+                        <div class="col-md-12">
 
                             <div class="row">
                                 <div class="col-xs-12 col-sm-3  font-thin">
-                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                    <div class="h3 text-primary b-b b-primary padder-v font-thin">
                                         1. Заказать
                                     </div>
                                     <div class=" text-muted m-t-md l-h-1x">
@@ -101,7 +100,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-3  font-thin">
-                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                    <div class="h3 text-primary b-b b-primary padder-v font-thin">
                                         2. Выбрать
                                     </div>
                                     <div class=" text-muted m-t-md l-h-1x">
@@ -110,7 +109,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-3  font-thin">
-                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                    <div class="h3 text-primary b-b b-primary padder-v font-thin">
                                         3. Оплатить
                                     </div>
                                     <div class=" text-muted m-t-md l-h-1x">
@@ -119,7 +118,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-3  font-thin">
-                                    <div class="h3 text-primary b-b b-info padder-v font-thin">
+                                    <div class="h3 text-primary b-b b-primary padder-v font-thin">
                                         4. Скачать
                                     </div>
                                     <div class=" text-muted m-t-md l-h-1x">
@@ -130,8 +129,6 @@
                             </div>
 
                         </div>
-
-
                     </div>
 
 
@@ -143,8 +140,5 @@
         </div>
     </section>
 
-
-
-</div>
 
 @endsection

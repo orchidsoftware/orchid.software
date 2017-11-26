@@ -11,7 +11,7 @@
     <div class="container">
                 <div class="row m-t-md m-b-md">
 
-                    <div class="col-md-3 b-r b-light hidden-xs">
+                    <div class="col-md-3 b-r b-light">
 
                     <nav class="nav-docs">
                             {!! $menu !!}

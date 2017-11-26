@@ -38,7 +38,8 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac5ca0">
     <meta name="theme-color" content="#ffffff">
 
-        <style>
+    <style>
+
 
 .text-orchid {
     color : #AC5CA0;
@@ -94,6 +95,11 @@
 
 
             <ul class="nav navbar-nav">
+
+
+                <li>
+                      <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
+                </li>
 
                 @widget("header_menu")
 

@@ -74,6 +74,8 @@ $router->group([
     $this->get('/plugins', 'PluginController@index')->name('plugins');
 
     $this->view('/ui','pages.ui');
+    $this->view('/privacy-policy','pages.privacy-policy');
+    $this->view('/code-of-conduct','pages.code-of-conduct');
 
     $this->get('/home', 'HomeController@index')->name('home');
 
