@@ -85,7 +85,7 @@
                 type="button"
                 data-toggle="collapse"
                 data-target=".navbar-collapse">
-          <i class="fa fa-bars"></i>
+          <i class="icon-menu"></i>
         </button>
         <a href="{{ url('/') }}" class="navbar-brand m-r-lg">
             <img src="/img/orchid.svg" style="height: 20px;">
