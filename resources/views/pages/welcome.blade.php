@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title','Developer')
-@section('description','Developer')
+@section('title','Laravel Admin Panel')
+@section('description','Simple Laravel Admin panel and CMS')
 
 
 @section('content')
