@@ -195,6 +195,11 @@
                                         <i class="icon-bubbles m-r-xs"></i> Slack
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{url('https://www.paypal.me/tabuna/10usd')}}" target="_blank" rel="noopener noreferrer">
+                                        <i class="icon-bubbles m-r-xs"></i> {{trans('welcome.donate')}}
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
