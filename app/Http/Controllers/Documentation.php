@@ -39,11 +39,11 @@ class Documentation
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($page = 'installation'){
+    public function show($page = 'index'){
 
        $lang = App::getLocale();
 
-       $menu = $this->storage->get("/$lang/documentation.md");
+       $menu = $this->storage->get("/$lang/index.md");
        $contents = $this->storage->get("/$lang/$page.md");
        $contents = $this->parse->text($contents);
 

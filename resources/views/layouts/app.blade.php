@@ -103,9 +103,11 @@
 
                 @widget("header_menu")
 
+                {{--
                 <li class="b-l xs-hidden">
                     <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
                 </li>
+                --}}
         </ul>
 
             {{--
@@ -140,7 +142,7 @@
 
             <ul class="nav navbar-nav navbar-right text-center-xs">
                     <div class="m-t-sm">
-                        <a href="https://github.com/theOrchid" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l"><strong>View on Github</strong></a>
+                        <a href="https://github.com/orchidsoftware/Platform" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l"><strong>View on Github</strong></a>
                     </div>
               </ul>
 
