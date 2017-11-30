@@ -176,7 +176,7 @@
                         <div class="m-t text-xs">
                             <ul class="list-inline">
                                 <li>
-                                    <a href="https://github.com/theOrchid" target="_blank">
+                                    <a href="https://github.com/orchidsoftware" target="_blank">
                                         <i class="icon-social-github m-r-xs"></i> Github
                                     </a>
                                 </li>
