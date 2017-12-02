@@ -231,12 +231,6 @@ return [
         'Localization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Feed' => Roumen\Feed\Feed::class,
         'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
-
-        'Dashboard' =>  Orchid\Platform\Facades\Dashboard::class,
-        'Alert' =>  Orchid\Alert\Facades\Alert::class,
-        'Active' => Watson\Active\Facades\Active::class,
-        'Setting' =>  Orchid\Setting\Facades\Setting::class,
-        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

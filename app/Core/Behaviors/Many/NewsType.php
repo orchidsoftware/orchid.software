@@ -2,9 +2,9 @@
 
 namespace App\Core\Behaviors\Many;
 
-use Orchid\CMS\Behaviors\Many;
-use Orchid\CMS\Http\Forms\Posts\BasePostForm;
-use Orchid\CMS\Http\Forms\Posts\UploadPostForm;
+use Orchid\Platform\Behaviors\Many;
+use Orchid\Platform\Http\Forms\Posts\BasePostForm;
+use Orchid\Platform\Http\Forms\Posts\UploadPostForm;
 
 
 class NewsType extends Many

@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use Composer\Semver\Semver;
 use GuzzleHttp\Client;
 use Illuminate\Console\Command;
-use Orchid\CMS\Core\Models\Post;
+use Orchid\Platform\Core\Models\Post;
 
 class PackagistPlugins extends Command
 {

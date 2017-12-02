@@ -4,14 +4,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Install
+    | Headless
     |--------------------------------------------------------------------------
     |
-    | Setup Activation Flag
+    | If the dashboard is turned true, then all routes stop working,
+    | this is required if you are building your control panel or you do not need it
     |
     */
 
-    'install' => env('APP_INSTALL', false),
+    'headless' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Provide a convenient mechanism for filtering HTTP
+    | requests entering your application.
+    |
+    */
+
+    'middleware' => [
+        'public'  => ['web'],
+        'private' => ['web', 'dashboard'],
+    ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -22,9 +39,39 @@ return [
     |
     */
 
-    'auth'    => [
-        'display' => false,
+    'auth' => [
+        'display' => true,
         'image'   => '/orchid/img/background.jpg',
+        //'slogan'  => '',
+
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Available locales
+    |--------------------------------------------------------------------------
+    |
+    | Localization of records
+    |
+    */
+
+    'locales' => [
+        /*
+        'en' => [
+            'name'     => 'English',
+            'script'   => 'Latn',
+            'dir'      => 'ltr',
+            'native'   => 'English',
+            'regional' => 'en_GB',
+        ],
+        */
+        'ru' => [
+            'name'     => 'Russian',
+            'script'   => 'Latn',
+            'dir'      => 'ltr',
+            'native'   => 'Русский',
+            'regional' => 'ru_Ru',
+        ],
     ],
 
     /*
@@ -38,16 +85,136 @@ return [
     */
 
     'fields' => [
-        'textarea' => Orchid\Platform\Fields\TextAreaField::class,
-        'input'    => Orchid\Platform\Fields\InputField::class,
-        'tags'     => Orchid\Platform\Fields\TagsField::class,
-        'robot'    => Orchid\Platform\Fields\RobotField::class,
-        'place'    => Orchid\Platform\Fields\PlaceField::class,
-        'datetime' => Orchid\Platform\Fields\DateTimerField::class,
-        'checkbox' => Orchid\Platform\Fields\CheckBoxField::class,
-        'code'     => Orchid\Platform\Fields\CodeField::class,
-        'wysiwyg'  => Orchid\Platform\Fields\SummernoteField::class,
-        'package' => \App\Core\Fields\PackagesField::class,
+        'textarea'     => Orchid\Platform\Fields\Types\TextAreaField::class,
+        'input'        => Orchid\Platform\Fields\Types\InputField::class,
+        'list'         => Orchid\Platform\Fields\Types\ListField::class,
+        'tags'         => Orchid\Platform\Fields\Types\TagsField::class,
+        'robot'        => Orchid\Platform\Fields\Types\RobotField::class,
+        'relationship' => Orchid\Platform\Fields\Types\RelationshipField::class,
+        'place'        => Orchid\Platform\Fields\Types\PlaceField::class,
+        'picture'      => Orchid\Platform\Fields\Types\PictureField::class,
+        'datetime'     => Orchid\Platform\Fields\Types\DateTimerField::class,
+        'checkbox'     => Orchid\Platform\Fields\Types\CheckBoxField::class,
+        'code'         => Orchid\Platform\Fields\Types\CodeField::class,
+        'wysiwyg'      => Orchid\Platform\Fields\Types\TinyMCEField::class,
+        'password'     => Orchid\Platform\Fields\Types\PasswordField::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Single Behaviors
+    |--------------------------------------------------------------------------
+    |
+    | Static pages
+    |
+    */
+
+    'single' => [//App\Core\Behaviors\Single\DemoPage::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Many Behaviors
+    |--------------------------------------------------------------------------
+    |
+    | An abstract pattern of behavior record
+    |
+    */
+
+    'many' => [//App\Core\Behaviors\Many\DemoPost::class,
+        \App\Core\Behaviors\Many\BlogPost::class
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Common Behaviors
+    |--------------------------------------------------------------------------
+    */
+
+    'common' => [
+        'user'     => \Orchid\Platform\Behaviors\Base\UserBase::class,
+        'category' => \Orchid\Platform\Behaviors\Base\CategoryBase::class,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Available menu
+    |--------------------------------------------------------------------------
+    |
+    | Marked menu areas
+    |
+    */
+
+    'menu' => [
+        'header'  => 'Header menu',
+        'sidebar' => 'Sidebar menu',
+        'footer'  => 'Footer menu',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Images
+    |--------------------------------------------------------------------------
+    |
+    | Image processing 100x150x75
+    | 100 - integer width
+    | 150 - integer height
+    | 75  - integer quality
+    |
+    */
+
+    'images' => [
+        'low'    => [
+            'width'   => '50',
+            'height'  => '50',
+            'quality' => '50',
+        ],
+        'medium' => [
+            'width'   => '600',
+            'height'  => '300',
+            'quality' => '75',
+        ],
+        'high'   => [
+            'width'   => '1000',
+            'height'  => '500',
+            'quality' => '95',
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Attachment types
+    |--------------------------------------------------------------------------
+    |
+    | Grouping attachments by file extension type
+    |
+    */
+
+    'attachment' => [
+        'image' => [
+            'png',
+            'jpg',
+            'jpeg',
+            'gif',
+        ],
+        'video' => [
+            'mp4',
+            'mkv',
+        ],
+        'docs'  => [
+            'doc',
+            'docx',
+            'pdf',
+            'xls',
+            'xlsx',
+            'xml',
+            'txt',
+            'zip',
+            'rar',
+            'svg',
+            'ppt',
+            'pptx',
+        ],
     ],
 
     /*
@@ -60,7 +227,22 @@ return [
     */
 
     'main_widgets' => [
+        Orchid\Platform\Http\Widgets\UpdateWidget::class,
+    ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard Resource
+    |--------------------------------------------------------------------------
+    |
+    | Automatically connect the stored links. For example js and css files
+    |
+    */
+
+    'resource' => [
+        'stylesheets' => [],
+        'scripts'     => [],
     ],
 
 ];

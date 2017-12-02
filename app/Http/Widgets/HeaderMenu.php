@@ -3,8 +3,8 @@
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
-use Orchid\CMS\Core\Models\Menu;
-use Orchid\Widget\Service\Widget;
+use Orchid\Platform\Core\Models\Menu;
+use Orchid\Platform\Widget\Widget;
 
 class HeaderMenu extends Widget
 {
