@@ -58,7 +58,7 @@ class PackagistPlugins extends Command
     {
         $response = $this->client->request('GET', 'search.json', [
             'query' => [
-                'tags' => 'orchid-package',
+                'tags' => 'laravel', //orchid-package,
                 'page' => $page,
             ],
         ]);
@@ -66,7 +66,11 @@ class PackagistPlugins extends Command
         $content = json_decode($response->getBody()->getContents(), true);
 
         foreach ($content['results'] as $package) {
-            $this->loadPackage($package);
+            try {
+                $this->loadPackage($package);
+            } catch (\Exception $exception) {
+                echo $exception->getMessage();
+            }
         }
 
         if (key_exists('next', $content)) {
@@ -82,9 +86,9 @@ class PackagistPlugins extends Command
     {
         $post = Post::firstOrNew([
             'user_id' => 1,
-            'type' => 'plugins',
-            'status' => 'publish',
-            'slug' => $package['name'],
+            'type'    => 'plugins',
+            'status'  => 'publish',
+            'slug'    => $package['name'],
         ]);
 
         $response = $this->client->request('GET', $package['url'] . ".json");
@@ -96,6 +100,19 @@ class PackagistPlugins extends Command
 
         $package['info'] = $package['versions'][$lastVersion];
         unset($package['versions']);
+
+
+        //https://api.github.com/repos/tabuna/Example-Package/readme
+        $pageDescriptions = $this->client->request('GET',
+            "https://api.github.com/repos/" . $package['name'] . "/readme", [
+                'query' => [
+                    'client_id'     => env('GITHUB_CLIENT_ID'),
+                    'client_secret' => env('afd1f167ccd0b6d2192c3377c62bcc9561935203'),
+                ],
+            ]);
+
+        $pageDescriptions = json_decode($pageDescriptions->getBody()->getContents(), true);
+        $package['content'] = base64_decode($pageDescriptions['content']);
 
         $post->content = $package;
         $post->options = [];

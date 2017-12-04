@@ -29,7 +29,7 @@
                   </a>
                 </div>
                 <div class="padder-v">
-                  <a class="text-ellipsis" href="{{$plugin->content['repository']}}" target="_blank">
+                  <a class="text-ellipsis" href="{{route('plugins.show',$plugin->slug)}}" target="_blank">
                     {{$plugin->content['description'] or ''}}
                   </a>
                   <a class="text-ellipsis text-xs text-muted" href="{{$plugin->content['repository']}}" target="_blank">

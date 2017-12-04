@@ -17,4 +17,22 @@ class PluginController extends Controller
             'top' => $top
         ]);
     }
+
+    /**
+     * @param $vendor
+     * @param $package
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show($vendor,$package){
+       $package = Post::type('plugins')->where('slug',$vendor.'/'.$package)->firstOrFail();
+       $content = ( new \Parsedown())->text($package->content['content']);
+
+       //dd($package->content,$content);
+       return view('pages.package',[
+           'package' => $package,
+           'content' => $content
+       ]);
+    }
+
 }
