@@ -170,8 +170,7 @@
         <section class="b-t">
             <div class="container">
                 <div class="row m-t-xl m-b-xl">
-                    <div class="col-md-6 hidden-xs">
-
+                    <div class="col-md-7 hidden-xs">
 
                         <div class="m-t text-xs">
                             <ul class="list-inline">
@@ -196,6 +195,11 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="{{url('https://t.me/orchidsoftware')}}" target="_blank" rel="noopener noreferrer">
+                                        <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{url('https://www.paypal.me/tabuna/10usd')}}" target="_blank" rel="noopener noreferrer">
                                         <i class="icon-wallet m-r-xs"></i> {{trans('welcome.donate')}}
                                     </a>
@@ -203,7 +207,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-md-12 text-right">
+                    <div class="col-md-5 col-md-12 text-right">
                         <p class="text-xs">
                            {{trans('welcome.licence')}}
                         </p>
