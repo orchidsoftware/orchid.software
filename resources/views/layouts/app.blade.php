@@ -101,6 +101,10 @@
                       <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
                 </li>
 
+                <li>
+                      <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}">{{trans('welcome.support')}}</a>
+                </li>
+
                 @widget("header_menu")
 
                 {{--
@@ -108,6 +112,9 @@
                     <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
                 </li>
                 --}}
+
+
+
         </ul>
 
             {{--
@@ -181,7 +188,7 @@
                                 </li>
                                 <li>
                                     <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
-                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.support')}}
+                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.contacts')}}
                                     </a>
                                 </li>
                                 <li>

@@ -46,7 +46,7 @@ return [
 
         'docs' => [
             'driver' => 'local',
-            'root' => storage_path('app/Platform/docs'),
+            'root' => storage_path('app/platform/docs'),
         ],
 
         'laravel' => [
