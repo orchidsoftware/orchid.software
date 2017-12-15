@@ -80,7 +80,7 @@ class Documentation
      */
     private function getPage($lang, $page)
     {
-        return Cache::remember($page . $lang, 60, function () use ($lang, $page) {
+        return Cache::remember('page'.$page . $lang, 60, function () use ($lang, $page) {
             $contents = $this->storage->get("/$lang/$page.md");
             $contents = $this->parse->text($contents);
 
