@@ -38,6 +38,53 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac5ca0">
     <meta name="theme-color" content="#ffffff">
 
+
+    <style>
+
+        .flipkart-navbar-input {
+            padding       : 11px 16px;
+            border-radius : 2px 0 0 2px;
+            border        : 0 none;
+            outline       : 0 none;
+            font-size     : 15px;
+            color: #000;
+        }
+
+        .flipkart-navbar-button {
+            border-radius : 0 2px 2px 0;
+            padding       : 10px 0;
+            height        : 43px;
+            cursor        : pointer;
+        }
+
+        .smallnav {
+            display : block;
+        }
+
+        .smallsearch {
+            margin: 0 auto;
+        }
+
+        .menu {
+            cursor : pointer;
+        }
+
+        @media screen and (min-width : 768px) {
+            .largenav {
+                display : block;
+            }
+
+            .smallnav {
+                display : none;
+            }
+
+            .smallsearch {
+                margin: 0 auto;
+            }
+        }
+
+        </style>
+
     <style>
 
 
@@ -103,6 +150,10 @@
 
                 <li>
                       <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}">{{trans('welcome.support')}}</a>
+                </li>
+
+                <li>
+                      <a href="{{url('https://demo.orchid.software')}}">Demo</a>
                 </li>
 
                 @widget("header_menu")

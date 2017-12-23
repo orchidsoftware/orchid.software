@@ -72,7 +72,7 @@ $router->group([
     $this->get('/blog/{blog}','BlogController@show')->name('blog.show');
 
     $this->get('/plugins', 'PluginController@index')->name('plugins');
-    $this->get('/plugins/{vendor}/{package}', 'PluginController@show')->name('plugins.show');
+    $this->get('/plugins/{vendor?}/{package?}', 'PluginController@show')->name('plugins.show');
 
     $this->view('/ui','pages.ui');
     $this->view('/privacy-policy','pages.privacy-policy');

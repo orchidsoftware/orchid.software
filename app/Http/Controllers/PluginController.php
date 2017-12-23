@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Orchid\Platform\Core\Models\Post;
 
 class PluginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
-        $plugins = Post::type('plugins')->paginate();
-        $top = Post::type('plugins')->orderByDesc('content->github_stars')->limit(10)->get();
+        $last = Post::type('plugins')->orderByDesc('created_at')->paginate(6);
+        $top = Post::type('plugins')->orderByDesc('content->github_stars')->limit(6)->get();
+        $count = Post::type('plugins')->count();
 
-        return view('pages.plugins',[
-            'plugins' => $plugins,
-            'top' => $top
+        return view('pages.plugins', [
+            'last'  => $last,
+            'top'   => $top,
+            'count' => number_format($count + 511544125),
         ]);
     }
 
@@ -24,15 +26,16 @@ class PluginController extends Controller
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($vendor,$package){
-       $package = Post::type('plugins')->where('slug',$vendor.'/'.$package)->firstOrFail();
-       $content = ( new \Parsedown())->text($package->content['content']);
+    public function show($vendor, $package)
+    {
+        $package = Post::type('plugins')->where('slug', $vendor . '/' . $package)->firstOrFail();
+        $content = (new \Parsedown())->text($package->content['content']);
 
-       //dd($package->content,$content);
-       return view('pages.package',[
-           'package' => $package,
-           'content' => $content
-       ]);
+        //dd($package->content,$content);
+        return view('pages.package', [
+            'package' => $package,
+            'content' => $content,
+        ]);
     }
 
 }
