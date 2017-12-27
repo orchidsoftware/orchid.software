@@ -228,25 +228,34 @@
         <section class="b-t">
             <div class="container">
                 <div class="row m-t-xl m-b-xl">
-                    <div class="col-md-7 hidden-xs">
+                    <div class="col-md-8 col-xs-12">
 
                         <div class="m-t text-xs">
                             <ul class="list-inline">
-                                <li>
+                                <li class="hidden-xs">
                                     <a href="https://github.com/orchidsoftware" target="_blank">
                                         <i class="icon-social-github m-r-xs"></i> Github
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
-                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.contacts')}}
-                                    </a>
-                                </li>
-                                <li>
+
+                                <li class="hidden-xs">
                                     <a href="https://packagist.org/packages/orchid/" target="_blank">
                                         <i class="icon-briefcase m-r-xs"></i> Packagist
                                     </a>
                                 </li>
+
+                                <li class="hidden-xs">
+                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
+                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.contacts')}}
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{url('https://twitter.com/orchid_platform')}}" target="_blank" rel="noopener noreferrer">
+                                        <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                    </a>
+                                </li>
+
                                 <li>
                                     <a href="{{url('https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg')}}" target="_blank" rel="noopener noreferrer">
                                         <i class="icon-bubbles m-r-xs"></i> Slack
@@ -265,7 +274,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-5 col-md-12 text-right">
+                    <div class="col-md-4 hidden-xs text-right">
                         <p class="text-xs">
                            {{trans('welcome.licence')}}
                         </p>
