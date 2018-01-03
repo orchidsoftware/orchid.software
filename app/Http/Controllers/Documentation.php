@@ -90,7 +90,7 @@ class Documentation
             $description = $this->crawler->filter('p')->first()->text();
 
             $anchors = [];
-            $this->crawler->filter('h1,h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
+            $this->crawler->filter('h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
                 $node = $elm->getNode(0);
                 $id = 'header-' . sizeof($anchors);
                 $anchors[] = [
@@ -101,9 +101,12 @@ class Documentation
                 $node->setAttribute('id', $id);
             });
 
+            $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
+            $contents = preg_replace('/<body>(.*)<\/body>/s', '$1', $contents);
+
             return [
-                'content'     => $this->crawler->html(),
                 'anchors'     => $anchors,
+                'content'     => $contents,
                 'title'       => $title,
                 'description' => $description,
             ];
