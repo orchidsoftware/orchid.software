@@ -88,8 +88,21 @@ class Documentation
             $title = $this->crawler->filter('h1')->first()->text();
             $description = $this->crawler->filter('p')->first()->text();
 
+            $anchors = [];
+            $this->crawler->filter('h1,h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
+                $node = $elm->getNode(0);
+                $id = 'header-' . sizeof($anchors);
+                $anchors[] = [
+                    'text' => $node->textContent,
+                    'level' => $node->tagName,
+                    'id' => $id
+                ];
+                $node->setAttribute('id', $id);
+            });
+
             return [
-                'content'     => $contents,
+                'content'     => $this->crawler->html(),
+                'anchors'     => $anchors,
                 'title'       => $title,
                 'description' => $description,
             ];
