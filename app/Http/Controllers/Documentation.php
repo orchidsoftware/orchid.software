@@ -49,6 +49,7 @@ class Documentation
 
         return view('pages.docs', [
             'menu'        => $this->getMenu($lang),
+            'anchors'     => $page['anchors'],
             'content'     => $page['content'],
             'title'       => $page['title'],
             'description' => $page['description'],
