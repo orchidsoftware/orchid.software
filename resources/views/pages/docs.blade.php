@@ -23,6 +23,16 @@
 
                         <main>
 
+                            <h1>{{$title}}</h1>
+                            <hr>
+
+                            <ul class="padder-v">
+                                @foreach($anchors as $anchor)
+                                        <li class="anchor-{{$anchor['level']}}"><a href="#{{$anchor['id']}}">{{$anchor['text']}}</a></li>
+                                @endforeach
+                            </ul>
+
+
                             {!! $content !!}
 
                         </main>

@@ -56,4 +56,20 @@ main, main div{
   font-size: 14px!important;
   font-family: @font-family-base!important;
   */
+
+
+  @column-name: anchor-h;
+  @column-count: 6;
+
+  .generate-column(@i: 1) when (@i =< @column-count) {
+
+    .@{column-name}@{i} when (@i > 2)  {
+      margin-left : @i * 10px;
+    }
+    .generate-column(@i + 1);
+  }
+
+  .generate-column();
+
+
 }

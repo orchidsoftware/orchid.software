@@ -109,6 +109,7 @@ class Documentation
 
                 $node->appendChild(new \DOMElement('a', $text));
                 $node->firstChild->setAttribute('href', '#' . $id);
+                $node->firstChild->setAttribute('name', $id);
             });
 
             $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
