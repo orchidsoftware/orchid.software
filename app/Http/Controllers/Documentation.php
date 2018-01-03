@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Parsedown;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -90,20 +91,32 @@ class Documentation
             $description = $this->crawler->filter('p')->first()->text();
 
             $anchors = [];
-            $this->crawler->filter('h1,h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
+            $this->crawler->filter('h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
+                /** @var Crawler $elm */
+                /** @var \DOMElement $node */
                 $node = $elm->getNode(0);
-                $id = 'header-' . sizeof($anchors);
+                $text = $node->textContent;
+                $id = Str::slug($text);
                 $anchors[] = [
-                    'text' => $node->textContent,
+                    'text' => $text,
                     'level' => $node->tagName,
                     'id' => $id
                 ];
-                $node->setAttribute('id', $id);
+
+                while ($node->hasChildNodes()) {
+                    $node->removeChild($node->firstChild);
+                }
+
+                $node->appendChild(new \DOMElement('a', $text));
+                $node->firstChild->setAttribute('href', '#' . $id);
             });
 
+            $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
+            $contents = preg_replace('/^<body>(.*)<\/body>$/s', '$1', $contents);
+
             return [
-                'content'     => $this->crawler->html(),
                 'anchors'     => $anchors,
+                'content'     => $contents,
                 'title'       => $title,
                 'description' => $description,
             ];
