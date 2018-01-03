@@ -112,7 +112,7 @@ class Documentation
             });
 
             $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
-            $contents = preg_replace('/<body>(.*)<\/body>/s', '$1', $contents);
+            $contents = preg_replace('/^<body>(.*)<\/body>$/s', '$1', $contents);
 
             return [
                 'anchors'     => $anchors,
