@@ -19,7 +19,9 @@
                         <div class="row">
                             <!-- section title -->
                             <div class="col-md-12 col-sm-12 col-xs-12">
-                                <h2 class="font-thin m-t-n l-h-1x padder-v text-black">{{trans('welcome.title')}}</h2>
+                                <h1 class="font-thin m-t-n l-h-1x padder-v text-black">
+                                    The Laravel <span class="main-typed-element text-primary">{{trans('welcome.title')}}}}</span>
+                                </h1>
                                 <p class="text-muted m-b-lg">
                                 {{trans('welcome.descriptions')}}
                                 </p>

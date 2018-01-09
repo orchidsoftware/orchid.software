@@ -1,3 +1,70 @@
+
+.nav-docs{
+  line-height: 2em;
+  h4{
+    margin-top: 1.33em;
+  }
+}
+
+main{
+  line-height: 2em;
+  overflow: hidden;
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,h2,h3,h4,h5,h6{
+    color: @brand-black;
+    font-weight: 300;
+  }
+
+
+  h2 {
+    margin-bottom: 30px;
+    a{
+      padding-left: 25px;
+    }
+    a:before {
+      content: "#";
+      margin-left: -25px;
+      position: absolute;
+      font-size: 28px;
+      color: @brand-primary;
+      opacity: .5;
+    }
+  }
+
+
+  p{
+    margin: 0 0 1em;
+  }
+
+  pre{
+    margin: 0 0 1.66em;
+  }
+  li{
+    padding-bottom: 0.33em;
+  }
+  pre{
+    margin-bottom: 1.66em!important;
+  }
+
+  blockquote{
+    .alert;
+    .alert-info;
+    .b-2x;
+    .wrapper-md;
+    font-size: inherit;
+    line-height: 2em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin: 1.66em 0;
+  }
+
+}
+
+
 main, main div{
   //animation: blur 620ms;
   line-height: 1.8em;

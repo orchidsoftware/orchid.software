@@ -7,109 +7,12 @@ body {
   overflow-x: hidden;
 }
 
-.app {
-  height: auto;
-  min-height: 100%;
-  width: 100%;
-  position: relative;
-  &:before {
-    content: "";
-    position: absolute;
-    width: inherit;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: @body-bg;
-    border: inherit;
-    display: block;
+@media (min-width: 1200px) {
+  .container {
+    width : 1100px;
   }
 }
 
-.app-header-fixed {
-  padding-top: @app-header-height;
-  .app-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-}
-
-.app-header {
-  z-index: 1025;
-  border-radius: 0;
-}
-
-// menu
-.app-aside {
-  float: left;
-  &:before {
-    content: "";
-    position: absolute;
-    width: inherit;
-    top: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: inherit;
-    border: inherit;
-  }
-}
-
-.app-aside-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  z-index: 1000;
-  max-width: @app-aside-width;
-  .app-aside-folded & {
-    max-width: @app-aside-folded-width;
-  }
-  ~ div {
-    padding-bottom: 50px;
-  }
-}
-
-.app-aside-right {
-  padding-bottom: @app-header-height;
-}
-
-// content
-.app-content {
-  height: 100%;
-  .clearfix();
-}
-
-.app-content-full {
-  position: absolute;
-  top: @app-header-height;
-  bottom: @app-footer-height;
-  height: auto;
-  width: auto !important;
-  padding: 0 !important;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  &.h-full {
-    bottom: 0;
-    height: auto;
-  }
-}
-
-.app-content-body {
-  padding-bottom: @app-header-height - 30px;
-  float: left;
-  width: 100%;
-}
-
-// footer
-.app-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1005;
-  &.app-footer-fixed {
-    position: fixed;
-  }
-}
 
 .hbox {
   display: table;
@@ -431,30 +334,4 @@ body {
       margin-bottom: 0;
     }
   }
-}
-
-.aside-wrap-main {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 100px;
-  z-index: 1050;
-  background-color: #1d2531;
-  li {
-    a {
-      .icon, i {
-        font-size: 2em;
-        display: block;
-        margin: 0 auto !important;
-        float: none !important;
-      }
-    }
-  }
-
-}
-
-.app-header {
-  height: @app-header-height;
 }

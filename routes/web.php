@@ -17,13 +17,13 @@ $router->group([
 ], function () {
 
 
-
     /*
     |--------------------------------------------------------------------------
     | Auth Routes
     |--------------------------------------------------------------------------
     |
     */
+    /*
     // Authentication Routes...
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
     $this->post('login', 'Auth\LoginController@login');
@@ -36,7 +36,7 @@ $router->group([
     $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-
+    */
 
     /*
     |--------------------------------------------------------------------------

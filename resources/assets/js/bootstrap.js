@@ -1,6 +1,4 @@
 
-window._ = require('lodash');
-
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -9,10 +7,6 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-
-    require('../../../node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min');
-    require('../../../node_modules/bootstrap-maxlength/bootstrap-maxlength.min');
-
     require('bootstrap');
 } catch (e) {}
 
@@ -44,59 +38,4 @@ if (token) {
 window.meta_user = document.head.querySelector('meta[name="auth"]').content;
 
 
-
-
 require('../../../node_modules/typed.js/dist/typed.min.js');
-
-
-window.WOW = require('../../../node_modules/wow.js/dist/wow.min');
-window.swal = require('sweetalert2');
-
-
-
-window.wow = new WOW(
-    {
-        boxClass:     'wow',      // animated element css class (default is wow)
-        animateClass: 'animated', // animation css class (default is animated)
-        offset:       0,          // distance to the element when triggering the animation (default is 0)
-        mobile:       true,       // trigger animations on mobile devices (default is true)
-        live:         true,       // act on asynchronously loaded content (default is true)
-        callback:     function(box) {
-            // the callback is fired every time an animation is started
-            // the argument that is passed in is the DOM node being animated
-        },
-        scrollContainer: null,    // optional scroll container selector, otherwise use window,
-        resetAnimation: false,     // reset animation on end (default is true)
-    }
-);
-wow.init();
-
-
-
-
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-
-// import Echo from 'laravel-echo'
-
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
-
-
-window.moduleLoad = function () {
-    $('input[maxlength]').maxlength();
-};
-
-
-/*
-import moment from 'moment';
-moment.locale($('html').attr('lang'));
-*/
-

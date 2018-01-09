@@ -11,7 +11,7 @@ return [
 
     'view_on_github' => 'View on GitHub',
 
-    'title'        => 'Admin Panel for Laravel',
+    'title'        => 'Admin Panel',
     'descriptions' => 'A platform that grows with you does not interfere and allows you to use your favorite technologies to easily create the necessary functions.',
 
 
