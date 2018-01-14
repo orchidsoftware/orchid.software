@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
-@section('title',$article->getContent('title'))
-@section('description',$article->getContent('description'))
-@section('keywords',$article->getContent('keywords'))
-@section('image',config('app.url').$article->getContent('picture'))
+@section('title',$post->getContent('title'))
+@section('description',$post->getContent('description'))
+@section('keywords',$post->getContent('keywords'))
+@section('image',config('app.url').$post->getContent('picture'))
 
 
 @section('content')
 
 
-<div class="m-t-md m-b-md">
-<div class="container m-b-xl">
-    <div class="row">
+    <div class="bg-white">
+<div class="container">
+    <div class="row m-t-md m-b-md">
 
 
-      <div class="col-md-8 bg-white b box-shadow">
+      <div class="col-md-9">
 
 
           <main class="wrapper">
@@ -23,18 +23,18 @@
               <div class="page-header">
 
                   <h1 class="text-black">
-                         {{ $article->getContent('name') }}
+                         {{ $post->getContent('name') }}
                   </h1>
-                  <small>{{$article->publish_at->formatLocalized('%d %b %Y')}}</small>
+                  <small>{{$post->publish_at->formatLocalized('%d %b %Y')}}</small>
 
               </div>
 
               <div>
-                  <img src="{{$article->getContent('picture') ?? '/img/no-image.jpg'}}" class="img-full">
+                  <img src="{{$post->getContent('picture') ?? '/img/no-image.jpg'}}" class="img-full">
               </div>
 
               <div class="padder-v">
-                  {!! $article->getContent('body') !!}
+                  {!! $post->getContent('body') !!}
               </div>
 
 
@@ -67,7 +67,7 @@
 
 
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
 
 
       </div>

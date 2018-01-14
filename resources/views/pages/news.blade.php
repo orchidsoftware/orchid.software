@@ -4,41 +4,41 @@
 
 
 
-    <div class="m-t-md m-b-md">
-<div class="container m-b-xl">
-    <div class="row">
+<div class="bg-white">
+<div class="container">
+    <div class="row m-t-md m-b-md">
 
 
-      <div class="col-md-8 bg-white b box-shadow">
+      <div class="col-md-9">
 
 
       <div class="blog-post">
-          @foreach($articles as $article)
+          @foreach($posts as $post)
               <div class="panel">
           <div class="wrapper-lg">
             <h2 class="m-t-none text-black font-thin">
-                <a href="{{route('blog.show',$article->slug)}}">{{$article->getContent('name')}}</a>
+                <a href="{{route('blog.show',$post->slug)}}">{{$post->getContent('name')}}</a>
             </h2>
-              <small> {{$article->publish_at->formatLocalized('%d %b %Y')}}</small>
+              <small> {{$post->publish_at->formatLocalized('%d %b %Y')}}</small>
           <div class="padder-v">
-              <a href="{{route('blog.show',$article->slug)}}"><img src="{{$article->getContent('picture')}}"
+              <a href="{{route('blog.show',$post->slug)}}"><img src="{{$post->getContent('picture')}}"
                                                                    class="img-full"></a>
           </div>
             <div class="padder-v">
-                <p> {{str_strip_limit_words($article->getContent('body'),600)}}</p>
+                <p> {{str_strip_limit_words($post->getContent('body'),600)}}</p>
             </div>
           </div>
         </div>
           @endforeach
       </div>
       <div class="text-center m-t-lg m-b-lg">
-            {!! $articles->links() !!}
+            {!! $posts->links() !!}
       </div>
 
 
 
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
 
 
       </div>
@@ -48,10 +48,7 @@
 </div>
 </div>
 
-
-
-
-
+    
 @endsection
 
 
@@ -79,7 +76,7 @@
                         </div>
                         <div class="col-sm-3">
                             <a href="http://laravel.su"
-                               target="_blank"><img src="https://new.laravel.su/img/welcome/developer.png"
+                               target="_blank"><img src="/img/sponsors/laravelru.png"
                                                     style="height: 80px"
                                                     class="img-responsive"></a>
                         </div>
@@ -90,3 +87,4 @@
     </div>
 
 @stop
+

@@ -68,7 +68,7 @@ $router->group([
     $this->get('rss', 'BlogController@rss')->name('rss');
     $this->put('/comment/{item}', 'CommentController@update')->name('comment.add');
 
-    $this->get('/blog','BlogController@index')->name('blog.list');
+    $this->get('/blog','BlogController@index')->name('blog');
     $this->get('/blog/{blog}','BlogController@show')->name('blog.show');
 
     $this->get('/plugins', 'PluginController@index')->name('plugins');

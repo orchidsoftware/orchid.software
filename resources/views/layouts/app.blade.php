@@ -145,26 +145,27 @@
 
 
                 <li>
-                      <a href="{{route('docs')}}">{{trans('welcome.documentation')}}</a>
+                      <a href="{{route('docs')}}">
+                          {{trans('welcome.documentation')}}
+                      </a>
                 </li>
 
                 <li>
-                      <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}">{{trans('welcome.support')}}</a>
+                      <a href="{{route('blog')}}">
+                          {{trans('welcome.blog')}}
+                      </a>
                 </li>
 
                 <li>
-                      <a href="{{url('https://demo.orchid.software')}}">Demo</a>
+                      <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">
+                          {{trans('welcome.support')}}</a>
                 </li>
 
-                @widget("header_menu")
-
-                {{--
-                <li class="b-l xs-hidden">
-                    <a href="{{url('http://demo.orchid.software')}}" target="_blank">{{trans('welcome.demo')}}</a>
+                <li>
+                      <a href="{{url('https://demo.orchid.software')}}" target="_blank">
+                          {{trans('welcome.demo')}}
+                      </a>
                 </li>
-                --}}
-
-
 
         </ul>
 

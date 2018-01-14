@@ -4,9 +4,9 @@ return [
 
     'documentation' => 'Documentation',
     'support'       => 'Help and Discussion',
-
-    'demo'   => 'Demo',
-    'donate' => 'Donate',
+    'blog'          => 'Blog',
+    'demo'          => 'Demo',
+    'donate'        => 'Donate',
 
 
     'view_on_github' => 'View on GitHub',

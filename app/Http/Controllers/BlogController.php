@@ -14,12 +14,12 @@ class BlogController extends Controller
      */
     public function index(){
 
-        $news = Post::published()->where('type', 'blog')
+        $posts = Post::published()->where('type', 'blog')
             ->orderBy('publish_at', 'DESC')
             ->simplePaginate(5);
 
         return view('pages.news', [
-            'articles' => $news,
+            'posts' => $posts,
         ]);
 
     }
@@ -31,7 +31,7 @@ class BlogController extends Controller
      */
     public function show(Post $post){
         return view('pages.article',[
-            'article' => $post,
+            'post' => $post,
         ]);
     }
 

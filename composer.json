@@ -11,6 +11,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "htmlmin/htmlmin": "^5.0",
         "laravel/framework": "5.5.*",
+        "laravel/socialite": "^3.0",
         "mcamara/laravel-localization": "^1.2",
         "orchid/platform": "^2.0",
         "predis/predis": "^1.1",
