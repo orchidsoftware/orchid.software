@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-sm-3">
                             <a href="http://laravel.su"
-                               target="_blank"><img src="/img/sponsors/laravelru.png"
+                               target="_blank"><img src="/img/sponsors/laravelrus.png"
                                                     style="height: 80px"
                                                     class="img-responsive"></a>
                         </div>
