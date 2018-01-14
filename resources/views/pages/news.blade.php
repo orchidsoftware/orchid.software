@@ -54,7 +54,7 @@
 
 @section('footer')
 
-    <div class="bg-white b-t">
+    <div class="bg-white b-t hidden-xs">
         <div class="container">
             <div class="row m-t-xxl m-b-lg">
                         <div class="col-md-12 col-sm-12 col-xs-12">
