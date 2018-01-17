@@ -16,6 +16,7 @@
         "orchid/platform": "^2.0",
         "predis/predis": "^1.1",
         "roumen/feed": "^2.10",
+        "spatie/laravel-responsecache": "^4.1",
         "symfony/dom-crawler": "^3.3"
     },
     "require-dev": {
