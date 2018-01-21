@@ -233,6 +233,24 @@
 
                         <div class="m-t text-xs">
                             <ul class="list-inline">
+
+
+                                <li class="m-r-xxl">
+                                    <div class="btn-group dropdown dropup">
+                                      <button class="btn btn-link btn-xs" data-toggle="dropdown" aria-expanded="false">
+                                          {{config('laravellocalization.localesOrder.'. App::getLocale())}}
+                                      </button>
+                                      <ul class="dropdown-menu">
+                                        @foreach(config('laravellocalization.localesOrder') as $key => $value)
+                                            <li><a href="/{{$key}}">{{$value}}</a></li>
+                                        @endforeach
+                                      </ul>
+                                    </div>
+                                </li>
+
+
+
+
                                 <li class="hidden-xs">
                                     <a href="https://github.com/orchidsoftware" target="_blank">
                                         <i class="icon-social-github m-r-xs"></i> Github
