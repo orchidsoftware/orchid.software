@@ -201,7 +201,9 @@
 
             <ul class="nav navbar-nav navbar-right text-center-xs">
                     <div class="m-t-sm">
-                        <a href="https://github.com/orchidsoftware/Platform" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l"><strong>View on Github</strong></a>
+                        <a href="https://github.com/orchidsoftware/Platform" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l">
+                            <strong>GitHub <i class="icon-social-github m-l-xs"></i></strong>
+                        </a>
                     </div>
               </ul>
 
