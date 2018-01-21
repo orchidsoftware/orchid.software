@@ -245,11 +245,13 @@
                                     </a>
                                 </li>
 
+                                {{--
                                 <li class="hidden-xs">
                                     <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
                                          <i class="icon-envelope m-r-xs"></i> {{trans('welcome.contacts')}}
                                     </a>
                                 </li>
+                                --}}
 
                                 <li>
                                     <a href="{{url('https://twitter.com/orchid_platform')}}" target="_blank" rel="noopener noreferrer">
@@ -263,7 +265,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('https://t.me/orchidsoftware')}}" target="_blank" rel="noopener noreferrer">
+                                    <a href="{{url('https://t.me/orchid_community')}}" target="_blank" rel="noopener noreferrer">
                                         <i class="icon-paper-plane m-r-xs"></i> Telegram
                                     </a>
                                 </li>
