@@ -240,7 +240,7 @@
                                 <li class="m-r-xxl">
                                     <div class="btn-group dropdown dropup">
                                       <button class="btn btn-link btn-xs" data-toggle="dropdown" aria-expanded="false">
-                                          {{config('laravellocalization.localesOrder.'. App::getLocale())}}
+                                          <i class="icon-globe m-r-xs"></i> {{config('laravellocalization.localesOrder.'. App::getLocale())}}
                                       </button>
                                       <ul class="dropdown-menu">
                                         @foreach(config('laravellocalization.localesOrder') as $key => $value)
@@ -258,13 +258,13 @@
                                         <i class="icon-social-github m-r-xs"></i> Github
                                     </a>
                                 </li>
-
+                                {{--
                                 <li class="hidden-xs">
                                     <a href="https://packagist.org/packages/orchid/" target="_blank">
                                         <i class="icon-briefcase m-r-xs"></i> Packagist
                                     </a>
                                 </li>
-
+                                --}}
                                 {{--
                                 <li class="hidden-xs">
                                     <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
