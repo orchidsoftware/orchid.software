@@ -41,52 +41,6 @@
 
     <style>
 
-        .flipkart-navbar-input {
-            padding       : 11px 16px;
-            border-radius : 2px 0 0 2px;
-            border        : 0 none;
-            outline       : 0 none;
-            font-size     : 15px;
-            color: #000;
-        }
-
-        .flipkart-navbar-button {
-            border-radius : 0 2px 2px 0;
-            padding       : 10px 0;
-            height        : 43px;
-            cursor        : pointer;
-        }
-
-        .smallnav {
-            display : block;
-        }
-
-        .smallsearch {
-            margin: 0 auto;
-        }
-
-        .menu {
-            cursor : pointer;
-        }
-
-        @media screen and (min-width : 768px) {
-            .largenav {
-                display : block;
-            }
-
-            .smallnav {
-                display : none;
-            }
-
-            .smallsearch {
-                margin: 0 auto;
-            }
-        }
-
-        </style>
-
-    <style>
-
 
 .text-orchid {
     color : #AC5CA0;
@@ -237,7 +191,7 @@
                             <ul class="list-inline">
 
 
-                                <li class="m-r-xxl">
+                                <li class="m-r-xl">
                                     <div class="btn-group dropdown dropup">
                                       <button class="btn btn-link btn-xs" data-toggle="dropdown" aria-expanded="false">
                                           {{config('laravellocalization.localesOrder.'. App::getLocale())}}
@@ -251,27 +205,11 @@
                                 </li>
 
 
-
-
                                 <li class="hidden-xs">
                                     <a href="https://github.com/orchidsoftware" target="_blank">
                                         <i class="icon-social-github m-r-xs"></i> Github
                                     </a>
                                 </li>
-
-                                <li class="hidden-xs">
-                                    <a href="https://packagist.org/packages/orchid/" target="_blank">
-                                        <i class="icon-briefcase m-r-xs"></i> Packagist
-                                    </a>
-                                </li>
-
-                                {{--
-                                <li class="hidden-xs">
-                                    <a href="mailto:bliz48rus@gmail.com?subject=ORCHID" target="_blank" rel="noopener noreferrer">
-                                         <i class="icon-envelope m-r-xs"></i> {{trans('welcome.contacts')}}
-                                    </a>
-                                </li>
-                                --}}
 
                                 <li>
                                     <a href="{{url('https://twitter.com/orchid_platform')}}" target="_blank" rel="noopener noreferrer">
@@ -301,11 +239,12 @@
                         <p class="text-xs">
                            {{trans('welcome.licence')}}
                         </p>
-                        <p class="text-xs text-muted">Copyright © 2016 - {{date('Y')}} Chernyaev Alexander</p>
+                        <p class="text-xs text-muted">Copyright © 2016 - {{date('Y')}} Chernyaev Alexander.</p>
                     </div>
                 </div>
             </div>
         </section>
+
     </footer>
     <!-- / footer -->
 
