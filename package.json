@@ -21,6 +21,8 @@
     "lodash": "^4.17.4"
   },
   "dependencies": {
+    "orchid-icons": "^1.0.0",
+    "prismjs": "^1.10.0",
     "turbolinks": "^5.0.3",
     "typed.js": "^1.1.7"
   }

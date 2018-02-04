@@ -80,4 +80,6 @@ $router->group([
 
     $this->get('/home', 'HomeController@index')->name('home');
 
+    $this->view('/icons','pages.icons');
+
 });

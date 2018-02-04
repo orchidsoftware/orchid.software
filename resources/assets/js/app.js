@@ -70,16 +70,17 @@ document.addEventListener("turbolinks:before-visit", function (event) {
 });
 
 
-document.addEventListener("turbolinks:load", function() {
+
     require('./bootstrap');
     require('./modules/affix');
     require('./modules/typed');
+    require('./modules/icons');
 
     window.Prism = require('prismjs');
     require('prismjs/components/prism-javascript');
     require('prismjs/components/prism-php');
 
+
+document.addEventListener("turbolinks:load", function() {
     Prism.highlightAll();
-
-
 });
