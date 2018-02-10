@@ -164,13 +164,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
-        Roumen\Feed\FeedServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -227,10 +220,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        'Localization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-        'Feed' => Roumen\Feed\Feed::class,
-        'HTMLMin' => HTMLMin\HTMLMin\Facades\HTMLMin::class,
     ],
 
 ];

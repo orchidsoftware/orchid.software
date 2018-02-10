@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -37,19 +36,16 @@ class Documentation
     }
 
     /**
+     * @param        $locale
      * @param string $page
-     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($page = 'index')
+    public function show($locale, $page = 'index')
     {
-
-        $lang = App::getLocale();
-
-        $page = $this->getPage($lang, $page);
+        $page = $this->getPage($locale, $page);
 
         return view('pages.docs', [
-            'menu'        => $this->getMenu($lang),
+            'menu'        => $this->getMenu($locale),
             'anchors'     => $page['anchors'],
             'content'     => $page['content'],
             'title'       => $page['title'],
@@ -57,33 +53,16 @@ class Documentation
         ]);
     }
 
-
     /**
-     * @param $lang
-     *
-     * @return mixed
-     */
-    private function getMenu($lang)
-    {
-
-        return Cache::remember('menu' . $lang, 60, function () use ($lang) {
-            $menu = $this->storage->get("/$lang/documentation.md");
-
-            return $this->parse->text($menu);
-        });
-    }
-
-
-    /**
-     * @param $lang
+     * @param $locale
      * @param $page
      *
      * @return mixed
      */
-    private function getPage($lang, $page)
+    private function getPage($locale, $page)
     {
-        return Cache::remember('page'.$page . $lang, 60, function () use ($lang, $page) {
-            $contents = $this->storage->get("/$lang/$page.md");
+        return Cache::remember('page' . $page . $locale, 60, function () use ($locale, $page) {
+            $contents = $this->storage->get("/$locale/$page.md");
             $contents = $this->parse->text($contents);
 
             $this->crawler->addHtmlContent($contents);
@@ -98,9 +77,9 @@ class Documentation
                 $text = $node->textContent;
                 $id = Str::slug($text);
                 $anchors[] = [
-                    'text' => $text,
+                    'text'  => $text,
                     'level' => $node->tagName,
-                    'id' => $id
+                    'id'    => $id
                 ];
 
                 while ($node->hasChildNodes()) {
@@ -121,6 +100,21 @@ class Documentation
                 'title'       => $title,
                 'description' => $description,
             ];
+        });
+    }
+
+    /**
+     * @param $locale
+     *
+     * @return mixed
+     */
+    private function getMenu($locale)
+    {
+
+        return Cache::remember('menu' . $locale, 60, function () use ($locale) {
+            $menu = $this->storage->get("/$locale/documentation.md");
+
+            return $this->parse->text($menu);
         });
     }
 

@@ -11,75 +11,23 @@
 |
 */
 
-$router->group([
-    'prefix'     => Localization::setLocale(),
-    'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'carbon-localize'],
-], function () {
+$this->view('{locale?}', 'pages.welcome')->name('index');
+$this->get('{locale}/docs/{catalog?}', 'Documentation@show')->name('docs');
+
+$this->view('{locale}/developer','pages.developer');
+$this->view('{locale}/order','pages.order');
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Auth Routes
-    |--------------------------------------------------------------------------
-    |
-    */
-    /*
-    // Authentication Routes...
-    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    $this->post('login', 'Auth\LoginController@login');
-    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
-    // Registration Routes...
-    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-    $this->post('register', 'Auth\RegisterController@register');
-    // Password Reset Routes...
-    $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
-    $this->post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
-    $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-    $this->post('password/reset', 'Auth\ResetPasswordController@reset');
-    */
+$this->get('{locale}/blog','BlogController@index')->name('blog');
+$this->get('{locale}/blog/{blog}','BlogController@show')->name('blog.show');
 
-    /*
-    |--------------------------------------------------------------------------
-    | Catalog Routes
-    |--------------------------------------------------------------------------
-    |
-    */
-    $this->get('catalog/{catalog}', 'CatalogController@index')->name('catalog');
-    $this->get('category/{category}', 'CatalogController@category')->name('category');
-    $this->get('catalog/{catalog}/{item}', 'CatalogController@show')->name('item');
+$this->get('{locale}/plugins', 'PluginController@index')->name('plugins');
+$this->get('{locale}/plugins/{vendor?}/{package?}', 'PluginController@show')->name('plugins.show');
 
+$this->view('{locale}/ui','pages.ui');
+$this->view('{locale}/privacy-policy','pages.privacy-policy');
+$this->view('{locale}/code-of-conduct','pages.code-of-conduct');
 
-    /*
-    |--------------------------------------------------------------------------
-    | Static Routes
-    |--------------------------------------------------------------------------
-    |
-    */
-    $this->get('/about', 'AboutController@index')->name('about');
-    $this->post('/contacts', 'ContactsController@send')->name('contacts.submit');
-    $this->get('/contacts', 'ContactsController@index')->name('contacts');
-    $this->get('docs/{catalog?}', 'Documentation@show')->name('docs');
+$this->view('{locale}/icons','pages.icons');
+$this->view('{locale}/help-and-discussion','pages.help-and-discussion')->name('help');
 
-    $this->get('/', 'AboutController@welcome');
-    $this->view('developer','pages.developer');
-    $this->view('order','pages.order');
-
-
-    $this->get('rss', 'BlogController@rss')->name('rss');
-    $this->put('/comment/{item}', 'CommentController@update')->name('comment.add');
-
-    $this->get('/blog','BlogController@index')->name('blog');
-    $this->get('/blog/{blog}','BlogController@show')->name('blog.show');
-
-    $this->get('/plugins', 'PluginController@index')->name('plugins');
-    $this->get('/plugins/{vendor?}/{package?}', 'PluginController@show')->name('plugins.show');
-
-    $this->view('/ui','pages.ui');
-    $this->view('/privacy-policy','pages.privacy-policy');
-    $this->view('/code-of-conduct','pages.code-of-conduct');
-
-    $this->get('/home', 'HomeController@index')->name('home');
-
-    $this->view('/icons','pages.icons');
-
-});

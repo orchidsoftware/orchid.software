@@ -35,7 +35,4 @@ if (token) {
 }
 
 
-window.meta_user = document.head.querySelector('meta[name="auth"]').content;
-
-
 require('../../../node_modules/typed.js/dist/typed.min.js');

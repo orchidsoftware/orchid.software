@@ -26,7 +26,7 @@ return [
 
     'middleware' => [
         'public'  => ['web'],
-        'private' => ['web', 'doNotCacheResponse','dashboard'],
+        'private' => ['web', 'dashboard'],
     ],
 
 
@@ -109,8 +109,7 @@ return [
     |
     */
 
-    'single' => [//App\Core\Behaviors\Single\DemoPage::class,
-    ],
+    'single' => [],
 
     /*
     |--------------------------------------------------------------------------
@@ -121,8 +120,8 @@ return [
     |
     */
 
-    'many' => [//App\Core\Behaviors\Many\DemoPost::class,
-        \App\Core\Behaviors\Many\BlogPost::class
+    'many' => [
+        App\Behaviors\Many\BlogPost::class
     ],
 
     /*
@@ -145,11 +144,7 @@ return [
     |
     */
 
-    'menu' => [
-        'header'  => 'Header menu',
-        'sidebar' => 'Sidebar menu',
-        'footer'  => 'Footer menu',
-    ],
+    'menu' => [],
 
     /*
     |--------------------------------------------------------------------------

@@ -12,13 +12,8 @@ let mix = require('laravel-mix');
  */
 
 
-mix.less('resources/assets/less/app.less', 'public/css/app.css').version();
-
-
-
-mix.copy('./node_modules/bootstrap/dist/fonts/', 'public/fonts');
-mix.copy('./node_modules/orchid-icons/dist/fonts/', 'public/fonts');
-mix.copy('./node_modules/font-awesome/fonts', 'public/fonts');
-
-mix.js(['resources/assets/js/app.js',], '.public/js/app.js');
-mix.js('resources/assets/js/app.js', 'public/js').version();
+mix.less('resources/assets/less/app.less', 'public/css/app.css')
+    .copy('./node_modules/bootstrap/dist/fonts/', 'public/fonts')
+    .copy('./node_modules/orchid-icons/dist/fonts/', 'public/fonts')
+    .js(['resources/assets/js/app.js'], 'public/js/app.js')
+    .version();

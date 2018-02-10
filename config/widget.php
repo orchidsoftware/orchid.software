@@ -12,8 +12,5 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
-    'widgets' => [
-        //'advertising' => \Orchid\Http\Widgets\AdvertisingWidget::class,
-        'header_menu' => \App\Http\Widgets\HeaderMenu::class,
-    ],
+    'widgets' => [],
 ];

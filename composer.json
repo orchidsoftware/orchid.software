@@ -11,12 +11,8 @@
         "guzzlehttp/guzzle": "~6.0",
         "htmlmin/htmlmin": "^5.0",
         "laravel/framework": "5.5.*",
-        "laravel/socialite": "^3.0",
-        "mcamara/laravel-localization": "^1.2",
-        "orchid/platform": "^2.0",
+        "orchid/platform": "^2.1",
         "predis/predis": "^1.1",
-        "roumen/feed": "^2.10",
-        "spatie/laravel-responsecache": "^4.1",
         "symfony/dom-crawler": "^3.3"
     },
     "require-dev": {
@@ -26,8 +22,7 @@
     },
     "autoload": {
         "files": [
-            "app/Helpers/Str.php",
-            "app/Helpers/Page.php"
+            "app/Helpers/Str.php"
         ],
         "classmap": [
             "database"

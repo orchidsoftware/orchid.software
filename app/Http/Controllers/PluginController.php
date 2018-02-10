@@ -31,7 +31,6 @@ class PluginController extends Controller
         $package = Post::type('plugins')->where('slug', $vendor . '/' . $package)->firstOrFail();
         $content = (new \Parsedown())->text($package->content['content']);
 
-        //dd($package->content,$content);
         return view('pages.package', [
             'package' => $package,
             'content' => $content,

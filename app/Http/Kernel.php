@@ -2,8 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\CarbonLocale;
-use App\Http\Middleware\NonWWW;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -36,8 +34,9 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            NonWWW::class,
-            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
+            \App\Http\Middleware\NonWWW::class,
+            \App\Http\Middleware\SetDefaultLocaleForUrls::class,
+            \App\Http\Middleware\CarbonLocale::class,
         ],
 
         'api' => [
@@ -60,11 +59,5 @@ class Kernel extends HttpKernel
         'can'        => \Illuminate\Auth\Middleware\Authorize::class,
         'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-
-        'localize'              => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
-        'localizationRedirect'  => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
-        'localeSessionRedirect' => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
-        'doNotCacheResponse'    => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
-        'carbon-localize'       => CarbonLocale::class,
     ];
 }

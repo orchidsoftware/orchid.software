@@ -42,7 +42,7 @@
     </div>
 
 
-{{--
+
     <div class="">
         <div class="container">
 
@@ -98,7 +98,7 @@
             </div>
         </div>
     </div>
---}}
+
 
     <div class="bg-white">
         <div class="container">
