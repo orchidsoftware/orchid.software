@@ -7,7 +7,7 @@ return [
     'blog'          => 'Blog',
     'demo'          => 'Demo',
     'donate'        => 'Donate',
-
+    'icons'         => 'Icons',
 
     'view_on_github' => 'View on GitHub',
 

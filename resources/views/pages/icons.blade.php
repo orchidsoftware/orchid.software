@@ -13,26 +13,28 @@
             <div class="row m-t-md m-b-md">
 
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <h1 class="font-thin l-h-1x text-black">
-                        Icons Preview
-                    </h1>
-                    <p class="text-muted m-b-lg">
-                        Click on the icons to get the icon class name
-                    </p>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                        <h1 class="font-thin l-h-1x text-black">
+                            Icons Preview
+                        </h1>
+                        <p class="text-muted m-b-lg">
+                            Click on the icons to get the icon class name<br>
+                            The source code is located on <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
+                        </p>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="form-group form-group-default m-t-xl">
+                                <label>Search Icons</label>
+                                <div class="controls">
+                                    <input type="text"   id="quick-search"  placeholder="Search..." class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <hr>
                 </div>
 
-                <div class="col-xs-12 padder-v">
-                    <div class="quick-search">
-                        <input type="text" id="quick-search" placeholder="Search..."/>
-                        <i class="icon-magnifier"></i>
-                    </div>
-                    <div class="text-center font-size-changer">
-                        <a href="#" class="small-icons"><i class="icon-info"></i> Small</a> &bull;
-                        <a href="#" class="medium-icons active"><i class="icon-info"></i> Medium</a> &bull;
-                        <a href="#" class="large-icons"><i class="icon-info"></i> Large</a>
-                    </div>
-                </div>
 
 
 

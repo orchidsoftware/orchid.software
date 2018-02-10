@@ -68,6 +68,12 @@
                     </li>
 
                     <li>
+                        <a href="{{route('icons')}}">
+                            {{trans('welcome.icons')}}
+                        </a>
+                    </li>
+
+                    <li>
                         <a href="{{route('blog')}}">
                             {{trans('welcome.blog')}}
                         </a>

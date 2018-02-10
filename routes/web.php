@@ -28,6 +28,6 @@ $this->view('{locale}/ui','pages.ui');
 $this->view('{locale}/privacy-policy','pages.privacy-policy');
 $this->view('{locale}/code-of-conduct','pages.code-of-conduct');
 
-$this->view('{locale}/icons','pages.icons');
+$this->view('{locale}/icons','pages.icons')->name('icons');
 $this->view('{locale}/help-and-discussion','pages.help-and-discussion')->name('help');
 
