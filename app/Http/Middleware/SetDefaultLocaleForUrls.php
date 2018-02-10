@@ -21,6 +21,11 @@ class SetDefaultLocaleForUrls
             $locale = $request->route('locale');
         }
 
+        if(!key_exists($locale,config('localization.supportedLocales'))){
+            $locale = 'en';
+        }
+
+
         $request->session()->put('locale', $locale);
 
         $request->setDefaultLocale($locale);

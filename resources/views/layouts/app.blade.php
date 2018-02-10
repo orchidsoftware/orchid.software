@@ -149,7 +149,7 @@
 
 
                                 <li class="m-r-xl">
-                                    @foreach(config('laravellocalization.localesOrder') as $key => $value)
+                                    @foreach(config('localization.localesOrder') as $key => $value)
                                         <a href="/{{$key}}">{{$value}}</a>
 
                                         @if($loop->remaining)
