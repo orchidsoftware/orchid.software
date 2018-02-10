@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Simple Laravel CMS</title>
-    <meta name="description" content="@yield('description',setting('site_description',''))">
+    <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Laravel Admin Panel</title>
+    <meta name="description" content="@yield('description',trans('welcome.descriptions'))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
     <meta name="author" content="Alexandr Chernyaev">
     <link rel="shortcut icon" href="/favicon.ico">
@@ -16,16 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{{ mix('/css/app.css')}}" type="text/css" />
 
-    <meta property="og:title" content="@yield('title',setting('site_title','')) ORCHID - Laravel admin panel - Laravel platform, laravel admin panel">
-    <meta property="og:description" content="@yield('description',setting('site_description',''))">
+    <meta property="og:title" content="@yield('title',setting('site_title','')) ORCHID - Laravel Admin Panel">
+    <meta property="og:description" content="@yield('description', trans('welcome.descriptions'))">
     <meta property="og:type" content="article">
-    <meta property="og:image" content="@yield('image', config('app.url').'/img/tour/logo.png')">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="auth" content="{{ Auth::id() }}">
 
-    <link rel="shortcut icon" type="image/png" href="/img/logo.png">
+    <link rel="shortcut icon" type="image/png" href="/apple-touch-icon.png">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
@@ -34,34 +33,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac5ca0">
     <meta name="theme-color" content="#ffffff">
 
-
-    <style>
-        .text-orchid {
-            color : #AC5CA0;
-        }
-
-        .desc {
-            width       : 220px;
-            margin-left : 25%;
-        }
-
-        .column {
-            float : left;
-        }
-
-        .ico {
-            color             : #AC5CA0;
-            font-size         : 40px;
-            position          : absolute;
-            top               : 50%;
-            left              : 10%;
-            transform         : translateY(-50%);
-            -webkit-transform : translateY(-50%);
-            -moz-transform    : translateY(-50%);
-            -ms-transform     : translateY(-50%);
-            -o-transform      : translateY(-50%);
-        }
-    </style>
+    <script src="{{ mix('/js/app.js')}}"></script>
 
 
     @stack('stylesheet')
@@ -205,9 +177,6 @@
 
 
 </div>
-
-<script src="{{ mix('/js/app.js')}}"></script>
-
 
 
 <!-- Yandex.Metrika counter -->

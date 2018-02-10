@@ -12,7 +12,7 @@ return [
     'view_on_github' => 'View on GitHub',
 
     'title'        => 'Admin Panel',
-    'descriptions' => 'A platform that grows with you does not interfere and allows you to use your favorite technologies to easily create the necessary functions.',
+    'descriptions' => 'ORCHID Platform is an open source framework for the rapid development of enterprise applications  and content manager systems with Laravel framework',
 
 
     'promo' => [
