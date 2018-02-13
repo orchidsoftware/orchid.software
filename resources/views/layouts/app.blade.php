@@ -73,11 +73,13 @@
                         </a>
                     </li>
 
+                    <!--
                     <li>
                         <a href="{{route('blog')}}">
                             {{trans('welcome.blog')}}
                         </a>
                     </li>
+                    -->
 
                     <li>
                         <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">
