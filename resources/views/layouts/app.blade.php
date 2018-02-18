@@ -62,42 +62,75 @@
                 <ul class="nav navbar-nav">
 
                     <li>
-                        <a href="{{route('docs')}}">
-                            {{trans('welcome.documentation')}}
+                        <a href="/ru/feature">
+                            Возможности
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{route('icons')}}">
-                            {{trans('welcome.icons')}}
+                        <a href="/ru/developer">
+                           Разработчикам
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/ru/get-involved">
+                            Принять участие
                         </a>
                     </li>
 
                     <!--
                     <li>
-                        <a href="{{route('blog')}}">
-                            {{trans('welcome.blog')}}
+                        <a href="{{route('docs')}}">
+                            {{trans('welcome.documentation')}}
                         </a>
                     </li>
                     -->
 
+                    <!--
+                    <li>
+                        <a href="{{route('icons')}}">
+                            {{trans('welcome.icons')}}
+                        </a>
+                    </li>
+                    -->
+
+
+                    <li>
+                        <a href="{{route('blog')}}">
+                            {{trans('welcome.blog')}}
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/ru/plugins">
+                           Расширения
+                        </a>
+                    </li>
+
+                    <!--
                     <li>
                         <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">
                             {{trans('welcome.support')}}</a>
                     </li>
+                    -->
 
+
+
+                    <!--
                     <li>
                         <a href="{{url('https://demo.orchid.software')}}" target="_blank">
                             {{trans('welcome.demo')}}
                         </a>
                     </li>
+                    -->
 
                 </ul>
 
 
                 <div class="nav navbar-nav navbar-right text-center-xs">
                         <a href="https://github.com/orchidsoftware/Platform" target="_blank" class="btn btn-sm btn-primary btn-rounded m-l m-t-sm">
-                            <strong>GitHub <i class="icon-social-github m-l-xs"></i></strong>
+                            <strong><i class="icon-social-github m-r-xs"></i> GitHub</strong>
                         </a>
                 </div>
 

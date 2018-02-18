@@ -16,7 +16,7 @@ class BlogController extends Controller
             ->orderBy('publish_at', 'DESC')
             ->simplePaginate(5);
 
-        return view('pages.news', [
+        return view('pages.news2', [
             'posts' => $posts,
         ]);
 

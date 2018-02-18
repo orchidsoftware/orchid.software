@@ -3,6 +3,39 @@
 @section('content')
 
 
+    <div class="bg-black-opacity">
+        <section class="container-fluid hidden-xs">
+            <div class="row">
+                <div style="background: url(https://static.pexels.com/photos/81363/office-work-desk-computer-81363.jpeg) center center;background-size: cover;">
+                    <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
+                        <div class="row  m-t-xxl m-b-xxl">
+                            <div class="container m-t-md top-desc-block">
+                                <div class="col-xs-12">
+                                    <div class="page-hero-content">
+
+                                        <h1 class="font-thin m-t-n l-h-1x padder-v text-white">
+                                            Laravel фреймворк <br> нового поколения
+                                        </h1>
+
+                                        <p class="text-white small">
+                                            Мы верим, что процесс разработки только тогда наиболее продуктивен,<br>
+                                            когда работа с фреймворком приносит радость и удовольствие.<br>
+                                            Счастливые разработчики пишут лучший код.
+
+
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
     <div class="bg-white  b-b">
         <div class="container">
             <div class="row v-center m-t-lg m-b-md padder-v">
@@ -120,7 +153,7 @@
               <div class="row">
                   <div class="col-md-9 b-r">
 
-                      @foreach($news->slice(0,5) as $key => $new)
+                      @foreach($posts->slice(0,5) as $key => $new)
                       <article class="m-t-lg m-b-lg">
                           <div class="row">
                               <div class="col-md-5">
@@ -169,7 +202,7 @@
                   </div>
 
                   <div class="col-md-3">
-                      @foreach($news->slice(5,10) as $key => $new)
+                      @foreach($posts->slice(5,10) as $key => $new)
                       <article class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 padder-v">
 
                           <a href="{{route('blog.show',$new->slug)}}">
@@ -219,7 +252,7 @@
                             <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/JetBrains.png" class="img-responsive"></a>
                         </div>
                         <div class="col-sm-3">
-                            <a href="http://laravel.su" target="_blank"><img src="https://new.laravel.su/img/welcome/developer.png"  style="height: 80px" class="img-responsive"></a>
+                            <a href="http://laravel.su" target="_blank"><img src="/img/sponsors/laravelrus.png"  style="height: 80px" class="img-responsive"></a>
                         </div>
 
             </div>
