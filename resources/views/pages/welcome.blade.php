@@ -6,8 +6,41 @@
 
 @section('content')
 
+<style>
 
 
+    .github_screenshot {
+        position: absolute;
+        right: -20%;
+        bottom: -11.5%;
+    }
+
+
+    @media (min-width: 1800px) {
+        .github_screenshot {
+            right: -15%;
+        }
+    }
+
+
+    .github {
+        height: 700px;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    pre[class*=language-] {
+        background: initial;
+        border: none;
+    }
+
+
+
+    </style>
+
+
+
+    {{--
     <section class="container-fluid hidden-xs">
         <div class="row">
             <div style="background: url('/img/hero10.jpg') center center/cover;">
@@ -30,236 +63,106 @@
             </div>
         </div>
     </section>
+    --}}
 
 
 
 
 
+<section id="about" class="bg-white-only">
+    <!--Container-->
+    <div class="container">
 
 
-    <div class="bg-white b-b">
-        <section class="bg-white  box-shadow-lg">
-            <div class="container">
-                <div class="row  m-t-xxl m-b-xxl v-center">
-                    <div class="col-md-7 col-sm-12 col-xs-12 display-table sm-height-auto">
-                        <div class="row">
-                            <!-- section title -->
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <h1 class="font-thin m-t-n l-h-1x padder-v text-black">
-                                    Laravel
-                                    <span class="main-typed-element text-primary">{{trans('welcome.title')}}}}</span>
-                                </h1>
-                                <p class="text-muted m-b-lg">
-                                    {{trans('welcome.descriptions')}}
-                                </p>
-                            </div>
-                            <!-- end section title -->
-                        </div>
-                        <!-- feature box -->
-                        <div class="row two-column no-margin m-t-md">
-                            <div class="col-md-6 col-sm-6 col-xs-12 padder-v">
-                                <div class="col-md-3 col-xs-12 text-center  m-b-md">
-                                    <p class="h3 inline b b-dark r-3x wrapper-sm">
-                                        <i class=" w-1x icon-cloud-download text-primary"></i>
-                                    </p>
-                                </div>
-                                <div class="col-md-8 col-xs-12 ">
-                                    <p class="h4 text-black font-thin">{{trans('welcome.promo.list_1.title')}}</p>
-                                    <div class="m-t-sm">
-                                        <p class="small">{{trans('welcome.promo.list_1.descriptions')}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 padder-v">
-                                <div class="col-md-3 col-xs-12 text-center m-b-md">
-                                    <p class="h3 inline b b-dark r-3x wrapper-sm">
-                                        <i class=" w-1x icon-rocket text-primary"></i>
-                                    </p>
-                                </div>
-                                <div class="col-md-8 col-xs-12">
-                                    <p class="h4 text-black font-thin">{{trans('welcome.promo.list_2.title')}}</p>
-                                    <div class="m-t-sm">
-                                        <p class="small">{{trans('welcome.promo.list_2.descriptions')}}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 padder-v">
-                                <div class="col-md-3 col-xs-12 text-center m-b-md">
-                                    <p class="h3 inline b b-dark r-3x wrapper-sm">
-                                        <i class=" w-1x icon-screen-desktop  text-primary"></i>
-                                    </p>
-                                </div>
-                                <div class="col-md-8 col-xs-12 ">
-                                    <p class="h4 text-black font-thin">{{trans('welcome.promo.list_3.title')}}</p>
-                                    <div class="m-t-sm">
-                                        <p class="small">{{trans('welcome.promo.list_3.descriptions')}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6 col-xs-12 padder-v">
-                                <div class="col-md-3 col-xs-12 text-center m-b-md">
-                                    <p class="h3 inline b b-dark r-3x wrapper-sm">
-                                        <i class=" w-1x icon-support  text-primary"></i>
-                                    </p>
-                                </div>
-                                <div class="col-md-8 col-xs-12 ">
-                                    <p class="h4 text-black font-thin">{{trans('welcome.promo.list_4.title')}}</p>
-                                    <div class="m-t-sm">
-                                        <p class="small">{{trans('welcome.promo.list_4.descriptions')}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end feature box -->
-                    </div>
-                    <div class="col-md-5 col-sm-5 hidden-xs">
-                        <img class="img-responsive" src="/img/cms/7.png" alt="">
-                    </div>
+
+
+        <div class="m-t-xxl m-b-xl">
+            <h5 class="text-light">
+               For Laravel Framework
+            </h5>
+            <div class="row v-center">
+                <div class="col-sm-5 col-md-4">
+                    <h1 class="m-t-xs text-dark font-thin">
+                        Простая и гибкая<br>
+                        панель управления
+                    </h1>
                 </div>
-            </div>
-        </section>
-    </div>
-
-
-
-
-
-
-    <div id="features" class="bg-white-only box-shadow">
-
-        <div class="container">
-
-            <div class="row m-t-md m-b-md">
-                <div class="w-xxl center">
-                    <div class="page-header text-center">
-                        <h2 class="font-thin text-black">Ценности проекта</h2>
+                <div class="col-sm-7 col-md-7 no-padding xs-p-l-15 xs-p-r-15">
+                    <div class="font-thin">
+                        <p>
+                            Our beautifully-designed UI Framework come with hundreds of customizable features. <br>
+                            Every Layout is just a starting point—you can style it to look any way you want.
+                        </p>
+                        <p class="small col-md-7 no-padder">
+                            5 layouts with 2 sublayouts each supporting 7 themes.
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div class="v-center">
-                <article class="col-md-4">
-                    <figure class="text-center padder-v">
-                        <p class="text-primary"> Идеальный для дизайнеров</p>
-                        <figcaption class="w-lg center-block">
-                            <small>
-                                Мы формируем в особых экономических зонах новые территории экономического развития и социального
-                                роста для последующего масштабирования в рамках всей страны.
-                            </small>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-md-4">
-                    <figure class="text-center padder-v">
-                        <p class="text-primary"> Идеальный для дизайнеров</p>
-                        <figcaption class="w-lg center-block">
-                            <small>
-                                Мы формируем в особых экономических зонах новые территории экономического развития и социального
-                                роста для последующего масштабирования в рамках всей страны.
-                            </small>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article class="col-md-4">
-                    <figure class="text-center padder-v">
-                        <p class="text-primary"> Идеальный для дизайнеров</p>
-                        <figcaption class="w-lg center-block">
-                            <small>
-                                Мы формируем в особых экономических зонах новые территории экономического развития и социального
-                                роста для последующего масштабирования в рамках всей страны.
-                            </small>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div>
-
-            <div class="row m-t-xl m-b-xxl">
-                <div class="col-sm-6 fadeInLeft animated" data-ride="animated" data-animation="fadeInLeft" data-delay="300">
-                    <div class="m-t-xxl">
-                        <div class="m-b">
-                            <a href="" class="pull-left thumb-sm avatar"><img src="https://pp.userapi.com/c840533/v840533409/492ec/Wif2-p_9zQc.jpg" alt="..."></a>
-                            <div class="m-l-sm inline">
-                                <div class="pos-rlt wrapper b b-light r r-2x">
-                                    <span class="arrow left pull-up"></span>
-                                    <p class="m-b-none">Привет, какая админка для Laravel лучшая?</p>
-                                </div>
-                                <small class="text-muted"><i class="fa fa-ok text-success"></i> 1 час назад</small>
-                            </div>
-                        </div>
-                        <div class="m-b text-right">
-                            <a href="" class="pull-right thumb-sm avatar"><img src="https://pp.userapi.com/c840533/v840533409/492ec/Wif2-p_9zQc.jpg" class="img-circle" alt="..."></a>
-                            <div class="m-r-sm inline text-left">
-                                <div class="pos-rlt wrapper bg-primary r r-2x">
-                                    <span class="arrow right pull-up arrow-primary"></span>
-                                    <p class="m-b-none">Привет, попробуй ORCHID</p>
-                                </div>
-                                <small class="text-muted">31 минуту назад</small>
-                            </div>
-                        </div>
-                        <div class="m-b">
-                            <a href="" class="pull-left thumb-sm avatar"><img src="https://pp.userapi.com/c840533/v840533409/492ec/Wif2-p_9zQc.jpg" alt="..."></a>
-                            <div class="m-l-sm inline">
-                                <div class="pos-rlt wrapper b b-light r r-2x">
-                                    <span class="arrow left pull-up"></span>
-                                    <p class="m-b-none">Вау, это здорово. Я ни ктогда не был таким продуктивным</p>
-                                </div>
-                                <small class="text-muted"><i class="fa fa-ok text-success"></i> 2 минуты назад</small>
-                            </div>
-                        </div>
-                        <div class="m-b text-right">
-                            <a href="" class="pull-right thumb-sm avatar"><img src="https://pp.userapi.com/c840533/v840533409/492ec/Wif2-p_9zQc.jpg" class="img-circle" alt="..."></a>
-                            <div class="m-r-sm inline text-left">
-                                <div class="pos-rlt wrapper bg-primary r r-2x">
-                                    <span class="arrow right pull-up arrow-primary"></span>
-                                    <p class="m-b-none">Не могу дождаться, чтобы увидеть результат:)</p>
-                                </div>
-                                <small class="text-muted">1 минуту назад</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 wrapper-xl">
-                    <p class="h3 l-h-1x text-dark  font-thin m-b-lg">Экономьте свое время с лучшими инструментами</p>
-
-                    <ul class="list-unstyled  m-t-xl">
-                        <li>
-                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
-                        </li>
-                        <li>
-                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
-                        </li>
-                        <li>
-                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
-                        </li>
-
-                    </ul>
                 </div>
             </div>
         </div>
+
+
+
+        <!--Row-->
+        <div class="row m-t-xl m-b-md">
+            <div class="col-md-4 col-sm-4">
+                <div class="m-t-md m-b-md wrapper-lg  b">
+                    <div class="ico column text-primary"><i class="icon-rocket"></i></div>
+                    <div class="desc">
+                        <h4 class="font-thin">Простота установки</h4>
+                        <p>
+                            Установка пакета с помощником композитора и шаг за шагом делает процесс простым и понятным
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="m-t-md m-b-md wrapper-lg  b">
+                    <div class="ico column text-primary"><i class="icon-layers"></i></div>
+                    <div class="desc">
+                        <h4 class="font-thin">Расширяемый</h4>
+                        <p>
+                            Вы можете установить свои любимые пакеты или написать свой собственный набор функций в приложениях
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="m-t-md m-b-md wrapper-lg  b">
+                    <div class="ico column text-primary"><i class="icon-server"></i></div>
+                    <div class="desc">
+                        <h4 class="font-thin">Локализация</h4>
+                        <p>
+                            Вы можете использовать панель на вашем родном языке или создавать приложения с поддержкой
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End row-->
+
     </div>
+    <!--End container-->
+</section>
+
+
+<div class="bg-white">
+
+    <section  class="features b-t">
+        <!--Container-->
+        <div class="container">
+
+            <div class="row m-t-xxl m-b-xxl">
+                <img src="https://user-images.githubusercontent.com/5102591/32980416-22ad653e-cc77-11e7-9fb9-4747b241270f.png"
+                class="img-responsive center">
+            </div>
+        </div>
+    </section>
+</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="bg-white">
+<div class="bg-white hidden">
 
         <section  class="features b-t">
             <!--Container-->
@@ -278,7 +181,7 @@ height: 600px;
                     <div class="col-xs-12 col-md-6 col-md-offset-1 col-sm-8 col-sm-offset-1  m-b-xxl">
 
                         <div class="col-md-12">
-                            <h1 class="h2 text-black font-thin">Часто задаваемые вопросы</h1>
+                            <p class="h3 l-h-1x text-dark  font-thin m-b-lg">Экономьте свое время с лучшими инструментами</p>
                         </div>
                         <div class="col-md-12  m-t-md ">
                             <div class="block-faq m-b-lg">
@@ -288,22 +191,28 @@ height: 600px;
                                     предоставляя только хороший набор инструментов, который будет востребован практически в каждом проекте.
                                 </p>
                             </div>
-                            <div class="block-faq  m-b-lg">
-                                <h4 class="m-b-md text-black">Нужно ли использовать встроенные записи?</h4>
-                                <p style="line-height: 25px;">
-                                    Мы предполагаем, что большинство ваших записей будут сохранены в json, что позволит вам сделать перевод и универсальную структуру,
-                                    но если есть жёсткие условия то, вы можете использовать классический CRUD самостоятельно , ORCHID не остановит вас.
-                                </p>
-                            </div>
-                            <div class="block-faq  m-b-lg">
-                                <h4 class="m-b-md text-black">Существуют дополнительные системные требования?</h4>
-                                <p style="line-height: 25px;">Да, вам нужно расширение PHP для обработки изображений и поддержка json-типа выбранной базы данных.</p>
-                            </div>
 
                             <div class="block-faq  m-b-lg">
                                 <h4 class="m-b-md text-black">Сколько это стоит?</h4>
                                 <p style="line-height: 25px;">ORCHID бесплатна, но мы ценим пожертвования.</p>
                             </div>
+
+                            <ul class="list-unstyled  m-t-xl">
+                                <li>
+                                    <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                                    <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                                </li>
+                                <li>
+                                    <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                                    <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                                </li>
+                                <li>
+                                    <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                                    <p class="clear m-b-lg"><strong>Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                                </li>
+
+                            </ul>
+
                         </div>
 
 
@@ -316,25 +225,138 @@ height: 600px;
     </div>
 
 
-    <div class="bg-white b-t">
-        <div class="container">
-            <div class="row v-center m-b-md">
-                <div class="col-md-7">
-                    <div class="padder-v">
-                        <h3 class="font-thin text-black">Загрузить ORCHID Platform</h3>
-                        <div class="w-xxl b-b"></div>
-                    </div>
-                    <p class="padder-v small">Lasting change, stakeholders development Angelina Jolie world problem solving progressive. Courageous; social entrepreneurship change; accelerate resolve pursue these aspirations asylum.</p>
-                </div>
 
-                <div class="col-md-3 col-md-offset-2">
-                    <a href="#" class="btn btn-lg btn-black btn-block center"><span class="icon-cloud-download m-r-xs"></span>Download GitHub</a>
-                </div>
 
+
+<div class="bg-dark b-t">
+    <div class="container">
+        <div class="row m-t-xxl m-b-xxl v-center">
+            <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h3 class="text-white font-thin">Simple CRUD Systems</h3>
+                        <p class="text-muted m-b-lg">
+                            Build complex dialogs with an ease
+                        </p></div>
+                </div>
+                <div class="row">
+
+                    <ul class="list-unstyled">
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+                        <li>
+                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
+                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-md-6 hidden-xs">
+                    <pre class="bg-black">
+                        <code class="language-php">
+class Blog extends Many
+{
+    /**
+     * @var string
+     */
+    public $name = 'Blog post';
+
+    /**
+     * Grid View for post type.
+     */
+    public function grid() : array
+    {
+        return [];
+    }
+
+    /**
+     * @return array
+     */
+    public function fields() : array
+    {
+        return [];
+    }
+
+}</code>
+                    </pre>
             </div>
         </div>
     </div>
+</div>
 
+
+
+<div class="bg-white b-t">
+    <div class="container">
+        <div class="row m-t-xxl m-b-lg">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <p class="h2 text-black font-thin">Спонсоры</p>
+                <p class="text-muted">
+                    Компании, которые нас поддерживают
+                </p>
+            </div>
+        </div>
+
+        <div class="row m-b-xxl v-center">
+            <div class="col-sm-3">
+                <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/do.png" class="img-responsive"></a>
+            </div>
+            <div class="col-sm-3">
+                <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/JetBrains.png" class="img-responsive"></a>
+            </div>
+            <div class="col-sm-3">
+                <a href="http://laravel.su" target="_blank"><img src="/img/sponsors/laravelrus.png" style="height: 80px" class="img-responsive"></a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<section class="github pos-rlt no-overflow b-t">
+    <div class="container h-full v-center">
+        <div class="row w-full m-t-xxl m-b-xxl">
+            <div class="col-lg-5">
+                <div class="">
+                    <img src="/img/github_logo.png" alt="" class="m-b-lg">
+                    <p class="h3 l-h-1x text-dark font-thin m-b-lg">Открытый исходный код</p>
+                    <p>
+                        Всё, что мы делаем, на 100% состоит из открытого и свободного кода, совместно разрабатываемого людьми со всего мира.
+                    </p>
+
+                    <p class="padder-v">
+                        <a href="#" class="btn btn-lg btn-primary btn-rounded">
+                            Посмотреть исходники
+                            <i class="icon-book-open m-l-xs" aria-hidden="true"></i>
+                        </a>
+                    </p>
+
+                    <p class="text-muted m-t">
+                        Я призываю всех внести свой вклад в проект ORCHID.<br>
+                        Вы можете найти последнюю версию кода на GitHub
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="/img/github_browser.png" alt="" class="github_screenshot">
+</section>
 
 
 

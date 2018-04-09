@@ -3,6 +3,7 @@
 
 @section('content')
 
+    {{--
     <div class="bg-black-opacity">
         <section class="container-fluid hidden-xs">
             <div class="row">
@@ -35,13 +36,13 @@
             </div>
         </section>
     </div>
+    --}}
 
-
-    <section id="about" class="bg-white-only b-t">
+    <section id="about" class="bg-white-only">
         <!--Container-->
-        <div class="container m-t-xl">
+        <div class="container">
             <!--Row-->
-            <div class="row">
+            <div class="row m-t-xl">
                 <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 m-t-xl">
                     <div class="block-content text-center">
                         <h1 class="title m-b-md text-dark" style="font-weight: 300;">Простая и гибкая<br>

@@ -8,7 +8,7 @@
 
 
 
-
+    {{--
     <div class="bg-black-opacity">
         <section class="container-fluid hidden-xs">
             <div class="row">
@@ -40,7 +40,7 @@
             </div>
         </section>
     </div>
-
+    --}}
 
 
 

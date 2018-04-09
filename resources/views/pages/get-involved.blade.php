@@ -6,6 +6,29 @@
 
     <div class="bg-white b-b">
         <div class="container">
+
+
+
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 m-t-xl">
+                    <div class="block-content text-center">
+                        <h1 class="title m-b-md text-dark font-thin">
+                            Будьте частью чего-то большего
+                        </h1>
+                        <p class="lead">
+                            Всё, что мы делаем, на 100% состоит из открытого и свободного кода, совместно разрабатываемого людьми со всего мира. Даже если вы не программист, вы можете принять участие и помочь нам.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
             <!--feature border box start-->
             <div class="row m-b-xxl m-t-xxl">
 
