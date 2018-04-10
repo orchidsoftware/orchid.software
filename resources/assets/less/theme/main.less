@@ -125,7 +125,7 @@ main, main div{
 
 
   p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 28px;
     margin-bottom: 23px;
     >a{
@@ -206,4 +206,35 @@ main, main div{
   -moz-transform    : translateY(-50%);
   -ms-transform     : translateY(-50%);
   -o-transform      : translateY(-50%);
+}
+
+
+
+
+.github_screenshot {
+  position: absolute;
+  right: -20%;
+  bottom: -11.5%;
+}
+
+
+@media (min-width: 1800px) {
+  .github_screenshot {
+    right: -15%;
+  }
+}
+
+
+.github {
+  height: 700px;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+pre[class*=language-] {
+  background: initial;
+  border: none;
+  font-family: @font-family-sans-serif;
+  letter-spacing: 0.05em;
+  .bg-dark;
 }

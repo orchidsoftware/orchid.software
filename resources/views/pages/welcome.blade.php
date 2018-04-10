@@ -6,68 +6,6 @@
 
 @section('content')
 
-<style>
-
-
-    .github_screenshot {
-        position: absolute;
-        right: -20%;
-        bottom: -11.5%;
-    }
-
-
-    @media (min-width: 1800px) {
-        .github_screenshot {
-            right: -15%;
-        }
-    }
-
-
-    .github {
-        height: 700px;
-        position: relative !important;
-        overflow: hidden !important;
-    }
-
-    pre[class*=language-] {
-        background: initial;
-        border: none;
-    }
-
-
-
-    </style>
-
-
-
-    {{--
-    <section class="container-fluid hidden-xs">
-        <div class="row">
-            <div style="background: url('/img/hero10.jpg') center center/cover;">
-                <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
-                    <div class="row  m-t-xxl m-b-xxl">
-                        <div class="container m-t-md top-desc-block">
-                            <div class="col-xs-12">
-                                <div class="page-hero-content">
-                                    <h1 class="font-thin m-t-n l-h-1x padder-v text-white">
-                                        Laravel
-                                        <span class="main-typed-element text-primary">{{trans('welcome.title')}}}}</span>
-                                    </h1>
-                                    <p class="text-white">
-                                        ORCHID - платформа с открытым исходным кодом для быстрой разработки <br>корпоративных приложений и систем управления контентом с помощью Laravel
-                                    </p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    --}}
-
-
-
-
 
 <section id="about" class="bg-white-only">
     <!--Container-->
@@ -81,13 +19,13 @@
                For Laravel Framework
             </h5>
             <div class="row v-center">
-                <div class="col-sm-5 col-md-4">
+                <div class="col-md-5">
                     <h1 class="m-t-xs text-dark font-thin">
                         Простая и гибкая<br>
                         панель управления
                     </h1>
                 </div>
-                <div class="col-sm-7 col-md-7 no-padding xs-p-l-15 xs-p-r-15">
+                <div class="col-md-7 no-padder">
                     <div class="font-thin">
                         <p>
                             Our beautifully-designed UI Framework come with hundreds of customizable features. <br>
@@ -147,15 +85,83 @@
 
 
 <div class="bg-white">
-
     <section  class="features b-t">
         <!--Container-->
         <div class="container">
 
-            <div class="row m-t-xxl m-b-xxl">
-                <img src="https://user-images.githubusercontent.com/5102591/32980416-22ad653e-cc77-11e7-9fb9-4747b241270f.png"
-                class="img-responsive center">
+
+
+            <!--feature border box start-->
+            <div class="row m-b-xxl m-t-xxl">
+
+                <div class="m-b-md">
+                    <!--title-->
+                    <div class="text-center center">
+                        <h3 class="text-uppercase text-black font-thin">We are massive</h3>
+                        <div class="m-t-md">
+                            <p class="w-xxl center text-muted">
+                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus. Nam libero tempore
+                            </p>
+                        </div>
+                    </div>
+                    <!--title-->
+                </div>
+
+                <div class="col-md-2">
+                    <div class="padder-v text-right m-b-xl">
+                        <div class="text-muted">
+                            <i class="fa fa-user fa-3x"></i>
+                        </div>
+                        <div class="text-uppercase">
+                            <h4 class="text-black font-thin">Bootstrap</h4>
+                        </div>
+                        <div class="text-muted font-thin">
+                            Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.
+                        </div>
+                    </div>
+                    <div class="padder-v text-right">
+                        <div class="text-muted">
+                            <i class="fa fa-user fa-3x"></i>
+                        </div>
+                        <div class="text-uppercase">
+                            <h4 class="text-black font-thin">design</h4>
+                        </div>
+                        <div class="text-muted font-thin">
+                            Fringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 text-center">
+                    <div class="center   m-b-xxs">
+                        <img src="https://user-images.githubusercontent.com/5102591/32980416-22ad653e-cc77-11e7-9fb9-4747b241270f.png" alt="" class="img-responsive">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="padder-v text-left m-b-xl">
+                        <div class="text-muted">
+                            <i class="fa fa-user fa-3x"></i>
+                        </div>
+                        <div class="text-uppercase">
+                            <h4 class="text-black font-thin">Clean Code</h4>
+                        </div>
+                        <div class="text-muted font-thin">
+                            Ringilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.
+                        </div>
+                    </div>
+                    <div class="padder-v text-left ">
+                        <div class="text-muted">
+                            <i class="fa fa-user fa-3x"></i>
+                        </div>
+                        <div class="text-uppercase">
+                            <h4 class="text-black font-thin">Multipurpose</h4>
+                        </div>
+                        <div class="text-muted font-thin">
+                            Singilla augue at maximus vestibulum. Nam pulvinar vitae neque et porttitor. Praesent sed nisi eleifend.
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!--feature border box end-->
         </div>
     </section>
 </div>
@@ -304,30 +310,49 @@ class Blog extends Many
 
 <div class="bg-white b-t">
     <div class="container">
-        <div class="row m-t-xxl m-b-lg">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <p class="h2 text-black font-thin">Спонсоры</p>
-                <p class="text-muted">
-                    Компании, которые нас поддерживают
-                </p>
+
+        <div class="col-md-7">
+
+            <div class="row m-t-xxl m-b-lg">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <p class="h2 text-black font-thin">Спонсоры</p>
+                    <p class="text-muted">
+                        Компании, которые нас поддерживают
+                    </p>
+                </div>
             </div>
+
+            <div class="row m-b-xxl v-center">
+                <div class="col-sm-6">
+                    <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/do.png" class="img-responsive"></a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/JetBrains.png" class="img-responsive"></a>
+                </div>
+                <div class="col-sm-6">
+                    <a href="http://laravel.su" target="_blank"><img src="/img/sponsors/laravelrus.png" style="height: 80px" class="img-responsive"></a>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="row m-b-xxl v-center">
-            <div class="col-sm-3">
-                <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/do.png" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-3">
-                <a href="https://m.do.co/c/16c90d96a00c" target="_blank"><img src="/img/sponsors/JetBrains.png" class="img-responsive"></a>
-            </div>
-            <div class="col-sm-3">
-                <a href="http://laravel.su" target="_blank"><img src="/img/sponsors/laravelrus.png" style="height: 80px" class="img-responsive"></a>
-            </div>
-
+        <div class="col-md-5">
+            <div class="row  m-t-xxl m-b-lg">
+                    <div class="col-sm-12 m-b-xl">
+                        <h4 class="font-thin l-h-2x  m-b-lg">
+                            <a href="https://twitter.com/themsaid/status/892387647733342208" target="_blank">
+                                <em>“If you are looking for CMS package for your laravel project this package looks nice to me :)”</em>
+                            </a>
+                        </h4>
+                        <p class="text-muted text-right">- <a href="https://twitter.com/themsaid">Mohamed Said, First officer of Laravel</a></p>
+                    </div>
+                </div>
         </div>
 
     </div>
 </div>
+
 
 <section class="github pos-rlt no-overflow b-t">
     <div class="container h-full v-center">

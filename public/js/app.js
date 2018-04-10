@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/";
+/******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -14487,7 +14487,7 @@ return jQuery;
 
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'keyword': /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
-	'number': /\b(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+|NaN|Infinity)\b|(?:\b\d+\.?\d*|\B\.\d+)(?:[Ee][+-]?\d+)?/,
+	'number': /\b-?(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+|\d*\.?\d+(?:[Ee][+-]?\d+)?|NaN|Infinity)\b/,
 	// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
 	'function': /[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*\()/i,
 	'operator': /-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/
@@ -14558,165 +14558,114 @@ Prism.languages.js = Prism.languages.javascript;
  * Adds the following new token classes:
  * 		constant, delimiter, variable, function, package
  */
-(function (Prism) {
-	Prism.languages.php = Prism.languages.extend('clike', {
-		'keyword': /\b(?:and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i,
-		'constant': /\b[A-Z0-9_]{2,}\b/,
-		'comment': {
-			pattern: /(^|[^\\])(?:\/\*[\s\S]*?\*\/|\/\/.*)/,
-			lookbehind: true
-		}
-	});
 
-	Prism.languages.insertBefore('php', 'string', {
-		'shell-comment': {
-			pattern: /(^|[^\\])#.*/,
-			lookbehind: true,
-			alias: 'comment'
-		}
-	});
+Prism.languages.php = Prism.languages.extend('clike', {
+	'string': {
+		pattern: /(["'])(?:\\[\s\S]|(?!\1)[^\\])*\1/,
+		greedy: true
+	},
+	'keyword': /\b(?:and|or|xor|array|as|break|case|cfunction|class|const|continue|declare|default|die|do|else|elseif|enddeclare|endfor|endforeach|endif|endswitch|endwhile|extends|for|foreach|function|include|include_once|global|if|new|return|static|switch|use|require|require_once|var|while|abstract|interface|public|implements|private|protected|parent|throw|null|echo|print|trait|namespace|final|yield|goto|instanceof|finally|try|catch)\b/i,
+	'constant': /\b[A-Z0-9_]{2,}\b/,
+	'comment': {
+		pattern: /(^|[^\\])(?:\/\*[\s\S]*?\*\/|\/\/.*)/,
+		lookbehind: true
+	}
+});
 
-	Prism.languages.insertBefore('php', 'keyword', {
-		'delimiter': {
-			pattern: /\?>|<\?(?:php|=)?/i,
-			alias: 'important'
-		},
-		'variable': /\$+(?:\w+\b|(?={))/i,
-		'package': {
-			pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
-			lookbehind: true,
-			inside: {
-				punctuation: /\\/
-			}
-		}
-	});
+// Shell-like comments are matched after strings, because they are less
+// common than strings containing hashes...
+Prism.languages.insertBefore('php', 'class-name', {
+	'shell-comment': {
+		pattern: /(^|[^\\])#.*/,
+		lookbehind: true,
+		alias: 'comment'
+	}
+});
 
-	// Must be defined after the function pattern
-	Prism.languages.insertBefore('php', 'operator', {
-		'property': {
-			pattern: /(->)[\w]+/,
-			lookbehind: true
-		}
-	});
-
-	Prism.languages.insertBefore('php', 'string', {
-		'nowdoc-string': {
-			pattern: /<<<'([^']+)'(?:\r\n?|\n)(?:.*(?:\r\n?|\n))*?\1;/,
-			greedy: true,
-			alias: 'string',
-			inside: {
-				'delimiter': {
-					pattern: /^<<<'[^']+'|[a-z_]\w*;$/i,
-					alias: 'symbol',
-					inside: {
-						'punctuation': /^<<<'?|[';]$/
-					}
-				}
-			}
-		},
-		'heredoc-string': {
-			pattern: /<<<(?:"([^"]+)"(?:\r\n?|\n)(?:.*(?:\r\n?|\n))*?\1;|([a-z_]\w*)(?:\r\n?|\n)(?:.*(?:\r\n?|\n))*?\2;)/i,
-			greedy: true,
-			alias: 'string',
-			inside: {
-				'delimiter': {
-					pattern: /^<<<(?:"[^"]+"|[a-z_]\w*)|[a-z_]\w*;$/i,
-					alias: 'symbol',
-					inside: {
-						'punctuation': /^<<<"?|[";]$/
-					}
-				},
-				'interpolation': null // See below
-			}
-		},
-		'single-quoted-string': {
-			pattern: /'(?:\\[\s\S]|[^\\'])*'/,
-			greedy: true,
-			alias: 'string'
-		},
-		'double-quoted-string': {
-			pattern: /"(?:\\[\s\S]|[^\\"])*"/,
-			greedy: true,
-			alias: 'string',
-			inside: {
-				'interpolation': null // See below
-			}
-		}
-	});
-	// The different types of PHP strings "replace" the C-like standard string
-	delete Prism.languages.php['string'];
-
-	var string_interpolation = {
-		pattern: /{\$(?:{(?:{[^{}]+}|[^{}]+)}|[^{}])+}|(^|[^\\{])\$+(?:\w+(?:\[.+?]|->\w+)*)/,
+Prism.languages.insertBefore('php', 'keyword', {
+	'delimiter': {
+		pattern: /\?>|<\?(?:php|=)?/i,
+		alias: 'important'
+	},
+	'variable': /\$\w+\b/i,
+	'package': {
+		pattern: /(\\|namespace\s+|use\s+)[\w\\]+/,
 		lookbehind: true,
 		inside: {
-			rest: Prism.languages.php
+			punctuation: /\\/
 		}
-	};
-	Prism.languages.php['heredoc-string'].inside['interpolation'] = string_interpolation;
-	Prism.languages.php['double-quoted-string'].inside['interpolation'] = string_interpolation;
+	}
+});
 
-	// Add HTML support if the markup language exists
-	if (Prism.languages.markup) {
+// Must be defined after the function pattern
+Prism.languages.insertBefore('php', 'operator', {
+	'property': {
+		pattern: /(->)[\w]+/,
+		lookbehind: true
+	}
+});
 
-		// Tokenize all inline PHP blocks that are wrapped in <?php ?>
-		// This allows for easy PHP + markup highlighting
-		Prism.hooks.add('before-highlight', function (env) {
-			if (env.language !== 'php' || !/(?:<\?php|<\?)/ig.test(env.code)) {
-				return;
-			}
+// Add HTML support if the markup language exists
+if (Prism.languages.markup) {
 
-			env.tokenStack = [];
+	// Tokenize all inline PHP blocks that are wrapped in <?php ?>
+	// This allows for easy PHP + markup highlighting
+	Prism.hooks.add('before-highlight', function(env) {
+		if (env.language !== 'php' || !/(?:<\?php|<\?)/ig.test(env.code)) {
+			return;
+		}
 
-			env.backupCode = env.code;
-			env.code = env.code.replace(/(?:<\?php|<\?)[\s\S]*?(?:\?>|$)/ig, function (match) {
-				var i = env.tokenStack.length;
-				// Check for existing strings
-				while (env.backupCode.indexOf('___PHP' + i + '___') !== -1)
-					++i;
+		env.tokenStack = [];
 
-				// Create a sparse array
-				env.tokenStack[i] = match;
+		env.backupCode = env.code;
+		env.code = env.code.replace(/(?:<\?php|<\?)[\s\S]*?(?:\?>|$)/ig, function(match) {
+			var i = env.tokenStack.length;
+			// Check for existing strings
+			while (env.backupCode.indexOf('___PHP' + i + '___') !== -1)
+				++i;
 
-				return '___PHP' + i + '___';
-			});
+			// Create a sparse array
+			env.tokenStack[i] = match;
 
-			// Switch the grammar to markup
-			env.grammar = Prism.languages.markup;
+			return '___PHP' + i + '___';
 		});
 
-		// Restore env.code for other plugins (e.g. line-numbers)
-		Prism.hooks.add('before-insert', function (env) {
-			if (env.language === 'php' && env.backupCode) {
-				env.code = env.backupCode;
-				delete env.backupCode;
-			}
-		});
+		// Switch the grammar to markup
+		env.grammar = Prism.languages.markup;
+	});
 
-		// Re-insert the tokens after highlighting
-		Prism.hooks.add('after-highlight', function (env) {
-			if (env.language !== 'php' || !env.tokenStack) {
-				return;
-			}
+	// Restore env.code for other plugins (e.g. line-numbers)
+	Prism.hooks.add('before-insert', function(env) {
+		if (env.language === 'php' && env.backupCode) {
+			env.code = env.backupCode;
+			delete env.backupCode;
+		}
+	});
 
-			// Switch the grammar back
-			env.grammar = Prism.languages.php;
+	// Re-insert the tokens after highlighting
+	Prism.hooks.add('after-highlight', function(env) {
+		if (env.language !== 'php' || !env.tokenStack) {
+			return;
+		}
 
-			for (var i = 0, keys = Object.keys(env.tokenStack); i < keys.length; ++i) {
-				var k = keys[i];
-				var t = env.tokenStack[k];
+		// Switch the grammar back
+		env.grammar = Prism.languages.php;
 
-				// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
-				env.highlightedCode = env.highlightedCode.replace('___PHP' + k + '___',
+		for (var i = 0, keys = Object.keys(env.tokenStack); i < keys.length; ++i) {
+			var k = keys[i];
+			var t = env.tokenStack[k];
+
+			// The replace prevents $$, $&, $`, $', $n, $nn from being interpreted as special patterns
+			env.highlightedCode = env.highlightedCode.replace('___PHP' + k + '___',
 					"<span class=\"token php language-php\">" +
 					Prism.highlight(t, env.grammar, 'php').replace(/\$/g, '$$$$') +
 					"</span>");
-			}
+		}
 
-			env.element.innerHTML = env.highlightedCode;
-		});
-	}
-}(Prism));
+		env.element.innerHTML = env.highlightedCode;
+	});
+}
+
 
 /***/ }),
 
@@ -14774,38 +14723,23 @@ var _ = _self.Prism = {
 		},
 
 		// Deep clone a language definition (e.g. to extend it)
-		clone: function (o, visited) {
+		clone: function (o) {
 			var type = _.util.type(o);
-			visited = visited || {};
 
 			switch (type) {
 				case 'Object':
-					if (visited[_.util.objId(o)]) {
-						return visited[_.util.objId(o)];
-					}
 					var clone = {};
-					visited[_.util.objId(o)] = clone;
 
 					for (var key in o) {
 						if (o.hasOwnProperty(key)) {
-							clone[key] = _.util.clone(o[key], visited);
+							clone[key] = _.util.clone(o[key]);
 						}
 					}
 
 					return clone;
 
 				case 'Array':
-					if (visited[_.util.objId(o)]) {
-						return visited[_.util.objId(o)];
-					}
-					var clone = [];
-					visited[_.util.objId(o)] = clone;
-
-					o.forEach(function (v, i) {
-						clone[i] = _.util.clone(v, visited);
-					});
-
-					return clone;
+					return o.map(function(v) { return _.util.clone(v); });
 			}
 
 			return o;
@@ -15002,14 +14936,8 @@ var _ = _self.Prism = {
 	},
 
 	highlight: function (text, grammar, language) {
-		var env = {
-			text: text,
-			grammar: grammar,
-			language: language
-		};
-		env.tokens = _.tokenize(text, grammar);
-		_.hooks.run('after-tokenize', env);
-		return Token.stringify(_.util.encode(env.tokens), language);
+		var tokens = _.tokenize(text, grammar);
+		return Token.stringify(_.util.encode(tokens), language);
 	},
 
 	matchGrammar: function (text, strarr, grammar, index, startPos, oneshot, target) {
@@ -15107,7 +15035,7 @@ var _ = _self.Prism = {
 					}
 
 					if(lookbehind) {
-						lookbehindLength = match[1] ? match[1].length : 0;
+						lookbehindLength = match[1].length;
 					}
 
 					var from = match.index + lookbehindLength,
@@ -15300,8 +15228,7 @@ Prism.languages.markup = {
 	'doctype': /<!DOCTYPE[\s\S]+?>/i,
 	'cdata': /<!\[CDATA\[[\s\S]*?]]>/i,
 	'tag': {
-		pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+))?)*\s*\/?>/i,
-		greedy: true,
+		pattern: /<\/?(?!\d)[^\s>\/=$<]+(?:\s+[^\s>\/=]+(?:=(?:("|')(?:\\[\s\S]|(?!\1)[^\\])*\1|[^\s'">=]+))?)*\s*\/?>/i,
 		inside: {
 			'tag': {
 				pattern: /^<\/?[^\s>\/]+/i,
@@ -15377,7 +15304,7 @@ Prism.languages.css = {
 	'punctuation': /[(){};:]/
 };
 
-Prism.languages.css['atrule'].inside.rest = Prism.languages.css;
+Prism.languages.css['atrule'].inside.rest = Prism.util.clone(Prism.languages.css);
 
 if (Prism.languages.markup) {
 	Prism.languages.insertBefore('markup', 'tag', {
@@ -15438,7 +15365,7 @@ Prism.languages.clike = {
 	'keyword': /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
 	'boolean': /\b(?:true|false)\b/,
 	'function': /[a-z0-9_]+(?=\()/i,
-	'number': /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
+	'number': /\b-?(?:0x[\da-f]+|\d*\.?\d+(?:e[+-]?\d+)?)\b/i,
 	'operator': /--?|\+\+?|!=?=?|<=?|>=?|==?=?|&&?|\|\|?|\?|\*|\/|~|\^|%/,
 	'punctuation': /[{}[\];(),.:]/
 };
@@ -15450,7 +15377,7 @@ Prism.languages.clike = {
 
 Prism.languages.javascript = Prism.languages.extend('clike', {
 	'keyword': /\b(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|var|void|while|with|yield)\b/,
-	'number': /\b(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+|NaN|Infinity)\b|(?:\b\d+\.?\d*|\B\.\d+)(?:[Ee][+-]?\d+)?/,
+	'number': /\b-?(?:0[xX][\dA-Fa-f]+|0[bB][01]+|0[oO][0-7]+|\d*\.?\d+(?:[Ee][+-]?\d+)?|NaN|Infinity)\b/,
 	// Allow for all non-ASCII characters (See http://stackoverflow.com/a/2008444)
 	'function': /[_$a-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\s*\()/i,
 	'operator': /-[-=]?|\+[+=]?|!=?=?|<<?=?|>>?>?=?|=(?:==?|>)?|&[&=]?|\|[|=]?|\*\*?=?|\/=?|~|\^=?|%=?|\?|\.{3}/

@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=cyrillic);/*!
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=cyrillic);@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600&amp;subset=cyrillic);@charset "UTF-8";
+/*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
@@ -1073,8 +1074,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #58666e;
   background-color: #f4f6f7;
@@ -1134,8 +1135,8 @@ img {
   border-radius: 50%;
 }
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 22px;
+  margin-bottom: 22px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -1212,8 +1213,8 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 22px;
+  margin-bottom: 11px;
 }
 h1 small,
 .h1 small,
@@ -1235,8 +1236,8 @@ h5,
 .h5,
 h6,
 .h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 11px;
+  margin-bottom: 11px;
 }
 h4 small,
 .h4 small,
@@ -1254,45 +1255,45 @@ h6 .small,
 }
 h1,
 .h1 {
-  font-size: 36px;
+  font-size: 41px;
 }
 h2,
 .h2 {
-  font-size: 30px;
+  font-size: 34px;
 }
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 28px;
 }
 h4,
 .h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 h5,
 .h5 {
-  font-size: 14px;
+  font-size: 16px;
 }
 h6,
 .h6 {
-  font-size: 12px;
+  font-size: 14px;
 }
 p {
-  margin: 0 0 10px;
+  margin: 0 0 11px;
 }
 .lead {
-  margin-bottom: 20px;
-  font-size: 16px;
+  margin-bottom: 22px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   .lead {
-    font-size: 21px;
+    font-size: 24px;
   }
 }
 small,
 .small {
-  font-size: 85%;
+  font-size: 87%;
 }
 mark,
 .mark {
@@ -1398,14 +1399,14 @@ a.bg-danger:focus {
   background-color: #e4b9b9;
 }
 .page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
+  padding-bottom: 10px;
+  margin: 44px 0 22px;
   border-bottom: 1px solid #eeeeee;
 }
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
 }
 ul ul,
 ol ul,
@@ -1429,7 +1430,7 @@ ol ol {
 }
 dl {
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 dt,
 dd {
@@ -1465,9 +1466,9 @@ abbr[data-original-title] {
   text-transform: uppercase;
 }
 blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  font-size: 17.5px;
+  padding: 11px 22px;
+  margin: 0 0 22px;
+  font-size: 20px;
   border-left: 5px solid #eeeeee;
 }
 blockquote p:last-child,
@@ -1513,7 +1514,7 @@ blockquote.pull-right .small:after {
   content: '\A0   \2014';
 }
 address {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   font-style: normal;
   line-height: 1.42857143;
 }
@@ -1548,9 +1549,9 @@ kbd kbd {
 }
 pre {
   display: block;
-  padding: 9.5px;
-  margin: 0 0 10px;
-  font-size: 13px;
+  padding: 10.5px;
+  margin: 0 0 11px;
+  font-size: 15px;
   line-height: 1.42857143;
   word-break: break-all;
   word-wrap: break-word;
@@ -2253,7 +2254,7 @@ th {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -2436,7 +2437,7 @@ table th[class*="col-"] {
 @media screen and (max-width: 767px) {
   .table-responsive {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 16.5px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #eef0f3;
@@ -2488,8 +2489,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
-  font-size: 21px;
+  margin-bottom: 22px;
+  font-size: 24px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -2531,16 +2532,16 @@ input[type="checkbox"]:focus {
 output {
   display: block;
   padding-top: 7px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #555555;
 }
 .form-control {
   display: block;
   width: 100%;
-  height: 34px;
+  height: 36px;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #555555;
   background-color: #fff;
@@ -2612,7 +2613,7 @@ input[type="search"] {
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
-    line-height: 34px;
+    line-height: 36px;
   }
   input[type="date"].input-sm,
   input[type="time"].input-sm,
@@ -2622,7 +2623,7 @@ input[type="search"] {
   .input-group-sm input[type="time"],
   .input-group-sm input[type="datetime-local"],
   .input-group-sm input[type="month"] {
-    line-height: 30px;
+    line-height: 33px;
   }
   input[type="date"].input-lg,
   input[type="time"].input-lg,
@@ -2632,7 +2633,7 @@ input[type="search"] {
   .input-group-lg input[type="time"],
   .input-group-lg input[type="datetime-local"],
   .input-group-lg input[type="month"] {
-    line-height: 46px;
+    line-height: 49px;
   }
 }
 .form-group {
@@ -2647,7 +2648,7 @@ input[type="search"] {
 }
 .radio label,
 .checkbox label {
-  min-height: 20px;
+  min-height: 22px;
   padding-left: 20px;
   margin-bottom: 0;
   font-weight: normal;
@@ -2704,7 +2705,7 @@ fieldset[disabled] .checkbox label {
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
-  min-height: 34px;
+  min-height: 38px;
 }
 .form-control-static.input-lg,
 .form-control-static.input-sm {
@@ -2712,84 +2713,84 @@ fieldset[disabled] .checkbox label {
   padding-right: 0;
 }
 .input-sm {
-  height: 30px;
+  height: 33px;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 select.input-sm {
-  height: 30px;
-  line-height: 30px;
+  height: 33px;
+  line-height: 33px;
 }
 textarea.input-sm,
 select[multiple].input-sm {
   height: auto;
 }
 .form-group-sm .form-control {
-  height: 30px;
+  height: 33px;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 .form-group-sm select.form-control {
-  height: 30px;
-  line-height: 30px;
+  height: 33px;
+  line-height: 33px;
 }
 .form-group-sm textarea.form-control,
 .form-group-sm select[multiple].form-control {
   height: auto;
 }
 .form-group-sm .form-control-static {
-  height: 30px;
-  min-height: 32px;
+  height: 33px;
+  min-height: 36px;
   padding: 6px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .input-lg {
-  height: 46px;
+  height: 49px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 select.input-lg {
-  height: 46px;
-  line-height: 46px;
+  height: 49px;
+  line-height: 49px;
 }
 textarea.input-lg,
 select[multiple].input-lg {
   height: auto;
 }
 .form-group-lg .form-control {
-  height: 46px;
+  height: 49px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .form-group-lg select.form-control {
-  height: 46px;
-  line-height: 46px;
+  height: 49px;
+  line-height: 49px;
 }
 .form-group-lg textarea.form-control,
 .form-group-lg select[multiple].form-control {
   height: auto;
 }
 .form-group-lg .form-control-static {
-  height: 46px;
-  min-height: 38px;
+  height: 49px;
+  min-height: 42px;
   padding: 11px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
 }
 .has-feedback {
   position: relative;
 }
 .has-feedback .form-control {
-  padding-right: 42.5px;
+  padding-right: 45px;
 }
 .form-control-feedback {
   position: absolute;
@@ -2797,25 +2798,25 @@ select[multiple].input-lg {
   right: 0;
   z-index: 2;
   display: block;
-  width: 34px;
-  height: 34px;
-  line-height: 34px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
   text-align: center;
   pointer-events: none;
 }
 .input-lg + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback {
-  width: 46px;
-  height: 46px;
-  line-height: 46px;
+  width: 49px;
+  height: 49px;
+  line-height: 49px;
 }
 .input-sm + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
+  width: 33px;
+  height: 33px;
+  line-height: 33px;
 }
 .has-success .help-block,
 .has-success .control-label,
@@ -2908,7 +2909,7 @@ select[multiple].input-lg {
   color: #a94442;
 }
 .has-feedback label ~ .form-control-feedback {
-  top: 25px;
+  top: 27px;
 }
 .has-feedback label.sr-only ~ .form-control-feedback {
   top: 0;
@@ -2979,7 +2980,7 @@ select[multiple].input-lg {
 }
 .form-horizontal .radio,
 .form-horizontal .checkbox {
-  min-height: 27px;
+  min-height: 29px;
 }
 .form-horizontal .form-group {
   margin-left: -15px;
@@ -2998,13 +2999,13 @@ select[multiple].input-lg {
 @media (min-width: 768px) {
   .form-horizontal .form-group-lg .control-label {
     padding-top: 11px;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px;
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 .btn {
@@ -3020,7 +3021,7 @@ select[multiple].input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.42857143;
   border-radius: 2px;
   -webkit-user-select: none;
@@ -3640,21 +3641,21 @@ fieldset[disabled] .btn-link:focus {
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
 .btn-sm,
 .btn-group-sm > .btn {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
@@ -3730,7 +3731,7 @@ tbody.collapse.in {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -3746,7 +3747,7 @@ tbody.collapse.in {
 }
 .dropdown-menu .divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 10px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -3803,7 +3804,7 @@ tbody.collapse.in {
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.42857143;
   color: #777777;
   white-space: nowrap;
@@ -4037,9 +4038,9 @@ tbody.collapse.in {
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  height: 46px;
+  height: 49px;
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
   border-radius: 6px;
   height: 45px;
@@ -4047,8 +4048,8 @@ tbody.collapse.in {
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
 select.input-group-lg > .input-group-btn > .btn {
-  height: 46px;
-  line-height: 46px;
+  height: 49px;
+  line-height: 49px;
 }
 textarea.input-group-lg > .form-control,
 textarea.input-group-lg > .input-group-addon,
@@ -4061,17 +4062,17 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  height: 30px;
+  height: 33px;
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
 select.input-group-sm > .input-group-btn > .btn {
-  height: 30px;
-  line-height: 30px;
+  height: 33px;
+  line-height: 33px;
 }
 textarea.input-group-sm > .form-control,
 textarea.input-group-sm > .input-group-addon,
@@ -4099,7 +4100,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .input-group-addon {
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1;
   color: #555555;
@@ -4110,12 +4111,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   border-radius: 3px;
 }
 .input-group-addon.input-lg {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   border-radius: 6px;
 }
 .input-group-addon input[type="radio"],
@@ -4210,7 +4211,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav .nav-divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 10px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -4368,7 +4369,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   border: 1px solid transparent;
 }
 @media (min-width: 768px) {
@@ -4475,9 +4476,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
+  padding: 14px 15px;
+  font-size: 20px;
+  line-height: 22px;
   height: 50px;
 }
 .navbar-brand:hover,
@@ -4523,12 +4524,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-nav {
-  margin: 7.5px -15px;
+  margin: 7px -15px;
 }
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 20px;
+  line-height: 22px;
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -4546,7 +4547,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding: 5px 15px 5px 25px;
   }
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 20px;
+    line-height: 22px;
   }
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -4562,8 +4563,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     float: left;
   }
   .navbar-nav > li > a {
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 14px;
+    padding-bottom: 14px;
   }
 }
 .navbar-form {
@@ -4574,8 +4575,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 @media (min-width: 768px) {
   .navbar-form .form-group {
@@ -4660,20 +4661,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-left-radius: 0;
 }
 .navbar-btn {
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 .navbar-btn.btn-sm {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 8.5px;
+  margin-bottom: 8.5px;
 }
 .navbar-btn.btn-xs {
   margin-top: 14px;
   margin-bottom: 14px;
 }
 .navbar-text {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 @media (min-width: 768px) {
   .navbar-text {
@@ -4894,7 +4895,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .breadcrumb {
   padding: 8px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   list-style: none;
   background-color: #f5f5f5;
   border-radius: 2px;
@@ -4913,7 +4914,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin: 22px 0;
   border-radius: 2px;
 }
 .pagination > li {
@@ -4977,7 +4978,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 10px 16px;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.3333333;
 }
 .pagination-lg > li:first-child > a,
@@ -4993,7 +4994,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination-sm > li > a,
 .pagination-sm > li > span {
   padding: 5px 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .pagination-sm > li:first-child > a,
@@ -5008,7 +5009,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pager {
   padding-left: 0;
-  margin: 20px 0;
+  margin: 22px 0;
   list-style: none;
   text-align: center;
 }
@@ -5115,7 +5116,7 @@ a.label:focus {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -5170,7 +5171,7 @@ a.badge:focus {
 }
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: 200;
 }
 .jumbotron > hr {
@@ -5197,13 +5198,13 @@ a.badge:focus {
   }
   .jumbotron h1,
   .jumbotron .h1 {
-    font-size: 63px;
+    font-size: 72px;
   }
 }
 .thumbnail {
   display: block;
   padding: 4px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   line-height: 1.42857143;
   background-color: #f4f6f7;
   border: 1px solid #ddd;
@@ -5227,7 +5228,7 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 2px;
 }
@@ -5318,8 +5319,8 @@ a.thumbnail.active {
 }
 .progress {
   overflow: hidden;
-  height: 20px;
-  margin-bottom: 20px;
+  height: 22px;
+  margin-bottom: 22px;
   background-color: #f5f5f5;
   border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -5329,8 +5330,8 @@ a.thumbnail.active {
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 22px;
   color: #fff;
   text-align: center;
   background-color: #AC5CA0;
@@ -5628,7 +5629,7 @@ button.list-group-item-danger.active:focus {
   line-height: 1.3;
 }
 .panel {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -5650,7 +5651,7 @@ button.list-group-item-danger.active:focus {
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 16px;
+  font-size: 18px;
   color: inherit;
 }
 .panel-title > a,
@@ -5840,7 +5841,7 @@ button.list-group-item-danger.active:focus {
   margin-bottom: 0;
 }
 .panel-group {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 .panel-group .panel {
   margin-bottom: 0;
@@ -6020,7 +6021,7 @@ button.list-group-item-danger.active:focus {
 }
 .close {
   float: right;
-  font-size: 21px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 1;
   color: #000;
@@ -6166,7 +6167,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6181,7 +6182,7 @@ button.close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0;
   filter: alpha(opacity=0);
 }
@@ -6284,7 +6285,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6299,7 +6300,7 @@ button.close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ccc;
@@ -6323,7 +6324,7 @@ button.close {
 .popover-title {
   margin: 0;
   padding: 8px 14px;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-radius: 5px 5px 0 0;
@@ -6976,821 +6977,747 @@ button.close {
   }
 }
 @font-face {
-  font-family: o-icon;
-  src: url("/fonts/o-icon.eot?ish9yt");
-  src: url("/fonts/o-icon.eot?ish9yt#iefix") format("embedded-opentype"), url("/fonts/o-icon.ttf?ish9yt") format("truetype"), url("/fonts/o-icon.woff?ish9yt") format("woff"), url("/fonts/o-icon.svg?ish9yt#o-icon") format("svg");
-  font-weight: 400;
+  font-family: 'o-icon';
+  src: url("/fonts/o-icon.ttf?4t698c") format("truetype"), url("/fonts/o-icon.woff?4t698c") format("woff"), url("/fonts/o-icon.svg?4t698c#o-icon") format("svg");
+  font-weight: normal;
   font-style: normal;
 }
-[class*=" icon-"],
-[class^=icon-] {
-  font-family: o-icon !important;
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'o-icon' !important;
   speak: none;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.icon-action-redo:before {
+.icon-social-steam:before {
   content: "\E900";
 }
-.icon-action-undo:before {
+.icon-event:before {
   content: "\E901";
 }
-.icon-actual-size:before {
+.icon-social-vkontakte:before {
   content: "\E902";
 }
-.icon-anchor:before {
+.icon-exclamation:before {
   content: "\E903";
 }
-.icon-arrow-down:before {
+.icon-organization:before {
   content: "\E904";
 }
-.icon-arrow-down-circle:before {
+.icon-minus:before {
   content: "\E905";
 }
-.icon-arrow-left:before {
+.icon-social-stumbleupon:before {
   content: "\E906";
 }
-.icon-arrow-left-circle:before {
+.icon-social-spotify:before {
   content: "\E907";
 }
-.icon-arrow-right:before {
+.icon-social-soundcloud:before {
   content: "\E908";
 }
-.icon-arrow-right-circle:before {
+.icon-social-foursqare:before {
   content: "\E909";
 }
-.icon-arrow-up:before {
+.icon-social-behance:before {
   content: "\E90A";
 }
-.icon-arrow-up-circle:before {
+.icon-social-skype:before {
   content: "\E90B";
 }
-.icon-badge:before {
+.icon-social-reddit:before {
   content: "\E90C";
 }
-.icon-bag:before {
+.icon-social-google:before {
   content: "\E90D";
 }
-.icon-ban:before {
+.icon-social-github:before {
   content: "\E90E";
 }
-.icon-bar-chart:before {
+.icon-social-pintarest:before {
   content: "\E90F";
 }
-.icon-barcode:before {
+.icon-social-linkedin:before {
   content: "\E910";
 }
-.icon-basket:before {
+.icon-social-instagram:before {
   content: "\E911";
 }
-.icon-basket-loaded:before {
+.icon-paypal:before {
   content: "\E912";
 }
-.icon-bell:before {
+.icon-arrow-up:before {
   content: "\E913";
 }
-.icon-bitcoin:before {
+.icon-arrow-right:before {
   content: "\E914";
 }
-.icon-book-open:before {
+.icon-arrow-left:before {
   content: "\E915";
 }
-.icon-briefcase:before {
+.icon-arrow-down:before {
   content: "\E916";
 }
-.icon-browser:before {
+.icon-options:before {
   content: "\E917";
 }
-.icon-brush:before {
+.icon-options-vertical:before {
   content: "\E918";
 }
-.icon-bubble:before {
+.icon-menu:before {
   content: "\E919";
 }
-.icon-bubbles:before {
+.icon-phone:before {
   content: "\E91A";
 }
-.icon-bug:before {
+.icon-volume-off:before {
   content: "\E91B";
 }
-.icon-building:before {
+.icon-volume-2:before {
   content: "\E91C";
 }
-.icon-bulb:before {
+.icon-volume-1:before {
   content: "\E91D";
 }
-.icon-calculator:before {
+.icon-target:before {
   content: "\E91E";
 }
-.icon-calculator-alt:before {
+.icon-symbol-male:before {
   content: "\E91F";
 }
-.icon-calendar:before {
+.icon-symble-female:before {
   content: "\E920";
 }
-.icon-call-end:before {
+.icon-star:before {
   content: "\E921";
 }
-.icon-call-in:before {
+.icon-settings:before {
   content: "\E922";
 }
-.icon-call-out:before {
+.icon-reload:before {
   content: "\E923";
 }
-.icon-camera:before {
+.icon-refresh:before {
   content: "\E924";
 }
-.icon-camrecorder:before {
+.icon-power:before {
   content: "\E925";
 }
-.icon-chart:before {
+.icon-location-pin:before {
   content: "\E926";
 }
-.icon-check:before {
+.icon-plus:before {
   content: "\E927";
 }
-.icon-chemistry:before {
+.icon-paper-plane:before {
   content: "\E928";
 }
-.icon-circle:before {
+.icon-paper-clip:before {
   content: "\E929";
 }
-.icon-circle_thin:before {
+.icon-magnifier-remove:before {
   content: "\E92A";
 }
-.icon-clock:before {
+.icon-magnifier-add:before {
   content: "\E92B";
 }
-.icon-close:before {
+.icon-magnifier:before {
   content: "\E92C";
 }
-.icon-cloud-download:before {
+.icon-lock-open:before {
   content: "\E92D";
 }
-.icon-cloud-upload:before {
+.icon-lock:before {
   content: "\E92E";
 }
-.icon-code:before {
+.icon-link:before {
   content: "\E92F";
 }
-.icon-compass:before {
+.icon-key:before {
   content: "\E930";
 }
-.icon-config:before {
+.icon-info:before {
   content: "\E931";
 }
-.icon-control-end:before {
+.icon-heart:before {
   content: "\E932";
 }
-.icon-control-forward:before {
+.icon-folder:before {
   content: "\E933";
 }
-.icon-controller:before {
+.icon-flag:before {
   content: "\E934";
 }
-.icon-control-pause:before {
+.icon-eye:before {
   content: "\E935";
 }
-.icon-control-play:before {
+.icon-doc:before {
   content: "\E936";
 }
-.icon-control-rewind:before {
+.icon-cloud-upload:before {
   content: "\E937";
 }
-.icon-control-start:before {
+.icon-cloud-download:before {
   content: "\E938";
 }
-.icon-copyright:before {
+.icon-close:before {
   content: "\E939";
 }
-.icon-credit-card:before {
+.icon-clock:before {
   content: "\E93A";
 }
-.icon-crop:before {
+.icon-check:before {
   content: "\E93B";
 }
-.icon-cross:before {
+.icon-camera:before {
   content: "\E93C";
 }
-.icon-cup:before {
+.icon-camrecorder:before {
   content: "\E93D";
 }
-.icon-cursor:before {
+.icon-bubble:before {
   content: "\E93E";
 }
-.icon-cursor-move:before {
+.icon-ban:before {
   content: "\E93F";
 }
-.icon-cut:before {
+.icon-arrow-down-circle:before {
   content: "\E940";
 }
-.icon-database:before {
+.icon-arrow-left-circle:before {
   content: "\E941";
 }
-.icon-diamond:before {
+.icon-arrow-right-circle:before {
   content: "\E942";
 }
-.icon-direction:before {
+.icon-arrow-up-circle:before {
   content: "\E943";
 }
-.icon-directions:before {
+.icon-chart:before {
   content: "\E944";
 }
-.icon-disc:before {
+.icon-bulb:before {
   content: "\E945";
 }
-.icon-dislike:before {
+.icon-control-end:before {
   content: "\E946";
 }
-.icon-doc:before {
+.icon-control-forward:before {
   content: "\E947";
 }
-.icon-docs:before {
+.icon-control-pause:before {
   content: "\E948";
 }
-.icon-dollar:before {
+.icon-control-play:before {
   content: "\E949";
 }
-.icon-drawer:before {
+.icon-control-rewind:before {
   content: "\E94A";
 }
-.icon-dribbble:before {
+.icon-control-start:before {
   content: "\E94B";
 }
-.icon-drop:before {
+.icon-cursor:before {
   content: "\E94C";
 }
-.icon-dropbox:before {
+.icon-dislike:before {
   content: "\E94D";
 }
-.icon-earphones:before {
+.icon-equalizer:before {
   content: "\E94E";
 }
-.icon-earphones-alt:before {
+.icon-graph:before {
   content: "\E94F";
 }
-.icon-emotsmile:before {
+.icon-grid:before {
   content: "\E950";
 }
-.icon-energy:before {
+.icon-home:before {
   content: "\E951";
 }
-.icon-envelope:before {
+.icon-like:before {
   content: "\E952";
 }
-.icon-envelope-letter:before {
+.icon-list:before {
   content: "\E953";
 }
-.icon-envelope-open:before {
+.icon-login:before {
   content: "\E954";
 }
-.icon-equalizer:before {
+.icon-logout:before {
   content: "\E955";
 }
-.icon-euro:before {
+.icon-loop:before {
   content: "\E956";
 }
-.icon-event:before {
+.icon-microphone:before {
   content: "\E957";
 }
-.icon-exclamation:before {
+.icon-music-tone:before {
   content: "\E958";
 }
-.icon-eye:before {
+.icon-music-tone-alt:before {
   content: "\E959";
 }
-.icon-eyeglasses:before {
+.icon-note:before {
   content: "\E95A";
 }
-.icon-facebook:before {
+.icon-pencil:before {
   content: "\E95B";
 }
-.icon-feed:before {
+.icon-pie-chart:before {
   content: "\E95C";
 }
-.icon-female-user:before {
+.icon-question:before {
   content: "\E95D";
 }
-.icon-film:before {
+.icon-rocket:before {
   content: "\E95E";
 }
-.icon-filter:before {
+.icon-share:before {
   content: "\E95F";
 }
-.icon-fire:before {
+.icon-share-alt:before {
   content: "\E960";
 }
-.icon-flag:before {
+.icon-shuffle:before {
   content: "\E961";
 }
-.icon-folder:before {
+.icon-size-actual:before {
   content: "\E962";
 }
-.icon-folder-alt:before {
+.icon-size-fullscreen:before {
   content: "\E963";
 }
-.icon-font:before {
+.icon-support:before {
   content: "\E964";
 }
-.icon-frame:before {
+.icon-tag:before {
   content: "\E965";
 }
-.icon-friends:before {
+.icon-trash:before {
   content: "\E966";
 }
-.icon-full-screen:before {
+.icon-umbrella:before {
   content: "\E967";
 }
-.icon-game-controller:before {
+.icon-wrench:before {
   content: "\E968";
 }
-.icon-ghost:before {
+.icon-action-redo:before {
   content: "\E969";
 }
-.icon-globe:before {
+.icon-action-undo:before {
   content: "\E96A";
 }
-.icon-globe-alt:before {
+.icon-bag:before {
   content: "\E96B";
 }
-.icon-graduation:before {
+.icon-basket:before {
   content: "\E96C";
 }
-.icon-graph:before {
+.icon-basket-loaded:before {
   content: "\E96D";
 }
-.icon-grid:before {
+.icon-book-open:before {
   content: "\E96E";
 }
-.icon-handbag:before {
+.icon-briefcase:before {
   content: "\E96F";
 }
-.icon-headphones:before {
+.icon-bubbles:before {
   content: "\E970";
 }
-.icon-headphones-microphone:before {
+.icon-calculator:before {
   content: "\E971";
 }
-.icon-heart:before {
+.icon-call-end:before {
   content: "\E972";
 }
-.icon-help:before {
+.icon-call-in:before {
   content: "\E973";
 }
-.icon-history:before {
+.icon-call-out:before {
   content: "\E974";
 }
-.icon-home:before {
+.icon-compass:before {
   content: "\E975";
 }
-.icon-hourglass:before {
+.icon-cup:before {
   content: "\E976";
 }
-.icon-info:before {
+.icon-diamond:before {
   content: "\E977";
 }
-.icon-key:before {
+.icon-direction:before {
   content: "\E978";
 }
-.icon-layers:before {
+.icon-directions:before {
   content: "\E979";
 }
-.icon-left:before {
+.icon-docs:before {
   content: "\E97A";
 }
-.icon-like:before {
+.icon-drop:before {
   content: "\E97B";
 }
-.icon-link:before {
+.icon-earphones:before {
   content: "\E97C";
 }
-.icon-lira:before {
+.icon-earphones-alt:before {
   content: "\E97D";
 }
-.icon-list:before {
+.icon-feed:before {
   content: "\E97E";
 }
-.icon-loading:before {
+.icon-film:before {
   content: "\E97F";
 }
-.icon-location-pin:before {
+.icon-folder-alt:before {
   content: "\E980";
 }
-.icon-lock:before {
+.icon-frame:before {
   content: "\E981";
 }
-.icon-lock-open:before {
+.icon-globe:before {
   content: "\E982";
 }
-.icon-login:before {
+.icon-globe-alt:before {
   content: "\E983";
 }
-.icon-logout:before {
+.icon-handbag:before {
   content: "\E984";
 }
-.icon-loop:before {
+.icon-layers:before {
   content: "\E985";
 }
-.icon-magic-wand:before {
+.icon-map:before {
   content: "\E986";
 }
-.icon-magnet:before {
+.icon-picture:before {
   content: "\E987";
 }
-.icon-magnifier:before {
+.icon-pin:before {
   content: "\E988";
 }
-.icon-magnifier-add:before {
+.icon-playlist:before {
   content: "\E989";
 }
-.icon-magnifier-remove:before {
+.icon-present:before {
   content: "\E98A";
 }
-.icon-map:before {
+.icon-printer:before {
   content: "\E98B";
 }
-.icon-menu:before {
+.icon-puzzle:before {
   content: "\E98C";
 }
-.icon-microphone:before {
+.icon-speech:before {
   content: "\E98D";
 }
-.icon-minus:before {
+.icon-vector:before {
   content: "\E98E";
 }
-.icon-module:before {
+.icon-wallet:before {
   content: "\E98F";
 }
-.icon-modules:before {
+.icon-anchor:before {
   content: "\E990";
 }
-.icon-money:before {
+.icon-badge:before {
   content: "\E991";
 }
-.icon-monitor:before {
+.icon-bell:before {
   content: "\E992";
 }
-.icon-mouse:before {
+.icon-chemistry:before {
   content: "\E993";
 }
-.icon-moustache:before {
+.icon-credit-card:before {
   content: "\E994";
 }
-.icon-move:before {
+.icon-crop:before {
   content: "\E995";
 }
-.icon-music-tone:before {
+.icon-cursor-move:before {
   content: "\E996";
 }
-.icon-music-tone-alt:before {
+.icon-disc:before {
   content: "\E997";
 }
-.icon-mustache:before {
+.icon-emotsmile:before {
   content: "\E998";
 }
-.icon-new-doc:before {
+.icon-energy:before {
   content: "\E999";
 }
-.icon-note:before {
+.icon-envelope-open:before {
   content: "\E99A";
 }
-.icon-notebook:before {
+.icon-fire:before {
   content: "\E99B";
 }
-.icon-number-list:before {
+.icon-game-controller:before {
   content: "\E99C";
 }
-.icon-open:before {
+.icon-ghost:before {
   content: "\E99D";
 }
-.icon-options:before {
+.icon-graduation:before {
   content: "\E99E";
 }
-.icon-options-vertical:before {
+.icon-hourglass:before {
   content: "\E99F";
 }
-.icon-orchid:before {
+.icon-magic-wand:before {
   content: "\E9A0";
 }
-.icon-organization:before {
+.icon-magnet:before {
   content: "\E9A1";
 }
-.icon-paper-clip:before {
+.icon-mouse:before {
   content: "\E9A2";
 }
-.icon-paper-plane:before {
+.icon-mustache:before {
   content: "\E9A3";
 }
-.icon-paste:before {
+.icon-notebook:before {
   content: "\E9A4";
 }
-.icon-paypal:before {
+.icon-plane:before {
   content: "\E9A5";
 }
-.icon-pencil:before {
+.icon-screen-desktop:before {
   content: "\E9A6";
 }
-.icon-people:before {
+.icon-screen-smartphone:before {
   content: "\E9A7";
 }
-.icon-phone:before {
+.icon-screen-tablet:before {
   content: "\E9A8";
 }
-.icon-photo:before {
+.icon-shield:before {
   content: "\E9A9";
 }
-.icon-picture:before {
+.icon-social-dribbble:before {
   content: "\E9AA";
 }
-.icon-pie-chart:before {
+.icon-social-dropbox:before {
   content: "\E9AB";
 }
-.icon-pin:before {
+.icon-social-facebook:before {
   content: "\E9AC";
 }
-.icon-plane:before {
+.icon-social-tumblr:before {
   content: "\E9AD";
 }
-.icon-playlist:before {
+.icon-social-twitter:before {
   content: "\E9AE";
 }
-.icon-plus:before {
+.icon-social-youtube:before {
   content: "\E9AF";
 }
-.icon-plus-alt:before {
+.icon-speedometer:before {
   content: "\E9B0";
 }
-.icon-pointer:before {
+.icon-trophy:before {
   content: "\E9B1";
 }
-.icon-pound:before {
+.icon-user:before {
   content: "\E9B2";
 }
-.icon-power:before {
+.icon-user-unfollow:before {
   content: "\E9B3";
 }
-.icon-present:before {
+.icon-user-following:before {
   content: "\E9B4";
 }
-.icon-printer:before {
+.icon-user-follow:before {
   content: "\E9B5";
 }
-.icon-puzzle:before {
+.icon-people:before {
   content: "\E9B6";
 }
-.icon-question:before {
+.icon-user-female:before {
   content: "\E9B7";
 }
-.icon-quote:before {
+.icon-modules:before {
   content: "\E9B8";
 }
-.icon-refresh:before {
+.icon-module:before {
   content: "\E9B9";
 }
-.icon-reload:before {
+.icon-calculator-alt:before {
   content: "\E9BA";
 }
-.icon-right:before {
+.icon-bug:before {
   content: "\E9BB";
 }
-.icon-rocket:before {
+.icon-browser:before {
   content: "\E9BC";
 }
-.icon-rub:before {
+.icon-barcode:before {
   content: "\E9BD";
 }
-.icon-rupi:before {
+.icon-task:before {
   content: "\E9BE";
 }
-.icon-screen-desktop:before {
+.icon-sort-amount-desc:before {
   content: "\E9BF";
 }
-.icon-screen-smartphone:before {
+.icon-sort-numeric-desc:before {
   content: "\E9C0";
 }
-.icon-screen-tablet:before {
+.icon-sort-amount-asc:before {
   content: "\E9C1";
 }
 .icon-server:before {
   content: "\E9C2";
 }
-.icon-settings:before {
+.icon-quote:before {
   content: "\E9C3";
 }
-.icon-share:before {
+.icon-history:before {
   content: "\E9C4";
 }
-.icon-share-alt:before {
+.icon-sort-alpha-desc:before {
   content: "\E9C5";
 }
-.icon-shekel:before {
+.icon-sort-alpha-asc:before {
   content: "\E9C6";
 }
-.icon-shield:before {
+.icon-sort-numeric-asc:before {
   content: "\E9C7";
 }
-.icon-shuffle:before {
+.icon-loading:before {
   content: "\E9C8";
 }
-.icon-size-actual:before {
+.icon-building:before {
   content: "\E9C9";
 }
-.icon-size-fullscreen:before {
+.icon-font:before {
   content: "\E9CA";
 }
-.icon-social-behance:before {
+.icon-plus-alt:before {
   content: "\E9CB";
 }
-.icon-social-dribbble:before {
+.icon-filter:before {
   content: "\E9CC";
 }
-.icon-social-dropbox:before {
+.icon-database:before {
   content: "\E9CD";
 }
-.icon-social-facebook:before {
+.icon-copyright:before {
   content: "\E9CE";
 }
-.icon-social-foursqare:before {
+.icon-code:before {
   content: "\E9CF";
 }
-.icon-social-github:before {
+.icon-move:before {
   content: "\E9D0";
 }
-.icon-social-google:before {
+.icon-moustache:before {
   content: "\E9D1";
 }
-.icon-social-instagram:before {
+.icon-eyeglasses:before {
   content: "\E9D2";
 }
-.icon-social-linkedin:before {
+.icon-tablet:before {
   content: "\E9D3";
 }
-.icon-social-pintarest:before {
+.icon-monitor:before {
   content: "\E9D4";
 }
-.icon-social-reddit:before {
+.icon-controller:before {
   content: "\E9D5";
 }
-.icon-social-skype:before {
+.icon-unfollow:before {
   content: "\E9D6";
 }
-.icon-social-soundcloud:before {
+.icon-friends:before {
   content: "\E9D7";
 }
-.icon-social-spotify:before {
+.icon-envelope-letter:before {
   content: "\E9D8";
 }
-.icon-social-steam:before {
+.icon-tumblr:before {
   content: "\E9D9";
 }
-.icon-social-stumbleupon:before {
+.icon-dropbox:before {
   content: "\E9DA";
 }
-.icon-social-tumblr:before {
+.icon-dribbble:before {
   content: "\E9DB";
 }
-.icon-social-twitter:before {
+.icon-youtube:before {
   content: "\E9DC";
 }
-.icon-social-vkontakte:before {
+.icon-twitter:before {
   content: "\E9DD";
 }
-.icon-social-youtube:before {
+.icon-facebook:before {
   content: "\E9DE";
 }
-.icon-sort-alpha-asc:before {
+.icon-headphones-microphone:before {
   content: "\E9DF";
 }
-.icon-sort-alpha-desc:before {
+.icon-headphones:before {
   content: "\E9E0";
 }
-.icon-sort-amount-asc:before {
+.icon-drawer:before {
   content: "\E9E1";
 }
-.icon-sort-amount-desc:before {
+.icon-help:before {
   content: "\E9E2";
 }
-.icon-sort-numeric-asc:before {
+.icon-config:before {
   content: "\E9E3";
 }
-.icon-sort-numeric-desc:before {
+.icon-start:before {
   content: "\E9E4";
 }
-.icon-speech:before {
+.icon-full-screen:before {
   content: "\E9E5";
 }
-.icon-speedometer:before {
+.icon-actual-size:before {
   content: "\E9E6";
 }
-.icon-star:before {
+.icon-right:before {
   content: "\E9E7";
 }
-.icon-start:before {
+.icon-left:before {
   content: "\E9E8";
 }
-.icon-support:before {
+.icon-calendar:before {
   content: "\E9E9";
 }
-.icon-symble-female:before {
+.icon-bar-chart:before {
   content: "\E9EA";
 }
-.icon-symbol-male:before {
+.icon-unlock:before {
   content: "\E9EB";
 }
-.icon-table:before {
+.icon-pointer:before {
   content: "\E9EC";
 }
-.icon-tablet:before {
+.icon-envelope:before {
   content: "\E9ED";
 }
-.icon-tag:before {
+.icon-video:before {
   content: "\E9EE";
 }
-.icon-target:before {
+.icon-photo:before {
   content: "\E9EF";
 }
-.icon-task:before {
+.icon-female-user:before {
   content: "\E9F0";
-}
-.icon-text-center:before {
-  content: "\E9F1";
-}
-.icon-text-left:before {
-  content: "\E9F2";
-}
-.icon-text-middle:before {
-  content: "\E9F3";
-}
-.icon-text-right:before {
-  content: "\E9F4";
-}
-.icon-trash:before {
-  content: "\E9F5";
-}
-.icon-trophy:before {
-  content: "\E9F6";
-}
-.icon-tumblr:before {
-  content: "\E9F7";
-}
-.icon-twitter:before {
-  content: "\E9F8";
-}
-.icon-umbrella:before {
-  content: "\E9F9";
-}
-.icon-unfollow:before {
-  content: "\E9FA";
-}
-.icon-unlock:before {
-  content: "\E9FB";
-}
-.icon-user:before {
-  content: "\E9FC";
-}
-.icon-user-female:before {
-  content: "\E9FD";
-}
-.icon-user-follow:before {
-  content: "\E9FE";
-}
-.icon-user-following:before {
-  content: "\E9FF";
-}
-.icon-user-unfollow:before {
-  content: "\EA00";
-}
-.icon-vector:before {
-  content: "\EA01";
-}
-.icon-video:before {
-  content: "\EA02";
-}
-.icon-volume-1:before {
-  content: "\EA03";
-}
-.icon-volume-2:before {
-  content: "\EA04";
-}
-.icon-volume-off:before {
-  content: "\EA05";
-}
-.icon-wallet:before {
-  content: "\EA06";
-}
-.icon-wrench:before {
-  content: "\EA07";
-}
-.icon-yen:before {
-  content: "\EA08";
-}
-.icon-youtube:before {
-  content: "\EA09";
 }
 /**
  * okaidia theme for JavaScript, CSS and HTML
@@ -7898,8 +7825,8 @@ html {
   background-color: #f4f6f7;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
   color: #58666e;
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
@@ -7932,7 +7859,7 @@ label {
 }
 small,
 .small {
-  font-size: 13px;
+  font-size: 15px;
 }
 .badge,
 .label {
@@ -8031,7 +7958,7 @@ a:hover .caret-white {
   border-radius: 2px;
 }
 .alert {
-  font-size: 13px;
+  font-size: 15px;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
@@ -9718,19 +9645,19 @@ button.close {
   font-size: 2em;
 }
 .text-lg {
-  font-size: 18px;
+  font-size: 20px;
 }
 .text-md {
-  font-size: 16px;
+  font-size: 19px;
 }
 .text-base {
-  font-size: 14px;
+  font-size: 16px;
 }
 .text-sm {
-  font-size: 13px;
+  font-size: 15px;
 }
 .text-xs {
-  font-size: 12px;
+  font-size: 14px;
 }
 .text-xxs {
   text-indent: -9999px;
@@ -11734,10 +11661,10 @@ main pre {
 }
 main blockquote {
   padding: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 2px;
-  font-size: 13px;
+  font-size: 15px;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   background-color: #d9edf7;
@@ -11828,7 +11755,7 @@ main div h3 {
 }
 main p,
 main div p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 28px;
   margin-bottom: 23px;
 }
@@ -11892,6 +11819,109 @@ main div .anchor-h6 {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
 }
+.github_screenshot {
+  position: absolute;
+  right: -20%;
+  bottom: -11.5%;
+}
+@media (min-width: 1800px) {
+  .github_screenshot {
+    right: -15%;
+  }
+}
+.github {
+  height: 700px;
+  position: relative !important;
+  overflow: hidden !important;
+}
+pre[class*=language-] {
+  background: initial;
+  border: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.05em;
+  background-color: #212529;
+  color: #8a8b8c;
+}
+pre[class*=language-].lt,
+pre[class*=language-] .lt {
+  background-color: #2e3236;
+}
+pre[class*=language-].lter,
+pre[class*=language-] .lter {
+  background-color: #3b3f42;
+}
+pre[class*=language-].dk,
+pre[class*=language-] .dk {
+  background-color: #15181b;
+}
+pre[class*=language-].dker,
+pre[class*=language-] .dker {
+  background-color: #0a0b0d;
+}
+pre[class*=language-].bg,
+pre[class*=language-] .bg {
+  background-color: #212529;
+}
+pre[class*=language-] a {
+  color: #a4a5a5;
+}
+pre[class*=language-] a:hover {
+  color: #fff;
+}
+pre[class*=language-] a.list-group-item:hover,
+pre[class*=language-] a.list-group-item:focus {
+  background-color: inherit;
+}
+pre[class*=language-] .nav > li:hover > a,
+pre[class*=language-] .nav > li:focus > a,
+pre[class*=language-] .nav > li.active > a {
+  color: #fff;
+  background-color: #15181b;
+}
+pre[class*=language-] .nav > li > a {
+  color: #979899;
+}
+pre[class*=language-] .nav > li > a:hover,
+pre[class*=language-] .nav > li > a:focus {
+  background-color: #191d21;
+}
+pre[class*=language-] .nav .open > a {
+  background-color: #15181b;
+}
+pre[class*=language-] .caret {
+  border-top-color: #8a8b8c;
+  border-bottom-color: #8a8b8c;
+}
+pre[class*=language-].navbar .nav > li.active > a {
+  color: #fff;
+  background-color: #15181b;
+}
+pre[class*=language-] .open > a,
+pre[class*=language-] .open > a:hover,
+pre[class*=language-] .open > a:focus {
+  color: #fff;
+}
+pre[class*=language-] .text-muted {
+  color: #717272 !important;
+}
+pre[class*=language-] .text-lt {
+  color: #cacbcb !important;
+}
+pre[class*=language-].auto .list-group-item,
+pre[class*=language-] .auto .list-group-item {
+  border-color: #16181b !important;
+  background-color: transparent;
+}
+pre[class*=language-].auto .list-group-item:hover,
+pre[class*=language-] .auto .list-group-item:hover,
+pre[class*=language-].auto .list-group-item:focus,
+pre[class*=language-] .auto .list-group-item:focus,
+pre[class*=language-].auto .list-group-item:active,
+pre[class*=language-] .auto .list-group-item:active,
+pre[class*=language-].auto .list-group-item.active,
+pre[class*=language-] .auto .list-group-item.active {
+  background-color: #15181b !important;
+}
 .preview {
   padding: 15px 0;
   position: relative;
@@ -11909,11 +11939,11 @@ main div .anchor-h6 {
 }
 .code-preview {
   display: none;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
 }
 .name {
   font-size: 18px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 'Source Sans Pro', "Helvetica Neue", Arial, sans-serif;
 }
 .show-code {
   color: #1c2b36;

@@ -17,21 +17,17 @@
                 <div class="col-md-9 col-xs-12 wrapper-lg">
                     <main>
                         <h1>{{$title}}</h1>
-                        <hr>
-                        <ul class="padder-v">
-                            @foreach($anchors as $anchor)
-
-                                <li class="anchor-{{$anchor['level']}}">
-                                    <a href="#{{$anchor['id']}}">{{$anchor['text']}}</a>
-                                </li>
-                            @endforeach
-
-                        </ul>
-
-
+                        @if(count($anchors) > 1)
+                            <hr>
+                            <ul class="padder-v">
+                                @foreach($anchors as $anchor)
+                                    <li class="anchor-{{$anchor['level']}}">
+                                        <a href="#{{$anchor['id']}}">{{$anchor['text']}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        @endif
                         {!! $content !!}
-
-
                     </main>
                 </div>
             </div>

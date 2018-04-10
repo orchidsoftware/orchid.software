@@ -191,8 +191,12 @@
                 <div class="item">
                     <div class="row">
                         <div class="col-sm-12 m-b-xl">
-                            <h4 class="font-thin l-h-2x  m-b-lg"><em>“Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. Phasellus at dolor sit amet, consectetur adipiscing elit. ”</em></h4>
-                            <p class="text-muted text-right">- Suzanne Oliver, Chief Learning Officer</p>
+                            <h4 class="font-thin l-h-2x  m-b-lg">
+                                <a href="https://twitter.com/themsaid/status/892387647733342208" target="_blank">
+                                    <em>“If you are looking for CMS package for your laravel project this package looks nice to me :)”</em>
+                                </a>
+                            </h4>
+                            <p class="text-muted text-right">- <a href="https://twitter.com/themsaid">Mohamed Said, First officer of Laravel</a></p>
                         </div>
                     </div>
                 </div>
