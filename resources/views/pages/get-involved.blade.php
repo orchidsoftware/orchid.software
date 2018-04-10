@@ -45,8 +45,8 @@
                     <!--title-->
                 </div>
 
-                <div class="col-md-4">
-                    <div class="padder-v text-right m-b-xxl">
+                <div class="col-md-2">
+                    <div class="padder-v text-right m-b-xl">
                         <div class="text-muted">
                             <i class="fa fa-user fa-3x"></i>
                         </div>
@@ -69,13 +69,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-md-8 text-center">
                     <div class="center   m-b-xxs">
-                        <img src="/img/cms/1.png" alt="" class="img-responsive">
+                        <img src="https://user-images.githubusercontent.com/5102591/32980416-22ad653e-cc77-11e7-9fb9-4747b241270f.png" alt="" class="img-responsive">
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="padder-v text-left  m-b-xxl">
+                <div class="col-md-2">
+                    <div class="padder-v text-left m-b-xl">
                         <div class="text-muted">
                             <i class="fa fa-user fa-3x"></i>
                         </div>

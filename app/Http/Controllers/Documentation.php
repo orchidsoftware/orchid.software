@@ -61,46 +61,49 @@ class Documentation
      */
     private function getPage($locale, $page)
     {
-        return Cache::remember('page' . $page . $locale, 60, function () use ($locale, $page) {
-            $contents = $this->storage->get("/$locale/$page.md");
-            $contents = $this->parse->text($contents);
+        if(!$this->storage->has("/$locale/$page.md")){
+           abort(404);
+        }
+        
+        $contents = $this->storage->get("/$locale/$page.md");
+        $contents = $this->parse->text($contents);
 
-            $this->crawler->addHtmlContent($contents);
-            $title = $this->crawler->filter('h1')->first()->text();
-            $description = $this->crawler->filter('p')->first()->text();
+        $this->crawler->addHtmlContent($contents);
+        $title = $this->crawler->filter('h1')->first()->text();
+        $description = $this->crawler->filter('p')->first()->text();
 
-            $anchors = [];
-            $this->crawler->filter('h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
-                /** @var Crawler $elm */
-                /** @var \DOMElement $node */
-                $node = $elm->getNode(0);
-                $text = $node->textContent;
-                $id = Str::slug($text);
-                $anchors[] = [
-                    'text'  => $text,
-                    'level' => $node->tagName,
-                    'id'    => $id
-                ];
-
-                while ($node->hasChildNodes()) {
-                    $node->removeChild($node->firstChild);
-                }
-
-                $node->appendChild(new \DOMElement('a', $text));
-                $node->firstChild->setAttribute('href', '#' . $id);
-                $node->firstChild->setAttribute('name', $id);
-            });
-
-            $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
-            $contents = preg_replace('/^<body>(.*)<\/body>$/s', '$1', $contents);
-
-            return [
-                'anchors'     => $anchors,
-                'content'     => $contents,
-                'title'       => $title,
-                'description' => $description,
+        $anchors = [];
+        $this->crawler->filter('h2,h3,h4,h5,h6')->each(function ($elm) use (&$anchors) {
+            /** @var Crawler $elm */
+            /** @var \DOMElement $node */
+            $node = $elm->getNode(0);
+            $text = $node->textContent;
+            $id = Str::slug($text);
+            $anchors[] = [
+                'text'  => $text,
+                'level' => $node->tagName,
+                'id'    => $id
             ];
+
+            while ($node->hasChildNodes()) {
+                $node->removeChild($node->firstChild);
+            }
+
+            $node->appendChild(new \DOMElement('a', $text));
+            $node->firstChild->setAttribute('href', '#' . $id);
+            $node->firstChild->setAttribute('name', $id);
         });
+
+        $contents = preg_replace('/<h1[^>]*>(.*)<\/h1>/', '', $this->crawler->html());
+        $contents = preg_replace('/^<body>(.*)<\/body>$/s', '$1', $contents);
+
+        return [
+            'anchors'     => $anchors,
+            'content'     => $contents,
+            'title'       => $title,
+            'description' => $description,
+        ];
+      
     }
 
     /**
@@ -110,12 +113,9 @@ class Documentation
      */
     private function getMenu($locale)
     {
-
-        return Cache::remember('menu' . $locale, 60, function () use ($locale) {
-            $menu = $this->storage->get("/$locale/documentation.md");
-
-            return $this->parse->text($menu);
-        });
+        $menu = $this->storage->get("/$locale/documentation.md");
+        
+        return $this->parse->text($menu);
     }
 
 }
