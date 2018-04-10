@@ -2,16 +2,12 @@
 
 @section('content')
 
-
-
-
     <div class="bg-white">
         <div class="container">
             <div class="row m-t-md m-b-md">
                 <div class="col-md-9">
                     <div class="blog-post">
                         @foreach($posts as $post)
-
                             <div class="panel">
                                 <div class="wrapper-lg">
                                     <h2 class="m-t-none text-black font-thin">
