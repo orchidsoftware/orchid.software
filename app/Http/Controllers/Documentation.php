@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Docs;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Parsedown;
@@ -38,6 +39,7 @@ class Documentation
      * @param        $locale
      * @param string $page
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function show($locale, $page = 'index')
     {
@@ -56,14 +58,15 @@ class Documentation
      * @param $locale
      * @param $page
      *
-     * @return mixed
+     * @return array
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     private function getPage($locale, $page)
     {
-        if(!$this->storage->has("/$locale/$page.md")){
-           abort(404);
+        if (!$this->storage->has("/$locale/$page.md")) {
+            abort(404);
         }
-        
+
         $contents = $this->storage->get("/$locale/$page.md");
         $contents = $this->parse->text($contents);
 
@@ -102,19 +105,38 @@ class Documentation
             'title'       => $title,
             'description' => $description,
         ];
-      
+
     }
 
     /**
      * @param $locale
      *
-     * @return mixed
+     * @return string
+     *
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     private function getMenu($locale)
     {
         $menu = $this->storage->get("/$locale/documentation.md");
-        
+
         return $this->parse->text($menu);
+    }
+
+    /**
+     * @param $query
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function search($query = '')
+    {
+        $search = Docs::search($query)
+            ->get()
+            ->where('options.locale', app()->getLocale())
+            ->take(5);
+
+        return view('pages.search', [
+            'search' => $search,
+        ]);
     }
 
 }

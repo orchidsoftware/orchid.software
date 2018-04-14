@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('SCOUT_DRIVER', 'null'),
+    'driver' => env('SCOUT_DRIVER', 'tntsearch'),
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +73,29 @@ return [
     'algolia' => [
         'id' => env('ALGOLIA_APP_ID', ''),
         'secret' => env('ALGOLIA_SECRET', ''),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | TNTSearch  Configuration
+    |--------------------------------------------------------------------------
+    |
+    | Here you may configure your Algolia settings. Algolia is a cloud hosted
+    | search engine which works great with Scout out of the box. Just plug
+    | in your application ID and admin API key to get started searching.
+    |
+    */
+
+    'tntsearch' => [
+        'storage'  => storage_path(), //place where the index files will be stored
+        'fuzziness' => env('TNTSEARCH_FUZZINESS', false),
+        'fuzzy' => [
+            'prefix_length' => 2,
+            'max_expansions' => 50,
+            'distance' => 2
+        ],
+        'asYouType' => false,
+        'searchBoolean' => env('TNTSEARCH_BOOLEAN', false),
     ],
 
 ];

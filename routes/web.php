@@ -12,11 +12,17 @@
 */
 
 
-$this->view('{locale?}', 'pages.welcome')
+$this->get('{locale?}', 'WelcomeController@index')
     ->name('index');
+
 
 $this->get('{locale}/docs/{catalog?}', 'Documentation@show')
     ->name('docs');
+
+$this->post('docs/search/{query?}', 'Documentation@search')
+    ->name('docs.search');
+
+
 
 $this->view('{locale}/developer', 'pages.developer');
 $this->view('{locale}/order', 'pages.order');

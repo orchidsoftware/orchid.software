@@ -13,7 +13,8 @@
         "laravel/framework": "5.6.*",
         "orchid/platform": "^2.2",
         "predis/predis": "^1.1",
-        "symfony/dom-crawler": "^3.3"
+        "symfony/dom-crawler": "^3.3",
+        "teamtnt/laravel-scout-tntsearch-driver": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

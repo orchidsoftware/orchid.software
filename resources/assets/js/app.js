@@ -10,3 +10,4 @@ document.addEventListener("turbolinks:load", function() {
 require('./modules/typed');
 require('./modules/icons');
 require('./modules/prism');
+require('./modules/docs');
