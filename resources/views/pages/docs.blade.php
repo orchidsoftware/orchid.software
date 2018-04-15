@@ -16,18 +16,16 @@
                 </div>
                 <div class="col-md-9 col-xs-12 wrapper-lg">
                     <div class="">
-                        <a href="#"><span class="label label-primary padder">2.8</span></a>
-                        <a href="#"><span class="label bg-white b text-black  padder">2.7</span></a>
-                        <a href="#"><span class="label bg-white b text-black  padder">2.6</span></a>
+                        <a href="#"><span class="label label-primary padder">2.2</span></a>
+                        <a href="#"><span class="label bg-white b text-black  padder">dev-master</span></a>
                     </div>
                     <div class="form-group form-group-default m-t">
-                        <label>Поиск по документации</label>
+                        <label> {!! trans('docs.search') !!}</label>
                         <div class="controls">
                             <input type="text"
                                    id="docs-search"
-                                   placeholder="Введите поисковый запрос ..."
+                                   placeholder=" {!! trans('docs.search_placeholder') !!}"
                                    class="form-control"
-                                   data-notfound="Ничего не найдено"
                             >
                         </div>
                     </div>

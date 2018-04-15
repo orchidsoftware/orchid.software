@@ -13,6 +13,6 @@
     </a>
 @empty
     <div class="alert alert-warning" role="alert">
-        <strong>Ничего не найдено!</strong> Better check yourself, you're not looking too good.
+        {!! trans('docs.not_found') !!}
     </div>
 @endforelse

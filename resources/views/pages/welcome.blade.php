@@ -21,19 +21,17 @@
             <div class="row v-center">
                 <div class="col-md-5">
                     <h1 class="m-t-xs text-dark font-thin">
-                        Простая и гибкая<br>
-                        панель управления
+                        {!! trans('welcome.title')  !!}
                     </h1>
                 </div>
                 <div class="col-md-7 no-padder">
                     <div class="font-thin">
                         <p>
-                            Самый простой и быстрый способ разработки корпоративных<br>
-                            приложений и систем управления контентом.
+                            {!! trans('welcome.descriptions')  !!}
                         </p>
-                        <p class="small col-md-8 no-padder">
+                        <div class="small col-md-8 no-padder">
 
-                        <ul class="list-inline text-black">
+                        <ul class="list-inline text-black text-right">
                             <li class="m-r-sm">
                                 <i class="icon-eye m-r-xs"></i> {{$stats['github_watchers'] or '-'}}
                             </li>
@@ -45,7 +43,7 @@
                             </li>
                         </ul>
 
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,9 +57,9 @@
                 <div class="m-t-md m-b-md wrapper-lg  b">
                     <div class="ico column text-primary"><i class="icon-cloud-download"></i></div>
                     <div class="desc">
-                        <h4 class="font-thin">Простая установка</h4>
+                        <h4 class="font-thin">{!! trans('welcome.promo.list_1.title') !!}</h4>
                         <p>
-                            Установка пакета с помощью composer делает процесс простым и понятным
+                            {!! trans('welcome.promo.list_1.descriptions') !!}
                         </p>
                     </div>
                 </div>
@@ -70,9 +68,9 @@
                 <div class="m-t-md m-b-md wrapper-lg  b">
                     <div class="ico column text-primary"><i class="icon-layers"></i></div>
                     <div class="desc">
-                        <h4 class="font-thin">Полый контроль</h4>
+                        <h4 class="font-thin">{!! trans('welcome.promo.list_2.title') !!}</h4>
                         <p>
-                            Вы можете установить свои любимые пакеты или написать свой собственный набор функций в приложениях
+                            {!! trans('welcome.promo.list_2.descriptions') !!}
                         </p>
                     </div>
                 </div>
@@ -81,9 +79,9 @@
                 <div class="m-t-md m-b-md wrapper-lg  b">
                     <div class="ico column text-primary"><i class="icon-server"></i></div>
                     <div class="desc">
-                        <h4 class="font-thin">Локализация</h4>
+                        <h4 class="font-thin">{!! trans('welcome.promo.list_3.title') !!}</h4>
                         <p>
-                            Вы можете установить свои любимые пакеты или написать свой собственный набор функций в приложениях
+                            {!! trans('welcome.promo.list_3.descriptions') !!}
                         </p>
                     </div>
                 </div>
@@ -95,7 +93,7 @@
     <!--End container-->
 </section>
 
-
+{{--
 <div class="bg-white hidden">
     <section  class="features b-t">
         <!--Container-->
@@ -166,9 +164,6 @@
         </div>
     </section>
 </div>
-
-
-
 <div class="bg-white hidden">
 
         <section  class="features b-t">
@@ -230,7 +225,7 @@ height: 600px;
             <!--End container-->
         </section>
     </div>
-
+--}}
 
 
 
@@ -241,9 +236,9 @@ height: 600px;
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        <h3 class="text-white font-thin">Экономьте свое время с подходящими инструментами разработки</h3>
+                        <h3 class="text-white font-thin">{!! trans('welcome.feature.title') !!}</h3>
                         <p class="text-muted m-b-lg">
-                            Build complex dialogs with an ease
+                            {!! trans('welcome.feature.descriptions') !!}
                         </p>
                     </div>
                 </div>
@@ -252,23 +247,31 @@ height: 600px;
                     <ul class="list-unstyled">
                         <li>
                             <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                            <p class="clear m-b-lg">
+                                <strong class="text-white">{!! trans('welcome.feature.list_1.title') !!}</strong>
+                                {!! trans('welcome.feature.list_1.descriptions') !!}
+                            </p>
                         </li>
                         <li>
                             <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                            <p class="clear m-b-lg">
+                                <strong class="text-white">{!! trans('welcome.feature.list_2.title') !!}</strong>
+                                {!! trans('welcome.feature.list_2.descriptions') !!}
+                            </p>
                         </li>
                         <li>
                             <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                            <p class="clear m-b-lg">
+                                <strong class="text-white">{!! trans('welcome.feature.list_3.title') !!}</strong>
+                                {!! trans('welcome.feature.list_3.descriptions') !!}
+                            </p>
                         </li>
                         <li>
                             <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
-                        </li>
-                        <li>
-                            <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
-                            <p class="clear m-b-lg"><strong class="text-white">Минимазация затрад</strong>, значимость этих проблем настолько очевидна, что постоянное информационно-пропагандистское обеспечен.</p>
+                            <p class="clear m-b-lg">
+                                <strong class="text-white">{!! trans('welcome.feature.list_4.title') !!}</strong>
+                                {!! trans('welcome.feature.list_4.descriptions') !!}
+                            </p>
                         </li>
 
                     </ul>
@@ -313,9 +316,9 @@ height: 600px;
 
             <div class="row m-t-xxl m-b-lg">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                    <p class="h2 text-black font-thin">Спонсоры</p>
+                    <p class="h2 text-black font-thin">  {!! trans('welcome.sponsor.title') !!}</p>
                     <p class="text-muted">
-                        Компании и сообщества, которые нас поддерживают:
+                        {!! trans('welcome.sponsor.descriptions') !!}
                     </p>
                 </div>
             </div>
@@ -358,21 +361,20 @@ height: 600px;
             <div class="col-lg-5">
                 <div class="">
                     <img src="/img/github_logo.png" alt="" class="m-b-lg">
-                    <p class="h3 l-h-1x text-dark font-thin m-b-lg">Открытый исходный код</p>
+                    <p class="h3 l-h-1x text-dark font-thin m-b-lg"> {!! trans('welcome.github.title') !!}</p>
                     <p>
-                        Всё, что мы делаем, на 100% состоит из открытого и свободного кода, совместно разрабатываемого людьми со всего мира.
+                        {!! trans('welcome.github.descriptions') !!}
                     </p>
 
                     <p class="padder-v">
                         <a href="https://github.com/orchidsoftware/platform" class="btn btn-lg btn-primary btn-rounded">
-                            Посмотреть исходники
+                            {{ trans('welcome.view_on_github') }}
                             <i class="icon-book-open m-l-xs" aria-hidden="true"></i>
                         </a>
                     </p>
 
                     <p class="text-muted m-t">
-                        Я призываю всех внести свой вклад в проект ORCHID.<br>
-                        Вы можете найти последнюю версию кода на GitHub
+                        {!! trans('welcome.github.action') !!}
                     </p>
                 </div>
             </div>
