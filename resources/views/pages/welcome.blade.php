@@ -24,7 +24,7 @@
                         {!! trans('welcome.title')  !!}
                     </h1>
                 </div>
-                <div class="col-md-7 no-padder">
+                <div class="col-md-7 no-padder hidden-xs">
                     <div class="font-thin">
                         <p>
                             {!! trans('welcome.descriptions')  !!}
@@ -244,6 +244,7 @@ height: 600px;
                 </div>
                 <div class="row">
 
+                    <div class="wrapper">
                     <ul class="list-unstyled">
                         <li>
                             <i class="icon-check pull-left text-lg m-r m-t-sm text-primary"></i>
@@ -275,7 +276,7 @@ height: 600px;
                         </li>
 
                     </ul>
-
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 hidden-xs"><pre class="bg-black"><code class="language-php">class Blog extends Many
@@ -309,7 +310,7 @@ height: 600px;
 
 
 
-<div class="bg-white b-t">
+<div class="bg-white b-t hidden-xs">
     <div class="container">
 
         <div class="col-md-7">
@@ -355,7 +356,7 @@ height: 600px;
 </div>
 
 
-<section class="github pos-rlt no-overflow b-t">
+<section class="github pos-rlt no-overflow b-t hidden-xs">
     <div class="container h-full v-center">
         <div class="row w-full m-t-xxl m-b-xxl">
             <div class="col-lg-5">
