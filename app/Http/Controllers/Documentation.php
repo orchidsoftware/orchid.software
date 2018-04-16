@@ -123,15 +123,15 @@ class Documentation
     }
 
     /**
-     * @param $query
-     *
-     * @return \Illuminate\Http\JsonResponse
+     * @param        $locale
+     * @param string $query
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function search($query = '')
+    public function search($locale, $query = '')
     {
         $search = Docs::search($query)
             ->get()
-            ->where('options.locale', app()->getLocale())
+            ->where('options.locale', $locale)
             ->take(5);
 
         return view('pages.search', [

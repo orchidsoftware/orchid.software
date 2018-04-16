@@ -1,6 +1,6 @@
 @forelse ($search as $item)
     <a href="{{$item->getContent('slug')}}" class="d-block">
-        <div class="m-b-sm text-ellipsis v-center">
+        <div class="@if(!$loop->last) m-b-sm @endif text-ellipsis v-center">
 
             <h5>
                 {{$item->getContent('title')}}

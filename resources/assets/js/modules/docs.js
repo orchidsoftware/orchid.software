@@ -8,16 +8,13 @@ document.addEventListener("turbolinks:load", () => {
         }
 
         setTimeout(() => {
-
-            console.log($("#docs-search").val().trim().toString(),srch);
-
             if($("#docs-search").val().trim().toString() !== srch){
                 return;
             }
 
             axios({
                 method: 'post',
-                url: `/docs/search/${srch}`,
+                url: '/' + document.querySelector('html').lang + `/docs/search/${srch}`,
             }).then(response => {
                 $('#docs-search-result').html(response.data).removeClass('hidden');
             });

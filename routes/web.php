@@ -19,7 +19,7 @@ $this->get('{locale?}', 'WelcomeController@index')
 $this->get('{locale}/docs/{catalog?}', 'Documentation@show')
     ->name('docs');
 
-$this->post('docs/search/{query?}', 'Documentation@search')
+$this->post('{locale}/docs/search/{query?}', 'Documentation@search')
     ->name('docs.search');
 
 
