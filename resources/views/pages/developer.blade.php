@@ -134,6 +134,26 @@ class Blog extends Many
     </div>
 
 
+    <div class="bg-white">
+            <div class="container">
+            <div class="row m-t-xxl m-b-xxl b-b r-2x b-2x b-primary" style="box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);">
+                    <div class="col-md-6 col-xs-12 sm-text-center">
+                        <h3 class="text-black font-thin">Interested in new themes and discounts?</h3>
+                        <p class="text-muted">We'll notify you and promise never to spam.</p>
+                    </div>
+                    <div class="col-md-6 col-xs-12 sm-text-center">
+                        <div class="form-group form-group-default m-t-xl">
+                            <label>Your email here</label>
+                            <div class="controls">
+                                <input type="text" placeholder="Your email here..." class="form-control">
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="">
         <div class="container">

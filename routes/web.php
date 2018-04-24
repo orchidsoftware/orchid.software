@@ -25,6 +25,8 @@ $this->post('{locale}/docs/search/{query?}', 'Documentation@search')
 
 
 $this->view('{locale}/developer', 'pages.developer');
+$this->view('{locale}/tutorials', 'pages.tutorials');
+$this->view('{locale}/about', 'pages.about');
 $this->view('{locale}/order', 'pages.order');
 
 
