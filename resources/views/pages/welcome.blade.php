@@ -11,9 +11,6 @@
     <!--Container-->
     <div class="container">
 
-
-
-
         <div class="m-t-xxl m-b-xl">
             <h5 class="text-light">
                For Laravel Framework
@@ -229,9 +226,9 @@ height: 600px;
 
 
 
-
 <div class="bg-dark b-t">
     <div class="container">
+
         <div class="row m-t-xxl m-b-xxl v-center">
             <div class="col-md-6 col-sm-12 col-xs-12">
                 <div class="row">

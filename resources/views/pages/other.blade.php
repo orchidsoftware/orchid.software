@@ -1,5 +1,9 @@
+@extends('layouts.app')
 
-<section class="container-fluid hidden-xs">
+
+@section('content')
+
+    <section class="container-fluid hidden-xs">
     <div class="row">
         <div style="background: url('/img/hero10.jpg') center center/cover;">
             <div class="wrapper-xl bg-black-opacity bg-dark min-h-h pos-rlt  text-ellipsis">
@@ -143,3 +147,5 @@
         </div>
     </div>
 </div>
+
+    @endsection
