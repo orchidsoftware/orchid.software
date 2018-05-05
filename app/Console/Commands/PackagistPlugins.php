@@ -35,7 +35,7 @@ class PackagistPlugins extends Command
     {
         $this->client = new Client([
             'base_uri' => 'https://packagist.org/',
-            'timeout'  => 2.0,
+            'timeout'  => 4.0,
         ]);
 
         parent::__construct();
@@ -45,6 +45,7 @@ class PackagistPlugins extends Command
      * Execute the console command.
      *
      * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function handle()
     {
@@ -53,8 +54,9 @@ class PackagistPlugins extends Command
 
     /**
      * @param int $page
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function loadPage(int $page = 1)
+    private function loadPage($page = 1)
     {
         $response = $this->client->request('GET', 'search.json', [
             'query' => [
@@ -69,7 +71,6 @@ class PackagistPlugins extends Command
             try {
                 $this->loadPackage($package);
             } catch (\Exception $exception) {
-                echo $exception->getMessage();
             }
         }
 
@@ -81,14 +82,21 @@ class PackagistPlugins extends Command
 
     /**
      * @param array $package
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     private function loadPackage(array $package)
     {
+
+        if(strpos($package['repository'], 'github') === false){
+            return;
+        }
+
         $post = Post::firstOrNew([
             'user_id' => 1,
-            'type'    => 'plugins',
+            'type'    => 'packages',
             'status'  => 'publish',
             'slug'    => $package['name'],
+            'publish_at' => time(),
         ]);
 
         $response = $this->client->request('GET', $package['url'] . ".json");
@@ -102,21 +110,31 @@ class PackagistPlugins extends Command
         unset($package['versions']);
 
 
+
         //https://api.github.com/repos/tabuna/Example-Package/readme
-        $pageDescriptions = $this->client->request('GET',
-            "https://api.github.com/repos/" . $package['name'] . "/readme", [
-                'query' => [
-                    'client_id'     => env('GITHUB_CLIENT_ID'),
-                    'client_secret' => env('afd1f167ccd0b6d2192c3377c62bcc9561935203'),
-                ],
-            ]);
+
+        try{
+            $pageDescriptions = $this->client->request('GET',
+                "https://api.github.com/repos/" . $package['name'] . "/readme", [
+                    'query' => [
+                        'client_id'     => env('GITHUB_CLIENT_ID'),
+                        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+                    ],
+                ]);
+        }catch (\Exception $exception){
+            $post->forceDelete();
+            return;
+        }
 
         $pageDescriptions = json_decode($pageDescriptions->getBody()->getContents(), true);
         $package['content'] = base64_decode($pageDescriptions['content']);
 
         $post->content = $package;
         $post->options = [];
+
+        $post->setTags($package['info']['keywords']);
         $post->save();
+
     }
 
 

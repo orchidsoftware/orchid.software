@@ -16,14 +16,6 @@ $this->get('{locale?}', 'WelcomeController@index')
     ->name('index');
 
 
-$this->get('{locale}/docs/{catalog?}', 'Documentation@show')
-    ->name('docs');
-
-$this->post('{locale}/docs/search/{query?}', 'Documentation@search')
-    ->name('docs.search');
-
-
-
 $this->view('{locale}/developer', 'pages.developer');
 $this->view('{locale}/tutorials', 'pages.tutorials');
 $this->view('{locale}/about', 'pages.about');
@@ -36,11 +28,11 @@ $this->get('{locale}/blog', 'BlogController@index')
 $this->get('{locale}/blog/{blog}', 'BlogController@show')
     ->name('blog.show');
 
-$this->get('{locale}/plugins', 'PluginController@index')
-    ->name('plugins');
+$this->get('{locale}/packages', 'PackageController@index')
+    ->name('packages');
 
-$this->get('{locale}/plugins/{vendor?}/{package?}', 'PluginController@show')
-    ->name('plugins.show');
+$this->get('{locale}/packages/{vendor?}/{package?}', 'PackageController@show')
+    ->name('packages.show');
 
 $this->view('{locale}/ui', 'pages.ui');
 
@@ -52,3 +44,9 @@ $this->view('{locale}/code-of-conduct', 'pages.code-of-conduct');
 $this->view('{locale}/icons', 'pages.icons')->name('icons');
 $this->view('{locale}/get-involved', 'pages.get-involved')->name('get-involved');
 $this->view('{locale}/feature', 'pages.feature')->name('feature');
+
+$this->get('{locale}/docs/{catalog?}', 'Documentation@show')
+    ->name('docs');
+
+$this->post('{locale}/docs/search/{query?}', 'Documentation@search')
+    ->name('docs.search');

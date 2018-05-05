@@ -7,34 +7,29 @@
 @section('content')
 
 
-    <div class="bg-dark b-t">
+
+    <section id="about" class="bg-white-only">
+        <!--Container-->
         <div class="container">
-            <div class="row  m-t-xxl m-b-xxl">
-                <div class="container m-t-md top-desc-block">
-                    <div class="col-xs-12">
-                        <div class="page-hero-content">
-
-                            <h1 class="font-thin m-t-n l-h-1x padder-v text-white">
-                                Laravel фреймворк <br> нового поколения
-                            </h1>
-
-                            <p class="text-white small">
-                                Мы верим, что процесс разработки только тогда наиболее продуктивен,<br>
-                                когда работа с фреймворком приносит радость и удовольствие.<br>
-                                Счастливые разработчики пишут лучший код.
-
-
-                            </p>
-
-                        </div>
+            <!--Row-->
+            <div class="row m-t-xl m-b-xl">
+                <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 m-t-xl">
+                    <div class="block-content text-center">
+                        <h1 class="title m-b-md text-dark" style="font-weight: 300;">Простая и гибкая<br>
+                                                                                     панель управления для Laravel
+                        </h1>
+                        <p class="lead">
+                            Платформа, которая растет вместе с вами не мешает и позволяет вам использовать ваши любимые технологии легко создавать необходимые функции.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <!--End container-->
+    </section>
 
 
-    <div class="bg-white ">
+    <div class="bg-white b-t">
         <div class="container">
             <div class="row v-center m-t-lg m-b-md padder-v">
 

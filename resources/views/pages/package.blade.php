@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title',$package->content['name'])
-@section('description',$package->content['name'])
+@section('title',$package->content['info']['name'])
+@section('description',$package->content['info']['description'])
 
 
 @section('content')
@@ -13,9 +13,21 @@
 
                     <div class="col-md-3 b-r b-light">
 
-                    <nav class="nav-docs">
-                            
-                    </nav>
+
+
+                        <p class="h3 font-thin text-black">Maintainers:</p>
+                        <ul class="list-inline m-t-md">
+                            @foreach($package->content['maintainers'] as $maintainer)
+                                <li>
+                                    <a href="{{$package->content['repository']}}/graphs/contributors"
+                                       title="{{$maintainer['name']}}"
+                                       target="_blank" class="pull-left thumb-sm avatar">
+                                        <img src="{{$maintainer['avatar_url']}}" alt="..." class="img-circle">
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+
 
                     </div>
 

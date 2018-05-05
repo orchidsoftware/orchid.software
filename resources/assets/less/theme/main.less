@@ -42,10 +42,10 @@
 main{
   line-height: 2em;
   overflow: hidden;
+
   img{
     max-width: 100%;
-    height: auto;
-    margin: 0 auto;
+    object-fit: cover;
   }
 
   h1,h2,h3,h4,h5,h6{
@@ -99,16 +99,21 @@ main{
 }
 
 
-main, main div{
-  //animation: blur 620ms;
-  line-height: 1.8em;
-
-
+#docs main{
   img{
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
     .img-responsive;
     .b;
     .box-shadow-lg;
   }
+}
+
+
+main, main div{
+  //animation: blur 620ms;
+  line-height: 1.8em;
 
   ul{
     padding: 0 5rem;
@@ -133,14 +138,6 @@ main, main div{
     }
   }
 
-
-/*
-  blockquote{
-    border-color: @brand-info;
-    .bg-light;
-    .padder-v;
-  }
-*/
   iframe{
     .b;
     .box-shadow-lg;
@@ -152,18 +149,6 @@ main, main div{
     background: @brand-info;
     color: @brand-white;
   }
-
-  /*
-  *{
-    font-size: 14px!important;
-    line-height: 28px!important;
-    font-family: @font-family-base!important;
-  }
-
-  font-size: 14px!important;
-  font-family: @font-family-base!important;
-  */
-
 
   @column-name: anchor-h;
   @column-count: 6;

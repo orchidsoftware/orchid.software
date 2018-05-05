@@ -84,7 +84,7 @@
                             <div class="disc bg-success"></div>
                         </div>
                         <div class="codeshell-body bg-dark">
-                            <div class="codeshell-action">₹ adonis new app</div>
+                            <div class="codeshell-action">$ composer require orchid/platform</div>
                             <div>Crafting new application...</div>
                             <div>Application crafted! <span class="info">Build something awesome</span></div>
                             <div class="codeshell-title">adonisjs apps are packed with</div>
