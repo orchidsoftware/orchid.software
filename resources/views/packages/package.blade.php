@@ -53,8 +53,8 @@
                         <p class="h4 font-thin text-black m-t-md">Author:</p>
                         <p class="padder-v">
                             @foreach($package->content['info']['authors'] as $author)
-                                <a href="mailto:{{$author['email']}}" title="{{$author['name']}}">
-                                    {{$author['name']}}
+                                <a href="mailto:{{$author['email'] or 'unknown'}}" title="{{$author['name'] or 'unknown'}}}}">
+                                    {{$author['name'] or 'unknown'}}}}
                                 </a>
                             @endforeach
                         </p>
