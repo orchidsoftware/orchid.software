@@ -98,6 +98,7 @@ class PackagistPlugins extends Command
             'type'    => 'package',
             'status'  => 'publish',
             'slug'    => $package['name'],
+        ],[
             'publish_at' => time(),
         ]);
 
