@@ -2,27 +2,6 @@
 
 
 @section('content')
-<style>
-
-    .flipkart-navbar-input {
-        padding: 11px 16px;
-        border-radius: 2px 0 0 2px;
-        border: 0 none;
-        outline: 0 none;
-        font-size: 15px;
-        color: #000;
-    }
-
-    .flipkart-navbar-button {
-        border-radius: 0 2px 2px 0;
-        padding: 10px 0;
-        height: 43px;
-        cursor: pointer;
-    }
-
-
-</style>
-
 
 <header class="bg-dark text-white">
     <div class="container text-center">
@@ -34,14 +13,15 @@
             </p>
 
 
-        <div class="flipkart-navbar-search smallsearch w-xxl center">
+        <form class="search-navbar-search smallsearch w-xxl center" action="{{route('packages.search')}}">
                 <div class="row text-left">
-                    <input class="flipkart-navbar-input col-xs-10 text-black" type="text" required placeholder="Поиск..." name="">
-                    <button class="flipkart-navbar-button btn btn-primary col-xs-2">
+                    <input class="search-navbar-input col-xs-10 text-black" type="text" required
+                           placeholder="Search..." name="query">
+                    <button class="search-navbar-button btn btn-primary col-xs-2">
                         <i class="icon-magnifier"></i>
                     </button>
                 </div>
-            </div>
+        </form>
         </div>
 
 
@@ -51,7 +31,6 @@
 
 
 <div id="packages-list" class="bg-white box-shadow">
-
 
     <div class="container">
         <div class="row m-b-lg m-t-lg">
@@ -83,6 +62,7 @@
         </div>
 
     </div>
+
 </div>
 
 
@@ -90,7 +70,7 @@
 
 
 
-<section class="text-center b-t bg-white">
+<section class="text-center b-t bg-white hidden">
     <!--Container-->
     <div class="container">
 

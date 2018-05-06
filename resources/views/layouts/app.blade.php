@@ -130,14 +130,13 @@
                             {{trans('welcome.blog')}}
                         </a>
                     </li>
-                    ->
-                    <!--
+                    -->
+
                     <li>
-                        <a href="/ru/plugins">
-                           Расширения
+                        <a href="{{route('packages')}}">
+                            {{trans('welcome.packages')}}
                         </a>
                     </li>
-                    -->
 
                     <li>
                         <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">

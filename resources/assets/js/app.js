@@ -5,6 +5,7 @@ Turbolinks.start();
 
 document.addEventListener("turbolinks:load", function() {
     require('./bootstrap');
+    require('./modules/popupCenter');
 });
 
 require('./modules/typed');

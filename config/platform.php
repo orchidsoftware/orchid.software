@@ -120,7 +120,8 @@ return [
     */
 
     'many' => [
-        App\Behaviors\Many\BlogPost::class
+        App\Behaviors\Many\BlogPost::class,
+        App\Behaviors\Many\Package::class,
     ],
 
     /*

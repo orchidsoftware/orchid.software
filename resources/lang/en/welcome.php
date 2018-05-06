@@ -8,6 +8,7 @@ return [
     'demo'          => 'Demo',
     'donate'        => 'Donate',
     'icons'         => 'Icons',
+    'packages'      => 'Packages',
 
     'view_on_github' => 'View on GitHub',
 

@@ -56,7 +56,7 @@ class PackagistPlugins extends Command
      * @param int $page
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function loadPage($page = 1)
+    private function loadPage($page = 10)
     {
         $response = $this->client->request('GET', 'search.json', [
             'query' => [
@@ -71,6 +71,7 @@ class PackagistPlugins extends Command
             try {
                 $this->loadPackage($package);
             } catch (\Exception $exception) {
+                echo $exception->getMessage();
             }
         }
 
@@ -93,7 +94,7 @@ class PackagistPlugins extends Command
 
         $post = Post::firstOrNew([
             'user_id' => 1,
-            'type'    => 'packages',
+            'type'    => 'package',
             'status'  => 'publish',
             'slug'    => $package['name'],
             'publish_at' => time(),
@@ -108,10 +109,6 @@ class PackagistPlugins extends Command
 
         $package['info'] = $package['versions'][$lastVersion];
         unset($package['versions']);
-
-
-
-        //https://api.github.com/repos/tabuna/Example-Package/readme
 
         try{
             $pageDescriptions = $this->client->request('GET',
@@ -132,9 +129,14 @@ class PackagistPlugins extends Command
         $post->content = $package;
         $post->options = [];
 
+        // remove laravel key
+        if (($key = array_search('laravel', $package['info']['keywords'])) !== false) {
+            unset($package['info']['keywords'][$key]);
+        }
+
+        $post->save();
         $post->setTags($package['info']['keywords']);
         $post->save();
-
     }
 
 

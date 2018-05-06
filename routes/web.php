@@ -31,6 +31,9 @@ $this->get('{locale}/blog/{blog}', 'BlogController@show')
 $this->get('{locale}/packages', 'PackageController@index')
     ->name('packages');
 
+$this->get('{locale}/packages/search', 'PackageController@search')
+    ->name('packages.search');
+
 $this->get('{locale}/packages/{vendor?}/{package?}', 'PackageController@show')
     ->name('packages.show');
 
