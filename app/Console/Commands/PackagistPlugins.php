@@ -70,6 +70,7 @@ class PackagistPlugins extends Command
         foreach ($content['results'] as $package) {
             try {
                 $this->loadPackage($package);
+                $this->line('add ' . $package['name']);
             } catch (\Exception $exception) {
                 echo $exception->getMessage();
             }
@@ -119,6 +120,7 @@ class PackagistPlugins extends Command
                     ],
                 ]);
         }catch (\Exception $exception){
+            echo $exception->getMessage();
             $post->forceDelete();
             return;
         }
