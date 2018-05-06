@@ -56,7 +56,7 @@ class PackagistPlugins extends Command
      * @param int $page
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    private function loadPage($page = 10)
+    private function loadPage($page = 1)
     {
         $response = $this->client->request('GET', 'search.json', [
             'query' => [
