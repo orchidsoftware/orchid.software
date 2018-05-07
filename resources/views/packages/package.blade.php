@@ -32,6 +32,7 @@
                             </li>
                         </ul>
 
+                        @empty($package->tags)
                         <p class="h4 font-thin text-black m-t-md">Tags:</p>
                         <ul class="list-inline m-t-md">
                             @foreach($package->tags as $tag)
@@ -40,7 +41,9 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @endempty
 
+                        @empty($package->content['info']['require'])
                         <p class="h4 font-thin text-black m-t-md">Require:</p>
                         <ul class="m-t-md small list-inline">
                             @foreach($package->content['info']['require'] as $name => $version)
@@ -49,7 +52,9 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @endempty
 
+                        @empty($package->content['info']['authors'])
                         <p class="h4 font-thin text-black m-t-md">Author:</p>
                         <p class="padder-v">
                             @foreach($package->content['info']['authors'] as $author)
@@ -58,7 +63,9 @@
                                 </a>
                             @endforeach
                         </p>
+                        @endempty
 
+                        @empty($package->content['maintainers'])
                         <p class="h4 font-thin text-black m-t-md">Maintainers:</p>
                         <ul class="list-inline m-t-md">
                             @foreach($package->content['maintainers'] as $maintainer)
@@ -71,6 +78,7 @@
                                 </li>
                             @endforeach
                         </ul>
+                        @endempty
 
 
                         <p class="h4 font-thin text-black m-t-md">Share:</p>
