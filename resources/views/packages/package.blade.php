@@ -13,7 +13,7 @@
                     <div class="col-md-3 b-r b-light">
 
                         <p class="h4 font-thin text-black m-t-xl">Description:</p>
-                        <p class="padder-v small">{{$package->content['description']}}</p>
+                        <p class="padder-v small">{{$package->content['description'] or ''}}</p>
                         <p class="text-center">
                             <a href="{{$package->content['repository']}}" target="_blank" class="btn btn-xs btn-primary btn-rounded m-l m-t-sm"><i class="icon-social-github m-r-xs"></i> Show repository</a>
                         </p>
@@ -32,7 +32,6 @@
                             </li>
                         </ul>
 
-                        @empty($package->tags)
                         <p class="h4 font-thin text-black m-t-md">Tags:</p>
                         <ul class="list-inline m-t-md">
                             @foreach($package->tags as $tag)
@@ -41,9 +40,8 @@
                                 </li>
                             @endforeach
                         </ul>
-                        @endempty
 
-                        @empty($package->content['info']['require'])
+                        @isset($package->content['info']['require'])
                         <p class="h4 font-thin text-black m-t-md">Require:</p>
                         <ul class="m-t-md small list-inline">
                             @foreach($package->content['info']['require'] as $name => $version)
@@ -52,9 +50,9 @@
                                 </li>
                             @endforeach
                         </ul>
-                        @endempty
+                        @endisset
 
-                        @empty($package->content['info']['authors'])
+                        @isset($package->content['info']['authors'])
                         <p class="h4 font-thin text-black m-t-md">Author:</p>
                         <p class="padder-v">
                             @foreach($package->content['info']['authors'] as $author)
@@ -63,9 +61,9 @@
                                 </a>
                             @endforeach
                         </p>
-                        @endempty
+                        @endisset
 
-                        @empty($package->content['maintainers'])
+                        @isset($package->content['maintainers'])
                         <p class="h4 font-thin text-black m-t-md">Maintainers:</p>
                         <ul class="list-inline m-t-md">
                             @foreach($package->content['maintainers'] as $maintainer)
@@ -78,7 +76,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                        @endempty
+                        @endisset
 
 
                         <p class="h4 font-thin text-black m-t-md">Share:</p>
