@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <base href="@yield('base',url()->current())">
     <title>@yield('title',setting('site_title')) @if(isset($title)) - @endif ORCHID - Laravel Admin Panel</title>
     <meta name="description" content="@yield('description',trans('welcome.descriptions'))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
@@ -13,9 +14,12 @@
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
 
+    @foreach(config('localization.localesOrder') as $key => $value)
+        <link rel="alternate" hreflang="{{$key}}" href="{{current_href_for_lang($key)}}">
+    @endforeach
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <link rel="stylesheet" href="{{ mix('/css/app.css')}}" type="text/css" />
-
     <meta property="og:title" content="@yield('title',setting('site_title','')) ORCHID - Laravel Admin Panel">
     <meta property="og:description" content="@yield('description', trans('welcome.descriptions'))">
     <meta property="og:type" content="article">
@@ -25,7 +29,6 @@
     <meta name="auth" content="{{ Auth::id() }}">
 
     <link rel="shortcut icon" type="image/png" href="/apple-touch-icon.png">
-
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">

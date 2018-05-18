@@ -32,3 +32,21 @@ if (!function_exists('str_strip_limit_words')) {
         return str_limit_words(strip_tags($str), $size, $end);
     }
 }
+
+/**
+ *
+ */
+if (!function_exists('current_href_for_lang')) {
+
+    /**
+     * @param string $lang
+     * @return mixed
+     */
+    function current_href_for_lang(string $lang)
+    {
+        $default = app()->getLocale();
+        $current = url()->current();
+
+        return str_replace_first("/$default/", "/$lang/", $current);
+    }
+}

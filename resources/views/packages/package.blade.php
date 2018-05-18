@@ -2,7 +2,7 @@
 
 @section('title',$package->content['info']['name'])
 @section('description',$package->content['info']['description'])
-
+@section('base',$package->content['repository'])
 
 @section('content')
     <div class="bg-white-only">
