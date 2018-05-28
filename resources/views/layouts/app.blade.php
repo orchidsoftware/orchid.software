@@ -8,7 +8,7 @@
     <meta name="description" content="@yield('description',trans('welcome.descriptions'))">
     <meta name="keywords" content="@yield('keywords',setting('site_keywords',''))">
     <meta name="author" content="Alexandr Chernyaev">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="{{url('/favicon.ico')}}">
     <meta http-equiv="X-DNS-Prefetch-Control" content="on">
     <link rel="dns-prefetch" href="{{ config('app.url') }}">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
     @endforeach
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="stylesheet" href="{{ mix('/css/app.css')}}" type="text/css" />
+    <link rel="stylesheet" href="{{ url(mix('/css/app.css')) }}" type="text/css" />
     <meta property="og:title" content="@yield('title',setting('site_title','')) ORCHID - Laravel Admin Panel">
     <meta property="og:description" content="@yield('description', trans('welcome.descriptions'))">
     <meta property="og:type" content="article">
@@ -28,15 +28,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="auth" content="{{ Auth::id() }}">
 
-    <link rel="shortcut icon" type="image/png" href="/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ac5ca0">
+    <link rel="shortcut icon" type="image/png" href="{{  url('/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{  url('/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{  url('/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{  url('/favicon-16x16.png') }}" sizes="16x16">
+    <link rel="manifest" href="{{  url('/manifest.json') }}">
+    <link rel="mask-icon" href="{{  url('/safari-pinned-tab.svg') }}" color="#ac5ca0">
     <meta name="theme-color" content="#ffffff">
 
-    <script src="{{ mix('/js/app.js')}}"></script>
+    <script src="{{ url(mix('/js/app.js')) }}"></script>
 
 
     <!-- Yandex.Metrika counter -->
@@ -80,7 +80,7 @@
                     <i class="icon-menu"></i>
                 </button>
                 <a href="{{ url('/') }}" class="navbar-brand m-r-lg">
-                    <img src="/img/orchid.svg" style="height: 20px;">
+                    <img src="{{ url('/img/orchid.svg') }}" style="height: 20px;">
                 </a>
             </div>
             <div class="collapse navbar-collapse">
