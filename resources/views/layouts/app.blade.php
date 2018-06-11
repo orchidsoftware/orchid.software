@@ -229,7 +229,7 @@
                                 </li>
                                 <li>
                                     <a href="{{url('https://www.paypal.me/tabuna/10usd')}}" target="_blank" rel="noopener noreferrer">
-                                        <i class="icon-wallet m-r-xs"></i> {{trans('welcome.donate')}}
+                                        <i class="icon-wallet m-r-xs"></i> {{trans('welcome.donate.donate')}}
                                     </a>
                                 </li>
                             </ul>

@@ -86,6 +86,35 @@
         </div>
         <!--End row-->
 
+
+        <div class="row m-b-xxl b-b r-2x b-2x b-dark" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
+            <div class="col-md-6 col-xs-12 sm-text-center">
+                <h3 class="text-black font-thin">{{trans('welcome.donate.title')}}</h3>
+                <p class="text-muted small">
+                    {{trans('welcome.donate.description')}}
+                </p>
+            </div>
+            <div class="col-md-6 col-xs-12 sm-text-center">
+                <div class="form-group form-group-default m-t-xl">
+                    <label>{{trans('welcome.donate.currency')}}</label>
+                    <div class="controls">
+                        <span class="pos-abt text-black m-t-xs">$</span>
+                        <input type="number"
+                               placeholder="{{trans('welcome.donate.price')}}"
+                               value="10.00"
+                               onchange="document.getElementById('form-donate').href = 'https://www.paypal.me/tabuna/'+ this.value + 'usd'"
+                               class="form-control m-l">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="https://www.paypal.me/tabuna/10usd" target="_blank" id="form-donate" class="btn btn-rounded btn-dark m-b">{{trans('welcome.donate.button')}}</a>
+                </div>
+            </div>
+
+        </div>
+
+
+
     </div>
     <!--End container-->
 </section>
