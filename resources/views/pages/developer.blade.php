@@ -90,7 +90,7 @@
                                 <div>Application crafted! <span class="info">Build something awesome</span></div>
                                 <div class="codeshell-title">adonisjs apps are packed with</div>
                                 <div>------------------------------</div>
-                                <ul>
+                               <ul class="list-group">
                                     <li> seamless authentication </li>
                                     <li> SQL ORM, migrations and seeds </li>
                                     <li> inbuilt support for i18n </li>
@@ -114,6 +114,133 @@
 
         </div>
     </div>
+
+
+    <main class="bg-white">
+        <div class="container">
+            <div class="row m-t-xxl">
+                <div class="col-lg-8">
+                    <div>
+                        <h2 class="text-dark font-thin"><span class="icon-support text-muted m-r-md"></span>Explore Topics</h2>
+                        <p>We did our best to cover all topics related to this product. Each section have number which represent
+                           number of topic in each category.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3><a href="#">Settings &amp; Configuration</a></h3>
+                               <ul class="list-group">
+                                    <li><a href="single.html"> How to use this documentation? </a></li>
+                                    <li><a href="single.html"> How to find topics? </a></li>
+                                    <li><a href="single.html"> What is included and why? </a></li>
+                                    <li><a href="single.html"> Basic knowledge requirments. </a></li>
+                                    <li><a href="single.html"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3><a href="#">Intallation &amp; Activation</a></h3>
+                               <ul class="list-group">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3><a href="#">Import &amp; Export</a></h3>
+                               <ul class="list-group">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3><a href="#">Settings &amp; Configuration</a></h3>
+                               <ul class="list-group">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3 class="font-thin text-black"><a href="#">Introduction</a></h3>
+                                <ul class="list-group">
+                                    <li><a href="single.html"> How to use this documentation? </a></li>
+                                    <li><a href="single.html"> How to find topics? </a></li>
+                                    <li><a href="single.html"> What is included and why? </a></li>
+                                    <li><a href="single.html"> Basic knowledge requirments. </a></li>
+                                    <li><a href="single.html"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="topics-list">
+                                <h3><a href="#">Intallation &amp; Activation</a></h3>
+                               <ul class="list-group">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="bg-white b wrapper">
+                            <span class="icon icon-directions pull-right m-r-md text-muted" style="    font-size: 64px;
+    height: 60px;"></span>
+                            <h3 class="text-black font-thin">Looking for help?<br> Join Community</h3>
+
+                            <p class="padder-v">Couldn’t find what your are looking for ? Why not join out support forums and let us help
+                               you.</p>
+
+
+                            <a href="#" class="btn btn-success">Support Forum</a>
+                        </div>
+
+                        <div class="pt-50">
+                            <div class="widget fix widget_categories">
+                                <span class="icon icon-folder"></span>
+                                <h4>Popular Knowledgebase Topics</h4>
+                               <ul class="list-group">
+                                    <li><a href="#"> Installation &amp; Activation </a></li>
+                                    <li><a href="#"> Premium Members Features </a></li>
+                                    <li><a href="#"> API Usage &amp; Guide lines </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                    <li><a href="#"> Installation &amp; Activation </a></li>
+                                    <li><a href="#"> Premium Members Features </a></li>
+                                    <li><a href="#"> API Usage &amp; Guide lines </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
 
 
