@@ -3,7 +3,9 @@
 return [
 
     'documentation' => 'Documentation',
-    'support'       => 'Help and Discussion',
+    'support'  => 'Help',
+    'discussion' => 'Discussion',
+
     'blog'          => 'Blog',
     'demo'          => 'Demo',
     'icons'         => 'Icons',

@@ -115,6 +115,7 @@
 
                     <li>
                         <a href="{{route('docs')}}">
+                            <i class="icon-docs m-r-xs text-xs"></i>
                             {{trans('welcome.documentation')}}
                         </a>
                     </li>
@@ -123,6 +124,7 @@
 
                     <li>
                         <a href="{{route('icons')}}">
+                            <i class="icon-cup m-r-xs text-xs"></i>
                             {{trans('welcome.icons')}}
                         </a>
                     </li>
@@ -137,16 +139,24 @@
 
                     <li>
                         <a href="{{route('packages')}}">
+                            <i class="icon-modules m-r-xs text-xs"></i>
                             {{trans('welcome.packages')}}
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">
-                            {{trans('welcome.support')}}</a>
+                        <a href="{{url('https://t.me/orchid_community')}}" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            {{trans('welcome.discussion')}}
+                        </a>
                     </li>
 
-
+                    <li>
+                        <a href="{{url('https://github.com/orchidsoftware/platform/issues')}}" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            {{trans('welcome.support')}}
+                        </a>
+                    </li>
 
 
                     <!--
@@ -229,7 +239,7 @@
                                 </li>
                                 <li>
                                     <a href="{{url('https://www.paypal.me/tabuna/10usd')}}" target="_blank" rel="noopener noreferrer">
-                                        <i class="icon-wallet m-r-xs"></i> {{trans('welcome.donate.donate')}}
+                                        <i class="icon-wallet m-r-xs"></i> {{trans('welcome.donate.button')}}
                                     </a>
                                 </li>
                             </ul>

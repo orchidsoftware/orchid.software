@@ -46,8 +46,6 @@
             </div>
         </div>
 
-
-
         <!--Row-->
         <div class="row m-t-xl m-b-xxl">
             <div class="col-md-4 col-sm-4">
@@ -89,7 +87,9 @@
 
         <div class="row m-b-xxl b-b r-2x b-2x b-dark" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
             <div class="col-md-6 col-xs-12 sm-text-center">
-                <h3 class="text-black font-thin">{{trans('welcome.donate.title')}}</h3>
+                <h3 class="text-black font-thin">
+                    <i class="icon-credit-card m-r-sm"></i>
+                    {{trans('welcome.donate.title')}}</h3>
                 <p class="text-muted small">
                     {{trans('welcome.donate.description')}}
                 </p>
@@ -107,7 +107,9 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <a href="https://www.paypal.me/tabuna/10usd" target="_blank" id="form-donate" class="btn btn-rounded btn-dark m-b">{{trans('welcome.donate.button')}}</a>
+                    <a href="https://www.paypal.me/tabuna/10usd" target="_blank" id="form-donate" class="btn btn-rounded btn-dark m-b">
+                        {{trans('welcome.donate.button')}}
+                    </a>
                 </div>
             </div>
 
