@@ -196,7 +196,7 @@
 
         <section class="b-t">
             <div class="container">
-                <div class="row m-t-xl m-b-md">
+                <div class="row m-t-xl m-b-xl">
                     <div class="col-md-8 col-xs-12">
 
                         <div class="text-xs">
