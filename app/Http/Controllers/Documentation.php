@@ -37,15 +37,17 @@ class Documentation
 
     /**
      * @param        $locale
-     * @param string $page
+     * @param string $slug
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    public function show($locale, $page = 'index')
+    public function show($locale, $slug = 'index')
     {
-        $page = $this->getPage($locale, $page);
+        $page = $this->getPage($locale, $slug);
 
         return view('pages.docs', [
+            'locale'      => $locale,
+            'slug'        => $slug,
             'menu'        => $this->getMenu($locale),
             'anchors'     => $page['anchors'],
             'content'     => $page['content'],

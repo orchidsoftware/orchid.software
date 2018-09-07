@@ -18,6 +18,9 @@
                     <div class="">
                         <a href="#"><span class="label label-primary padder">2.2</span></a>
                         <a href="#"><span class="label bg-white b text-black  padder">dev-master</span></a>
+                        <a href="{{url("https://github.com/orchidsoftware/platform/edit/master/docs/$locale/$slug.md")}}" class="pull-right">
+                            <small class="text-muted"><i class="icon-pencil m-r-xs"></i> {{trans('docs.edit_page')}}</small>
+                        </a>
                     </div>
                     <div class="form-group form-group-default m-t">
                         <label> {!! trans('docs.search') !!}</label>
