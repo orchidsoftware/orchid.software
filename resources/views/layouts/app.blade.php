@@ -196,12 +196,11 @@
 
         <section class="b-t">
             <div class="container">
-                <div class="row m-t-xl m-b-xl">
+                <div class="row m-t-xl m-b-md">
                     <div class="col-md-8 col-xs-12">
 
-                        <div class="m-t text-xs">
+                        <div class="text-xs">
                             <ul class="list-inline">
-
 
                                 <li class="m-r-xl">
                                     @foreach(config('localization.localesOrder') as $key => $value)
@@ -246,10 +245,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 hidden-xs text-right">
-                        <p class="text-xs">
-                            {{trans('welcome.licence')}}
-                        </p>
-                        <p class="text-xs text-muted">Copyright © 2016 - {{date('Y')}} Chernyaev Alexander.</p>
+                        <p class="text-xs text-muted">{{trans('welcome.licence')}}</p>
                     </div>
                 </div>
             </div>
