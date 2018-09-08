@@ -12,18 +12,19 @@
   "devDependencies": {
     "axios": "^0.17",
     "bootstrap": "^3.3.7",
-    "cross-env": "^5.1",
+    "cross-env": "^5.2.0",
     "jquery": "^3.3.1",
-    "laravel-mix": "^2.0",
+    "laravel-mix": "^2.1.14",
     "less": "^2.7.3",
-    "less-loader": "^4.0.5",
-    "lodash": "^4.17.5",
-    "open-color": "^1.6.2"
+    "less-loader": "^4.1.0",
+    "lodash": "^4.17.10",
+    "open-color": "^1.6.3"
   },
   "dependencies": {
-    "orchid-icons": "^1.0.2",
-    "prismjs": "^1.11.0",
-    "turbolinks": "^5.1",
+    "orchid-icons": "^1.0.8",
+    "owl.carousel": "^2.3.4",
+    "prismjs": "^1.15.0",
+    "turbolinks": "^5.2.0",
     "typed.js": "^1.1.7"
   }
 }

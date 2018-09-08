@@ -1,4 +1,3 @@
-
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
@@ -13,8 +12,10 @@ require('./modules/icons');
 require('./modules/prism');
 require('./modules/docs');
 
+/*
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('./js/worker.js')
         .then(function() { console.log('Service Worker Registered'); });
 }
+*/
