@@ -11,7 +11,6 @@ let mix = require('laravel-mix');
  |
  */
 
-
 mix.less('resources/assets/less/app.less', 'public/css/app.css')
     .copy('./node_modules/bootstrap/dist/fonts/', 'public/fonts')
     .copy('./node_modules/orchid-icons/dist/fonts/', 'public/fonts')
