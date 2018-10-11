@@ -15,7 +15,7 @@
                     </nav>
                 </div>
                 <div class="col-md-9 col-xs-12 wrapper-lg">
-                    <div class="">
+                    <div class="hidden-xs">
                         <a href="#"><span class="label label-primary padder">2.2</span></a>
                         <a href="#"><span class="label bg-white b text-black  padder">dev-master</span></a>
                         <a href="{{url("https://github.com/orchidsoftware/platform/edit/master/docs/$locale/$slug.md")}}" class="pull-right">

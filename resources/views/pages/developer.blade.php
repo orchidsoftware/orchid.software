@@ -130,11 +130,11 @@
                             <div class="topics-list">
                                 <h3><a href="#">Settings &amp; Configuration</a></h3>
                                <ul class="list-group">
-                                    <li><a href="single.html"> How to use this documentation? </a></li>
-                                    <li><a href="single.html"> How to find topics? </a></li>
-                                    <li><a href="single.html"> What is included and why? </a></li>
-                                    <li><a href="single.html"> Basic knowledge requirments. </a></li>
-                                    <li><a href="single.html"> Getting Started &amp; What is next. </a></li>
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
                         </div>
@@ -182,11 +182,11 @@
                             <div class="topics-list">
                                 <h3 class="font-thin text-black"><a href="#">Introduction</a></h3>
                                 <ul class="list-group">
-                                    <li><a href="single.html"> How to use this documentation? </a></li>
-                                    <li><a href="single.html"> How to find topics? </a></li>
-                                    <li><a href="single.html"> What is included and why? </a></li>
-                                    <li><a href="single.html"> Basic knowledge requirments. </a></li>
-                                    <li><a href="single.html"> Getting Started &amp; What is next. </a></li>
+                                    <li><a href="#"> How to use this documentation? </a></li>
+                                    <li><a href="#"> How to find topics? </a></li>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
                         </div>

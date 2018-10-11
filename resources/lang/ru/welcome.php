@@ -82,7 +82,7 @@ return [
     'licence'  => 'Код приложения публикуется под лицензией MIT',
     'contacts' => 'Контакты',
     'support'  => 'Помощь',
-    'discussion' => 'Обсуждение'
+    'discussion' => 'Чат'
 
 
 ];
