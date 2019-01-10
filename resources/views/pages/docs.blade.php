@@ -15,13 +15,6 @@
                     </nav>
                 </div>
                 <div class="col-md-9 col-xs-12 wrapper-lg">
-                    <div class="hidden-xs">
-                        <a href="#"><span class="label label-primary padder">2.2</span></a>
-                        <a href="#"><span class="label bg-white b text-black  padder">dev-master</span></a>
-                        <a href="{{url("https://github.com/orchidsoftware/platform/edit/master/docs/$locale/$slug.md")}}" class="pull-right">
-                            <small class="text-muted"><i class="icon-pencil m-r-xs"></i> {{trans('docs.edit_page')}}</small>
-                        </a>
-                    </div>
                     <div class="form-group form-group-default m-t">
                         <label> {!! trans('docs.search') !!}</label>
                         <div class="controls">
@@ -39,6 +32,16 @@
 
                     <main>
                         <h1>{{$title}}</h1>
+
+                        <div class="hidden-xs">
+                            <a href="{{url("https://github.com/orchidsoftware/platform/edit/master/docs/$locale/$slug.md")}}"
+                               class="pull-right"
+                               style="margin-top: -3px; padding-left: 15px;"
+                            >
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> {{trans('docs.edit_page')}}</small>
+                            </a>
+                        </div>
+
                         @if(count($anchors) > 1)
                             <hr>
                             <ul class="padder-v">
