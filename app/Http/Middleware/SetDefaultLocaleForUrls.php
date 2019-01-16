@@ -20,19 +20,19 @@ class SetDefaultLocaleForUrls
         if (!is_null($request->route('locale'))) {
             $locale = $request->route('locale');
         }
-        
+
+        if (!array_key_exists($locale, config('localization.supportedLocales'))) {
+            $locale = 'en';
+        }
+
         $request->session()->put('locale', $locale);
 
         $request->setDefaultLocale($locale);
         App::setLocale($locale);
 
         URL::defaults([
-            'locale' => $locale
+            'locale' => $locale,
         ]);
-        
-        if(!key_exists($locale,config('localization.supportedLocales'))){
-            abort(404);
-        }
 
         return $next($request);
     }
