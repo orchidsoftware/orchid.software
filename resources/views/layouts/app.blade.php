@@ -161,13 +161,14 @@
                         </a>
                     </li>
                     -->
-
+                    <!--
                     <li>
                         <a href="{{route('packages')}}">
                             <i class="icon-modules m-r-xs text-xs"></i>
                             {{trans('welcome.packages')}}
                         </a>
                     </li>
+                    -->
 
                     <li>
                         <a href="{{url('https://t.me/orchid_community')}}" target="_blank" rel="noopener noreferrer">
@@ -221,22 +222,9 @@
 
         <section class="b-t">
             <div class="container">
-                <div class="row m-t-xl m-b-xl">
-                    <div class="col-md-8 col-xs-12">
+                <div class="m-t-xl m-b-xl text-xs text-center">
+                    <ul class="list-inline">
 
-                        <div class="text-xs">
-                            <ul class="list-inline">
-
-                                <li class="m-r-xl">
-                                    @foreach(config('localization.localesOrder') as $key => $value)
-                                        <a href="/{{$key}}">{{$value}}</a>
-
-                                        @if($loop->remaining)
-                                            <span> / </span>
-                                        @endif
-
-                                    @endforeach
-                                </li>
 
 
                                 <li class="hidden-xs">
@@ -267,11 +255,19 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-4 hidden-xs text-right">
-                        <p class="text-xs text-muted">{{trans('welcome.licence')}}</p>
-                    </div>
+                    <ul class="list-inline">
+                        <li class="m-r-xl">
+                            @foreach(config('localization.localesOrder') as $key => $value)
+                                <a href="/{{$key}}">{{$value}}</a>
+
+                                @if($loop->remaining)
+                                    <span> / </span>
+                                @endif
+
+                            @endforeach
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </section>

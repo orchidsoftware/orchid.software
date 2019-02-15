@@ -117,14 +117,21 @@
 
 
     <main class="bg-white">
-        <div class="container">
-            <div class="row m-t-xxl">
+        <div class="container m-t-xl m-b-xxl">
+
+            <div class="row">
                 <div class="col-lg-8">
                     <div>
                         <h2 class="text-dark font-thin"><span class="icon-support text-muted m-r-md"></span>Explore Topics</h2>
                         <p>We did our best to cover all topics related to this product. Each section have number which represent
                            number of topic in each category.</p>
                     </div>
+                </div>
+            </div>
+
+
+            <div class="row ">
+                <div class="col-lg-8">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="topics-list">
@@ -207,7 +214,7 @@
 
                 <!-- Sidebar -->
                 <div class="col-lg-4">
-                    <div class="sidebar">
+                    <div class="sidebar m-t-lg">
                         <div class="bg-white b wrapper">
                             <span class="icon icon-directions pull-right m-r-md text-muted" style="    font-size: 64px;
     height: 60px;"></span>
@@ -220,7 +227,7 @@
                             <a href="#" class="btn btn-success">Support Forum</a>
                         </div>
 
-                        <div class="pt-50">
+                        <div class="m-t-lg">
                             <div class="widget fix widget_categories">
                                 <span class="icon icon-folder"></span>
                                 <h4>Popular Knowledgebase Topics</h4>
