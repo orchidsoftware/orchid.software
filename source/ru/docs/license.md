@@ -1,5 +1,8 @@
-#The MIT License (MIT) 
-----------
+---
+title: The MIT License (MIT) 
+description: Лицензионное соглашение 
+extends: _layouts.documentation.ru
+section: main
 
 ## Лицензионное соглашение 
 

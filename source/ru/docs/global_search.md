@@ -1,5 +1,9 @@
-# Глобальный поиск
-----------
+---
+title: Глобальный поиск
+description: 
+extends: _layouts.documentation.ru
+section: main
+---
 
 ## Использование
 

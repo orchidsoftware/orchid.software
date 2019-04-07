@@ -1,5 +1,9 @@
-# Участие в разработке
-----------
+---
+title: Участие в разработке
+description: Я призываю всех внести свой вклад в проект ORCHID.
+extends: _layouts.documentation.ru
+section: main
+---
 
 Я призываю всех внести свой вклад в проект ORCHID. Вы можете найти последнюю версию кода на GitHub по адресу <https://github.com/orchidsoftware/platform>.
 

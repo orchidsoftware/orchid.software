@@ -1,5 +1,9 @@
-# Документация
-----------
+---
+title: Документация
+description: 
+extends: _layouts.documentation.ru
+section: main
+---
 
 ## Добро пожаловать
 
@@ -17,7 +21,7 @@
 
 
 
-![Index](https://orchid.software/assets/img/ui/index.png)
+![Index](https://orchid.software/img/ui/index.png)
 
 ## Введение
 
