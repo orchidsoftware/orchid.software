@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Notifications is a simple way to inform a user about state of your application."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Notifications | Orchid - Laravel Admin Panel"><meta property="og:description" content="Notifications is a simple way to inform a user about state of your application."><meta property="og:url" content="http://orchid.software/en/docs/alert"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Notifications</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Notifications is a simple way to inform a user about state of your application."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Notifications | Orchid - Laravel Admin Panel"><meta property="og:description" content="Notifications is a simple way to inform a user about state of your application."><meta property="og:url" content="http://orchid.software/en/docs/alert"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Notifications</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app" class="b-t b-primary">
 
@@ -69,7 +69,7 @@
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Платформа</h4>
+            <h4 class="text-orchid font-thin">Platform</h4>
 
 <li>
     
@@ -225,15 +225,15 @@ Alert::warning('Message')</code></pre>
 <p>or use shorter notation:</p>
 <pre><code class="language-php">alert('Message');</code></pre>
 <p>After that there will be several keys installed in a session:</p>
-<ul><li>'flash_notification.message’ – Message to be displayed</li>
-<li>'flash_notification.level’ – String that represents type of notification</li>
+<ul><li>'flash_notification.message&#8217; &#8211; Message to be displayed</li>
+<li>'flash_notification.level&#8217; &#8211; String that represents type of notification</li>
 </ul><p>For displaying at a particular place the following may be used:</p>
 <pre><code class="language-html">&lt;div class="container"&gt;
     @include('platform::partials.alert')
     &lt;p&gt;Welcome to my website...&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <h2><a href="#dashboard-notifications" name="dashboard-notifications">Dashboard notifications</a></h2>
-<p>Dashboard notifications differ from flash-messages in the fact that they don’t disappear after display and can be added to any users even if they are off-line. This is another good way to inform, for example, to notify an associate about new task at the “task manager” application.</p>
+<p>Dashboard notifications differ from flash-messages in the fact that they don&#8217;t disappear after display and can be added to any users even if they are off-line. This is another good way to inform, for example, to notify an associate about new task at the &#8220;task manager&#8221; application.</p>
 <p>You need to do the following to create a notification:</p>
 <pre><code class="language-php">$user = User::find(1);
 

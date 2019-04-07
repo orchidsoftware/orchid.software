@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screens | Orchid - Laravel Admin Panel"><meta property="og:description" content="Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity."><meta property="og:url" content="http://orchid.software/en/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Screens</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screens | Orchid - Laravel Admin Panel"><meta property="og:description" content="Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity."><meta property="og:url" content="http://orchid.software/en/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Screens</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app" class="b-t b-primary">
 
@@ -69,7 +69,7 @@
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Платформа</h4>
+            <h4 class="text-orchid font-thin">Platform</h4>
 
 <li>
     
@@ -223,18 +223,18 @@
                     <li class="anchor-h2">
                 <a href="#layouts">Layouts</a>
             </li>
-            </ul><hr><p>Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it’s own apparel and entity.  By changing
+            </ul><hr><p>Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it&#8217;s own apparel and entity.  By changing
 the layout structure and element properties you may create completely new layouts almost in a few minutes.</p>
-<p>A screen doesn’t know where the data is from, it may be from database, API or other external sources. A screen has standard functionality of modern user interface. You may configure the screen layout and also add or delete commands.
-Screen’s apparel is defined by the <code>Layouts</code>, so everything you need to do is to define what data is to be displayed in particular layout.</p>
+<p>A screen doesn&#8217;t know where the data is from, it may be from database, API or other external sources. A screen has standard functionality of modern user interface. You may configure the screen layout and also add or delete commands.
+Screen&#8217;s apparel is defined by the <code>Layouts</code>, so everything you need to do is to define what data is to be displayed in particular layout.</p>
 <p><img src="https://orchid.software/img/scheme/screens.jpg" alt="Screens"></p>
 <h2><a href="#why-not-crud" name="why-not-crud">Why not CRUD?</a></h2>
-<p>Almost every popular extensions use CRUD for user models, and it’s a good solution, but an application cannot consist of the basic functions. You probably will extend and update the generated logic. A good example showing that standard CRUD operations are not enough is an ability to “Print”. ORCHID allows to create CRUD using “screens”, but it’s not their main purpose.</p>
+<p>Almost every popular extensions use CRUD for user models, and it&#8217;s a good solution, but an application cannot consist of the basic functions. You probably will extend and update the generated logic. A good example showing that standard CRUD operations are not enough is an ability to &#8220;Print&#8221;. ORCHID allows to create CRUD using &#8220;screens&#8221;, but it&#8217;s not their main purpose.</p>
 <h2><a href="#informational-objects-and-screens" name="informational-objects-and-screens">Informational objects and screens</a></h2>
-<p>When using the traditional development instruments, the creation of several layouts for displaying and changing is more complicated and hard tas than creation of data tables. It’s especially noticable when you follow the three level application architecture andyou need to add a lot of proxy code for level binding. Instruments for fast development make this process drastically easier and cheeper.</p>
+<p>When using the traditional development instruments, the creation of several layouts for displaying and changing is more complicated and hard tas than creation of data tables. It&#8217;s especially noticable when you follow the three level application architecture andyou need to add a lot of proxy code for level binding. Instruments for fast development make this process drastically easier and cheeper.</p>
 <p>Screens are used in ORCHID to display and control data, and are based on preset layouts. To bind data and screen you only need to define the displayed entities or requests. </p>
 <h2><a href="#creation" name="creation">Creation</a></h2>
-<p>With ORCHID it’s easier to do it, and you may create a set of screens in a few minutes.</p>
+<p>With ORCHID it&#8217;s easier to do it, and you may create a set of screens in a few minutes.</p>
 <p>To create a new screen you must perform the following comand:</p>
 <pre><code class="language-php">php artisan orchid:screen Users</code></pre>
 <p>In the <code>app/Http/Controllers/Screens</code> directory will be created the <code>Users</code> file with the following content:</p>
@@ -291,12 +291,12 @@ class Users extends Screen
 }
 </code></pre>
 <h2><a href="#routing-registration" name="routing-registration">Routing registration</a></h2>
-<p>You may register every screen with the Route’s <code>screen</code> method</p>
+<p>You may register every screen with the Route&#8217;s <code>screen</code> method</p>
 <pre><code class="language-php">Route::screen('/news', 'Users','platform.screens.users.list');
 //or
 $route-&gt;screen('/news', 'Users','platform.screens.users.list');</code></pre>
 <h2><a href="#data" name="data">Data</a></h2>
-<p>Most of data-oriented applications work with several tables, and these tables are connected to each other. It’s often required to display the data fetched from different sources or linked tables.</p>
+<p>Most of data-oriented applications work with several tables, and these tables are connected to each other. It&#8217;s often required to display the data fetched from different sources or linked tables.</p>
 <p>For example in the process of displaying an order information a screen usually contains the following information about order: date, shipment address, shipment method etc. and one or more connected entries: product, amount, unit price, VATs, full price etc..</p>
 <p>Data to be displayed is defined in the <code>query</code> method where selections and data formation must be performed.
 The data is then passed in array, which keys will be available from layouts.</p>
