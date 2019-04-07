@@ -14,7 +14,7 @@ return [
                 'Licensing'             => '/en/docs/license',
             ],
         ],
-        'Платформа'       => [
+        'Platform'       => [
             'children' => [
                 'Configuration' => '/en/docs/configuration',
                 'Panel menu'    => '/en/docs/panel_menu',
