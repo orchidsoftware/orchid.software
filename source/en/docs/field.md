@@ -21,7 +21,7 @@ This allows to change the `tinymce` to `summernote` or `ckeditor` almost in one 
 ## Input
 
 
-![Input](https://orchid.software/img/ui/input.png)
+![Input](https://orchid.software/assets/img/ui/input.png)
 
 Input is one of the most diversed elements of forms that allows you to create different parts of interface and provide interaction with user.
 Input is mainly intended to create text fields.
@@ -45,7 +45,7 @@ Input::make()
 ## Wysiwyg
 
 
-![Wysing](https://orchid.software/img/ui/wysing.png)
+![Wysing](https://orchid.software/assets/img/ui/wysing.png)
 
 A visual redactor which contents are displayed in the process of redaction and look almost like a result.
 The redactor allows to add images, tables, define text styles and embed videos.
@@ -64,8 +64,8 @@ To display a top panel and a menu, that allows you to view a splash screen and h
 ## Markdown
 
 
-![Markdown](https://orchid.software/img/ui/markdown.png)
-![Markdown2](https://orchid.software/img/ui/markdown2.png)
+![Markdown](https://orchid.software/assets/img/ui/markdown.png)
+![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
 
 Light markup language redactor 
  created to write a maximum human-friendly and easy-to-correct text
@@ -95,7 +95,7 @@ Picture::make()
 ## Datetime
  
  
-![Datatime](https://orchid.software/img/ui/datatime.png)
+![Datatime](https://orchid.software/assets/img/ui/datatime.png)
  
 Allows to set date and time
 
@@ -127,7 +127,7 @@ CheckBox::make()
 ## Code
  
  
-![Code](https://orchid.software/img/ui/code.png)
+![Code](https://orchid.software/assets/img/ui/code.png)
  
 A field for a program code with a highligt
 

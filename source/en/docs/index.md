@@ -23,7 +23,7 @@ In case you find some mistakes in the documentation please specify the section a
 Before installation and use of the platform we recomend you read about the problems it was created to solve. This little investment of time will help get you up to speed quickly.
 
 
-![Index](https://orchid.software/img/ui/index.png)
+![Index](https://orchid.software/assets/img/ui/index.png)
 
 ## Introduction
 

@@ -17,7 +17,7 @@
 
 
 
-![Index](https://orchid.software/img/ui/index.png)
+![Index](https://orchid.software/assets/img/ui/index.png)
 
 ## Введение
 
