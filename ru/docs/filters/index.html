@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Фильтры | Orchid - Laravel Admin Panel"><meta property="og:description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta property="og:url" content="http://orchid.software/ru/docs/filters"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Фильтры</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded hidden-sm">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Пролог</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/preface" class="lvl1   nav-menu__item hover:text-blue">
+            Предисловие
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs" class="lvl1   nav-menu__item hover:text-blue">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/installation" class="lvl1   nav-menu__item hover:text-blue">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1   nav-menu__item hover:text-blue">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/contributors" class="lvl1   nav-menu__item hover:text-blue">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/promote" class="lvl1   nav-menu__item hover:text-blue">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/license" class="lvl1   nav-menu__item hover:text-blue">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Платформа</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/configuration" class="lvl1   nav-menu__item hover:text-blue">
+            Обзор параметров
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/panel_menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню панели
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/screens" class="lvl1   nav-menu__item hover:text-blue">
+            Экраны
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/layouts" class="lvl1   nav-menu__item hover:text-blue">
+            Макеты
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/filters" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
+            Фильтры
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/field" class="lvl1   nav-menu__item hover:text-blue">
+            Поля
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/widget" class="lvl1   nav-menu__item hover:text-blue">
+            Виджеты
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/global_search" class="lvl1   nav-menu__item hover:text-blue">
+            Поиск
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
+            Права доступа
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/settings" class="lvl1   nav-menu__item hover:text-blue">
+            Настройки
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/alert" class="lvl1   nav-menu__item hover:text-blue">
+            Уведомления
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/extension" class="lvl1   nav-menu__item hover:text-blue">
+            Расширение
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Управление содержимым</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/entities" class="lvl1   nav-menu__item hover:text-blue">
+            Сущности
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/post" class="lvl1   nav-menu__item hover:text-blue">
+            Записи
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/tags" class="lvl1   nav-menu__item hover:text-blue">
+            Теги
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/comments" class="lvl1   nav-menu__item hover:text-blue">
+            Комментарии
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/attachments" class="lvl1   nav-menu__item hover:text-blue">
+            Вложения
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Фильтры</h1>
+
+                        <div class="hidden-xs">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/filters" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                <a href="#sozdanie">Создание</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#ispolzovanie">Использование</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#ispolzovanie">Использование</a>
+            </li>
+            </ul><hr><p>Фильтры служат для упрощения поиска записей с использованием типичного фильтра.
+Например, если вы хотите отфильтровать каталог продуктов по атрибутам, брендам и т.п.
+Выборка значений основана на параметрах Http запросов.</p>
+<p>Это не является готовым решением или универсальным средством, вы должны расширить структуру для своих конкретных приложений.</p>
+<h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
+<p>Для создания нового фильтра существует команда:</p>
+<pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
+<p>Это создаст класс фильтр в папке <code>app/Http/Filters</code></p>
+<p>Пример фильтра:</p>
+<pre><code class="language-php">namespace App\Http\Filters;
+
+use Orchid\Platform\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
+
+class QueryFilter extends Filter
+{
+
+    /**
+     * @var array
+     */
+    public $parameters = ['query'];
+
+    /**
+     * @var bool
+     */
+    public $display = true;
+
+    /**
+     * @var bool
+     */
+    public $dashboard = false;
+
+    /**
+     * @param Builder $builder
+     *
+     * @return Builder
+     */
+    public function run(Builder $builder): Builder
+    {
+        return $builder-&gt;where('demo', $this-&gt;request-&gt;get('query'));
+    }
+
+    /**
+     * @return Field
+     */
+    public function display(): Field
+    {
+        return Input::make('query')
+            -&gt;type('text')
+            -&gt;value($this-&gt;request-&gt;get('query'))
+            -&gt;placeholder(__('Search...'))
+            -&gt;title(__('Search'));
+    }
+}</code></pre>
+<p>Фильтр сработает, при условии наличии хотя бы одного параметра указанного в массиве <code>$parameters</code>,
+если массив будет пуст, тогда фильтр будет работать при каждом запросе.</p>
+<h2><a href="#ispolzovanie" name="ispolzovanie">Использование</a></h2>
+<p>Для использования фильтра, необходимо указать его в классе поведения.</p>
+<pre><code class="language-php">use Orchid\Entities\Many;
+
+class MyBehaviorPost extends Many
+{
+
+    /**
+     * HTTP data filters
+     *
+     * @var array
+     */
+    public function filters(){
+        return [
+            QueryFilter::class,
+        ];
+    }
+}</code></pre>
+<blockquote>
+<p><strong>Заметьте, </strong> что вы можете использовать одни и те же фильтры для разных поведений.</p>
+</blockquote>
+<p>Фильтрацию можно запустить методом <code>filtersApply</code>:</p>
+<pre><code class="language-php">use Orchid\Press\Models\Post;
+
+Post::type('news')-&gt;filtersApply()-&gt;simplePaginate();</code></pre>
+<p>Для использования фильтров в собственных моделях, требуется подключить трейд <code>Orchid\Platform\Traits\FilterTrait</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
+<pre><code class="language-php">use App\MyModel;
+
+MyModel::filtersApply([
+   Filter::class,
+])-&gt;simplePaginate();
+</code></pre>
+<h2><a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka" name="avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a></h2>
+<p>Для реагирования на HTTP параметры, модель должна включать в себя <code>FilterTrait</code>, а так же определение доступных
+атрибутов:</p>
+<pre><code class="language-php">use FilterTrait;
+
+/**
+ * @var
+ */
+protected $allowedFilters = [
+    'id',
+    'user_id',
+    'type',
+    'status',
+    'content',
+    'options',
+    'slug',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+];
+
+/**
+ * @var
+ */
+protected $allowedSorts = [
+    'id',
+    'user_id',
+    'type',
+    'status',
+    'slug',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+];
+</code></pre>
+<h3><a href="#ispolzovanie" name="ispolzovanie">Использование</a></h3>
+<pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
+<p>Как будет реагировать фильтрация:</p>
+<pre><code class="language-php">http://example.com/demo?filter[id]=1
+$model-&gt;where('id','=',1)
+
+http://example.com/demo?filter[id]=1,2,3,4,5
+$model-&gt;whereIn('id',[1,2,3,4,5]);
+
+http://example.com/demo?filter[content.ru.name]=dwqdwq
+$model-&gt;where('content-&gt;ru-&gt;name','=','dwqdwq');
+</code></pre>
+<p>Как будет реагировать сортировка:</p>
+<pre><code class="language-php">http://example.com/demo?sort=content.ru.name
+$model-&gt;orderBy('content.ru.name','asc');
+
+http://example.com/demo?sort=-content.ru.name
+$model-&gt;orderBy('content.ru.name','desc');</code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="m-t-xl m-b-xl text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-bubbles m-r-xs"></i> Slack
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.paypal.me/tabuna/10usd" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-wallet m-r-xs"></i> Угостить кофем                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                            
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>

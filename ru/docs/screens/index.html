@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Основные компоненты пользовательского интерфейса"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Экраны | Orchid - Laravel Admin Panel"><meta property="og:description" content="Основные компоненты пользовательского интерфейса"><meta property="og:url" content="http://orchid.software/ru/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Экраны</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=570c2ea7587e5cbb2825"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded hidden-sm">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Пролог</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/preface" class="lvl1   nav-menu__item hover:text-blue">
+            Предисловие
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs" class="lvl1   nav-menu__item hover:text-blue">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/installation" class="lvl1   nav-menu__item hover:text-blue">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1   nav-menu__item hover:text-blue">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/contributors" class="lvl1   nav-menu__item hover:text-blue">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/promote" class="lvl1   nav-menu__item hover:text-blue">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/license" class="lvl1   nav-menu__item hover:text-blue">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Платформа</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/configuration" class="lvl1   nav-menu__item hover:text-blue">
+            Обзор параметров
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/panel_menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню панели
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/screens" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
+            Экраны
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/layouts" class="lvl1   nav-menu__item hover:text-blue">
+            Макеты
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
+            Фильтры
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/field" class="lvl1   nav-menu__item hover:text-blue">
+            Поля
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/widget" class="lvl1   nav-menu__item hover:text-blue">
+            Виджеты
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/global_search" class="lvl1   nav-menu__item hover:text-blue">
+            Поиск
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
+            Права доступа
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/settings" class="lvl1   nav-menu__item hover:text-blue">
+            Настройки
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/alert" class="lvl1   nav-menu__item hover:text-blue">
+            Уведомления
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/extension" class="lvl1   nav-menu__item hover:text-blue">
+            Расширение
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Управление содержимым</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/entities" class="lvl1   nav-menu__item hover:text-blue">
+            Сущности
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/post" class="lvl1   nav-menu__item hover:text-blue">
+            Записи
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/tags" class="lvl1   nav-menu__item hover:text-blue">
+            Теги
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/comments" class="lvl1   nav-menu__item hover:text-blue">
+            Комментарии
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/attachments" class="lvl1   nav-menu__item hover:text-blue">
+            Вложения
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Экраны</h1>
+
+                        <div class="hidden-xs">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/screens" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                <a href="#pochemu-ne-crud">Почему не CRUD?</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#informatsionnye-obekty-i-ekrany">Информационные объекты и экраны</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#sozdanie">Создание</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#registratsiya-v-marshrutakh">Регистрация в маршрутах</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#dannye">Данные</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#obrabotka">Обработка</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#makety">Макеты</a>
+            </li>
+            </ul><hr><p>Экраны – основные компоненты пользовательского интерфейса – описываются иерархией компоновки, в соответствии с которой
+каждый элемент имеет несколько свойств, которые влияют на его внешний вид и поведение. Путем изменения
+структуры макета и свойств элемента, вы можете создать полностью новые макеты за считанные минуты.</p>
+<blockquote>
+<p>Проще говоря, то, что пользователь видит на странице и какие действия совершает описывается в одном классе под названием- «Экран».</p>
+</blockquote>
+<p>Экран не знает откуда берутся данные, это может быть: база данных, API или любые другие внешние источники. Экран имеет обычные функциональные возможности современного пользовательского интерфейса. Можно настраивать внешний вид экрана, а также добавлять или удалять команды.
+Построение внешнего вида основано на предоставленных <code>шаблонах</code> (Layouts) и всё, что вам нужно сделать это лишь определить какие данные будут показаны в том или ином шаблоне.</p>
+<p><img src="https://orchid.software/img/scheme/screens.jpg" alt="Screens"></p>
+<h2><a href="#pochemu-ne-crud" name="pochemu-ne-crud">Почему не CRUD?</a></h2>
+<p>Почти все популярные надстройки используют построение CRUD для пользовательских моделей, это хорошее решение, но приложение не может состоять из одних только базовых функций. Скорее всего вы будете расширять и дополнять сгенерированную логику. Хорошим примером, что стандартных операций создания/чтения/редактирование/удаления не хватает, может служить возможность «Отправить на печать». ORCHID позволяет создавать CRUD с помощью «Экранов», но это не является их целью.</p>
+<h2><a href="#informatsionnye-obekty-i-ekrany" name="informatsionnye-obekty-i-ekrany">Информационные объекты и экраны</a></h2>
+<p>Используя традиционные инструменты проектирования, создание нескольких шаблонов для отображения и изменения данных более трудоемкая и ресурсоемкая работа, чем создание таблиц данных. Это особенно заметно когда вы следуете трехуровневой схеме архитектуры приложений, а именно, вы должны создать большое количество вспомогательного кода для привязки уровней. Инструменты для быстрой разработки приложений делают этот процесс намного проще и дешевле.</p>
+<p>Экраны используются в ORCHID для отображения и управления данными, основаны на предопределенных шаблонах. Чтобы связать данные с экраном, вам нужно лишь указать отображаемые сущности или запросы. </p>
+<h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
+<p>С ORCHID это еще проще и вы можете создать набор экранов всего за несколько минут.</p>
+<p>Для создания нового экрана требуется выполнить команду:</p>
+<pre><code class="language-php">php artisan orchid:screen Users</code></pre>
+<p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Users</code> со следующим содержанием:</p>
+<pre><code class="language-php">namespace App\Http\Controllers\Screens;
+
+use Illuminate\Http\Request;
+use Orchid\Platform\Screen\Screen;
+
+class Users extends Screen
+{
+    /**
+     * Display header name
+     *
+     * @var string
+     */
+    public $name = 'Users Screen';
+
+    /**
+     * Display header description
+     *
+     * @var string
+     */
+    public $description = 'Users Screen';
+
+    /**
+     * Query data
+     *
+     * @return array
+     */
+    public function query() : array
+    {
+        return [];
+    }
+
+    /**
+     * Button commands
+     *
+     * @return array
+     */
+    public function commandBar() : array
+    {
+        return [];
+    }
+
+    /**
+     * Views
+     *
+     * @return array
+     */
+    public function layout() : array
+    {
+        return [];
+    }
+}
+</code></pre>
+<h2><a href="#registratsiya-v-marshrutakh" name="registratsiya-v-marshrutakh">Регистрация в маршрутах</a></h2>
+<p>Зарегистировать каждый экран можно с помощью метода <code>screen</code> у Route</p>
+<pre><code class="language-php">use App/Orchid/Screens/Users;
+
+Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');
+//или
+$route-&gt;screen('/news', Users::class)-&gt;name('platform.screens.users.list');</code></pre>
+<h2><a href="#dannye" name="dannye">Данные</a></h2>
+<p>Большинство приложений, ориентированных на данные, работают с несколькими таблицами, и эти таблицы связаны
+друг с другом. Для экрана приложения очень часто необходимо отображать данные, поступающие из
+нескольких источников или связанных таблиц.</p>
+<p>Например, при отображении информации о заказе, обычно, экран содержит запись заказа: дату заказа, адрес доставки, способ доставки и т.д.
+и один или несколько связанных записей: продукт, количество, цена за единицу, процентная ставка налога, полная цена и т.д.</p>
+<p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
+Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
+<p>Пример, при котором в  Layouts будут доступны ключи <code>user</code> и <code>users</code>:</p>
+<pre><code class="language-php">    /**
+     * Query data
+     *
+     * @return array
+     */
+    public function query() : array
+    {
+        return [
+            'user'  =&gt; User::find(1),
+            'users' =&gt; User::paginate(),
+        ];
+    }</code></pre>
+<h2><a href="#obrabotka" name="obrabotka">Обработка</a></h2>
+<p>В экранах предусмотрены встроенные команды (Screen Command Bar), позволяющие пользователям выполнять различные пользовательские сценарии.
+За это отвечает метод <code>commandBar</code>, в котором описываются требуемые кнопки управления. </p>
+<p>Например:</p>
+<pre><code class="language-php">/**
+* Button commands
+*
+* @return array
+*/
+public function commandBar() : array
+{
+    return [
+        Link::name('Вывести на печать')-&gt;method('print'),
+    ];
+}</code></pre>
+<p>Класс <code>Link</code> отвечает, что будет происходить по нажатию на кнопку, в примере выше, при нажатии на кнопку <code>Вывести на печать</code>,
+будет вызван метод экрана <code>print</code>, в Request будут доступны все данные которые пользователь видел на экране.</p>
+<pre><code class="language-php">// По нажатию будет вызван метод 'create'
+Link::name('Новая функция')-&gt;method('create');
+
+// По нажатию будете перенаправлены на указанный адрес
+Link::name('Внешняя ссылка')-&gt;link('http://google.com/');
+
+// По нажатию будет показано модальное окно (CreateUserModal),
+// в котором можно выполнить метод "save"
+Link::name('Модальное окно')
+    -&gt;modal('CreateUserModal')
+    -&gt;title('Добавить пользователя')
+    -&gt;method('save'),</code></pre>
+<h2><a href="#makety" name="makety">Макеты</a></h2>
+<p>Макеты отвечают за внешний вид экрана, то есть как и в каком виде данные будут показаны.
+Более подробно можно прочитать в разделе <a href="/ru/docs/layouts/">Макеты</a></p>
+<p>Каждый макет может включать в себя другой макет, то есть вложенность.
+Например, экран делится двумя колонками, в левой поля для заполнения, справа справочная таблица и график.
+Вы можете придумать свои примеры вложения.</p>
+<pre><code class="language-php">/**
+ * Views
+ *
+ * @return array
+ */
+public function layout() : array
+{
+    return [
+        Layouts::columns([
+            'Левая колонка' =&gt; [
+                PatientFirstRows::class,
+            ],
+            'Правая колонка' =&gt; [
+                PatientSecondRows::class,
+            ],
+        ]),
+        Layouts::columns([
+            'Левая колонка' =&gt; [
+                AppointmentListLayout::class
+            ],
+            'Правая колонка' =&gt; [
+                InvoiceListLayout::class
+            ],
+        ]),
+        // Модальные окна
+        Layouts::modals([
+            'Appointments' =&gt; [
+                PatientFirstRows::class,
+            ],
+        ]),
+        // Модальное окно получающее данные через POST запрос
+        Layouts::modals([
+            'oneAsyncModal' =&gt; [
+                UserEditLayout::class,
+            ],
+        ])-&gt;async('methodForSend'), 
+    ];
+}</code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="m-t-xl m-b-xl text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-bubbles m-r-xs"></i> Slack
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.paypal.me/tabuna/10usd" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-wallet m-r-xs"></i> Угостить кофем                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                            
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
