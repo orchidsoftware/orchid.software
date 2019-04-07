@@ -1,12 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Fields
+description: Fields are used to generate the output for the form template.
 extends: _layouts.documentation.en
 section: main
 ---
 
-# Fields
-----------
 Fields are used to generate the output for the form template.
 
 All possible fields are defined in the `config/platform.php` file inside the fields section

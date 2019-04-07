@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Participation in development
+description: I appeal to everyone to make a contribution to the ORCHID project.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Participation in development
-----------
 
 I appeal to everyone to make a contribution to the ORCHID project. You can find the latest version of the source code at GitHub by <https://github.com/orchidsoftware/platform>.
 

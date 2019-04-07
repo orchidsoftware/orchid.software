@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Configuration file
+description: ORCHID uses the standard Laravel configuration system.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Configuration file
-----------
 
 ORCHID uses the standard Laravel configuration system.
 All parameters can be found in `config` directory, and the `platform.php` file is main for platform. Every setting is prompted with commentary summing it's essence.

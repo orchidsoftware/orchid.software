@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Settings
+description: Settings is the simple «key-value» storage
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-# Settings
-----------
 
 Settings is the simple «key-value» storage that uses thw key to access a value. These storages are usually used to store settings, create special file systems, as object caches and also in systems designed with scalability in mind.
 

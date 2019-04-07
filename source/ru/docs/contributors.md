@@ -1,17 +1,9 @@
----
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
-extends: _layouts.documentation.ru
-section: main
----
-
-
 # Участие в разработке
 ----------
 
 Я призываю всех внести свой вклад в проект ORCHID. Вы можете найти последнюю версию кода на GitHub по адресу <https://github.com/orchidsoftware/platform>.
 
-## [Отслеживание проблем](#fwefwe)
+## Отслеживание проблем
 
 Вы можете найти нерешенные вопросы на  [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
  Если вы намерены работать по конкретному вопросу, оставьте комментарий на соответствующий задачу для информирования других участников проекта.

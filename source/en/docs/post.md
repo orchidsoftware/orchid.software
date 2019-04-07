@@ -1,13 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Posts
+description: The platform is shipped with CMS functionatily and it's assumed that by default all elementst that contain website data are instances of `Post` model.
 extends: _layouts.documentation.en
 section: main
 ---
 
-
-# Posts
-----------
 The platform is shipped with CMS functionatily and it's assumed that by default all elementst that contain website data are instances of `Post` model.
 This structure suits well to most of public web sites as their structure is mostly the same.
 An example of similarities:

@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Screens
+description: Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity.
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-# Screens
-----------
 
 Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity.  By changing
 the layout structure and element properties you may create completely new layouts almost in a few minutes.

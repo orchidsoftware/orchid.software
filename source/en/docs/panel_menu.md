@@ -1,12 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Platform panel menu
+description: Platform panel menu is the dashboard element
+             that allows to choose from a list of provided software variants.
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-# Platform panel menu
 
 Platform panel menu is the dashboard element
 that allows to choose from a list of provided software variants.

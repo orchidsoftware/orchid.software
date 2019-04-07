@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Commentaries
+description: Commentaries is the necessary attribute of some types of web-sites.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Commentaries
-----------
 
 Commentaries is the necessary attribute of some types of web-sites.
 Through them users may express their thoughts about some posts, approve or disapprove opinions and have a dialog with other users.

@@ -1,10 +1,3 @@
----
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
-extends: _layouts.documentation.ru
-section: main
----
-
 # Макеты экрана
 ----------
 
@@ -217,7 +210,7 @@ public function query($patient = null) : array
 
 Для создания исполните команду:
 ```php
-php artisan orchid:selection ChartsLayout
+php artisan orchid:chart ChartsLayout
 ```
 
 Пример макета:

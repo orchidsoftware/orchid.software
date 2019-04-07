@@ -1,10 +1,5 @@
----
-title: Содействие проекту
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
-extends: _layouts.documentation.ru
-section: main
----
-
+# Содействие проекту
+----------
 
 Есть много способов внести свой вклад в сообщество ORCHID, 
 не имея технических навыков или навыков программирования, которые также способствуют продвижению ORCHID.

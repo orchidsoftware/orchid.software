@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: The MIT License (MIT)
+description: License agreement
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-#The MIT License (MIT)
-----------
 
 ## License agreement
 

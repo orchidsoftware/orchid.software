@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Installation
+description: This beginner guide will help you to start using ORCHID.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Installation
-----------
 
 This beginner guide will help you to start using ORCHID. We've listed up the main steps you should perform to launch the project.
 

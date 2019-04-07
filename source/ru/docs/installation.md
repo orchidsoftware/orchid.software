@@ -1,10 +1,5 @@
----
-title: Установка платформы
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
-extends: _layouts.documentation.ru
-section: main
----
-
+# Установка платформы
+----------
 
 Это руководство по началу работы поможет вам начать использовать ORCHID. Мы перечислили основные шаги, которые вам нужно выполнить, чтобы запустить проект.
 

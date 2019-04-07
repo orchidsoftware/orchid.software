@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Widget
+description: Widget is an instance of Widget ot it's inherited class.
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-# Widget
-----------
 
 Widget is an instance of Widget ot it's inherited class. It's the component that is mostly used for design purposes. Widgets are usually embedded into views to form some kind of both complex and independent part of user interface.
 

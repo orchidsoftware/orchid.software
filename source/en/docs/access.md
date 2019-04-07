@@ -1,12 +1,10 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Access rights
+description: Role-based access control is the development of sample access control policy.
 extends: _layouts.documentation.en
 section: main
 ---
 
-# Access rights
-----------
 Role-based access control is the development of sample access control policy. A role forms as the objects of authorization frameworks group depending on their specific application.
 
 The formation of roles is aimed at the determination of user-understandable access control rules.  Role-based access control is allowed to vary dynamically and flexibly during the work of access control system.

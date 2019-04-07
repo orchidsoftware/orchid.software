@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Notifications
+description: Notifications is a simple way to inform a user about state of your application.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Notifications
-----------
 
 Notifications is a simple way to inform a user about state of your application. For example, notification  can inform a user of long process finishing or new message coming. In this section we will show you how to make it work in your application.
 

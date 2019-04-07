@@ -1,17 +1,11 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Screen layouts
+description: Displaying of the user interface appearance in application is very important
 extends: _layouts.documentation.en
 section: main
 ---
 
---anchors--
-
-# Screen layouts
-----------
-
 Displaying of the user interface appearance in application is very important, it makes an application easier to use and helps users reflexively render screen elements for tasking.
-
 
 Separation of logic and presentation in one of the principles of ORCHID development. 
 One of the elements of presentation is "Layouts", these are layouts displayable as:

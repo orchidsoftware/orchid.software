@@ -1,13 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Menu
+description: The ORCHID includes easy to use mechanism for creation of a custom menu (navigation) using drag & drop and localization support.
 extends: _layouts.documentation.en
 section: main
 ---
-
-
-# Menu
-----------
 
 
 The ORCHID includes easy to use mechanism for creation of a custom menu (navigation) using drag & drop and localization support.

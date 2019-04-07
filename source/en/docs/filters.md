@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Filters
+description: Filters serve for simplifying entries search using common filter.
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Filters
-----------
 
 Filters serve for simplifying entries search using common filter.
 For example, if you wish to filter product catalog by attributes, brands, etc.

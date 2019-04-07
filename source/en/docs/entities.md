@@ -1,12 +1,9 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Entities
+description: Behavior is the main part of the ORCHID content management system. 
 extends: _layouts.documentation.en
 section: main
 ---
-
-# Entities 
-----------
 
 Behavior is the main part of the ORCHID content management system. Rather than generating CRUD for every model, you can select any object under separate type and manage them easily. 
 Entities are applicable only to 'Post' based models, as it is base model for typical data.

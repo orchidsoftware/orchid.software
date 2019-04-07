@@ -1,10 +1,3 @@
----
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
-extends: _layouts.documentation.ru
-section: main
----
-
 # Вложения
 ----------
 
@@ -20,11 +13,11 @@ section: main
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\Attachment;
+use Orchid\Platform\Traits\AttachTrait;
 
 class Hostel extends Model
 {
-    use Attachment;
+    use AttachTrait;
     //
 }
 ```

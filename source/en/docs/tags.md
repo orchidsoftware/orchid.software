@@ -1,16 +1,11 @@
 ---
-title: Getting Started
-description: Getting started with Jigsaw's docs starter template is as easy as 1, 2, 3.
+title: Tags
+description: is a keyword or a phrase that can thematically group text, images, etc. 
 extends: _layouts.documentation.en
 section: main
 ---
 
-
-# Tags
-----------
-
 A tag (mark) - is a keyword or a phrase that can thematically group text, images, etc.  
-
 
 ## Use
 
