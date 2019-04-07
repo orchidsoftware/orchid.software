@@ -12,7 +12,7 @@ section: main
 Вам необходимо описать поля которые хотите получить и в каком виде, а её CRUD построиться сам.
 Так же можно указать валидацию, или модули (См. Раздел формы).
 
-![Entities](https://orchid.software/img/scheme/entities.jpg)
+![Entities](https://orchid.software/assets/img/scheme/entities.jpg)
 
 ## Создание сущности
 

@@ -11,7 +11,7 @@ Entities are applicable only to 'Post' based models, as it is base model for typ
 You should describe the fields you want to have and their state, while its CRUD will be assembled automatically.
 Also you can specify a validation or modules. (See Forms section).
 
-![Entities](https://orchid.software/img/scheme/entities.jpg)
+![Entities](https://orchid.software/assets/img/scheme/entities.jpg)
 
 ## Creating and registering behaviours
         

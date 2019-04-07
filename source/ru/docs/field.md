@@ -42,7 +42,7 @@ Input::make()
 ## Wysiwyg
 
 
-![Wysing](https://orchid.software/img/ui/wysing.png)
+![Wysing](https://orchid.software/assets/img/ui/wysing.png)
 
 Визуальный редактор в котором содержание отображается в процессе редактирования и 
 выглядит максимально близко похожим на конечный результат.
@@ -61,8 +61,8 @@ TinyMCE::make()
  
 ## Markdown
 
-![Markdown](https://orchid.software/img/ui/markdown.png)
-![Markdown2](https://orchid.software/img/ui/markdown2.png)
+![Markdown](https://orchid.software/assets/img/ui/markdown.png)
+![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
 
 Редактор для облегчённого языка разметки,
  созданный с целью написания максимально читаемого и удобного для правки текста,
@@ -91,7 +91,7 @@ Picture::make()
        
 ## Datetime
  
-![Datatime](https://orchid.software/img/ui/datatime.png) 
+![Datatime](https://orchid.software/assets/img/ui/datatime.png) 
  
 Позволяет выбрать дату и время
 
@@ -124,7 +124,7 @@ CheckBox::make()
  
 Поле для записи программного кода с возможностью подсветки
 
-![Code](https://orchid.software/img/ui/code.png)
+![Code](https://orchid.software/assets/img/ui/code.png)
 
 
 Пример записи:
