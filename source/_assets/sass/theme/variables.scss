@@ -1,0 +1,133 @@
+$orchid-font-path: '/assets/build/fonts';
+
+// Colors
+$orchid-color: #AC5CA0;//#ac5ca0;
+
+$white : #ffffff;
+$black : #000000;
+$gray-100 : #f8f9fa;
+$gray-200 : #e9ecef;
+$gray-300 : #dee2e6;
+$gray-400 : #ced4da;
+$gray-500 : #adb5bd;
+$gray-600 : #6c757d;
+$gray-700 : #495057;
+$gray-800 : #343a40;
+$gray-900 : #212529;
+
+$blue : #007bff !default;
+$indigo : #6610f2 !default;
+$purple : #6f42c1 !default;
+$pink : #e83e8c !default;
+$red : #dc3545 !default;
+$orange : #fd7e14 !default;
+$yellow : #ffc107 !default;
+$green : #28a745 !default;
+$teal : #20c997 !default;
+$cyan : #17a2b8 !default;
+
+$brand-primary : $orchid-color;
+$brand-complete : $oc-indigo-8;
+$brand-info : $oc-blue-7;
+$brand-success : $oc-green-8;
+$brand-warning : $oc-yellow-5;
+$brand-danger : $oc-red-8;
+$brand-light : $oc-gray-2;
+$brand-dark : $oc-gray-9;
+$brand-grey : $oc-gray-7;
+$brand-white : #ffffff;
+$brand-black : #1c2b36;
+
+$primary:       $orchid-color;
+$secondary:     $gray-600 !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $gray-100 !default;
+$dark:          #212529 !default;
+
+$brand-grey-light : mix($brand-grey, #ffffff, 10%);
+
+$body-bg : #f6f8fa;//lighten($brand-light, 1%);
+$text-color : #58666e;
+$text-muted : lighten($text-color, 25%);
+
+$font-size-base : 1rem;
+$font-size-lg : 1.23 * $font-size-base;
+$font-size-md : 1.142857 * $font-size-base;
+$font-size-sm : 0.92857 * $font-size-base;
+$font-size-xs : 0.85714 * $font-size-base;
+
+$link-color : darken($text-color, 15%);
+$link-hover-color : darken($text-color, 30%);
+
+$border-radius-base : 2px;
+$border-color : darken($brand-light, 5%);
+
+
+// Buttons
+// -------------------------
+
+$btn-default-color : $text-color;
+$btn-default-bg : lighten($brand-light, 5%);
+$btn-default-border : $border-color;
+$btn-border-radius : $border-radius-base;
+
+$input-border : darken($border-color, 5%);
+$input-border-focus : $brand-info;
+$input-border-radius : $border-radius-base;
+
+$panel-bg : #ffffff;
+$panel-border : $border-color;
+$panel-heading-border : lighten($border-color, 5%);
+$panel-list-group-border : lighten($border-color, 5%);
+$panel-border-radius : $border-radius-base;
+$panel-heading-bg : lighten($brand-light, 3%);
+$panel-footer-bg : #ffffff;
+
+$nav-bg : lighten($brand-light, 3%);
+$nav-bg-black : #313d4f;
+$badge-bg : darken($brand-light, 10%);
+
+$list-group-item-border : lighten($border-color, 3%);
+$list-group-item-hover : lighten($brand-light, 3%);
+$list-group-item-focus : darken($brand-light, 3%);
+$list-group-select-color : #dbeef9;
+$list-group-active-color : $brand-info;
+
+$table-border-color : lighten($border-color, 4%);
+$table-striped-color : lighten($brand-light, 4.5%);
+
+$app-aside-width : 250px;
+$aside-wrap-main-width: 0px;
+$app-aside-nav-height : 40px; //2,857rem;
+$app-aside-folded-width : 60px;
+$app-aside-folded-nav-height : 50px; //3.57rem;
+$app-aside-dock-media : 992px;
+
+$app-header-height : 80px;
+$app-footer-height : 50px;
+$app-header-md-height : 60px;
+
+$scroll-bar-width : 17px;
+$butterbar-height : 3px;
+$butterbar-time : 0.75s;
+
+$off-screen-width : 75%;
+
+$menu-bezier : 0.05, 0.74, 0.27, 0.99;
+$brand-menu-light : #fafafa;
+
+//Forms
+$form-height : 35px;
+$form-group-height : 54px;
+$form-control-border-color : fade-out($brand-black, 0.93);
+
+$tablet : 768px;
+$desktop : 1280px;
+$widescreen : 1600px;
+
+//Bootstrap
+$enable-caret : false;
+

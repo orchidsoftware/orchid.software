@@ -1,0 +1,23 @@
+// Core variables and mixins
+
+@import "~open-color/open-color";
+@import "theme/variables";
+
+@import "~bootstrap/scss/bootstrap";
+@import "~orchid-icons/src/scss/orchid-icons";
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600&amp;subset=cyrillic");
+@import "~prismjs/themes/prism-okaidia.css";
+
+
+@import "core/mixins";
+@import "core/reset";
+@import "core/layout";
+@import "core/buttons";
+@import "core/item";
+@import "core/utilities";
+@import "core/form";
+
+
+@import "theme/colors";
+@import "theme/main";
+@import "theme/icons";

@@ -1,19 +1,43 @@
 let mix = require('laravel-mix');
+let build = require('./tasks/build.js');
+require('laravel-mix-purgecss');
+
+mix.disableSuccessNotifications();
+mix.setPublicPath('source/assets/build/');
+mix.webpackConfig({
+    plugins: [
+        build.jigsaw,
+        build.browserSync(),
+        build.watch([
+            'config.php',
+            'source/**/*.md',
+            'source/**/*.php',
+            'source/**/*.scss',
+        ]),
+    ],
+});
 
 /*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix.js('source/_assets/js/main.js', 'js')
+    .sourceMaps()
+    .sass('source/_assets/sass/main.scss', 'css/main.css')
+    .options({
+        processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.js')],
+    })
+    .purgeCss({
+        extensions: ['html', 'md', 'js', 'php', 'vue'],
+        folders: ['source'],
+        whitelistPatterns: [/language/, /hljs/, /algolia/],
+    })
+    .version();
+*/
 
-mix.less('resources/assets/less/app.less', 'public/css/app.css')
-    .copy('./node_modules/bootstrap/dist/fonts/', 'public/fonts')
-    .copy('./node_modules/orchid-icons/dist/fonts/', 'public/fonts')
-    .copy('resources/assets/js/worker.js', 'public/js/worker.js')
-    .js(['resources/assets/js/app.js'], 'public/js/app.js')
+mix
+    .sass('source/_assets/sass/app.scss', 'css/app.css', {
+        implementation: require('node-sass')
+    })
+    .copy('./node_modules/orchid-icons/dist/fonts/', 'source/assets/build/fonts')
+    .js(['source/_assets/js/app.js'], 'js/app.js')
+    .sourceMaps()
     .version();

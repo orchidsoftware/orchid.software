@@ -1,31 +1,39 @@
 {
-  "private": true,
-  "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-  },
-  "devDependencies": {
-    "axios": "^0.17",
-    "bootstrap": "^3.3.7",
-    "cross-env": "^5.2.0",
-    "jquery": "^3.3.1",
-    "laravel-mix": "^2.1.14",
-    "less": "^2.7.3",
-    "less-loader": "^4.1.0",
-    "lodash": "^4.17.10",
-    "open-color": "^1.6.3"
-  },
-  "dependencies": {
-    "babel-plugin-prismjs": "^1.0.2",
-    "orchid-icons": "^1.0.8",
-    "owl.carousel": "^2.3.4",
-    "prismjs": "^1.15.0",
-    "turbolinks": "^5.2.0",
-    "typed.js": "^1.1.7"
-  }
+    "private": true,
+    "scripts": {
+        "local": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --env=local --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "staging": "cross-env NODE_ENV=staging node_modules/webpack/bin/webpack.js --progress --hide-modules --env=staging --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --env=production --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "dev": "npm run local",
+        "watch": "npm run local -- --watch"
+    },
+    "devDependencies": {
+        "babel-plugin-prismjs": "^1.0.2",
+        "node-sass": "^4.11.0",
+        "bootstrap": "^4.3.0",
+        "browser-sync": "^2.26.3",
+        "browser-sync-webpack-plugin": "^2.0.1",
+        "cross-env": "^3.2.3",
+        "docsearch.js": "^2.6.2",
+        "extra-watch-webpack-plugin": "^1.0.3",
+        "hasbin": "^1.2.3",
+        "highlight.js": "^9.15.6",
+        "jquery": "^3.3.1",
+        "laravel-mix": "^4.0.15",
+        "laravel-mix-purgecss": "^3.0.0",
+        "node-cmd": "^3.0.0",
+        "open-color": "^1.6.3",
+        "orchid-icons": "^1.0.9",
+        "prismjs": "^1.16.0",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.17.3",
+        "sass-loader": "^7.1.0",
+        "turbolinks": "^5.2.0",
+        "typed.js": "^1.1.7",
+        "vue-template-compiler": "^2.6.10",
+        "yargs": "^4.6.0"
+    },
+    "dependencies": {
+        "popper.js": "^1.14.7"
+    }
 }
