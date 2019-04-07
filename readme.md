@@ -1,4 +1,6 @@
-# Orchid Web Site
+# Orchid Website
+
+This is the source of the official orchid.software website.
 
 ## Building 
 
