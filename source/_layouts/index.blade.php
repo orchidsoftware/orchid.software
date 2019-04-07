@@ -151,7 +151,7 @@
                 </div>
             </div>
         </div>
-        <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="github_screenshot">
+        <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="github_screenshot none d-md-block">
     </section>
 
 

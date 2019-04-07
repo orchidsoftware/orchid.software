@@ -18,7 +18,7 @@
                     <main class="wrapper-lg order-md-first">
                         <h1>{{ $page->title }}</h1>
 
-                        <div class="hidden-xs">
+                        <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source{{ \Illuminate\Support\Str::endsWith($page->getPath(), 'docs') ? $page->getPath().'index' : $page->getPath()}}.md"
                                class="pull-right bg-white"
                                style="margin-top: -0.5em; padding-left: 15px; ">
