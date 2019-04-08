@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://orchid.software/sitemap.xml
