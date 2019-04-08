@@ -31,6 +31,7 @@
         @if ($page->production)
             <!-- Insert analytics code here -->
             
+            <meta name="yandex-verification" content="23bb1990414a4f0e" />
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" async> (function (d, w, c) {
