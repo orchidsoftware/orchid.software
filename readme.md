@@ -1,6 +1,11 @@
 # Orchid Website
 
-This is the source of the official orchid.software website.
+This is the repository for website at [orchid.software](http://orchid.software).
+
+## Contributing
+
+If you spot any errors, typos or missing information, please submit a pull
+request.
 
 ## Building 
 
