@@ -385,7 +385,6 @@ public function layout(): array
  * Views.
  *
  * @return array
- * @throws \Throwable
  */
 public function layout(): array
 {
@@ -396,3 +395,104 @@ public function layout(): array
 ```
 
 Все данные из метода `query` будут переданы в ваш шаблон.
+
+
+## Обертка
+
+Промежуточным звеном между "Пользовательским шаблоном" и стандартными слоями может служить "Обёртка", с помощью которой
+доступно указывать где именно должны отображаться другие слои.
+
+```php
+/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layouts::wrapper('myTemplate', [
+            'foo' => [
+                RowLayouts::class,
+                RowLayouts::class,
+            ],
+            'bar' => RowLayouts::class,
+        ]),
+    ];
+}
+```
+
+В шаблон `myTemplate` будут переданы переменные `foo` и `bar`, которые содержат уже собранные `View`, которые можно выводить:
+
+```html
+<div class="row">
+    <div class="col-7 border-right">
+        @foreach($foo as $row)
+            {!! $row !!}
+        @endforeach
+    </div>
+    <div class="col-5 no-gutter">
+        {!! $bar !!}
+    </div>
+</div>
+```
+
+Переменные из `query` так же доступны к шаблоне.
+
+
+## Расширение слоёв
+
+Класс `Layouts` является группирующим нескольких различных, для того, что бы добавить в него новую возможность достаточно указать её в сервис провайдере как:
+
+```php
+use Orchid\Screen\Layouts\Base;
+use Orchid\Screen\Repository;
+use Orchid\Screen\Layouts;
+
+Layouts::macro('hello', function (string $name) {
+    return new class($name) extends Base
+    {
+        /**
+         * @ string
+         */
+        public $name;
+
+        /**
+         * Hello constructor.
+         *
+         * @param string $name
+         */
+        public function __construct(string $name)
+        {
+            $this->name = $name;
+        }
+
+        /**
+         * @param Repository $repository
+         *
+         * @return mixed
+         */
+        public function build(Repository $repository)
+        {
+            return view('hello')->with('name', $this->name);
+        }
+
+    };
+});
+```
+
+Тогда в экране вызов будет выглядеть как:
+
+```php
+/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layouts::hello('Alexandr Chernyaev')
+    ];
+}
+```
