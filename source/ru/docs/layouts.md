@@ -166,7 +166,7 @@ class Appointment extends Rows
 public function layout(): array
 {
     return [
-        Layouts::rows([
+        Layout::rows([
            Input::make('example')
                 ->type('text')
                 ->title('Example')
@@ -317,7 +317,7 @@ class MySelection extends Selection
 public function layout(): array
 {
     return [
-        Layouts::tabs([
+        Layout::tabs([
             'Example Tab Table' => TableExample::class,
             'Example Tab Rows'  => RowExample::class,
         ]),
@@ -342,7 +342,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::columns([
+        Layout::columns([
            TableExample::class,
            RowExample::class,
         ]),
@@ -364,7 +364,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::collapse([
+        Layout::collapse([
             Input::make('name')
                 ->type('text')
                 ->title('Name Articles')
@@ -389,7 +389,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::view('myTemplate'),
+        Layout::view('myTemplate'),
     ];
 }
 ```
@@ -411,12 +411,12 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::wrapper('myTemplate', [
+        Layout::wrapper('myTemplate', [
             'foo' => [
-                RowLayouts::class,
-                RowLayouts::class,
+                RowLayout::class,
+                RowLayout::class,
             ],
-            'bar' => RowLayouts::class,
+            'bar' => RowLayout::class,
         ]),
     ];
 }
@@ -447,9 +447,9 @@ public function layout(): array
 ```php
 use Orchid\Screen\Layouts\Base;
 use Orchid\Screen\Repository;
-use Orchid\Screen\Layouts;
+use Orchid\Screen\Layout;
 
-Layouts::macro('hello', function (string $name) {
+Layout::macro('hello', function (string $name) {
     return new class($name) extends Base
     {
         /**
@@ -492,7 +492,7 @@ Layouts::macro('hello', function (string $name) {
 public function layout(): array
 {
     return [
-        Layouts::hello('Alexandr Chernyaev')
+        Layout::hello('Alexandr Chernyaev')
     ];
 }
 ```

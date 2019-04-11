@@ -195,7 +195,7 @@ You may think of another examples of nesting.
 public function layout() : array
 {
     return [
-        Layouts::columns([
+        Layout::columns([
             'Left column' => [
                 PatientFirstRows::class,
             ],
@@ -203,7 +203,7 @@ public function layout() : array
                 PatientSecondRows::class,
             ],
         ]),
-        Layouts::columns([
+        Layout::columns([
             'Left column' => [
                 AppointmentListLayout::class
             ],
@@ -212,7 +212,7 @@ public function layout() : array
             ],
         ]),
         // Modal windows
-        Layouts::modals([
+        Layout::modals([
             'Appointments' => [
                 PatientFirstRows::class,
             ],
