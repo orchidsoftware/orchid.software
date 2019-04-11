@@ -458,7 +458,7 @@ class Appointment extends Rows
 public function layout(): array
 {
     return [
-        Layouts::rows([
+        Layout::rows([
            Input::make('example')
                 -&gt;type('text')
                 -&gt;title('Example')
@@ -581,7 +581,7 @@ class MySelection extends Selection
 public function layout(): array
 {
     return [
-        Layouts::tabs([
+        Layout::tabs([
             'Example Tab Table' =&gt; TableExample::class,
             'Example Tab Rows'  =&gt; RowExample::class,
         ]),
@@ -599,7 +599,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::columns([
+        Layout::columns([
            TableExample::class,
            RowExample::class,
         ]),
@@ -615,7 +615,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::collapse([
+        Layout::collapse([
             Input::make('name')
                 -&gt;type('text')
                 -&gt;title('Name Articles')
@@ -632,7 +632,7 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::view('myTemplate'),
+        Layout::view('myTemplate'),
     ];
 }</code></pre>
 <p>Все данные из метода <code>query</code> будут переданы в ваш шаблон.</p>
@@ -647,12 +647,12 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layouts::wrapper('myTemplate', [
+        Layout::wrapper('myTemplate', [
             'foo' =&gt; [
-                RowLayouts::class,
-                RowLayouts::class,
+                RowLayout::class,
+                RowLayout::class,
             ],
-            'bar' =&gt; RowLayouts::class,
+            'bar' =&gt; RowLayout::class,
         ]),
     ];
 }</code></pre>
@@ -672,9 +672,9 @@ public function layout(): array
 <p>Класс <code>Layouts</code> является группирующим нескольких различных, для того, что бы добавить в него новую возможность достаточно указать её в сервис провайдере как:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Base;
 use Orchid\Screen\Repository;
-use Orchid\Screen\Layouts;
+use Orchid\Screen\Layout;
 
-Layouts::macro('hello', function (string $name) {
+Layout::macro('hello', function (string $name) {
     return new class($name) extends Base
     {
         /**
@@ -713,7 +713,7 @@ Layouts::macro('hello', function (string $name) {
 public function layout(): array
 {
     return [
-        Layouts::hello('Alexandr Chernyaev')
+        Layout::hello('Alexandr Chernyaev')
     ];
 }</code></pre>                    </main></div>
             </div>

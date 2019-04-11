@@ -441,7 +441,7 @@ Link::name('Модальное окно')
 public function layout() : array
 {
     return [
-        Layouts::columns([
+        Layout::columns([
             'Левая колонка' =&gt; [
                 PatientFirstRows::class,
             ],
@@ -449,7 +449,7 @@ public function layout() : array
                 PatientSecondRows::class,
             ],
         ]),
-        Layouts::columns([
+        Layout::columns([
             'Левая колонка' =&gt; [
                 AppointmentListLayout::class
             ],
@@ -458,13 +458,13 @@ public function layout() : array
             ],
         ]),
         // Модальные окна
-        Layouts::modals([
+        Layout::modals([
             'Appointments' =&gt; [
                 PatientFirstRows::class,
             ],
         ]),
         // Модальное окно получающее данные через POST запрос
-        Layouts::modals([
+        Layout::modals([
             'oneAsyncModal' =&gt; [
                 UserEditLayout::class,
             ],
