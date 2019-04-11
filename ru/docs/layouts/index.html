@@ -305,6 +305,12 @@
                     <li class="anchor-h2">
                 <a href="#polzovatelskiy-shablon">Пользовательский шаблон</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#obertka">Обертка</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#rasshirenie-sloev">Расширение слоёв</a>
+            </li>
             </ul><hr><p>Отображение внешнего вида элементов пользовательского интерфейса в приложении играет большое значение, делает приложение
 проще в использовании и помогает пользователям интуитивно отображать элементы экрана для выполнения своих задач.</p>
 <p>Разделение логики и презентации является один из принципов разработки с ORCHID.
@@ -622,7 +628,6 @@ public function layout(): array
  * Views.
  *
  * @return array
- * @throws \Throwable
  */
 public function layout(): array
 {
@@ -630,7 +635,87 @@ public function layout(): array
         Layouts::view('myTemplate'),
     ];
 }</code></pre>
-<p>Все данные из метода <code>query</code> будут переданы в ваш шаблон.</p>                    </main></div>
+<p>Все данные из метода <code>query</code> будут переданы в ваш шаблон.</p>
+<h2><a href="#obertka" name="obertka">Обертка</a></h2>
+<p>Промежуточным звеном между «Пользовательским шаблоном» и стандартными слоями может служить «Обёртка», с помощью которой
+доступно указывать где именно должны отображаться другие слои.</p>
+<pre><code class="language-php">/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layouts::wrapper('myTemplate', [
+            'foo' =&gt; [
+                RowLayouts::class,
+                RowLayouts::class,
+            ],
+            'bar' =&gt; RowLayouts::class,
+        ]),
+    ];
+}</code></pre>
+<p>В шаблон <code>myTemplate</code> будут переданы переменные <code>foo</code> и <code>bar</code>, которые содержат уже собранные <code>View</code>, которые можно выводить:</p>
+<pre><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-7 border-right"&gt;
+        @foreach($foo as $row)
+            {!! $row !!}
+        @endforeach
+    &lt;/div&gt;
+    &lt;div class="col-5 no-gutter"&gt;
+        {!! $bar !!}
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Переменные из <code>query</code> так же доступны к шаблоне.</p>
+<h2><a href="#rasshirenie-sloev" name="rasshirenie-sloev">Расширение слоёв</a></h2>
+<p>Класс <code>Layouts</code> является группирующим нескольких различных, для того, что бы добавить в него новую возможность достаточно указать её в сервис провайдере как:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Base;
+use Orchid\Screen\Repository;
+use Orchid\Screen\Layouts;
+
+Layouts::macro('hello', function (string $name) {
+    return new class($name) extends Base
+    {
+        /**
+         * @ string
+         */
+        public $name;
+
+        /**
+         * Hello constructor.
+         *
+         * @param string $name
+         */
+        public function __construct(string $name)
+        {
+            $this-&gt;name = $name;
+        }
+
+        /**
+         * @param Repository $repository
+         *
+         * @return mixed
+         */
+        public function build(Repository $repository)
+        {
+            return view('hello')-&gt;with('name', $this-&gt;name);
+        }
+
+    };
+});</code></pre>
+<p>Тогда в экране вызов будет выглядеть как:</p>
+<pre><code class="language-php">/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layouts::hello('Alexandr Chernyaev')
+    ];
+}</code></pre>                    </main></div>
             </div>
         </div>
     </div>
