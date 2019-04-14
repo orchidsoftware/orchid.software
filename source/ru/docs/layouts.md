@@ -373,6 +373,46 @@ public function layout(): array
 }
 ```
 
+## Аккордеон
+
+```php
+/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' => [
+                Layout::rows([
+                    Input::make('user.name')
+                        ->type('text')
+                        ->required()
+                        ->title('Name')
+                        ->placeholder('Name'),
+
+                    Input::make('user.email')
+                        ->type('email')
+                        ->required()
+                        ->title('Email')
+                        ->placeholder('Email'),
+                ]),
+            ],
+            'Billing Address'      => [
+                Layout::rows([
+                    Input::make('address')
+                        ->type('text')
+                        ->required()
+                        ->title('Адрес доставки')
+                        ->placeholder('Ул. Ленина дом 14 оф.162'),
+                ]),
+            ],
+        ]),
+    ];
+}
+```
 
 ## Пользовательский шаблон
 
