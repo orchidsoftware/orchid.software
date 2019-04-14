@@ -303,6 +303,9 @@
                 <a href="#raskryvayushchiysya-spisok">Раскрывающийся список</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#akkordeon">Аккордеон</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#polzovatelskiy-shablon">Пользовательский шаблон</a>
             </li>
                     <li class="anchor-h2">
@@ -620,6 +623,43 @@ public function layout(): array
                 -&gt;type('text')
                 -&gt;title('Name Articles')
         ])-&gt;label('More'),
+    ];
+}</code></pre>
+<h2><a href="#akkordeon" name="akkordeon">Аккордеон</a></h2>
+<pre><code class="language-php">/**
+ * Views.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' =&gt; [
+                Layout::rows([
+                    Input::make('user.name')
+                        -&gt;type('text')
+                        -&gt;required()
+                        -&gt;title('Name')
+                        -&gt;placeholder('Name'),
+
+                    Input::make('user.email')
+                        -&gt;type('email')
+                        -&gt;required()
+                        -&gt;title('Email')
+                        -&gt;placeholder('Email'),
+                ]),
+            ],
+            'Billing Address'      =&gt; [
+                Layout::rows([
+                    Input::make('address')
+                        -&gt;type('text')
+                        -&gt;required()
+                        -&gt;title('Адрес доставки')
+                        -&gt;placeholder('Ул. Ленина дом 14 оф.162'),
+                ]),
+            ],
+        ]),
     ];
 }</code></pre>
 <h2><a href="#polzovatelskiy-shablon" name="polzovatelskiy-shablon">Пользовательский шаблон</a></h2>
