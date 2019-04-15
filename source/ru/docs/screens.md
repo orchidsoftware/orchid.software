@@ -107,10 +107,7 @@ class Users extends Screen
 use App/Orchid/Screens/Users;
 
 Route::screen('/news', Users::class)->name('platform.screens.users.list');
-//или
-$route->screen('/news', Users::class)->name('platform.screens.users.list');
 ```
-
 
 
 
