@@ -374,9 +374,7 @@ class Users extends Screen
 <p>Зарегистировать каждый экран можно с помощью метода <code>screen</code> у Route</p>
 <pre><code class="language-php">use App/Orchid/Screens/Users;
 
-Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');
-//или
-$route-&gt;screen('/news', Users::class)-&gt;name('platform.screens.users.list');</code></pre>
+Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');</code></pre>
 <h2><a href="#dannye" name="dannye">Данные</a></h2>
 <p>Большинство приложений, ориентированных на данные, работают с несколькими таблицами, и эти таблицы связаны
 друг с другом. Для экрана приложения очень часто необходимо отображать данные, поступающие из
