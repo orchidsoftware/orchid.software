@@ -90,12 +90,28 @@ main {
 
   blockquote {
     border-left: 2px solid $brand-primary;
+    position: relative;
     padding: 1em;
     font-size: 1em;
     line-height: 2em;
     margin: 1.66em 0;
     background: #f6f8fa;
     @extend .box-shadow-lg;
+
+    &:before{
+      position: absolute;
+      top: 1em;
+      left: -0.8em;
+      background-color: $brand-primary;
+      color: #fff;
+      content: "!";
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 1.5em;
+      font-weight: bold;
+    }
     >p{
       margin-bottom: 0;
     }
