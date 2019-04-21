@@ -14,7 +14,7 @@ section: main
 * Название меню к которому необходимо прикрипить элемент
 * Обьект меню содержищий название, ссылки и т.п.
 
-## Пример записи
+## Пример добавления
 
 Регистрация меню по умолчанию происходит в директории `app/Orchid/Composers`, но можно указывать прямо в `ServiceProvider`.
 Например, изменим `app/Providers/AppServiceProvider.php` в такой вид:
@@ -40,16 +40,132 @@ class AppServiceProvider extends ServiceProvider
         $dashboard->menu->add(Menu::MAIN,
             ItemMenu::label('Idea')
                 ->icon('icon-bubbles')
-                ->url('#')
-                //->route('platform.systems.idea')
-                //->permission('platform.systems.idea')
-                ->sort(1000)
-                ->groupName('idea')
-                ->badge(function () {
-                    return 10;
-                })
+                ->url('https://orchid.software')
         );
     }
 }
 ```
-	
+
+## Месторасположение
+
+Разберём пример, изначально мы создаём обьект `ItemMenu` устававливая различные параметры, после чего добавляем элемент к конкретному месту `Menu::MAIN`, таких мест несколько:
+
+- **Menu::MAIN** - Меню отображаемое на каждой странице слевой стороны.
+- **Menu::SYSTEMS** - Меню формирующую навигацию по системной странице.
+- **Menu::PROFILE** - Меню отображаемое при нажатии на профиль.
+- **Название собственных меню** - Делает подменю и прекрепляет элементы.
+
+## Параметры
+
+
+Базовое использование:
+
+```php
+use Orchid\Platform\ItemMenu;
+
+ItemMenu::label('Example');
+```
+
+#### Настройка ссылок
+
+Указание ссылки:
+
+ ```php
+ItemMenu::label('Example')->url('https://orchid.software/');
+```
+ 
+Указание ссылки через маршрут:
+ ```php
+ItemMenu::label('Example')->route('route.idea');
+```
+
+
+Для определения активности ссылки используется пакет [dwightwatson/active](https://github.com/dwightwatson/active)
+Активность ссылок, при использовании `route` и `url` автоматически уставновливается,
+но допустимо изменение с помощью явного указания:
+
+```php
+ItemMenu::label('Example')
+    ->route('route.idea')
+    ->active('route.idea*');
+    
+ItemMenu::label('Example')
+    ->route('route.idea')
+    ->active([
+        'route.idea',
+        'route.other'
+    ]);
+    
+ItemMenu::label('Example')
+    ->url('/pages/contact')
+    ->active('not:pages/contact);
+```
+
+#### Права доступа
+
+Вполне ожидаемая ситуация когда некоторые ссылки должны отсутствовать
+в зависимости от наличия прав или других обстоятельств, для этого:
+
+ ```php
+ItemMenu::label('Example')->permission('platform.idea');
+```
+
+или любая другая проверка возвращающее булевое значение:
+
+ ```php
+ItemMenu::label('Example')->show(true);
+```
+
+#### Внешний вид
+
+
+Для элемента меню возможно указать графическую иконку с помощью:
+
+```php
+ItemMenu::label('Example')->icon('icon-heart');
+```
+
+Так же возможно обеденение с визуальную группу с помощью уставновки заголовка для первого элемента:
+
+```php
+ItemMenu::label('Example')->title('Analytics');
+```
+
+#### Порядок отображения
+
+Сортировка уставливается через задание порядкого номера:
+ ```php
+ItemMenu::label('Example')->sort(5);
+ItemMenu::label('Example')->sort(4);
+```
+
+#### Уведомления
+
+Пункты меню имееют возможность уведомлять пользователя о каких либо событиях ввиде числового значения, для этого:
+
+```php
+ItemMenu::label(Comments')
+    ->icon('icon-bubbles')
+    ->route('platform.systems.comments')
+    ->badge(function () {
+        return 10;
+    })
+```
+
+### Вложенное меню
+
+Для возможности создания вложенного меню необходимо добавить основной пункт и указать его уникальное имя с помощью метода `slug`, после этого можно добавлять остальные элементы к новому пункту.
+
+
+```php
+$dashboard->menu
+    ->add(Menu::MAIN,
+        ItemMenu::label('My menu')
+            ->slug('Idea')
+    )
+    ->add('Idea',
+        ItemMenu::label('Sub element')
+    );
+```
+
+
