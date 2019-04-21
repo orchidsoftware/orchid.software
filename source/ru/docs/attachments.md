@@ -16,11 +16,11 @@ section: main
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\AttachTrait;
+use Orchid\Attachment\Attachable;
 
 class Hostel extends Model
 {
-    use AttachTrait;
+    use Attachable;
     //
 }
 ```
@@ -40,7 +40,7 @@ $item->attachment()->get();
 Пример метода контроллера:
 
 ```php
-use Orchid\Platform\Attachments\File;
+use Orchid\Attachment\File;
 
 public function upload(Request $request)
 {
