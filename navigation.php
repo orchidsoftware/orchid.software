@@ -53,9 +53,14 @@ return [
                 'Лицензия'             => '/ru/docs/license',
             ],
         ],
+        'Начало работы'                => [
+            'children' => [
+                'Установка платформы'  => '/ru/docs/installation',
+                'Обзор параметров'     => '/ru/docs/configuration',
+            ],
+        ],
         'Платформа'             => [
             'children' => [
-                'Обзор параметров' => '/ru/docs/configuration',
                 'Меню панели'      => '/ru/docs/panel_menu',
                 'Экраны'           => '/ru/docs/screens',
                 'Макеты'           => '/ru/docs/layouts',
