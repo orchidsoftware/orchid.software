@@ -112,13 +112,21 @@ Post::type('news')->filtersApply()->simplePaginate();
 требуется подключить трейд `Orchid\Filter\Filterable` и передавать в функцию `filtersApply` массив классов:
 
 ```php
-use App\MyModel;
+use App\Model;
 
-MyModel::filtersApply([
+Model::filtersApply([
    Filter::class,
 ])->simplePaginate();
-
 ```
+
+Возможно использование целой группы фильтров обьеденённых в слой `Selection`, через:
+
+```php
+Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
+```
+
+Тогда все фильтры установленные в слое будут применены.
+
 
 ## Автоматическая HTTP фильтрация и сортировка
 
