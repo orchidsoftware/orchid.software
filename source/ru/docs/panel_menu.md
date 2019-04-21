@@ -98,7 +98,7 @@ ItemMenu::label('Example')
     
 ItemMenu::label('Example')
     ->url('/pages/contact')
-    ->active('not:pages/contact);
+    ->active('not:pages/contact');
 ```
 
 #### Права доступа
