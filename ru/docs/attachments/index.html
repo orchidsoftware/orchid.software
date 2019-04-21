@@ -300,11 +300,11 @@
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\AttachTrait;
+use Orchid\Attachment\Attachable;
 
 class Hostel extends Model
 {
-    use AttachTrait;
+    use Attachable;
     //
 }</code></pre>
 <p>После этого мы можем добавлять и получать её вложения, например:</p>
@@ -313,7 +313,7 @@ $item-&gt;attachment()-&gt;get();</code></pre>
 <h2><a href="#primer-zagruzki" name="primer-zagruzki">Пример загрузки</a></h2>
 <p>В действительности вы уже имеете маршрут для загрузку файлов (если конечно, к нему разрешён доступ)</p>
 <p>Пример метода контроллера:</p>
-<pre><code class="language-php">use Orchid\Platform\Attachments\File;
+<pre><code class="language-php">use Orchid\Attachment\File;
 
 public function upload(Request $request)
 {
