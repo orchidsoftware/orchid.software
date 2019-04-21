@@ -144,7 +144,7 @@ ItemMenu::label('Example')->sort(4);
 Пункты меню имееют возможность уведомлять пользователя о каких либо событиях ввиде числового значения, для этого:
 
 ```php
-ItemMenu::label(Comments')
+ItemMenu::label('Comments')
     ->icon('icon-bubbles')
     ->route('platform.systems.comments')
     ->badge(function () {
