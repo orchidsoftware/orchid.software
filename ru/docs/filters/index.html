@@ -378,12 +378,14 @@ class MyBehaviorPost extends Many
 
 Post::type('news')-&gt;filtersApply()-&gt;simplePaginate();</code></pre>
 <p>Для использования фильтров в собственных моделях, требуется подключить трейд <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
-<pre><code class="language-php">use App\MyModel;
+<pre><code class="language-php">use App\Model;
 
-MyModel::filtersApply([
+Model::filtersApply([
    Filter::class,
-])-&gt;simplePaginate();
-</code></pre>
+])-&gt;simplePaginate();</code></pre>
+<p>Возможно использование целой группы фильтров обьеденённых в слой <code>Selection</code>, через:</p>
+<pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();</code></pre>
+<p>Тогда все фильтры установленные в слое будут применены.</p>
 <h2><a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka" name="avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a></h2>
 <p>Для реагирования на HTTP параметры, модель должна включать в себя <code>Filterable</code>, а так же определение доступных
 атрибутов:</p>
