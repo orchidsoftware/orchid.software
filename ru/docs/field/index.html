@@ -427,6 +427,29 @@
 <p>Изменение ключа:</p>
 <pre><code class="language-php">Select::make('user')
     -&gt;fromModel(User::class, 'email', 'uuid')</code></pre>
+<p>Возможны ситуации когда необходимо добавить некоторое значение которое означает, что поле не выбрано, для этого можно использовать метод <code>empty</code>:</p>
+<pre><code class="language-php">// Для массива
+Select::make('user')
+    -&gt;options([
+        1  =&gt; 'Пункт 1',
+        2  =&gt; 'Пункт 2',
+    ])
+   -&gt;empty('Не выбрано');
+
+// Для источника
+Select::make('user')
+    -&gt;fromModel(User::class, 'name')
+    -&gt;empty('Не выбрано');</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong>, что <code>empty</code> вызывается позднее заполняющих методов, иначе добавленое значение будет перезаписано</p>
+</blockquote>
+<p>Метод <code>empty</code> так же принимает и второй аргумент отвечающий за значение:</p>
+<pre><code class="language-php">Select::make('user')
+    -&gt;options([
+        1  =&gt; 'Пункт 1',
+        2  =&gt; 'Пункт 2',
+    ])
+   -&gt;empty('Не выбрано', 0);</code></pre>
 <h2><a href="#mask" name="mask">Mask</a></h2>
 <p>Маска для ввода значений к тегу input.
 Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона</p>
