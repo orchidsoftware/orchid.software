@@ -46,7 +46,6 @@ return [
             'children' => [
                 'Предисловие'          => '/ru/docs/preface',
                 'Введение в проект'    => '/ru/docs/',
-                'Установка платформы'  => '/ru/docs/installation',
                 'Кодекс поведения'     => '/ru/docs/code-of-conduct',
                 'Участие в разработке' => '/ru/docs/contributors',
                 'Содействие проекту'   => '/ru/docs/promote',
