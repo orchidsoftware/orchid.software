@@ -307,7 +307,7 @@
 <p>Пример фильтра:</p>
 <pre><code class="language-php">namespace App\Http\Filters;
 
-use Orchid\Platform\Filters\Filter;
+use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
 class QueryFilter extends Filter
@@ -377,7 +377,7 @@ class MyBehaviorPost extends Many
 <pre><code class="language-php">use Orchid\Press\Models\Post;
 
 Post::type('news')-&gt;filtersApply()-&gt;simplePaginate();</code></pre>
-<p>Для использования фильтров в собственных моделях, требуется подключить трейд <code>Orchid\Platform\Traits\FilterTrait</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
+<p>Для использования фильтров в собственных моделях, требуется подключить трейд <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
 <pre><code class="language-php">use App\MyModel;
 
 MyModel::filtersApply([
@@ -385,9 +385,9 @@ MyModel::filtersApply([
 ])-&gt;simplePaginate();
 </code></pre>
 <h2><a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka" name="avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a></h2>
-<p>Для реагирования на HTTP параметры, модель должна включать в себя <code>FilterTrait</code>, а так же определение доступных
+<p>Для реагирования на HTTP параметры, модель должна включать в себя <code>Filterable</code>, а так же определение доступных
 атрибутов:</p>
-<pre><code class="language-php">use FilterTrait;
+<pre><code class="language-php">use Filterable;
 
 /**
  * @var
