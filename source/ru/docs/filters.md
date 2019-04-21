@@ -27,7 +27,7 @@ php artisan orchid:filter QueryFilter
 ```php
 namespace App\Http\Filters;
 
-use Orchid\Platform\Filters\Filter;
+use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
 class QueryFilter extends Filter
@@ -109,7 +109,7 @@ Post::type('news')->filtersApply()->simplePaginate();
 
 
 Для использования фильтров в собственных моделях, 
-требуется подключить трейд `Orchid\Platform\Traits\FilterTrait` и передавать в функцию `filtersApply` массив классов:
+требуется подключить трейд `Orchid\Filter\Filterable` и передавать в функцию `filtersApply` массив классов:
 
 ```php
 use App\MyModel;
@@ -122,11 +122,11 @@ MyModel::filtersApply([
 
 ## Автоматическая HTTP фильтрация и сортировка
 
-Для реагирования на HTTP параметры, модель должна включать в себя `FilterTrait`, а так же определение доступных
+Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
 атрибутов:
 
 ```php
-use FilterTrait;
+use Filterable;
 
 
 /**
