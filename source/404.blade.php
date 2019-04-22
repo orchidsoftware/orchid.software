@@ -1,5 +1,7 @@
 @extends('_layouts.master')
 
+@include('_lang.en')
+
 @section('content')
     <div class="bg-white-only">
         <div class="container">
