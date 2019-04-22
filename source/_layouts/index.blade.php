@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <section class="bg-dark b-b">
+    <section class="hero bg-dark b-b">
         <div class="container">
 
             <div class="row pt-4">
