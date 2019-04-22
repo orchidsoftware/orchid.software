@@ -4,6 +4,7 @@ use App\Listeners\GenerateDocumentList;
 use App\Listeners\GeneratePFDDocument;
 use App\Listeners\GenerateSitemap;
 use App\Listeners\GenerateTypography;
+use App\Listeners\GenerateNotFound;
 use TightenCo\Jigsaw\Jigsaw;
 
 /* @var $container \Illuminate\Container\Container */
@@ -23,4 +24,5 @@ use TightenCo\Jigsaw\Jigsaw;
 $events->afterBuild(GenerateDocumentList::class);
 $events->afterBuild(GenerateTypography::class);
 $events->afterBuild(GenerateSitemap::class);
+$events->afterBuild(GenerateNotFound::class);
 //$events->afterBuild(GeneratePFDDocument::class);
