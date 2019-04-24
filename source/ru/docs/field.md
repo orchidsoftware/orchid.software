@@ -93,12 +93,51 @@ Picture::make()
 
 Пример записи:
 ```php
-DateTimer::make()
-    ->type('text')
-    ->name('open')
-    ->title('Opening date')
-    ->help('The opening event will take place');
+DateTimer::make('open')
+    ->title('Opening date');
 ```           
+
+Разрешить прямой ввод:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->allowInput();
+```           
+
+Формат данных:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->format('Y-m-d');
+```
+
+Пример, для отображения в 24-ом формате:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->format24hr();
+```
+
+Календарь со временем:
+
+```php
+DateTimer::make('open')
+    ->title('Opening time')
+    ->enableTime();
+```
+
+Выбор только времени:
+
+```php
+DateTimer::make('open')
+    ->title('Opening time')
+    ->noCalendar()
+    ->format('h:i K');
+```
+
            
 ## Checkbox
  
