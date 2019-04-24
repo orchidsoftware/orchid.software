@@ -32,7 +32,7 @@ Go to the created project folder and execute the following command:
 $ composer require orchid/platform
 ```
 
-> **Notice.** If you have installed the Laravel the other way you will have to generate the key
+> **Notice.** If you have installed Laravel in any other way you may have to generate a key
 using the command `php artisan key:generate`
 
 ## Install
