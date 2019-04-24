@@ -375,11 +375,29 @@
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
 <p>Позволяет выбрать дату и время</p>
 <p>Пример записи:</p>
-<pre><code class="language-php">DateTimer::make()
-    -&gt;type('text')
-    -&gt;name('open')
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date');</code></pre>
+<p>Разрешить прямой ввод:</p>
+<pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
-    -&gt;help('The opening event will take place');</code></pre>
+    -&gt;allowInput();</code></pre>
+<p>Формат данных:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;format('Y-m-d');</code></pre>
+<p>Пример, для отображения в 24-ом формате:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;format24hr();</code></pre>
+<p>Календарь со временем:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening time')
+    -&gt;enableTime();</code></pre>
+<p>Выбор только времени:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening time')
+    -&gt;noCalendar()
+    -&gt;format('h:i K');</code></pre>
 <h2><a href="#checkbox" name="checkbox">Checkbox</a></h2>
 <p>Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.</p>
 <p>Пример записи:</p>
