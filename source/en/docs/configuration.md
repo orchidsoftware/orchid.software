@@ -38,7 +38,7 @@ Remember that your web server parameters must be properly configured.
 The system installed on the website can be easily defined by the dashboard prefix, for example it is `wp-admin` for WordPress, and it gives an opportunity to automatically search for old vulnerable versions of software and gain control over it.
  
 There are other reasons but we won't speak of them in this section. 
-The point is that ORCHID allows to change`dashboard` prefix to every other name, `admin` or `administrator` for example.
+The point is that ORCHID allows to change the `dashboard` prefix to anything you want, `admin` or `administrator` for example.
 
 
 
