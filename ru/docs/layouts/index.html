@@ -285,6 +285,9 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                <a href="#podkhod-cherez-makety">Подход через макеты</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#tablitsa">Таблица</a>
             </li>
                     <li class="anchor-h3">
@@ -323,13 +326,20 @@
             </ul><hr><p>Отображение внешнего вида элементов пользовательского интерфейса в приложении играет большое значение, делает приложение
 проще в использовании и помогает пользователям интуитивно отображать элементы экрана для выполнения своих задач.</p>
 <p>Разделение логики и презентации является один из принципов разработки с ORCHID.
-Одним из элементов презентации являются «Layouts», это макеты которые могут отображаться как:</p>
-<ul><li>Таблицы</li>
-<li>Колонки</li>
-<li>Строки</li>
-<li>Графики</li>
-<li>Модальные окна</li>
-</ul><h2><a href="#tablitsa" name="tablitsa">Таблица</a></h2>
+Одним из элементов презентации являются «Layouts» (макеты) которые могут отображаться в различных вариациях, если попытаться обьяснить коротко, то получиться, что это <code>view</code> на стеройдах.</p>
+<h2><a href="#podkhod-cherez-makety" name="podkhod-cherez-makety">Подход через макеты</a></h2>
+<p>Для формирования страницы мы в большинстве случаев мы используем однотипные элементы, например, представим блок который отображает имя, подпись и аватар профиля:</p>
+<pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
+    &lt;span class="thumb-sm avatar m-r-xs"&gt;
+        &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
+    &lt;/span&gt;
+    &lt;div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"&gt;
+        &lt;h6 class="mb-0"&gt;Maria&lt;/h6&gt;
+        &lt;p class="text-muted mb-1"&gt;maria@exaple.com&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Простое отображение блока с профилем может фигурировать на десятках страниц и если они скопированы, то поддерживать их внешний вид может потребовать много времени, по этому прорабатываются различные варианты повторного использования. Это называется компонентным подходом, вне зависимости от способа доставки и уровня ответственности, практикуется как в <code>Blade</code> так и в <code>React/Vue/Angular</code>. Именно из таких компонентов и состоят слои платформы.</p>
+<h2><a href="#tablitsa" name="tablitsa">Таблица</a></h2>
 <p>Макет таблицы используется для вывода минимальной информации для просмотра и выборки.</p>
 <pre><code class="language-php">php artisan orchid:table PatientListLayout</code></pre>
 <p>Пример:</p>
