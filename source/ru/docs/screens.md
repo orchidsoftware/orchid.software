@@ -213,26 +213,12 @@ public function layout() : array
                 PatientSecondRows::class,
             ],
         ]),
-        Layout::columns([
-            'Левая колонка' => [
-                AppointmentListLayout::class
-            ],
-            'Правая колонка' => [
-                InvoiceListLayout::class
-            ],
-        ]),
         // Модальные окна
         Layout::modals([
             'Appointments' => [
                 PatientFirstRows::class,
             ],
         ]),
-        // Модальное окно получающее данные через POST запрос
-        Layout::modals([
-            'oneAsyncModal' => [
-                UserEditLayout::class,
-            ],
-        ])->async('methodForSend'), 
     ];
 }
 ```
