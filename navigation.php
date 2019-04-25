@@ -60,14 +60,14 @@ return [
         ],
         'Платформа'             => [
             'children' => [
-                'Меню панели'      => '/ru/docs/panel_menu',
+                'Меню панели'      => '/ru/docs/panel-menu',
                 'Экраны'           => '/ru/docs/screens',
                 'Макеты'           => '/ru/docs/layouts',
                 'Фильтры'          => '/ru/docs/filters',
                 'Поля'             => '/ru/docs/field',
                 'Виджеты'          => '/ru/docs/widget',
                 'Вложения'         => '/ru/docs/attachments',
-                'Поиск'            => '/ru/docs/global_search',
+                'Поиск'            => '/ru/docs/global-search',
                 'Права доступа'    => '/ru/docs/access',
                 'Настройки'        => '/ru/docs/settings',
                 'Уведомления'      => '/ru/docs/alert',
