@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="ORCHID использует стандартную систему настроек для Laravel."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Файл настройки | Orchid - Laravel Admin Panel"><meta property="og:description" content="ORCHID использует стандартную систему настроек для Laravel."><meta property="og:url" content="http://orchid.software/ru/docs/configuration"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Файл настройки</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="ORCHID использует стандартную систему настроек для Laravel."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Конфигурация платформы | Orchid - Laravel Admin Panel"><meta property="og:description" content="ORCHID использует стандартную систему настроек для Laravel."><meta property="og:url" content="http://orchid.software/ru/docs/configuration"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Конфигурация платформы</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -277,7 +277,7 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Файл настройки</h1>
+                    <main class="wrapper-lg order-md-first"><h1>Конфигурация платформы</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/configuration.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
@@ -311,8 +311,11 @@
                     <li class="anchor-h2">
                 <a href="#shablony-vneshnego-vida">Шаблоны внешнего вида</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#modelnye-klassy">Модельные классы</a>
+            </li>
             </ul><hr><p>ORCHID использует стандартную систему настроек для Laravel.
-Все параметры располагаются в директории <code>config</code>, а основным файлом для платформы является
+Основные параметры располагаются в директории <code>config</code>, а основным файлом для платформы является
 файл <code>platform.php</code>. Каждая настройка поставляется с комментарием поясняющим основную суть.</p>
 <h2><a href="#adres-platformy" name="adres-platformy">Адрес платформы</a></h2>
 <pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),</code></pre>
@@ -368,12 +371,41 @@
 ],</code></pre>
 <p>В ходе работы вам может потребоваться добавить свои собственные таблицы стили или javascript сценарии
 глобально, на каждую страницу, то необходимо добавить пути для них в соответствующие массивы.</p>
+<p>Так же возможно указывать ресурсы через обьект <code>Dashboard</code>, например в сервис провайдере:</p>
+<pre><code class="language-php">namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard-&gt;registerResource('stylesheets','custom.css');
+        $dashboard-&gt;registerResource('scripts','custom.js');
+    }
+}</code></pre>
 <h2><a href="#shablony-vneshnego-vida" name="shablony-vneshnego-vida">Шаблоны внешнего вида</a></h2>
 <p>Для изменения некоторых шаблонов необязательно опубликовывать весь пакет, можете настроить часть пользовательского интерфейса для указания логотипа, сопроводительных документов и т.п.</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'platform::layouts.header',
     'footer' =&gt; 'platform::layouts.footer',
-],</code></pre>                    </main></div>
+],</code></pre>
+<h2><a href="#modelnye-klassy" name="modelnye-klassy">Модельные классы</a></h2>
+<p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы ORCHID использовал ваши классы
+моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
+<pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class,\App\User::class);</code></pre>
+<p>Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
+<pre><code class="language-php">Dashboard::configure([
+    'models' =&gt; [
+        User::class =&gt; 'MyCustomClass',
+    ],
+]);</code></pre>                    </main></div>
             </div>
         </div>
     </div>
