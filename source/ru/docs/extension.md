@@ -52,61 +52,6 @@ $this->domain(config('platform.domain'))->group(function () {
 ```
 
 
-## Дополнительные стили и скрипты
-
-Если вам потребуется добавить стили и скрипты глобально, на каждую страницу, то используйте:
-
-```php
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerResource('stylesheets','custom.css');
-        $dashboard->registerResource('scripts','custom.js');
-    }
-
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-}
-```
-
-
-## Модельные классы
-
-Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы ORCHID использовал ваши классы 
-моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:
-
-```php
-Dashboard::useModel(\Orchid\Platform\Models\User::class,\App\User::class);
-```
-
-Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:
-
-```php
-Dashboard::configure([
-    'models' => [
-        User::class => 'MyCustomClass',
-    ],
-]);
-```
-
 ### Использование JS фреймворков
 
 Основой платформы по части стилей является [Bootstrap](http://getbootstrap.com/), а в браузере выполняется код [Stimulus](https://stimulusjs.org/), вам необязательно использовать именно их.
