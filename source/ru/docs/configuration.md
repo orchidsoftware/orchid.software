@@ -1,12 +1,12 @@
 ---
-title: Файл настройки
+title: Конфигурация платформы
 description: ORCHID использует стандартную систему настроек для Laravel.
 extends: _layouts.documentation.ru
 section: main
 ---
 
 ORCHID использует стандартную систему настроек для Laravel.
-Все параметры располагаются в директории `config`, а основным файлом для платформы является 
+Основные параметры располагаются в директории `config`, а основным файлом для платформы является 
 файл `platform.php`. Каждая настройка поставляется с комментарием поясняющим основную суть.
 
 ## Адрес платформы
@@ -124,6 +124,30 @@ php artisan make:auth
 В ходе работы вам может потребоваться добавить свои собственные таблицы стили или javascript сценарии
 глобально, на каждую страницу, то необходимо добавить пути для них в соответствующие массивы.
 
+Так же возможно указывать ресурсы через обьект `Dashboard`, например в сервис провайдере:
+
+
+```php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard->registerResource('stylesheets','custom.css');
+        $dashboard->registerResource('scripts','custom.js');
+    }
+}
+```
+
 
 ## Шаблоны внешнего вида
 
@@ -134,4 +158,24 @@ php artisan make:auth
     'header' => 'platform::layouts.header',
     'footer' => 'platform::layouts.footer',
 ],
+```
+
+
+## Модельные классы
+
+Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы ORCHID использовал ваши классы 
+моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:
+
+```php
+Dashboard::useModel(\Orchid\Platform\Models\User::class,\App\User::class);
+```
+
+Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:
+
+```php
+Dashboard::configure([
+    'models' => [
+        User::class => 'MyCustomClass',
+    ],
+]);
 ```
