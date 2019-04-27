@@ -389,7 +389,17 @@ Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');</c
 и один или несколько связанных записей: продукт, количество, цена за единицу, процентная ставка налога, полная цена и т.д.</p>
 <p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
-<p>Пример, при котором в  Layouts будут доступны ключи <code>user</code> и <code>users</code>:</p>
+<p>Вкачестве источника может выступать <code>модель Eloquent</code>, для этого необходимо добавить трейд <code>AsSource</code> :</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Traits\AsSource;
+
+class Order extends Model
+{
+    use AsSource
+}</code></pre>
+<p>Пример, при котором в  Layouts будут доступны ключи <code>order</code> и <code>orders</code>:</p>
 <pre><code class="language-php">    /**
      * Query data
      *
@@ -398,8 +408,24 @@ Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');</c
     public function query() : array
     {
         return [
-            'user'  =&gt; User::find(1),
-            'users' =&gt; User::paginate(),
+            'order'  =&gt; Order::find(1),
+            'orders' =&gt; Order::paginate(),
+        ];
+    }</code></pre>
+<p>Использоване именно моделей <code>Eloquent</code> не обязательно, возможно использование различных данных спомощью обёртки <code>Repository</code>:</p>
+<pre><code class="language-php">    //...
+    use Orchid\Screen\Repository;    
+    //...
+
+    /**
+     * Query data
+     *
+     * @return array
+     */
+    public function query() : array
+    {
+        return [
+            'order'  =&gt; new Repository(['product_id' =&gt; 'prod-100', 'name' =&gt; 'Desk', 'price' =&gt; 10.24, 'created_at' =&gt; '01.01.2020']),
         ];
     }</code></pre>
 <h2><a href="#obrabotka" name="obrabotka">Обработка</a></h2>
