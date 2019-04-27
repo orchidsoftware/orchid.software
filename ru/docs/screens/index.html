@@ -425,7 +425,12 @@ class Order extends Model
     public function query() : array
     {
         return [
-            'order'  =&gt; new Repository(['product_id' =&gt; 'prod-100', 'name' =&gt; 'Desk', 'price' =&gt; 10.24, 'created_at' =&gt; '01.01.2020']),
+          'order' =&gt; new Repository([
+            'product_id' =&gt; 'prod-100',
+            'name'       =&gt; 'Desk',
+            'price'      =&gt; 10.24,
+            'created_at' =&gt; '01.01.2020',
+          ]),
         ];
     }</code></pre>
 <h2><a href="#obrabotka" name="obrabotka">Обработка</a></h2>
