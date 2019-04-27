@@ -125,7 +125,22 @@ Route::screen('/news', Users::class)->name('platform.screens.users.list');
 Данные для показа на экране определяются в методе `query`, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.
 
-Пример, при котором в  Layouts будут доступны ключи `user` и `users`:
+
+Вкачестве источника может выступать `модель Eloquent`, для этого необходимо добавить трейд `AsSource` :
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Traits\AsSource;
+
+class Order extends Model
+{
+    use AsSource
+}
+```
+
+Пример, при котором в  Layouts будут доступны ключи `order` и `orders`:
 
 ```php
     /**
@@ -136,12 +151,31 @@ Route::screen('/news', Users::class)->name('platform.screens.users.list');
     public function query() : array
     {
         return [
-            'user'  => User::find(1),
-            'users' => User::paginate(),
+            'order'  => Order::find(1),
+            'orders' => Order::paginate(),
         ];
     }
 ```
 
+Использоване именно моделей `Eloquent` не обязательно, возможно использование различных данных спомощью обёртки `Repository`:
+
+```php
+    //...
+    use Orchid\Screen\Repository;    
+    //...
+    
+    /**
+     * Query data
+     *
+     * @return array
+     */
+    public function query() : array
+    {
+        return [
+            'order'  => new Repository(['product_id' => 'prod-100', 'name' => 'Desk', 'price' => 10.24, 'created_at' => '01.01.2020']),
+        ];
+    }
+```
 
 
 
