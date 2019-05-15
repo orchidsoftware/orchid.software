@@ -38,10 +38,10 @@ section: main
 Для создания нового экрана требуется выполнить команду:
 
 ```php
-php artisan orchid:screen Users
+php artisan orchid:screen Idea
 ```
 
-В директории `app/Orchid/Screens` будет создан файл `Users` со следующим содержанием:
+В директории `app/Orchid/Screens` будет создан файл `Idea` со следующим содержанием:
 
 ```php
 namespace App\Http\Controllers\Screens;
@@ -49,21 +49,21 @@ namespace App\Http\Controllers\Screens;
 use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Screen;
 
-class Users extends Screen
+class Idea extends Screen
 {
     /**
      * Display header name
      *
      * @var string
      */
-    public $name = 'Users Screen';
+    public $name = 'Idea Screen';
 
     /**
      * Display header description
      *
      * @var string
      */
-    public $description = 'Users Screen';
+    public $description = 'Idea Screen';
 
     /**
      * Query data
@@ -104,9 +104,9 @@ class Users extends Screen
 
 Зарегистировать каждый экран можно с помощью метода `screen` у Route
 ```php
-use App/Orchid/Screens/Users;
+use App/Orchid/Screens/Idea;
 
-Route::screen('/news', Users::class)->name('platform.screens.users.list');
+Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
 
 
