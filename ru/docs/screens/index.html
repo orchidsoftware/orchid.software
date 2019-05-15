@@ -322,28 +322,28 @@
 <h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
 <p>С ORCHID это еще проще и вы можете создать набор экранов всего за несколько минут.</p>
 <p>Для создания нового экрана требуется выполнить команду:</p>
-<pre><code class="language-php">php artisan orchid:screen Users</code></pre>
-<p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Users</code> со следующим содержанием:</p>
+<pre><code class="language-php">php artisan orchid:screen Idea</code></pre>
+<p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Idea</code> со следующим содержанием:</p>
 <pre><code class="language-php">namespace App\Http\Controllers\Screens;
 
 use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Screen;
 
-class Users extends Screen
+class Idea extends Screen
 {
     /**
      * Display header name
      *
      * @var string
      */
-    public $name = 'Users Screen';
+    public $name = 'Idea Screen';
 
     /**
      * Display header description
      *
      * @var string
      */
-    public $description = 'Users Screen';
+    public $description = 'Idea Screen';
 
     /**
      * Query data
@@ -378,9 +378,9 @@ class Users extends Screen
 </code></pre>
 <h2><a href="#registratsiya-v-marshrutakh" name="registratsiya-v-marshrutakh">Регистрация в маршрутах</a></h2>
 <p>Зарегистировать каждый экран можно с помощью метода <code>screen</code> у Route</p>
-<pre><code class="language-php">use App/Orchid/Screens/Users;
+<pre><code class="language-php">use App/Orchid/Screens/Idea;
 
-Route::screen('/news', Users::class)-&gt;name('platform.screens.users.list');</code></pre>
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <h2><a href="#dannye" name="dannye">Данные</a></h2>
 <p>Большинство приложений, ориентированных на данные, работают с несколькими таблицами, и эти таблицы связаны
 друг с другом. Для экрана приложения очень часто необходимо отображать данные, поступающие из
