@@ -67,7 +67,7 @@ return [
                 'Поля'             => '/ru/docs/field',
                 'Виджеты'          => '/ru/docs/widget',
                 'Вложения'         => '/ru/docs/attachments',
-                'Поиск'            => '/ru/docs/global-search',
+                'Глобальный поиск' => '/ru/docs/global-search',
                 'Права доступа'    => '/ru/docs/access',
                 'Настройки'        => '/ru/docs/settings',
                 'Уведомления'      => '/ru/docs/alert',
