@@ -135,8 +135,8 @@ ItemMenu::label('Example')->title('Analytics');
 
 Сортировка уставливается через задание порядкого номера:
  ```php
-ItemMenu::label('Example')->sort(5);
-ItemMenu::label('Example')->sort(4);
+ItemMenu::label('Second')->sort(5);
+ItemMenu::label('First')->sort(4);
 ```
 
 #### Уведомления
@@ -149,7 +149,7 @@ ItemMenu::label('Comments')
     ->route('platform.systems.comments')
     ->badge(function () {
         return 10;
-    })
+    });
 ```
 
 ## Вложенное меню
