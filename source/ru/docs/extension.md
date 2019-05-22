@@ -101,7 +101,7 @@ application.register("hello", HelloController);
 mix.js('resources/js/dashboard.js', 'public/js')
 ```
 
-Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере используя метод registerResource , точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.
+Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере используя метод `registerResource` , точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.
 
 ```php
 class ServiceProvider extends ServiceProvider
@@ -113,8 +113,8 @@ class ServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerResource('stylesheets','dashboard.css');
         $dashboard->registerResource('scripts','dashboard.js');
+        //$dashboard->registerResource('stylesheets','dashboard.css');
     }
 }
 ```
