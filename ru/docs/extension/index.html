@@ -353,7 +353,7 @@ application.register("hello", HelloController);</code></pre>
 <p>Такая структура не помешает вашему приложению не зависимо от того, какой front-end строиться: Angular/React/Vue и т.п.</p>
 <p>Останется только описать сборку в webpack.mix.js :</p>
 <pre><code class="language-php">mix.js('resources/js/dashboard.js', 'public/js')</code></pre>
-<p>Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере используя метод registerResource, точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.</p>
+<p>Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере используя метод <code>registerResource</code> , точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.</p>
 <pre><code class="language-php">class ServiceProvider extends ServiceProvider
 {
     /**
@@ -363,8 +363,8 @@ application.register("hello", HelloController);</code></pre>
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard-&gt;registerResource('stylesheets','dashboard.css');
         $dashboard-&gt;registerResource('scripts','dashboard.js');
+        //$dashboard-&gt;registerResource('stylesheets','dashboard.css');
     }
 }</code></pre>
 <p>Для отображения воспользуемся шаблоном:</p>
