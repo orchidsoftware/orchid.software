@@ -388,8 +388,8 @@ ItemMenu::label('Example')
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
 <h4><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h4>
 <p>Сортировка уставливается через задание порядкого номера:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;sort(5);
-ItemMenu::label('Example')-&gt;sort(4);</code></pre>
+<pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
+ItemMenu::label('First')-&gt;sort(4);</code></pre>
 <h4><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h4>
 <p>Пункты меню имееют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Comments')
@@ -397,7 +397,7 @@ ItemMenu::label('Example')-&gt;sort(4);</code></pre>
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {
         return 10;
-    })</code></pre>
+    });</code></pre>
 <h2><a href="#vlozhennoe-menyu" name="vlozhennoe-menyu">Вложенное меню</a></h2>
 <p>Для возможности создания вложенного меню необходимо добавить основной пункт и указать его уникальное имя с помощью метода <code>slug</code>, после этого можно добавлять остальные элементы к новому пункту.</p>
 <pre><code class="language-php">$dashboard-&gt;menu
