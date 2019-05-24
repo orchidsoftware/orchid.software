@@ -5,9 +5,11 @@ extends: _layouts.documentation.ru
 section: main
 ---
 
-## Использование
+## Использование полнотекстного поиска
 
-Добавить трейт `Orchid\Platform\Traits\GlobalSearchTrait` к модели, добавленный трейд уже включает в себя `Laravel Scout`
+Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout) который является абстракцией для полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решение.
+
+Для использования глобального поиска требуется добавить новый трейт `Orchid\Platform\Traits\GlobalSearchTrait` к модели, он уже включает в себя `Laravel Scout`.
 
 Как пример модель может выглядеть так:
 ```php
@@ -17,7 +19,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Platform\Traits\GlobalSearchTrait;
 
-class Product extends Model
+class Idea extends Model
 {
     use GlobalSearchTrait;
 
@@ -44,8 +46,36 @@ class Product extends Model
         return $array;
     }
 }
-
 ```
+
+Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:
+
+```php
+namespace App\Providers;
+
+use App\Idea;
+use Orchid\Platform\Dashboard;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Boot the application events.
+     *
+     * @param Dashboard $dashboard
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard->registerGlobalSearch([
+          Idea::class,
+          //...Models
+        ]);
+    }
+}
+```
+
+
+## Модификация результатов
 
 В результатах поиска могут быть указаны следующие параметры:
 - **label** - Является группой, например: новости, пользователи и т.п.
@@ -53,9 +83,6 @@ class Product extends Model
 - **subTitile** - дополнительная строка, например, должность, статус
 - **url**  - доступная ссылка для перехода/редактирования
 - **avatar** - Изображения
-
-
-## Модификация
 
 По умолчанию из модели будут браться указанные атрибуты. Для того, что бы определить какие данные будут передаваться, указываются методы с префиксом `search` в явном виде, например:
 
@@ -90,25 +117,4 @@ public function searchAvatar(): ?string
 
 ```php
 public function searchQuery(string $query = null) : LengthAwarePaginator
-```
-
-
-## Регистрация
-
-
-```php
-class PlatformProvider extends ServiceProvider
-{
-    /**
-     * Boot the application events.
-     *
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerGlobalSearch([
-          //...Models
-        ]);
-    }
-}
 ```
