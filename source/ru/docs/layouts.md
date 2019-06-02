@@ -189,6 +189,37 @@ public function layout(): array
 ```
 
 
+## Модальные окна
+
+```php
+    /**
+     * Views.
+     *
+     * @throws \Throwable
+     *
+     * @return array
+     */
+    public function layout(): array
+    {
+        return [
+            Layout::modals([
+                'exampleModal' => Layout::rows([]),
+            ]),
+        ];
+    }
+```
+
+Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:
+
+```php
+Layout::modals([
+    'exampleModals' => Layout::rows([]),
+])
+    ->size(Modals::SIZE_LG)
+    ->applyButton(self::APPLY_BUTTON)
+    ->closeButton(self::CLOSE_BUTTON),
+```
+
 ## Графики
 
 Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой
@@ -339,7 +370,6 @@ public function layout(): array
 ```
 
 Название вкладок будет соответствовать ключам массива
-
 
 ## Столбцы
 
