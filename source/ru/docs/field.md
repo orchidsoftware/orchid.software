@@ -187,19 +187,6 @@ TextArea::make()
 ```    
 
 
-## Tags
- 
-Запись значений через запятую
-
-Пример записи:
-```php
-Tags::make()
-    ->name('keywords')
-    ->title('Keywords')
-    ->help('SEO keywords');
-```   
-
-
 ## Select
 
 Простой выбор из списка массива:
@@ -316,72 +303,41 @@ Input::make()
 Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.
 
 ```php
-Relationship::make()
-    ->name('my_title')
-    ->required()
-    ->title('My title')
-    ->handler(AjaxWidget::class);
+Relation::make('idea')
+    ->fromModel(Idea::class, 'name')
+    ->title('Выберите свою идею'),
 ```
 
-
-AjaxWidget в свойство `$query` будет принимать значение для поиска, а `$key` выбранное значение.
-
+Для модификации загрузки можно использовать указание на `scope` модели,
+например, взять только активные:
 
 ```php
-namespace App\Http\Widgets;
+namespace App;
 
-use Orchid\Widget\Widget;
+use Illuminate\Database\Eloquent\Model;
 
-class AjaxWidget extends Widget
+class Idea extends Model
 {
 
     /**
-     * @var null
+     * @param Builder $query
+     *
+     * @return Builder
      */
-    public $query = null;
-
-    /**
-     * @var null
-     */
-    public $key = null;
-
-    /**
-     * @return array
-     */
-    public function handler()
+    public function scopeActive(Builder $query)
     {
-        $data = [
-            [
-                'id'   => 1,
-                'text' => 'Запись 1',
-            ],
-            [
-                'id'   => 2,
-                'text' => 'Запись 2',
-            ],
-            [
-                'id'   => 3,
-                'text' => 'Запись 3',
-            ],
-        ];
-
-
-        if(!is_null($this->key)) {
-            foreach ($data as $key => $result) {
-
-                if ($result['id'] === intval($this->key)) {
-                    return $data[$key];
-                }
-            }
-        }
-
-        return $data;
-
+        return $query->where('active', true);
     }
-
 }
-
 ```
+
+```php
+Relation::make('idea')
+    ->fromModel(Idea::class, 'name')
+    ->applyScope('active')
+    ->title('Выберите свою идею'),
+```
+
 
 ## Кнопка/Ссылка
 
