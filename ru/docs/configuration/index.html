@@ -144,19 +144,12 @@
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Платформа</h4>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
 
 <li>
     
             
         <ul class=" toc-links-1 "><li>
-            
-        <a href="/ru/docs/panel-menu" class="lvl1   nav-menu__item hover:text-blue">
-            Меню панели
-        </a>
-    
-    </li>
-            <li>
             
         <a href="/ru/docs/screens" class="lvl1   nav-menu__item hover:text-blue">
             Экраны
@@ -172,15 +165,35 @@
     </li>
             <li>
             
-        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
-            Фильтрация
+        <a href="/ru/docs/field" class="lvl1   nav-menu__item hover:text-blue">
+            Элементы формы
         </a>
     
     </li>
             <li>
             
-        <a href="/ru/docs/field" class="lvl1   nav-menu__item hover:text-blue">
-            Элементы формы
+        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню панели
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
+            Фильтрация
         </a>
     
     </li>
@@ -193,22 +206,8 @@
     </li>
             <li>
             
-        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
-            Права доступа
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/widget" class="lvl1   nav-menu__item hover:text-blue">
-            Виджеты
-        </a>
-    
-    </li>
-            <li>
-            
         <a href="/ru/docs/attachments" class="lvl1   nav-menu__item hover:text-blue">
-            Вложения
+            Вложенные файлы
         </a>
     
     </li>
@@ -230,47 +229,6 @@
             
         <a href="/ru/docs/extension" class="lvl1   nav-menu__item hover:text-blue">
             Расширение
-        </a>
-    
-    </li>
-    </ul></li>
-            <h4 class="text-orchid font-thin">Управление содержимым</h4>
-
-<li>
-    
-            
-        <ul class=" toc-links-1 "><li>
-            
-        <a href="/ru/docs/entities" class="lvl1   nav-menu__item hover:text-blue">
-            Сущности
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/post" class="lvl1   nav-menu__item hover:text-blue">
-            Записи
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/tags" class="lvl1   nav-menu__item hover:text-blue">
-            Теги
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/comments" class="lvl1   nav-menu__item hover:text-blue">
-            Комментарии
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
-            Меню
         </a>
     
     </li>
@@ -298,12 +256,6 @@
             </li>
                     <li class="anchor-h2">
                 <a href="#glavnaya-stranitsa">Главная страница</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#lokalizatsiya-zapisey">Локализация записей</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#polzovatelskoe-menyu">Пользовательское меню</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#resursy-paneli-upravleniya">Ресурсы панели управления</a>
@@ -342,28 +294,6 @@
 <h2><a href="#glavnaya-stranitsa" name="glavnaya-stranitsa">Главная страница</a></h2>
 <p>Главная страница приложения записана в виде <strong>названия маршрута</strong> именно её увидет пользователь при входе или нажатии на логотипы и ссылки.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
-<h2><a href="#lokalizatsiya-zapisey" name="lokalizatsiya-zapisey">Локализация записей</a></h2>
-<pre><code class="language-php">'locales' =&gt; [
-    'en' =&gt; [
-        'name'     =&gt; 'English',
-        'script'   =&gt; 'Latn',
-        'dir'      =&gt; 'ltr',
-        'native'   =&gt; 'English',
-        'regional' =&gt; 'en_GB',
-    ],
-],</code></pre>
-<p>Стандартные записи созданные с помощью <code>поведений</code> имеют возможность встроенной локализации, то есть
-вы можете создавать одни и те же записи на разных языках, что бы добавить язык, требуется лишь указать
-новый элемент массива.</p>
-<h2><a href="#polzovatelskoe-menyu" name="polzovatelskoe-menyu">Пользовательское меню</a></h2>
-<pre><code class="language-php">'menu' =&gt; [
-    'header'  =&gt; 'Header menu',
-    'sidebar' =&gt; 'Sidebar menu',
-    'footer'  =&gt; 'Footer menu',
-],</code></pre>
-<p>Конфигурация меню требует лишь указание ключа и значение, которое будет отображаться пользователю.
-По умолчанию добавлены три типа меню, верхнее, боковое и нижнее.
-Вы можете добавлять или удалять в зависимости от потребностей.</p>
 <h2><a href="#resursy-paneli-upravleniya" name="resursy-paneli-upravleniya">Ресурсы панели управления</a></h2>
 <pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [],

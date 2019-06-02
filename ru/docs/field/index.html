@@ -144,19 +144,12 @@
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Платформа</h4>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
 
 <li>
     
             
         <ul class=" toc-links-1 "><li>
-            
-        <a href="/ru/docs/panel-menu" class="lvl1   nav-menu__item hover:text-blue">
-            Меню панели
-        </a>
-    
-    </li>
-            <li>
             
         <a href="/ru/docs/screens" class="lvl1   nav-menu__item hover:text-blue">
             Экраны
@@ -172,15 +165,35 @@
     </li>
             <li>
             
-        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
-            Фильтрация
+        <a href="/ru/docs/field" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
+            Элементы формы
         </a>
     
     </li>
             <li>
             
-        <a href="/ru/docs/field" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
-            Элементы формы
+        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню панели
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
+            Фильтрация
         </a>
     
     </li>
@@ -193,22 +206,8 @@
     </li>
             <li>
             
-        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
-            Права доступа
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/widget" class="lvl1   nav-menu__item hover:text-blue">
-            Виджеты
-        </a>
-    
-    </li>
-            <li>
-            
         <a href="/ru/docs/attachments" class="lvl1   nav-menu__item hover:text-blue">
-            Вложения
+            Вложенные файлы
         </a>
     
     </li>
@@ -230,47 +229,6 @@
             
         <a href="/ru/docs/extension" class="lvl1   nav-menu__item hover:text-blue">
             Расширение
-        </a>
-    
-    </li>
-    </ul></li>
-            <h4 class="text-orchid font-thin">Управление содержимым</h4>
-
-<li>
-    
-            
-        <ul class=" toc-links-1 "><li>
-            
-        <a href="/ru/docs/entities" class="lvl1   nav-menu__item hover:text-blue">
-            Сущности
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/post" class="lvl1   nav-menu__item hover:text-blue">
-            Записи
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/tags" class="lvl1   nav-menu__item hover:text-blue">
-            Теги
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/comments" class="lvl1   nav-menu__item hover:text-blue">
-            Комментарии
-        </a>
-    
-    </li>
-            <li>
-            
-        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
-            Меню
         </a>
     
     </li>
@@ -307,9 +265,6 @@
             </li>
                     <li class="anchor-h2">
                 <a href="#textarea">Textarea</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#tags">Tags</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#select">Select</a>
@@ -425,13 +380,6 @@
     -&gt;rows(5)
     -&gt;required()
     -&gt;title('Short description');</code></pre>
-<h2><a href="#tags" name="tags">Tags</a></h2>
-<p>Запись значений через запятую</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Tags::make()
-    -&gt;name('keywords')
-    -&gt;title('Keywords')
-    -&gt;help('SEO keywords');</code></pre>
 <h2><a href="#select" name="select">Select</a></h2>
 <p>Простой выбор из списка массива:</p>
 <pre><code class="language-php">Select::make()
@@ -506,64 +454,31 @@ Select::make('user')
 <p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a></p>
 <h2><a href="#otnosheniya" name="otnosheniya">Отношения</a></h2>
 <p>Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.</p>
-<pre><code class="language-php">Relationship::make()
-    -&gt;name('my_title')
-    -&gt;required()
-    -&gt;title('My title')
-    -&gt;handler(AjaxWidget::class);</code></pre>
-<p>AjaxWidget в свойство <code>$query</code> будет принимать значение для поиска, а <code>$key</code> выбранное значение.</p>
-<pre><code class="language-php">namespace App\Http\Widgets;
+<pre><code class="language-php">Relation::make('idea')
+    -&gt;fromModel(Idea::class, 'name')
+    -&gt;title('Выберите свою идею'),</code></pre>
+<p>Для модификации загрузки можно использовать указание на <code>scope</code> модели, например, взять только активные:</p>
+<pre><code class="language-php">namespace App;
 
-use Orchid\Widget\Widget;
+use Illuminate\Database\Eloquent\Model;
 
-class AjaxWidget extends Widget
+class Idea extends Model
 {
 
     /**
-     * @var null
+     * @param Builder $query
+     *
+     * @return Builder
      */
-    public $query = null;
-
-    /**
-     * @var null
-     */
-    public $key = null;
-
-    /**
-     * @return array
-     */
-    public function handler()
+    public function scopeActive(Builder $query)
     {
-        $data = [
-            [
-                'id'   =&gt; 1,
-                'text' =&gt; 'Запись 1',
-            ],
-            [
-                'id'   =&gt; 2,
-                'text' =&gt; 'Запись 2',
-            ],
-            [
-                'id'   =&gt; 3,
-                'text' =&gt; 'Запись 3',
-            ],
-        ];
-
-        if(!is_null($this-&gt;key)) {
-            foreach ($data as $key =&gt; $result) {
-
-                if ($result['id'] === intval($this-&gt;key)) {
-                    return $data[$key];
-                }
-            }
-        }
-
-        return $data;
-
+        return $query-&gt;where('active', true);
     }
-
-}
-</code></pre>
+}</code></pre>
+<pre><code class="language-php">Relation::make('idea')
+    -&gt;fromModel(Idea::class, 'name')
+    -&gt;applyScope('active')
+    -&gt;title('Выберите свою идею'),</code></pre>
 <h2><a href="#knopkassylka" name="knopkassylka">Кнопка/Ссылка</a></h2>
 <p>В определенных случаях необходимо добавить кнопку для вызова модального окна, простую ссылку или добавить кнопку
 отправки формы в конце экрана.
