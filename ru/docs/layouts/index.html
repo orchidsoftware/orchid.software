@@ -255,6 +255,9 @@
                 <a href="#stroki">Строки</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#modalnye-okna">Модальные окна</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#grafiki">Графики</a>
             </li>
                     <li class="anchor-h2">
@@ -443,6 +446,29 @@ public function layout(): array
         ]),
     ];
 }</code></pre>
+<h2><a href="#modalnye-okna" name="modalnye-okna">Модальные окна</a></h2>
+<pre><code class="language-php">    /**
+     * Views.
+     *
+     * @throws \Throwable
+     *
+     * @return array
+     */
+    public function layout(): array
+    {
+        return [
+            Layout::modals([
+                'exampleModal' =&gt; Layout::rows([]),
+            ]),
+        ];
+    }</code></pre>
+<p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
+<pre><code class="language-php">Layout::modals([
+    'exampleModals' =&gt; Layout::rows([]),
+])
+    -&gt;size(Modals::SIZE_LG)
+    -&gt;applyButton(self::APPLY_BUTTON)
+    -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
 <h2><a href="#grafiki" name="grafiki">Графики</a></h2>
 <p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой
 обработки данных, пример данных из <code>query</code></p>
