@@ -14,8 +14,10 @@ return [
             ],
         ],
         'Get started' => [
-            'Installation platform' => '/en/docs/installation',
-            'Configuration' => '/en/docs/configuration',
+            'children' => [
+                'Installation platform' => '/en/docs/installation',
+                'Configuration' => '/en/docs/configuration',
+            ],
         ],
         'Core concepts'   => [
             'children' => [
