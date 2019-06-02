@@ -4,50 +4,44 @@
 
 
     <section class="hero bg-dark b-b">
-        <div class="container">
+        <div class="hero-dark">
+            <div class="container">
 
-            <div class="row pt-4">
+            <div class="row pt-5">
                 <h1 class="text-center center text-white font-thin w-75 padder-v mb-3 pt-5 mt-4">
                     <span class="icon-rocket text-muted m-r-md"></span> @yield('main.title')</h1>
             </div>
 
-            <div class="row pt-4" style="margin-bottom: -3em!important;">
+            <div class="row pt-5 pb-5">
 
-                <div class="col-md-9 text-center">
-                    <div class="center">
-                        <img src="https://user-images.githubusercontent.com/5102591/52168128-014cb680-2737-11e9-9ed3-28637780cf64.png"
-                             alt="Laravel Orchid Admin"
-                             class="img-fluid">
+                <div class="col-md-3 padder-v text-left">
+                    <h4 class="text-white font-thin"><i class="icon-monitor mr-2"></i>  @yield('main.screen.title')</h4>
+                    <div>
+                        @yield('main.screen.description')
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="padder-v text-left m-b-xl">
-                        <h4 class="text-white font-thin"><i class="icon-monitor mr-2"></i>  @yield('main.screen.title')</h4>
-                        <div>
-                            @yield('main.screen.description')
-                        </div>
+
+                <div class="col-md-3 padder-v text-left">
+                    <h4 class="text-white font-thin"><i class="icon-layers mr-2"></i> @yield('main.design.title')</h4>
+                    <div>
+                        @yield('main.design.description')
                     </div>
-                    <div class="padder-v text-left m-b-xl">
-                        <h4 class="text-white font-thin"><i class="icon-layers mr-2"></i> @yield('main.design.title')</h4>
-                        <div>
-                            @yield('main.design.description')
-                        </div>
+                </div>
+                <div class="col-md-3 padder-v text-left">
+                    <h4 class="text-white font-thin"><i class="icon-bulb mr-2"></i> @yield('main.idea.title')</h4>
+                    <div>
+                        @yield('main.idea.description')
                     </div>
-                    <div class="padder-v text-left m-b-xl">
-                        <h4 class="text-white font-thin"><i class="icon-bulb mr-2"></i> @yield('main.idea.title')</h4>
-                        <div>
-                            @yield('main.idea.description')
-                        </div>
-                    </div>
-                    <div class="padder-v text-left m-b-xl">
-                        <h4 class="text-white font-thin"><i class="icon-code mr-2"></i> @yield('main.code.title')</h4>
-                        <div>
-                            @yield('main.code.description')
-                        </div>
+                </div>
+                <div class="col-md-3 padder-v text-left">
+                    <h4 class="text-white font-thin"><i class="icon-code mr-2"></i> @yield('main.code.title')</h4>
+                    <div>
+                        @yield('main.code.description')
                     </div>
                 </div>
             </div>
 
+        </div>
         </div>
     </section>
 
@@ -58,7 +52,7 @@
             </h2>
 
             <div class="row padder-v mt-5">
-                <div class="col">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-cloud-download"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
@@ -68,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-badge"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
@@ -78,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-briefcase"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
@@ -89,8 +83,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row padder-v mt-5 mb-5">
-                <div class="col">
+            <div class="row padder-v mt-sm-5 mb-sm-5">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-organization"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
@@ -100,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-bar-chart"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
@@ -110,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
                         <div class="h4"><i class="icon-friends"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>

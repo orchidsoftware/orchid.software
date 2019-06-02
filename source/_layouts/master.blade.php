@@ -108,27 +108,27 @@
                         </a>
                     </h5>
                     <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3">
-                        <a class="p-3 text-dark" href="/@yield('lang')/docs">
+                        <a class="p-3 text-dark m-sm-0" href="/@yield('lang')/docs">
                             <i class="icon-docs m-r-xs text-xs"></i>
                             @yield('main.documentation')
                         </a>
-                        <a class="p-3 text-dark" href="/@yield('lang')/icons">
+                        <a class="p-3 text-dark m-sm-0" href="/@yield('lang')/icons">
                             <i class="icon-cup m-r-xs text-xs"></i>
                             @yield('main.icons')
                         </a>
 
-                        <a class="p-3 text-dark" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>
 
-                        <a class="p-3 text-dark" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
                             <i class="icon-support m-r-xs text-xs"></i>
                             @yield('main.support')
                         </a>
                     </nav>
 
-                    <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded hidden-sm">
+                    <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
                         <strong><i class="icon-social-github m-r-xs"></i> @yield('main.github')</strong>
                     </a>
                 </div>

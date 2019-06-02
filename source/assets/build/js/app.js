@@ -271,8 +271,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/tabuna/ORCHID/statics-web-site/source/_assets/js/app.js */"./source/_assets/js/app.js");
-module.exports = __webpack_require__(/*! /home/tabuna/ORCHID/statics-web-site/source/_assets/sass/app.scss */"./source/_assets/sass/app.scss");
+__webpack_require__(/*! /Users/tabuna/Orchid/orchid.software/source/_assets/js/app.js */"./source/_assets/js/app.js");
+module.exports = __webpack_require__(/*! /Users/tabuna/Orchid/orchid.software/source/_assets/sass/app.scss */"./source/_assets/sass/app.scss");
 
 
 /***/ })
