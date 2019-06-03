@@ -45,6 +45,10 @@ Run process
 ```php
 php artisan orchid:install
 ```
+Link directory
+```php
+php artisan orchid:link
+```
 
 ## Create user
 
