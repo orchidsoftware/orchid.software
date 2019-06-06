@@ -146,14 +146,10 @@ TD::macro('bool', function () {
 
 Пример использования:
 ```php
-/**
- * Grid View for post type.
- */
 public function grid(): array
 {
     return [
-        TD::set('status')
-            ->bool(),
+        TD::set('status')->bool(),
     ];
 }
 ```
