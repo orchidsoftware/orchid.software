@@ -39,16 +39,6 @@ class QueryFilter extends Filter
     public $parameters = ['query'];
 
     /**
-     * @var bool
-     */
-    public $display = true;
-
-    /**
-     * @var bool
-     */
-    public $dashboard = false;
-
-    /**
      * @param Builder $builder
      *
      * @return Builder
