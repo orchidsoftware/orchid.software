@@ -60,7 +60,7 @@
                                      target="_blank">компенсацию</a> за свою работу реальными деньгами.
 @endsection
 
-@section('main.donate','Угостить кофем')
+@section('main.donate','Угостить кофе')
 @section('main.documentation','Документация')
 @section('main.icons','Иконки')
 @section('main.discussion','Чат')
