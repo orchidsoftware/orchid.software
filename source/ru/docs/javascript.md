@@ -1,5 +1,5 @@
 ---
-title: Использование JavaScript сценариев 
+title: Использование JavaScript 
 description: Пример использования Stimulus JS с пакетом Laravel Orchid
 extends: _layouts.documentation.ru
 section: main
