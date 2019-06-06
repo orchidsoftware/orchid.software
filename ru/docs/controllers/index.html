@@ -250,7 +250,6 @@
                             </a>
                         </div>
                         <hr class="mb-4"><p>При разработке могут возникать различные ситуации в том числе необходимость встраивать контроллеры в работу пакета. </p>
-<h2><a href="#primer" name="primer">Пример</a></h2>
 <p>Для создания нового контроллера необходимо выполнить команду <code>make:controller</code>:</p>
 <pre><code class="language-php">php artisan make:controller CustomOrchidController</code></pre>
 <p>В директории <code>app/Http/Controllers</code> будет создан новый класс, изменим его:</p>
@@ -282,15 +281,13 @@ class CustomOrchidController extends Controller
 @stop
 
 @section('content')
-
     &lt;div class="text-center mt-5 mb-5"&gt;
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
-
 @stop</code></pre>
 <p>Созданный контроллер необходимо так же обьявить в файле маршрута, например в <code>routes/platform</code>,
 что бы на него распространялись общие правила, такие как авторизация.</p>
-<pre><code class="language-php">$this-&gt;router-&gt;get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);</code></pre>                    </main></div>
+<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);</code></pre>                    </main></div>
             </div>
         </div>
     </div>
