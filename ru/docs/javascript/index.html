@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="ORCHID позволяет настраивать определенные аспекты системы"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Расширение панели администратора | Orchid - Laravel Admin Panel"><meta property="og:description" content="ORCHID позволяет настраивать определенные аспекты системы"><meta property="og:url" content="http://orchid.software/ru/docs/extension"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Расширение панели администратора</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Пример использования Stimulus JS с пакетом Laravel Orchid"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Использование JavaScript сценариев | Orchid - Laravel Admin Panel"><meta property="og:description" content="Пример использования Stimulus JS с пакетом Laravel Orchid"><meta property="og:url" content="http://orchid.software/ru/docs/javascript"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Использование JavaScript сценариев</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -234,63 +234,22 @@
     </li>
             <li>
             
-        <a href="/ru/docs/extension" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
-            Расширение
+        <a href="/ru/docs/javascript" class="lvl1  active font-semibold text-blue nav-menu__item hover:text-blue">
+            Использование JS
         </a>
     
     </li>
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Расширение панели администратора</h1>
+                    <main class="wrapper-lg order-md-first"><h1>Использование JavaScript сценариев</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/extension.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/javascript.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#marshrutizatsiya">Маршрутизация</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#otobrazhenie">Отображение</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#ispolzovanie-js-freymvorkov">Использование JS фреймворков</a>
-            </li>
-            </ul><hr><p>ORCHID позволяет настраивать определенные аспекты системы, чтобы лучше соответствовать вашим потребностям. </p>
-<h2><a href="#marshrutizatsiya" name="marshrutizatsiya">Маршрутизация</a></h2>
-<p>Приложение ORCHID может менять адрес для обращений, что бы ваши расширения могли следовать за ней, требуется указывать домен и префикс. Это может выглядеть так:</p>
-<pre><code class="language-php">$this-&gt;domain(config('platform.domain'))-&gt;group(function () {
-    $this-&gt;group([
-        'middleware' =&gt; config('platform.middleware.private'),
-        'prefix'     =&gt; \Orchid\Platform\Dashboard::prefix(),
-        'namespace'  =&gt; 'Orchid\Platform\Http\Controllers',
-    ], function (\Illuminate\Routing\Router $router) {
-
-        $router-&gt;get('/', function () {
-            return view('welcome');
-        });
-
-    });
-});</code></pre>
-<h2><a href="#otobrazhenie" name="otobrazhenie">Отображение</a></h2>
-<p>В ходе работы вам может понадобится создавать свои собственные варианты отображения <code>(view)</code>,
-что бы обеспечить единый внешний вид потребуется наследование:</p>
-<pre><code class="language-php">@extends('platform::layouts.dashboard')
-
-@section('title','title')
-@section('description', 'description')
-
-@section('content')
-
-    &lt;div&gt;
-        Content
-    &lt;/div&gt;
-
-@stop</code></pre>
-<h2><a href="#ispolzovanie-js-freymvorkov" name="ispolzovanie-js-freymvorkov">Использование JS фреймворков</a></h2>
-<p>Основой платформы по части стилей является <a href="http://getbootstrap.com/">Bootstrap</a>, а в браузере выполняется код <a href="https://stimulusjs.org/">Stimulus</a>, вам необязательно использовать именно их.</p>
+                        <hr class="mb-4"><p>Основой платформы по части стилей является <a href="http://getbootstrap.com/">Bootstrap</a>, а в браузере выполняется код <a href="https://stimulusjs.org/">Stimulus</a>, вам необязательно использовать именно их.</p>
 <p>Построем базовый пример, который отображает текст введённое в поле для этого:</p>
 <p>В resouce/js создадим следующую структуру:</p>
 <pre><code class="language-php">- resource
