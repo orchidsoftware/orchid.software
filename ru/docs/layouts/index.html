@@ -412,14 +412,10 @@ TD::macro('bool', function () {
     &lt;i class="icon-close text-danger"&gt;&lt;/i&gt;
 @endif</code></pre>
 <p>Пример использования:</p>
-<pre><code class="language-php">/**
- * Grid View for post type.
- */
-public function grid(): array
+<pre><code class="language-php">public function grid(): array
 {
     return [
-        TD::set('status')
-            -&gt;bool(),
+        TD::set('status')-&gt;bool(),
     ];
 }</code></pre>
 <h2><a href="#stroki" name="stroki">Строки</a></h2>
