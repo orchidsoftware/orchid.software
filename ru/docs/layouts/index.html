@@ -251,6 +251,9 @@
                     <li class="anchor-h3">
                 <a href="#dostupnye-metody">Доступные методы</a>
             </li>
+                    <li class="anchor-h3">
+                <a href="#rasshirenie-kolonok">Расширение колонок</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#stroki">Строки</a>
             </li>
@@ -384,7 +387,42 @@ class PatientListLayout extends Table
 <li>
 <p>Метод <code>width()</code> явно задает ширину столбца <code>width('100px')</code></p>
 </li>
-</ul><h2><a href="#stroki" name="stroki">Строки</a></h2>
+</ul><h3><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h3>
+<p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом, для того, что бы не дублировать код в слоях имеется возможность расширять класс <code>TD</code> собственными методами, для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
+<p>Пример регистрации:</p>
+<pre><code class="language-php">// AppServiceProvider.php
+TD::macro('bool', function () {
+
+    $column = $this-&gt;column;
+
+    $this-&gt;setRender(function ($datum) use ($column) {
+        return view('bool',[
+            'bool' =&gt; $datum-&gt;$column
+        ]);
+    });
+
+    return $this;
+});</code></pre>
+<p>Пример шаблона:</p>
+<pre><code class="language-php">// bool.blade.php
+
+@if($bool)
+    &lt;i class="icon-check text-success"&gt;&lt;/i&gt;
+@else
+    &lt;i class="icon-close text-danger"&gt;&lt;/i&gt;
+@endif</code></pre>
+<p>Пример использования:</p>
+<pre><code class="language-php">/**
+ * Grid View for post type.
+ */
+public function grid(): array
+{
+    return [
+        TD::set('status')
+            -&gt;bool(),
+    ];
+}</code></pre>
+<h2><a href="#stroki" name="stroki">Строки</a></h2>
 <p>Макет строк служит минимальным набором, который чаще всего используется.
 Его цель объединять все необходимые поля.</p>
 <p>Для создания исполните команду:</p>
