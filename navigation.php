@@ -72,6 +72,7 @@ return [
                 'Вложенные файлы'  => '/ru/docs/attachments',
                 'Настройки'        => '/ru/docs/settings',
                 'Уведомления'      => '/ru/docs/alert',
+                'Контроллеры'      => '/ru/docs/controllers',
                 'Расширение'       => '/ru/docs/extension',
             ],
         ],
