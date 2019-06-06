@@ -46,7 +46,9 @@
                 <div class="col-md-6">
 
                     <div class="d-block b box-shadow-lg bg-white mb-5 ">
-                        <div class="image w-100" style="height: 300px; background-color: #1e2c39"></div>
+                        <div>
+                            <iframe width="100%" height="300" src="https://www.youtube.com/embed/0IRs7c7ax08" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                        </div>
                         <div class="p-5">
                             <h3 class="text-black font-weight-light">
                                 Серия 03: Добавление элементов формы
