@@ -1,58 +1,9 @@
 ---
-title: Расширение панели администратора
-description: ORCHID позволяет настраивать определенные аспекты системы
+title: Использование JavaScript сценариев 
+description: Пример использования Stimulus JS с пакетом Laravel Orchid
 extends: _layouts.documentation.ru
 section: main
 ---
-
-ORCHID позволяет настраивать определенные аспекты системы,
-чтобы лучше соответствовать вашим потребностям. 
-
-## Маршрутизация
-
-Приложение ORCHID может менять адрес для обращений, что бы ваши расширения могли следовать за ней, 
-требуется указывать домен и префикс. Это может выглядеть так:
-
-```php
-$this->domain(config('platform.domain'))->group(function () {
-    $this->group([
-        'middleware' => config('platform.middleware.private'),
-        'prefix'     => \Orchid\Platform\Dashboard::prefix(),
-        'namespace'  => 'Orchid\Platform\Http\Controllers',
-    ], function (\Illuminate\Routing\Router $router) {
-    
-        $router->get('/', function () {
-            return view('welcome');
-        });
-        
-    });
-});
-```
-
-
-## Отображение
-
-В ходе работы вам может понадобится создавать свои собственные варианты отображения `(view)`,
-что бы обеспечить единый внешний вид потребуется наследование:
-
-```php
-@extends('platform::layouts.dashboard')
-
-
-@section('title','title')
-@section('description', 'description')
-
-@section('content')
-
-    <div>
-        Content
-    </div>
-
-@stop
-```
-
-
-## Использование JS фреймворков
 
 Основой платформы по части стилей является [Bootstrap](http://getbootstrap.com/), а в браузере выполняется код [Stimulus](https://stimulusjs.org/), вам необязательно использовать именно их.
 
