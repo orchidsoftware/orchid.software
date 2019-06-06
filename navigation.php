@@ -73,7 +73,7 @@ return [
                 'Настройки'        => '/ru/docs/settings',
                 'Уведомления'      => '/ru/docs/alert',
                 'Контроллеры'      => '/ru/docs/controllers',
-                'Расширение'       => '/ru/docs/extension',
+                'Использование JS' => '/ru/docs/javascript',
             ],
         ],
     ],
