@@ -18,8 +18,6 @@ php artisan make:controller CustomOrchidController
 В директории `app/Http/Controllers` будет создан новый класс, изменим его:
 
 ```php
-<?php
-
 namespace App\Http\Controllers;
 
 class CustomOrchidController extends Controller
