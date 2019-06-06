@@ -52,7 +52,7 @@ $this->domain(config('platform.domain'))->group(function () {
 ```
 
 
-### Использование JS фреймворков
+## Использование JS фреймворков
 
 Основой платформы по части стилей является [Bootstrap](http://getbootstrap.com/), а в браузере выполняется код [Stimulus](https://stimulusjs.org/), вам необязательно использовать именно их.
 
