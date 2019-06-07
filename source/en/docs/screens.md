@@ -138,7 +138,7 @@ An example where Layouts has the control over `user` and `users` keys:
 
 ## Processing
 
-Screen Commans are availadle at the screens, they allow users to perform different user scenarios.
+Screen Commands are available at the screens, they allow users to perform different user scenarios.
 All required control buttons are defined inside the `commandBar` method . 
 
 For example:
