@@ -11,7 +11,7 @@ section: main
 > Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.
  
  
-## Input
+## Поле ввода
 
 
 ![Input](https://orchid.software/assets/img/ui/input.png)
@@ -34,7 +34,7 @@ Input::make()
  
  
  
-## Wysiwyg
+## Поле для TinyMCE редактора
 
 
 ![Wysing](https://orchid.software/assets/img/ui/wysing.png)
@@ -54,7 +54,7 @@ TinyMCE::make()
 ``` 
 Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут `theme('modern')`.
  
-## Markdown
+## Поле для редактирования Markdown
 
 ![Markdown](https://orchid.software/assets/img/ui/markdown.png)
 ![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
@@ -70,7 +70,7 @@ SimpleMDE::make()
     ->title('О чём вы хотите рассказать?')
 ```  
  
-## Picture
+## Picture field
  
 Позволяет загружать изображение и обрезать до нужного формата 
 
@@ -84,7 +84,7 @@ Picture::make()
 ```  
            
        
-## Datetime
+## Datetime field
  
 ![Datatime](https://orchid.software/assets/img/ui/datatime.png) 
  
@@ -154,7 +154,7 @@ CheckBox::make()
     ->help('Event for free');
 ```           
 
-## Code
+## Code field
  
 Поле для записи программного кода с возможностью подсветки
 
