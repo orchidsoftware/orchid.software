@@ -174,7 +174,7 @@ Code::make()
 
 ```php
  Code::make('code')
-     ->language('css');
+     ->language(Code::CSS);
 ```
 
 Доступны следующие языки:
