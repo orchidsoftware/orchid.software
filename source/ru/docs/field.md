@@ -110,7 +110,7 @@ Input::make('price')
 
 Все доступные параметры *Inputmask* можно посмотреть [здесь](https://github.com/RobinHerbots/Inputmask#options) 
  
-## Редакторы теста 
+## Редакторы текста
  
 ### HTML редактор TinyMCE
 
@@ -190,8 +190,9 @@ Code::make('code')
     ->lineNumbers();
 ```
  
- 
-## Picture field
+## Загрузка и обработка файлов
+
+### Picture field
  
 Позволяет загружать изображение.
 
@@ -203,7 +204,7 @@ Picture::make('picture')
     ->height(300);
 ```  
 
-## Cropper field
+### Cropper field
  
 Позволяет загружать изображение и обрезать до нужного формата.
 
@@ -215,6 +216,41 @@ Cropper::make('picture')
     ->height(300);
 ```  
 
+### Media field
+ 
+
+Пример записи:
+```php
+Upload::make('upload');
+```  
+
+```php
+Upload::make('upload')
+    ->groups('docs');
+
+Upload::make('upload')
+    ->groups('images');
+```  
+
+```php
+Upload::make('upload')
+    ->maxFiles(10)
+```
+
+```php
+Upload::make('upload')
+    ->parallelUploads(2)
+```
+
+```php
+Upload::make('upload')
+    ->maxFileSize(1024)
+```
+
+```php
+Upload::make('upload')
+    ->acceptedFiles('image/*,application/pdf,.psd')
+```
 
 ## Datetime field
  
