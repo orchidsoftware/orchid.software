@@ -265,7 +265,7 @@
                 <a href="#maska-dlya-vvoda-znacheniy-k-tegu-input">Маска для ввода значений к тегу input.</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#redaktory-testa">Редакторы теста</a>
+                <a href="#redaktory-teksta">Редакторы текста</a>
             </li>
                     <li class="anchor-h3">
                 <a href="#html-redaktor-tinymce">HTML редактор TinyMCE</a>
@@ -280,10 +280,16 @@
                 <a href="#redaktor-koda">Редактор кода</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#zagruzka-i-obrabotka-faylov">Загрузка и обработка файлов</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#picture-field">Picture field</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#cropper-field">Cropper field</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#media-field">Media field</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#datetime-field">Datetime field</a>
@@ -366,7 +372,7 @@
     ])
     -&gt;title('Стоимость');</code></pre>
 <p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a> </p>
-<h2><a href="#redaktory-testa" name="redaktory-testa">Редакторы теста</a></h2>
+<h2><a href="#redaktory-teksta" name="redaktory-teksta">Редакторы текста</a></h2>
 <h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
 <p>Визуальный редактор в котором содержание отображается в процессе редактирования и
@@ -406,18 +412,35 @@
 </ul><p>Поддерживается указание количество строк:</p>
 <pre><code class="language-php">Code::make('code')
     -&gt;lineNumbers();</code></pre>
-<h2><a href="#picture-field" name="picture-field">Picture field</a></h2>
+<h2><a href="#zagruzka-i-obrabotka-faylov" name="zagruzka-i-obrabotka-faylov">Загрузка и обработка файлов</a></h2>
+<h3><a href="#picture-field" name="picture-field">Picture field</a></h3>
 <p>Позволяет загружать изображение.</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">Picture::make('picture')
     -&gt;width(500)
     -&gt;height(300);</code></pre>
-<h2><a href="#cropper-field" name="cropper-field">Cropper field</a></h2>
+<h3><a href="#cropper-field" name="cropper-field">Cropper field</a></h3>
 <p>Позволяет загружать изображение и обрезать до нужного формата.</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;width(500)
     -&gt;height(300);</code></pre>
+<h3><a href="#media-field" name="media-field">Media field</a></h3>
+<p>Пример записи:</p>
+<pre><code class="language-php">Upload::make('upload');</code></pre>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;groups('docs');
+
+Upload::make('upload')
+    -&gt;groups('images');</code></pre>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;maxFiles(10)</code></pre>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;parallelUploads(2)</code></pre>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;maxFileSize(1024)</code></pre>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;acceptedFiles('image/*,application/pdf,.psd')</code></pre>
 <h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
 <p>Позволяет выбрать дату и время</p>
