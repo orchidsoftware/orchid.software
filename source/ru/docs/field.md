@@ -73,6 +73,43 @@ CheckBox::make('free')
     ->help('Event for free');
 ```           
  
+
+### Маска для ввода значений к тегу input. 
+ 
+Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона
+
+Пример записи:
+```php
+Input::make('phone')
+    ->mask('(999) 999-9999')
+    ->title('Номер телефона');
+```   
+
+В маску можно передавать json с параметрами, например:
+
+
+```php
+Input::make('price')
+    ->mask([
+     'mask' => '999 999 999.99',
+     'numericInput' => true
+    ])
+    ->title('Стоимость');
+```   
+
+```php
+Input::make('price')
+    ->mask([
+        'alias' => 'currency',
+        'prefix' => ' ',
+        'groupSeparator' => ' ',
+        'digitsOptional' => true,
+    ])
+    ->title('Стоимость');
+```   
+
+Все доступные параметры *Inputmask* можно посмотреть [здесь](https://github.com/RobinHerbots/Inputmask#options) 
+ 
 ## Редакторы теста 
  
 ### HTML редактор TinyMCE
@@ -297,49 +334,6 @@ Select::make('user')
     ])
    ->empty('Не выбрано', 0);
 ```
-
-
-## Mask
- 
-Маска для ввода значений к тегу input. 
-Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона
-
-Пример записи:
-```php
-Input::make('phone')
-    ->type('text')
-    ->mask('(999) 999-9999')
-    ->title('Phone')
-    ->help('Number Phone');
-```   
-
-В маску можно передавать json с параметрами, например:
-
-
-```php
-Input::make('price')
-    ->type('text')
-    ->mask([
-     'mask' => '999 999 999.99',
-     'numericInput' => true
-    ])
-    ->title('Стоимость');
-```   
-
-```php
-Input::make('price')
-    ->type('text')
-    ->mask([
-        'alias' => 'currency',
-        'prefix' => ' ',
-        'groupSeparator' => ' ',
-        'digitsOptional' => true,
-    ])
-    ->title('Стоимость');
-```   
-
-Все доступные параметры *Inputmask* можно посмотреть [здесь](https://github.com/RobinHerbots/Inputmask#options)
-
 
 ## Отношения
 
