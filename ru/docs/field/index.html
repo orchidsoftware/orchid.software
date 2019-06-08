@@ -428,17 +428,20 @@
 <h3><a href="#media-field" name="media-field">Media field</a></h3>
 <p>Пример записи:</p>
 <pre><code class="language-php">Upload::make('upload');</code></pre>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;groups('docs');
+<pre><code class="language-php">Upload::make('docs')
+    -&gt;groups('documents');
 
-Upload::make('upload')
-    -&gt;groups('images');</code></pre>
+Upload::make('images')
+    -&gt;groups('photo');</code></pre>
+<p>Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;maxFiles(10)</code></pre>
+<p>Определяет количество параллельных загрузок для обработки файлов</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;parallelUploads(2)</code></pre>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;maxFileSize(1024)</code></pre>
+<p>Реализация по умолчанию <code>accept</code> проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;acceptedFiles('image/*,application/pdf,.psd')</code></pre>
 <h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
