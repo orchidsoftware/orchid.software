@@ -250,25 +250,25 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#input">Input</a>
+                <a href="#pole-vvoda">Поле ввода</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#wysiwyg">Wysiwyg</a>
+                <a href="#pole-dlya-tinymce-redaktora">Поле для TinyMCE редактора</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#markdown">Markdown</a>
+                <a href="#pole-dlya-redaktirovaniya-markdown">Поле для редактирования Markdown</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#picture">Picture</a>
+                <a href="#picture-field">Picture field</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#datetime">Datetime</a>
+                <a href="#datetime-field">Datetime field</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#checkbox">Checkbox</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#code">Code</a>
+                <a href="#code-field">Code field</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#textarea">Textarea</a>
@@ -292,7 +292,7 @@
 <blockquote>
 <p>Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.</p>
 </blockquote>
-<h2><a href="#input" name="input">Input</a></h2>
+<h2><a href="#pole-vvoda" name="pole-vvoda">Поле ввода</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/input.png" alt="Input"></p>
 <p>Является одним из разносторонних элементов формы и позволяет создавать разные части интерфейса и обеспечивать взаимодействие с пользователем. Главным образом предназначен для создания текстовых полей.</p>
 <p>Пример записи:</p>
@@ -306,7 +306,7 @@
 <blockquote>
 <p>Заметьте многие параметры такие как <code>max</code>,<code>required</code>,<code>title</code>,<code>help</code>,<code>vertical</code>,<code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными</p>
 </blockquote>
-<h2><a href="#wysiwyg" name="wysiwyg">Wysiwyg</a></h2>
+<h2><a href="#pole-dlya-tinymce-redaktora" name="pole-dlya-tinymce-redaktora">Поле для TinyMCE редактора</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
 <p>Визуальный редактор в котором содержание отображается в процессе редактирования и
 выглядит максимально близко похожим на конечный результат.
@@ -319,21 +319,21 @@
     -&gt;help('Article title')
     -&gt;theme('inlite');</code></pre>
 <p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
-<h2><a href="#markdown" name="markdown">Markdown</a></h2>
+<h2><a href="#pole-dlya-redaktirovaniya-markdown" name="pole-dlya-redaktirovaniya-markdown">Поле для редактирования Markdown</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
 <p>Редактор для облегчённого языка разметки, созданный с целью написания максимально читаемого и удобного для правки текста, но пригодного для преобразования в языки для продвинутых публикаций</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">SimpleMDE::make()
     -&gt;name('body')
     -&gt;title('О чём вы хотите рассказать?')</code></pre>
-<h2><a href="#picture" name="picture">Picture</a></h2>
+<h2><a href="#picture-field" name="picture-field">Picture field</a></h2>
 <p>Позволяет загружать изображение и обрезать до нужного формата </p>
 <p>Пример записи:</p>
 <pre><code class="language-php">Picture::make()
     -&gt;name('picture')
     -&gt;width(500)
     -&gt;height(300);</code></pre>
-<h2><a href="#datetime" name="datetime">Datetime</a></h2>
+<h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
 <p>Позволяет выбрать дату и время</p>
 <p>Пример записи:</p>
@@ -369,7 +369,7 @@
     -&gt;title('Free')
     -&gt;placeholder('Event for free')
     -&gt;help('Event for free');</code></pre>
-<h2><a href="#code" name="code">Code</a></h2>
+<h2><a href="#code-field" name="code-field">Code field</a></h2>
 <p>Поле для записи программного кода с возможностью подсветки</p>
 <p><img src="https://orchid.software/assets/img/ui/code.png" alt="Code"></p>
 <p>Пример записи:</p>
