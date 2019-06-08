@@ -261,6 +261,9 @@
                     <li class="anchor-h3">
                 <a href="#checkbox">Checkbox</a>
             </li>
+                    <li class="anchor-h3">
+                <a href="#maska-dlya-vvoda-znacheniy-k-tegu-input">Маска для ввода значений к тегу input.</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#redaktory-testa">Редакторы теста</a>
             </li>
@@ -287,9 +290,6 @@
             </li>
                     <li class="anchor-h2">
                 <a href="#select">Select</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#mask">Mask</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#otnosheniya">Отношения</a>
@@ -344,6 +344,28 @@
     -&gt;title('Free')
     -&gt;placeholder('Event for free')
     -&gt;help('Event for free');</code></pre>
+<h3><a href="#maska-dlya-vvoda-znacheniy-k-tegu-input" name="maska-dlya-vvoda-znacheniy-k-tegu-input">Маска для ввода значений к тегу input.</a></h3>
+<p>Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона</p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Input::make('phone')
+    -&gt;mask('(999) 999-9999')
+    -&gt;title('Номер телефона');</code></pre>
+<p>В маску можно передавать json с параметрами, например:</p>
+<pre><code class="language-php">Input::make('price')
+    -&gt;mask([
+     'mask' =&gt; '999 999 999.99',
+     'numericInput' =&gt; true
+    ])
+    -&gt;title('Стоимость');</code></pre>
+<pre><code class="language-php">Input::make('price')
+    -&gt;mask([
+        'alias' =&gt; 'currency',
+        'prefix' =&gt; ' ',
+        'groupSeparator' =&gt; ' ',
+        'digitsOptional' =&gt; true,
+    ])
+    -&gt;title('Стоимость');</code></pre>
+<p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a> </p>
 <h2><a href="#redaktory-testa" name="redaktory-testa">Редакторы теста</a></h2>
 <h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
@@ -464,33 +486,6 @@ Select::make('user')
         2  =&gt; 'Пункт 2',
     ])
    -&gt;empty('Не выбрано', 0);</code></pre>
-<h2><a href="#mask" name="mask">Mask</a></h2>
-<p>Маска для ввода значений к тегу input.
-Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Input::make('phone')
-    -&gt;type('text')
-    -&gt;mask('(999) 999-9999')
-    -&gt;title('Phone')
-    -&gt;help('Number Phone');</code></pre>
-<p>В маску можно передавать json с параметрами, например:</p>
-<pre><code class="language-php">Input::make('price')
-    -&gt;type('text')
-    -&gt;mask([
-     'mask' =&gt; '999 999 999.99',
-     'numericInput' =&gt; true
-    ])
-    -&gt;title('Стоимость');</code></pre>
-<pre><code class="language-php">Input::make('price')
-    -&gt;type('text')
-    -&gt;mask([
-        'alias' =&gt; 'currency',
-        'prefix' =&gt; ' ',
-        'groupSeparator' =&gt; ' ',
-        'digitsOptional' =&gt; true,
-    ])
-    -&gt;title('Стоимость');</code></pre>
-<p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a></p>
 <h2><a href="#otnosheniya" name="otnosheniya">Отношения</a></h2>
 <p>Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.</p>
 <pre><code class="language-php">Relation::make('idea')
