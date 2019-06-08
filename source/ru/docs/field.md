@@ -169,6 +169,28 @@ Code::make()
     ->help('Simple web editor');
 ```    
 
+Для указания подцветки кода под конкретный язык программирования можно указывать через метод `language()`
+
+
+```php
+ Code::make('code')
+     ->language('css');
+```
+
+Доступны следующие языки:
+
+* Markup - `markup`, `html`, `xml`, `svg`, `mathml`
+* CSS - `css`
+* C-like - `clike`
+* JavaScript - `javascript`, `js`
+
+
+Поддерживается указание количество строк:
+
+```php
+Code::make('code')
+    ->lineNumbers();
+```
 
 
 ## Textarea
