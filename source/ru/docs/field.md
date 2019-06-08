@@ -225,18 +225,21 @@ Upload::make('upload');
 ```  
 
 ```php
-Upload::make('upload')
-    ->groups('docs');
+Upload::make('docs')
+    ->groups('documents');
 
-Upload::make('upload')
-    ->groups('images');
+Upload::make('images')
+    ->groups('photo');
 ```  
+
+Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться
 
 ```php
 Upload::make('upload')
     ->maxFiles(10)
 ```
 
+Определяет количество параллельных загрузок для обработки файлов
 ```php
 Upload::make('upload')
     ->parallelUploads(2)
@@ -246,6 +249,8 @@ Upload::make('upload')
 Upload::make('upload')
     ->maxFileSize(1024)
 ```
+
+Реализация по умолчанию `accept` проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.
 
 ```php
 Upload::make('upload')
