@@ -11,8 +11,9 @@ section: main
 > Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.
  
  
-## Поле ввода
+## Поля ввода
 
+### Input
 
 ![Input](https://orchid.software/assets/img/ui/input.png)
 
@@ -31,9 +32,50 @@ Input::make('name')
 
 > Заметьте многие параметры такие как `max`,`required`,`title`,`help`,`vertical`,`horizontal`; и многие другие, доступны почти каждым `полям` системы и являются не обязательными
  
+`Input` - одно из самых универсальных полей за счет указния типа, подерживаются почти все `html` значения:
+
+* text	- Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.
+* file - 	Поле для ввода имени файла, который пересылается на сервер.	
+* hidden	- Скрытое поле.
+* color	- Виджет для выбора цвета.
+* email	- Для адресов электронной почты.
+* number	- Ввод чисел.
+* range	- Ползунок для выбора чисел в указанном диапазоне.
+* url	Для веб-адресов.
+
+
+### Textarea
  
+Поле `textarea` представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста. 
+В отличие от тега `input` в текстовом поле допустимо делать переносы строк сохраняются при отправке данных на сервер.
+
+Пример записи:
+```php
+TextArea::make('description')
+    ->max(255)
+    ->rows(5)
+    ->required()
+    ->title('Short description');
+```    
+
+
+### Checkbox
  
-## Поле для TinyMCE редактора
+Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.
+
+
+Пример записи:
+```php
+CheckBox::make('free')
+    ->value(1)
+    ->title('Free')
+    ->placeholder('Event for free')
+    ->help('Event for free');
+```           
+ 
+## Редакторы теста 
+ 
+### HTML редактор TinyMCE
 
 
 ![Wysing](https://orchid.software/assets/img/ui/wysing.png)
@@ -52,7 +94,14 @@ TinyMCE::make('html')
 ``` 
 Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут `theme('modern')`.
  
-## Поле для редактирования Markdown
+### HTML редактор Qill
+
+Пример записи:
+```php
+Quill::make('html')
+``` 
+ 
+### Markdown редактор
 
 ![Markdown](https://orchid.software/assets/img/ui/markdown.png)
 ![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
@@ -66,6 +115,44 @@ TinyMCE::make('html')
 SimpleMDE::make('markdown')
     ->title('О чём вы хотите рассказать?')
 ```  
+ 
+### Редактор кода
+ 
+Поле для записи программного кода с возможностью подсветки
+
+![Code](https://orchid.software/assets/img/ui/code.png)
+
+
+Пример записи:
+```php
+Code::make('block')
+    ->title('Code Block')
+    ->help('Simple web editor');
+```    
+
+Для указания подцветки кода под конкретный язык программирования можно указывать через метод `language()`
+
+
+```php
+ Code::make('code')
+     ->language(Code::CSS);
+```
+
+Доступны следующие языки:
+
+* Markup - `markup`, `html`, `xml`, `svg`, `mathml`
+* CSS - `css`
+* C-like - `clike`
+* JavaScript - `javascript`, `js`
+
+
+Поддерживается указание количество строк:
+
+```php
+Code::make('code')
+    ->lineNumbers();
+```
+ 
  
 ## Picture field
  
@@ -146,74 +233,7 @@ DateTimer::make('open')
     ->format('h:i K');
 ```
 
-           
-## Checkbox
- 
-Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.
-
-
-Пример записи:
-```php
-CheckBox::make('free')
-    ->value(1)
-    ->title('Free')
-    ->placeholder('Event for free')
-    ->help('Event for free');
-```           
-
-## Code field
- 
-Поле для записи программного кода с возможностью подсветки
-
-![Code](https://orchid.software/assets/img/ui/code.png)
-
-
-Пример записи:
-```php
-Code::make('block')
-    ->title('Code Block')
-    ->help('Simple web editor');
-```    
-
-Для указания подцветки кода под конкретный язык программирования можно указывать через метод `language()`
-
-
-```php
- Code::make('code')
-     ->language(Code::CSS);
-```
-
-Доступны следующие языки:
-
-* Markup - `markup`, `html`, `xml`, `svg`, `mathml`
-* CSS - `css`
-* C-like - `clike`
-* JavaScript - `javascript`, `js`
-
-
-Поддерживается указание количество строк:
-
-```php
-Code::make('code')
-    ->lineNumbers();
-```
-
-
-## Textarea
- 
-Поле `textarea` представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста. 
-В отличие от тега `input` в текстовом поле допустимо делать переносы строк сохраняются при отправке данных на сервер.
-
-Пример записи:
-```php
-TextArea::make('description')
-    ->max(255)
-    ->rows(5)
-    ->required()
-    ->title('Short description');
-```    
-
-
+         
 ## Select
 
 Простой выбор из списка массива:
