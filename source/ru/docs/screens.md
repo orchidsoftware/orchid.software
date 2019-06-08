@@ -172,11 +172,11 @@ class Order extends Model
     public function query() : array
     {
         return [
-          'order' => new Repository([
-            'product_id' => 'prod-100',
-            'name'       => 'Desk',
-            'price'      => 10.24,
-            'created_at' => '01.01.2020',
+            'order'      => new Repository([
+                'product_id' => 'prod-100',
+                'name'       => 'Desk',
+                'price'      => 10.24,
+                'created_at' => '01.01.2020',
           ]),
         ];
     }
