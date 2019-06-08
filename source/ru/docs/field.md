@@ -20,9 +20,8 @@ section: main
  
 Пример записи:
 ```php
-Input::make()
+Input::make('name')
     ->type('text')
-    ->name('place')
     ->max(255)
     ->required()
     ->title('Name Articles')
@@ -45,8 +44,7 @@ Input::make()
  
 Пример записи:
 ```php
-TinyMCE::make()
-    ->name('body')
+TinyMCE::make('html')
     ->required()
     ->title('Name Articles')
     ->help('Article title')
@@ -65,25 +63,35 @@ TinyMCE::make()
  
 Пример записи:
 ```php
-SimpleMDE::make()
-    ->name('body')
+SimpleMDE::make('markdown')
     ->title('О чём вы хотите рассказать?')
 ```  
  
 ## Picture field
  
-Позволяет загружать изображение и обрезать до нужного формата 
+Позволяет загружать изображение.
 
 
 Пример записи:
 ```php
-Picture::make()
-    ->name('picture')
+Picture::make('picture')
     ->width(500)
     ->height(300);
 ```  
-           
-       
+
+## Cropper field
+ 
+Позволяет загружать изображение и обрезать до нужного формата.
+
+
+Пример записи:
+```php
+Cropper::make('picture')
+    ->width(500)
+    ->height(300);
+```  
+
+
 ## Datetime field
  
 ![Datatime](https://orchid.software/assets/img/ui/datatime.png) 
@@ -146,8 +154,7 @@ DateTimer::make('open')
 
 Пример записи:
 ```php
-CheckBox::make()
-    ->name('free')
+CheckBox::make('free')
     ->value(1)
     ->title('Free')
     ->placeholder('Event for free')
@@ -163,8 +170,7 @@ CheckBox::make()
 
 Пример записи:
 ```php
-Code::make()
-    ->name('block')
+Code::make('block')
     ->title('Code Block')
     ->help('Simple web editor');
 ```    
@@ -200,8 +206,7 @@ Code::make('code')
 
 Пример записи:
 ```php
-TextArea::make()
-    ->name('description')
+TextArea::make('description')
     ->max(255)
     ->rows(5)
     ->required()
@@ -214,12 +219,11 @@ TextArea::make()
 Простой выбор из списка массива:
 
 ```php
-Select::make()
+Select::make('select')
     ->options([
         'index'   => 'Index',
         'noindex' => 'No index',
     ])
-    ->name('select')
     ->title('Select tags')
     ->help('Allow search bots to index');
 ```
@@ -282,9 +286,8 @@ Select::make('user')
 
 Пример записи:
 ```php
-Input::make()
+Input::make('phone')
     ->type('text')
-    ->name('phone')
     ->mask('(999) 999-9999')
     ->title('Phone')
     ->help('Number Phone');
@@ -294,9 +297,8 @@ Input::make()
 
 
 ```php
-Input::make()
+Input::make('price')
     ->type('text')
-    ->name('price')
     ->mask([
      'mask' => '999 999 999.99',
      'numericInput' => true
@@ -305,9 +307,8 @@ Input::make()
 ```   
 
 ```php
-Input::make()
+Input::make('price')
     ->type('text')
-    ->name('price')
     ->mask([
         'alias' => 'currency',
         'prefix' => ' ',
@@ -415,9 +416,7 @@ Button::make()
 атрибут который необходимо переопределить:
 
 ```php
-Input::make()
-    ->type('text')
-    ->name('name')
+Input::make('name')
     ->modifyValue(function ($value) {
         return strtoupper($value);
     })
