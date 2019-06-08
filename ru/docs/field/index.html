@@ -250,13 +250,31 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#pole-vvoda">Поле ввода</a>
+                <a href="#polya-vvoda">Поля ввода</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#input">Input</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#textarea">Textarea</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#checkbox">Checkbox</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#pole-dlya-tinymce-redaktora">Поле для TinyMCE редактора</a>
+                <a href="#redaktory-testa">Редакторы теста</a>
             </li>
-                    <li class="anchor-h2">
-                <a href="#pole-dlya-redaktirovaniya-markdown">Поле для редактирования Markdown</a>
+                    <li class="anchor-h3">
+                <a href="#html-redaktor-tinymce">HTML редактор TinyMCE</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#html-redaktor-qill">HTML редактор Qill</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#markdown-redaktor">Markdown редактор</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#redaktor-koda">Редактор кода</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#picture-field">Picture field</a>
@@ -266,15 +284,6 @@
             </li>
                     <li class="anchor-h2">
                 <a href="#datetime-field">Datetime field</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#checkbox">Checkbox</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#code-field">Code field</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#textarea">Textarea</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#select">Select</a>
@@ -295,7 +304,8 @@
 <blockquote>
 <p>Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.</p>
 </blockquote>
-<h2><a href="#pole-vvoda" name="pole-vvoda">Поле ввода</a></h2>
+<h2><a href="#polya-vvoda" name="polya-vvoda">Поля ввода</a></h2>
+<h3><a href="#input" name="input">Input</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/input.png" alt="Input"></p>
 <p>Является одним из разносторонних элементов формы и позволяет создавать разные части интерфейса и обеспечивать взаимодействие с пользователем. Главным образом предназначен для создания текстовых полей.</p>
 <p>Пример записи:</p>
@@ -308,7 +318,34 @@
 <blockquote>
 <p>Заметьте многие параметры такие как <code>max</code>,<code>required</code>,<code>title</code>,<code>help</code>,<code>vertical</code>,<code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными</p>
 </blockquote>
-<h2><a href="#pole-dlya-tinymce-redaktora" name="pole-dlya-tinymce-redaktora">Поле для TinyMCE редактора</a></h2>
+<p><code>Input</code> – одно из самых универсальных полей за счет указния типа, подерживаются почти все <code>html</code> значения:</p>
+<ul><li>text  – Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
+<li>file –    Поле для ввода имени файла, который пересылается на сервер. </li>
+<li>hidden    – Скрытое поле.</li>
+<li>color – Виджет для выбора цвета.</li>
+<li>email – Для адресов электронной почты.</li>
+<li>number    – Ввод чисел.</li>
+<li>range – Ползунок для выбора чисел в указанном диапазоне.</li>
+<li>url   Для веб-адресов.</li>
+</ul><h3><a href="#textarea" name="textarea">Textarea</a></h3>
+<p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
+В отличие от тега <code>input</code> в текстовом поле допустимо делать переносы строк сохраняются при отправке данных на сервер.</p>
+<p>Пример записи:</p>
+<pre><code class="language-php">TextArea::make('description')
+    -&gt;max(255)
+    -&gt;rows(5)
+    -&gt;required()
+    -&gt;title('Short description');</code></pre>
+<h3><a href="#checkbox" name="checkbox">Checkbox</a></h3>
+<p>Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.</p>
+<p>Пример записи:</p>
+<pre><code class="language-php">CheckBox::make('free')
+    -&gt;value(1)
+    -&gt;title('Free')
+    -&gt;placeholder('Event for free')
+    -&gt;help('Event for free');</code></pre>
+<h2><a href="#redaktory-testa" name="redaktory-testa">Редакторы теста</a></h2>
+<h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
 <p>Визуальный редактор в котором содержание отображается в процессе редактирования и
 выглядит максимально близко похожим на конечный результат.
@@ -320,12 +357,33 @@
     -&gt;help('Article title')
     -&gt;theme('inlite');</code></pre>
 <p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
-<h2><a href="#pole-dlya-redaktirovaniya-markdown" name="pole-dlya-redaktirovaniya-markdown">Поле для редактирования Markdown</a></h2>
+<h3><a href="#html-redaktor-qill" name="html-redaktor-qill">HTML редактор Qill</a></h3>
+<p>Пример записи:</p>
+<pre><code class="language-php">Quill::make('html')</code></pre>
+<h3><a href="#markdown-redaktor" name="markdown-redaktor">Markdown редактор</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
 <p>Редактор для облегчённого языка разметки, созданный с целью написания максимально читаемого и удобного для правки текста, но пригодного для преобразования в языки для продвинутых публикаций</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown')
     -&gt;title('О чём вы хотите рассказать?')</code></pre>
+<h3><a href="#redaktor-koda" name="redaktor-koda">Редактор кода</a></h3>
+<p>Поле для записи программного кода с возможностью подсветки</p>
+<p><img src="https://orchid.software/assets/img/ui/code.png" alt="Code"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Code::make('block')
+    -&gt;title('Code Block')
+    -&gt;help('Simple web editor');</code></pre>
+<p>Для указания подцветки кода под конкретный язык программирования можно указывать через метод <code>language()</code></p>
+<pre><code class="language-php"> Code::make('code')
+     -&gt;language(Code::CSS);</code></pre>
+<p>Доступны следующие языки:</p>
+<ul><li>Markup – <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
+<li>CSS – <code>css</code></li>
+<li>C-like – <code>clike</code></li>
+<li>JavaScript – <code>javascript</code>, <code>js</code></li>
+</ul><p>Поддерживается указание количество строк:</p>
+<pre><code class="language-php">Code::make('code')
+    -&gt;lineNumbers();</code></pre>
 <h2><a href="#picture-field" name="picture-field">Picture field</a></h2>
 <p>Позволяет загружать изображение.</p>
 <p>Пример записи:</p>
@@ -365,41 +423,6 @@
     -&gt;title('Opening time')
     -&gt;noCalendar()
     -&gt;format('h:i K');</code></pre>
-<h2><a href="#checkbox" name="checkbox">Checkbox</a></h2>
-<p>Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">CheckBox::make('free')
-    -&gt;value(1)
-    -&gt;title('Free')
-    -&gt;placeholder('Event for free')
-    -&gt;help('Event for free');</code></pre>
-<h2><a href="#code-field" name="code-field">Code field</a></h2>
-<p>Поле для записи программного кода с возможностью подсветки</p>
-<p><img src="https://orchid.software/assets/img/ui/code.png" alt="Code"></p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Code::make('block')
-    -&gt;title('Code Block')
-    -&gt;help('Simple web editor');</code></pre>
-<p>Для указания подцветки кода под конкретный язык программирования можно указывать через метод <code>language()</code></p>
-<pre><code class="language-php"> Code::make('code')
-     -&gt;language(Code::CSS);</code></pre>
-<p>Доступны следующие языки:</p>
-<ul><li>Markup – <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
-<li>CSS – <code>css</code></li>
-<li>C-like – <code>clike</code></li>
-<li>JavaScript – <code>javascript</code>, <code>js</code></li>
-</ul><p>Поддерживается указание количество строк:</p>
-<pre><code class="language-php">Code::make('code')
-    -&gt;lineNumbers();</code></pre>
-<h2><a href="#textarea" name="textarea">Textarea</a></h2>
-<p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
-В отличие от тега <code>input</code> в текстовом поле допустимо делать переносы строк сохраняются при отправке данных на сервер.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">TextArea::make('description')
-    -&gt;max(255)
-    -&gt;rows(5)
-    -&gt;required()
-    -&gt;title('Short description');</code></pre>
 <h2><a href="#select" name="select">Select</a></h2>
 <p>Простой выбор из списка массива:</p>
 <pre><code class="language-php">Select::make('select')
