@@ -74,7 +74,7 @@ class EmailSenderScreen extends Screen
 определим его в файле для панели администрирования `routes/platform.php`:
 
 ```php
-use \App\Orchid\Screens\EmailSenderScreen;
+use App\Orchid\Screens\EmailSenderScreen;
 
 $this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
 ```
@@ -141,10 +141,6 @@ public function layout(): array
 что бы определить их необходимо создать новый публичный метод и указать ссылку на него в `commandBar`:
 
 ```php
-<?php
-
-declare(strict_types=1);
-
 namespace App\Orchid\Screens;
 
 use App\User;
