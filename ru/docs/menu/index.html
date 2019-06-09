@@ -265,19 +265,19 @@
                     <li class="anchor-h2">
                 <a href="#parametry">Параметры</a>
             </li>
-                    <li class="anchor-h4">
+                    <li class="anchor-h3">
                 <a href="#nastroyka-ssylok">Настройка ссылок</a>
             </li>
-                    <li class="anchor-h4">
+                    <li class="anchor-h3">
                 <a href="#prava-dostupa">Права доступа</a>
             </li>
                     <li class="anchor-h4">
                 <a href="#vneshniy-vid">Внешний вид</a>
             </li>
-                    <li class="anchor-h4">
+                    <li class="anchor-h3">
                 <a href="#poryadok-otobrazheniya">Порядок отображения</a>
             </li>
-                    <li class="anchor-h4">
+                    <li class="anchor-h3">
                 <a href="#uvedomleniya">Уведомления</a>
             </li>
                     <li class="anchor-h2">
@@ -326,7 +326,7 @@ class AppServiceProvider extends ServiceProvider
 <pre><code class="language-php">use Orchid\Platform\ItemMenu;
 
 ItemMenu::label('Example');</code></pre>
-<h4><a href="#nastroyka-ssylok" name="nastroyka-ssylok">Настройка ссылок</a></h4>
+<h3><a href="#nastroyka-ssylok" name="nastroyka-ssylok">Настройка ссылок</a></h3>
 <p>Указание ссылки:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');</code></pre>
 <p>Указание ссылки через маршрут:</p>
@@ -347,7 +347,7 @@ ItemMenu::label('Example')
 ItemMenu::label('Example')
     -&gt;url('/pages/contact')
     -&gt;active('not:pages/contact');</code></pre>
-<h4><a href="#prava-dostupa" name="prava-dostupa">Права доступа</a></h4>
+<h3><a href="#prava-dostupa" name="prava-dostupa">Права доступа</a></h3>
 <p>Вполне ожидаемая ситуация когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');</code></pre>
@@ -358,11 +358,11 @@ ItemMenu::label('Example')
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('icon-heart');</code></pre>
 <p>Так же, возможно объеденение в визуальную группу с помощью установки заголовка для первого элемента:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
-<h4><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h4>
+<h3><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h3>
 <p>Сортировка уставливается через задание порядкого номера:</p>
 <pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
 ItemMenu::label('First')-&gt;sort(4);</code></pre>
-<h4><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h4>
+<h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
 <p>Пункты меню имееют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Comments')
     -&gt;icon('icon-bubbles')
