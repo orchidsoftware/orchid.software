@@ -322,7 +322,7 @@
     -&gt;title('Name Articles')
     -&gt;help('Article title');</code></pre>
 <blockquote>
-<p>Заметьте многие параметры такие как <code>max</code>,<code>required</code>,<code>title</code>,<code>help</code>,<code>vertical</code>,<code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными</p>
+<p>Заметьте многие методы такие как <code>canSee</code>,<code>required</code>,<code>title</code>,<code>help</code>,<code>vertical</code>,<code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными</p>
 </blockquote>
 <p>Одно из самых универсальных полей за счет указния типа, подерживаются почти все <code>html</code> значения:</p>
 <ul><li><strong>text</strong>  – Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
@@ -373,16 +373,14 @@
     -&gt;title('Стоимость');</code></pre>
 <p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a> </p>
 <h2><a href="#redaktory-teksta" name="redaktory-teksta">Редакторы текста</a></h2>
-<h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
-<p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
 <p>Визуальный редактор в котором содержание отображается в процессе редактирования и
 выглядит максимально близко похожим на конечный результат.
 Редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.</p>
+<h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
+<p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
 <p>Пример записи:</p>
 <pre><code class="language-php">TinyMCE::make('html')
     -&gt;required()
-    -&gt;title('Name Articles')
-    -&gt;help('Article title')
     -&gt;theme('inlite');</code></pre>
 <p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
 <h3><a href="#html-redaktor-qill" name="html-redaktor-qill">HTML редактор Qill</a></h3>
@@ -398,9 +396,7 @@
 <p>Поле для записи программного кода с возможностью подсветки</p>
 <p><img src="https://orchid.software/assets/img/ui/code.png" alt="Code"></p>
 <p>Пример записи:</p>
-<pre><code class="language-php">Code::make('block')
-    -&gt;title('Code Block')
-    -&gt;help('Simple web editor');</code></pre>
+<pre><code class="language-php">Code::make('code')</code></pre>
 <p>Для указания подцветки кода под конкретный язык программирования можно указывать через метод <code>language()</code></p>
 <pre><code class="language-php"> Code::make('code')
      -&gt;language(Code::CSS);</code></pre>
