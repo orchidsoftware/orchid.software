@@ -45,12 +45,10 @@ alert('Message');
 - 'flash_notification.message' - Сообщение для отображения
 - 'flash_notification.level' - Строка, представляющая тип уведомления
 
+Отображение по умолчанию уже встроено в шаблон, но вы можете вызывать его явно в `blade` шаблоне с помощью
 Для отображения в необходимом месте требуется:
 ```html
-<div class="container">
-    @include('platform::partials.alert')
-    <p>Welcome to my website...</p>
-</div>
+@include('platform::partials.alert')
 ```
 
 ## Уведомления в панели администрирования
