@@ -30,7 +30,7 @@ Input::make('name')
 ``` 
  
 
-> Заметьте многие параметры такие как `max`,`required`,`title`,`help`,`vertical`,`horizontal`; и многие другие, доступны почти каждым `полям` системы и являются не обязательными
+> Заметьте многие методы такие как `canSee`,`required`,`title`,`help`,`vertical`,`horizontal`; и многие другие, доступны почти каждым `полям` системы и являются не обязательными
  
 Одно из самых универсальных полей за счет указния типа, подерживаются почти все `html` значения:
 
@@ -111,22 +111,19 @@ Input::make('price')
 Все доступные параметры *Inputmask* можно посмотреть [здесь](https://github.com/RobinHerbots/Inputmask#options) 
  
 ## Редакторы текста
- 
-### HTML редактор TinyMCE
-
-
-![Wysing](https://orchid.software/assets/img/ui/wysing.png)
 
 Визуальный редактор в котором содержание отображается в процессе редактирования и 
 выглядит максимально близко похожим на конечный результат.
 Редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.
+
+### HTML редактор TinyMCE
+
+![Wysing](https://orchid.software/assets/img/ui/wysing.png)
  
 Пример записи:
 ```php
 TinyMCE::make('html')
     ->required()
-    ->title('Name Articles')
-    ->help('Article title')
     ->theme('inlite');
 ``` 
 Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут `theme('modern')`.
@@ -162,9 +159,7 @@ SimpleMDE::make('markdown')
 
 Пример записи:
 ```php
-Code::make('block')
-    ->title('Code Block')
-    ->help('Simple web editor');
+Code::make('code')
 ```    
 
 Для указания подцветки кода под конкретный язык программирования можно указывать через метод `language()`
