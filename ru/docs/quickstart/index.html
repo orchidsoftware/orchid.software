@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Быстрый старт для начинающих | Orchid - Laravel Admin Panel"><meta property="og:description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta property="og:url" content="http://orchid.software/ru/docs/quickstart"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Быстрый старт для начинающих</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42925369 = new Ya.Metrika2({
+                        id: 42925369,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+    </noscript><!-- /Yandex.Metrika counter --><script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=be8a00756d09deb869e9"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark m-sm-0" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark m-sm-0" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container no-padder" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Пролог</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/preface" class="lvl1   nav-menu__item hover:text-blue">
+            Предисловие
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs" class="lvl1   nav-menu__item hover:text-blue">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1   nav-menu__item hover:text-blue">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/contributors" class="lvl1   nav-menu__item hover:text-blue">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/promote" class="lvl1   nav-menu__item hover:text-blue">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/license" class="lvl1   nav-menu__item hover:text-blue">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Начало работы</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/installation" class="lvl1   nav-menu__item hover:text-blue">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/configuration" class="lvl1   nav-menu__item hover:text-blue">
+            Обзор параметров
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/screens" class="lvl1   nav-menu__item hover:text-blue">
+            Экраны
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/layouts" class="lvl1   nav-menu__item hover:text-blue">
+            Макеты экрана
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/field" class="lvl1   nav-menu__item hover:text-blue">
+            Элементы формы
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/menu" class="lvl1   nav-menu__item hover:text-blue">
+            Меню панели
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/access" class="lvl1   nav-menu__item hover:text-blue">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li>
+    
+            
+        <ul class=" toc-links-1 "><li>
+            
+        <a href="/ru/docs/filters" class="lvl1   nav-menu__item hover:text-blue">
+            Фильтрация
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/global-search" class="lvl1   nav-menu__item hover:text-blue">
+            Глобальный поиск
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/attachments" class="lvl1   nav-menu__item hover:text-blue">
+            Вложенные файлы
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/settings" class="lvl1   nav-menu__item hover:text-blue">
+            Настройки
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/alert" class="lvl1   nav-menu__item hover:text-blue">
+            Уведомления
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/controllers" class="lvl1   nav-menu__item hover:text-blue">
+            Контроллеры
+        </a>
+    
+    </li>
+            <li>
+            
+        <a href="/ru/docs/javascript" class="lvl1   nav-menu__item hover:text-blue">
+            Использование JS
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Быстрый старт для начинающих</h1>
+
+                        <div class="none d-md-block">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/quickstart.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><p>Это краткое руководство представляет собой базовое введение в инфраструктуру Orchid и включает в себя информацию
+о экранах и элементах формы.
+Чтобы отобрать базовый набор функций, мы создадим простую утилиту по отправке сообщений по электронной почте.</p>
+<p>Буду надеяться, что на текущим этапе вы уже установили фреймворк и платформу, создали базу данных и даже запустили веб-сервер. </p>
+<p>Для начала необходимо создать <a href="/ru/docs/screens">эран</a> для отображения формы отправки, с помощью команды:</p>
+<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen</code></pre>
+<p>В директории <code>app/Orchid/Screens</code> будет создан новый файл <code>EmailSenderScreen.php</code> :</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
+
+use Orchid\Screen\Screen;
+
+class EmailSenderScreen extends Screen
+{
+    /**
+     * Свойства имя и описание отвечают за то, 
+     * какое название будет отображаться 
+     * на экране пользователя и заголовках.
+     */
+    public $name = 'EmailSenderScreen';
+    public $description = 'EmailSenderScreen';
+
+    /**
+     * Метод определяющие все входные данные экрана, 
+     * именно в нём должны вызываться запросы к базе данных,
+     * api или любые другие (не обязательно явно),
+     * результатом которого должен быть массив, 
+     * обращение к которым будут использоваться его ключи.
+     */
+    public function query(): array
+    {
+        return [];
+    }
+
+    /**
+     * Определяет управляющие кнопки и события
+     * которые должны будут произойти по нажатию
+     */
+    public function commandBar(): array
+    {
+        return [];
+    }
+
+    /**
+     * Набор отображений, 
+     * строк, таблицы, графиков,
+     * модальных окон и их комбинация
+     */
+    public function layout(): array
+    {
+        return [];
+    }
+}</code></pre>
+<p>Главным отличием экрана от контроллера, является определённая заранее структура, которая обслуживает
+только одну страницу определяя данные и события.</p>
+<p>Как и контроллер, экран нужно регистрировать в файле маршрутов, определим его в файле для панели администрирования <code>routes/platform.php</code>:</p>
+<pre><code class="language-php">use \App\Orchid\Screens\EmailSenderScreen;
+
+$this-&gt;router-&gt;screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
+<p>После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу <code>/dashboard/email</code>,
+что бы посмотреть на пустой экран, наполним же его элементами.</p>
+<p>Добавим название и описание:</p>
+<pre><code class="language-php">/**
+ * Display header name.
+ *
+ * @var string
+ */
+public $name = 'Email sender';
+
+/**
+ * Display header description.
+ *
+ * @var string
+ */
+public $description = 'Tool that sends ad-hoc email messages.';</code></pre>
+<p>Для того, что бы отобразить поля для ввода, мы опишем их в методе <code>Layouts</code>:</p>
+<pre><code class="language-php">/**
+ * Views.
+ *
+ * @return Layout[]
+ */
+public function layout(): array
+{
+    return [
+        Layout::rows([
+            Input::make('subject')
+                -&gt;title('Subject')
+                -&gt;required()
+                -&gt;placeholder('Message subject line')
+                -&gt;help('Enter the subject line for your message'),
+
+            Relation::make('users.')
+                -&gt;title('Recipients')
+                -&gt;multiple()
+                -&gt;required()
+                -&gt;placeholder('Email addresses')
+                -&gt;help('Enter the users that you would like to send this message to.')
+                -&gt;fromModel(User::class,'name','email'),
+
+            Quill::make('content')
+                -&gt;title('Content')
+                -&gt;required()
+                -&gt;placeholder('Insert text here ...')
+                -&gt;help('Add the content for the message that you would like to send.')
+
+        ])-&gt;with(70)
+    ];
+}</code></pre>
+<p>Теперь наша страница имеет некоторые элементы, но не производит действий, что бы определить их необходимо создать новый публичный метод и указать ссылку на него в <code>commandBar</code>:</p>
+<pre><code class="language-php">&lt;?php
+
+declare(strict_types=1);
+
+namespace App\Orchid\Screens;
+
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Layout;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
+
+class EmailSenderScreen extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'Email sender';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'Tool that sends ad-hoc email messages.';
+
+    /**
+     * Query data.
+     *
+     * @return array
+     */
+    public function query(): array
+    {
+        return [];
+    }
+
+    /**
+     * Button commands.
+     *
+     * @return Link[]
+     */
+    public function commandBar(): array
+    {
+        return [
+            Link::name('Send Message')
+                -&gt;icon('icon-paper-plane')
+                -&gt;method('sendMessage')
+        ];
+    }
+
+    /**
+     * Views.
+     *
+     * @return Layout[]
+     */
+    public function layout(): array
+    {
+        return [
+            Layout::rows([
+                Input::make('subject')
+                    -&gt;title('Subject')
+                    -&gt;required()
+                    -&gt;placeholder('Message subject line')
+                    -&gt;help('Enter the subject line for your message'),
+
+                Relation::make('users.')
+                    -&gt;title('Recipients')
+                    -&gt;multiple()
+                    -&gt;required()
+                    -&gt;placeholder('Email addresses')
+                    -&gt;help('Enter the users that you would like to send this message to.')
+                    -&gt;fromModel(User::class,'name','email'),
+
+                Quill::make('content')
+                    -&gt;title('Content')
+                    -&gt;required()
+                    -&gt;placeholder('Insert text here ...')
+                    -&gt;help('Add the content for the message that you would like to send.')
+
+            ])-&gt;with(70)
+        ];
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function sendMessage(Request $request)
+    {
+        Mail::raw($request-&gt;get('content'), function (Message $message) use ($request) {
+
+            $message-&gt;subject($request-&gt;get('subject'));
+
+            foreach ($request-&gt;get('users') as $email) {
+                $message-&gt;to($email);
+            }
+        });
+
+        Alert::info('Your email message has been sent successfully.');
+        return back();
+    }
+}</code></pre>
+<p>После этого мы имеем возможность отправлять email сообщения на адреса.</p>
+<blockquote>
+<p>Обратите внимание, в laravel по умолчанию включен <code>smtp</code> драйвер для отправки почты, вы можете изменить его в <code>.env</code> файле на <code>log</code> для проверки.</p>
+</blockquote>
+<p>Все это время для отображения экрана приходилось в браузере указывать явную страницу, добавим новый пункт в меню, для этого
+в файле композера по адресу <code>app/Orchid/Composers/MainMenuComposer.php</code> добавим обьявление:</p>
+<pre><code class="language-php">$this-&gt;dashboard-&gt;menu
+    -&gt;add(Menu::MAIN,
+        ItemMenu::label('Email sender')
+            -&gt;icon('icon-envelope-letter')
+            -&gt;route('platform.email')
+            -&gt;title('Tools')
+    );</code></pre>
+<p>Теперь наша утилита отображается в левом меню и активно при посещении.
+Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки, что бы добавить их к нашему экрану необходимо в <code>routes/breadcrumbs.php</code> добавить новое обьявление по имени маршрута:</p>
+<pre><code class="language-php">Breadcrumbs::for('platform.email', function ($trail) {
+    $trail-&gt;parent('platform.index');
+    $trail-&gt;push('Email sender');
+});</code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="m-t-xl m-b-xl text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-bubbles m-r-xs"></i> Slack
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.paypal.me/tabuna/10usd" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-wallet m-r-xs"></i> Угостить кофе                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                            
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
