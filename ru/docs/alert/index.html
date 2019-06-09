@@ -277,11 +277,9 @@ Alert::warning('Message')</code></pre>
 <p>При использовании, будет установлено несколько ключей в сессии:</p>
 <ul><li>'flash_notification.message’ – Сообщение для отображения</li>
 <li>'flash_notification.level’ – Строка, представляющая тип уведомления</li>
-</ul><p>Для отображения в необходимом месте требуется:</p>
-<pre><code class="language-html">&lt;div class="container"&gt;
-    @include('platform::partials.alert')
-    &lt;p&gt;Welcome to my website...&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+</ul><p>Отображение по умолчанию уже встроено в шаблон, но вы можете вызывать его явно в <code>blade</code> шаблоне с помощью
+Для отображения в необходимом месте требуется:</p>
+<pre><code class="language-html">@include('platform::partials.alert')</code></pre>
 <h2><a href="#uvedomleniya-v-paneli-administrirovaniya" name="uvedomleniya-v-paneli-administrirovaniya">Уведомления в панели администрирования</a></h2>
 <p>Уведомление в панели администрирование отличается от flash-сообщений, тем, что не удаляются после просмотра и
 могут быть добавлены любым пользователям даже когда они находятся не в сети. Это ещё один отличный способ информирования, например для  приложение «менеджера задач» уведомлять сотрудника о новой задаче.</p>
