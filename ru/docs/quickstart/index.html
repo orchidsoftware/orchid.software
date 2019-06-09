@@ -304,7 +304,7 @@ class EmailSenderScreen extends Screen
 <p>Главным отличием экрана от контроллера, является определённая заранее структура, которая обслуживает
 только одну страницу определяя данные и события.</p>
 <p>Как и контроллер, экран нужно регистрировать в файле маршрутов, определим его в файле для панели администрирования <code>routes/platform.php</code>:</p>
-<pre><code class="language-php">use \App\Orchid\Screens\EmailSenderScreen;
+<pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 
 $this-&gt;router-&gt;screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
 <p>После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу <code>/dashboard/email</code>,
@@ -357,11 +357,7 @@ public function layout(): array
     ];
 }</code></pre>
 <p>Теперь наша страница имеет некоторые элементы, но не производит действий, что бы определить их необходимо создать новый публичный метод и указать ссылку на него в <code>commandBar</code>:</p>
-<pre><code class="language-php">&lt;?php
-
-declare(strict_types=1);
-
-namespace App\Orchid\Screens;
+<pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\User;
 use Illuminate\Http\Request;
