@@ -21,6 +21,14 @@
   h4 {
     margin-top: 1.33em;
   }
+  
+  li.active {
+    list-style: disc;
+    a {
+      @extend .text-black;
+    }
+  }
+  
 }
 
 @media only screen and (max-width: 480px) {
