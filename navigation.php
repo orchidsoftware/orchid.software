@@ -53,6 +53,7 @@ return [
         'Начало работы'      => [
             'children' => [
                 'Установка платформы' => '/ru/docs/installation',
+                'Быстрый старт'       => '/ru/docs/quickstart',
                 'Обзор параметров'    => '/ru/docs/configuration',
             ],
         ],
