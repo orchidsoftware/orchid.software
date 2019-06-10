@@ -252,6 +252,16 @@ Upload::make('upload')
     ->acceptedFiles('image/*,application/pdf,.psd')
 ```
 
+Поле загрузки может работать с различными хранилищами, что бы указать его необходимо передать ключ указанный в `config/filesystems.php`:
+
+```php
+Upload::make('upload')
+    ->storage('private')
+```
+
+По умолчанию используется хранилище `public`.
+
+
 ## Datetime field
  
 ![Datatime](https://orchid.software/assets/img/ui/datatime.png) 
