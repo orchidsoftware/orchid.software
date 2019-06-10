@@ -496,7 +496,7 @@ public function query(): array
             -&gt;route('platform.email')
             -&gt;title('Tools')
     );</code></pre>
-<p>Теперь наша утилита отображается в левом меню и активно при посещении.
+<p>Теперь наша утилита отображается в левом меню и активна при посещении.
 Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки, что бы добавить их к нашему экрану необходимо в <code>routes/breadcrumbs.php</code> добавить новое объявление по имени маршрута:</p>
 <pre><code class="language-php">Breadcrumbs::for('platform.email', function ($trail) {
     $trail-&gt;parent('platform.index');
