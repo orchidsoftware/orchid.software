@@ -274,16 +274,19 @@
                     <li class="anchor-h2">
                 <a href="#publikatsiya-staticheskikh-resursov">Публикация статических ресурсов</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#chto-delat-dalshe">Что делать дальше?</a>
+            </li>
             </ul><hr><p>Это руководство по началу работы поможет вам начать использовать ORCHID. Мы перечислили основные шаги, которые вам нужно выполнить, чтобы запустить проект.</p>
 <h2><a href="#sozdat-proekt" name="sozdat-proekt">Создать проект</a></h2>
 <p>Платформа и фреймворк используют Composer для поставки и управления своими зависимостями.<br>
 Установите фреймворк, выполнив команду <code>composer create-project</code> в вашем терминале:</p>
+<blockquote>
+<p><strong>У вас нет Composer?</strong> Его легко установить, следуя инструкциям на странице <a href="https://getcomposer.org/download/">загрузки</a>.</p>
+</blockquote>
 <pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist</code></pre>
 <p>Это создаст новый каталог <code>orchid-project</code>, загрузит в него некоторые зависимости и даже сгенерирует основные каталоги и файлы, которые понадобятся для начала работы.
 Другими словами, установит ваш новый проект фреймворка.</p>
-<blockquote>
-<p>У вас нет Composer? Его легко установить, следуя инструкциям на странице <a href="https://getcomposer.org/download/">загрузки</a>.</p>
-</blockquote>
 <p><strong>Не забывайте</strong></p>
 <ul><li>Установить права «chmod -R o+w» на каталоги <code>storage</code> и <code>bootstrap/cache</code></li>
 <li>Отредактировать <code>.env</code> файл</li>
@@ -313,9 +316,13 @@
 или в <code>.env</code>. Это позволяет делать доступной панель администратора на другом домене или поддомене, например <code>platform.example.com</code>.</p>
 </blockquote>
 <h2><a href="#publikatsiya-staticheskikh-resursov" name="publikatsiya-staticheskikh-resursov">Публикация статических ресурсов</a></h2>
-<p>По умолчанию раздача статических файлов(css/js) происходит через маршруты приложения, это наилучший баланс между настройкой и отслеживанием изменений, но вы можете указать использовать веб-серверы, для этого необходимо выполнить команду, которая создаст символическую ссылку в публичном каталоге:</p>
+<p>По умолчанию раздача статических файлов(css/js) происходит через маршруты приложения, это наилучший баланс между настройкой и отслеживанием изменений, но вы можете указать использовать веб-серверы, для этого необходимо выполнить команду, которая создаст символическую ссылку в публичном каталоге (Пожалуйста применяйте её, только если ваш веб-сервер испытвает трудности):</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
-<p>Возникли проблемы во время установки? Возможно, что у кого-то уже была такая проблема <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a> . Если нет, вы можете отправить сообщение или обратиться за <a href="https://github.com/orchidsoftware/platform/issues">помощью</a>.</p>                    </main></div>
+<blockquote>
+<p><strong>Возникли проблемы во время установки?</strong> Возможно, что у кого-то уже была такая проблема <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a> . Если нет, вы можете отправить сообщение или обратиться за <a href="https://github.com/orchidsoftware/platform/issues">помощью</a>.</p>
+</blockquote>
+<h2><a href="#chto-delat-dalshe" name="chto-delat-dalshe">Что делать дальше?</a></h2>
+<p>Если вы новичёк и хотите попробовать, то на странице <a href="ru/docs/quickstart">«Быстрый старт»</a> подготовлен пошаговый пример работы с пакетом.</p>                    </main></div>
             </div>
         </div>
     </div>
