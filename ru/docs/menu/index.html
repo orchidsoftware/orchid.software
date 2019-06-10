@@ -286,8 +286,8 @@
             </ul><hr><p>Меню панели платформы – это важный элемент графического интерфейса пользователя, потому, что с помощью его осуществляется основная навигация по проекту.</p>
 <p>Для того, что бы добавить новый элемент в меню, нужно сообщить об этом нашему приложению <code>Dashboard</code>.
 Для этого нужно вызвать метод в свойствах меню и передать аргументы: </p>
-<ul><li>Название меню, к которому необходимо прикрипить элемент</li>
-<li>Обьект меню, содержащий название, ссылки и т.п.</li>
+<ul><li>Название меню, к которому необходимо прикрепить элемент</li>
+<li>Объект меню, содержащий название, ссылки и т.п.</li>
 </ul><h2><a href="#primer-dobavleniya" name="primer-dobavleniya">Пример добавления</a></h2>
 <p>Регистрация меню по умолчанию происходит в директории <code>app/Orchid/Composers</code>, но можно указывать прямо в <code>ServiceProvider</code>.
 Например, изменим <code>app/Providers/AppServiceProvider.php</code> в такой вид:</p>
@@ -316,11 +316,11 @@ class AppServiceProvider extends ServiceProvider
     }
 }</code></pre>
 <h2><a href="#mestoraspolozhenie" name="mestoraspolozhenie">Месторасположение</a></h2>
-<p>Разберём пример, изначально мы создаём обьект <code>ItemMenu</code>, устававливая различные параметры, после чего добавляем элемент к конкретному месту <code>Menu::MAIN</code>. Таких мест несколько:</p>
-<ul><li><strong>Menu::MAIN</strong> – Меню отображаемое на каждой странице слевой стороны.</li>
+<p>Разберём пример, изначально мы создаём объект <code>ItemMenu</code>, устанавливая различные параметры, после чего добавляем элемент к конкретному месту <code>Menu::MAIN</code>. Таких мест несколько:</p>
+<ul><li><strong>Menu::MAIN</strong> – Меню отображаемое на каждой странице с левой стороны.</li>
 <li><strong>Menu::SYSTEMS</strong> – Меню формирующую навигацию по системной странице.</li>
 <li><strong>Menu::PROFILE</strong> – Меню отображаемое при нажатии на профиль.</li>
-<li><strong>Название собственных меню</strong> – Делает подменю и прекрепляет элементы.</li>
+<li><strong>Название собственных меню</strong> – Делает подменю и прикрепляет элементы.</li>
 </ul><h2><a href="#parametry" name="parametry">Параметры</a></h2>
 <p>Базовое использование:</p>
 <pre><code class="language-php">use Orchid\Platform\ItemMenu;
@@ -351,19 +351,19 @@ ItemMenu::label('Example')
 <p>Вполне ожидаемая ситуация когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');</code></pre>
-<p>или любая другая проверка возвращающее булевое значение:</p>
+<p>или любая другая проверка возвращающее булево значение:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;show(true);</code></pre>
 <h4><a href="#vneshniy-vid" name="vneshniy-vid">Внешний вид</a></h4>
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('icon-heart');</code></pre>
-<p>Так же, возможно объеденение в визуальную группу с помощью установки заголовка для первого элемента:</p>
+<p>Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
 <h3><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h3>
-<p>Сортировка уставливается через задание порядкого номера:</p>
+<p>Сортировка устанавливается через задание порядкового номера:</p>
 <pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
 ItemMenu::label('First')-&gt;sort(4);</code></pre>
 <h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
-<p>Пункты меню имееют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
+<p>Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Comments')
     -&gt;icon('icon-bubbles')
     -&gt;route('platform.systems.comments')
