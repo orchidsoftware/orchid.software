@@ -330,8 +330,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard-&gt;registerResource('stylesheets','custom.css');
-        $dashboard-&gt;registerResource('scripts','custom.js');
+        $dashboard-&gt;registerResource('stylesheets', 'custom.css');
+        $dashboard-&gt;registerResource('scripts', 'custom.js');
     }
 }</code></pre>
 <h2><a href="#shablony-vneshnego-vida" name="shablony-vneshnego-vida">Шаблоны внешнего вида</a></h2>
@@ -343,7 +343,7 @@ class AppServiceProvider extends ServiceProvider
 <h2><a href="#modelnye-klassy" name="modelnye-klassy">Модельные классы</a></h2>
 <p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы ORCHID использовал ваши классы
 моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
-<pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class,\App\User::class);</code></pre>
+<pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
 <p>Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
 <pre><code class="language-php">Dashboard::configure([
     'models' =&gt; [
