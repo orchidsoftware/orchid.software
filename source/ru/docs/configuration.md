@@ -108,8 +108,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerResource('stylesheets','custom.css');
-        $dashboard->registerResource('scripts','custom.js');
+        $dashboard->registerResource('stylesheets', 'custom.css');
+        $dashboard->registerResource('scripts', 'custom.js');
     }
 }
 ```
@@ -133,7 +133,7 @@ class AppServiceProvider extends ServiceProvider
 моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:
 
 ```php
-Dashboard::useModel(\Orchid\Platform\Models\User::class,\App\User::class);
+Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
 ```
 
 Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:
