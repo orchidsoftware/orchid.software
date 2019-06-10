@@ -447,6 +447,10 @@ Upload::make('images')
 <p>Реализация по умолчанию <code>accept</code> проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;acceptedFiles('image/*,application/pdf,.psd')</code></pre>
+<p>Поле загрузки может работать с различными хранилищами, что бы указать его необходимо передать ключ указанный в <code>config/filesystems.php</code>:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;storage('private')</code></pre>
+<p>По умолчанию используется хранилище <code>public</code>.</p>
 <h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
 <p>Позволяет выбрать дату и время</p>
