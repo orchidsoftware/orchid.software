@@ -331,7 +331,7 @@
 <blockquote>
 <p>Заметьте многие методы такие как <code>canSee</code>,<code>required</code>,<code>title</code>,<code>help</code>,<code>vertical</code>,<code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными</p>
 </blockquote>
-<p>Одно из самых универсальных полей за счет указния типа, подерживаются почти все <code>html</code> значения:</p>
+<p>Одно из самых универсальных полей за счет указания типа, поддерживаются почти все <code>html</code> значения:</p>
 <ul><li><strong>text</strong>  – Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
 <li><strong>file</strong> –    Поле для ввода имени файла, который пересылается на сервер. </li>
 <li><strong>hidden</strong>    – Скрытое поле.</li>
@@ -510,7 +510,7 @@ Select::make('user')
     -&gt;fromModel(User::class, 'name')
     -&gt;empty('Не выбрано');</code></pre>
 <blockquote>
-<p><strong>Обратите внимание</strong>, что <code>empty</code> вызывается позднее заполняющих методов, иначе добавленое значение будет перезаписано</p>
+<p><strong>Обратите внимание</strong>, что <code>empty</code> вызывается позднее заполняющих методов, иначе добавленное значение будет перезаписано</p>
 </blockquote>
 <p>Метод <code>empty</code> так же принимает и второй аргумент отвечающий за значение:</p>
 <pre><code class="language-php">Select::make('user')
@@ -558,7 +558,7 @@ class Idea extends Model
     -&gt;modal('addNewPayment')
     -&gt;icon('icon-wallet')
     -&gt;right()</code></pre>
-<p>Пример использования с ссылкой:</p>
+<p>Пример использования со ссылкой:</p>
 <pre><code class="language-php">Button::make()
     -&gt;title('Google It!')
     -&gt;type(Button::LINK)
