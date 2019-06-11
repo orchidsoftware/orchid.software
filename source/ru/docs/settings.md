@@ -14,7 +14,7 @@ section: main
 ```php
 use Orchid\Support\Facades\Setting;
 
-Setting::set($key,$value);
+Setting::set($key, $value);
 ```
 
 
@@ -31,7 +31,7 @@ Setting::set($key,$value);
 */
 Setting::get($key, $default);
 //или используя функцию помошника
-setting($key,$default);
+setting($key, $default);
 ```
 
 По умолчанию каждый элемент кешируется до его изменения, в случаи если вам нужно получить значение не из кэша необходимо воспользоваться методом "getNoCache"
