@@ -256,23 +256,12 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#dobavlenie">Добавление</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#poluchenie">Получение</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#udalenie">Удаление</a>
-            </li>
-            </ul><hr><p>Настройки — это хранилище «ключ-значение» является простейшим хранилищем данных, использующим ключ для доступа к значению. Такие хранилища используются для хранения настроек, создания специализированных файловых систем, в качестве кэшей для объектов, а также в системах, спроектированных с прицелом на масштабируемость.</p>
-<h2><a href="#dobavlenie" name="dobavlenie">Добавление</a></h2>
-<p>Чтобы добавить новое значение в хранилище необходимо использовать:</p>
+                        <hr class="mb-4"><p>Простейшее постоянное хранилище данных, использующий ключ для доступа к значениию.
+Чтобы добавить новое значение в хранилище необходимо использовать:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Setting;
 
 Setting::set($key, $value);</code></pre>
 <p>Переданное значение будет преобразовано в JSON, а при получении произойдёт декодирование, это позволяет помещать в хранилище не только простые типы, но и массивы.</p>
-<h2><a href="#poluchenie" name="poluchenie">Получение</a></h2>
 <p>Для получения значения:</p>
 <pre><code class="language-php">/**
 * @param string|array $key
@@ -286,7 +275,6 @@ setting($key, $default);</code></pre>
 <blockquote>
 <p><strong>Примечание.</strong> При передачи ключей в качестве массива, последующие обновления значений, не сбросят кэш автоматически.</p>
 </blockquote>
-<h2><a href="#udalenie" name="udalenie">Удаление</a></h2>
 <p>Для удаления значения:</p>
 <pre><code class="language-php">/**
 * @param string|array $key
