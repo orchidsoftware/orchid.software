@@ -124,7 +124,7 @@ TD::macro('bool', function () {
 
     $column = $this->column;
 
-    $this->setRender(function ($datum) use ($column) {
+    $this->render(function ($datum) use ($column) {
         return view('bool',[
             'bool' => $datum->$column
         ]);
