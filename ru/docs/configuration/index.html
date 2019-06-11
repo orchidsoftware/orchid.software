@@ -344,10 +344,10 @@ class AppServiceProvider extends ServiceProvider
 <p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы ORCHID использовал ваши классы
 моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
 <pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
-<p>Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
+<p>Можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
 <pre><code class="language-php">Dashboard::configure([
     'models' =&gt; [
-        User::class =&gt; 'MyCustomClass',
+        User::class =&gt; MyCustomClass::class,
     ],
 ]);</code></pre>                    </main></div>
             </div>
