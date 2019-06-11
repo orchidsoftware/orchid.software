@@ -136,7 +136,7 @@ class AppServiceProvider extends ServiceProvider
 Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
 ```
 
-Так же можно использовать параметр конфигурации, что позволит определить все подмены сразу:
+Можно использовать параметр конфигурации, что позволит определить все подмены сразу:
 
 ```php
 Dashboard::configure([
