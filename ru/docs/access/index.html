@@ -288,6 +288,9 @@ Auth::user()-&gt;inRole($role)
 
 // Добавить к пользователю роль
 Auth::user()-&gt;addRole($role)</code></pre>
+<blockquote>
+<p><strong>Примечание.</strong> Права доступа не являются заменой для <code>Gate</code> или <code>Policies</code> входящих в состав фреймвока.</p>
+</blockquote>
 <h2><a href="#roli" name="roli">Роли</a></h2>
 <p>Роли также имеют процедуры для:</p>
 <pre><code class="language-php">// Возвращает всех пользователей с этой ролью
