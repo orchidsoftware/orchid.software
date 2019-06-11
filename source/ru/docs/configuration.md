@@ -141,7 +141,7 @@ Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
 ```php
 Dashboard::configure([
     'models' => [
-        User::class => 'MyCustomClass',
+        User::class => MyCustomClass::class,
     ],
 ]);
 ```
