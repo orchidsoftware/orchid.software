@@ -409,7 +409,7 @@ TD::macro('bool', function () {
 
     $column = $this-&gt;column;
 
-    $this-&gt;setRender(function ($datum) use ($column) {
+    $this-&gt;render(function ($datum) use ($column) {
         return view('bool',[
             'bool' =&gt; $datum-&gt;$column
         ]);
