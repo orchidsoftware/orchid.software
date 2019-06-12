@@ -9,13 +9,17 @@ section: main
 
 Построим базовый пример, который отображает текст введённое в поле для этого:
 
-В resouce/js создадим следующую структуру:
+В `resources/js` создадим следующую структуру:
 
 ```php
-└── resource
-    ├── controllers
-    │   └── hello.js
-    └── dashboard.js
+resources
+├── js
+│   ├── controllers
+│   │   └── hello.js
+│   └── dashboard.js
+├── lang
+├── sass
+└── views
 ```
 
 Класс контроллера со следующим содержанием:
