@@ -478,13 +478,7 @@ class Appointment extends Rows
     }
 }</code></pre>
 <p>Строки поддерживают короткую запись без создания отдельного класса, например, когда требуется показать одно – два поля</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::rows([
@@ -495,20 +489,13 @@ public function layout(): array
     ];
 }</code></pre>
 <h2><a href="#modalnye-okna" name="modalnye-okna">Модальные окна</a></h2>
-<pre><code class="language-php">/**
-* Views.
-*
-* @throws \Throwable
-*
-* @return array
-*/
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
-return [
-    Layout::modals([
-    'exampleModal' =&gt; Layout::rows([]),
-    ]),
-];
+    return [
+        Layout::modals([
+        'exampleModal' =&gt; Layout::rows([]),
+        ]),
+    ];
 }</code></pre>
 <p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
 <pre><code class="language-php">Layout::modals([
@@ -520,14 +507,7 @@ return [
 <h2><a href="#grafiki" name="grafiki">Графики</a></h2>
 <p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой
 обработки данных, пример данных из <code>query</code></p>
-<pre><code class="language-php">/**
- * Query data
- *
- * @param Patient $patient
- *
- * @return array
- */
-public function query($patient = null) : array
+<pre><code class="language-php">public function query($patient = null) : array
 {
     $charts = [
         [
@@ -624,13 +604,7 @@ class MySelection extends Selection
 }</code></pre>
 <h2><a href="#taby" name="taby">Табы</a></h2>
 <p>Табы поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::tabs([
@@ -642,13 +616,7 @@ public function layout(): array
 <p>Название вкладок будет соответствовать ключам массива</p>
 <h2><a href="#stolbtsy" name="stolbtsy">Столбцы</a></h2>
 <p>Аналогично табам:</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::columns([
@@ -658,13 +626,7 @@ public function layout(): array
     ];
 }</code></pre>
 <h2><a href="#raskryvayushchiysya-spisok" name="raskryvayushchiysya-spisok">Раскрывающийся список</a></h2>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::collapse([
@@ -675,12 +637,7 @@ public function layout(): array
     ];
 }</code></pre>
 <h2><a href="#akkordeon" name="akkordeon">Аккордеон</a></h2>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::accordion([
@@ -713,12 +670,7 @@ public function layout(): array
 }</code></pre>
 <h2><a href="#polzovatelskiy-shablon" name="polzovatelskiy-shablon">Пользовательский шаблон</a></h2>
 <p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный шаблон, для этого:</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::view('myTemplate'),
@@ -728,12 +680,7 @@ public function layout(): array
 <h2><a href="#obertka" name="obertka">Обертка</a></h2>
 <p>Промежуточным звеном между «Пользовательским шаблоном» и стандартными слоями может служить «Обёртка», с помощью которой
 доступно указывать где именно должны отображаться другие слои.</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::wrapper('myTemplate', [
@@ -794,12 +741,7 @@ Layout::macro('hello', function (string $name) {
     };
 });</code></pre>
 <p>Тогда в экране вызов будет выглядеть как:</p>
-<pre><code class="language-php">/**
- * Views.
- *
- * @return array
- */
-public function layout(): array
+<pre><code class="language-php">public function layout(): array
 {
     return [
         Layout::hello('Alexandr Chernyaev')
