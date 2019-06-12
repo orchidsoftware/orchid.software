@@ -47,10 +47,10 @@ section: main
 Точно так же, платформа наделяет прикладной уровень новыми обязанностями по управлению отображением и прокладыванию моста к данным.
 
 ```php
-Classic          | Orchid
-├── Route        | ├── Route   
-├── Model        | ├── Model 
-├── Controller   | └── Screen
+Classic          |   Orchid
+├── Route        |   ├── Route   
+├── Model        |   ├── Model 
+├── Controller   |   └── Screen
 └── View         |
     ├── HTML     |
     ├── CSS      |
