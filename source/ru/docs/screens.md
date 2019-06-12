@@ -223,16 +223,17 @@ public function layout() : array
     return [
         Layout::columns([
             'Левая колонка' => [
-                PatientFirstRows::class,
+                FirstRows::class,
             ],
             'Правая колонка' => [
-                PatientSecondRows::class,
+                SecondRows::class,
             ],
         ]),
+        
         // Модальные окна
         Layout::modals([
             'Appointments' => [
-                PatientFirstRows::class,
+                ThirdRows::class,
             ],
         ]),
     ];
