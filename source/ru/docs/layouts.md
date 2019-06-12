@@ -212,12 +212,6 @@ class Appointment extends Rows
 например, когда требуется показать одно - два поля
 
 ```php
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
 public function layout(): array
 {
     return [
@@ -234,20 +228,13 @@ public function layout(): array
 ## Модальные окна
 
 ```php
-/**
-* Views.
-*
-* @throws \Throwable
-*
-* @return array
-*/
 public function layout(): array
 {
-return [
-    Layout::modals([
-	'exampleModal' => Layout::rows([]),
-    ]),
-];
+    return [
+        Layout::modals([
+	    'exampleModal' => Layout::rows([]),
+        ]),
+    ];
 }
 ```
 
@@ -268,13 +255,6 @@ Layout::modals([
 обработки данных, пример данных из `query`
 
 ```php
-/**
- * Query data
- *
- * @param Patient $patient
- *
- * @return array
- */
 public function query($patient = null) : array
 {
     $charts = [
@@ -394,12 +374,6 @@ class MySelection extends Selection
 что не требует создания отдельного класса:
 
 ```php
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
 public function layout(): array
 {
     return [
@@ -418,12 +392,6 @@ public function layout(): array
 Аналогично табам:
 
 ```php
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
 public function layout(): array
 {
     return [
@@ -440,12 +408,6 @@ public function layout(): array
 
 
 ```php
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- */
 public function layout(): array
 {
     return [
@@ -461,11 +423,6 @@ public function layout(): array
 ## Аккордеон
 
 ```php
-/**
- * Views.
- *
- * @return array
- */
 public function layout(): array
 {
     return [
@@ -506,11 +463,6 @@ public function layout(): array
 для этого:
 
 ```php
-/**
- * Views.
- *
- * @return array
- */
 public function layout(): array
 {
     return [
@@ -528,11 +480,6 @@ public function layout(): array
 доступно указывать где именно должны отображаться другие слои.
 
 ```php
-/**
- * Views.
- *
- * @return array
- */
 public function layout(): array
 {
     return [
@@ -609,11 +556,6 @@ Layout::macro('hello', function (string $name) {
 Тогда в экране вызов будет выглядеть как:
 
 ```php
-/**
- * Views.
- *
- * @return array
- */
 public function layout(): array
 {
     return [
