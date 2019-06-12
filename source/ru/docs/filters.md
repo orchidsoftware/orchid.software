@@ -99,7 +99,7 @@ Post::type('news')->filtersApply()->simplePaginate();
 
 
 Для использования фильтров в собственных моделях, 
-требуется подключить трейд `Orchid\Filter\Filterable` и передавать в функцию `filtersApply` массив классов:
+требуется подключить трейт `Orchid\Filter\Filterable` и передавать в функцию `filtersApply` массив классов:
 
 ```php
 use App\Model;
