@@ -109,7 +109,7 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 
 
 
-## Данные
+## Получение данных
 
 Большинство приложений, ориентированных на данные, работают с несколькими таблицами, и эти таблицы связаны
 друг с другом. Для экрана приложения очень часто необходимо отображать данные, поступающие из
@@ -123,6 +123,14 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 Данные для показа на экране определяются в методе `query`, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.
 
+```php
+public function query() : array
+{
+    return [
+        'name'  => 'Alexandr Chernyaev',
+    ];
+}
+```
 
 В качестве источника может выступать `модель Eloquent`, для этого необходимо добавить трейд `AsSource` :
 
@@ -141,43 +149,43 @@ class Order extends Model
 Пример, при котором в  Layouts будут доступны ключи `order` и `orders`:
 
 ```php
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query() : array
-    {
-        return [
-            'order'  => Order::find(1),
-            'orders' => Order::paginate(),
-        ];
-    }
+/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+        'order'  => Order::find(1),
+        'orders' => Order::paginate(),
+    ];
+}
 ```
 
-Использование именно моделей `Eloquent` не обязательно, возможно использование различных данных с помощью обёртки `Repository`:
+Использование именно моделей `Eloquent` не обязательно, возможно использование массивов с помощью обёртки `Repository`:
 
 ```php
-    //...
-    use Orchid\Screen\Repository;    
-    //...
-    
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query() : array
-    {
-        return [
-            'order'      => new Repository([
-                'product_id' => 'prod-100',
-                'name'       => 'Desk',
-                'price'      => 10.24,
-                'created_at' => '01.01.2020',
-          ]),
-        ];
-    }
+//...
+use Orchid\Screen\Repository;    
+//...
+
+/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+        'order'      => new Repository([
+            'product_id' => 'prod-100',
+            'name'       => 'Desk',
+            'price'      => 10.24,
+            'created_at' => '01.01.2020',
+      ]),
+    ];
+}
 ```
 
 
