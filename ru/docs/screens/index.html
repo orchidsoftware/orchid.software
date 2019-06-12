@@ -371,12 +371,7 @@ class Order extends Model
     use AsSource
 }</code></pre>
 <p>Пример, при котором в  Layouts будут доступны ключи <code>order</code> и <code>orders</code>:</p>
-<pre><code class="language-php">/**
- * Query data
- *
- * @return array
- */
-public function query() : array
+<pre><code class="language-php">public function query() : array
 {
     return [
         'order'  =&gt; Order::find(1),
@@ -388,11 +383,6 @@ public function query() : array
 use Orchid\Screen\Repository;    
 //...
 
-/**
- * Query data
- *
- * @return array
- */
 public function query() : array
 {
     return [
@@ -408,12 +398,7 @@ public function query() : array
 <p>В экранах предусмотрены встроенные команды (Screen Command Bar), позволяющие пользователям выполнять различные пользовательские сценарии.
 За это отвечает метод <code>commandBar</code>, в котором описываются требуемые кнопки управления. </p>
 <p>Например:</p>
-<pre><code class="language-php">/**
-* Button commands
-*
-* @return array
-*/
-public function commandBar() : array
+<pre><code class="language-php">public function commandBar() : array
 {
     return [
         Link::name('Вывести на печать')-&gt;method('print'),
@@ -438,12 +423,7 @@ Link::name('Модальное окно')
 <p>Каждый макет может включать в себя другой макет, то есть вложенность.
 Например, экран делится двумя колонками, в левой поля для заполнения, справа справочная таблица и график.
 Вы можете придумать свои примеры вложения.</p>
-<pre><code class="language-php">/**
- * Views
- *
- * @return array
- */
-public function layout() : array
+<pre><code class="language-php">public function layout() : array
 {
     return [
         Layout::columns([
