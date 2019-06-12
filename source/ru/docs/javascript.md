@@ -12,10 +12,10 @@ section: main
 В resouce/js создадим следующую структуру:
 
 ```php
-├── resource
-│   ├── controllers
-│   │   └── hello.js
-│   ├── dashboard.js
+└── resource
+    ├── controllers
+    │   └── hello.js
+    └── dashboard.js
 ```
 
 Класс контроллера со следующим содержанием:
