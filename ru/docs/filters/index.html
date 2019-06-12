@@ -339,7 +339,7 @@ class MyBehaviorPost extends Many
 <pre><code class="language-php">use Orchid\Press\Models\Post;
 
 Post::type('news')-&gt;filtersApply()-&gt;simplePaginate();</code></pre>
-<p>Для использования фильтров в собственных моделях, требуется подключить трейд <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
+<p>Для использования фильтров в собственных моделях, требуется подключить трейт <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
 <pre><code class="language-php">use App\Model;
 
 Model::filtersApply([
