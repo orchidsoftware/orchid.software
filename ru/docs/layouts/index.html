@@ -495,21 +495,21 @@ public function layout(): array
     ];
 }</code></pre>
 <h2><a href="#modalnye-okna" name="modalnye-okna">Модальные окна</a></h2>
-<pre><code class="language-php">    /**
-     * Views.
-     *
-     * @throws \Throwable
-     *
-     * @return array
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::modals([
-                'exampleModal' =&gt; Layout::rows([]),
-            ]),
-        ];
-    }</code></pre>
+<pre><code class="language-php">/**
+* Views.
+*
+* @throws \Throwable
+*
+* @return array
+*/
+public function layout(): array
+{
+return [
+    Layout::modals([
+    'exampleModal' =&gt; Layout::rows([]),
+    ]),
+];
+}</code></pre>
 <p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
 <pre><code class="language-php">Layout::modals([
     'exampleModals' =&gt; Layout::rows([]),
