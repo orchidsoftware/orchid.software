@@ -141,11 +141,6 @@ class Order extends Model
 Пример, при котором в  Layouts будут доступны ключи `order` и `orders`:
 
 ```php
-/**
- * Query data
- *
- * @return array
- */
 public function query() : array
 {
     return [
@@ -162,11 +157,6 @@ public function query() : array
 use Orchid\Screen\Repository;    
 //...
 
-/**
- * Query data
- *
- * @return array
- */
 public function query() : array
 {
     return [
@@ -190,11 +180,6 @@ public function query() : array
 Например:
 
 ```php
-/**
-* Button commands
-*
-* @return array
-*/
 public function commandBar() : array
 {
     return [
@@ -233,11 +218,6 @@ Link::name('Модальное окно')
 
 
 ```php
-/**
- * Views
- *
- * @return array
- */
 public function layout() : array
 {
     return [
