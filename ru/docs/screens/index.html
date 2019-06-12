@@ -269,7 +269,7 @@
                 <a href="#registratsiya-v-marshrutakh">Регистрация в маршрутах</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#dannye">Данные</a>
+                <a href="#poluchenie-dannykh">Получение данных</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#obrabotka">Обработка</a>
@@ -352,7 +352,7 @@ class Idea extends Screen
 <pre><code class="language-php">use App/Orchid/Screens/Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
-<h2><a href="#dannye" name="dannye">Данные</a></h2>
+<h2><a href="#poluchenie-dannykh" name="poluchenie-dannykh">Получение данных</a></h2>
 <p>Большинство приложений, ориентированных на данные, работают с несколькими таблицами, и эти таблицы связаны
 друг с другом. Для экрана приложения очень часто необходимо отображать данные, поступающие из
 нескольких источников или связанных таблиц.</p>
@@ -360,6 +360,12 @@ Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 и один или несколько связанных записей: продукт, количество, цена за единицу, процентная ставка налога, полная цена и т.д.</p>
 <p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
+<pre><code class="language-php">public function query() : array
+{
+    return [
+        'name'  =&gt; 'Alexandr Chernyaev',
+    ];
+}</code></pre>
 <p>В качестве источника может выступать <code>модель Eloquent</code>, для этого необходимо добавить трейд <code>AsSource</code> :</p>
 <pre><code class="language-php">namespace App;
 
@@ -371,39 +377,39 @@ class Order extends Model
     use AsSource
 }</code></pre>
 <p>Пример, при котором в  Layouts будут доступны ключи <code>order</code> и <code>orders</code>:</p>
-<pre><code class="language-php">    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query() : array
-    {
-        return [
-            'order'  =&gt; Order::find(1),
-            'orders' =&gt; Order::paginate(),
-        ];
-    }</code></pre>
-<p>Использование именно моделей <code>Eloquent</code> не обязательно, возможно использование различных данных с помощью обёртки <code>Repository</code>:</p>
-<pre><code class="language-php">    //...
-    use Orchid\Screen\Repository;    
-    //...
+<pre><code class="language-php">/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+        'order'  =&gt; Order::find(1),
+        'orders' =&gt; Order::paginate(),
+    ];
+}</code></pre>
+<p>Использование именно моделей <code>Eloquent</code> не обязательно, возможно использование массивов с помощью обёртки <code>Repository</code>:</p>
+<pre><code class="language-php">//...
+use Orchid\Screen\Repository;    
+//...
 
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query() : array
-    {
-        return [
-            'order'      =&gt; new Repository([
-                'product_id' =&gt; 'prod-100',
-                'name'       =&gt; 'Desk',
-                'price'      =&gt; 10.24,
-                'created_at' =&gt; '01.01.2020',
-          ]),
-        ];
-    }</code></pre>
+/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+        'order'      =&gt; new Repository([
+            'product_id' =&gt; 'prod-100',
+            'name'       =&gt; 'Desk',
+            'price'      =&gt; 10.24,
+            'created_at' =&gt; '01.01.2020',
+      ]),
+    ];
+}</code></pre>
 <h2><a href="#obrabotka" name="obrabotka">Обработка</a></h2>
 <p>В экранах предусмотрены встроенные команды (Screen Command Bar), позволяющие пользователям выполнять различные пользовательские сценарии.
 За это отвечает метод <code>commandBar</code>, в котором описываются требуемые кнопки управления. </p>
