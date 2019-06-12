@@ -234,21 +234,21 @@ public function layout(): array
 ## Модальные окна
 
 ```php
-    /**
-     * Views.
-     *
-     * @throws \Throwable
-     *
-     * @return array
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::modals([
-                'exampleModal' => Layout::rows([]),
-            ]),
-        ];
-    }
+/**
+* Views.
+*
+* @throws \Throwable
+*
+* @return array
+*/
+public function layout(): array
+{
+return [
+    Layout::modals([
+	'exampleModal' => Layout::rows([]),
+    ]),
+];
+}
 ```
 
 Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:
