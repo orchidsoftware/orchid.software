@@ -428,16 +428,17 @@ Link::name('Модальное окно')
     return [
         Layout::columns([
             'Левая колонка' =&gt; [
-                PatientFirstRows::class,
+                FirstRows::class,
             ],
             'Правая колонка' =&gt; [
-                PatientSecondRows::class,
+                SecondRows::class,
             ],
         ]),
+
         // Модальные окна
         Layout::modals([
             'Appointments' =&gt; [
-                PatientFirstRows::class,
+                ThirdRows::class,
             ],
         ]),
     ];
