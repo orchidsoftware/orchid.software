@@ -299,6 +299,9 @@
                 <a href="#media-field">Media field</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#timezone-field">TimeZone field</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#datetime-field">Datetime field</a>
             </li>
                     <li class="anchor-h2">
@@ -451,6 +454,28 @@ Upload::make('images')
 <pre><code class="language-php">Upload::make('upload')
     -&gt;storage('private')</code></pre>
 <p>По умолчанию используется хранилище <code>public</code>.</p>
+<h2><a href="#timezone-field" name="timezone-field">TimeZone field</a></h2>
+<p>Поле для удобного выбора часового пояса:</p>
+<pre><code class="language-php">TimeZone::make('time');</code></pre>
+<p>Возможно, указание конкретных временных зон используя:</p>
+<pre><code class="language-php">use DateTimeZone;
+
+TimeZone::make('time')
+    -&gt;listIdentifiers(DateTimeZone::ALL); </code></pre>
+<p>По умолчанию принимает значение <code>DateTimeZone::ALL</code>, но возможны и другие:</p>
+<pre><code class="language-php">DateTimeZone::AFRICA;
+DateTimeZone::AMERICA;
+DateTimeZone::ANTARCTICA;
+DateTimeZone::ARCTIC;
+DateTimeZone::ASIA;
+DateTimeZone::ATLANTIC;
+DateTimeZone::AUSTRALIA;
+DateTimeZone::EUROPE;
+DateTimeZone::INDIAN;
+DateTimeZone::PACIFIC;
+DateTimeZone::UTC;
+DateTimeZone::ALL_WITH_BC;
+DateTimeZone::PER_COUNTRY;</code></pre>
 <h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
 <p>Позволяет выбрать дату и время</p>
