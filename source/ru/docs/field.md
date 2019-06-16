@@ -261,6 +261,40 @@ Upload::make('upload')
 
 По умолчанию используется хранилище `public`.
 
+## TimeZone field
+
+Поле для удобного выбора часового пояса:
+
+```php
+TimeZone::make('time');
+```
+
+Возможно, указание конкретных временных зон используя:
+
+```php
+use DateTimeZone;
+
+TimeZone::make('time')
+    ->listIdentifiers(DateTimeZone::ALL); 
+```
+
+По умолчанию принимает значение `DateTimeZone::ALL`, но возможны и другие:
+
+```php
+DateTimeZone::AFRICA;
+DateTimeZone::AMERICA;
+DateTimeZone::ANTARCTICA;
+DateTimeZone::ARCTIC;
+DateTimeZone::ASIA;
+DateTimeZone::ATLANTIC;
+DateTimeZone::AUSTRALIA;
+DateTimeZone::EUROPE;
+DateTimeZone::INDIAN;
+DateTimeZone::PACIFIC;
+DateTimeZone::UTC;
+DateTimeZone::ALL_WITH_BC;
+DateTimeZone::PER_COUNTRY;
+```
 
 ## Datetime field
  
