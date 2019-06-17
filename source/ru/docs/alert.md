@@ -40,6 +40,22 @@ Alert::warning('Message')
 alert('Message');
 ```
 
+Для вставки собственного шаблона с использованием переменных, тегов используется метот `view`:
+
+```php
+Alert::view('alert', Alert::info, [
+    'name' => 'Alexandr'
+]);
+```
+
+Первый аргумент метода это путь/имя `Blade` шаблона:
+```php
+// resources/views/alert.blade.php
+
+Hello <strong>{{ $name }}</strong>
+```
+
+
 
 При использовании, будет установлено несколько ключей в сессии:
 - 'flash_notification.message' - Сообщение для отображения
