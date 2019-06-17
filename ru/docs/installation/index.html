@@ -260,16 +260,16 @@
                 <a href="#sozdat-proekt">Создать проект</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#dobavit-paket">Добавить пакет</a>
+                <a href="#dobavit-zavisimost">Добавить зависимость</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#ustanovka">Установка</a>
+                <a href="#ustanovka-platformy">Установка платформы</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#sozdanie-polzovatelya">Создание пользователя</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#zapusk-proekta">Запуск проекта</a>
+                <a href="#zapusk-lokalnogo-servera">Запуск локального сервера</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#publikatsiya-staticheskikh-resursov">Публикация статических ресурсов</a>
@@ -290,14 +290,14 @@
 <p><strong>Не забывайте</strong></p>
 <ul><li>Установить права «chmod -R o+w» на каталоги <code>storage</code> и <code>bootstrap/cache</code></li>
 <li>Отредактировать <code>.env</code> файл</li>
-</ul><h2><a href="#dobavit-paket" name="dobavit-paket">Добавить пакет</a></h2>
+</ul><h2><a href="#dobavit-zavisimost" name="dobavit-zavisimost">Добавить зависимость</a></h2>
 <p>Перейдите в созданный каталог проекта и выполните команду:</p>
 <pre><code class="language-php">$ composer require orchid/platform</code></pre>
 <blockquote>
 <p><strong>Примечание.</strong> Если вы устанавливали Laravel иначе, то возможно, вам придется сгенерировать ключ
 используя комманду <code>php artisan key:generate</code></p>
 </blockquote>
-<h2><a href="#ustanovka" name="ustanovka">Установка</a></h2>
+<h2><a href="#ustanovka-platformy" name="ustanovka-platformy">Установка платформы</a></h2>
 <blockquote>
 <p><strong>Примечание.</strong> Вам также необходимо создать новую базу данных и обновить <code>.env</code> файл с учетными данными и добавить URL-адрес вашего приложения в переменную <code>APP_URL</code>.</p>
 </blockquote>
@@ -307,7 +307,7 @@
 <p>Для создания пользователя с максимальными правами на текущий момент, необходимо выполнить команду передав
 имя пользователя, электронный адрес и пароль:</p>
 <pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password</code></pre>
-<h2><a href="#zapusk-proekta" name="zapusk-proekta">Запуск проекта</a></h2>
+<h2><a href="#zapusk-lokalnogo-servera" name="zapusk-lokalnogo-servera">Запуск локального сервера</a></h2>
 <p>Для запуска проекта можно использовать встроенный сервер:</p>
 <pre><code class="language-php">php artisan serve</code></pre>
 <p>Откройте браузер и перейдите к <code>http://localhost:8000/dashboard</code>. Если все работает, вы увидите страницу входа в панель управления. Позже, когда вы закончите работу, остановите сервер, нажав <code>Ctrl+C</code> в используемом терминале.</p>
