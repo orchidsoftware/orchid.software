@@ -59,4 +59,4 @@ Classic          |   Orchid
 
 ## Как получить ORCHID?
 
-Платформа свободно распространяется через Интернет, [исходные коды](https://github.com/orchidsoftware/platform) и [информация о выпусках](https://github.com/orchidsoftware/platform/releases) опубликованы на GitHub. В руководстве по [установке](/ru/docs/installation/) содержатся подробные инструкции по установке. 
+Платформа свободно распространяется через интернет, [исходные коды](https://github.com/orchidsoftware/platform) и [информация о выпусках](https://github.com/orchidsoftware/platform/releases) опубликованы на GitHub. В руководстве по [установке](/ru/docs/installation/) содержатся подробные инструкции по установке. 
