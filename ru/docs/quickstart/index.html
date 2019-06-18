@@ -272,7 +272,7 @@ class EmailSenderScreen extends Screen
     /**
      * Свойства имя и описание отвечают за то, 
      * какое название будет отображаться 
-     * на экране пользователя и заголовках.
+     * на экране пользователя и в заголовках.
      */
     public $name = 'EmailSenderScreen';
     public $description = 'EmailSenderScreen';
@@ -301,7 +301,7 @@ class EmailSenderScreen extends Screen
     /**
      * Набор отображений, 
      * строк, таблицы, графиков,
-     * модальных окон и их комбинация
+     * модальных окон и их комбинации
      */
     public function layout(): array
     {
@@ -487,6 +487,7 @@ public function query(): array
         'subject' =&gt; date('F').' Campaign News',
     ];
 }</code></pre>
+<p>Теперь в поле с именем <code>subject</code> автоматически подстанавливается значение из результата.</p>
 <p>Все это время для отображения экрана приходилось в браузере указывать явную страницу, добавим новый пункт в меню, для этого
 в файле композера по адресу <code>app/Orchid/Composers/MainMenuComposer.php</code> добавим объявление:</p>
 <pre><code class="language-php">$this-&gt;dashboard-&gt;menu
