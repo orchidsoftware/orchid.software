@@ -65,38 +65,9 @@ class QueryFilter extends Filter
 Фильтр сработает, при условии наличии хотя бы одного параметра указанного в массиве `$parameters`, 
 если массив будет пуст, тогда фильтр будет работать при каждом запросе.
 
-## Использование
-
-Для использования фильтра, необходимо указать его в классе поведения.
-```php
-use Orchid\Entities\Many;
-
-class MyBehaviorPost extends Many
-{
-
-    /**
-     * HTTP data filters
-     *
-     * @var array
-     */
-    public function filters(){
-        return [
-            QueryFilter::class,
-        ];
-    }
-}
-```
-
 > **Примечание.** Вы можете использовать одни и те же фильтры для разных поведений.
 
-
-Фильтрацию можно запустить методом `filtersApply`:
-```php
-use Orchid\Press\Models\Post;
-
-Post::type('news')->filtersApply()->simplePaginate();
-```
-
+## Использование
 
 Для использования фильтров в собственных моделях, 
 требуется подключить трейт `Orchid\Filter\Filterable` и передавать в функцию `filtersApply` массив классов:
