@@ -18,26 +18,22 @@ ORCHID имеет удобный вызов и отображение уведо
 ```php
 use Orchid\Support\Facades\Alert;
 
-public function store()
-{
-    Alert::message('Welcome Aboard!');
-    return Redirect::home();
-}
-```
-
-Вы также можете сделать:
-
-```php
-Alert::info('Message')
-Alert::success('Message')
-Alert::error('Message')
-Alert::warning('Message')
+Alert::message('Welcome Aboard!');
 ```
 
 или использовать более короткую запись:
 
 ```php
 alert('Message');
+```
+
+Сообщения могут визуально отображать статус с помощью цветовой гаммы, для этого предназначены методы:
+
+```php
+Alert::info('Message')
+Alert::success('Message')
+Alert::error('Message')
+Alert::warning('Message')
 ```
 
 Для вставки собственного шаблона с использованием переменных, тегов используется метод `view`:
@@ -54,7 +50,6 @@ Alert::view('alert', Alert::info, [
 
 Hello <strong>{{ $name }}</strong>
 ```
-
 
 
 При использовании, будет установлено несколько ключей в сессии:
