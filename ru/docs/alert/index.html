@@ -269,18 +269,14 @@
 <p>ORCHID имеет удобный вызов и отображение уведомлений поверх одноразовых flash-данных.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Alert;
 
-public function store()
-{
-    Alert::message('Welcome Aboard!');
-    return Redirect::home();
-}</code></pre>
-<p>Вы также можете сделать:</p>
+Alert::message('Welcome Aboard!');</code></pre>
+<p>или использовать более короткую запись:</p>
+<pre><code class="language-php">alert('Message');</code></pre>
+<p>Сообщения могут визуально отображать статус с помощью цветовой гаммы, для этого предназначены методы:</p>
 <pre><code class="language-php">Alert::info('Message')
 Alert::success('Message')
 Alert::error('Message')
 Alert::warning('Message')</code></pre>
-<p>или использовать более короткую запись:</p>
-<pre><code class="language-php">alert('Message');</code></pre>
 <p>Для вставки собственного шаблона с использованием переменных, тегов используется метод <code>view</code>:</p>
 <pre><code class="language-php">Alert::view('alert', Alert::info, [
     'name' =&gt; 'Alexandr'
