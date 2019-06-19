@@ -56,8 +56,8 @@ class QueryFilter extends Filter
         return Input::make('query')
             ->type('text')
             ->value($this->request->get('query'))
-            ->placeholder(__('Search...'))
-            ->title(__('Search'));
+            ->placeholder('Search...')
+            ->title('Search');
     }
 }
 ```
@@ -140,15 +140,15 @@ Post::filters()->defaultSort('id')->paginate();
 
 ```php
 http://example.com/demo?filter[id]=1
-$model->where('id','=',1)
+$model->where('id', '=', 1)
 
 
 http://example.com/demo?filter[id]=1,2,3,4,5
-$model->whereIn('id',[1,2,3,4,5]);
+$model->whereIn('id', [1,2,3,4,5]);
 
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name','=','dwqdwq');
+$model->where('content->ru->name', '=', 'dwqdwq');
 
 ```
 
@@ -156,9 +156,9 @@ $model->where('content->ru->name','=','dwqdwq');
 
 ```php
 http://example.com/demo?sort=content.ru.name
-$model->orderBy('content.ru.name','asc');
+$model->orderBy('content.ru.name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content.ru.name','desc');
+$model->orderBy('content.ru.name', 'desc');
 ```
 
