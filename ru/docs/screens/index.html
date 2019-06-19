@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Основные компоненты пользовательского интерфейса"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Экраны | Orchid - Laravel Admin Panel"><meta property="og:description" content="Основные компоненты пользовательского интерфейса"><meta property="og:url" content="http://orchid.software/ru/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Экраны</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Основные компоненты пользовательского интерфейса"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Концепция экранов | Orchid - Laravel Admin Panel"><meta property="og:description" content="Основные компоненты пользовательского интерфейса"><meta property="og:url" content="http://orchid.software/ru/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Концепция экранов</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -249,7 +249,7 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Экраны</h1>
+                    <main class="wrapper-lg order-md-first"><h1>Концепция экранов</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/screens.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
@@ -274,17 +274,12 @@
                     <li class="anchor-h2">
                 <a href="#pochemu-ne-crud">Почему не CRUD?</a>
             </li>
-            </ul><hr><p>Экраны – основные компоненты пользовательского интерфейса – описываются иерархией компоновки, в соответствии с которой
-каждый элемент имеет несколько свойств, которые влияют на его внешний вид и поведение.</p>
-<blockquote>
-<p>Проще говоря, то, что пользователь видит на странице и какие действия совершает описывается в одном классе под названием «Экран».</p>
-</blockquote>
-<p>Экран не знает откуда берутся данные, это может быть: база данных, API или любые другие внешние источники. Экран имеет обычные функциональные возможности современного пользовательского интерфейса. Можно настраивать внешний вид экрана, а также добавлять или удалять команды.
-Построение внешнего вида основано на предоставленных <code>шаблонах</code> (Layouts) и всё, что вам нужно сделать это лишь определить какие данные будут показаны в том или ином шаблоне.</p>
+            </ul><hr><p>Основным элементом платформы являются экраны, описанные иерархией компоновки, в соответствии с которой
+каждый элемент имеет свойства, которые влияют на его внешний вид и поведение.</p>
+<p>Проще говоря, то, что пользователь видит на странице и какие действия совершает описывается в одном классе под названием «Экран».Он не знает откуда берутся данные, это может быть: база данных, API или любые другие внешние источники. Имеет обычные функциональные возможности современного пользовательского интерфейса. Можно настраивать внешний вид экрана, а также добавлять или удалять команды. Построение внешнего вида основано на предоставленных <code>шаблонах</code> (Layouts) и всё, что вам нужно сделать это лишь определить какие данные будут показаны в том или ином шаблоне.</p>
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
 <h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
-<p>С ORCHID это еще проще и вы можете создать набор экранов всего за несколько минут.</p>
-<p>Для создания нового экрана требуется выполнить команду:</p>
+<p>Вы можете создать новый экран выполнив команду:</p>
 <pre><code class="language-php">php artisan orchid:screen Idea</code></pre>
 <p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Idea</code> со следующим содержанием:</p>
 <pre><code class="language-php">namespace App\Http\Controllers\Screens;
@@ -443,7 +438,7 @@ Link::name('Модальное окно')
 }</code></pre>
 <p>Более подробно можно прочитать в разделе <a href="/ru/docs/layouts/">Макеты</a>.</p>
 <h2><a href="#pochemu-ne-crud" name="pochemu-ne-crud">Почему не CRUD?</a></h2>
-<p>Почти все популярные надстройки используют построение CRUD для пользовательских моделей, это хорошее решение, но приложение не может состоять из одних только базовых функций. Скорее всего вы будете расширять и дополнять сгенерированную логику. Хорошим примером, что стандартных операций создания/чтения/редактирование/удаления не хватает, может служить возможность «Отправить на печать». ORCHID позволяет создавать CRUD с помощью «Экранов», но это не является их целью.</p>                    </main></div>
+<p>Почти все популярные надстройки используют построение CRUD для пользовательских моделей, это хорошее решение, но приложение не может состоять из одних только базовых функций. Скорее всего вы будете расширять и дополнять сгенерированную логику. Хорошим примером, что стандартных операций создания/чтения/редактирование/удаления не хватает, может служить возможность «Отправить на печать». Платформа позволяет создавать CRUD с помощью «Экранов», но это не является их целью.</p>                    </main></div>
             </div>
         </div>
     </div>
