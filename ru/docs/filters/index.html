@@ -308,8 +308,8 @@ class QueryFilter extends Filter
         return Input::make('query')
             -&gt;type('text')
             -&gt;value($this-&gt;request-&gt;get('query'))
-            -&gt;placeholder(__('Search...'))
-            -&gt;title(__('Search'));
+            -&gt;placeholder('Search...')
+            -&gt;title('Search');
     }
 }</code></pre>
 <p>Фильтр сработает, при условии наличии хотя бы одного параметра указанного в массиве <code>$parameters</code>,
@@ -366,20 +366,20 @@ protected $allowedSorts = [
 <pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
 <p>Как будет реагировать фильтрация:</p>
 <pre><code class="language-php">http://example.com/demo?filter[id]=1
-$model-&gt;where('id','=',1)
+$model-&gt;where('id', '=', 1)
 
 http://example.com/demo?filter[id]=1,2,3,4,5
-$model-&gt;whereIn('id',[1,2,3,4,5]);
+$model-&gt;whereIn('id', [1,2,3,4,5]);
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model-&gt;where('content-&gt;ru-&gt;name','=','dwqdwq');
+$model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
 </code></pre>
 <p>Как будет реагировать сортировка:</p>
 <pre><code class="language-php">http://example.com/demo?sort=content.ru.name
-$model-&gt;orderBy('content.ru.name','asc');
+$model-&gt;orderBy('content.ru.name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model-&gt;orderBy('content.ru.name','desc');</code></pre>                    </main></div>
+$model-&gt;orderBy('content.ru.name', 'desc');</code></pre>                    </main></div>
             </div>
         </div>
     </div>
