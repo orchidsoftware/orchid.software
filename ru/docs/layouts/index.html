@@ -375,9 +375,6 @@ class PatientListLayout extends Table
 <p>Метод <code>link($route,$key)</code> добавляет в ячейку ссылку, например на редактирование данной записи.</p>
 </li>
 <li>
-<p>Метод <code>linkPost($text)</code> добавляет в ячейку ссылку на текущий пост (используется в списке постов).</p>
-</li>
-<li>
 <p>Метод <code>locale()</code> отображение данных столбца согласно текущему языку локали.</p>
 </li>
 <li>
@@ -387,16 +384,13 @@ class PatientListLayout extends Table
 <p>Метод <code>name($key)</code> устанавливает имя ключа из массива значения которого отображать в таблице.</p>
 </li>
 <li>
-<p>Метод <code>set($key, $name)</code> основной метод устанавливает имя ключа из массива и отображаемое название. Заменяет методы <code>name()</code> и <code>title()</code>.</p>
+<p>Метод <code>set($key, $name)</code> основной метод устанавливает имя ключа из массива и отображаемое название.</p>
 </li>
 <li>
 <p>Метод <code>render(function ($item) { return $item-&gt;id})</code> возможность генерации ячейки согласно функции. В $item передаются данные текущей строки.</p>
 </li>
 <li>
-<p>Метод <code>sort()</code> добавляет в заголовок возможность сортировки по данному столбцу.</p>
-</li>
-<li>
-<p>Метод <code>title($name)</code> устанавливает заголовок столбца.</p>
+<p>Метод <code>sort()</code> добавляет в заголовок возможность сортировки по данному столбцу ([См. HTTP фильтрация и сортировка[(<a href="https://orchid.software/ru/docs/filters">https://orchid.software/ru/docs/filters</a>)).</p>
 </li>
 <li>
 <p>Метод <code>width()</code> явно задает ширину столбца <code>width('100px')</code></p>
