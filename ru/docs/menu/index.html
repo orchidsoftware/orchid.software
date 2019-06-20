@@ -352,7 +352,7 @@ ItemMenu::label('Example')
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');</code></pre>
 <p>или любая другая проверка возвращающее булево значение:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;show(true);</code></pre>
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);</code></pre>
 <h4><a href="#vneshniy-vid" name="vneshniy-vid">Внешний вид</a></h4>
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('icon-heart');</code></pre>
