@@ -113,7 +113,7 @@ ItemMenu::label('Example')->permission('platform.idea');
 или любая другая проверка возвращающее булево значение:
 
  ```php
-ItemMenu::label('Example')->show(true);
+ItemMenu::label('Example')->canSee(true);
 ```
 
 #### Внешний вид
