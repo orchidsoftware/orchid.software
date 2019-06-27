@@ -242,7 +242,7 @@ Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
     ->title('Заголовок окна')
-    ->size(Modals::SIZE_LG)
+    ->size(Modal::SIZE_LG)
     ->applyButton(self::APPLY_BUTTON)
     ->closeButton(self::CLOSE_BUTTON),
 ```
