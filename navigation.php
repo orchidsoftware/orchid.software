@@ -40,18 +40,9 @@ return [
         ],
     ],
     'ru' => [
-        'Пролог'             => [
-            'children' => [
-                'Предисловие'          => '/ru/docs/preface',
-                'Введение в проект'    => '/ru/docs/',
-                'Кодекс поведения'     => '/ru/docs/code-of-conduct',
-                'Участие в разработке' => '/ru/docs/contributors',
-                'Содействие проекту'   => '/ru/docs/promote',
-                'Лицензия'             => '/ru/docs/license',
-            ],
-        ],
         'Начало работы'      => [
             'children' => [
+                'Введение в проект'   => '/ru/docs/',
                 'Установка платформы' => '/ru/docs/installation',
                 'Быстрый старт'       => '/ru/docs/quickstart',
                 'Обзор параметров'    => '/ru/docs/configuration',
@@ -75,6 +66,14 @@ return [
                 'Уведомления'      => '/ru/docs/alert',
                 'Контроллеры'      => '/ru/docs/controllers',
                 'Использование JS' => '/ru/docs/javascript',
+            ],
+        ],
+        'Сообщество'  => [
+            'children' => [
+                'Кодекс поведения'     => '/ru/docs/code-of-conduct',
+                'Участие в разработке' => '/ru/docs/contributors',
+                'Содействие проекту'   => '/ru/docs/promote',
+                'Лицензия'             => '/ru/docs/license',
             ],
         ],
     ],
