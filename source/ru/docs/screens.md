@@ -208,11 +208,9 @@ public function layout() : array
             ],
         ]),
         
-        // Модальные окна
-        Layout::modals([
-            'Appointments' => [
-                ThirdRows::class,
-            ],
+        // Модальное окно
+        Layout::modal('Appointments', [
+            ThirdRows::class,
         ]),
     ];
 }
