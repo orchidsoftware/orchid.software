@@ -420,11 +420,9 @@ Link::name('Модальное окно')
             ],
         ]),
 
-        // Модальные окна
-        Layout::modals([
-            'Appointments' =&gt; [
-                ThirdRows::class,
-            ],
+        // Модальное окно
+        Layout::modal('Appointments', [
+            ThirdRows::class,
         ]),
     ];
 }</code></pre>
