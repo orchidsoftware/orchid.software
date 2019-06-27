@@ -486,15 +486,16 @@ class Appointment extends Rows
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::modals([
-        'exampleModal' =&gt; Layout::rows([]),
+        Layout::modal('exampleModal', [
+        Layout::rows([]),
         ]),
     ];
 }</code></pre>
 <p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
-<pre><code class="language-php">Layout::modals([
-    'exampleModals' =&gt; Layout::rows([]),
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
 ])
+    -&gt;title('Заголовок окна')
     -&gt;size(Modals::SIZE_LG)
     -&gt;applyButton(self::APPLY_BUTTON)
     -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
