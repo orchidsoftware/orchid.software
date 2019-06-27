@@ -228,8 +228,8 @@ public function layout(): array
 public function layout(): array
 {
     return [
-        Layout::modals([
-	    'exampleModal' => Layout::rows([]),
+        Layout::modal('exampleModal', [
+	    Layout::rows([]),
         ]),
     ];
 }
@@ -238,9 +238,10 @@ public function layout(): array
 Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:
 
 ```php
-Layout::modals([
-    'exampleModals' => Layout::rows([]),
+Layout::modal('exampleModals', [
+    Layout::rows([]),
 ])
+    ->title('Заголовок окна')
     ->size(Modals::SIZE_LG)
     ->applyButton(self::APPLY_BUTTON)
     ->closeButton(self::CLOSE_BUTTON),
