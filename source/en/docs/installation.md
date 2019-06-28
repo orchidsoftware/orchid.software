@@ -1,79 +1,84 @@
 ---
-title: Installation
-description: This beginner guide will help you to start using ORCHID.
+title: Platform installation
+description: This getting started guide will help you get started using ORCHID.
 extends: _layouts.documentation.en
 section: main
 ---
 
-This beginner guide will help you to start using ORCHID. We've listed up the main steps you should perform to launch the project.
+
+Before you can use the platform, you will need to install it. This guide will help you perform a simple installation to start a project.
+
 
 ## Create project
 
-The platform and the framework use the Composer to provide and control your dependencies.   
-Install the framework with the `composer create-project` command in your terminal:
+Being a package for the framework, you must first install it. This can be done using the Composer dependency management tool by running the 'composer create-project' command in your terminal:
 
 ```php
 $ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist
 ```
 
-This will create a new folder `orchid`, download some dependencies into it and even generate main folders and files required to start your work. In other words it will install your new framework project.
+> **You don’t have Composer?** It’s easy to install by following the instructions on the [download page](https://getcomposer.org/download/).
 
-> Don't have the Composer? It's easy to install it following the tutorial at [download](https://getcomposer.org/download/) page.
 
-**Don't forget to**
-- Set the «chmod -R o+w» rights for folders `storage` and `bootstrap/cache`
+This will create a new `orchid-project` directory, load the dependencies into it, and generate the main directories and files that you will need to get started.
+In other words, install your new framework project.
+
+**Do not forget**
+- Set “chmod -R o + w” rights to the `storage` and` bootstrap/cache` directories
 - Edit the `.env` file
 
+## Add dependency
 
-## Add package
-
-Go to the created project folder and execute the following command:
+Go to the created project directory and run the command:
 ```php
 $ composer require orchid/platform
 ```
 
-> **Notice.** If you have installed Laravel in any other way you may have to generate a key
-using the command `php artisan key:generate`
+> **Note.** If you installed Laravel otherwise, you may need to generate a key
+using the command `php artisan key: generate`
 
-## Install
+## Platform installation
 
+> ** Note. ** You also need to create a new database and update the `.env` file with credentials and add the URL of your application to the variable` APP_URL`.
 
-> **Notice.** You also need to create a new database, add the credentials to the `.env` file and add your app URL to the `APP_URL` variable.
+Run the installation process by running the command:
 
-
-Run process
 ```php
 php artisan orchid:install
 ```
 
 ## Create user
 
-Run the following command to create a user with supreme (at the moment of creation) rights passing the username, e-mail and password:
+To create a user with maximum permissions for the current moment, you need to execute the command
+username, email and password:
+
 ```php
 php artisan orchid:admin admin admin@admin.com password
 ```
 
-## Run project
+## Start local server
 
-To run the project you may use the built-in server:
+To run the project, you can use the built-in server:
 ```php
 php artisan serve
 ```
 
-Open the browser and go to `http://localhost:8000/dashboard`. If everything works properly you will see the dashboard login page. Later, when you will end your work, stop the server with `Ctrl+C` shortcut in your terminal.
+Open a browser and go to `http://localhost:8000/dashboard`. If everything works, you will see the control panel login page. Later, when you are done, stop the server by pressing `Ctrl + C` in the terminal being used.
 
-> **Notice.** If the used runtime environment is set to work on other domain, (eg: orchid.loc),
- the dashboard will not be acessible and you will have to set it in config file `config/platform.php`
- or in `.env`. This allows to make a dashboard accessible from other domains or subdomains, for example, `platform.example.com`.
+> **Note.** If the runtime used is configured for a different domain (for example, orchid.loc),
+  then the admin panel will not be available, you need to specify it in the configuration file `config/platform.php`
+  or in `.env`. This allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`. 
  
- ## Publishing static resources
- 
-By default distribution of static files (css/js) happens through application routes, it is the best balance between setup and change tracking, but you can specify to use Web servers, for this purpose it is necessary to execute a command which will create the symbolical reference in the public directory:
+## Static Resource Publishing
 
-```php
+By default, static files (css / js) are distributed through application routes, this is the best balance between configuration and change tracking, but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having difficulty):
+
+ ```php
 php artisan orchid:link
 ```
  
-Had an issue during installation? Perhaps someone has already met the same problem https://github.com/orchidsoftware/platform/issues . If not, you may send a message or request [assistance](https://github.com/orchidsoftware/platform/issues).
+> **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
 
+## What to do next?
 
+Depending on how new you are, you can try a step-by-step example of working with the package on the [“Quick Start” page](/en/docs/quickstart) or simply dive into [documentation](/en/docs/screens).

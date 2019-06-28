@@ -1,75 +1,75 @@
 ---
-title: Access rights
-description: Role-based access control is the development of sample access control policy.
+title: Permissions
+description: Typically, you manage several dozen permits in a typical business process.
 extends: _layouts.documentation.en
 section: main
 ---
 
-Role-based access control is the development of sample access control policy. A role forms as the objects of authorization frameworks group depending on their specific application.
+Usually, users are not assigned permissions in the ORCHID application (although this is available), but rather roles. The role associated with the permission set, not with the individual user.
 
-The formation of roles is aimed at the determination of user-understandable access control rules.  Role-based access control is allowed to vary dynamically and flexibly during the work of access control system.
+Typically, you manage several dozen permits in a typical business.
+process.
+You can also have, say, 10 to 100 users.
+Although these users are not completely different from each other,
+You can divide them into logical groups according to what they do with the program.
+These groups are called roles.
 
-Permission is the least unit of right that user can have. You can check if a user has a permission with specified name.
-
-
-## User
-
-In the ORCHID application users are usually given roles, not permissions (although, such possibility exists). The role related to a set of permissions rather than individual user. 
-
-The concept is easy-to-learn. Usually, in a common business process you manage several dozens of permissions. Also, you can have from 10 to 100 users. While the users are not fully particular, you can divide them into logical groups according to how they deal with a program. This groups are called roles.
-
-The direct user management via permission assignment could be tiring and wrong because of users and permissions plurality.
+If you needed to manage users directly by assigning them permissions,
+it would be tedious and erroneous
+due to the large number of users and permissions.
 
 
-- You can group one, two or more permissions into a roles.
-- A user can be assigned with one or a number of roles.
-- A set of permissions in possession of a user is calculated as the concatenation of permissions from every role of the user.
+- You can group one, two or more permissions in a role.
+- The user is assigned one or more roles.
+- A set of permissions owned by the user,
+ calculated as a combination of permissions from each user role.
 
 
-A user has several flavors of role management:
+The user has several options for managing roles:
 
 ```php
-// Check if the user has rights
-// Check is performed for both user and his role
+// Check whether the user has permissions
+// Check is carried out both for the user and for his role
 Auth:user()->hasAccess($string);
 
-// Get all roles of the user
+// Get all user roles
 Auth::user()->getRoles();
 
-// Check if the user has a role
+// Check whether the user has a role
 Auth::user()->inRole($role)
 
-// Add a role to the user
+// Add role to user
 Auth::user()->addRole($role)
 ```
 
+> ** Note. ** Permissions are not a substitute for `Gate` or` Policies` included in the framework frame.
+
 ## Roles
 
-Roles also have the following procedures:
+Roles also have procedures for:
 
 ```php
-// Returns all users with the role
+// Returns all users with this role.
 $role->getUsers();
 ```
 
 
-## Creation of administrator role
+## Admin Creation
 
-Run the following command to create a user with supreme (at the moment of creation) rights:
-
+To create a user with the maximum (at the time of creation) rights, run the following command:
 
 ```php
 php artisan orchid:admin nickname email@email.com secretpassword
 ```
 
 
-## Adding custom permissions
+## Add your own permissions
 
 
-You can set up your own permissions in applications. 
-Using them you can implement an access to specific functions.
+You can define your own permissions in applications.
+  Using them, you explicitly implement access to certain functions.
 
-Example of adding the custom permissions with the use of provider:
+An example of adding your own permissions using a provider:
 
 ```php
 use Illuminate\Support\ServiceProvider;
@@ -83,7 +83,7 @@ class PermissionServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $permissions = ItemPermission::setGroup('modules')
+        $permissions = ItemPermission::group('modules')
             ->addPermission('analytics', 'Access to data analytics')
             ->addPermission('monitor', 'Access to the system monitor');
 

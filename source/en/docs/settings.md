@@ -1,43 +1,42 @@
 ---
 title: Settings
-description: Settings is the simple «key-value» storage
+description: Settings this is key-value storage
 extends: _layouts.documentation.en
 section: main
 ---
 
-Settings is the simple «key-value» storage that uses thw key to access a value. These storages are usually used to store settings, create special file systems, as object caches and also in systems designed with scalability in mind.
+The simplest persistent data store using a key to access a value.
+To add a new value to the repository you need to use:
 
-## Adding
-
-Pay attention that you may store not only simple type variables but arrays too. Arrays in storages are parsed to JSON that will be decoded back when a value is reqested.
-
-To add a new value to the storage you need to do the following:
 ```php
-use Orchid\Platform\Facades\Setting;
+use Orchid\Support\Facades\Setting;
 
-...
-
-Setting::set($key,$value);
+Setting::set($key, $value);
 ```
 
-## Requesting
+The transferred value will be converted to JSON, and upon receipt, decoding will occur, this allows you to place not only simple types, but also arrays in the storage.
 
-To request a value do the following:
+To get the value:
 ```php
 /**
 * @param string|array $key
 * @param string|null $default
 */
-$value = Setting::get($key);
-//or with default value
-$value = Setting::get($key, $default);
-//or helper
-setting($key,$default);
+Setting::get($key, $default);
+// or using the helper function
+setting($key, $default);
 ```
 
-## Deleting
+By default, each item is cached before it is changed, in cases if you need to get a value not from the cache, you need to use the getNoCache method.
 
-To delete a value do the following:
+```php
+Setting::getNoCache($key, $default = null);
+```
+
+> **Note.** When transferring keys as an array, subsequent updates of values will not automatically flush the cache.
+
+To delete a value:
+
 ```php
 /**
 * @param string|array $key
@@ -46,11 +45,4 @@ To delete a value do the following:
 Setting::forget($key);
 ```
 
-
-
-Pay attention that you may get or delete several values simultaneously, to do so you have to pass an array with key names as the first argument.
-
-Every element is cached before it's changed by default, and if you need to get non-cached value you myst use the "getNoCache" method like this:
-```php
-Setting::getNoCache($key, $default = null);
-```
+Please note that you can get or delete several values from the repository at once, for this you need to pass an array with the names of the keys as the first argument.

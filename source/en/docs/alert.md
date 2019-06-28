@@ -1,28 +1,32 @@
 ---
 title: Notifications
-description: Notifications is a simple way to inform a user about state of your application.
+description:  A simple way to notify the user about the status of your application.
 extends: _layouts.documentation.en
 section: main
 ---
 
-Notifications is a simple way to inform a user about state of your application. For example, notification  can inform a user of long process finishing or new message coming. In this section we will show you how to make it work in your application.
+A simple way to notify the user about the status of your application. For example, they can inform the user about the completion of a lengthy process or the arrival of a new message. In this section, we will show you how to make them work in your application.
 
-## Flash notification:
+## Flash messages:
 
-Flash notification is a disposable notification that will be deleted at the next appeal. Notifications are to inform about directly happened event, for example message about data saving.
+Flash notification is a one-time message that will be deleted upon next access.
+Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.
 
-ORCHID has handy call and display of notifications over the disposable flash-data.
-
+ORCHID has a convenient call and display notifications over one-time flash-data.
 
 ```php
-public function store()
-{
-    Alert::message('Welcome Aboard!');
-    return Redirect::home();
-}
+use Orchid\Support\Facades\Alert;
+
+Alert::message('Welcome Aboard!');
 ```
 
-You may also do like this:
+or use a shorter entry:
+
+```php
+alert('Message');
+```
+
+Messages can visually display the status using the color gamut, for this purpose are the methods:
 
 ```php
 Alert::info('Message')
@@ -31,44 +35,55 @@ Alert::error('Message')
 Alert::warning('Message')
 ```
 
-or use shorter notation:
+To insert your own template using variables tags use the `view` method:
 
 ```php
-alert('Message');
+Alert::view('alert', Alert::info, [
+    'name' => 'Alexandr'
+]);
+```
+
+The first argument of the method is the path/name of the `Blade` template:
+
+```php
+// resources/views/alert.blade.php
+
+Hello <strong>{{ $name }}</strong>
 ```
 
 
-After that there will be several keys installed in a session:
-- 'flash_notification.message' - Message to be displayed
-- 'flash_notification.level' - String that represents type of notification
+When used, several keys will be set per session:
+- 'flash_notification.message' - Message to display
+- 'flash_notification.level' - A string representing the type of notification
 
-For displaying at a particular place the following may be used:
+The default mapping is already built into the template, but you can explicitly call it in the `blade` template with
+To display in the required place is required:
+
 ```html
-<div class="container">
-    @include('platform::partials.alert')
-    <p>Welcome to my website...</p>
-</div>
+@include('platform::partials.alert')
 ```
 
-## Dashboard notifications
+## Notifications in the admin panel
 
-Dashboard notifications differ from flash-messages in the fact that they don't disappear after display and can be added to any users even if they are off-line. This is another good way to inform, for example, to notify an associate about new task at the "task manager" application.
+The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
+can be added to any users even when they are offline. This is another great way to inform
+for example, for a task manager application to notify an employee about a new task.
 
-You need to do the following to create a notification:
+To create a notification is required:
 ```php
 $user = User::find(1);
 
 $user->notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title' => 'Hello Word',
+    'title'   => 'Hello Word',
     'message' => 'New post!',
-    'action' => 'https://google.com',
-    'type' => DashboardNotification::INFO,
+    'action'  => 'http://orchid.software/',
+    'type'    =>  DashboardNotification::INFO,
 ]));
 ```
 
-Allowed types:
+Supported Types:
 
-- DashboardNotification::INFO (By default)
+- DashboardNotification::INFO (Default)
 - DashboardNotification::SUCCESS
 - DashboardNotification::WARNING
 - DashboardNotification::ERROR

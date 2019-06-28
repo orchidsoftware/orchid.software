@@ -1,42 +1,26 @@
 ---
-title: Screens
-description: Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity.
+title: Screen concept
+description: The main components of the user interface
 extends: _layouts.documentation.en
 section: main
 ---
 
-Screens are the main components of user interface that are discribed by a composition hierarcy, according to it every element has several properties that affect it's own apparel and entity.  By changing
-the layout structure and element properties you may create completely new layouts almost in a few minutes.
+The main element of the platform are the screens described by the layout hierarchy, according to which
+Each element has properties that affect its appearance and behavior.
 
-A screen doesn't know where the data is from, it may be from database, API or other external sources. A screen has standard functionality of modern user interface. You may configure the screen layout and also add or delete commands. 
-    Screen's apparel is defined by the `Layouts`, so everything you need to do is to define what data is to be displayed in particular layout.
+Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance is based on the provided `templates` (Layouts) and all you need to do is just to determine what data will be shown in a particular template.
 
 ![Screens](https://orchid.software/assets/img/scheme/screens.jpg)
 
-
-## Why not CRUD?
-
-Almost every popular extensions use CRUD for user models, and it's a good solution, but an application cannot consist of the basic functions. You probably will extend and update the generated logic. A good example showing that standard CRUD operations are not enough is an ability to "Print". ORCHID allows to create CRUD using "screens", but it's not their main purpose.
-
-
-## Informational objects and screens
-
-When using the traditional development instruments, the creation of several layouts for displaying and changing is more complicated and hard tas than creation of data tables. It's especially noticable when you follow the three level application architecture andyou need to add a lot of proxy code for level binding. Instruments for fast development make this process drastically easier and cheeper.
-
-Screens are used in ORCHID to display and control data, and are based on preset layouts. To bind data and screen you only need to define the displayed entities or requests. 
-
-
 ## Creation
 
-With ORCHID it's easier to do it, and you may create a set of screens in a few minutes.
-
-To create a new screen you must perform the following comand:
+You can create a new screen by running the command:
 
 ```php
-php artisan orchid:screen Users
+php artisan orchid:screen Idea
 ```
 
-In the `app/Http/Controllers/Screens` directory will be created the `Users` file with the following content:
+An `Idea` file will be created in the `app/Orchid/Screens` directory with the following contents:
 
 ```php
 namespace App\Http\Controllers\Screens;
@@ -44,21 +28,21 @@ namespace App\Http\Controllers\Screens;
 use Illuminate\Http\Request;
 use Orchid\Platform\Screen\Screen;
 
-class Users extends Screen
+class Idea extends Screen
 {
     /**
      * Display header name
      *
      * @var string
      */
-    public $name = 'Users Screen';
+    public $name = 'Idea Screen';
 
     /**
      * Display header description
      *
      * @var string
      */
-    public $description = 'Users Screen';
+    public $description = 'Idea Screen';
 
     /**
      * Query data
@@ -93,130 +77,142 @@ class Users extends Screen
 
 ```
 
+## Check in routes
 
+You can register each screen using the `screen` method of Route
 
-## Routing registration
-
-You may register every screen with the Route's `screen` method
 ```php
-Route::screen('/news', 'Users','platform.screens.users.list');
-//or
-$route->screen('/news', 'Users','platform.screens.users.list');
+use App/Orchid/Screens/Idea;
+
+Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
 
 
+## Data Acquisition
 
-
-## Data
-
-Most of data-oriented applications work with several tables, and these tables are connected to each other. It's often required to display the data fetched from different sources or linked tables.
-
-For example in the process of displaying an order information a screen usually contains the following information about order: date, shipment address, shipment method etc. and one or more connected entries: product, amount, unit price, VATs, full price etc..
-
-Data to be displayed is defined in the `query` method where selections and data formation must be performed.
-The data is then passed in array, which keys will be available from layouts.
-
-An example where Layouts has the control over `user` and `users` keys:
+The data to be displayed on the screen is defined in the `query` method, where sampling or generation of information should occur.
+The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.
 
 ```php
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query() : array
-    {
-        return [
-            'user'  => User::find(1),
-            'users' => User::paginate(),
-        ];
-    }
-```
-
-
-
-
-## Processing
-
-Screen Commands are available at the screens, they allow users to perform different user scenarios.
-All required control buttons are defined inside the `commandBar` method . 
-
-For example:
-
-```php
-/**
-* Button commands
-*
-* @return array
-*/
-public function commandBar() : array
+public function query() : array
 {
     return [
-        Link::name('Print')->method('print'),
+        'name'  => 'Alexandr Chernyaev',
     ];
 }
 ```
 
-The `Link` class is responsible for actions that must be performed after the button is pressed, in above example after the `Print` button is pressed the `print` method is called, and all the data on the screen will be available inside the Request.
-
+The source can be the `Eloquent` model, for this you need to add the trait` AsSource`:
 
 ```php
-// The 'create' method is called upon pressing button
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\Traits\AsSource;
+
+class Order extends Model
+{
+    use AsSource
+}
+```
+
+An example where the `order` and `orders` keys will be available in Layouts:
+
+```php
+public function query() : array
+{
+    return [
+        'order'  => Order::find(1),
+        'orders' => Order::paginate(),
+    ];
+}
+```
+
+The use of the `Eloquent` models is not necessary, it is possible to use arrays using the` Repository` wrapper:
+
+```php
+//...
+use Orchid\Screen\Repository;    
+//...
+
+public function query() : array
+{
+    return [
+        'order'      => new Repository([
+            'product_id' => 'prod-100',
+            'name'       => 'Desk',
+            'price'      => 10.24,
+            'created_at' => '01.01.2020',
+      ]),
+    ];
+}
+```
+
+
+
+## Treatment
+
+The screens include built-in commands that allow users to execute various user scripts.
+The `commandBar` method is responsible for this, which describes the required control buttons.
+
+For example:
+
+```php
+public function commandBar() : array
+{
+    return [
+        Link::name('Go print')->method('print'),
+    ];
+}
+```
+
+The `Link` class responds to what will happen when a button is pressed, in the example above, when you click on the Print button,
+The screen method `print` will be called, all the data that the user has seen on the screen will be available in Request.
+
+```php
+// By pressing, the 'create' method will be called
 Link::name('New function')->method('create');
 
-// You will be redirected to specified address upon pressing
-Link::name('External link')->link('http://google.com/');
+// By clicking you will be redirected to the specified address
+Link::name('External reference')->link('http://google.com/');
 
-// A modal window will be prompted upon pressing (CreateUserModal),
-// here the "save" method may be used
+// By pressing, a modal window will be shown (CreateUserModal),
+// in which you can execute the "save" method
 Link::name('Modal window')
-->modal('CreateUserModal')
-->title('Create new user')
-->method('save'),
+    ->modal('CreateUserModal')
+    ->title('Add user')
+    ->method('save'),
 ```
 
 
 ## Layouts
 
-Layouts are responsible for the visual appearance of a screen.
-More about them is in [Layouts](/en/docs/layouts/) section
+Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.
 
-Every layout may include another layout therefore the nesting.
-For example, a screen is separated into two columns, left contains input fields and right contains lookup table and chart.
-You may think of another examples of nesting.
+Each layout may include a different layout, that is, nesting.
+For example, the screen is divided into two columns, in the left field for filling, on the right there is a reference table and a graph.
+You can come up with your own examples of attachments.
 
 
 ```php
-/**
- * Views
- *
- * @return array
- */
 public function layout() : array
 {
     return [
         Layout::columns([
             'Left column' => [
-                PatientFirstRows::class,
+                FirstRows::class,
             ],
             'Right column' => [
-                PatientSecondRows::class,
+                SecondRows::class,
             ],
         ]),
-        Layout::columns([
-            'Left column' => [
-                AppointmentListLayout::class
-            ],
-            'Right column' => [
-                InvoiceListLayout::class
-            ],
-        ]),
-        // Modal windows
-        Layout::modals([
-            'Appointments' => [
-                PatientFirstRows::class,
-            ],
+        
+        // Modal window
+        Layout::modal('Appointments', [
+            ThirdRows::class,
         ]),
     ];
 }
 ```
+
+More details can be found in the [Layouts section](/en/docs/layouts/).

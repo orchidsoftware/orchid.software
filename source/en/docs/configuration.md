@@ -1,117 +1,84 @@
 ---
-title: Configuration file
-description: ORCHID uses the standard Laravel configuration system.
+title: Platform configuration
+description: ORCHID uses the standard configuration system for Laravel.
 extends: _layouts.documentation.en
 section: main
 ---
 
-ORCHID uses the standard Laravel configuration system.
-All parameters can be found in `config` directory, and the `platform.php` file is main for platform. Every setting is prompted with commentary summing it's essence.
+The platform uses the standard configuration system for Laravel.
+The main parameters are located in the `config` directory, and the main file for the platform is
+file `platform.php`. Each setting comes with a commentary explaining the main point.
 
-## Platform address
+> ** Note. ** If you cache your configuration files, do not forget to clear them after the change. Using the command `php artisan config: clear`
+
+Below we dive into the configuration file and give a detailed description of each parameter.
+
+## Platform Address
 
 ```php
 'domain' => env('DASHBOARD_DOMAIN', null),
 ```
 
-Dashboard address plays an important role for many projects .
-For example, an application may be at the address `example.com` and a dashboard is at `admin.example.com` or even at external domain.
+For many projects, the address of the location of the administration panel plays an important role.
+For example, the application is located at `example.com`, and the platform is at `admin.example.com` or on a third-party domain.
 
-To perform this you need to define which address must be accessed to open it. 
+For this you need to specify the address you would like to open.
 
 ```php
 'domain' => 'admin.example.com',
 ```
  
-Remember that your web server parameters must be properly configured.
+Remember that your web server settings must be configured properly.
 
 
-
-
-## Platform prefix
+## Platform Prefix
 
 
 ```php
 'prefix' => env('DASHBOARD_PREFIX', 'dashboard'),
 ```
-
-The system installed on the website can be easily defined by the dashboard prefix, for example it is `wp-admin` for WordPress, and it gives an opportunity to automatically search for old vulnerable versions of software and gain control over it.
  
-There are other reasons but we won't speak of them in this section. 
-The point is that ORCHID allows to change the `dashboard` prefix to anything you want, `admin` or `administrator` for example.
+Provides the ability to change the `dashboard` prefix to any other name, such as` admin` or `administrator`.
 
 
-
-## Middlewares
+## Middleware
 
 ```php
 'middleware' => [
     'public'  => ['web'],
-    'private' => ['web', 'dashboard'],
+    'private' => ['web', 'platform'],
 ],
 ```
 
-You may add or delete middlewares of graphical interface. 
-At the moment there is two types of middlewares: `public`, that unauthorized user may access to, for example, it may be `Login` page or `Password recovery`, and `private` that may be accessed only by authorized users.
+You can add/change intermediate layers (middleware) for the graphical interface.
+Currently there are two groups of `public` that can be seen by an unauthorized user,
+for example, the "Login" or "Password Recovery" page and `private` which, on the contrary, only authorized users see.
 
 
-You may add as much new middlewares as you want, as example the middleware for IP whitelist filtration.
+You can add as many new intermediate layers as you like.
+for example, the filtering layer requests only from the white list of IP addresses.
 
 
-
-## Authorization page
+## Login page
 
 ```php
-'auth' => [
-    'display' => true,
-    'image'   => '/orchid/img/background.jpg',
-    //'slogan'  => '',
-],
+'auth' => true,
 ```
 
-Authorization page has several settings like background image and your project motto. 
-Also there is an ability to completely disable the embedded authorization form and implement your own with the following command:
+It is possible to completely disable the supplied authorization form and make your own, for example, using the command:
 
 ```php
 php artisan make:auth
 ```
 
+## Home Page
 
-
-## Post localization
-
+The main page of the application is recorded in the form of the **name route** that the user will see when entering or clicking on logos and links.
 ```php
-'locales' => [
-    'en' => [
-        'name'     => 'English',
-        'script'   => 'Latn',
-        'dir'      => 'ltr',
-        'native'   => 'English',
-        'regional' => 'en_GB',
-    ],
-],
+'index' => 'platform.main',
 ```
 
-Generic entries created with `entity` system may be localized, it means you may create the same entries in different languages; to add new language you only need to add new element to array.
-
-
-## User menu
-
-```php
-'menu' => [
-    'header'  => 'Header menu',
-    'sidebar' => 'Sidebar menu',
-    'footer'  => 'Footer menu',
-],
-```
-
-Menu configuration only requires key and value that will be shown to user. 
-By default there are three types of menus: upper, side and lower. 
-You may add or delete them if you need.
-
-You may see an example of menu usage [there](/en/docs/tutorial_blog/#vidzhet).
-
-## Dashboard resources
+## Dashboard Resources
 
 
 ```php
@@ -121,4 +88,60 @@ You may see an example of menu usage [there](/en/docs/tutorial_blog/#vidzhet).
 ],
 ```
 
-During your work you may need to add your own style tables or javascript scenarios globally for all the pages, so you need to add them to relevant arrays.
+As you work, you may need to add your own style sheets or javascript scripts.
+globally, on each page, it is necessary to add paths for them to the corresponding arrays.
+
+It is also possible to specify resources through the `Dashboard` object, for example, in a service provider:
+
+
+```php
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard->registerResource('stylesheets', 'custom.css');
+        $dashboard->registerResource('scripts', 'custom.js');
+    }
+}
+```
+
+
+## Appearance Patterns
+
+To change some templates, it is not necessary to publish the entire package; you can customize part of the user interface to specify a logo, accompanying documents, etc.
+
+```php
+'template' => [
+    'header' => 'platform::header',
+    'footer' => 'platform::footer',
+],
+```
+
+
+## Model Classes
+
+The desire to change the behavior of some classes from the standard delivery is quite normal, in order for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
+
+```php
+Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
+```
+
+You can use the configuration parameter, which allows you to define all the substitutions at once:
+
+```php
+Dashboard::configure([
+    'models' => [
+        User::class => MyCustomClass::class,
+    ],
+]);
+```

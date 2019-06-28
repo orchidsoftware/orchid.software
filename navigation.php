@@ -3,6 +3,35 @@
 return [
 
     'en' => [
+        'Get started' => [
+            'children' => [
+                'Introduction project'  => '/en/docs/',
+                'Installation platform' => '/en/docs/installation',
+                'Quick start'           => '/ru/docs/quickstart',
+                'Configuration'         => '/en/docs/configuration',
+            ],
+        ],
+        'Core concepts'   => [
+            'children' => [
+                'Screens'        => '/en/docs/screens',
+                'Screen layouts' => '/en/docs/layouts',
+                'Form elements'  => '/en/docs/field',
+                'Menu'           => '/en/docs/menu',
+                'Permissions'    => '/en/docs/access',
+            ],
+        ],
+        'Дополнительно' => [
+            'children' => [
+                'Filtration'    => '/en/docs/filters',
+                'Global search' => '/en/docs/global-search',
+                'Attachments'   => '/en/docs/attachments',
+                'Settings'      => '/en/docs/settings',
+                'Notifications' => '/en/docs/alert',
+                'Controllers'   => '/en/docs/controllers',
+                'Using JS'      => '/en/docs/javascript',
+            ],
+        ],
+        /*
         'Prologue'        => [
             'children' => [
                 //'Предисловие'           => '/en/docs/preface',
@@ -13,31 +42,7 @@ return [
                 'Licensing'             => '/en/docs/license',
             ],
         ],
-        'Get started' => [
-            'children' => [
-                'Installation platform' => '/en/docs/installation',
-                'Configuration' => '/en/docs/configuration',
-            ],
-        ],
-        'Core concepts'   => [
-            'children' => [
-                'Screens'       => '/en/docs/screens',
-                'Layouts'       => '/en/docs/layouts',
-                'Fields'        => '/en/docs/field',
-                'Panel menu'    => '/en/docs/panel_menu',
-                //'Widgets'       => '/en/docs/widget',
-                //'Поиск'         => '/en/docs/global_search',
-                'Access rights' => '/en/docs/access',
-            ],
-        ],
-        'Extra' => [
-            'children' => [
-                'Filters'       => '/en/docs/filters',
-                'Settings'      => '/en/docs/settings',
-                'Notifications' => '/en/docs/alert',
-                'Extension'     => '/en/docs/extension',
-            ],
-        ],
+        */
     ],
     'ru' => [
         'Начало работы'      => [

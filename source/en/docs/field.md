@@ -1,36 +1,28 @@
 ---
-title: Fields
-description: Fields are used to generate the output for the form template.
+title: Form elements
+description: Fields are used to generate the output form template and edit
 extends: _layouts.documentation.en
 section: main
 ---
 
-Fields are used to generate the output for the form template.
 
-All possible fields are defined in the `config/platform.php` file inside the fields section
-Every field may be used in a entity, template or filter. 
+Fields are used to generate the output form template and edit
 
-Fields and entities are defined separately, that allows us to use only a key 
-to access them, for example if we need a `wysiwyg` redactor requested value will be our class. 
-This allows to change the `tinymce` to `summernote` or `ckeditor` almost in one click.
+> Feel free to add your own fields, for example, to use a convenient editor for you or any components.
+ 
+## Input fields
 
-
-> Don't be shy to add custom fields, for example to use a redactor comfortable for you or any component.
- 
- 
-## Input
-
+### Input
 
 ![Input](https://orchid.software/assets/img/ui/input.png)
 
-Input is one of the most diversed elements of forms that allows you to create different parts of interface and provide interaction with user.
-Input is mainly intended to create text fields.
- 
-An example:
+It is one of the versatile elements of the form and allows you to create different parts of the interface and provide user interaction. Mainly designed to create text fields.
+ 
+Example:
+
 ```php
-Input::make()
+Input::make('name')
     ->type('text')
-    ->name('place')
     ->max(255)
     ->required()
     ->title('Name Articles')
@@ -38,118 +30,29 @@ Input::make()
 ``` 
  
 
-> Note that a lot of parameters, like max, required, title, help and others, are accessible from almost every `field` of the system and are completely optional
- 
- 
- 
-## Wysiwyg
+> Notice many methods such as `canSee`,` equired`, `title`,` help`, `vertical`,` horizontal`; and many others, are available in almost every `field` system and are optional
+ 
+One of the most universal fields due to the type indication, almost all `html` values ​​are supported:
+
+* **text** - Text field. Designed to enter characters using the keyboard.
+* **file** - The field to enter the name of the file that is sent to the server.
+* **hidden** - Hidden field.
+* **color** - Widget for color selection.
+* **email** - For email addresses.
+* **number** - Enter numbers.
+* **range** - Slider to select numbers in the specified range.
+* **url** - For web addresses.
 
 
-![Wysing](https://orchid.software/assets/img/ui/wysing.png)
+### Textarea
+ 
+The `textarea` field is a form element for creating an area in which you can enter several lines of text.
+Unlike the `input` tag in a text field, it is permissible to make line breaks saved when sending data to the server.
 
-A visual redactor which contents are displayed in the process of redaction and look almost like a result.
-The redactor allows to add images, tables, define text styles and embed videos.
- 
-An example:
+Example:
+
 ```php
-TinyMCE::make()
-    ->name('body')
-    ->required()
-    ->title('Name Articles')
-    ->help('Article title')
-    ->theme('inline');
-``` 
-To display a top panel and a menu, that allows you to view a splash screen and html code, in the redactor, you need to set an attribute `theme('modern')`.
- 
-## Markdown
-
-
-![Markdown](https://orchid.software/assets/img/ui/markdown.png)
-![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
-
-Light markup language redactor 
- created to write a maximum human-friendly and easy-to-correct text
-  suitable to be transpiled to languages for advanced publications
- 
-an example:
-```php
-SimpleMDE::make()
-    ->name('body')
-    ->title('What would you tell us?');
-```  
- 
-## Picture
- 
-Allows to upload pictures and cut them to a required format 
-
-
-An example:
-```php
-Picture::make()
-    ->name('picture')
-    ->width(500)
-    ->height(300);
-```  
-           
-       
-## Datetime
- 
- 
-![Datatime](https://orchid.software/assets/img/ui/datatime.png)
- 
-Allows to set date and time
-
-
-An example:
-```php
-DateTimer::make()
-    ->type('text')
-    ->name('open')
-    ->title('Opening date')
-    ->help('The opening event will take place');
-```           
-           
-## Checkbox
- 
-User graphical interface element that allows a user to control the parameter with two states — ☑ on and ☐ off.
-
-
-An example:
-```php
-CheckBox::make()
-    ->name('free')
-    ->value(1)
-    ->title('Free')
-    ->placeholder('Event for free')
-    ->help('Event for free');
-```           
-
-## Code
- 
- 
-![Code](https://orchid.software/assets/img/ui/code.png)
- 
-A field for a program code with a highligt
-
-An example:
-```php
-Code::make()
-    ->name('block')
-    ->title('Code Block')
-    ->help('Simple web editor');
-```    
-
-
-
-## Textarea
- 
-A `textarea` field is an element of form used to insert several text strings inside it. 
-As opposed to `input` tag, it's possible to do a line break there, it will be saved and sent to server.
-
-An example:
-```php
-TextArea::make()
-    ->name('description')
+TextArea::make('description')
     ->max(255)
     ->rows(5)
     ->required()
@@ -157,162 +60,462 @@ TextArea::make()
 ```    
 
 
-## Tags
+### Checkbox
+ 
+A graphical user interface element that allows the user to control a two-state parameter - ☑ on and ☐ off.
+
+
+Example:
+```php
+CheckBox::make('free')
+    ->value(1)
+    ->title('Free')
+    ->placeholder('Event for free')
+    ->help('Event for free');
+```           
  
-A notation of several values delimited by comma
 
-An example:
+### Mask for entering values
+ 
+Great if values should be recorded in a standard form, for example, TIN or phone number
+
+Example:
 ```php
-Tags::make()
-    ->name('keywords')
-    ->title('Keywords')
-    ->help('SEO keywords');
-```   
-
-
-## Select
-
-Simple selection from array list:
-
-```php
-Select::make()
-    ->options([
-        'index'   => 'Index',
-        'noindex' => 'No index',
-    ])
-    ->name('select')
-    ->title('Select tags')
-    ->help('Allow search bots to index');
-```
-
-
-## Mask
- 
-A mask for data input in `input` tag. 
-It's great to use it when a value must be inserted in some standard way, for example when inserting a phone number or TIN
-
-An example:
-```php
-Input::make()
-    ->type('text')
-    ->name('phone')
+Input::make('phone')
     ->mask('(999) 999-9999')
-    ->title('Phone')
-    ->help('Number Phone');
+    ->title('Number phone');
 ```   
 
-A json with parameters may be passed to mask, eg:
+You can pass json to the mask with parameters, for example:
 
 
 ```php
-Input::make()
-    ->type('text')
-    ->name('price')
+Input::make('price')
     ->mask([
-         'mask' => '999 999 999.99',
-         'numericInput' => true
-    ])
-    ->title('Cost');
+     'mask' => '999 999 999.99',
+     'numericInput' => true
+    ]);
 ```   
 
 ```php
-Input::make()
-    ->type('text')
-    ->name('price')
+Input::make('price')
     ->mask([
         'alias' => 'currency',
         'prefix' => ' ',
         'groupSeparator' => ' ',
         'digitsOptional' => true,
-    ])
-    ->title('Cost');
+    ]);
 ```   
 
-All available *Inputmask* may be found [here](https://github.com/RobinHerbots/Inputmask#options)
+All available *Inputmask* options can be viewed [here](https://github.com/RobinHerbots/Inputmask#options) 
 
+
+## Text Editors
+
+A visual editor in which the content is displayed during the editing process and
+looks as close as possible to the end result.
+The editor allows you to insert images, tables, specify the styles of text, video.
+
+### HTML editor TinyMCE
+
+![Wysing](https://orchid.software/assets/img/ui/wysing.png)
+ 
+Example:
+```php
+TinyMCE::make('html')
+    ->required()
+    ->theme('inlite');
+``` 
+
+To display the top pane and a menu in the editor, where the functions of full-screen mode and viewing html code are available, you need to set the attribute `theme ('modern')`.
+
+### HTML editor Qill
+
+Example:
+```php
+Quill::make('html')
+``` 
+ 
+### Markdown editor
+
+![Markdown](https://orchid.software/assets/img/ui/markdown.png)
+![Markdown2](https://orchid.software/assets/img/ui/markdown2.png)
+
+Editor for lightweight markup language,
+  created with the purpose of writing the most readable and easy to edit text
+   but suitable for converting to languages for advanced publications
+ 
+Example:
+```php
+SimpleMDE::make('markdown');
+```  
+ 
+### Code editor
+ 
+Field for recording software code with the ability to highlight
+
+![Code](https://orchid.software/assets/img/ui/code.png)
+
+
+Example:
+```php
+Code::make('code');
+```    
+
+To specify the code highlighting for a specific programming language, you can specify the method `language()`
+
+```php
+ Code::make('code')
+     ->language(Code::CSS);
+```
+
+The following languages are available:
+
+* Markup - `markup`, `html`, `xml`, `svg`, `mathml`
+* CSS - `css`
+* C-like - `clike`
+* JavaScript - `javascript`, `js`
+
+
+The indication of the number of lines is supported:
+
+```php
+Code::make('code')
+    ->lineNumbers();
+```
+ 
+## File Upload and Processing
+
+### Picture field
+ 
+Allows you to upload an image.
+
+
+Example:
+```php
+Picture::make('picture')
+    ->width(500)
+    ->height(300);
+```  
+
+### Cropper field
+ 
+Allows you to upload an image and crop to the desired format.
+
+
+Example:
+```php
+Cropper::make('picture')
+    ->width(500)
+    ->height(300);
+```  
+
+### Media field
+ 
+
+Example:
+```php
+Upload::make('upload');
+```  
+
+```php
+Upload::make('docs')
+    ->groups('documents');
+
+Upload::make('images')
+    ->groups('photo');
+```  
+
+Can be used to limit the maximum number of files to be processed.
+
+```php
+Upload::make('upload')
+    ->maxFiles(10)
+```
+
+Specifies the number of parallel downloads to process files.
+
+```php
+Upload::make('upload')
+    ->parallelUploads(2)
+```
+
+```php
+Upload::make('upload')
+    ->maxFileSize(1024)
+```
+
+The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.
+
+```php
+Upload::make('upload')
+    ->acceptedFiles('image/*,application/pdf,.psd')
+```
+
+The boot field can work with different repositories, in order to specify it, you must pass the key specified in `config/filesystems.php`:
+
+```php
+Upload::make('upload')
+    ->storage('private')
+```
+
+The default storage is `public`.
+
+## TimeZone field
+
+Field for convenient selection of time zone:
+
+```php
+TimeZone::make('time');
+```
+
+Perhaps specifying specific time zones using:
+
+```php
+use DateTimeZone;
+
+TimeZone::make('time')
+    ->listIdentifiers(DateTimeZone::ALL); 
+```
+
+The default value is `DateTimeZone::ALL`, but others are possible:
+
+```php
+DateTimeZone::AFRICA;
+DateTimeZone::AMERICA;
+DateTimeZone::ANTARCTICA;
+DateTimeZone::ARCTIC;
+DateTimeZone::ASIA;
+DateTimeZone::ATLANTIC;
+DateTimeZone::AUSTRALIA;
+DateTimeZone::EUROPE;
+DateTimeZone::INDIAN;
+DateTimeZone::PACIFIC;
+DateTimeZone::UTC;
+DateTimeZone::ALL_WITH_BC;
+DateTimeZone::PER_COUNTRY;
+```
+
+## Datetime field
+ 
+![Datatime](https://orchid.software/assets/img/ui/datatime.png) 
+ 
+Allows you to select the date and time
+
+
+Example:
+```php
+DateTimer::make('open')
+    ->title('Opening date');
+```           
+
+Allow direct input:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->allowInput();
+```           
+
+Data format:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->format('Y-m-d');
+```
+
+An example to display in the 24th format:
+
+```php
+DateTimer::make('open')
+    ->title('Opening date')
+    ->format24hr();
+```
+
+Calendar with time:
+
+```php
+DateTimer::make('open')
+    ->title('Opening time')
+    ->enableTime();
+```
+
+Select only time:
+
+```php
+DateTimer::make('open')
+    ->title('Opening time')
+    ->noCalendar()
+    ->format('h:i K');
+```
+
+         
+## Select
+
+Simple selection from the array list:
+
+```php
+Select::make('select')
+    ->options([
+        'index'   => 'Index',
+        'noindex' => 'No index',
+    ])
+    ->title('Select tags')
+    ->help('Allow search bots to index');
+```
+
+Work with source:
+
+```php
+Select::make('user')
+    ->fromModel(User::class, 'email')
+```
+
+Source with the condition:
+
+```php
+Select::make('user')
+    ->fromQuery(User::where('balance', '!=', '0'), 'email'),
+```
+
+Change key:
+```php
+Select::make('user')
+    ->fromModel(User::class, 'email', 'uuid')
+```
+
+There are situations when you need to add some value which means that the field is not selected,
+for this you can use the `empty` method:
+
+```php
+// for array
+Select::make('user')
+    ->options([
+        1  => 'Option 1',
+        2  => 'Option 2',
+    ])
+   ->empty('No select');
+
+// for source
+Select::make('user')
+    ->fromModel(User::class, 'name')
+    ->empty('No select');
+```
+
+> **Note** that empty is called later on fill methods, otherwise the added value will be overwritten
+
+The empty method also accepts the second argument responsible for the value:
+
+```php
+Select::make('user')
+    ->options([
+        1  => 'Option 1',
+        2  => 'Option 2',
+    ])
+   ->empty('No select', 0);
+```
 
 ## Relations
 
-`Relationship` fields may used to set the relation for your record. It loads data with ajax request and may used with huge number of data.
+Relationship fields can load dynamic data; this is a good solution if you need connections.
 
 ```php
-Relationship::make()
-    ->name('related_article')
-    ->required()
-    ->title('My related article')
-    ->handler(AjaxWidget::class);
+Relation::make('idea')
+    ->fromModel(Idea::class, 'name')
+    ->title('Select your idea'),
 ```
 
-AjaxWidget `$query` property will contain search string and `$key` property will contain a value if it already set for the field.
+To modify the load, you can use an indication of the `scope` model,
+for example, take only active:
 
 
 ```php
-namespace App\Http\Widgets;
+namespace App;
 
-use Orchid\Widget\Widget;
+use Illuminate\Database\Eloquent\Model;
 
-class AjaxWidget extends Widget
+class Idea extends Model
 {
 
     /**
-     * @var null
+     * @param Builder $query
+     *
+     * @return Builder
      */
-    public $query = null;
-
-    /**
-     * @var null
-     */
-    public $key = null;
-
-    /**
-     * @return array
-     */
-    public function handler()
+    public function scopeActive(Builder $query)
     {
-        $data = [
-            [
-                'id'   => 1,
-                'text' => 'Post 1',
-            ],
-            [
-                'id'   => 2,
-                'text' => 'Post 2',
-            ],
-            [
-                'id'   => 3,
-                'text' => 'Post 3',
-            ],
-        ];
-
-
-        if(!is_null($this->key)) {
-            foreach ($data as $key => $result) {
-
-                if ($result['id'] === intval($this->key)) {
-                    return $data[$key];
-                }
-            }
-        }
-
-        return $data;
-
+        return $query->where('active', true);
     }
-
 }
-
 ```
+
+```php
+Relation::make('idea')
+    ->fromModel(Idea::class, 'name')
+    ->applyScope('active')
+    ->title('Выберите свою идею'),
+```
+
+
+## Button/Link
+
+In certain cases, you need to add a button to call a modal window, a simple link, or add a button
+submit the form at the end of the screen.
+For such cases, there is a `Button` field. The `Button` field cannot have any
+values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
+and to add a simple link in the form.
+
+An example of using the modal window `addNewPayment` added earlier to the screen:
+
+```php
+Button::make()
+    ->title('Add Payment')
+    ->modal('addNewPayment')
+    ->icon('icon-wallet')
+    ->right()
+```
+
+Linking example:
+
+```php
+Button::make()
+    ->title('Google It!')
+    ->type(Button::LINK)
+    ->link('http://google.com');
+```
+
+Example use with method:
+
+```php
+Button::make()
+    ->title('Google It!')
+    ->method('goToGoogle');
+```
+
+Available modifiers:
+
+* `modal('modalName')` - creates a button that calls a modal window with the name `modalName` within the current screen.
+* `right()` - Positioning the element on the right edge of the screen
+* `block()` - Positioning the element across the entire width of the screen
+* `class('class-names')` - rewrites the standard button classes
+* `link('url')` - adds a link for the button. Ignored when given modal
+* `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
+* `title('Click Me!')` - sets the name of the current button
+* `icon('icon-wallet)` - sets an icon for the button
+ 
+
 
 ## Modification
 
-You also can modify value and other params with magic method `modify` with the name of attribute which you want modify:
+You can define a modification of a value or other parameters using the magic method `modify` to add to this
+attribute that you need to override:
+
 
 ```php
-Input::make()
-    ->type('text')
-    ->name('name')
+Input::make('name')
     ->modifyValue(function ($value) {
         return strtoupper($value);
     })
 ```
 
-It allow to create «calculated fields».

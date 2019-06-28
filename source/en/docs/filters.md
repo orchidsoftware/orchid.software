@@ -1,32 +1,33 @@
 ---
 title: Filters
-description: Filters serve for simplifying entries search using common filter.
+description: Filters are used to simplify the search for records using a typical filter.
 extends: _layouts.documentation.en
 section: main
 ---
 
-Filters serve for simplifying entries search using common filter.
-For example, if you wish to filter product catalog by attributes, brands, etc.
-Value sampling is based in the parameters of http requests.
+Filters are used to simplify the search for records using a typical filter.
+For example, if you want to filter the product catalog by attributes, brands, etc.
+The sample values are based on the Http request parameters.
 
-This is neither box solution nor universal tool, so you should extend structure for your specific applications.
+This is not a ready-made solution or a universal remedy.
+You must expand the structure for your specific applications.
 
 ## Creation
 
-There is a command to create a new filter:
+To create a new filter there is a command:
 
 ```php
 php artisan orchid:filter QueryFilter
 ```
 
-It will create filter class at the folder `app/Http/Filters`
+This will create a class filter in the `app/Http/Filters` folder.
 
 
 Filter example:
 ```php
 namespace App\Http\Filters;
 
-use Orchid\Platform\Filters\Filter;
+use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
 class QueryFilter extends Filter
@@ -36,16 +37,6 @@ class QueryFilter extends Filter
      * @var array
      */
     public $parameters = ['query'];
-
-    /**
-     * @var bool
-     */
-    public $display = true;
-
-    /**
-     * @var bool
-     */
-    public $dashboard = false;
 
     /**
      * @param Builder $builder
@@ -65,54 +56,110 @@ class QueryFilter extends Filter
         return Input::make('query')
             ->type('text')
             ->value($this->request->get('query'))
-            ->placeholder(__('Search...'))
-            ->title(__('Search'));
+            ->placeholder('Search...')
+            ->title('Search');
     }
 }
 ```
 
-A filter will work subject to availability of at least one of the parameters specified at an array `$parameters`, if an array is empty, then the filter will work at every request.
+The filter will work, provided there is at least one parameter specified in the array `$parameters`,
+if the array is empty, then the filter will work on every request.
+
+> **Note.** You can use the same filters for different models.
 
 ## Use
 
-To use a filter you need to specify it at a entity class.
-```php
-use Orchid\Entities\Many;
-
-class MyBehaviorPost extends Many
-{
-
-    /**
-     * HTTP data filters
-     *
-     * @var array
-     */
-    public function filters(){
-        return [
-            QueryFilter::class,
-        ];
-    }
-}
-```
-
-> **Note** that you can use same filters for different entities.
-
-
-Filtration can be started by the method `filtersApply`:
-```php
-use Orchid\Press\Models\Post;
-
-Post::type('news')->filtersApply()->simplePaginate();
-```
-
-
-To use the filters at your own models, it is necessary to apply `Orchid\Platform\Traits\FilterTrait` trade and pass to function `filtersApply` array of classes:
+To use filters in your own models,
+you need to connect the trait `Orchid\Filter\Filterable` and pass an array of classes to the` filtersApply` function:
 
 ```php
-use App\MyModel;
+use App\Model;
 
-MyModel::filtersApply([
+Model::filtersApply([
    Filter::class,
 ])->simplePaginate();
+```
+
+It is possible to use a whole group of filters merged into the `Selection` layer, through:
+
+```php
+Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
+```
+
+Then all filters installed in the layer will be applied.
+
+
+## Automatic HTTP Filtering and Sorting
+
+To respond to HTTP parameters, the model must include `Filterable`, as well as the definition of available
+attributes:
+
+
+```php
+use Filterable;
+
+
+/**
+ * @var
+ */
+protected $allowedFilters = [
+    'id',
+    'user_id',
+    'type',
+    'status',
+    'content',
+    'options',
+    'slug',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+];
+
+/**
+ * @var
+ */
+protected $allowedSorts = [
+    'id',
+    'user_id',
+    'type',
+    'status',
+    'slug',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+];
 
 ```
+
+### Use
+
+```php
+Post::filters()->defaultSort('id')->paginate();
+```
+
+How filtering will react:
+
+```php
+http://example.com/demo?filter[id]=1
+$model->where('id', '=', 1)
+
+
+http://example.com/demo?filter[id]=1,2,3,4,5
+$model->whereIn('id', [1,2,3,4,5]);
+
+
+http://example.com/demo?filter[content.ru.name]=dwqdwq
+$model->where('content->ru->name', '=', 'dwqdwq');
+
+```
+
+How sorting will respond:
+
+```php
+http://example.com/demo?sort=content.ru.name
+$model->orderBy('content.ru.name', 'asc');
+
+http://example.com/demo?sort=-content.ru.name
+$model->orderBy('content.ru.name', 'desc');
+```
+
