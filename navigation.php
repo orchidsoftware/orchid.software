@@ -14,8 +14,8 @@ return [
         'Core concepts'   => [
             'children' => [
                 'Screens'        => '/en/docs/screens',
-                'Screen layouts' => '/en/docs/layouts',
-                'Form elements'  => '/en/docs/field',
+                'Layouts' => '/en/docs/layouts',
+                'Form'  => '/en/docs/field',
                 'Menu'           => '/en/docs/menu',
                 'Permissions'    => '/en/docs/access',
             ],
