@@ -59,7 +59,7 @@ class EmailSenderScreen extends Screen
      * Set of mappings
      * rows, tables, graphs,
      * modal windows and their combinations
-     * /
+     */
     public function layout(): array
     {
         return [];
