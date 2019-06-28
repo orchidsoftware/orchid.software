@@ -20,7 +20,7 @@ return [
                 'Permissions'    => '/en/docs/access',
             ],
         ],
-        'Дополнительно' => [
+        'Extra' => [
             'children' => [
                 'Filtration'    => '/en/docs/filters',
                 'Global search' => '/en/docs/global-search',
