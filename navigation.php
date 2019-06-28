@@ -7,15 +7,15 @@ return [
             'children' => [
                 'Introduction project'  => '/en/docs/',
                 'Installation platform' => '/en/docs/installation',
-                'Quick start'           => '/ru/docs/quickstart',
+                'Quick start'           => '/en/docs/quickstart',
                 'Configuration'         => '/en/docs/configuration',
             ],
         ],
         'Core concepts'   => [
             'children' => [
                 'Screens'        => '/en/docs/screens',
-                'Layouts' => '/en/docs/layouts',
-                'Form'  => '/en/docs/field',
+                'Layouts'        => '/en/docs/layouts',
+                'Form'           => '/en/docs/field',
                 'Menu'           => '/en/docs/menu',
                 'Permissions'    => '/en/docs/access',
             ],
