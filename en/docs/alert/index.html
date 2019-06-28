@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Notifications is a simple way to inform a user about state of your application."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Notifications | Orchid - Laravel Admin Panel"><meta property="og:description" content="Notifications is a simple way to inform a user about state of your application."><meta property="og:url" content="http://orchid.software/en/docs/alert"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Notifications</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="A simple way to notify the user about the status of your application."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Notifications | Orchid - Laravel Admin Panel"><meta property="og:description" content="A simple way to notify the user about the status of your application."><meta property="og:url" content="http://orchid.software/en/docs/alert"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Notifications</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -76,7 +76,7 @@
         <div class="container no-padder" id="docs">
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
-                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Prologue</h4>
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Get started</h4>
 
 <li class="">
     
@@ -90,28 +90,15 @@
     </li>
             <li class="">
             
-        <a href="/en/docs/contributors" class="lvl1 ">
-            Contribution
+        <a href="/en/docs/installation" class="lvl1 ">
+            Installation platform
         </a>
     
     </li>
             <li class="">
             
-        <a href="/en/docs/license" class="lvl1 ">
-            Licensing
-        </a>
-    
-    </li>
-    </ul></li>
-            <h4 class="text-orchid font-thin">Get started</h4>
-
-<li class="">
-    
-            
-        <ul class=" toc-links-1 "><li class="">
-            
-        <a href="/en/docs/installation" class="lvl1 ">
-            Installation platform
+        <a href="/ru/docs/quickstart" class="lvl1 ">
+            Quick start
         </a>
     
     </li>
@@ -138,33 +125,33 @@
             <li class="">
             
         <a href="/en/docs/layouts" class="lvl1 ">
-            Layouts
+            Screen layouts
         </a>
     
     </li>
             <li class="">
             
         <a href="/en/docs/field" class="lvl1 ">
-            Fields
+            Form elements
         </a>
     
     </li>
             <li class="">
             
-        <a href="/en/docs/panel_menu" class="lvl1 ">
-            Panel menu
+        <a href="/en/docs/menu" class="lvl1 ">
+            Menu
         </a>
     
     </li>
             <li class="">
             
         <a href="/en/docs/access" class="lvl1 ">
-            Access rights
+            Permissions
         </a>
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Extra</h4>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
 
 <li class="">
     
@@ -172,7 +159,21 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/en/docs/filters" class="lvl1 ">
-            Filters
+            Filtration
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/global-search" class="lvl1 ">
+            Global search
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/attachments" class="lvl1 ">
+            Attachments
         </a>
     
     </li>
@@ -192,8 +193,15 @@
     </li>
             <li class="">
             
-        <a href="/en/docs/extension" class="lvl1 ">
-            Extension
+        <a href="/en/docs/controllers" class="lvl1 ">
+            Controllers
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/javascript" class="lvl1 ">
+            Using JS
         </a>
     
     </li>
@@ -208,48 +216,55 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#flash-notification">Flash notification:</a>
+                <a href="#flash-messages">Flash messages:</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#dashboard-notifications">Dashboard notifications</a>
+                <a href="#notifications-in-the-admin-panel">Notifications in the admin panel</a>
             </li>
-            </ul><hr><p>Notifications is a simple way to inform a user about state of your application. For example, notification  can inform a user of long process finishing or new message coming. In this section we will show you how to make it work in your application.</p>
-<h2><a href="#flash-notification" name="flash-notification">Flash notification:</a></h2>
-<p>Flash notification is a disposable notification that will be deleted at the next appeal. Notifications are to inform about directly happened event, for example message about data saving.</p>
-<p>ORCHID has handy call and display of notifications over the disposable flash-data.</p>
-<pre><code class="language-php">public function store()
-{
-    Alert::message('Welcome Aboard!');
-    return Redirect::home();
-}</code></pre>
-<p>You may also do like this:</p>
+            </ul><hr><p>A simple way to notify the user about the status of your application. For example, they can inform the user about the completion of a lengthy process or the arrival of a new message. In this section, we will show you how to make them work in your application.</p>
+<h2><a href="#flash-messages" name="flash-messages">Flash messages:</a></h2>
+<p>Flash notification is a one-time message that will be deleted upon next access.
+Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.</p>
+<p>ORCHID has a convenient call and display notifications over one-time flash-data.</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Alert;
+
+Alert::message('Welcome Aboard!');</code></pre>
+<p>or use a shorter entry:</p>
+<pre><code class="language-php">alert('Message');</code></pre>
+<p>Messages can visually display the status using the color gamut, for this purpose are the methods:</p>
 <pre><code class="language-php">Alert::info('Message')
 Alert::success('Message')
 Alert::error('Message')
 Alert::warning('Message')</code></pre>
-<p>or use shorter notation:</p>
-<pre><code class="language-php">alert('Message');</code></pre>
-<p>After that there will be several keys installed in a session:</p>
-<ul><li>'flash_notification.message&#8217; &#8211; Message to be displayed</li>
-<li>'flash_notification.level&#8217; &#8211; String that represents type of notification</li>
-</ul><p>For displaying at a particular place the following may be used:</p>
-<pre><code class="language-html">&lt;div class="container"&gt;
-    @include('platform::partials.alert')
-    &lt;p&gt;Welcome to my website...&lt;/p&gt;
-&lt;/div&gt;</code></pre>
-<h2><a href="#dashboard-notifications" name="dashboard-notifications">Dashboard notifications</a></h2>
-<p>Dashboard notifications differ from flash-messages in the fact that they don&#8217;t disappear after display and can be added to any users even if they are off-line. This is another good way to inform, for example, to notify an associate about new task at the &#8220;task manager&#8221; application.</p>
-<p>You need to do the following to create a notification:</p>
+<p>To insert your own template using variables tags use the <code>view</code> method:</p>
+<pre><code class="language-php">Alert::view('alert', Alert::info, [
+    'name' =&gt; 'Alexandr'
+]);</code></pre>
+<p>The first argument of the method is the path/name of the <code>Blade</code> template:</p>
+<pre><code class="language-php">// resources/views/alert.blade.php
+
+Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;</code></pre>
+<p>When used, several keys will be set per session:</p>
+<ul><li>'flash_notification.message’ – Message to display</li>
+<li>'flash_notification.level’ – A string representing the type of notification</li>
+</ul><p>The default mapping is already built into the template, but you can explicitly call it in the <code>blade</code> template with
+To display in the required place is required:</p>
+<pre><code class="language-html">@include('platform::partials.alert')</code></pre>
+<h2><a href="#notifications-in-the-admin-panel" name="notifications-in-the-admin-panel">Notifications in the admin panel</a></h2>
+<p>The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
+can be added to any users even when they are offline. This is another great way to inform
+for example, for a task manager application to notify an employee about a new task.</p>
+<p>To create a notification is required:</p>
 <pre><code class="language-php">$user = User::find(1);
 
 $user-&gt;notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title' =&gt; 'Hello Word',
+    'title'   =&gt; 'Hello Word',
     'message' =&gt; 'New post!',
-    'action' =&gt; 'https://google.com',
-    'type' =&gt; DashboardNotification::INFO,
+    'action'  =&gt; 'http://orchid.software/',
+    'type'    =&gt;  DashboardNotification::INFO,
 ]));</code></pre>
-<p>Allowed types:</p>
-<ul><li>DashboardNotification::INFO (By default)</li>
+<p>Supported Types:</p>
+<ul><li>DashboardNotification::INFO (Default)</li>
 <li>DashboardNotification::SUCCESS</li>
 <li>DashboardNotification::WARNING</li>
 <li>DashboardNotification::ERROR</li>
