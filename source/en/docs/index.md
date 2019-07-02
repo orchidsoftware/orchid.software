@@ -22,6 +22,7 @@ Some features:
 
 - **Form Builder** - no need to describe HTML fields of the same type every time.
 - **Screens** - a good balance between CRUD generation and manual writing.
+- **Fields** - more than 40 types.
 - **Permissions** - offers convenient management in development and support.
 - Menus, graphics, settings, notifications, etc. now.
 
