@@ -236,14 +236,18 @@
                     <li class="anchor-h2">
                 <a href="#what-to-do-next">What to do next?</a>
             </li>
-            </ul><hr><p>Before you can use the platform, you will need to install it. This guide will help you perform a simple installation to start a project.</p>
+            </ul><hr><p>Before you can use the platform you need install it. This guide should help you perform a simple installation to start the project.</p>
 <h2><a href="#create-project" name="create-project">Create project</a></h2>
-<p>Being a package for the framework, you must first install it. This can be done using the Composer dependency management tool by running the 'composer create-project’ command in your terminal:</p>
+<blockquote>
+<p><strong>Note.</strong> If you already have Laravel installation you can skip this step.</p>
+</blockquote>
+<p>Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the 'composer create-project’ command in your terminal:</p>
 <pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist</code></pre>
+<p>For more information how to install Laravel follow <a href="https://laravel.com/docs/5.8/installation">Official Laravel Installation Guide</a>.</p>
 <blockquote>
 <p><strong>You don’t have Composer?</strong> It’s easy to install by following the instructions on the <a href="https://getcomposer.org/download/">download page</a>.</p>
 </blockquote>
-<p>This will create a new <code>orchid-project</code> directory, load the dependencies into it, and generate the main directories and files that you will need to get started.
+<p>This will create a new <code>orchid-project</code> directory, load the dependencies and generate the main directories and files that you will need to get started.
 In other words, install your new framework project.</p>
 <p><strong>Do not forget</strong></p>
 <ul><li>Set “chmod -R o + w” rights to the <code>storage</code> and<code>bootstrap/cache</code> directories</li>
@@ -252,8 +256,7 @@ In other words, install your new framework project.</p>
 <p>Go to the created project directory and run the command:</p>
 <pre><code class="language-php">$ composer require orchid/platform</code></pre>
 <blockquote>
-<p><strong>Note.</strong> If you installed Laravel otherwise, you may need to generate a key
-using the command <code>php artisan key: generate</code></p>
+<p><strong>Note.</strong> If you just installed Laravel you may need generate a key with command <code>php artisan key:generate</code></p>
 </blockquote>
 <h2><a href="#platform-installation" name="platform-installation">Platform installation</a></h2>
 <blockquote>
@@ -262,25 +265,25 @@ using the command <code>php artisan key: generate</code></p>
 <p>Run the installation process by running the command:</p>
 <pre><code class="language-php">php artisan orchid:install</code></pre>
 <h2><a href="#create-user" name="create-user">Create user</a></h2>
-<p>To create a user with maximum permissions for the current moment, you need to execute the command
-username, email and password:</p>
+<p>To create a user with maximum permissions you can run the following command with a username, email and password:</p>
 <pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password</code></pre>
 <h2><a href="#start-local-server" name="start-local-server">Start local server</a></h2>
-<p>To run the project, you can use the built-in server:</p>
+<p>If you haven’t installed server (nginx, apache, etc) to run the project you can use the built-in server:</p>
 <pre><code class="language-php">php artisan serve</code></pre>
-<p>Open a browser and go to <code>http://localhost:8000/dashboard</code>. If everything works, you will see the control panel login page. Later, when you are done, stop the server by pressing <code>Ctrl + C</code> in the terminal being used.</p>
+<p>Open a browser and go to <code>http://localhost:8000/dashboard</code>. If everything works you will see the control panel login page. Later you can stop the server by pressing <code>Ctrl + C</code> in the terminal.</p>
 <blockquote>
-<p><strong>Note.</strong> If the runtime used is configured for a different domain (for example, orchid.loc), then the admin panel will not be available, you need to specify it in the configuration file <code>config/platform.php</code>
-  or in <code>.env</code>. This allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>. </p>
+<p><strong>Note.</strong> If your runtime uses a different domain (eg. orchid.loc)
+the admin panel may not be available and you need to specify your domain in the configuration file <code>config/platform.php</code>
+  or in <code>.env</code> file. This allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>. </p>
 </blockquote>
 <h2><a href="#static-resource-publishing" name="static-resource-publishing">Static Resource Publishing</a></h2>
-<p>By default, static files (css / js) are distributed through application routes, this is the best balance between configuration and change tracking, but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having difficulty):</p>
+<p>By default static files (css / js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
 </blockquote>
 <h2><a href="#what-to-do-next" name="what-to-do-next">What to do next?</a></h2>
-<p>Depending on how new you are, you can try a step-by-step example of working with the package on the <a href="/en/docs/quickstart">“Quick Start” page</a> or simply dive into <a href="/en/docs/screens">documentation</a>.</p>                    </main></div>
+<p>Now you can try the step-by-step example of working with the package on the <a href="/en/docs/quickstart">“Quick Start” page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>                    </main></div>
             </div>
         </div>
     </div>
