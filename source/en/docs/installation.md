@@ -13,13 +13,13 @@ Before you can use the platform you need install it. This guide should help you 
 
 > **Note.** If you already have Laravel installation you can skip this step.
 
-Being a package for the framework you must first install laravel. This can be done using the Composer dependency management tool by running the 'composer create-project' command in your terminal:
+Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the 'composer create-project' command in your terminal:
 
 ```php
 $ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist
 ```
 
-For more information how install Laravel follow [Official Laravel Installation Guide](https://laravel.com/docs/5.8/installation).
+For more information how to install Laravel follow [Official Laravel Installation Guide](https://laravel.com/docs/5.8/installation).
 
 > **You don’t have Composer?** It’s easy to install by following the instructions on the [download page](https://getcomposer.org/download/).
 
@@ -51,12 +51,12 @@ php artisan orchid:install
 
 ## Create user
 
-To create a user with maximum permissions for the current moment, you need to execute the command
-username, email and password:
+To create a user with maximum permissions you can run the following command with a username, email and password:
 
 ```php
 php artisan orchid:admin admin admin@admin.com password
 ```
+
 
 ## Start local server
 
@@ -65,15 +65,15 @@ If you haven't installed server (nginx, apache, etc) to run the project you can 
 php artisan serve
 ```
 
-Open a browser and go to `http://localhost:8000/dashboard`. If everything works, you will see the control panel login page. Later, when you are done, stop the server by pressing `Ctrl + C` in the terminal being used.
+Open a browser and go to `http://localhost:8000/dashboard`. If everything works you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
-> **Note.** If the runtime used is configured for a different domain (for example, orchid.loc),
-  then the admin panel will not be available, you need to specify it in the configuration file `config/platform.php`
-  or in `.env`. This allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`. 
+> **Note.** If your runtime uses a different domain (eg. orchid.loc)
+  the admin panel may not be available and you need to specify your domain in the configuration file `config/platform.php`
+  or in `.env` file. This allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`. 
  
 ## Static Resource Publishing
 
-By default, static files (css / js) are distributed through application routes, this is the best balance between configuration and change tracking, but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
+By default static files (css / js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
 
  ```php
 php artisan orchid:link
