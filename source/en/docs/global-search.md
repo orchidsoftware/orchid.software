@@ -10,7 +10,7 @@ section: main
 The platform comes with a package [Laravel Scout](https://github.com/laravel/scout) which is an abstraction for full-text search in your `Eloquent` models. 
 Since **`Scout` does not contain the search driver itself**, you need to supply and specify the required solution, these can be elasticsearch, algolia, sphinx or other solutions.
 
-To use global search, you need to add a new treit `Orchid\Platform\Traits\GlobalSearchTrait` to the model, it already includes` Laravel Scout`.
+To use global search, you need to add a new treit `Orchid\Platform\Searchable` to the model, it already includes` Laravel Scout`.
 
 As an example, a model might look like this:
 
@@ -20,11 +20,11 @@ As an example, a model might look like this:
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\GlobalSearchTrait;
+use Orchid\Platform\Searchable;
 
 class Idea extends Model
 {
-    use GlobalSearchTrait;
+    use Orchid\Platform\Searchable;
 
     /**
      * The attributes that are mass assignable.
