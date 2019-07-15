@@ -9,7 +9,7 @@ section: main
 
 Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout) который является абстракцией для полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решение.
 
-Для использования глобального поиска требуется добавить новый трейт `Orchid\Platform\Traits\GlobalSearchTrait` к модели, он уже включает в себя `Laravel Scout`.
+Для использования глобального поиска требуется добавить новый трейт `Orchid\Platform\Searchable` к модели, он уже включает в себя `Laravel Scout`.
 
 Как пример модель может выглядеть так:
 ```php
@@ -17,11 +17,11 @@ section: main
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\GlobalSearchTrait;
+use Orchid\Platform\Searchable;
 
 class Idea extends Model
 {
-    use GlobalSearchTrait;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
