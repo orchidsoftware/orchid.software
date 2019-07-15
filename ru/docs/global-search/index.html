@@ -257,17 +257,17 @@
             </li>
             </ul><hr><h2><a href="#ispolzovanie-polnotekstnogo-poiska" name="ispolzovanie-polnotekstnogo-poiska">Использование полнотекстного поиска</a></h2>
 <p>Платформа поставляется с пакетом <a href="https://github.com/laravel/scout">Laravel Scout</a> который является абстракцией для полнотекстового поиска в ваши модели <code>Eloquent</code>. Так как <strong><code>Scout</code> не содержит самого «драйвера» поиска</strong>, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решение.</p>
-<p>Для использования глобального поиска требуется добавить новый трейт <code>Orchid\Platform\Traits\GlobalSearchTrait</code> к модели, он уже включает в себя <code>Laravel Scout</code>.</p>
+<p>Для использования глобального поиска требуется добавить новый трейт <code>Orchid\Platform\Searchable</code> к модели, он уже включает в себя <code>Laravel Scout</code>.</p>
 <p>Как пример модель может выглядеть так:</p>
 <pre><code class="language-php">
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Traits\GlobalSearchTrait;
+use Orchid\Platform\Searchable;
 
 class Idea extends Model
 {
-    use GlobalSearchTrait;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
