@@ -9,7 +9,8 @@ section: main
 Fields are used to generate the output form template and edit
 
 > Feel free to add your own fields, for example, to use a convenient editor for you or any components.
- 
+
+
 ## Input fields
 
 ### Input
