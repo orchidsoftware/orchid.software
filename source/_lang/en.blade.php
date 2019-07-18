@@ -1,7 +1,7 @@
 @section('lang','en')
 
 @section('main.title')
-    Platform for <span class="b-b b-2x b-primary">rapid development</span><br> on Laravel Framework
+    Platform for <span class="b-b b-2x b-primary">back-office applications</span><br> on Laravel Framework
 @endsection
 
 @section('main.description')
