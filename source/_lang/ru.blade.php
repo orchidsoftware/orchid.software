@@ -1,7 +1,7 @@
 @section('lang','ru')
 
 @section('main.title')
-    Платформа для <span class="b-b b-2x b-primary">быстрой разработки</span><br> на Laravel Framework
+    Платформа для <span class="b-b b-2x b-primary">back-office приложений</span><br> на Laravel Framework
 @endsection
 
 @section('main.description')
