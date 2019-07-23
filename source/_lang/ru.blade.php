@@ -68,3 +68,4 @@
 @section('main.github','Contribute on GitHub')
 
 @section('docs.edit','Редактировать страницу')
+@section('read.doc', 'Читать документацию')
