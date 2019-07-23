@@ -272,9 +272,6 @@
                     <li class="anchor-h2">
                 <a href="#buttonlink">Button/Link</a>
             </li>
-                    <li class="anchor-h2">
-                <a href="#modification">Modification</a>
-            </li>
             </ul><hr><p>Fields are used to generate the output form template and edit</p>
 <blockquote>
 <p>Feel free to add your own fields, for example, to use a convenient editor for you or any components.</p>
@@ -565,13 +562,7 @@ and to add a simple link in the form.</p>
 <li><code>method('methodName')</code> – when clicked, the form will be sent to the specified method within the current screen</li>
 <li><code>title('Click Me!')</code> – sets the name of the current button</li>
 <li><code>icon('icon-wallet)</code> – sets an icon for the button</li>
-</ul><h2><a href="#modification" name="modification">Modification</a></h2>
-<p>You can define a modification of a value or other parameters using the magic method <code>modify</code> to add to this
-attribute that you need to override:</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;modifyValue(function ($value) {
-        return strtoupper($value);
-    })</code></pre>                    </main></div>
+</ul></main></div>
             </div>
         </div>
     </div>

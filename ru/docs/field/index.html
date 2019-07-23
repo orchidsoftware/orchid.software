@@ -306,9 +306,6 @@
                     <li class="anchor-h2">
                 <a href="#knopkassylka">Кнопка/Ссылка</a>
             </li>
-                    <li class="anchor-h2">
-                <a href="#modifikatsiya">Модификация</a>
-            </li>
             </ul><hr><p>Поля используются для генерации вывода шаблона формы заполнения и редактирования</p>
 <blockquote>
 <p>Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.</p>
@@ -594,14 +591,7 @@ class Idea extends Model
 <li><code>method('methodName')</code> – при клике форма будет отправлена на заданный метод в рамках текущего экрана</li>
 <li><code>title('Click Me!')</code> – задает название текущей кнопки</li>
 <li><code>icon('icon-wallet)</code> – задает иконку для кнопки</li>
-</ul><h2><a href="#modifikatsiya" name="modifikatsiya">Модификация</a></h2>
-<p>Можно определить модификацию значения или других параметров с помощью магического метода <code>modify</code> добавив к этому
-атрибут который необходимо переопределить:</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;modifyValue(function ($value) {
-        return strtoupper($value);
-    })</code></pre>
-<p>Это позволяет создавать «вычисленные поля».</p>                    </main></div>
+</ul></main></div>
             </div>
         </div>
     </div>
