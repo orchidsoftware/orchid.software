@@ -124,16 +124,18 @@
             <div class="row w-full m-t-xxl m-b-xxl">
                 <div class="col-lg-5">
                     <div class="">
-                        <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
+                        <a href="https://github.com/orchidsoftware/platform">
+                            <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
+                        </a>
                         <p class="h3 l-h-1x text-dark font-thin m-b-lg"> @yield('github.title')</p>
                         <p>
                             @yield('github.description')
                         </p>
 
                         <p class="padder-v">
-                            <a href="https://github.com/orchidsoftware/platform"
+                            <a href="/@yield('lang')/docs"
                                class="btn btn-lg btn-outline-primary btn-rounded">
-                                @yield('github.button')
+                                @yield('read.doc')
                                 <i class="icon-book-open m-l-xs" aria-hidden="true"></i>
                             </a>
                         </p>
@@ -145,7 +147,9 @@
                 </div>
             </div>
         </div>
-        <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="github_screenshot none d-md-block">
+        <a href="https://github.com/orchidsoftware/platform">
+            <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="github_screenshot none d-md-block">
+        </a>
     </section>
 
 
