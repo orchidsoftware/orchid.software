@@ -505,18 +505,3 @@ Available modifiers:
 * `title('Click Me!')` - sets the name of the current button
 * `icon('icon-wallet)` - sets an icon for the button
  
-
-
-## Modification
-
-You can define a modification of a value or other parameters using the magic method `modify` to add to this
-attribute that you need to override:
-
-
-```php
-Input::make('name')
-    ->modifyValue(function ($value) {
-        return strtoupper($value);
-    })
-```
-
