@@ -40,7 +40,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-39757298-4', 'auto');
         ga('send', 'pageview');
-    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=8cf22be3ad2a1f86dfb3"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=d3a069434c8e36126468"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app" class="b-t b-primary">
 
@@ -241,7 +241,7 @@
 <blockquote>
 <p><strong>Note.</strong> If you already have Laravel installation you can skip this step.</p>
 </blockquote>
-<p>Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the 'composer create-project’ command in your terminal:</p>
+<p>Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the <code>composer create-project</code> command in your terminal:</p>
 <pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist</code></pre>
 <p>For more information how to install Laravel follow <a href="https://laravel.com/docs/5.8/installation">Official Laravel Installation Guide</a>.</p>
 <blockquote>
@@ -250,7 +250,7 @@
 <p>This will create a new <code>orchid-project</code> directory, load the dependencies and generate the main directories and files that you will need to get started.
 In other words, install your new framework project.</p>
 <p><strong>Do not forget</strong></p>
-<ul><li>Set “chmod -R o + w” rights to the <code>storage</code> and<code>bootstrap/cache</code> directories</li>
+<ul><li>Set “chmod -R o + w” rights to the <code>storage</code> and <code>bootstrap/cache</code> directories</li>
 <li>Edit the <code>.env</code> file</li>
 </ul><h2><a href="#add-dependency" name="add-dependency">Add dependency</a></h2>
 <p>Go to the created project directory and run the command:</p>
@@ -260,7 +260,7 @@ In other words, install your new framework project.</p>
 </blockquote>
 <h2><a href="#platform-installation" name="platform-installation">Platform installation</a></h2>
 <blockquote>
-<p><strong> Note. </strong> You also need to create a new database and update the <code>.env</code> file with credentials and add the URL of your application to the variable<code>APP_URL</code>.</p>
+<p><strong> Note. </strong> You also need to create a new database and update the <code>.env</code> file with credentials and add the URL of your application to the variable <code>APP_URL</code>.</p>
 </blockquote>
 <p>Run the installation process by running the command:</p>
 <pre><code class="language-php">php artisan orchid:install</code></pre>
@@ -277,7 +277,7 @@ the admin panel may not be available and you need to specify your domain in the 
   or in <code>.env</code> file. This allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>. </p>
 </blockquote>
 <h2><a href="#static-resource-publishing" name="static-resource-publishing">Static Resource Publishing</a></h2>
-<p>By default static files (css / js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
+<p>By default static files (css/js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
