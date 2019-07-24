@@ -13,7 +13,7 @@ Before you can use the platform you need install it. This guide should help you 
 
 > **Note.** If you already have Laravel installation you can skip this step.
 
-Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the 'composer create-project' command in your terminal:
+Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the `composer create-project` command in your terminal:
 
 ```php
 $ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist
@@ -27,7 +27,7 @@ This will create a new `orchid-project` directory, load the dependencies and gen
 In other words, install your new framework project.
 
 **Do not forget**
-- Set “chmod -R o + w” rights to the `storage` and` bootstrap/cache` directories
+- Set “chmod -R o + w” rights to the `storage` and `bootstrap/cache` directories
 - Edit the `.env` file
 
 ## Add dependency
@@ -41,7 +41,7 @@ $ composer require orchid/platform
 
 ## Platform installation
 
-> ** Note. ** You also need to create a new database and update the `.env` file with credentials and add the URL of your application to the variable` APP_URL`.
+> ** Note. ** You also need to create a new database and update the `.env` file with credentials and add the URL of your application to the variable `APP_URL`.
 
 Run the installation process by running the command:
 
@@ -73,7 +73,7 @@ Open a browser and go to `http://localhost:8000/dashboard`. If everything works 
  
 ## Static Resource Publishing
 
-By default static files (css / js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
+By default static files (css/js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
 
  ```php
 php artisan orchid:link
