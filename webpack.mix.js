@@ -26,7 +26,7 @@ mix
     .purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],
-        whitelistPatterns: [/language/, /hljs/, /algolia/],
+        whitelistPatterns: [/language/, /hljs/, /algolia/, /icon/],
     })
     .sourceMaps()
     .version();
