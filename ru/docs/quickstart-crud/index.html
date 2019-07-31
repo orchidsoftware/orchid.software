@@ -312,9 +312,9 @@ class Post extends Model
 </blockquote>
 <p>Теперь мы готовы к настоящему использованию платформы. </p>
 <p>Cоздадим новые экраны для просмотра, создания и редактирования наших записей :</p>
-<ul><li><code>php artisan orchid:screen PostEditScreen</code>. </li>
-<li><code>php artisan orchid:screen PostListScreen</code>. </li>
-</ul><p>Зарегистриуем их в маршрутном листе:</p>
+<pre><code class="language-php">php artisan orchid:screen PostEditScreen
+php artisan orchid:screen PostListScreen</code></pre>
+<p>Зарегистриуем их в маршрутном листе:</p>
 <pre><code class="language-php">// routes/platform.php
 
 use App\Orchid\Screens\PostEditScreen;
