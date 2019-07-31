@@ -1,5 +1,5 @@
 ---
-title: Создание и редактирование записей
+title: Управление данными
 description: Laravel CRUD
 extends: _layouts.documentation.ru
 section: main
