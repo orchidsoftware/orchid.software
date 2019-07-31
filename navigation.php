@@ -49,8 +49,13 @@ return [
             'children' => [
                 'Введение в проект'   => '/ru/docs/',
                 'Установка платформы' => '/ru/docs/installation',
-                'Быстрый старт'       => '/ru/docs/quickstart',
                 'Обзор параметров'    => '/ru/docs/configuration',
+            ],
+        ],
+        'Учебные пособия'    => [
+            'children' => [
+                'Быстрый старт'      => '/ru/docs/quickstart',
+                'Управление данными' => '/ru/docs/quickstart-crud',
             ],
         ],
         'Основные концепции' => [
