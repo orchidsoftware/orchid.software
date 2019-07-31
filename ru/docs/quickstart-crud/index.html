@@ -249,8 +249,8 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Это руководство представляет минимальный набор для создания и редактирования моделей с помощью платформы. В текущем примере мы создадим страницы администрирования для блога фотографа.</p>
-<p>На этом этапе необходимо, что бы вы уже  <a href="https://orchid.software/ru/docs/installation">установили фреймворк и платформу</a>, создали базу данных и запустили веб-сервер.</p>
+                        <hr class="mb-4"><p>Это руководство представляет минимальный набор для создания и редактирования моделей с помощью платформы. В текущем примере мы создадим страницы администрирования для блога.</p>
+<p>На этом этапе желательно, что бы вы уже познакомились с основами концепции <a href="https://orchid.software/ru/docs/screens">экранов</a> и просмотрели «<a href="https://orchid.software/ru/docs/quickstart">Быстрый старт для начинающих</a>».</p>
 <p>Для начала нам необходимо создать новую таблицу для этого выполним команду:</p>
 <pre><code class="language-php">php artisan make:migration create_posts_table</code></pre>
 <p>В директории будет <code>database/migrations</code> будет создан новый файл с именем <code>****_**_**_create_posts_table.php</code> добавим в него описание требуемых колонок.</p>
@@ -307,15 +307,27 @@ class Post extends Model
         'author'
     ];
 }</code></pre>
-<p>Теперь мы готовы к настоящему использованию платформы. Для начала создадим новый экран для создания и редактирования наших записей <code>php artisan orchid:screen PostEditScreen</code>. Зарегистриуем его в маршрутном листе:</p>
-<pre><code class="language-php">$this-&gt;router-&gt;screen('post/{post?}', \App\Orchid\Screens\PostEditScreen::class)
-    -&gt;name('platform.post.edit');</code></pre>
-<p>Точно так же экран для просмотра <code>php artisan orchid:screen PostListScreen</code></p>
-<pre><code class="language-php">$this-&gt;router-&gt;screen('posts', \App\Orchid\Screens\PostListScreen::class)
+<blockquote>
+<p><em>Обратите внимание.</em> Модель <code>Post</code> имеет трейд <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
+</blockquote>
+<p>Теперь мы готовы к настоящему использованию платформы. </p>
+<p>Cоздадим новые экраны для просмотра, создания и редактирования наших записей :</p>
+<ul><li><code>php artisan orchid:screen PostEditScreen</code>. </li>
+<li><code>php artisan orchid:screen PostListScreen</code>. </li>
+</ul><p>Зарегистриуем их в маршрутном листе:</p>
+<pre><code class="language-php">// routes/platform.php
+
+use App\Orchid\Screens\PostEditScreen;
+use App\Orchid\Screens\PostListScreen;
+
+$this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
+    -&gt;name('platform.post.edit');
+
+$this-&gt;router-&gt;screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
-<p>Теперь экран доступен для просмотра по адресу <code>/dashboard/post</code>, приведем его к виду:</p>
-<pre><code class="language-php">
-namespace App\Orchid\Screens;
+<p>Теперь экраны доступены для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.</p>
+<p>Отредактируем файл просмотра добавив название, описание и требуемые поля:</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Post;
 use App\User;
@@ -558,7 +570,7 @@ class PostListScreen extends Screen
 }</code></pre>
 <p>Теперь мы уже имеем минимальный набор для управления блогом. </p>
 <blockquote>
-<p>Незабудьте позаботиться об удобстве навигации из предыдущего материала  добавив пункты меню и хлебные крошки.</p>
+<p>Незабудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>
 </blockquote>                    </main></div>
             </div>
         </div>
