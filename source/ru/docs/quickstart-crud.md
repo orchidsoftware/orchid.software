@@ -82,8 +82,10 @@ class Post extends Model
 
 Cоздадим новые экраны для просмотра, создания и редактирования наших записей :
 
-* `php artisan orchid:screen PostEditScreen`. 
-* `php artisan orchid:screen PostListScreen`. 
+```php
+php artisan orchid:screen PostEditScreen
+php artisan orchid:screen PostListScreen
+```
 
 Зарегистриуем их в маршрутном листе:
 
