@@ -5,9 +5,9 @@ extends: _layouts.documentation.ru
 section: main
 ---
 
-Это руководство представляет минимальный набор для создания и редактирования моделей с помощью платформы. В текущем примере мы создадим страницы администрирования для блога фотографа.
+Это руководство представляет минимальный набор для создания и редактирования моделей с помощью платформы. В текущем примере мы создадим страницы администрирования для блога.
 
-На этом этапе необходимо, что бы вы уже  [установили фреймворк и платформу](https://orchid.software/ru/docs/installation), создали базу данных и запустили веб-сервер.
+На этом этапе желательно, что бы вы уже познакомились с основами концепции [экранов](https://orchid.software/ru/docs/screens) и просмотрели "[Быстрый старт для начинающих](https://orchid.software/ru/docs/quickstart)".
 
 Для начала нам необходимо создать новую таблицу для этого выполним команду:
 
@@ -76,24 +76,35 @@ class Post extends Model
 }
 ```
 
-Теперь мы готовы к настоящему использованию платформы. Для начала создадим новый экран для создания и редактирования наших записей `php artisan orchid:screen PostEditScreen`. Зарегистриуем его в маршрутном листе:
+> *Обратите внимание.* Модель `Post` имеет трейд `AsSource`, для удобного обращения через dot нотацию.
+
+Теперь мы готовы к настоящему использованию платформы. 
+
+Cоздадим новые экраны для просмотра, создания и редактирования наших записей :
+
+* `php artisan orchid:screen PostEditScreen`. 
+* `php artisan orchid:screen PostListScreen`. 
+
+Зарегистриуем их в маршрутном листе:
 
 ```php
-$this->router->screen('post/{post?}', \App\Orchid\Screens\PostEditScreen::class)
+// routes/platform.php
+
+use App\Orchid\Screens\PostEditScreen;
+use App\Orchid\Screens\PostListScreen;
+
+$this->router->screen('post/{post?}', PostEditScreen::class)
     ->name('platform.post.edit');
-```
-
-Точно так же экран для просмотра `php artisan orchid:screen PostListScreen`
-
-```php
-$this->router->screen('posts', \App\Orchid\Screens\PostListScreen::class)
+    
+$this->router->screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
 
-Теперь экран доступен для просмотра по адресу `/dashboard/post`, приведем его к виду:
+Теперь экраны доступены для просмотра по адресу `/dashboard/post` и `/dashboard/posts`.
+
+Отредактируем файл просмотра добавив название, описание и требуемые поля:
 
 ```php
-
 namespace App\Orchid\Screens;
 
 use App\Post;
@@ -347,7 +358,7 @@ class PostListScreen extends Screen
 
 Теперь мы уже имеем минимальный набор для управления блогом. 
 
-> Незабудьте позаботиться об удобстве навигации из предыдущего материала  добавив пункты меню и хлебные крошки.
+> Незабудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.
 
 
 
