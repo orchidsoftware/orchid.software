@@ -287,7 +287,7 @@ class CreatePostsTable extends Migration
         Schema::dropIfExists('posts');
     }
 }</code></pre>
-<p>Для применения новой схъемы к базе данных выполним <code>php artisan migrate</code> и содадим модель для нашей таблицы <code>php artisan make:model Post</code>. В директории <code>app</code> будет создан новый файл <code>Post.php</code> опишем поля как доступные для заполнения:</p>
+<p>Для применения новой схемы к базе данных выполним <code>php artisan migrate</code> и создадим модель для нашей таблицы <code>php artisan make:model Post</code>. В директории <code>app</code> будет создан новый файл <code>Post.php</code> опишем поля как доступные для заполнения:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -308,13 +308,13 @@ class Post extends Model
     ];
 }</code></pre>
 <blockquote>
-<p><em>Обратите внимание.</em> Модель <code>Post</code> имеет трейд <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
+<p><strong>Примечание.</strong> Модель <code>Post</code> имеет трейд <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
 </blockquote>
 <p>Теперь мы готовы к настоящему использованию платформы. </p>
-<p>Cоздадим новые экраны для просмотра, создания и редактирования наших записей :</p>
+<p>Создадим новые экраны для просмотра, создания и редактирования наших записей:</p>
 <pre><code class="language-php">php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen</code></pre>
-<p>Зарегистриуем их в маршрутном листе:</p>
+<p>Зарегистрируем их в маршрутном листе:</p>
 <pre><code class="language-php">// routes/platform.php
 
 use App\Orchid\Screens\PostEditScreen;
@@ -325,7 +325,7 @@ $this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
 
 $this-&gt;router-&gt;screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
-<p>Теперь экраны доступены для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.</p>
+<p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.</p>
 <p>Отредактируем файл просмотра добавив название, описание и требуемые поля:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
@@ -469,7 +469,7 @@ class PostEditScreen extends Screen
         return redirect()-&gt;route('platform.post.list');
     }
 }</code></pre>
-<p>Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать ввиде списка, изменим это!
+<p>Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!
 Создадим новый слой таблицы <code>php artisan orchid:table PostListLayout</code> и укажем какие данные мы ходим видеть:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
@@ -569,9 +569,7 @@ class PostListScreen extends Screen
     }
 }</code></pre>
 <p>Теперь мы уже имеем минимальный набор для управления блогом. </p>
-<blockquote>
-<p>Незабудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>
-</blockquote>                    </main></div>
+<p>Не забудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>                    </main></div>
             </div>
         </div>
     </div>
