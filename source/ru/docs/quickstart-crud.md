@@ -252,7 +252,13 @@ class PostEditScreen extends Screen
 ```
 
 Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это! 
-Создадим новый слой таблицы `php artisan orchid:table PostListLayout` и укажем какие данные мы ходим видеть:
+Создадим новый слой таблицы:
+
+```php
+php artisan orchid:table PostListLayout
+```
+
+Укажем какие данные мы ходим видеть:
 
 ```php
 namespace App\Orchid\Layouts;
