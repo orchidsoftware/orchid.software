@@ -266,8 +266,10 @@
 <p>На этом этапе желательно, что бы вы уже познакомились с основами концепции <a href="https://orchid.software/ru/docs/screens">экранов</a> и просмотрели «<a href="https://orchid.software/ru/docs/quickstart">Быстрый старт для начинающих</a>».</p>
 <p>Для начала нам необходимо создать новую таблицу для этого выполним команду:</p>
 <pre><code class="language-php">php artisan make:migration create_posts_table</code></pre>
-<p>В директории будет <code>database/migrations</code> будет создан новый файл с именем <code>****_**_**_create_posts_table.php</code> добавим в него описание требуемых колонок.</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
+<p>В директории будет <code>database/migrations</code> будет создан новый файл миграции, добавим в него описание требуемых колонок.</p>
+<pre><code class="language-php">// `****_**_**_create_posts_table.php
+
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -300,8 +302,14 @@ class CreatePostsTable extends Migration
         Schema::dropIfExists('posts');
     }
 }</code></pre>
-<p>Для применения новой схемы к базе данных выполним <code>php artisan migrate</code> и создадим модель для нашей таблицы <code>php artisan make:model Post</code>. В директории <code>app</code> будет создан новый файл <code>Post.php</code> опишем поля как доступные для заполнения:</p>
-<pre><code class="language-php">namespace App;
+<p>Для применения новой схемы к подключенной базе данных выполним:</p>
+<pre><code class="language-php">php artisan migrate</code></pre>
+<p>После успешного создания таблицы, добавим новую <code>Eloquent</code> модель, для этого выполним:</p>
+<pre><code class="language-php">php artisan make:model Post</code></pre>
+<p>В директории <code>app</code> будет создан новый файл <code>Post.php</code> опишем поля как доступные для заполнения:</p>
+<pre><code class="language-php">// app/Post.php
+
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -324,10 +332,13 @@ class Post extends Model
 <p><strong>Примечание.</strong> Модель имеет трейд <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
 </blockquote>
 <p>Теперь мы готовы к настоящему использованию платформы. </p>
-<p>Создадим новые экраны для просмотра, создания и редактирования наших записей:</p>
+<p><a href="https://orchid.software/ru/docs/quickstart">В предыдущем пособии</a> мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их, по этому добавим два новых экрана на каждое действие, поочередно выполнив команды:</p>
 <pre><code class="language-php">php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen</code></pre>
-<p>Зарегистрируем их в маршрутном листе:</p>
+<blockquote>
+<p><strong>Примечание.</strong> Создание двух и более экранов для обеспечения CRUD не обязательно, но используется для удобства.</p>
+</blockquote>
+<p>Зарегистрируем новые экраны в маршрутном листе приложения:</p>
 <pre><code class="language-php">// routes/platform.php
 
 use App\Orchid\Screens\PostEditScreen;
@@ -338,8 +349,8 @@ $this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
 
 $this-&gt;router-&gt;screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
-<p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.</p>
-<p>Отредактируем файл просмотра добавив название, описание и требуемые поля:</p>
+<p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.
+Полученные экраны на текущий момент не имеют, ни данных, ни действий, отредактируем <code>PostEditScreen</code> для просмотра добавив название, описание и требуемые поля:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Post;
@@ -482,8 +493,9 @@ class PostEditScreen extends Screen
         return redirect()-&gt;route('platform.post.list');
     }
 }</code></pre>
-<p>Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!
-Создадим новый слой таблицы:</p>
+<p>Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!</p>
+<p>Во всех предыдущих определениях слоёв использовалась только короткая запись вида <code>Layout:rows()</code>, но для отображения сложной или объемной информации желательно создавать отдельные классы.</p>
+<p>Добавим новый класс <code>Layout</code>, выполнив команду:</p>
 <pre><code class="language-php">php artisan orchid:table PostListLayout</code></pre>
 <p>Укажем какие данные мы ходим видеть:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
@@ -521,7 +533,11 @@ class PostListLayout extends Table
         ];
     }
 }</code></pre>
-<p>Наш минимальный набор готов, вернемся к странице просмотра:</p>
+<p>Свойсвто <code>data</code> указывает ключ, что будет источником для нашей таблице на экране.</p>
+<blockquote>
+<p><strong>Примечание.</strong> Формирование <code>HTML</code> непосредственно в классе необходимо только для примера и является плохой практикой. Пожалуйста используйте <code>Blade</code> шаблоны.</p>
+</blockquote>
+<p>Определив слой таблицы, вернемся к экрану просмотра, изменим его :</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
@@ -583,8 +599,7 @@ class PostListScreen extends Screen
         ];
     }
 }</code></pre>
-<p>Теперь мы уже имеем минимальный набор для управления блогом. </p>
-<p>Не забудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>                    </main></div>
+<p>Теперь мы набор для управления(создавать, просматривать, редактировать и удалять записи) блогом, не забудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>                    </main></div>
             </div>
         </div>
     </div>
