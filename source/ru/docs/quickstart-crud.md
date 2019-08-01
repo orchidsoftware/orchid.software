@@ -15,7 +15,7 @@ section: main
 php artisan make:migration create_posts_table
 ```
 
-В директории будет `database/migrations` будет создан новый файл миграции, добавим в него описание требуемых колонок.
+В директории `database/migrations` будет создан новый файл миграции, добавим в него описание требуемых колонок.
 
 ```php
 // `****_**_**_create_posts_table.php
