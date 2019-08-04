@@ -303,6 +303,9 @@ class PostListLayout extends Table
     public function fields(): array
     {
         return [
+        
+            // TD::set('title', 'Title')->link('platform.post.edit', 'id', 'title'),
+            // or
             TD::set('title', 'Title')
                 ->render(function (Post $post) {
                     // Please use view('path')
