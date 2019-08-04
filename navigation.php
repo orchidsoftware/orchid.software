@@ -7,8 +7,12 @@ return [
             'children' => [
                 'Introduction project'  => '/en/docs/',
                 'Installation platform' => '/en/docs/installation',
-                'Quick start'           => '/en/docs/quickstart',
                 'Configuration'         => '/en/docs/configuration',
+            ],
+        ],
+        'Tutorials' => [
+            'children' => [
+                'Quick start'           => '/en/docs/quickstart',
             ],
         ],
         'Core concepts'   => [
