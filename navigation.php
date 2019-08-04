@@ -13,6 +13,7 @@ return [
         'Tutorials' => [
             'children' => [
                 'Quick start'           => '/en/docs/quickstart',
+                'Data management'       => '/en/docs/quickstart-crud',
             ],
         ],
         'Core concepts'   => [
