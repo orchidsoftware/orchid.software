@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel CRUD"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Data management | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel CRUD"><meta property="og:url" content="http://orchid.software/en/docs/quickstart-crud"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Data management</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42925369 = new Ya.Metrika2({
+                        id: 42925369,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+    </noscript><!-- /Yandex.Metrika counter --><script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=914865416dafebe112fe"><script src="/assets/build/js/app.js?id=90106e4e96043720b0d2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark m-sm-0" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark m-sm-0" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container no-padder" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs" class="lvl1 ">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/installation" class="lvl1 ">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/configuration" class="lvl1 ">
+            Обзор параметров
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Учебные пособия</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/quickstart" class="lvl1 ">
+            Быстрый старт
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-crud" class="lvl1 ">
+            Управление данными
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Экраны
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/field" class="lvl1 ">
+            Элементы формы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/menu" class="lvl1 ">
+            Меню панели
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/access" class="lvl1 ">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/filters" class="lvl1 ">
+            Фильтрация
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/global-search" class="lvl1 ">
+            Глобальный поиск
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/attachments" class="lvl1 ">
+            Вложенные файлы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/settings" class="lvl1 ">
+            Настройки
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/alert" class="lvl1 ">
+            Уведомления
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/controllers" class="lvl1 ">
+            Контроллеры
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/javascript" class="lvl1 ">
+            Использование JS
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Сообщество</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1 ">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/contributors" class="lvl1 ">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/promote" class="lvl1 ">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/license" class="lvl1 ">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Data management</h1>
+
+                        <div class="none d-md-block">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/quickstart-crud.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.</p>
+<p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch “<a href="https://orchid.software/eb/docs/quickstart">Quick start for beginners</a> ”.</p>
+<p>First, we need to create a new table. To do this, execute the command:</p>
+<pre><code class="language-php">php artisan make:migration create_posts_table</code></pre>
+<p>A new migration file will be created in the <code>database/migrations</code> directory, we will add a description of the required columns to it.</p>
+<pre><code class="language-php">// `****_**_**_create_posts_table.php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreatePostsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table-&gt;bigIncrements('id');
+            $table-&gt;string('title');
+            $table-&gt;string('description');
+            $table-&gt;text('body');
+            $table-&gt;bigInteger('author');
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('posts');
+    }
+}</code></pre>
+<p>To apply the new scheme to the connected database, we will do:</p>
+<pre><code class="language-php">php artisan migrate</code></pre>
+<p>After successfully creating the table, add a new <code>Eloquent</code> model, to do this:</p>
+<pre><code class="language-php">php artisan make:model Post</code></pre>
+<p>In the <code>app</code> directory, a new file <code>Post.php</code> will be created, we will describe the fields as available for filling:</p>
+<pre><code class="language-php">// app/Post.php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\AsSource;
+
+class Post extends Model
+{
+    use AsSource;
+
+    /**
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'body',
+        'author'
+    ];
+}</code></pre>
+<blockquote>
+<p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
+</blockquote>
+<p>Now we are ready for the real use of the platform.</p>
+<p><a href="https://orchid.software/en/docs/quickstart">In the previous tutorial</a> we already created our first screen for sending email messages, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:</p>
+<pre><code class="language-php">php artisan orchid:screen PostEditScreen
+php artisan orchid:screen PostListScreen</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Creating two or more screens to provide CRUD is optional, but is used for convenience.</p>
+</blockquote>
+<p>Register new screens in the application route list:</p>
+<pre><code class="language-php">// routes/platform.php
+
+use App\Orchid\Screens\PostEditScreen;
+use App\Orchid\Screens\PostListScreen;
+
+$this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
+    -&gt;name('platform.post.edit');
+
+$this-&gt;router-&gt;screen('posts', PostListScreen::class)
+    -&gt;name('platform.post.list');</code></pre>
+<p>Now the screens are available for viewing at the address <code>/dashboard/post</code> and <code>/dashboard/posts</code>.
+The resulting screens currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required fields:</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
+
+use App\Post;
+use App\User;
+use Illuminate\Http\Request;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\Upload;
+use Orchid\Screen\Layout;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Alert;
+
+class PostEditScreen extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'Creating a new post';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'Blog posts';
+
+    /**
+     * @var bool
+     */
+    public $exists = false;
+
+    /**
+     * Query data.
+     *
+     * @param Post $post
+     *
+     * @return array
+     */
+    public function query(Post $post): array
+    {
+        $this-&gt;exists = $post-&gt;exists;
+
+        if($this-&gt;exists){
+            $this-&gt;name = 'Edit post';
+        }
+
+        return [
+            'post' =&gt; $post
+        ];
+    }
+
+    /**
+     * Button commands.
+     *
+     * @return Link[]
+     */
+    public function commandBar(): array
+    {
+        return [
+            Link::name('Create post')
+                -&gt;icon('icon-pencil')
+                -&gt;method('createOrUpdate')
+                -&gt;canSee(!$this-&gt;exists),
+
+            Link::name('Update')
+                -&gt;icon('icon-note')
+                -&gt;method('createOrUpdate')
+                -&gt;canSee($this-&gt;exists),
+
+            Link::name('Remove')
+                -&gt;icon('icon-trash')
+                -&gt;method('remove')
+                -&gt;canSee($this-&gt;exists),
+        ];
+    }
+
+    /**
+     * Views.
+     *
+     * @return Layout[]
+     */
+    public function layout(): array
+    {
+        return [
+            Layout::rows([
+                Input::make('post.title')
+                    -&gt;title('Title')
+                    -&gt;placeholder('Attractive but mysterious title'),
+
+                TextArea::make('post.description')
+                    -&gt;title('Description')
+                    -&gt;rows(3)
+                    -&gt;maxlength(200)
+                    -&gt;placeholder('Brief description for preview'),
+
+                Relation::make('post.author')
+                    -&gt;title('Author')
+                    -&gt;fromModel(User::class, 'name'),
+
+                Quill::make('post.body')
+                    -&gt;title('Main text'),
+
+            ])-&gt;with(75)
+        ];
+    }
+
+    /**
+     * @param Post    $post
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function createOrUpdate(Post $post, Request $request)
+    {
+        $post-&gt;fill($request-&gt;get('post'))-&gt;save();
+
+        Alert::info('You have successfully created an post.');
+
+        return redirect()-&gt;route('platform.post.list');
+    }
+
+    /**
+     * @param Post $post
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function remove(Post $post)
+    {
+        $post-&gt;delete()
+            ? Alert::info('You have successfully deleted the post.')
+            : Alert::warning('An error has occurred')
+        ;
+
+        return redirect()-&gt;route('platform.post.list');
+    }
+}</code></pre>
+<p>Now we can create, edit and delete records. But do not browse as a list, change it!</p>
+<p>In all previous layer definitions, only a short record of the form <code>Layout:rows()</code> was used, but to display complex or voluminous information, it is desirable to create separate classes.</p>
+<p>Add a new <code>Layout</code> class by running the command:</p>
+<pre><code class="language-php">php artisan orchid:table PostListLayout</code></pre>
+<p>We indicate what data we want to see:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use App\Post;
+use Orchid\Screen\TD;
+use Orchid\Screen\Layouts\Table;
+
+class PostListLayout extends Table
+{
+    /**
+     * Data source.
+     *
+     * @var string
+     */
+    public $data = 'posts';
+
+    /**
+     * @return TD[]
+     */
+    public function fields(): array
+    {
+        return [
+
+            // TD::set('title', 'Title')-&gt;link('platform.post.edit', 'id', 'title'),
+            // or
+            TD::set('title', 'Title')
+                -&gt;render(function (Post $post) {
+                    // Please use view('path')
+                    $route = route('platform.post.edit', $post);
+                    $title = e($post-&gt;title);
+
+                    return "&lt;a href='{$route}'&gt;{$title}&lt;/a&gt;";
+                }),
+
+            TD::set('created_at', 'Created'),
+            TD::set('updated_at', 'Last edit'),
+        ];
+    }
+}</code></pre>
+<p>The <code>data</code> property indicates the key that will be the source for our table on the screen.</p>
+<blockquote>
+<p><strong> Note. </strong> Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code> templates.</p>
+</blockquote>
+<p>Having defined the table layer, we return to the view screen, change it:</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
+
+use App\Orchid\Layouts\PostListLayout;
+use App\Post;
+use Orchid\Screen\Link;
+use Orchid\Screen\Screen;
+
+class PostListScreen extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'Blog post';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'All blog posts';
+
+    /**
+     * Query data.
+     *
+     * @return array
+     */
+    public function query(): array
+    {
+        return [
+            'posts' =&gt; Post::paginate()
+        ];
+    }
+
+    /**
+     * Button commands.
+     *
+     * @return Link[]
+     */
+    public function commandBar(): array
+    {
+        return [
+            Link::name('Create new')
+                -&gt;icon('icon-pencil')
+                -&gt;link(route('platform.post.edit'))
+        ];
+    }
+
+    /**
+     * Views.
+     *
+     * @return Layout[]
+     */
+    public function layout(): array
+    {
+        return [
+            PostListLayout::class
+        ];
+    }
+}</code></pre>
+<p>Now we are a set for managing (creating, viewing, editing and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="pt-5 pb-5 text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-bubbles m-r-xs"></i> Slack
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
