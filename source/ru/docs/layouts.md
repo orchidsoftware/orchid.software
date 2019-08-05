@@ -105,7 +105,7 @@ class PatientListLayout extends Table
 
 - Метод `render(function ($item) { return $item->id})` возможность генерации ячейки согласно функции. В $item передаются данные текущей строки.
 
-- Метод `sort()` добавляет в заголовок возможность сортировки по данному столбцу ([См. HTTP фильтрация и сортировка[(https://orchid.software/ru/docs/filters)).
+- Метод `sort()` добавляет в заголовок возможность сортировки по данному столбцу ([См. HTTP фильтрация и сортировка](https://orchid.software/ru/docs/filters)).
 
 - Метод `width()` явно задает ширину столбца `width('100px')`
 
