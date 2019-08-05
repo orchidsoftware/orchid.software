@@ -298,7 +298,7 @@ public function upload(Request $request)
 
     return response()-&gt;json()
 }</code></pre>
-<p>Это автоматически загрузит ваш файл в хронилище по умолчанию (<code>public</code>) и создаст запись в базе данных.</p>
+<p>Это автоматически загрузит ваш файл в хранилище по умолчанию (<code>public</code>) и создаст запись в базе данных.</p>
 <pre><code class="language-php">$image = $item-&gt;attachment()-&gt;first();
 
 //Получить URL адрес файла
