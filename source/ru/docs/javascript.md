@@ -48,7 +48,7 @@ import HelloController from "./controllers/hello"
 application.register("hello", HelloController);
 ```
 
-Такая структура не помешает вашему приложению не зависимо от того, какой front-end строиться: Angular/React/Vue и т.п.
+Такая структура не помешает вашему приложению не зависимо от того, какой front-end строится: Angular/React/Vue и т.п.
 
 Останется только описать сборку в webpack.mix.js :
 
