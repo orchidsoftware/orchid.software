@@ -87,7 +87,7 @@ Input::make('phone')
     ->title('Number phone');
 ```   
 
-You can pass json to the mask with parameters, for example:
+You can pass array with parameters to the mask, for example:
 
 
 ```php
