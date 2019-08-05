@@ -291,7 +291,7 @@ export default class extends window.Controller {
 import HelloController from "./controllers/hello"
 
 application.register("hello", HelloController);</code></pre>
-<p>Такая структура не помешает вашему приложению не зависимо от того, какой front-end строиться: Angular/React/Vue и т.п.</p>
+<p>Такая структура не помешает вашему приложению не зависимо от того, какой front-end строится: Angular/React/Vue и т.п.</p>
 <p>Останется только описать сборку в webpack.mix.js :</p>
 <pre><code class="language-php">mix.js('resources/js/dashboard.js', 'public/js')</code></pre>
 <p>Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере используя метод <code>registerResource</code> , точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.</p>
