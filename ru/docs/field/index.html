@@ -369,7 +369,7 @@
 <pre><code class="language-php">Input::make('phone')
     -&gt;mask('(999) 999-9999')
     -&gt;title('Номер телефона');</code></pre>
-<p>В маску можно передавать json с параметрами, например:</p>
+<p>В маску можно передавать массив с параметрами, например:</p>
 <pre><code class="language-php">Input::make('price')
     -&gt;mask([
      'mask' =&gt; '999 999 999.99',

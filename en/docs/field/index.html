@@ -340,7 +340,7 @@ Great if values should be recorded in a standard form, for example, TIN or phone
 <pre><code class="language-php">Input::make('phone')
     -&gt;mask('(999) 999-9999')
     -&gt;title('Number phone');</code></pre>
-<p>You can pass json to the mask with parameters, for example:</p>
+<p>You can pass array with parameters to the mask, for example:</p>
 <pre><code class="language-php">Input::make('price')
     -&gt;mask([
      'mask' =&gt; '999 999 999.99',
