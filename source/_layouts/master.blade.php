@@ -117,7 +117,7 @@
                             @yield('main.icons')
                         </a>
 
-                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>

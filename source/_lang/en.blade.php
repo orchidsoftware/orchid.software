@@ -63,3 +63,5 @@ at times, there is no time, which allows you to experiment on how the applicatio
 
 @section('docs.edit','Edit this page')
 @section('read.doc', 'Read The Documentation')
+
+@section('main.telegram','https://t.me/orchid_community')
