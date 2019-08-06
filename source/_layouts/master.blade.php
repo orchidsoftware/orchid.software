@@ -169,7 +169,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://t.me/orchid_community" target="_blank" rel="noopener noreferrer">
+                                <a href="@yield('main.telegram')" target="_blank" rel="noopener noreferrer">
                                     <i class="icon-paper-plane m-r-xs"></i> Telegram
                                 </a>
                             </li>
