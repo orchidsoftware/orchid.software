@@ -108,7 +108,7 @@ public function query() : array
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\Traits\AsSource;
+use Orchid\Screen\AsSource;
 
 class Order extends Model
 {
