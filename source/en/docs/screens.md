@@ -108,7 +108,7 @@ The source can be the `Eloquent` model, for this you need to add the trait` AsSo
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\Traits\AsSource;
+use Orchid\Screen\AsSource;
 
 class Order extends Model
 {
