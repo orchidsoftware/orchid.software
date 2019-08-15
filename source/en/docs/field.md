@@ -194,9 +194,7 @@ Allows you to upload an image.
 
 Example:
 ```php
-Picture::make('picture')
-    ->width(500)
-    ->height(300);
+Picture::make('picture');
 ```  
 
 ### Cropper field
