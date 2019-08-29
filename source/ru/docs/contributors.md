@@ -26,7 +26,7 @@ section: main
 
 Неформальное обсуждение по поводу ошибок/проблем и новых возможностей:
  1. [Telegram группа @orchid_community](https://t.me/orchid_community)
- 1. [Slack группа ORCHID](https://lara-orchid.slack.com/messages/C6JJA6X0V/) 
+ 1. [Telegram группа @orchid_russian_community](https://t.me/orchid_russian_community)
 
 ## Безопасность
 
