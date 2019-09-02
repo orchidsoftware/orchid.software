@@ -148,3 +148,105 @@ public function hero()
 ```php
 $url = \App\Post::find(3)->hero()->first()->url();
 ```
+
+Чаще всего некоторые файлы обьеденяются, например, для показа целыми группами, для этого подойдет поле `Upload`.
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::rows([
+            Input::make('post.title')
+                ->title('Title')
+                ->placeholder('Attractive but mysterious title'),
+
+            Cropper::make('post.hero')
+                ->targetId()
+                ->title('Large web banner image, generally in the front and center')
+                ->width(1000)
+                ->height(500),
+
+            TextArea::make('post.description')
+                ->title('Description')
+                ->rows(3)
+                ->maxlength(200)
+                ->placeholder('Brief description for preview'),
+
+            Relation::make('post.author')
+                ->title('Author')
+                ->fromModel(User::class, 'name'),
+
+            Quill::make('post.body')
+                ->title('Main text'),
+
+            Upload::make('post.attachment')
+                ->title('All files')
+
+        ])->with(75)
+    ];
+}
+```
+
+Поле будет отличаться от предыдущих, потому что данные не относятся явно к модели `Post`, а будут загружаться и сохраняться благодаря связи, для этого мы должны указать трейт `Attachable`:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Screen\AsSource;
+
+class Post extends Model
+{
+    use AsSource, Attachable;
+    //...
+}
+```
+
+Но и так же описать синхронизацию зависимых записей по отношениям в нашем экране:
+
+```php
+public function createOrUpdate(Post $post, Request $request)
+{
+    $post->fill($request->get('post'))->save();
+    
+    $post->attachment()->syncWithoutDetaching(
+        $request->input('post.attachment', [])
+    );
+
+    Alert::info('You have successfully created an post.');
+
+    return redirect()->route('platform.post.list');
+}
+```
+
+После сохранения связь с нашей записью будет установлен в таблице `attachmentable`:
+
+```php
+id  attachmentable_type  attachmentable_id  attachment_id
+1	App\Post	         3	                101
+2	App\Post	         3	                102
+3	App\Post	         3	                103
+4	App\Post	         3	                104
+```
+
+Но при новом обращении к редактирванию записи поле будет пустым, это из-за того, что `query` не знает о дополнительных записях к нашей модели, исправим это добавив загрузку:
+
+```php
+public function query(Post $post): array
+{
+    $this->exists = $post->exists;
+
+    if($this->exists){
+        $this->name = 'Edit post';
+    }
+
+    $post->load('attachment');
+
+    return [
+        'post' => $post
+    ];
+}
+```
+
+Теперь наши вложенные файлы загружаются и синхронизируются. 
+Более подробно указано в разделе ["Элементы формы"](/ru/docs/field) и ["Вложенные файлы"](/ru/docs/attachments).
