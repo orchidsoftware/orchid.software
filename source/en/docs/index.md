@@ -8,7 +8,7 @@ section: main
 ## Welcome
 
 This guide contains reference information for creating business applications using the platform, while
-does not explain framework documentation. If you are already familiar with it, go on to read the following chapters, otherwise
+does not explain framework documentation. If you are already familiar with it, go on to read the following chapters, otherwise.
 I recommend reading the “Laravel” documentation from beginning to end on [laravel.com](http://laravel.com).
 
 > To suggest improvements to this tutorial, [create a new issue](https://github.com/orchidsoftware/orchid.software/issues).
