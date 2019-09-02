@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel File Manager"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Управление вложенными файлами | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel File Manager"><meta property="og:url" content="http://orchid.software/ru/docs/quickstart-files"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Управление вложенными файлами</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42925369 = new Ya.Metrika2({
+                        id: 42925369,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+    </noscript><!-- /Yandex.Metrika counter --><script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=c6e63ca3ef9b90aa07d8"><script src="/assets/build/js/app.js?id=9d85b23a59e1e1aec411"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark m-sm-0" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark m-sm-0" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container no-padder" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs" class="lvl1 ">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/installation" class="lvl1 ">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/configuration" class="lvl1 ">
+            Обзор параметров
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Учебные пособия</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/quickstart" class="lvl1 ">
+            Быстрый старт
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-crud" class="lvl1 ">
+            Управление данными
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Экраны
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/field" class="lvl1 ">
+            Элементы формы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/menu" class="lvl1 ">
+            Меню панели
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/access" class="lvl1 ">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/filters" class="lvl1 ">
+            Фильтрация
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/global-search" class="lvl1 ">
+            Глобальный поиск
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/attachments" class="lvl1 ">
+            Вложенные файлы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/settings" class="lvl1 ">
+            Настройки
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/alert" class="lvl1 ">
+            Уведомления
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/controllers" class="lvl1 ">
+            Контроллеры
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/javascript" class="lvl1 ">
+            Использование JS
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Сообщество</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1 ">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/contributors" class="lvl1 ">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/promote" class="lvl1 ">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/license" class="lvl1 ">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Управление вложенными файлами</h1>
+
+                        <div class="none d-md-block">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/quickstart-files.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><p>Это руководство предолжение учебника <a href="/ru/docs/quickstart-crud">«Управление данными»</a>,
+в котором мы будем разбирать работу с <a href="/ru/docs/attachments">«Вложенными файлами»</a>.</p>
+<p>Вернемся к ранее созданой модели <code>Post</code> и добавим новую колонку <code>hero</code>,
+в которой будем хранить информацию о главном изображении в нашей записи блога:</p>
+<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddHeroColumnForPostTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table-&gt;string('hero')-&gt;nullable();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('posts', function (Blueprint $table) {
+            $table-&gt;dropColumn('hero');
+        });
+    }
+}</code></pre>
+<p>Добавим в модель для автоматической записи:</p>
+<pre><code class="language-php">// app/Post.php
+
+protected $fillable = [
+    'title',
+    'description',
+    'body',
+    'author',
+    'hero'
+];
+//..</code></pre>
+<p>Для записи данных в новое поле, необходимо добавить подходящее поле в наш экран создания/редактирования, возьмем <code>Cropper</code> позволяющий обрезать изображение:</p>
+<pre><code class="language-php">// app/Orchid/Screens/PostEditScreen.php
+
+public function layout(): array
+{
+    return [
+        Layout::rows([
+            Input::make('post.title')
+                -&gt;title('Title')
+                -&gt;placeholder('Attractive but mysterious title'),
+
+            Cropper::make('post.hero')
+                -&gt;title('Large web banner image, generally in the front and center')
+                -&gt;width(1000)
+                -&gt;height(500),
+
+            TextArea::make('post.description')
+                -&gt;title('Description')
+                -&gt;rows(3)
+                -&gt;maxlength(200)
+                -&gt;placeholder('Brief description for preview'),
+
+            Relation::make('post.author')
+                -&gt;title('Author')
+                -&gt;fromModel(User::class, 'name'),
+
+            Quill::make('post.body')
+                -&gt;title('Main text'),
+
+        ])-&gt;with(75)
+    ];
+}</code></pre>
+<blockquote>
+<p><strong>Примечание.</strong> Если в ходе загрузки файла, вы не увидели свое изображение в конечном результате, пожалуйста проверьте настройки <code>upload_max_filesize</code> и <code>post_max_size</code>, возможно требуется увеличить эти значения.</p>
+<p><strong>Примечание.</strong> Cсылка на изображение формируется из <code>url</code> адреса указанного в вашем файле конфигурации, что при локальной разработки через встроенный веб-сервер требуется указание порта.</p>
+</blockquote>
+<p>Для такого поля дополнительно указали ширину и высоту, для возможности быть уверенными в том, что пропорции отображены пользователю. После сохранения записи с изображением в колонку базы данных будет записан полный <code>url</code>
+адрес до изображения, например:</p>
+<pre><code>http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</code></pre>
+<p>Это самая простая запись, но что если вы решите использовать <code>https</code> или сменить домен?
+Для этого лучше использовать относительную запись:</p>
+<pre><code class="language-php">Cropper::make('post.hero')
+    -&gt;targetRelativeUrl(),</code></pre>
+<p>Еще один вариант записи – использовать <a href="https://laravel.com/docs/master/eloquent-relationships">отношения</a>, для этого
+поле <code>Cropper</code> будет записывать номер загруженного файла:</p>
+<pre><code class="language-php">Cropper::make('post.hero')
+    -&gt;targetId(),</code></pre>
+<blockquote>
+<p><strong>Примечание.</strong> Для того, что бы ваша база данных была однородна используйте один из предложенных вариантов.</p>
+</blockquote>
+<p>Остановимся на записи номера, но для начало удалите все уже существующие записи.
+Для того, что бы отображать картинку вне пакета необходимо установить связь в нашей модели: </p>
+<pre><code class="language-php">// app/Post.php
+
+use Orchid\Attachment\Models\Attachment;
+
+public function hero()
+{
+    return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
+}</code></pre>
+<p>После этого, мы можем обращаться и загружать наш обьект <code>Attachment</code>, например:</p>
+<pre><code class="language-php">$url = \App\Post::find(3) 
+    -&gt;hero() 
+    -&gt;first() 
+    -&gt;url(); </code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="pt-5 pb-5 text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://join.slack.com/t/lara-orchid/shared_invite/MjIxODM3MDcxODcyLTE1MDE4NzY0MzctMzRiZTBlMzYxZg" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-bubbles m-r-xs"></i> Slack
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
