@@ -150,7 +150,7 @@ public function query() : array
 
 
 
-## Treatment
+## Actions
 
 The screens include built-in commands that allow users to execute various user scripts.
 The `commandBar` method is responsible for this, which describes the required control buttons.
