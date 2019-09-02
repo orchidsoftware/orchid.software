@@ -235,6 +235,8 @@ return [
         'rub',
         'rupi',
         'safari',
+        'save',
+        'save-alt',
         'screen-desktop',
         'screen-smartphone',
         'screen-tablet',
