@@ -367,7 +367,88 @@ public function hero()
     return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
 }</code></pre>
 <p>После этого, мы можем обращаться и загружать наш обьект <code>Attachment</code>, например:</p>
-<pre><code class="language-php">$url = \App\Post::find(3)-&gt;hero()-&gt;first()-&gt;url();</code></pre>                    </main></div>
+<pre><code class="language-php">$url = \App\Post::find(3)-&gt;hero()-&gt;first()-&gt;url();</code></pre>
+<p>Чаще всего некоторые файлы обьеденяются, например, для показа целыми группами, для этого подойдет поле <code>Upload</code>.</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::rows([
+            Input::make('post.title')
+                -&gt;title('Title')
+                -&gt;placeholder('Attractive but mysterious title'),
+
+            Cropper::make('post.hero')
+                -&gt;targetId()
+                -&gt;title('Large web banner image, generally in the front and center')
+                -&gt;width(1000)
+                -&gt;height(500),
+
+            TextArea::make('post.description')
+                -&gt;title('Description')
+                -&gt;rows(3)
+                -&gt;maxlength(200)
+                -&gt;placeholder('Brief description for preview'),
+
+            Relation::make('post.author')
+                -&gt;title('Author')
+                -&gt;fromModel(User::class, 'name'),
+
+            Quill::make('post.body')
+                -&gt;title('Main text'),
+
+            Upload::make('post.attachment')
+                -&gt;title('All files')
+
+        ])-&gt;with(75)
+    ];
+}</code></pre>
+<p>Поле будет отличаться от предыдущих, потому что данные не относятся явно к модели <code>Post</code>, а будут загружаться и сохраняться благодаря связи, для этого мы должны указать трейт <code>Attachable</code>:</p>
+<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Screen\AsSource;
+
+class Post extends Model
+{
+    use AsSource, Attachable;
+    //...
+}</code></pre>
+<p>Но и так же описать синхронизацию зависимых записей по отношениям в нашем экране:</p>
+<pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
+{
+    $post-&gt;fill($request-&gt;get('post'))-&gt;save();
+
+    $post-&gt;attachment()-&gt;syncWithoutDetaching(
+        $request-&gt;input('post.attachment', [])
+    );
+
+    Alert::info('You have successfully created an post.');
+
+    return redirect()-&gt;route('platform.post.list');
+}</code></pre>
+<p>После сохранения связь с нашей записью будет установлен в таблице <code>attachmentable</code>:</p>
+<pre><code class="language-php">id  attachmentable_type  attachmentable_id  attachment_id
+1   App\Post             3                  101
+2   App\Post             3                  102
+3   App\Post             3                  103
+4   App\Post             3                  104</code></pre>
+<p>Но при новом обращении к редактирванию записи поле будет пустым, это из-за того, что <code>query</code> не знает о дополнительных записях к нашей модели, исправим это добавив загрузку:</p>
+<pre><code class="language-php">public function query(Post $post): array
+{
+    $this-&gt;exists = $post-&gt;exists;
+
+    if($this-&gt;exists){
+        $this-&gt;name = 'Edit post';
+    }
+
+    $post-&gt;load('attachment');
+
+    return [
+        'post' =&gt; $post
+    ];
+}</code></pre>
+<p>Теперь наши вложенные файлы загружаются и синхронизируются.
+Более подробно указано в разделе <a href="/ru/docs/field">«Элементы формы»</a> и <a href="/ru/docs/attachments">«Вложенные файлы»</a>.</p>                    </main></div>
             </div>
         </div>
     </div>
