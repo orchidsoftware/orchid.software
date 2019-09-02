@@ -61,6 +61,7 @@ return [
             'children' => [
                 'Быстрый старт'      => '/ru/docs/quickstart',
                 'Управление данными' => '/ru/docs/quickstart-crud',
+                'Работа с файлами'   => '/ru/docs/quickstart-files',
             ],
         ],
         'Основные концепции' => [
