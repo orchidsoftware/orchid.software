@@ -399,23 +399,30 @@ public function query() : array
 <pre><code class="language-php">public function commandBar() : array
 {
     return [
-        Link::name('Вывести на печать')-&gt;method('print'),
+        Button::make('Вывести на печать')-&gt;method('print'),
     ];
 }</code></pre>
-<p>Класс <code>Link</code> отвечает, что будет происходить по нажатию на кнопку, в примере выше, при нажатии на кнопку <code>Вывести на печать</code>,
+<p>Класс <code>Button</code> отвечает, что будет происходить по нажатию на кнопку, в примере выше, при нажатии на кнопку <code>Вывести на печать</code>,
 будет вызван метод экрана <code>print</code>, в Request будут доступны все данные которые пользователь видел на экране.</p>
 <pre><code class="language-php">// По нажатию будет вызван метод 'create'
-Link::name('Новая функция')-&gt;method('create');
+use Orchid\Screen\Actions\Button;
+
+Button::make('Новая функция')
+    -&gt;method('create');
 
 // По нажатию будете перенаправлены на указанный адрес
-Link::name('Внешняя ссылка')-&gt;link('http://google.com/');
+use Orchid\Screen\Actions\Link;
+
+Link::make('Внешняя ссылка')
+    -&gt;href('http://orchid.software');
 
 // По нажатию будет показано модальное окно (CreateUserModal),
 // в котором можно выполнить метод "save"
-Link::name('Модальное окно')
+use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Модальное окно')
     -&gt;modal('CreateUserModal')
-    -&gt;title('Добавить пользователя')
-    -&gt;method('save'),</code></pre>
+    -&gt;method('save');</code></pre>
 <h2><a href="#makety" name="makety">Макеты</a></h2>
 <p>Макеты отвечают за внешний вид экрана, то есть, как и в каком виде данные будут показаны.</p>
 <p>Каждый макет может включать в себя другой макет, то есть вложенность.

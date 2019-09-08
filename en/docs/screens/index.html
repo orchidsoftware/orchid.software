@@ -358,22 +358,29 @@ The <code>commandBar</code> method is responsible for this, which describes the 
 <pre><code class="language-php">public function commandBar() : array
 {
     return [
-        Link::name('Go print')-&gt;method('print'),
+        Button::make('Go print')-&gt;method('print'),
     ];
 }</code></pre>
-<p>The <code>Link</code> class responds to what will happen when a button is pressed, in the example above, when you click on the Print button, The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
+<p>The <code>Button</code> class responds to what will happen when a button is pressed, in the example above, when you click on the Print button, The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
 <pre><code class="language-php">// By pressing, the 'create' method will be called
-Link::name('New function')-&gt;method('create');
+use Orchid\Screen\Actions\Button;
+
+Button::make('New function')
+    -&gt;method('create');
 
 // By clicking you will be redirected to the specified address
-Link::name('External reference')-&gt;link('http://google.com/');
+use Orchid\Screen\Actions\Link;
+
+Link::make('External reference')
+    -&gt;href('http://orchid.software');
 
 // By pressing, a modal window will be shown (CreateUserModal),
 // in which you can execute the "save" method
-Link::name('Modal window')
+use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Modal window')
     -&gt;modal('CreateUserModal')
-    -&gt;title('Add user')
-    -&gt;method('save'),</code></pre>
+    -&gt;method('save');</code></pre>
 <h2><a href="#layouts" name="layouts">Layouts</a></h2>
 <p>Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.</p>
 <p>Each layout may include a different layout, that is, nesting.
