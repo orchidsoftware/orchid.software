@@ -68,7 +68,7 @@ for example, the filtering layer requests only from the white list of IP address
 It is possible to completely disable the supplied authorization form and make your own, for example, using the command:
 
 ```php
-php artisan make:auth
+php artisan ui:auth
 ```
 
 ## Home Page

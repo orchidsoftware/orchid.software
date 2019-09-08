@@ -161,27 +161,34 @@ For example:
 public function commandBar() : array
 {
     return [
-        Link::name('Go print')->method('print'),
+        Button::make('Go print')->method('print'),
     ];
 }
 ```
 
-The `Link` class responds to what will happen when a button is pressed, in the example above, when you click on the Print button,
+The `Button` class responds to what will happen when a button is pressed, in the example above, when you click on the Print button,
 The screen method `print` will be called, all the data that the user has seen on the screen will be available in Request.
 
 ```php
 // By pressing, the 'create' method will be called
-Link::name('New function')->method('create');
+use Orchid\Screen\Actions\Button;
+
+Button::make('New function')
+    ->method('create');
 
 // By clicking you will be redirected to the specified address
-Link::name('External reference')->link('http://google.com/');
+use Orchid\Screen\Actions\Link;
+
+Link::make('External reference')
+    ->href('http://orchid.software');
 
 // By pressing, a modal window will be shown (CreateUserModal),
 // in which you can execute the "save" method
-Link::name('Modal window')
+use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Modal window')
     ->modal('CreateUserModal')
-    ->title('Add user')
-    ->method('save'),
+    ->method('save');
 ```
 
 

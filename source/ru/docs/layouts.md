@@ -56,12 +56,12 @@ class PatientListLayout extends Table
     /**
      * @var string
      */
-    public $data = 'patients';
+    protected $target = 'patients';
 
     /**
      * @return array
      */
-    public function fields() : array
+    protected function columns() : array
     {
         return [
             TD::set('last_name','Last name')
@@ -178,7 +178,7 @@ class Appointment extends Rows
      *
      * @throws \Orchid\Press\EntityTypeException
      */
-    public function fields(): array
+    protected function fields(): array
     {
         return [
 
@@ -293,12 +293,12 @@ class ChartsLayout extends Chart
     /**
      * @var string
      */
-    public $title = 'DemoCharts';
+    protected $title = 'DemoCharts';
 
     /**
      * @var int
      */
-    public $height = 150;
+    protected $height = 150;
 
     /**
      * Available options:
@@ -307,12 +307,12 @@ class ChartsLayout extends Chart
      *
      * @var string
      */
-    public $type = 'scatter';
+    protected $type = 'scatter';
 
     /**
      * @var array
      */
-    public $labels = [
+    protected $labels = [
         "12am-3am",
         "3am-6am",
         "6am-9am",
@@ -326,7 +326,7 @@ class ChartsLayout extends Chart
     /**
      * @var string
      */
-    public $data = 'charts';
+    protected $target = 'charts';
 }
 ```
 

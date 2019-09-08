@@ -55,12 +55,12 @@ class PatientListLayout extends Table
     /**
      * @var string
      */
-    public $data = 'patients';
+    protected $target = 'patients';
 
     /**
      * @return array
      */
-    public function fields() : array
+    protected function columns() : array
     {
         return [
             TD::set('last_name','Last name')
@@ -179,7 +179,7 @@ class Appointment extends Rows
      *
      * @throws \Orchid\Press\EntityTypeException
      */
-    public function fields(): array
+    protected function fields(): array
     {
         return [
 
@@ -226,7 +226,7 @@ public function layout(): array
 ## Modal windows
 
 ```php
-public function layout(): array
+protected function layout(): array
 {
     return [
         Layout::modal('exampleModal', [
@@ -294,12 +294,12 @@ class ChartsLayout extends Chart
     /**
      * @var string
      */
-    public $title = 'DemoCharts';
+    protected $title = 'DemoCharts';
 
     /**
      * @var int
      */
-    public $height = 150;
+    protected $height = 150;
 
     /**
      * Available options:
@@ -308,12 +308,12 @@ class ChartsLayout extends Chart
      *
      * @var string
      */
-    public $type = 'scatter';
+    protected $type = 'scatter';
 
     /**
      * @var array
      */
-    public $labels = [
+    protected $labels = [
         "12am-3am",
         "3am-6am",
         "6am-9am",
@@ -327,7 +327,7 @@ class ChartsLayout extends Chart
     /**
      * @var string
      */
-    public $data = 'charts';
+    protected $target = 'charts';
 }
 ```
 
@@ -543,7 +543,7 @@ Layout::macro('hello', function (string $name) {
          *
          * @return mixed
          */
-        public function build(Repository $repository)
+        protected function build(Repository $repository)
         {
             return view('hello')->with('name', $this->name);
         }

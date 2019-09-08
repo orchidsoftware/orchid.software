@@ -161,28 +161,35 @@ public function query() : array
 public function commandBar() : array
 {
     return [
-        Link::name('Вывести на печать')->method('print'),
+        Button::make('Вывести на печать')->method('print'),
     ];
 }
 ```
 
-Класс `Link` отвечает, что будет происходить по нажатию на кнопку, в примере выше, при нажатии на кнопку `Вывести на печать`,
+Класс `Button` отвечает, что будет происходить по нажатию на кнопку, в примере выше, при нажатии на кнопку `Вывести на печать`,
 будет вызван метод экрана `print`, в Request будут доступны все данные которые пользователь видел на экране.
 
 
 ```php
 // По нажатию будет вызван метод 'create'
-Link::name('Новая функция')->method('create');
+use Orchid\Screen\Actions\Button;
+
+Button::make('Новая функция')
+    ->method('create');
 
 // По нажатию будете перенаправлены на указанный адрес
-Link::name('Внешняя ссылка')->link('http://google.com/');
+use Orchid\Screen\Actions\Link;
+
+Link::make('Внешняя ссылка')
+    ->href('http://orchid.software');
 
 // По нажатию будет показано модальное окно (CreateUserModal),
 // в котором можно выполнить метод "save"
-Link::name('Модальное окно')
+use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Модальное окно')
     ->modal('CreateUserModal')
-    ->title('Добавить пользователя')
-    ->method('save'),
+    ->method('save');
 ```
 
 
