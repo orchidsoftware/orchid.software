@@ -14,7 +14,7 @@ section: main
 Будучи пакетом для фреймворка, необходимо сначала установить его. Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив команду 'composer create-project' в вашем терминале:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "5.8.*" --prefer-dist
+$ composer create-project laravel/laravel orchid-project "6.*" --prefer-dist
 ```
 
 > **У вас нет Composer?** Его легко установить, следуя инструкциям на странице [загрузки](https://getcomposer.org/download/).
