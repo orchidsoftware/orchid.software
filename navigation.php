@@ -14,6 +14,7 @@ return [
             'children' => [
                 'Quick start'           => '/en/docs/quickstart',
                 'Data management'       => '/en/docs/quickstart-crud',
+                'Manage attachments'    => '/en/docs/quickstart-files',
             ],
         ],
         'Core concepts'   => [
