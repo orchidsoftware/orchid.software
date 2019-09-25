@@ -136,7 +136,7 @@ use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Layout;
-use Orchid\Screen\Link;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -189,17 +189,17 @@ class PostEditScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::name('Create post')
+            Button::make('Create post')
                 ->icon('icon-pencil')
                 ->method('createOrUpdate')
                 ->canSee(!$this->exists),
 
-            Link::name('Update')
+            Button::make('Update')
                 ->icon('icon-note')
                 ->method('createOrUpdate')
                 ->canSee($this->exists),
 
-            Link::name('Remove')
+            Button::make('Remove')
                 ->icon('icon-trash')
                 ->method('remove')
                 ->canSee($this->exists),
@@ -333,7 +333,7 @@ namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
 use App\Post;
-use Orchid\Screen\Link;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
 class PostListScreen extends Screen
@@ -372,9 +372,9 @@ class PostListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::name('Create new')
+            Link::make('Create new')
                 ->icon('icon-pencil')
-                ->link(route('platform.post.edit'))
+                ->href(route('platform.post.edit'))
         ];
     }
 

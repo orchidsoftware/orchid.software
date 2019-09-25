@@ -151,7 +151,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Layout;
-use Orchid\Screen\Link;
+use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
 
@@ -189,7 +189,7 @@ class EmailSenderScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::name('Send Message')
+            Button::make('Send Message')
                 ->icon('icon-paper-plane')
                 ->method('sendMessage')
         ];
