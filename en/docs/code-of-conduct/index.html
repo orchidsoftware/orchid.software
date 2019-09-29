@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel File Manager"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Manage file attachments | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel File Manager"><meta property="og:url" content="http://orchid.software/en/docs/quickstart-files"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Manage file attachments</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Being involved in the ORCHID community is an amazing experience"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Community Guidelines | Orchid - Laravel Admin Panel"><meta property="og:description" content="Being involved in the ORCHID community is an amazing experience"><meta property="og:url" content="http://orchid.software/en/docs/code-of-conduct"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Community Guidelines</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -122,7 +122,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/en/docs/quickstart-files" class="lvl1 ">
             Manage attachments
@@ -231,7 +231,7 @@
 <li class="">
     
             
-        <ul class=" toc-links-1 "><li class="">
+        <ul class=" toc-links-1 "><li class="active">
             
         <a href="/en/docs/code-of-conduct" class="lvl1 ">
             Code of conduct
@@ -262,203 +262,57 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Manage file attachments</h1>
+                    <main class="wrapper-lg order-md-first"><h1>Community Guidelines</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/quickstart-files.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/code-of-conduct.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Edit this page</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&#8220;Data Management&#8221;</a>,
-in which we will analyze the work with <a href="/en/docs/attachments">&#8220;Attached files&#8221;</a>.</p>
-<p>Let&#8217;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
-in which we will store information about the main image in our blog post:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class AddHeroColumnForPostTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;string('hero')-&gt;nullable();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;dropColumn('hero');
-        });
-    }
-}</code></pre>
-<p>Add to the model for automatic recording:</p>
-<pre><code class="language-php">// app/Post.php
-
-protected $fillable = [
-    'title',
-    'description',
-    'body',
-    'author',
-    'hero'
-];
-//..</code></pre>
-<p>To write data to a new column, you need to add a suitable field to our create/edit screen, take <code>Cropper</code> to crop the image:</p>
-<pre><code class="language-php">// app/Orchid/Screens/PostEditScreen.php
-
-public function layout(): array
-{
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
-
-            Cropper::make('post.hero')
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
-
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
-
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
-
-            Quill::make('post.body')
-                -&gt;title('Main text'),
-
-        ])-&gt;with(75)
-    ];
-}</code></pre>
-<blockquote>
-<p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the <code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
-</blockquote>
-<p>For such a field, the width and height were additionally indicated, in order to be sure that
-that the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
-<pre><code class="language-php">http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</code></pre>
-<blockquote>
-<p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file, that for local development through the built-in web server, port indication is required.</p>
-</blockquote>
-<p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain?
-To do this, it is better to use a relative notation:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetRelativeUrl(),</code></pre>
-<p>Another option for writing is to use <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a>, for this
-the <code>Cropper</code> field will record the number of the downloaded file:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetId(),</code></pre>
-<blockquote>
-<p><strong>Note.</strong> In order for your database to be homogeneous, use one of the proposed options.</p>
-</blockquote>
-<p>Let us dwell on the records of the number, but first, delete all existing records.
-In order to display a picture outside the package, you need to establish a connection in our model:</p>
-<pre><code class="language-php">// app/Post.php
-
-use Orchid\Attachment\Models\Attachment;
-
-public function hero()
-{
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
-}</code></pre>
-<p>After that, we can access and load our <code>Attachment</code> object, for example:</p>
-<pre><code class="language-php">$url = \App\Post::find(3)-&gt;hero()-&gt;first()-&gt;url();</code></pre>
-<p>Most often, some files are combined, for example, for display in whole groups, the <code>Upload</code> field is suitable for this.</p>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
-
-            Cropper::make('post.hero')
-                -&gt;targetId()
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
-
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
-
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
-
-            Quill::make('post.body')
-                -&gt;title('Main text'),
-
-            Upload::make('post.attachment')
-                -&gt;title('All files')
-
-        ])-&gt;with(75)
-    ];
-}</code></pre>
-<p>The field will differ from the previous ones, because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the<code>Attachable</code> trait:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Screen\AsSource;
-
-class Post extends Model
-{
-    use AsSource, Attachable;
-    //...
-}</code></pre>
-<p>But also describe the synchronization of dependent records by relations in our screen:</p>
-<pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
-{
-    $post-&gt;fill($request-&gt;get('post'))-&gt;save();
-
-    $post-&gt;attachment()-&gt;syncWithoutDetaching(
-        $request-&gt;input('post.attachment', [])
-    );
-
-    Alert::info('You have successfully created an post.');
-
-    return redirect()-&gt;route('platform.post.list');
-}</code></pre>
-<p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
-<pre><code class="language-php">id  attachmentable_type  attachmentable_id  attachment_id
-1   App\Post             3                  101
-2   App\Post             3                  102
-3   App\Post             3                  103
-4   App\Post             3                  104</code></pre>
-<p>But when the record is accessed again, the field will be empty, this is due to the fact that <code>query</code> does not know about additional records to our model, we will fix this by adding a download:</p>
-<pre><code class="language-php">public function query(Post $post): array
-{
-    $this-&gt;exists = $post-&gt;exists;
-
-    if($this-&gt;exists){
-        $this-&gt;name = 'Edit post';
-    }
-
-    $post-&gt;load('attachment');
-
-    return [
-        'post' =&gt; $post
-    ];
-}</code></pre>
-<p>Now our attached files are downloaded and synchronized.
-For more details, see the section <a href="/en/docs/field">&#8220;Form Elements&#8221;</a> and <a href="/en/docs/attachments">&#8220;Attached Files&#8221;</a>.</p>                    </main></div>
+                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                <a href="#mutual-respect">Mutual respect</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#content">Content</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#rumors-and-speculation">Rumors and speculation</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#substantive-discussion">Substantive discussion</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#avoiding-conflicts">Avoiding Conflicts</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#tactful-retreat">Tactful retreat</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#effects">Effects</a>
+            </li>
+            </ul><hr><p>Being involved in the ORCHID community is an amazing experience;
+you become part of something big, collaborate with people from all over the world, Help people make their computers amazing.
+But along with this there is an obligation to follow the rules, which provide the most comfortable environment for all participants.
+The following rules must be followed anytime, anywhere
+community related, be it Telegram, GitHub, an ORCHID community resource, face-to-face chat, or something else.</p>
+<h2><a href="#mutual-respect" name="mutual-respect">Mutual respect</a></h2>
+<p>Respect for others is paramount. Respect other people, their opinions, experience, personal life and ideas. The ORCHID community is not a place for disrespectful or abusive language, regardless of the reason. Be constructive and respectful when criticizing. Personal attacks are not allowed. Constructive criticism should be perceived by you with prudence and respect, take note of it and thank the critic for his contribution, regardless of your position.</p>
+<h2><a href="#content" name="content">Content</a></h2>
+<p>The ORCHID community consists of thousands of users of different ages, creeds, as well as maturity levels. In this regard, you should be aware of the content that you create and the comments you leave. Adult materials, swearing, political or religious material, and any other inappropriate content should not appear in the context of ORCHID. Ultimately, ORCHID moderators have a decisive say in determining inappropriate content. If you doubt whether it is possible to write like that &#8211; imagine that you have an audience, including children and elderly people from around the world. And if you are still in doubt, then it is better to abstain.</p>
+<p>Screenshots distributed within ORCHID communities should not contain themes that mimic other web systems, as well as photos and images pointing to certain individuals and any other content that violates our Code of Conduct in one way or another.</p>
+<h2><a href="#rumors-and-speculation" name="rumors-and-speculation">Rumors and speculation</a></h2>
+<p>While the rapidly developing and exciting nature of ORCHID fuels the desire to spread rumors or speculation, we ask you to refrain from this. The discussion of future plans is harmless in itself, but should not be presented as a confirmed fact &#8211; either make it clear that these are speculations, or do not discuss at all. Disseminating inaccurate information can be detrimental to the community, especially if information is disseminated in a negative way.</p>
+<h2><a href="#substantive-discussion" name="substantive-discussion">Substantive discussion</a></h2>
+<p>ORCHID is created by the joint efforts of many people in their free time, whose common goal is to create something special. It is important to always remember this and try to make your contribution to useful and meaningful discussions. At the meeting, support the topic of discussion and express your thoughts that are directly related to the subject of discussion. When commenting on a website, do not go far from the topic of the blog entry or the topic of the question. Taking part in discussions related to development, for example in mail correspondence or in Slack, do not ask unnecessary questions and do not conduct conversations that are not directly related to the development process; thereby, you complicate the course of the discussion and overflow the logs of messages from developers that may not be in the conversation at that moment.</p>
+<p>First of all, you need to understand that we are an online community, on the basis of this we need to make every effort to avoid all the negative aspects that the global network has. No need to troll &#8211; verbal skirmishes and comments made for the sole purpose of making someone a fool are unacceptable and look at least infantile. Spam is also not allowed. Spam includes links to pages that are not related to the topic of discussion or repeated links to the same web page. If one of the users is engaged in trolling or spam, just ignore it and notify the moderators about it.</p>
+<h2><a href="#avoiding-conflicts" name="avoiding-conflicts">Avoiding Conflicts</a></h2>
+<p>If you feel that someone, whether a beginner or an old-timer, is behaving rudely, politely inform him of this. Problems must be addressed before they become a disaster. Everyone must contribute so that communication in our unique (sometimes too unique) work environment runs smoothly.</p>
+<h2><a href="#tactful-retreat" name="tactful-retreat">Tactful retreat</a></h2>
+<p>Life priorities, interests and hobbies can change. If you participate in an ORCHID-related project, but feel that you must leave it, then make this the least problematic for the community. When we work together, the fruits of our work and ideas cease to be our own &#8211; they belong entirely to the ORCHID community. Inform other team members that you are about to retire, and if possible, find someone who will continue your work. At the very least, make sure your work can continue when you leave.</p>
+<h2><a href="#effects" name="effects">Effects</a></h2>
+<p>If you decide not to follow the above rules of behavior, or otherwise interfere with the community, we reserve the right to do the following: change or delete any content that you published; disable or block the account on third-party websites; disable account in Telegram; or in any other way to prevent your interaction with the community.</p>
+<hr><p><em>ORCHID Code of Conduct distributed under license <a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-Share Alike 3.0</a>.
+Some points were inspired. <a href="http://www.ubuntu.com/about/about-ubuntu/conduct">Ubuntu Code of Conduct</a>.</em></p>                    </main></div>
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel File Manager"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Manage file attachments | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel File Manager"><meta property="og:url" content="http://orchid.software/en/docs/quickstart-files"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Manage file attachments</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="MIT License"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="The MIT License (MIT) | Orchid - Laravel Admin Panel"><meta property="og:description" content="MIT License"><meta property="og:url" content="http://orchid.software/en/docs/license"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | The MIT License (MIT)</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -122,7 +122,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/en/docs/quickstart-files" class="lvl1 ">
             Manage attachments
@@ -252,7 +252,7 @@
         </a>
     
     </li>
-            <li class="">
+            <li class="active">
             
         <a href="/en/docs/license" class="lvl1 ">
             License
@@ -262,203 +262,28 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Manage file attachments</h1>
+                    <main class="wrapper-lg order-md-first"><h1>The MIT License (MIT)</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/quickstart-files.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/license.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Edit this page</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&#8220;Data Management&#8221;</a>,
-in which we will analyze the work with <a href="/en/docs/attachments">&#8220;Attached files&#8221;</a>.</p>
-<p>Let&#8217;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
-in which we will store information about the main image in our blog post:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class AddHeroColumnForPostTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;string('hero')-&gt;nullable();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;dropColumn('hero');
-        });
-    }
-}</code></pre>
-<p>Add to the model for automatic recording:</p>
-<pre><code class="language-php">// app/Post.php
-
-protected $fillable = [
-    'title',
-    'description',
-    'body',
-    'author',
-    'hero'
-];
-//..</code></pre>
-<p>To write data to a new column, you need to add a suitable field to our create/edit screen, take <code>Cropper</code> to crop the image:</p>
-<pre><code class="language-php">// app/Orchid/Screens/PostEditScreen.php
-
-public function layout(): array
-{
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
-
-            Cropper::make('post.hero')
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
-
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
-
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
-
-            Quill::make('post.body')
-                -&gt;title('Main text'),
-
-        ])-&gt;with(75)
-    ];
-}</code></pre>
-<blockquote>
-<p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the <code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
-</blockquote>
-<p>For such a field, the width and height were additionally indicated, in order to be sure that
-that the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
-<pre><code class="language-php">http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</code></pre>
-<blockquote>
-<p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file, that for local development through the built-in web server, port indication is required.</p>
-</blockquote>
-<p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain?
-To do this, it is better to use a relative notation:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetRelativeUrl(),</code></pre>
-<p>Another option for writing is to use <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a>, for this
-the <code>Cropper</code> field will record the number of the downloaded file:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetId(),</code></pre>
-<blockquote>
-<p><strong>Note.</strong> In order for your database to be homogeneous, use one of the proposed options.</p>
-</blockquote>
-<p>Let us dwell on the records of the number, but first, delete all existing records.
-In order to display a picture outside the package, you need to establish a connection in our model:</p>
-<pre><code class="language-php">// app/Post.php
-
-use Orchid\Attachment\Models\Attachment;
-
-public function hero()
-{
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
-}</code></pre>
-<p>After that, we can access and load our <code>Attachment</code> object, for example:</p>
-<pre><code class="language-php">$url = \App\Post::find(3)-&gt;hero()-&gt;first()-&gt;url();</code></pre>
-<p>Most often, some files are combined, for example, for display in whole groups, the <code>Upload</code> field is suitable for this.</p>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
-
-            Cropper::make('post.hero')
-                -&gt;targetId()
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
-
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
-
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
-
-            Quill::make('post.body')
-                -&gt;title('Main text'),
-
-            Upload::make('post.attachment')
-                -&gt;title('All files')
-
-        ])-&gt;with(75)
-    ];
-}</code></pre>
-<p>The field will differ from the previous ones, because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the<code>Attachable</code> trait:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Screen\AsSource;
-
-class Post extends Model
-{
-    use AsSource, Attachable;
-    //...
-}</code></pre>
-<p>But also describe the synchronization of dependent records by relations in our screen:</p>
-<pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
-{
-    $post-&gt;fill($request-&gt;get('post'))-&gt;save();
-
-    $post-&gt;attachment()-&gt;syncWithoutDetaching(
-        $request-&gt;input('post.attachment', [])
-    );
-
-    Alert::info('You have successfully created an post.');
-
-    return redirect()-&gt;route('platform.post.list');
-}</code></pre>
-<p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
-<pre><code class="language-php">id  attachmentable_type  attachmentable_id  attachment_id
-1   App\Post             3                  101
-2   App\Post             3                  102
-3   App\Post             3                  103
-4   App\Post             3                  104</code></pre>
-<p>But when the record is accessed again, the field will be empty, this is due to the fact that <code>query</code> does not know about additional records to our model, we will fix this by adding a download:</p>
-<pre><code class="language-php">public function query(Post $post): array
-{
-    $this-&gt;exists = $post-&gt;exists;
-
-    if($this-&gt;exists){
-        $this-&gt;name = 'Edit post';
-    }
-
-    $post-&gt;load('attachment');
-
-    return [
-        'post' =&gt; $post
-    ];
-}</code></pre>
-<p>Now our attached files are downloaded and synchronized.
-For more details, see the section <a href="/en/docs/field">&#8220;Form Elements&#8221;</a> and <a href="/en/docs/attachments">&#8220;Attached Files&#8221;</a>.</p>                    </main></div>
+                        <hr class="mb-4"><h2><a href="#mit-license" name="mit-license">MIT License</a></h2>
+<p>Copyright &#169;  Chernyaev Alexandr</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &#8220;Software&#8221;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>                    </main></div>
             </div>
         </div>
     </div>
