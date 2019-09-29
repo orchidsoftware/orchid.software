@@ -23,10 +23,13 @@ mix
     })
     .copy('./node_modules/orchid-icons/dist/fonts/', 'source/assets/build/fonts')
     .js(['source/_assets/js/app.js'], 'js/app.js')
-    .purgeCss({
+    .sourceMaps()
+    .version();
+
+if (!mix.inProduction()) {
+    mix.purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],
         whitelistPatterns: [/language/, /hljs/, /algolia/, /icon/],
     })
-    .sourceMaps()
-    .version();
+}

@@ -15845,11 +15845,13 @@ a.bg-name:hover {
   background-color: #131e25;
 }
 
-a.text-black:hover {
+a.text-black:hover,
+.nav-docs li.active a:hover {
   color: #131e25;
 }
 
-.text-black {
+.text-black,
+.nav-docs li.active a {
   color: #1c2b36 !important;
 }
 
@@ -15875,7 +15877,8 @@ pre[class*=language-] {
   color: #fff;
 }
 
-.text-black {
+.text-black,
+.nav-docs li.active a {
   color: #000;
 }
 
@@ -15915,6 +15918,10 @@ pre[class*=language-] {
 
 .nav-docs h4 {
   margin-top: 1.33em;
+}
+
+.nav-docs li.active {
+  list-style: disc;
 }
 
 @media only screen and (max-width: 480px) {
@@ -16004,7 +16011,7 @@ main pre {
 main blockquote {
   border-left: 2px solid #AC5CA0;
   position: relative;
-  padding: 1em;
+  padding: 1em 2em;
   font-size: 1em;
   line-height: 2em;
   margin: 1.66em 0;
@@ -16059,7 +16066,7 @@ main div .h2,
 main div .h3,
 main div h2,
 main div h3 {
-  margin-top: 40px;
+  margin-top: 2em;
   margin-bottom: 15px;
 }
 
@@ -16067,7 +16074,7 @@ main p,
 main div p {
   font-size: 1.1em;
   line-height: 28px;
-  margin-bottom: .85em;
+  margin-bottom: 1.5rem;
 }
 
 main p > a,
@@ -16134,6 +16141,7 @@ main div::selection {
   height: 700px;
   position: relative !important;
   overflow: hidden !important;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 121 121' height='121' width='121' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23EFF1F3' fill-rule='evenodd'%3E%3Cpath d='M1 60h60l-.024-60H62v60h59v1H62v59h-1V61H1zM0 0h1v121H0zM1 120h120v1H1z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 pre[class*=language-] {
@@ -16252,6 +16260,14 @@ input::-webkit-inner-adjust-hue-button {
 
 .toc-links .toc-links-1 li {
   padding-top: 0.3em;
+}
+
+li.anchor-h3 {
+  margin-left: 1.5em;
+}
+
+.topics-list h3 {
+  margin-top: 1em;
 }
 
 .preview {

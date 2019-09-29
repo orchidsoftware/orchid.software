@@ -20,9 +20,9 @@ return [
         'Core concepts'   => [
             'children' => [
                 'Screens'        => '/en/docs/screens',
-                'Layouts'        => '/en/docs/layouts',
-                'Form'           => '/en/docs/field',
-                'Menu'           => '/en/docs/menu',
+                'Screen layouts'        => '/en/docs/layouts',
+                'Form elements'           => '/en/docs/field',
+                'Panel Menu'           => '/en/docs/menu',
                 'Permissions'    => '/en/docs/access',
             ],
         ],
@@ -37,18 +37,14 @@ return [
                 'Using JS'      => '/en/docs/javascript',
             ],
         ],
-        /*
-        'Prologue'        => [
+        'Community'  => [
             'children' => [
-                //'Предисловие'           => '/en/docs/preface',
-                'Introduction project'  => '/en/docs/',
-                //'Кодекс поведения'      => '/en/docs/code-of-conduct',
-                'Contribution'          => '/en/docs/contributors',
-                //'Содействие проекту'    => '/en/docs/promote',
-                'Licensing'             => '/en/docs/license',
+                'Code of conduct'     => '/en/docs/code-of-conduct',
+                'Contribution'        => '/en/docs/contributors',
+                'Promote project'     => '/en/docs/promote',
+                'License'             => '/en/docs/license',
             ],
         ],
-        */
     ],
     'ru' => [
         'Начало работы'      => [
