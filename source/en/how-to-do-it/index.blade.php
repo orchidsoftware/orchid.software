@@ -16,10 +16,10 @@
                             This section is in addition to <a href="/en/docs">documentation</a> covering popular questions of new users.
                         </p>
                     </div>
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-sm-6">
                             <div class="topics-list">
-                                <h3 class="font-thin text-black"><a href="#">Introduction</a></h3>
+                                <h3><a href="#">Introduction</a></h3>
                                 <ul class="list-group">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
@@ -42,7 +42,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-sm-6">
                             <div class="topics-list">
                                 <h3><a href="#">Settings &amp; Configuration</a></h3>
@@ -61,14 +61,18 @@
                                 <ul class="list-group">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
-                                    <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
-                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                    <li>
+                                        <a href="/en/how-to-do-it/how-to-use-sorting-in-a-table">
+                                            Как использовать сортировку в таблице?
+                                        </a>
+                                    </li>
+                                    <li><a href="#">Basic knowledge requirments. </a></li>
+                                    <li><a href="#">Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col-sm-6">
                             <div class="topics-list">
                                 <h3>

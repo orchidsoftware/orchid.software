@@ -13897,7 +13897,8 @@ main div iframe {
   border-right: 1px solid #dadfe4;
 }
 
-.b-b {
+.b-b,
+.how-to-do-it h1 {
   border-bottom: 1px solid #dadfe4;
 }
 
@@ -16268,6 +16269,11 @@ li.anchor-h3 {
 
 .topics-list h3 {
   margin-top: 1em;
+}
+
+.how-to-do-it h1 {
+  margin-bottom: 1em;
+  text-align: center;
 }
 
 .preview {

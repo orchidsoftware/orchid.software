@@ -347,3 +347,11 @@ li.anchor-h3 {
   }
 
 }
+
+.how-to-do-it{
+  h1{
+    margin-bottom: 1em;
+    text-align: center;
+    @extend .b-b;
+  }
+}
