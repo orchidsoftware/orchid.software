@@ -15,7 +15,7 @@ To create a new controller, you must run the command `make:controller`:
 php artisan make:controller CustomOrchidController
 ```
 
-In the`app/Http/Controllers` directory, a new class will be created, change it:
+In the `app/Http/Controllers` directory, a new class will be created, change it:
 
 ```php
 namespace App\Http\Controllers;
