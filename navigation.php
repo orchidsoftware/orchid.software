@@ -22,7 +22,7 @@ return [
                 'Screens'        => '/en/docs/screens',
                 'Screen layouts'        => '/en/docs/layouts',
                 'Form elements'           => '/en/docs/field',
-                'Panel Menu'           => '/en/docs/menu',
+                'Panel menu'           => '/en/docs/menu',
                 'Permissions'    => '/en/docs/access',
             ],
         ],
