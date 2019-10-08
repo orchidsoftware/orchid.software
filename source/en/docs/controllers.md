@@ -9,7 +9,7 @@ section: main
 During development, various situations may arise, including the need to build controllers into the package operation.
 
 
-To create a new controller, you must run the command `make: controller`:
+To create a new controller, you must run the command `make:controller`:
 
 ```php
 php artisan make:controller CustomOrchidController
