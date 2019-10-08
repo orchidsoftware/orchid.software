@@ -18,8 +18,8 @@
 @section('main.idea.title','Any Ideas')
 @section('main.idea.description','Use your favorite packages from vast ecosystem or create your own sets.')
 
-@section('main.code.title','Clean Code')
-@section('main.code.description','Any coding through the graphic interface, only a beautiful program code.')
+@section('main.code.title','Only Code')
+@section('main.code.description','No creation through a graphical interface, only beautiful program code.')
 
 @section('main.col1.title','Easy to get started')
 @section('main.col1.description','Most of the development is done in PHP. It is not necessary to use HTML, CSS or JavaScript to create a web interface. PHP applications are easier to maintain, and the development team is extensible.')
