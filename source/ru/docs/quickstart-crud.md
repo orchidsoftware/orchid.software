@@ -295,12 +295,12 @@ class PostListLayout extends Table
      *
      * @var string
      */
-    public $data = 'posts';
+    public $target = 'posts';
 
     /**
      * @return TD[]
      */
-    public function fields(): array
+    public function columns(): array
     {
         return [
         
@@ -322,7 +322,7 @@ class PostListLayout extends Table
 }
 ```
 
-Свойство `data` указывает ключ, который будет источником для нашей таблицы на экране.
+Свойство `target` указывает ключ, который будет источником для нашей таблицы на экране.
 
 > **Примечание.** Формирование `HTML` непосредственно в классе необходимо только для примера и является плохой практикой. Пожалуйста, используйте `Blade` шаблоны.
 
