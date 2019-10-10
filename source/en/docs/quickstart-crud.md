@@ -298,12 +298,12 @@ class PostListLayout extends Table
      *
      * @var string
      */
-    public $data = 'posts';
+    public $target = 'posts';
 
     /**
      * @return TD[]
      */
-    public function fields(): array
+    public function columns(): array
     {
         return [
         
