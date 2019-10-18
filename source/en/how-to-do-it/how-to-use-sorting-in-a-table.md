@@ -8,20 +8,104 @@ section: main
 # Как использовать сортировку в таблице?
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in. Dictum varius duis at consectetur lorem donec massa sapien. Enim diam vulputate ut pharetra sit amet aliquam. Iaculis urna id volutpat lacus. Varius sit amet mattis vulputate enim nulla. Semper auctor neque vitae tempus quam pellentesque nec nam aliquam. Pulvinar etiam non quam lacus suspendisse. Accumsan sit amet nulla facilisi morbi tempus iaculis urna id. Amet consectetur adipiscing elit duis tristique sollicitudin. Est placerat in egestas erat imperdiet sed euismod nisi. Id neque aliquam vestibulum morbi. Ac orci phasellus egestas tellus rutrum tellus pellentesque eu tincidunt. Netus et malesuada fames ac turpis. Imperdiet nulla malesuada pellentesque elit eget. Imperdiet proin fermentum leo vel orci. Augue eget arcu dictum varius. Massa sed elementum tempus egestas sed. Sed cras ornare arcu dui. Duis tristique sollicitudin nibh sit amet commodo nulla facilisi nullam.
+Сортировка в таблице полностью основана на автоматическом распозновании Http запроса и применима к моделям Eloquent.
 
-## Automatic HTTP Filtering and Sorting
+Рассмотрим это на пустой модели `Idea`:
 
 ```php
-Post::filters()->defaultSort('id')->paginate();
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\AsSource;
+
+class Idea extends Model
+{
+    use AsSource;
+
+    //
+}
 ```
 
-Tincidunt id aliquet risus feugiat in ante metus dictum. Netus et malesuada fames ac turpis egestas sed. Arcu odio ut sem nulla. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Libero nunc consequat interdum varius sit amet. A erat nam at lectus urna duis convallis convallis tellus. Sed cras ornare arcu dui vivamus arcu felis bibendum ut. Vel pharetra vel turpis nunc eget lorem dolor. Massa massa ultricies mi quis hendrerit. Urna nunc id cursus metus aliquam eleifend mi. Felis donec et odio pellentesque diam volutpat. Non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus. Urna nunc id cursus metus. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Eros in cursus turpis massa tincidunt dui ut ornare. In tellus integer feugiat scelerisque varius morbi enim nunc.
+Необходимо добавить трейт `Filterable` и определить разрешённые поля для сортировки:
 
-Consequat mauris nunc congue nisi. Arcu bibendum at varius vel. Amet purus gravida quis blandit turpis cursus. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Ipsum a arcu cursus vitae congue mauris rhoncus. Mi proin sed libero enim sed. Turpis egestas integer eget aliquet nibh praesent tristique magna. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio. Sed vulputate mi sit amet mauris commodo quis. Dictumst quisque sagittis purus sit amet. Ut sem nulla pharetra diam sit amet nisl suscipit. Pharetra pharetra massa massa ultricies mi. Eget mi proin sed libero enim. Est ultricies integer quis auctor elit sed vulputate. Dictum at tempor commodo ullamcorper. Lobortis mattis aliquam faucibus purus in. Imperdiet sed euismod nisi porta lorem. Enim nunc faucibus a pellentesque.
+```php
+namespace App;
 
-> ** Note. ** Generating `HTML` directly in the class is an example only and is bad practice. Please use the `Blade` templates.
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Screen\AsSource;
 
-Blandit massa enim nec dui nunc. Porttitor rhoncus dolor purus non enim praesent elementum facilisis leo. Volutpat sed cras ornare arcu dui vivamus arcu. Facilisi morbi tempus iaculis urna id volutpat lacus. Rhoncus dolor purus non enim praesent elementum facilisis. Magna sit amet purus gravida. A condimentum vitae sapien pellentesque habitant morbi. Venenatis lectus magna fringilla urna. Vitae justo eget magna fermentum iaculis eu non. Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Tempus egestas sed sed risus pretium quam.
+class Idea extends Model
+{
+    use AsSource, Filterable;
 
-Velit ut tortor pretium viverra suspendisse. Vitae justo eget magna fermentum iaculis eu. Dui id ornare arcu odio ut. Iaculis urna id volutpat lacus laoreet non. Nunc vel risus commodo viverra. Velit egestas dui id ornare. Nibh mauris cursus mattis molestie a iaculis at. Nullam eget felis eget nunc. Id interdum velit laoreet id donec. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum posuere. Quis commodo odio aenean sed. Mauris vitae ultricies leo integer malesuada nunc vel. Egestas sed tempus urna et pharetra pharetra. In egestas erat imperdiet sed euismod nisi. Gravida neque convallis a cras semper. Venenatis tellus in metus vulputate eu scelerisque felis imperdiet. Nulla pellentesque dignissim enim sit amet. Rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant.
+    /**
+     * Name of columns to which http sorting can be applied
+     * 
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'name',
+        'created_at',
+        'updated_at',
+    ];
+}
+```
+
+Теперь при вызове метода `filters` запрос к базе данных будет модифицирован.
+В методе источника данных у экрана, это может выглядеть следующим образом:
+
+```php
+/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+        'ideas' => Idea::filters()->defaultSort('id')->paginate(),
+    ];
+}
+```
+
+Теперь даныне будет различными в зависимости от параметров в `url` адресе, например:
+
+* `http://example.com/yourScreen?sort=id` - результом будут записи по возрастанию идентифицирующего номера
+* `http://example.com/yourScreen?sort=-id` - Сортировка по убыванию
+
+> ** Обратите внимание. ** Таким способом вы не можете сортировать связанные модели.
+
+
+Для того, что бы отобразить в графическом интерфейсе возможность сортировки мы должны добавить метод `sort`
+
+```php
+use Orchid\Screen\TD;
+use Orchid\Screen\Layouts\Table;
+
+class IdeaListLayout extends Table
+{
+    /**
+     * @var string
+     */
+    public $target = 'ideas';
+
+    /**
+     * @return array
+     */
+    public function columns(): array
+    {
+        return [
+            TD::set('id', 'ID')
+                ->align(TD::ALIGN_CENTER)
+                ->width('100px')
+                ->sort(),
+            //...
+        ];
+    }
+}
+```
+
+
+После этого заголовок колонки будет реагировать на нажатие и менять положение сортировки.
