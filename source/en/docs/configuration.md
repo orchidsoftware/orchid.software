@@ -6,7 +6,7 @@ section: main
 ---
 
 The platform uses the standard configuration system for Laravel.
-The main parameters are located in the `config` directory, and the main file for the platform is
+It locates the main parameters in the `config` directory, and the main file for the platform is
 file `platform.php`. Each set comes with a commentary explaining the main point.
 
 > ** Note. ** If you cache your configuration files, do not forget to clear them after the change. Using the command `php artisan config: clear`
