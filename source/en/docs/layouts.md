@@ -8,12 +8,12 @@ section: main
 The display of the appearance of the user interface elements in the application is of great importance, makes the application
 is easier to use and helps users intuitively display screen elements to complete their tasks.
 
-The separation of logic and presentation is one of the principles of development with ORCHID.
-One of the elements of the presentation are "Layouts" (layouts) that can be displayed in different variations, if you try to explain briefly, it turns out that this is the `view` on steroids.
+The separation of logic and presentation is one of the principles of development with the platform.
+One of the elements of the presentation is "Layouts" (layouts) that can be displayed in different variations if you try to explain briefly, it turns out that this is the `view` on steroids.
 
 ## Approach through layouts
 
-For the formation of the page, we in most cases we use the same type of elements, for example, we will present a block that displays the name, signature and avatar of the profile:
+For the formation of the page, we in most cases we use the same type of elements, for example, we will present a block that displays the name, signature, and avatar of the profile:
 
 ```php
 <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
@@ -222,7 +222,7 @@ public function layout(): array
 }
 ```
 
-The rows layout also supports resonsive column division inside the row, to use that just use an array.
+The rows layout also supports responsive column division inside the row, to use that just use an array.
 
 Example:
 ```php
@@ -487,7 +487,7 @@ public function layout(): array
 ## Custom Template
 
 
-It is expected situation when you need to display your own template,
+It is an expected situation when you need to display your template,
 for this:
 
 
@@ -543,7 +543,7 @@ Variables from `query` are also available in the template.
 
 ## Layer Expansion
 
-The `Layouts` class is grouping several different ones; in order to add a new feature to it, it is enough to specify it in the service provider as:
+The `Layouts` class is grouping several different ones; to add a new feature to it, it is enough to specify it in the service provider as:
 
 ```php
 use Orchid\Screen\Layouts\Base;
@@ -582,7 +582,7 @@ Layout::macro('hello', function (string $name) {
 });
 ```
 
-Then on the screen the call will look like:
+Then on the screen, the call will look like:
 
 ```php
 public function layout(): array
