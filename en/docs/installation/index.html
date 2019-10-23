@@ -285,7 +285,7 @@
                 <a href="#start-local-server">Start local server</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#static-resource-publishing">Static Resource Publishing</a>
+                <a href="#publishing-resources">Publishing resources</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#what-to-do-next">What to do next?</a>
@@ -330,7 +330,7 @@ In other words, install your new framework project.</p>
 the admin panel may not be available and you need to specify your domain in the configuration file <code>config/platform.php</code>
   or in <code>.env</code> file. This allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>. </p>
 </blockquote>
-<h2><a href="#static-resource-publishing" name="static-resource-publishing">Static Resource Publishing</a></h2>
+<h2><a href="#publishing-resources" name="publishing-resources">Publishing resources</a></h2>
 <p>By default static files (css/js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
 <blockquote>
