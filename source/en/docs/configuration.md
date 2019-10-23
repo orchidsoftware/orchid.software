@@ -7,7 +7,7 @@ section: main
 
 The platform uses the standard configuration system for Laravel.
 The main parameters are located in the `config` directory, and the main file for the platform is
-file `platform.php`. Each setting comes with a commentary explaining the main point.
+file `platform.php`. Each set comes with a commentary explaining the main point.
 
 > ** Note. ** If you cache your configuration files, do not forget to clear them after the change. Using the command `php artisan config: clear`
 
@@ -38,7 +38,7 @@ Remember that your web server settings must be configured properly.
 'prefix' => env('DASHBOARD_PREFIX', 'dashboard'),
 ```
  
-Provides the ability to change the `dashboard` prefix to any other name, such as` admin` or `administrator`.
+It provides the ability to change the `dashboard` prefix to any other name, such as` admin` or `administrator`.
 
 
 ## Middleware
@@ -51,8 +51,8 @@ Provides the ability to change the `dashboard` prefix to any other name, such as
 ```
 
 You can add/change intermediate layers (middleware) for the graphical interface.
-Currently there are two groups of `public` that can be seen by an unauthorized user,
-for example, the "Login" or "Password Recovery" page and `private` which, on the contrary, only authorized users see.
+Currently, two groups of `public` can be seen by an unauthorized user,
+for example, the "Login" or "Password Recovery" page and `private` which, on the contrary, only authorized users to see.
 
 
 You can add as many new intermediate layers as you like.
@@ -88,7 +88,7 @@ The main page of the application is recorded in the form of the **name route** t
 ],
 ```
 
-As you work, you may need to add your own style sheets or javascript scripts.
+As you work, you may need to add your style sheets or javascript scripts.
 globally, on each page, it is necessary to add paths for them to the corresponding arrays.
 
 It is also possible to specify resources through the `Dashboard` object, for example, in a service provider:
@@ -118,7 +118,7 @@ class AppServiceProvider extends ServiceProvider
 
 ## Appearance Patterns
 
-To change some templates, it is not necessary to publish the entire package; you can customize part of the user interface to specify a logo, accompanying documents, etc.
+To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
 
 ```php
 'template' => [
@@ -130,7 +130,7 @@ To change some templates, it is not necessary to publish the entire package; you
 
 ## Model Classes
 
-The desire to change the behavior of some classes from the standard delivery is quite normal, in order for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
+The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
 
 ```php
 Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
