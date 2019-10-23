@@ -9,9 +9,9 @@ This quick start guide provides a basic introduction to the infrastructure and i
 about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.
 
-At this stage it is necessary that you have already [installed the framework and the platform](/en/docs/installation), created the database and started the web server.
+At this stage, it is necessary that you have already [installed the framework and the platform](/en/docs/installation), created the database and started the webserver.
 
-First you need to create [screen](/en/docs/screens) to display the submission form, using the command:
+First, you need to create a [screen](/en/docs/screens) to display the submission form, using the command:
 
 ```bash
 php artisan orchid:screen EmailSenderScreen
@@ -29,14 +29,14 @@ class EmailSenderScreen extends Screen
     /**
      * Name and description properties are responsible for
      * what name will be displayed
-     * on user screen and in headlines.
+     * on the user screen and in headlines.
      */
     public $name = 'EmailSenderScreen';
     public $description = 'EmailSenderScreen';
 
     /**
-     * Method that defines all screen input data
-     * it is in it that database queries should be called,
+     * A method that defines all screen input data
+     * is in it that database queries should be called,
      * api or any others (not necessarily explicit),
      * the result of which should be an array,
      * appeal to which his keys will be used.
@@ -58,7 +58,7 @@ class EmailSenderScreen extends Screen
     /**
      * Set of mappings
      * rows, tables, graphs,
-     * modal windows and their combinations
+     * modal windows, and their combinations
      */
     public function layout(): array
     {
@@ -68,7 +68,7 @@ class EmailSenderScreen extends Screen
 ```
 
 The main difference of the screen from the controller is the structure defined in advance, which serves
-only one page defining data and events.
+only one-page defining data and events.
 
 Like the controller, the screen needs to be registered in the route file,
 Define it in the file for the admin panel `routes/platform.php`:
@@ -100,7 +100,7 @@ public $name = 'Email sender';
 public $description = 'Tool that sends ad-hoc email messages.';
 ```
 
-In order to display the input fields, we describe them in the `Layouts` method:
+To display the input fields, we describe them in the `Layouts` method:
 
 ```php
 /**
@@ -137,7 +137,7 @@ public function layout(): array
 }
 ```
 
-Now our page has some elements, but does not produce any action.
+Now our page has some elements but does not produce any action.
 to define them you need to create a new public method and specify a link to it in `commandBar`:
 
 ```php
@@ -251,7 +251,7 @@ class EmailSenderScreen extends Screen
 }
 ```
 
-After that we have the ability to send email messages to addresses.
+After that, can to send email messages to addresses.
 
 > Note that by default the `smtp` driver is enabled for sending mail,
 You can change it in the `.env` file to` log` for verification.
@@ -287,8 +287,8 @@ $this->dashboard->menu
     );
 ```
 
-Now our utility is displayed in the left menu and is active when visiting.
-Navigation can be carried out not only through transitions from the menu, but also through bread crumbs,
+Now our utility is displayed on the left menu and is active when visiting.
+Navigation can be carried out not only through transitions from the menu but also through bread crumbs,
 to add them to our screen you need to add a new ad in the `routes/breadcrumbs.php` by route name
 
 ```php
@@ -299,4 +299,4 @@ Breadcrumbs::for('platform.email', function ($trail) {
 ```
 
 
-Congratulations, you should now understand how the platform works! This is a very simple example, but the development process will be identical in many aspects. Now we recommend to go to the [Screens](/en/docs/screens) section in order to learn more about the possibilities that are in your hands.
+Congratulations, you should now understand how the platform works! This is a very simple example, but the development process will be identical in many aspects. Now we recommend to going the [Screens](/en/docs/screens) section to learn more about the possibilities that are in your hands.
