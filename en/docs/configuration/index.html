@@ -295,7 +295,7 @@
             </li>
             </ul><hr><p>The platform uses the standard configuration system for Laravel.
 The main parameters are located in the <code>config</code> directory, and the main file for the platform is
-file <code>platform.php</code>. Each setting comes with a commentary explaining the main point.</p>
+file <code>platform.php</code>. Each set comes with a commentary explaining the main point.</p>
 <blockquote>
 <p><strong> Note. </strong> If you cache your configuration files, do not forget to clear them after the change. Using the command <code>php artisan config: clear</code></p>
 </blockquote>
@@ -309,14 +309,14 @@ For example, the application is located at <code>example.com</code>, and the pla
 <p>Remember that your web server settings must be configured properly.</p>
 <h2><a href="#platform-prefix" name="platform-prefix">Platform Prefix</a></h2>
 <pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),</code></pre>
-<p>Provides the ability to change the <code>dashboard</code> prefix to any other name, such as<code>admin</code> or <code>administrator</code>.</p>
+<p>It provides the ability to change the <code>dashboard</code> prefix to any other name, such as<code>admin</code> or <code>administrator</code>.</p>
 <h2><a href="#middleware" name="middleware">Middleware</a></h2>
 <pre><code class="language-php">'middleware' =&gt; [
     'public'  =&gt; ['web'],
     'private' =&gt; ['web', 'platform'],
 ],</code></pre>
 <p>You can add/change intermediate layers (middleware) for the graphical interface.
-Currently there are two groups of <code>public</code> that can be seen by an unauthorized user, for example, the &#8220;Login&#8221; or &#8220;Password Recovery&#8221; page and <code>private</code> which, on the contrary, only authorized users see.</p>
+Currently, two groups of <code>public</code> can be seen by an unauthorized user, for example, the &#8220;Login&#8221; or &#8220;Password Recovery&#8221; page and <code>private</code> which, on the contrary, only authorized users to see.</p>
 <p>You can add as many new intermediate layers as you like.
 for example, the filtering layer requests only from the white list of IP addresses.</p>
 <h2><a href="#login-page" name="login-page">Login page</a></h2>
@@ -331,7 +331,7 @@ for example, the filtering layer requests only from the white list of IP address
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [],
 ],</code></pre>
-<p>As you work, you may need to add your own style sheets or javascript scripts.
+<p>As you work, you may need to add your style sheets or javascript scripts.
 globally, on each page, it is necessary to add paths for them to the corresponding arrays.</p>
 <p>It is also possible to specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
 <pre><code class="language-php">namespace App\Providers;
@@ -353,13 +353,13 @@ class AppServiceProvider extends ServiceProvider
     }
 }</code></pre>
 <h2><a href="#appearance-patterns" name="appearance-patterns">Appearance Patterns</a></h2>
-<p>To change some templates, it is not necessary to publish the entire package; you can customize part of the user interface to specify a logo, accompanying documents, etc.</p>
+<p>To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'platform::header',
     'footer' =&gt; 'platform::footer',
 ],</code></pre>
 <h2><a href="#model-classes" name="model-classes">Model Classes</a></h2>
-<p>The desire to change the behavior of some classes from the standard delivery is quite normal, in order for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
+<p>The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
 <p>You can use the configuration parameter, which allows you to define all the substitutions at once:</p>
 <pre><code class="language-php">Dashboard::configure([
