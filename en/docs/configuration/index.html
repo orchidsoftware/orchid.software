@@ -270,10 +270,10 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#platform-address">Platform Address</a>
+                <a href="#platform-address">Platform address</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#platform-prefix">Platform Prefix</a>
+                <a href="#platform-prefix">Platform prefix</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#middleware">Middleware</a>
@@ -282,16 +282,16 @@
                 <a href="#login-page">Login page</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#home-page">Home Page</a>
+                <a href="#home-page">Home page</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#dashboard-resources">Dashboard Resources</a>
+                <a href="#dashboard-resources">Dashboard resources</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#appearance-patterns">Appearance Patterns</a>
+                <a href="#appearance-patterns">Appearance patterns</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#model-classes">Model Classes</a>
+                <a href="#model-classes">Model classes</a>
             </li>
             </ul><hr><p>The platform uses the standard configuration system for Laravel.
 The main parameters are located in the <code>config</code> directory, and the main file for the platform is
@@ -300,14 +300,14 @@ file <code>platform.php</code>. Each set comes with a commentary explaining the 
 <p><strong> Note. </strong> If you cache your configuration files, do not forget to clear them after the change. Using the command <code>php artisan config: clear</code></p>
 </blockquote>
 <p>Below we dive into the configuration file and give a detailed description of each parameter.</p>
-<h2><a href="#platform-address" name="platform-address">Platform Address</a></h2>
+<h2><a href="#platform-address" name="platform-address">Platform address</a></h2>
 <pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),</code></pre>
 <p>For many projects, the address of the location of the administration panel plays an important role.
 For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
 <p>For this you need to specify the address you would like to open.</p>
 <pre><code class="language-php">'domain' =&gt; 'admin.example.com',</code></pre>
 <p>Remember that your web server settings must be configured properly.</p>
-<h2><a href="#platform-prefix" name="platform-prefix">Platform Prefix</a></h2>
+<h2><a href="#platform-prefix" name="platform-prefix">Platform prefix</a></h2>
 <pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),</code></pre>
 <p>It provides the ability to change the <code>dashboard</code> prefix to any other name, such as<code>admin</code> or <code>administrator</code>.</p>
 <h2><a href="#middleware" name="middleware">Middleware</a></h2>
@@ -323,10 +323,10 @@ for example, the filtering layer requests only from the white list of IP address
 <pre><code class="language-php">'auth' =&gt; true,</code></pre>
 <p>It is possible to completely disable the supplied authorization form and make your own, for example, using the command:</p>
 <pre><code class="language-php">php artisan ui:auth</code></pre>
-<h2><a href="#home-page" name="home-page">Home Page</a></h2>
+<h2><a href="#home-page" name="home-page">Home page</a></h2>
 <p>The main page of the application is recorded in the form of the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
-<h2><a href="#dashboard-resources" name="dashboard-resources">Dashboard Resources</a></h2>
+<h2><a href="#dashboard-resources" name="dashboard-resources">Dashboard resources</a></h2>
 <pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [],
@@ -352,13 +352,13 @@ class AppServiceProvider extends ServiceProvider
         $dashboard-&gt;registerResource('scripts', 'custom.js');
     }
 }</code></pre>
-<h2><a href="#appearance-patterns" name="appearance-patterns">Appearance Patterns</a></h2>
+<h2><a href="#appearance-patterns" name="appearance-patterns">Appearance patterns</a></h2>
 <p>To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'platform::header',
     'footer' =&gt; 'platform::footer',
 ],</code></pre>
-<h2><a href="#model-classes" name="model-classes">Model Classes</a></h2>
+<h2><a href="#model-classes" name="model-classes">Model classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
 <p>You can use the configuration parameter, which allows you to define all the substitutions at once:</p>
