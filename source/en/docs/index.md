@@ -12,7 +12,7 @@ does not explain framework documentation. If you are already familiar with it, g
 I recommend reading the “Laravel” documentation from beginning to end on [laravel.com](http://laravel.com).
 
 > To suggest improvements to this tutorial, [create a new issue](https://github.com/orchidsoftware/orchid.software/issues).
-If you have questions or find a documentation error, please indicate the chapter and accompanying text to indicate an error.
+If you have questions or find a documentation error, please indicate the chapter and accompanying the text to indicate an error.
 
 ## Introduction
 
@@ -33,11 +33,11 @@ Delivered as a Laravel package and interacts with other components. It can act a
 
 A classic web application is a subsystem with a common three-tier architecture, which consists of:
 
-- **Presentation level** - a graphical interface presented to the user (browser), including javascript scripts, styles and resources.
+- **Presentation level** - a graphical interface presented to the user (browser), including javascript scripts, styles, and resources.
 
 - **The level of applied logic** - in our cases, this framework is the link where most business logic is concentrated, work with the database (Eloquent), sending resources and various processing.
 
-- **Level of resource management** - provides data storage, as a rule, is implemented by means of database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
+- **Level of resource management** - provides data storage, as a rule, is implemented using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
 
  
 ![Architecture](https://orchid.software/assets/img/scheme/architecture.jpg)
