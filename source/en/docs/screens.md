@@ -5,7 +5,7 @@ extends: _layouts.documentation.en
 section: main
 ---
 
-The main element of the platform are the screens described by the layout hierarchy, according to which
+The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.
 
 Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance is based on the provided `templates` (Layouts) and all you need to do is just to determine what data will be shown in a particular template.
@@ -197,8 +197,8 @@ ModalToggle::make('Modal window')
 Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.
 
 Each layout may include a different layout, that is, nesting.
-For example, the screen is divided into two columns, in the left field for filling, on the right there is a reference table and a graph.
-You can come up with your own examples of attachments.
+For example, the screen is divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
+You can come up with your examples of attachments.
 
 
 ```php
