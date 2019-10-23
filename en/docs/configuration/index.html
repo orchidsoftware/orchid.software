@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=ASCII"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="ORCHID uses the standard configuration system for Laravel."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Platform configuration | Orchid - Laravel Admin Panel"><meta property="og:description" content="ORCHID uses the standard configuration system for Laravel."><meta property="og:url" content="http://orchid.software/en/docs/configuration"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Platform configuration</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="ORCHID uses the standard configuration system for Laravel."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Platform configuration | Orchid - Laravel Admin Panel"><meta property="og:description" content="ORCHID uses the standard configuration system for Laravel."><meta property="og:url" content="http://orchid.software/en/docs/configuration"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Platform configuration</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -294,7 +294,7 @@
                 <a href="#model-classes">Model classes</a>
             </li>
             </ul><hr><p>The platform uses the standard configuration system for Laravel.
-The main parameters are located in the <code>config</code> directory, and the main file for the platform is
+It locates the main parameters in the <code>config</code> directory, and the main file for the platform is
 file <code>platform.php</code>. Each set comes with a commentary explaining the main point.</p>
 <blockquote>
 <p><strong> Note. </strong> If you cache your configuration files, do not forget to clear them after the change. Using the command <code>php artisan config: clear</code></p>
@@ -316,7 +316,7 @@ For example, the application is located at <code>example.com</code>, and the pla
     'private' =&gt; ['web', 'platform'],
 ],</code></pre>
 <p>You can add/change intermediate layers (middleware) for the graphical interface.
-Currently, two groups of <code>public</code> can be seen by an unauthorized user, for example, the &#8220;Login&#8221; or &#8220;Password Recovery&#8221; page and <code>private</code> which, on the contrary, only authorized users to see.</p>
+Currently, two groups of <code>public</code> can be seen by an unauthorized user, for example, the “Login” or “Password Recovery” page and <code>private</code> which, on the contrary, only authorized users to see.</p>
 <p>You can add as many new intermediate layers as you like.
 for example, the filtering layer requests only from the white list of IP addresses.</p>
 <h2><a href="#login-page" name="login-page">Login page</a></h2>
