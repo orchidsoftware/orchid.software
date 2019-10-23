@@ -316,10 +316,10 @@
             </li>
             </ul><hr><p>The display of the appearance of the user interface elements in the application is of great importance, makes the application
 is easier to use and helps users intuitively display screen elements to complete their tasks.</p>
-<p>The separation of logic and presentation is one of the principles of development with ORCHID.
-One of the elements of the presentation are “Layouts” (layouts) that can be displayed in different variations, if you try to explain briefly, it turns out that this is the <code>view</code> on steroids.</p>
+<p>The separation of logic and presentation is one of the principles of development with the platform.
+One of the elements of the presentation is “Layouts” (layouts) that can be displayed in different variations if you try to explain briefly, it turns out that this is the <code>view</code> on steroids.</p>
 <h2><a href="#approach-through-layouts" name="approach-through-layouts">Approach through layouts</a></h2>
-<p>For the formation of the page, we in most cases we use the same type of elements, for example, we will present a block that displays the name, signature and avatar of the profile:</p>
+<p>For the formation of the page, we in most cases we use the same type of elements, for example, we will present a block that displays the name, signature, and avatar of the profile:</p>
 <pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
     &lt;span class="thumb-sm avatar m-r-xs"&gt;
         &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
@@ -495,7 +495,7 @@ class Appointment extends Rows
         ]),
     ];
 }</code></pre>
-<p>The rows layout also supports resonsive column division inside the row, to use that just use an array.</p>
+<p>The rows layout also supports responsive column division inside the row, to use that just use an array.</p>
 <p>Example:</p>
 <pre><code class="language-php">    protected function fields(): array
     {
@@ -702,7 +702,7 @@ class MySelection extends Selection
     ];
 }</code></pre>
 <h2><a href="#custom-template" name="custom-template">Custom Template</a></h2>
-<p>It is expected situation when you need to display your own template, for this:</p>
+<p>It is an expected situation when you need to display your template, for this:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -738,7 +738,7 @@ available indicate exactly where the other layers should be displayed.</p>
 &lt;/div&gt;</code></pre>
 <p>Variables from <code>query</code> are also available in the template.</p>
 <h2><a href="#layer-expansion" name="layer-expansion">Layer Expansion</a></h2>
-<p>The <code>Layouts</code> class is grouping several different ones; in order to add a new feature to it, it is enough to specify it in the service provider as:</p>
+<p>The <code>Layouts</code> class is grouping several different ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Base;
 use Orchid\Screen\Repository;
 use Orchid\Screen\Layout;
@@ -773,7 +773,7 @@ Layout::macro('hello', function (string $name) {
 
     };
 });</code></pre>
-<p>Then on the screen the call will look like:</p>
+<p>Then on the screen, the call will look like:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
