@@ -13,7 +13,7 @@ file `platform.php`. Each set comes with a commentary explaining the main point.
 
 Below we dive into the configuration file and give a detailed description of each parameter.
 
-## Platform Address
+## Platform address
 
 ```php
 'domain' => env('DASHBOARD_DOMAIN', null),
@@ -31,7 +31,7 @@ For this you need to specify the address you would like to open.
 Remember that your web server settings must be configured properly.
 
 
-## Platform Prefix
+## Platform prefix
 
 
 ```php
@@ -71,14 +71,14 @@ It is possible to completely disable the supplied authorization form and make yo
 php artisan ui:auth
 ```
 
-## Home Page
+## Home page
 
 The main page of the application is recorded in the form of the **name route** that the user will see when entering or clicking on logos and links.
 ```php
 'index' => 'platform.main',
 ```
 
-## Dashboard Resources
+## Dashboard resources
 
 
 ```php
@@ -116,7 +116,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 
-## Appearance Patterns
+## Appearance patterns
 
 To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
 
@@ -128,7 +128,7 @@ To change some templates, it is not necessary to publish the entire package; you
 ```
 
 
-## Model Classes
+## Model classes
 
 The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
 
