@@ -45,8 +45,9 @@ php artisan orchid:table PatientListLayout
 namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-
 use Orchid\Platform\Http\Filters\SearchFilter;
 use App\Http\Filters\LastNamePatient;
 
@@ -72,18 +73,26 @@ class PatientListLayout extends Table
                             $patient->id) . '">' . $patient->last_name . '</a>';
                 }),
 
-            TD::name('first_name')
-                ->title('First Name')
+            TD::set('first_name', 'First Name')
                 ->sort()
-                ->link('platform.clinic.patient.edit', 'id'),
-                
+                ->render(function ($patient) {
+                    return Link::make($patient->first_name)
+                        ->route('platform.clinic.patient.edit', $patient);
+                }),
+
             TD::set('phone','Phone')
-                ->loadModalAsync('oneAsyncModal', 'savePhone', 'id', 'phone'),
-                
+                ->render(function ($patient){
+                    return ModalToggle::make($patient->phone)
+                        ->modal('oneAsyncModal')
+                        ->modalTitle('Phone')
+                        ->method('saveUser')
+                        ->asyncParameters([
+                            'id' => $patient->id,
+                        ]);
+                }),
+
             TD::set('email','Email'),
-                
             TD::set('created_at','Date of publication'),
-               
         ];
     }
 }
@@ -92,14 +101,6 @@ class PatientListLayout extends Table
 ### Доступные методы
 
 - Метод `align()` горизонтальное выравнивание текста, принимает значения: 'left', 'center', 'right'
-
-- Метод `link($route,$key)` добавляет в ячейку ссылку, например на редактирование данной записи.
-
-- Метод `locale()` отображение данных столбца согласно текущему языку локали.
-
-- Метод `loadModalAsync($modal, $method, $options, $text)` добавляет модальное окно к каждой ячейке столбца. Где атрибуты $modal - название модального окна, $method - метод (функция) который отправляет данные через POST запрос, $options дополнительные атрибуты, например id или slug, $text - отображаемое значение ячейки.
-
-- Метод `name($key)` устанавливает имя ключа из массива значения которого отображать в таблице.
 
 - Метод `set($key, $name)` основной метод устанавливает имя ключа из массива и отображаемое название.
 
@@ -229,7 +230,7 @@ public function layout(): array
 {
     return [
         Layout::modal('exampleModal', [
-	    Layout::rows([]),
+	        Layout::rows([]),
         ]),
     ];
 }

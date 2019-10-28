@@ -7,7 +7,7 @@ section: main
 
 A simple way to notify the user about the status of your application. For example, they can inform the user about the completion of a lengthy process or the arrival of a new message. In this section, we will show you how to make them work in your application.
 
-## Flash messages:
+## Flash messages
 
 Flash notification is a one-time message that will be deleted upon next access.
 Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.
@@ -62,6 +62,29 @@ To display in the required place is required:
 ```html
 @include('platform::partials.alert')
 ```
+
+## Toast message
+
+This is a small pop-up message in the upper right corner of the screen,
+to briefly notify the user of the result.
+It is fully consistent with the one-time `Alert` messages, but has a different appearance and several additional methods:
+
+```php
+use Orchid\Support\Facades\Toast;
+
+Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+```
+
+You can specify the need for automatic hiding and time before
+
+```php
+Toast::warning('Lorem ipsum dolor sit amet.')
+    ->autoHide(false);
+
+Toast::warning('Lorem ipsum dolor sit amet.')
+    ->delay(2000);
+```
+
 
 ## Notifications in the admin panel
 

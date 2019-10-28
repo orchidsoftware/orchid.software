@@ -468,8 +468,7 @@ and to add a simple link in the form.
 An example of using the modal window `addNewPayment` added earlier to the screen:
 
 ```php
-Button::make()
-    ->title('Add Payment')
+ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
     ->icon('icon-wallet')
     ->right()
@@ -478,17 +477,14 @@ Button::make()
 Linking example:
 
 ```php
-Button::make()
-    ->title('Google It!')
-    ->type(Button::LINK)
+Link::make('Google It!')
     ->link('http://google.com');
 ```
 
 Example use with method:
 
 ```php
-Button::make()
-    ->title('Google It!')
+Button::make('Google It!')
     ->method('goToGoogle');
 ```
 

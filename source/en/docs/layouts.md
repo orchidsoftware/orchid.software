@@ -44,8 +44,9 @@ Example:
 namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-
 use Orchid\Platform\Http\Filters\SearchFilter;
 use App\Http\Filters\LastNamePatient;
 
@@ -71,18 +72,26 @@ class PatientListLayout extends Table
                             $patient->id) . '">' . $patient->last_name . '</a>';
                 }),
 
-            TD::name('first_name')
-                ->title('First Name')
+            TD::set('first_name', 'First Name')
                 ->sort()
-                ->link('platform.clinic.patient.edit', 'id'),
-                
+                ->render(function ($patient) {
+                    return Link::make($patient->first_name)
+                        ->route('platform.clinic.patient.edit', $patient);
+                }),
+
             TD::set('phone','Phone')
-                ->loadModalAsync('oneAsyncModal', 'savePhone', 'id', 'phone'),
-                
+                ->render(function ($patient){
+                    return ModalToggle::make($patient->phone)
+                        ->modal('oneAsyncModal')
+                        ->modalTitle('Phone')
+                        ->method('saveUser')
+                        ->asyncParameters([
+                            'id' => $patient->id,
+                        ]);
+                }),
+
             TD::set('email','Email'),
-                
             TD::set('created_at','Date of publication'),
-               
         ];
     }
 }
@@ -91,14 +100,6 @@ class PatientListLayout extends Table
 ### Allow method
 
 - `align()` horizontal text alignment, takes the values: 'left', 'center', 'right'
-
-- `link($route,$key)` adds a link to the cell, for example, to edit this entry.
-
-- `locale()` displaying column data according to the current locale language.
-
-- `loadModalAsync($modal, $method, $options, $text)` adds a modal window to each column cell. Where $ modal attributes are the name of the modal window, $ method is the method (function) that sends data through the POST request, $ options additional attributes, for example, id or slug, $ text is the displayed value of the cell.
-
-- `name($key)` sets the name of the key from the array of values to display in the table.
 
 - `set($key, $name)` the main method sets the name of the key from the array and the display name.
 
@@ -226,31 +227,31 @@ The rows layout also supports responsive column division inside the row, to use 
 
 Example:
 ```php
-    protected function fields(): array
-    {
-        return [
-	   // This will put the two fields on the same row on big screens
-	   [
-	      DateTimer::make()
-		   ->name('appointment_time')
-		   ->required()
-		   ->title('Time'),
+protected function fields(): array
+{
+    return [
+   // This will put the two fields on the same row on big screens
+   [
+      DateTimer::make()
+       ->name('appointment_time')
+       ->required()
+       ->title('Time'),
 
-	      Relationship::make()
-		   ->name('appointment_type')
-		    ->required()
-		    ->title('Appointment type')
-		    ->handler(AppointmentTypes::class),
-	    ],
-            TextArea::make()
-                ->name('doctor_notes')
-                ->rows(10)
-                ->required()
-                ->title('Doctor notes')
-                ->help('What did the patient complain about?'),
+      Relationship::make()
+       ->name('appointment_type')
+        ->required()
+        ->title('Appointment type')
+        ->handler(AppointmentTypes::class),
+    ],
+        TextArea::make()
+            ->name('doctor_notes')
+            ->rows(10)
+            ->required()
+            ->title('Doctor notes')
+            ->help('What did the patient complain about?'),
 
-        ];
-    }
+    ];
+}
 ```
 
 ## Modal windows
@@ -260,7 +261,7 @@ protected function layout(): array
 {
     return [
         Layout::modal('exampleModal', [
-	    Layout::rows([]),
+	        Layout::rows([]),
         ]),
     ];
 }

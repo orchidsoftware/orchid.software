@@ -286,6 +286,7 @@ namespace App\Orchid\Layouts;
 
 use App\Post;
 use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
 
 class PostListLayout extends Table
@@ -303,18 +304,12 @@ class PostListLayout extends Table
     public function columns(): array
     {
         return [
-        
-            // TD::set('title', 'Title')->link('platform.post.edit', 'id', 'title'),
-            // or
             TD::set('title', 'Title')
                 ->render(function (Post $post) {
-                    // Please use view('path')
-                    $route = route('platform.post.edit', $post);
-                    $title = e($post->title);
-
-                    return "<a href='{$route}'>{$title}</a>";
+                    return Link::make($post->title)
+                        ->route('platform.post.edit', $post);
                 }),
-            
+
             TD::set('created_at', 'Created'),
             TD::set('updated_at', 'Last edit'),
         ];
@@ -374,7 +369,7 @@ class PostListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('icon-pencil')
-                ->href(route('platform.post.edit'))
+                ->route('platform.post.edit')
         ];
     }
 

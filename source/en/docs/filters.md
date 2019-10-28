@@ -12,7 +12,7 @@ The sample values are based on the Http request parameters.
 This is not a ready-made solution or a universal remedy.
 You must expand the structure for your specific applications.
 
-## Creation
+## Natural filter
 
 To create a new filter there is a command:
 
@@ -66,8 +66,6 @@ The filter will work, provided there is at least one parameter specified in the 
 if the array is empty, then the filter will work on every request.
 
 > **Note.** You can use the same filters for different models.
-
-## Use
 
 To use filters in your own models,
 you need to connect the trait `Orchid\Filter\Filterable` and pass an array of classes to the` filtersApply` function:
@@ -131,7 +129,7 @@ protected $allowedSorts = [
 
 ```
 
-### Use
+Usage is a method call `filters`:
 
 ```php
 Post::filters()->defaultSort('id')->paginate();

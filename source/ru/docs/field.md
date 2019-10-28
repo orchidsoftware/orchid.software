@@ -465,8 +465,7 @@ Relation::make('idea')
 Пример использования с модальным окном `addNewPayment` добавленного ранее на экран: 
 
 ```php
-Button::make()
-    ->title('Add Payment')
+ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
     ->icon('icon-wallet')
     ->right()
@@ -475,17 +474,14 @@ Button::make()
 Пример использования со ссылкой:
 
 ```php
-Button::make()
-    ->title('Google It!')
-    ->type(Button::LINK)
+Link::make('Google It!')
     ->link('http://google.com');
 ```
 
 Пример использования с методом:
 
 ```php
-Button::make()
-    ->title('Google It!')
+Button::make('Google It!')
     ->method('goToGoogle');
 ```
 
