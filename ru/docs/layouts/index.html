@@ -338,8 +338,9 @@
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-
 use Orchid\Platform\Http\Filters\SearchFilter;
 use App\Http\Filters\LastNamePatient;
 
@@ -365,36 +366,32 @@ class PatientListLayout extends Table
                             $patient-&gt;id) . '"&gt;' . $patient-&gt;last_name . '&lt;/a&gt;';
                 }),
 
-            TD::name('first_name')
-                -&gt;title('First Name')
+            TD::set('first_name', 'First Name')
                 -&gt;sort()
-                -&gt;link('platform.clinic.patient.edit', 'id'),
+                -&gt;render(function ($patient) {
+                    return Link::make($patient-&gt;first_name)
+                        -&gt;route('platform.clinic.patient.edit', $patient);
+                }),
 
             TD::set('phone','Phone')
-                -&gt;loadModalAsync('oneAsyncModal', 'savePhone', 'id', 'phone'),
+                -&gt;render(function ($patient){
+                    return ModalToggle::make($patient-&gt;phone)
+                        -&gt;modal('oneAsyncModal')
+                        -&gt;modalTitle('Phone')
+                        -&gt;method('saveUser')
+                        -&gt;asyncParameters([
+                            'id' =&gt; $patient-&gt;id,
+                        ]);
+                }),
 
             TD::set('email','Email'),
-
             TD::set('created_at','Date of publication'),
-
         ];
     }
 }</code></pre>
 <h3><a href="#dostupnye-metody" name="dostupnye-metody">Доступные методы</a></h3>
 <ul><li>
 <p>Метод <code>align()</code> горизонтальное выравнивание текста, принимает значения: 'left’, 'center’, 'right’</p>
-</li>
-<li>
-<p>Метод <code>link($route,$key)</code> добавляет в ячейку ссылку, например на редактирование данной записи.</p>
-</li>
-<li>
-<p>Метод <code>locale()</code> отображение данных столбца согласно текущему языку локали.</p>
-</li>
-<li>
-<p>Метод <code>loadModalAsync($modal, $method, $options, $text)</code> добавляет модальное окно к каждой ячейке столбца. Где атрибуты $modal – название модального окна, $method – метод (функция) который отправляет данные через POST запрос, $options дополнительные атрибуты, например id или slug, $text – отображаемое значение ячейки.</p>
-</li>
-<li>
-<p>Метод <code>name($key)</code> устанавливает имя ключа из массива значения которого отображать в таблице.</p>
 </li>
 <li>
 <p>Метод <code>set($key, $name)</code> основной метод устанавливает имя ключа из массива и отображаемое название.</p>
@@ -500,7 +497,7 @@ class Appointment extends Rows
 {
     return [
         Layout::modal('exampleModal', [
-        Layout::rows([]),
+            Layout::rows([]),
         ]),
     ];
 }</code></pre>

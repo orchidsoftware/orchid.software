@@ -270,22 +270,16 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#sozdanie">Создание</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#ispolzovanie">Использование</a>
+                <a href="#klassicheskiy-filtr">Классический фильтр</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#ispolzovanie">Использование</a>
             </li>
             </ul><hr><p>Фильтры служат для упрощения поиска записей с использованием типичного фильтра.
 Например, если вы хотите отфильтровать каталог продуктов по атрибутам, брендам и т.п.
 Выборка значений основана на параметрах Http запросов.</p>
 <p>Это не является готовым решением или универсальным средством, вы должны расширить структуру для своих конкретных приложений.</p>
-<h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
+<h2><a href="#klassicheskiy-filtr" name="klassicheskiy-filtr">Классический фильтр</a></h2>
 <p>Для создания нового фильтра существует команда:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
 <p>Это создаст класс фильтр в папке <code>app/Http/Filters</code></p>
@@ -330,7 +324,6 @@ class QueryFilter extends Filter
 <blockquote>
 <p><strong>Примечание.</strong> Вы можете использовать одни и те же фильтры для разных поведений.</p>
 </blockquote>
-<h2><a href="#ispolzovanie" name="ispolzovanie">Использование</a></h2>
 <p>Для использования фильтров в собственных моделях, требуется подключить трейт <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
 <pre><code class="language-php">use App\Model;
 
@@ -375,7 +368,7 @@ protected $allowedSorts = [
     'deleted_at',
 ];
 </code></pre>
-<h3><a href="#ispolzovanie" name="ispolzovanie">Использование</a></h3>
+<p>Использование заключаеться в вызове метода <code>filters</code>:</p>
 <pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
 <p>Как будет реагировать фильтрация:</p>
 <pre><code class="language-php">http://example.com/demo?filter[id]=1

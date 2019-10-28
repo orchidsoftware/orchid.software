@@ -591,19 +591,15 @@ For such cases, there is a <code>Button</code> field. The <code>Button</code> fi
 values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
 and to add a simple link in the form.</p>
 <p>An example of using the modal window <code>addNewPayment</code> added earlier to the screen:</p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Add Payment')
+<pre><code class="language-php">ModalToggle::make('Add Payment')
     -&gt;modal('addNewPayment')
     -&gt;icon('icon-wallet')
     -&gt;right()</code></pre>
 <p>Linking example:</p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Google It!')
-    -&gt;type(Button::LINK)
+<pre><code class="language-php">Link::make('Google It!')
     -&gt;link('http://google.com');</code></pre>
 <p>Example use with method:</p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Google It!')
+<pre><code class="language-php">Button::make('Google It!')
     -&gt;method('goToGoogle');</code></pre>
 <p>Available modifiers:</p>
 <ul><li><code>modal('modalName')</code> – creates a button that calls a modal window with the name <code>modalName</code> within the current screen.</li>

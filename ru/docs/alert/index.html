@@ -270,13 +270,16 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#odnorazovye-soobshcheniya">Одноразовые сообщения:</a>
+                <a href="#odnorazovye-soobshcheniya">Одноразовые сообщения</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#tost-soobshcheniya">Тост сообщения</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#uvedomleniya-v-paneli-administrirovaniya">Уведомления в панели администрирования</a>
             </li>
             </ul><hr><p>Простой способ уведомить пользователя о состоянии вашего приложения. Например, они могут информировать пользователя о завершении длительного процесса или приходе нового сообщения. В этом разделе мы покажем вам, как заставить их работать в вашем приложении.</p>
-<h2><a href="#odnorazovye-soobshcheniya" name="odnorazovye-soobshcheniya">Одноразовые сообщения:</a></h2>
+<h2><a href="#odnorazovye-soobshcheniya" name="odnorazovye-soobshcheniya">Одноразовые сообщения</a></h2>
 <p>Flash-уведомление — это одноразовое сообщение, которое будет удалено при следующем обращении.
 Уведомления призваны информировать о непосредственно произошедшим событием, например сообщение о сохранении данных.</p>
 <p>ORCHID имеет удобный вызов и отображение уведомлений поверх одноразовых flash-данных.</p>
@@ -304,6 +307,18 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;</code></pre>
 </ul><p>Отображение по умолчанию уже встроено в шаблон, но вы можете вызывать его явно в <code>blade</code> шаблоне с помощью
 Для отображения в необходимом месте требуется:</p>
 <pre><code class="language-html">@include('platform::partials.alert')</code></pre>
+<h2><a href="#tost-soobshcheniya" name="tost-soobshcheniya">Тост сообщения</a></h2>
+<p>Это маленькое всплывающее сообщение в правом верхнем углу экрана, для краткого уведомления пользователя резульатете.
+Он полностью соответствует одноразовым сообщениям <code>Alert</code>, но имеет другой внешний вид и несколько дополнительных методов:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Toast;
+
+Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')</code></pre>
+<p>Вы можете указать необходимость автоматического скрытия и времени до этого:</p>
+<pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
+    -&gt;autoHide(false);
+
+Toast::warning('Lorem ipsum dolor sit amet.')
+    -&gt;delay(2000);</code></pre>
 <h2><a href="#uvedomleniya-v-paneli-administrirovaniya" name="uvedomleniya-v-paneli-administrirovaniya">Уведомления в панели администрирования</a></h2>
 <p>Уведомление в панели администрирование отличается от flash-сообщений, тем, что не удаляются после просмотра и
 могут быть добавлены любым пользователям даже когда они находятся не в сети. Это ещё один отличный способ информирования, например для  приложение «менеджера задач» уведомлять сотрудника о новой задаче.</p>

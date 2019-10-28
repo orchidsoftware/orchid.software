@@ -270,23 +270,17 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#creation">Creation</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#use">Use</a>
+                <a href="#natural-filter">Natural filter</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#use">Use</a>
             </li>
             </ul><hr><p>Filters are used to simplify the search for records using a typical filter.
 For example, if you want to filter the product catalog by attributes, brands, etc.
 The sample values are based on the Http request parameters.</p>
 <p>This is not a ready-made solution or a universal remedy.
 You must expand the structure for your specific applications.</p>
-<h2><a href="#creation" name="creation">Creation</a></h2>
+<h2><a href="#natural-filter" name="natural-filter">Natural filter</a></h2>
 <p>To create a new filter there is a command:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
 <p>This will create a class filter in the <code>app/Http/Filters</code> folder.</p>
@@ -331,7 +325,6 @@ if the array is empty, then the filter will work on every request.</p>
 <blockquote>
 <p><strong>Note.</strong> You can use the same filters for different models.</p>
 </blockquote>
-<h2><a href="#use" name="use">Use</a></h2>
 <p>To use filters in your own models, you need to connect the trait <code>Orchid\Filter\Filterable</code> and pass an array of classes to the<code>filtersApply</code> function:</p>
 <pre><code class="language-php">use App\Model;
 
@@ -376,7 +369,7 @@ protected $allowedSorts = [
     'deleted_at',
 ];
 </code></pre>
-<h3><a href="#use" name="use">Use</a></h3>
+<p>Usage is a method call <code>filters</code>:</p>
 <pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
 <p>How filtering will react:</p>
 <pre><code class="language-php">http://example.com/demo?filter[id]=1

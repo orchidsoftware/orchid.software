@@ -586,19 +586,15 @@ class Idea extends Model
 значения и не передается при сохранении. Оно может быть использовано для вызова модального окна определенного на экране
 и для добавления простой ссылки в форме.</p>
 <p>Пример использования с модальным окном <code>addNewPayment</code> добавленного ранее на экран: </p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Add Payment')
+<pre><code class="language-php">ModalToggle::make('Add Payment')
     -&gt;modal('addNewPayment')
     -&gt;icon('icon-wallet')
     -&gt;right()</code></pre>
 <p>Пример использования со ссылкой:</p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Google It!')
-    -&gt;type(Button::LINK)
+<pre><code class="language-php">Link::make('Google It!')
     -&gt;link('http://google.com');</code></pre>
 <p>Пример использования с методом:</p>
-<pre><code class="language-php">Button::make()
-    -&gt;title('Google It!')
+<pre><code class="language-php">Button::make('Google It!')
     -&gt;method('goToGoogle');</code></pre>
 <p>Доступные модификаторы:</p>
 <ul><li><code>modal('modalName')</code> – создает кнопку вызывающую модальное окно с именем <code>modalName</code> в рамках текущего экрана</li>
