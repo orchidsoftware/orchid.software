@@ -63,7 +63,7 @@ To display in the required place is required:
 @include('platform::partials.alert')
 ```
 
-## Toast message
+## Toast messages
 
 This is a small pop-up message in the upper right corner of the screen,
 to briefly notify the user of the result.
