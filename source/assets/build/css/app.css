@@ -15955,7 +15955,7 @@ pre[class*=language-] {
 
 main {
   line-height: 2em;
-  overflow: hidden;
+  overflow: initial;
   color: #212529;
 }
 
@@ -16273,7 +16273,6 @@ li.anchor-h3 {
 
 .how-to-do-it h1 {
   margin-bottom: 1em;
-  text-align: center;
 }
 
 .preview {

@@ -6,7 +6,7 @@
     <main class="bg-white-only">
         <div class="container">
             <div class="row pt-5 pb-5 container">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div>
                         <h2 class="text-dark font-thin mt-2 mb-2">
                             <span class="icon-support text-muted mr-2"></span> How to do it?
@@ -17,10 +17,10 @@
                         </p>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="topics-list">
                                 <h3><a href="#">Introduction</a></h3>
-                                <ul class="list-group">
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
@@ -29,10 +29,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="topics-list">
                                 <h3><a href="#">Installation</a></h3>
-                                <ul class="list-group">
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
@@ -41,12 +41,10 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-4">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="topics-list">
-                                <h3><a href="#">Settings &amp; Configuration</a></h3>
-                                <ul class="list-group">
+                                <h3><a href="#">Installation</a></h3>
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
 
                                     <li><a href="#"> What is included and why? </a></li>
@@ -55,10 +53,24 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-sm-4">
+                            <div class="topics-list">
+                                <h3><a href="#">Settings &amp; Configuration</a></h3>
+                                <ul class="list-group pl-5">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
                             <div class="topics-list">
                                 <h3><a href="#">Screen & Actions</a></h3>
-                                <ul class="list-group">
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li>
@@ -71,14 +83,30 @@
                                 </ul>
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="topics-list">
+                                <h3><a href="#">Screen & Actions</a></h3>
+                                <ul class="list-group pl-5">
+                                    <li><a href="#"> How to use this documentation? </a></li>
+
+                                    <li>
+                                        <a href="/en/how-to-do-it/how-to-use-sorting-in-a-table">
+                                            Как использовать сортировку в таблице?
+                                        </a>
+                                    </li>
+                                    <li><a href="#">Basic knowledge requirments. </a></li>
+                                    <li><a href="#">Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="topics-list">
                                 <h3>
                                     <a href="#">Layouts &amp; Fields</a>
                                 </h3>
-                                <ul class="list-group">
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
@@ -87,10 +115,10 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="topics-list">
                                 <h3><a href="#">Navigation &amp; Messages</a></h3>
-                                <ul class="list-group">
+                                <ul class="list-group pl-5">
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
@@ -99,35 +127,17 @@
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
+                        <div class="col-sm-4">
+                            <div class="topics-list">
+                                <h3><a href="#">Navigation &amp; Messages</a></h3>
+                                <ul class="list-group pl-5">
+                                    <li><a href="#"> How to use this documentation? </a></li>
 
-                <!-- Sidebar -->
-                <div class="col-lg-4">
-                    <div class="sidebar">
-                        <div class="bg-white b wrapper">
-                            <span class="icon icon-directions pull-right m-r-md text-muted" style="font-size: 64px;height: 60px;"></span>
-                            <h3 class="text-black font-thin mt-2">Looking for help?<br> Join Community</h3>
-
-                            <p class="pt-3">Couldn’t find what your are looking for ?
-                                Why not join out <a href="https://github.com/orchidsoftware/platform/issues">support github issue</a>
-                                and let us help you.
-                            </p>
-
-                        </div>
-
-                        <div class="pt-5">
-                            <h4>Other Popular Questions</h4>
-                            <ul class="list-group">
-                                <li><a href="#"> Installation &amp; Activation </a></li>
-                                <li><a href="#"> Premium Members Features </a></li>
-                                <li><a href="#"> API Usage &amp; Guide lines </a></li>
-                                <li><a href="#"> Getting Started &amp; What is next. </a></li>
-                                <li><a href="#"> Installation &amp; Activation </a></li>
-                                <li><a href="#"> Premium Members Features </a></li>
-                                <li><a href="#"> API Usage &amp; Guide lines </a></li>
-                                <li><a href="#"> Getting Started &amp; What is next. </a></li>
-                            </ul>
+                                    <li><a href="#"> What is included and why? </a></li>
+                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Getting Started &amp; What is next. </a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

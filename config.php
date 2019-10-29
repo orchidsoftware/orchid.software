@@ -30,6 +30,19 @@ return [
         return Str::startsWith($path, 'http') ? $path : '/'.trimPath($path);
     },
 
+    'editGitHub' => function($page) {
+
+        $path = trimPath($page->getPath());
+
+        if (is_dir(__DIR__ . '/source/' . $path)) {
+            $path .= '/index.md';
+        }else{
+            $path .= '.md';
+        }
+
+        return "https://github.com/orchidsoftware/orchid.software/edit/master/source/$path";
+    },
+
     'icons' => [
         'action-redo',
         'action-undo',

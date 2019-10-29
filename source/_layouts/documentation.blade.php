@@ -19,7 +19,7 @@
                         <h1>{{ $page->title }}</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source{{ \Illuminate\Support\Str::endsWith($page->getPath(), 'docs') ? $page->getPath().'index' : $page->getPath()}}.md"
+                            <a href="{{$page->editGitHub()}}"
                                class="pull-right bg-white"
                                style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> @yield('docs.edit')</small>
