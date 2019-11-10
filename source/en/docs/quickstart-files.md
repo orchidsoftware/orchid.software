@@ -92,7 +92,7 @@ public function layout(): array
             Quill::make('post.body')
                 ->title('Main text'),
 
-        ])->with(75)
+        ])
     ];
 }
 ```
@@ -182,7 +182,7 @@ public function layout(): array
             Upload::make('post.attachment')
                 ->title('All files')
 
-        ])->with(75)
+        ])
     ];
 }
 ```
