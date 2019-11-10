@@ -343,7 +343,7 @@ public function layout(): array
             Quill::make('post.body')
                 -&gt;title('Main text'),
 
-        ])-&gt;with(75)
+        ])
     ];
 }</code></pre>
 <blockquote>
@@ -409,7 +409,7 @@ public function hero()
             Upload::make('post.attachment')
                 -&gt;title('All files')
 
-        ])-&gt;with(75)
+        ])
     ];
 }</code></pre>
 <p>The field will differ from the previous ones, because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the<code>Attachable</code> trait:</p>
