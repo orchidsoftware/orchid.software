@@ -373,7 +373,7 @@ public function layout(): array
                 -&gt;placeholder('Insert text here ...')
                 -&gt;help('Add the content for the message that you would like to send.')
 
-        ])-&gt;with(70)
+        ])
     ];
 }</code></pre>
 <p>Теперь наша страница имеет некоторые элементы, но не производит действий, что бы определить их необходимо создать новый публичный метод и указать ссылку на него в <code>commandBar</code>:</p>
@@ -460,7 +460,7 @@ class EmailSenderScreen extends Screen
                     -&gt;placeholder('Insert text here ...')
                     -&gt;help('Add the content for the message that you would like to send.')
 
-            ])-&gt;with(70)
+            ])
         ];
     }
 
