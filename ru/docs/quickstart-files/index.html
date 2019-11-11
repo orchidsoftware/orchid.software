@@ -343,7 +343,7 @@ public function layout(): array
             Quill::make('post.body')
                 -&gt;title('Main text'),
 
-        ])-&gt;with(75)
+        ])
     ];
 }</code></pre>
 <blockquote>
@@ -408,7 +408,7 @@ public function hero()
             Upload::make('post.attachment')
                 -&gt;title('All files')
 
-        ])-&gt;with(75)
+        ])
     ];
 }</code></pre>
 <p>Поле будет отличаться от предыдущих, потому что данные не относятся явно к модели <code>Post</code>, а будут загружаться и сохраняться благодаря связи, для этого мы должны указать трейт <code>Attachable</code>:</p>
