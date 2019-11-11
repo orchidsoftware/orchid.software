@@ -232,7 +232,7 @@ class PostEditScreen extends Screen
                 Quill::make('post.body')
                     ->title('Main text'),
 
-            ])->with(75)
+            ])
         ];
     }
 
