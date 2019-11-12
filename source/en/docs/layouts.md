@@ -339,7 +339,7 @@ class ChartsLayout extends Chart
      *
      * @var string
      */
-    protected $type = 'scatter';
+    protected $type = 'bar';
 
     /**
      * @var array
