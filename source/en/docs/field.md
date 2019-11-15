@@ -130,7 +130,7 @@ TinyMCE::make('html')
 
 To display the top pane and a menu in the editor, where the functions of full-screen mode and viewing html code are available, you need to set the attribute `theme ('modern')`.
 
-### HTML editor Qill
+### HTML editor Quill
 
 Example:
 ```php
