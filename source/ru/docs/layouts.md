@@ -69,8 +69,8 @@ class PatientListLayout extends Table
                 ->align('center')
                 ->width('100px')
                 ->render(function ($patient) {
-                    return '<a href="' . route('platform.clinic.patient.edit',
-                            $patient->id) . '">' . $patient->last_name . '</a>';
+                    return Link::make($patient->last_name)
+                        ->route('platform.clinic.patient.edit', $patient);
                 }),
 
             TD::set('first_name', 'First Name')
@@ -221,34 +221,6 @@ public function layout(): array
     ];
 }
 ```
-
-
-## Модальные окна
-
-```php
-public function layout(): array
-{
-    return [
-        Layout::modal('exampleModal', [
-	        Layout::rows([]),
-        ]),
-    ];
-}
-```
-
-Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:
-
-```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
-    ->title('Заголовок окна')
-    ->size(Modal::SIZE_LG)
-    ->applyButton(self::APPLY_BUTTON)
-    ->closeButton(self::CLOSE_BUTTON),
-```
-
-> **Обратите внимание**, при использовании метода **loadModalAsync** содержимое окна использует динамические данные, которых нет в первоначальной загрузки, для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: `{{ $variable ?? '' }}`.
 
 ## Графики
 
@@ -456,6 +428,55 @@ public function layout(): array
     ];
 }
 ```
+
+
+## Модальные окна
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::modal('exampleModal', [
+	        Layout::rows([]),
+        ]),
+    ];
+}
+```
+
+> **Обратите внимание**, добавление модального окна необходимо делать в верхний уровень возвращаемого методом `layout()` массива. Например, не стоит делать делать вот так:
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::tabs([
+	    'Name' => [
+		Layout::modal('exampleModal', [
+	        	Layout::rows([]),
+        	]),
+	    ],
+	]),
+    ];
+}
+```
+
+
+Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:
+
+```php
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->title('Заголовок окна')
+    ->size(Modal::SIZE_LG)
+    ->applyButton(self::APPLY_BUTTON)
+    ->closeButton(self::CLOSE_BUTTON),
+```
+
+> **Обратите внимание**, при использовании метода **loadModalAsync** содержимое окна использует динамические данные, которых нет в первоначальной загрузки, для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: `{{ $variable ?? '' }}`.
+
+
+
 
 ## Пользовательский шаблон
 
