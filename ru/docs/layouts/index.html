@@ -285,9 +285,6 @@
                 <a href="#stroki">Строки</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#modalnye-okna">Модальные окна</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#grafiki">Графики</a>
             </li>
                     <li class="anchor-h2">
@@ -304,6 +301,9 @@
             </li>
                     <li class="anchor-h2">
                 <a href="#akkordeon">Аккордеон</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#modalnye-okna">Модальные окна</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#polzovatelskiy-shablon">Пользовательский шаблон</a>
@@ -362,8 +362,8 @@ class PatientListLayout extends Table
                 -&gt;align('center')
                 -&gt;width('100px')
                 -&gt;render(function ($patient) {
-                    return '&lt;a href="' . route('platform.clinic.patient.edit',
-                            $patient-&gt;id) . '"&gt;' . $patient-&gt;last_name . '&lt;/a&gt;';
+                    return Link::make($patient-&gt;last_name)
+                        -&gt;route('platform.clinic.patient.edit', $patient);
                 }),
 
             TD::set('first_name', 'First Name')
@@ -492,26 +492,6 @@ class Appointment extends Rows
         ]),
     ];
 }</code></pre>
-<h2><a href="#modalnye-okna" name="modalnye-okna">Модальные окна</a></h2>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::modal('exampleModal', [
-            Layout::rows([]),
-        ]),
-    ];
-}</code></pre>
-<p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
-<pre><code class="language-php">Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
-    -&gt;title('Заголовок окна')
-    -&gt;size(Modal::SIZE_LG)
-    -&gt;applyButton(self::APPLY_BUTTON)
-    -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
-<blockquote>
-<p><strong>Обратите внимание</strong>, при использовании метода <strong>loadModalAsync</strong> содержимое окна использует динамические данные, которых нет в первоначальной загрузки, для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: <code>{{ $variable ?? '' }}</code>.</p>
-</blockquote>
 <h2><a href="#grafiki" name="grafiki">Графики</a></h2>
 <p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой
 обработки данных, пример данных из <code>query</code></p>
@@ -676,6 +656,41 @@ class MySelection extends Selection
         ]),
     ];
 }</code></pre>
+<h2><a href="#modalnye-okna" name="modalnye-okna">Модальные окна</a></h2>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::modal('exampleModal', [
+            Layout::rows([]),
+        ]),
+    ];
+}</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong>, добавление модального окна необходимо делать в верхний уровень возвращаемого методом <code>layout()</code> массива. Например, не стоит делать делать вот так:</p>
+</blockquote>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::tabs([
+        'Name' =&gt; [
+        Layout::modal('exampleModal', [
+                Layout::rows([]),
+            ]),
+        ],
+    ]),
+    ];
+}</code></pre>
+<p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;title('Заголовок окна')
+    -&gt;size(Modal::SIZE_LG)
+    -&gt;applyButton(self::APPLY_BUTTON)
+    -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong>, при использовании метода <strong>loadModalAsync</strong> содержимое окна использует динамические данные, которых нет в первоначальной загрузки, для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: <code>{{ $variable ?? '' }}</code>.</p>
+</blockquote>
 <h2><a href="#polzovatelskiy-shablon" name="polzovatelskiy-shablon">Пользовательский шаблон</a></h2>
 <p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный шаблон, для этого:</p>
 <pre><code class="language-php">public function layout(): array
