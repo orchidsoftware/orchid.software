@@ -446,16 +446,12 @@ public function layout(): array
 > **Обратите внимание**, добавление модального окна необходимо делать в верхний уровень возвращаемого методом `layout()` массива. Например, не стоит делать делать вот так:
 
 ```php
-public function layout(): array
+public function layouts(): array
 {
     return [
         Layout::tabs([
-	    'Name' => [
-		Layout::modal('exampleModal', [
-	        	Layout::rows([]),
-        	]),
-	    ],
-	]),
+            'Name' => Layout::modal('exampleModal', [Layout::rows([])]),
+        ]),
     ];
 }
 ```
