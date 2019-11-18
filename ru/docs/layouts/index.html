@@ -668,16 +668,12 @@ class MySelection extends Selection
 <blockquote>
 <p><strong>Обратите внимание</strong>, добавление модального окна необходимо делать в верхний уровень возвращаемого методом <code>layout()</code> массива. Например, не стоит делать делать вот так:</p>
 </blockquote>
-<pre><code class="language-php">public function layout(): array
+<pre><code class="language-php">public function layouts(): array
 {
     return [
         Layout::tabs([
-        'Name' =&gt; [
-        Layout::modal('exampleModal', [
-                Layout::rows([]),
-            ]),
-        ],
-    ]),
+            'Name' =&gt; Layout::modal('exampleModal', [Layout::rows([])]),
+        ]),
     ];
 }</code></pre>
 <p>Модальные окна имеют свойства, размера и названия кнопок которые доступны для изменения:</p>
