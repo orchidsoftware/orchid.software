@@ -450,7 +450,35 @@ class Idea extends Model
 Relation::make('idea')
     ->fromModel(Idea::class, 'name')
     ->applyScope('active')
-    ->title('Выберите свою идею'),
+    ->title('Выберите свою идею');
+```
+
+
+Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только по одной колонки в базе данных. Для этого используеться метод `displayAppend`
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * @return string
+     */
+    public function getFullAttribute(): string
+    {
+        return $this->attributes['name'] . ' (' . $this->attributes['email'] . ')';
+    }
+}
+```
+
+```php
+Relation::make('users.')
+    ->fromModel(User::class, 'name')
+    ->displayAppend('full')
+    ->multiple()
+    ->title('Select users');
 ```
 
 
