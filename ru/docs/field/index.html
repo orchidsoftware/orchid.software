@@ -579,7 +579,7 @@ class Idea extends Model
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('active')
     -&gt;title('Выберите свою идею');</code></pre>
-<p>Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только по одной колонки в базе данных. Для этого используеться метод <code>displayAppend</code></p>
+<p>Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только по одной колонки в базе данных. Для этого используется метод <code>displayAppend</code></p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
