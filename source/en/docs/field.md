@@ -456,6 +456,33 @@ Relation::make('idea')
     ->title('Выберите свою идею'),
 ```
 
+Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the `displayAppend` method
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * @return string
+     */
+    public function getFullAttribute(): string
+    {
+        return $this->attributes['name'] . ' (' . $this->attributes['email'] . ')';
+    }
+}
+```
+
+```php
+Relation::make('users.')
+    ->fromModel(User::class, 'name')
+    ->displayAppend('full')
+    ->multiple()
+    ->title('Select users');
+```
+
 
 ## Button/Link
 
