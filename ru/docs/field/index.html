@@ -578,7 +578,27 @@ class Idea extends Model
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('active')
-    -&gt;title('Выберите свою идею'),</code></pre>
+    -&gt;title('Выберите свою идею');</code></pre>
+<p>Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только по одной колонки в базе данных. Для этого используеться метод <code>displayAppend</code></p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * @return string
+     */
+    public function getFullAttribute(): string
+    {
+        return $this-&gt;attributes['name'] . ' (' . $this-&gt;attributes['email'] . ')';
+    }
+}</code></pre>
+<pre><code class="language-php">Relation::make('users.')
+    -&gt;fromModel(User::class, 'name')
+    -&gt;displayAppend('full')
+    -&gt;multiple()
+    -&gt;title('Select users');</code></pre>
 <h2><a href="#knopkassylka" name="knopkassylka">Кнопка/Ссылка</a></h2>
 <p>В определенных случаях необходимо добавить кнопку для вызова модального окна, простую ссылку или добавить кнопку
 отправки формы в конце экрана.
