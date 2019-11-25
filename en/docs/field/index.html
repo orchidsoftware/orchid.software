@@ -584,6 +584,26 @@ class Idea extends Model
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('active')
     -&gt;title('Выберите свою идею'),</code></pre>
+<p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the <code>displayAppend</code> method</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    /**
+     * @return string
+     */
+    public function getFullAttribute(): string
+    {
+        return $this-&gt;attributes['name'] . ' (' . $this-&gt;attributes['email'] . ')';
+    }
+}</code></pre>
+<pre><code class="language-php">Relation::make('users.')
+    -&gt;fromModel(User::class, 'name')
+    -&gt;displayAppend('full')
+    -&gt;multiple()
+    -&gt;title('Select users');</code></pre>
 <h2><a href="#buttonlink" name="buttonlink">Button/Link</a></h2>
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
 submit the form at the end of the screen.
