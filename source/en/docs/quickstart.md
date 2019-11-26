@@ -132,7 +132,7 @@ public function layout(): array
                 ->placeholder('Insert text here ...')
                 ->help('Add the content for the message that you would like to send.')
 
-        ])->with(70)
+        ])
     ];
 }
 ```
