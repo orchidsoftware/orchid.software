@@ -471,6 +471,12 @@ class EmailSenderScreen extends Screen
      */
     public function sendMessage(Request $request)
     {
+        $request-&gt;validate([
+            'subject' =&gt; 'required|min:6|max:50',
+            'users'   =&gt; 'required',
+            'content' =&gt; 'required|min:10'
+        ]);
+
         Mail::raw($request-&gt;get('content'), function (Message $message) use ($request) {
 
             $message-&gt;subject($request-&gt;get('subject'));
