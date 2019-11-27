@@ -55,6 +55,6 @@ Classic          |   Orchid
     └── JS       |
 ```
 
-## Как получить платформу?
+## Как установить платформу?
 
 Платформа свободно распространяется через интернет, [исходные коды](https://github.com/orchidsoftware/platform) и [информация о выпусках](https://github.com/orchidsoftware/platform/releases) опубликованы на GitHub. В руководстве по [установке](/ru/docs/installation/) содержатся подробные инструкции. 
