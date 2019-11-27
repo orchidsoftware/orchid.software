@@ -207,7 +207,8 @@ But also describe the synchronization of dependent records by relations in our s
 ```php
 public function createOrUpdate(Post $post, Request $request)
 {
-    $post->fill($request->get('post'))->save();
+    $post->fill($request->get('post')->except('attachment'))
+        ->save();
     
     $post->attachment()->syncWithoutDetaching(
         $request->input('post.attachment', [])
