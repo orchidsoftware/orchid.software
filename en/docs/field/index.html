@@ -583,7 +583,7 @@ class Idea extends Model
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('active')
-    -&gt;title('Выберите свою идею'),</code></pre>
+    -&gt;title('Select your idea'),</code></pre>
 <p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the <code>displayAppend</code> method</p>
 <pre><code class="language-php">namespace App;
 
