@@ -223,37 +223,6 @@ public function layout(): array
 }
 ```
 
-The rows layout also supports responsive column division inside the row, to use that just use an array.
-
-Example:
-```php
-protected function fields(): array
-{
-    return [
-   // This will put the two fields on the same row on big screens
-   [
-      DateTimer::make()
-       ->name('appointment_time')
-       ->required()
-       ->title('Time'),
-
-      Relationship::make()
-       ->name('appointment_type')
-        ->required()
-        ->title('Appointment type')
-        ->handler(AppointmentTypes::class),
-    ],
-        TextArea::make()
-            ->name('doctor_notes')
-            ->rows(10)
-            ->required()
-            ->title('Doctor notes')
-            ->help('What did the patient complain about?'),
-
-    ];
-}
-```
-
 ## Modal windows
 
 ```php
