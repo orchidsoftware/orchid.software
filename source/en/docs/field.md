@@ -453,7 +453,7 @@ class Idea extends Model
 Relation::make('idea')
     ->fromModel(Idea::class, 'name')
     ->applyScope('active')
-    ->title('Выберите свою идею'),
+    ->title('Select your idea'),
 ```
 
 Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the `displayAppend` method
