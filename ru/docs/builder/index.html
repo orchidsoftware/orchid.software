@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel form builder"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Строитель форм | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel form builder"><meta property="og:url" content="http://orchid.software/ru/docs/builder"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Строитель форм</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42925369 = new Ya.Metrika2({
+                        id: 42925369,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
+                }
+            });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+    </noscript><!-- /Yandex.Metrika counter --><script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=badd76157a0dffe3d8ec"><script src="/assets/build/js/app.js?id=c3cdc2b42bb54e8d1a08"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app" class="b-t b-primary">
+
+        <!-- header -->
+        <header id="header" class="bg-white b-b box-shadow-lg"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="http://orchid.software/ru">
+                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;"></a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 text-dark m-sm-0" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 text-dark m-sm-0" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+
+                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                            <i class="icon-support m-r-xs text-xs"></i>
+                            Помощь                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container no-padder" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs" class="lvl1 ">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/installation" class="lvl1 ">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/configuration" class="lvl1 ">
+            Обзор параметров
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Учебные пособия</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/quickstart" class="lvl1 ">
+            Быстрый старт
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-crud" class="lvl1 ">
+            Управление данными
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-files" class="lvl1 ">
+            Работа с файлами
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Экраны
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/field" class="lvl1 ">
+            Элементы формы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/menu" class="lvl1 ">
+            Меню панели
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/access" class="lvl1 ">
+            Права доступа
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/filters" class="lvl1 ">
+            Фильтрация
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/global-search" class="lvl1 ">
+            Глобальный поиск
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/attachments" class="lvl1 ">
+            Вложенные файлы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/settings" class="lvl1 ">
+            Настройки
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/alert" class="lvl1 ">
+            Уведомления
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/controllers" class="lvl1 ">
+            Контроллеры
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/javascript" class="lvl1 ">
+            Использование JS
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Сообщество</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/code-of-conduct" class="lvl1 ">
+            Кодекс поведения
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/contributors" class="lvl1 ">
+            Участие в разработке
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/promote" class="lvl1 ">
+            Содействие проекту
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/license" class="lvl1 ">
+            Лицензия
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="wrapper-lg order-md-first"><h1>Строитель форм</h1>
+
+                        <div class="none d-md-block">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/builder.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                <a href="#predstavlenie-elementov-formy">Представление элементов формы</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#zapolnenie-formy-dannymi">Заполнение формы данными</a>
+            </li>
+            </ul><hr><h2><a href="#predstavlenie-elementov-formy" name="predstavlenie-elementov-formy">Представление элементов формы</a></h2>
+<p>Любое поле для ввода является только настройкой над представлением которые передает данные в шаблон. </p>
+<p>Создадим новый класс, что бы посмотреть из чего он состоит:</p>
+<pre><code class="language-php">namespace App\Orchid\Fields;
+
+use Orchid\Screen\Field;
+
+class CustomField extends Field
+{
+    /**
+     * Blade template
+     * 
+     * @var string
+     */
+    protected $view = '';
+
+    /**
+     * Default attributes value.
+     *
+     * @var array
+     */
+    protected $attributes = [];
+
+    /**
+     * Attributes available for a particular tag.
+     *
+     * @var array
+     */
+    protected $inlineAttributes = [];
+
+    /**
+     * @param string|null $name
+     *
+     * @return self
+     */
+    public static function make(string $name = null): self
+    {
+        return (new static())-&gt;name($name);
+    }
+}</code></pre>
+<p>Свойство <code>view</code> определяет blade шаблон которому будут переданы данные, в <code>attributes</code> перечисляются значения по умолчанию, а <code>inlineAttributes</code>
+определяет ключи необходимые для указания в формате html, например:</p>
+<pre><code class="language-html">First name: &lt;input type="text" name="name"&gt;&lt;br&gt;</code></pre>
+<p>В этом примере inline-атрибут является type и name указанный непосредственно в теге.
+А метод <code>make()</code> только для быстрой и удобной инициализации, так как любая форма которая должна добавлять или изменять данные должна ею обладать.</p>
+<p>Обновим только, что созданный класс и добавим blade шаблон, на примере указанном выше:</p>
+<pre><code class="language-php">{{ $title }}: &lt;input @attributes($attributes)&gt;&lt;br&gt;</code></pre>
+<p>Для того, что бы попробовать новое поле, необходимо использовать встроенный метод <code>render()</code>:</p>
+<pre><code class="language-php">$input = CustomField::make('name');
+
+$html = $input-&gt;render(); // html string</code></pre>
+<p>В переменной <code>html</code> будет только что указанный шаблон, попробуем добавить некоторые элементы:</p>
+<pre><code class="language-php">$input = CustomField::make('name')
+    -&gt;title('How your name?')
+    -&gt;placeholder('Sheldon Cooper')
+    -&gt;value('Alexandr Chernyaev');
+
+$html = $input-&gt;render();</code></pre>
+<p>После обновим страницу, на ней отображается новый заголовок, вместо указанного по умолчанию, но ни placeholder, ни значение не было применено.
+Это потому, что они не были указана в <code>inlineAttributes</code>, исправим это:</p>
+<pre><code class="language-php">/**
+ * Attributes available for a particular tag.
+ *
+ * @var array
+ */
+protected $inlineAttributes = [
+    'name',
+    'type',
+    'placeholder',
+    'value'
+];</code></pre>
+<p>После этого каждый атрибут будет отрисован в нашем шаблоне.</p>
+<h2><a href="#zapolnenie-formy-dannymi" name="zapolnenie-formy-dannymi">Заполнение формы данными</a></h2>
+<p>В обычном использовании, нет необходимости отрисовывать каждый элемент и заполнять его данными.
+Для этого существует специальный строитель – <code>Orchid\Screen\Builder</code></p>
+<pre><code class="language-php">use Orchid\Screen\Repository;
+use Orchid\Screen\Builder;
+
+$fields[] = CustomField::make('name');
+
+$repository = new Repository([
+    'name' =&gt; 'Alexandr Chernyaev',
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder-&gt;generateForm();</code></pre>
+<p>По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения.
+При этом имеет возможность входить в глубь объекта используя <code>dot</code>-нотацию.</p>
+<pre><code class="language-php">$fields[] = CustomField::make('name.ru');
+
+$repository = new Repository([
+    'name' =&gt; [
+        'en' =&gt; 'Alexandr Chernyaev',
+        'ru' =&gt; 'Александр Черняев',
+    ],
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder-&gt;generateForm();</code></pre>
+<p>Так же можно указывать требуемый язык и префикс, например:</p>
+<pre><code class="language-php">$fields[] = CustomField::make('name');
+
+$repository = new Repository([
+    'en' =&gt; [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ],
+    'ru' =&gt; [
+        'name' =&gt; 'Александр Черняев',
+    ]
+]);
+
+$builder = new Builder($fields, $repository);
+$builder-&gt;setLanguage('en');
+
+$html = $builder-&gt;generateForm();</code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="pt-5 pb-5 text-xs text-center">
+                        <ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
