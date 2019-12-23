@@ -9,7 +9,7 @@
     веб-приложения на PHP быстрее, чем когда-либо
 @endsection
 
-@section('main.screen.title','Сначало экран')
+@section('main.screen.title','С начало экран')
 @section('main.screen.description','Создавайте предварительно заполненные поля, добавляйте таблицы и используйте логику для создания надежной страницы.')
 
 @section('main.design.title','Выдержаный стиль')
