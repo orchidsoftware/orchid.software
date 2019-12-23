@@ -29,7 +29,7 @@
 @section('main.col2.title','Подходящие технологии')
 @section('main.col2.description')
     Построенный на базе <a href="https://laravel.com" target="_blank">Laravel</a> имеет широкое
-    сообщество, различные драйвера для баз данных и сервисов, а прочная основа в виде <a href="https://stimulusjs.org" target="_blank">Stimulus</a> от
+    сообщество, различные драйвера для баз данных и сервисов, а прочные основы в виде <a href="https://stimulusjs.org" target="_blank">Stimulus</a> от
     Basecamp и <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> от Twitter
     обеспечивают работу в браузерах пользователей.
 
