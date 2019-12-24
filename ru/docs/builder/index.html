@@ -270,12 +270,82 @@
                             </a>
                         </div>
                         <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
-                <a href="#predstavlenie-elementov-formy">Представление элементов формы</a>
+                <a href="#osnovnoe-ispolzovanie">Основное использование</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#zapolnenie-formy-dannymi">Заполнение формы данными</a>
+                <a href="#privyazka-dannykh">Привязка данных</a>
             </li>
-            </ul><hr><h2><a href="#predstavlenie-elementov-formy" name="predstavlenie-elementov-formy">Представление элементов формы</a></h2>
+                    <li class="anchor-h2">
+                <a href="#predstavlenie-elementov-formy">Представление элементов формы</a>
+            </li>
+            </ul><hr><p>Описывать поля формы может быть нудным и затруднительным занятием, что бы их можно было легко модифицировать и использовать повторно, используеться специальный строитель <code>Orchid\Screen\Builder</code>, задача которого заключаеться в генерации <code>html</code>-кода.</p>
+<h2><a href="#osnovnoe-ispolzovanie" name="osnovnoe-ispolzovanie">Основное использование</a></h2>
+<p>Для построения необходимо передать набор элеменнтов формы и источник данных:</p>
+<pre><code class="language-php">use Orchid\Screen\Builder;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Repository;
+
+$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository();
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder-&gt;generateForm();</code></pre>
+<h2><a href="#privyazka-dannykh" name="privyazka-dannykh">Привязка данных</a></h2>
+<p>Для указания значения элемента формы, необходимо указать данные в источнике:</p>
+<pre><code class="language-php">use Orchid\Screen\Builder;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Repository;
+
+$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository([
+    'name' =&gt; 'Alexandr Chernyaev',
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder-&gt;generateForm();</code></pre>
+<p>По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения.
+При этом имеет возможность входить в глубь объекта используя <code>dot</code>-нотацию.</p>
+<pre><code class="language-php">$fields = [
+    Input::make('name.ru'),
+];
+
+$repository = new Repository([
+    'name' =&gt; [
+        'en' =&gt; 'Alexandr Chernyaev',
+        'ru' =&gt; 'Александр Черняев',
+    ],
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder-&gt;generateForm();</code></pre>
+<p>Так же можно указывать требуемый язык и префикс, например:</p>
+<pre><code class="language-php">$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository([
+    'en' =&gt; [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ],
+    'ru' =&gt; [
+        'name' =&gt; 'Александр Черняев',
+    ]
+]);
+
+$builder = new Builder($fields, $repository);
+$builder-&gt;setLanguage('en');
+
+$html = $builder-&gt;generateForm();</code></pre>
+<h2><a href="#predstavlenie-elementov-formy" name="predstavlenie-elementov-formy">Представление элементов формы</a></h2>
 <p>Любое поле для ввода является только настройкой над представлением которые передает данные в шаблон. </p>
 <p>Создадим новый класс, что бы посмотреть из чего он состоит:</p>
 <pre><code class="language-php">namespace App\Orchid\Fields;
@@ -346,52 +416,7 @@ protected $inlineAttributes = [
     'placeholder',
     'value'
 ];</code></pre>
-<p>После этого каждый атрибут будет отрисован в нашем шаблоне.</p>
-<h2><a href="#zapolnenie-formy-dannymi" name="zapolnenie-formy-dannymi">Заполнение формы данными</a></h2>
-<p>В обычном использовании, нет необходимости отрисовывать каждый элемент и заполнять его данными.
-Для этого существует специальный строитель – <code>Orchid\Screen\Builder</code></p>
-<pre><code class="language-php">use Orchid\Screen\Repository;
-use Orchid\Screen\Builder;
-
-$fields[] = CustomField::make('name');
-
-$repository = new Repository([
-    'name' =&gt; 'Alexandr Chernyaev',
-]);
-
-$builder = new Builder($fields, $repository);
-
-$html = $builder-&gt;generateForm();</code></pre>
-<p>По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения.
-При этом имеет возможность входить в глубь объекта используя <code>dot</code>-нотацию.</p>
-<pre><code class="language-php">$fields[] = CustomField::make('name.ru');
-
-$repository = new Repository([
-    'name' =&gt; [
-        'en' =&gt; 'Alexandr Chernyaev',
-        'ru' =&gt; 'Александр Черняев',
-    ],
-]);
-
-$builder = new Builder($fields, $repository);
-
-$html = $builder-&gt;generateForm();</code></pre>
-<p>Так же можно указывать требуемый язык и префикс, например:</p>
-<pre><code class="language-php">$fields[] = CustomField::make('name');
-
-$repository = new Repository([
-    'en' =&gt; [
-        'name' =&gt; 'Alexandr Chernyaev',
-    ],
-    'ru' =&gt; [
-        'name' =&gt; 'Александр Черняев',
-    ]
-]);
-
-$builder = new Builder($fields, $repository);
-$builder-&gt;setLanguage('en');
-
-$html = $builder-&gt;generateForm();</code></pre>                    </main></div>
+<p>После этого каждый атрибут будет отрисован в нашем шаблоне.</p>                    </main></div>
             </div>
         </div>
     </div>
