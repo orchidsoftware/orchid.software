@@ -5,6 +5,95 @@ extends: _layouts.documentation.ru
 section: main
 ---
 
+Описывать поля формы может быть нудным и затруднительным занятием, что бы их можно было легко модифицировать и использовать повторно, используеться специальный строитель `Orchid\Screen\Builder`, задача которого заключаеться в генерации `html`-кода.
+
+
+## Основное использование
+
+Для построения необходимо передать набор элеменнтов формы и источник данных:
+
+```php
+use Orchid\Screen\Builder;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Repository;
+
+$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository();
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder->generateForm();
+```
+
+
+## Привязка данных
+
+Для указания значения элемента формы, необходимо указать данные в источнике:
+
+```php
+use Orchid\Screen\Builder;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Repository;
+
+$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository([
+    'name' => 'Alexandr Chernyaev',
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder->generateForm();
+```
+
+
+По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения. 
+При этом имеет возможность входить в глубь объекта используя `dot`-нотацию.
+
+```php
+$fields = [
+    Input::make('name.ru'),
+];
+
+$repository = new Repository([
+    'name' => [
+        'en' => 'Alexandr Chernyaev',
+        'ru' => 'Александр Черняев',
+    ],
+]);
+
+$builder = new Builder($fields, $repository);
+
+$html = $builder->generateForm();
+```
+
+Так же можно указывать требуемый язык и префикс, например:
+
+```php
+$fields = [
+    Input::make('name'),
+];
+
+$repository = new Repository([
+    'en' => [
+        'name' => 'Alexandr Chernyaev',
+    ],
+    'ru' => [
+        'name' => 'Александр Черняев',
+    ]
+]);
+
+$builder = new Builder($fields, $repository);
+$builder->setLanguage('en');
+
+$html = $builder->generateForm();
+```
+
 
 ## Представление элементов формы
 
@@ -109,62 +198,3 @@ protected $inlineAttributes = [
 ```
 
 После этого каждый атрибут будет отрисован в нашем шаблоне.
-
-## Заполнение формы данными
-
-В обычном использовании, нет необходимости отрисовывать каждый элемент и заполнять его данными. 
-Для этого существует специальный строитель - `Orchid\Screen\Builder`
-
-```php
-use Orchid\Screen\Repository;
-use Orchid\Screen\Builder;
-
-$fields[] = CustomField::make('name');
-
-$repository = new Repository([
-    'name' => 'Alexandr Chernyaev',
-]);
-
-$builder = new Builder($fields, $repository);
-
-$html = $builder->generateForm();
-```
-
-
-По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения. 
-При этом имеет возможность входить в глубь объекта используя `dot`-нотацию.
-
-```php
-$fields[] = CustomField::make('name.ru');
-
-$repository = new Repository([
-    'name' => [
-        'en' => 'Alexandr Chernyaev',
-        'ru' => 'Александр Черняев',
-    ],
-]);
-
-$builder = new Builder($fields, $repository);
-
-$html = $builder->generateForm();
-```
-
-Так же можно указывать требуемый язык и префикс, например:
-
-```php
-$fields[] = CustomField::make('name');
-
-$repository = new Repository([
-    'en' => [
-        'name' => 'Alexandr Chernyaev',
-    ],
-    'ru' => [
-        'name' => 'Александр Черняев',
-    ]
-]);
-
-$builder = new Builder($fields, $repository);
-$builder->setLanguage('en');
-
-$html = $builder->generateForm();
-```
