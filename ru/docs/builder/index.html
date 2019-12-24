@@ -278,7 +278,7 @@
                     <li class="anchor-h2">
                 <a href="#predstavlenie-elementov-formy">Представление элементов формы</a>
             </li>
-            </ul><hr><p>Описывать поля формы может быть нудным и затруднительным занятием, что бы их можно было легко модифицировать и использовать повторно, используется специальный строитель <code>Orchid\Screen\Builder</code>, задача которого в генерации <code>html</code>-кода.</p>
+            </ul><hr><p>Описывать поля формы может быть нудным и затруднительным занятием, что бы их легко модифицировать и использовать повторно, используется специальный строитель <code>Orchid\Screen\Builder</code>, задача которого в генерации <code>html</code>-кода.</p>
 <h2><a href="#osnovnoe-ispolzovanie" name="osnovnoe-ispolzovanie">Основное использование</a></h2>
 <p>Для построения необходимо передать набор элементов формы и источник данных:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
@@ -295,7 +295,8 @@ $builder = new Builder($fields, $repository);
 
 $html = $builder-&gt;generateForm();</code></pre>
 <h2><a href="#privyazka-dannykh" name="privyazka-dannykh">Привязка данных</a></h2>
-<p>Для указания значения элемента формы, необходимо указать данные в источнике:</p>
+<p>Для указания значения элемента, необходимо указать данные в источнике.
+Данные будут автоматически подставлены, по указанному ключу.</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Repository;
@@ -311,8 +312,7 @@ $repository = new Repository([
 $builder = new Builder($fields, $repository);
 
 $html = $builder-&gt;generateForm();</code></pre>
-<p>По сути строитель соотносит имена из хранилища к необходимой формы в качестве значения.
-При этом имеет возможность входить вглубь объекта используя <code>dot</code>-нотацию.</p>
+<p>При этом имеет возможность входить вглубь объекта используя <code>dot</code>-нотацию.</p>
 <pre><code class="language-php">$fields = [
     Input::make('name.ru'),
 ];
