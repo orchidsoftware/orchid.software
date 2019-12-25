@@ -69,16 +69,23 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="topics-list">
-                                <h3><a href="#">Screen & Actions</a></h3>
+                                <h3><a href="#">Работа с таблицей</a></h3>
                                 <ul class="list-group pl-5">
-                                    <li><a href="#"> How to use this documentation? </a></li>
-                                    
                                     <li>
-                                        <a href="/en/how-to-do-it/how-to-use-sorting-in-a-table">
+                                        <a href="/en/recipes/changing-the-visual-table"> 
+                                            Изменение визуального оформления 
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/en/recipes/how-to-use-sorting-in-a-table">
                                             Как использовать сортировку в таблице?
                                         </a>
                                     </li>
-                                    <li><a href="#">Basic knowledge requirments. </a></li>
+                                    <li>
+                                        <a href="/en/recipes/column-expansion">
+                                           Расширение колонок
+                                        </a>
+                                    </li>
                                     <li><a href="#">Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
