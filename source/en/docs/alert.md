@@ -88,6 +88,8 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 
 ## Notifications in the admin panel
 
+> **Note:** Before using this feature, check out the [Laravel notification documentation](https://laravel.com/docs/notifications).
+
 The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
 can be added to any users even when they are offline. This is another great way to inform
 for example, for a task manager application to notify an employee about a new task.
