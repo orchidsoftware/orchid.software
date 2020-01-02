@@ -7,7 +7,7 @@ section: main
 
 ## Introduction
 
-**ORCHID** is a tool of sped up development open source (MIT license), to create applications in the style of administration. It abstracts common business application templates so that developers can easily implement beautiful and elegant interfaces with little effort.
+**ORCHID** is an open source tool(MIT license) to speed up development and create applications in the style of administration. It abstracts common business application templates so that developers can easily implement beautiful and elegant interfaces with little effort.
 
 Some features:
 
