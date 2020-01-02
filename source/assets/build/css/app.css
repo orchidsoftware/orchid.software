@@ -15914,11 +15914,16 @@ pre[class*=language-] {
 }
 
 .nav-docs {
-  line-height: 2em;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 1.2em;
+  bottom: 1.2em;
+  max-height: 100vh;
+  line-height: 1.8em;
 }
 
 .nav-docs h4 {
-  margin-top: 1.33em;
+  margin-top: 1.2em;
 }
 
 .nav-docs li.active {
@@ -16273,6 +16278,62 @@ li.anchor-h3 {
 
 .how-to-do-it h1 {
   margin-bottom: 1em;
+}
+
+.design-macbook {
+  position: absolute;
+  left: -1200px;
+  bottom: 0;
+}
+
+.dev-macbook {
+  position: absolute;
+  right: -50%;
+}
+
+.github_screenshot {
+  position: absolute;
+  right: -20%;
+  bottom: -13%;
+}
+
+@media (min-width: 1801px) {
+  .dev-macbook {
+    right: -30%;
+  }
+
+  .design-macbook {
+    left: -1000px;
+    bottom: 0;
+  }
+}
+
+@media (max-width: 1440px) {
+  .dev-macbook {
+    right: -58%;
+  }
+}
+
+@media only screen and (max-width: 1367px) {
+  .dev-macbook {
+    right: -900px;
+  }
+
+  .design-macbook {
+    left: -1300px;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .dev-macbook {
+    right: -1100px;
+  }
+
+  .design-macbook {
+    left: -1400px;
+    bottom: 0;
+  }
 }
 
 .preview {

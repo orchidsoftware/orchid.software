@@ -358,3 +358,61 @@ li.anchor-h3 {
     @extend .b-b;
   }
 }
+
+
+.design-macbook {
+  position: absolute;
+  left: -1200px;
+  bottom: 0
+}
+
+.dev-macbook {
+  position: absolute;
+  right: -50%
+}
+
+.github_screenshot {
+  position: absolute;
+  right: -20%;
+  bottom: -13%
+}
+
+
+@media (min-width: 1801px) {
+  .dev-macbook {
+    right: -30%
+  }
+
+  .design-macbook {
+    left: -1000px;
+    bottom: 0
+  }
+}
+
+@media (max-width: 1440px) {
+  .dev-macbook {
+    right: -58%
+  }
+}
+
+@media only screen and (max-width: 1367px) {
+  .dev-macbook {
+    right: -900px
+  }
+
+  .design-macbook {
+    left: -1300px;
+    bottom: 0
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .dev-macbook {
+    right: -1100px
+  }
+
+  .design-macbook {
+    left: -1400px;
+    bottom: 0
+  }
+}

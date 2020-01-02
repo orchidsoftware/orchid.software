@@ -3,6 +3,54 @@
 @section('content')
 
 
+
+    <section class="pb-5 pt-5 bg-dark position-relative overflow-hidden b-b">
+        <img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png" class="dev-macbook none d-md-block">
+        <div class="container pt-4">
+            <div class="row pl-sm-2 pr-sm-2">
+                <div class="col-lg-6">
+                    <div class="row pb-5">
+                        <div class="col-md-12">
+                            <h1 class="h2 normal text-white mb-4 mt-5 text-center text-sm-left">
+                                <span class="icon-rocket text-muted m-r-md"></span> @yield('main.title')
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <h4 class="text-white font-thin"><i class="icon-monitor mr-2"></i>  @yield('main.screen.title')</h4>
+                            <div>
+                                @yield('main.screen.description')
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h4 class="text-white font-thin"><i class="icon-layers mr-2"></i> @yield('main.design.title')</h4>
+                            <div>
+                                @yield('main.design.description')
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-5">
+                            <h4 class="text-white font-thin"><i class="icon-bulb mr-2"></i> @yield('main.idea.title')</h4>
+                            <div>
+                                @yield('main.idea.description')
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-5">
+                            <h4 class="text-white font-thin"><i class="icon-code mr-2"></i> @yield('main.code.title')</h4>
+                            <div>
+                                @yield('main.code.description')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    {{--
     <section class="hero bg-dark b-b">
         <div class="hero-dark">
             <div class="container">
@@ -44,6 +92,7 @@
         </div>
         </div>
     </section>
+    --}}
 
     <section class="bg-white position-relative">
         <div class="container pt-5 pb-5">
