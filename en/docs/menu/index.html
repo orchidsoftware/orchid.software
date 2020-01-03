@@ -389,6 +389,7 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
     -&gt;add(Menu::MAIN,
         ItemMenu::label('My menu')
             -&gt;slug('Idea')
+        -&gt;childs()
     )
     -&gt;add('Idea',
         ItemMenu::label('Sub element')
