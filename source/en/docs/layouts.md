@@ -5,15 +5,15 @@ extends: _layouts.documentation.en
 section: main
 ---
 
-The display of the appearance of the user interface elements in the application is of great importance, makes the application
-is easier to use and helps users intuitively display screen elements to complete their tasks.
+The appearance of the user interface display elements in the application is of great importance. It makes the application
+easier to use and helps users to intuitively display screen elements to complete their tasks.
 
-The separation of logic and presentation is one of the principles of development with the platform.
-One of the elements of the presentation is "Layouts" (layouts) that can be displayed in different variations if you try to explain briefly, it turns out that this is the `view` on steroids.
+The separation of logic and presentation is one of the fundamental principles of the Orchid platform.
+One of the presentation element called "Layouts" (layouts), can be displayed in different variations and is a typical `view` but on steroids.
 
 ## Approach through layouts
 
-For the formation of the page, we in most cases we use the same type of elements, for example, we will present a block that displays the name, signature, and avatar of the profile:
+For the formation of a page, we, in most cases use the same type of elements. For example, we will present a block that displays the name, signature, and avatar of the profile:
 
 ```php
 <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
