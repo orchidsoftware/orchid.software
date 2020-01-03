@@ -160,6 +160,7 @@ $dashboard->menu
     ->add(Menu::MAIN,
         ItemMenu::label('My menu')
             ->slug('Idea')
+	    ->childs()
     )
     ->add('Idea',
         ItemMenu::label('Sub element')
