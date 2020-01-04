@@ -339,6 +339,9 @@ class AppServiceProvider extends ServiceProvider
 <pre><code class="language-php">use Orchid\Platform\ItemMenu;
 
 ItemMenu::label('Example');</code></pre>
+<blockquote>
+<p><strong>Note.</strong> for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the <code>slug</code> method.</p>
+</blockquote>
 <h3><a href="#setting-links" name="setting-links">Setting Links</a></h3>
 <p>Reference Reference:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');</code></pre>
