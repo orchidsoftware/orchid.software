@@ -66,6 +66,9 @@ use Orchid\Platform\ItemMenu;
 ItemMenu::label('Example');
 ```
 
+
+> **Примечание.** Для каждого элемента при создании, генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода `slug`.
+
 ### Настройка ссылок
 
 Указание ссылки:
@@ -78,7 +81,6 @@ ItemMenu::label('Example')->url('https://orchid.software/');
  ```php
 ItemMenu::label('Example')->route('route.idea');
 ```
-
 
 Для определения активности ссылки используется пакет [dwightwatson/active](https://github.com/dwightwatson/active)
 Активность ссылок, при использовании `route` и `url` устанавливается автоматически,
