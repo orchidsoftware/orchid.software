@@ -313,7 +313,7 @@ class CreatePostsTable extends Migration
 <pre><code class="language-php">php artisan migrate</code></pre>
 <p>После успешного создания таблицы, добавим новую <code>Eloquent</code> модель, для этого выполним:</p>
 <pre><code class="language-php">php artisan make:model Post</code></pre>
-<p>В директории <code>app</code> будет создан новый файл <code>Post.php</code> опишем поля как доступные для заполнения:</p>
+<p>В директории <code>app</code> будет создан новый файл <code>Post.php</code>, опишем поля как доступные для заполнения:</p>
 <pre><code class="language-php">// app/Post.php
 
 namespace App;
@@ -339,7 +339,7 @@ class Post extends Model
 <p><strong>Примечание.</strong> Модель имеет трейт <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
 </blockquote>
 <p>Теперь мы готовы к настоящему использованию платформы. </p>
-<p><a href="https://orchid.software/ru/docs/quickstart">В предыдущем пособии</a> мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их, по этому добавим два новых экрана на каждое действие, поочередно выполнив команды:</p>
+<p><a href="https://orchid.software/ru/docs/quickstart">В предыдущем пособии</a> мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их, поэтому добавим два новых экрана на каждое действие, поочередно выполнив команды:</p>
 <pre><code class="language-php">php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen</code></pre>
 <blockquote>
@@ -357,7 +357,7 @@ $this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
 $this-&gt;router-&gt;screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
 <p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.
-Полученные экраны на текущий момент не имеют, ни данных, ни действий, отредактируем <code>PostEditScreen</code> для просмотра добавив название, описание и требуемые поля:</p>
+Полученные экраны на текущий момент не имеют, ни данных, ни действий. Отредактируем <code>PostEditScreen</code> для просмотра, добавив название, описание и требуемые поля:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Post;
@@ -604,7 +604,7 @@ class PostListScreen extends Screen
         ];
     }
 }</code></pre>
-<p>Теперь наш набор для управления(создание, просмотр, редактирование и удаление записими) блогом готов, не забудьте позаботиться об удобстве навигации из предыдущего материала добавив пункты меню и хлебные крошки.</p>                    </main></div>
+<p>Теперь наш набор для управления (создание, просмотр, редактирование и удаление записи) блогом готов. Не забудьте позаботиться об удобстве навигации из предыдущего материала, добавив пункты меню и хлебные крошки.</p>                    </main></div>
             </div>
         </div>
     </div>
