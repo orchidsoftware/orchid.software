@@ -340,15 +340,15 @@ class AppServiceProvider extends ServiceProvider
 
 ItemMenu::label('Example');</code></pre>
 <blockquote>
-<p><strong>Примечание.</strong> Для каждого элемента при создании, генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода <code>slug</code>.</p>
+<p><strong>Примечание.</strong> Для каждого элемента при создании генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода <code>slug</code>.</p>
 </blockquote>
 <h3><a href="#nastroyka-ssylok" name="nastroyka-ssylok">Настройка ссылок</a></h3>
 <p>Указание ссылки:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');</code></pre>
 <p>Указание ссылки через маршрут:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;route('route.idea');</code></pre>
-<p>Для определения активности ссылки используется пакет <a href="https://github.com/dwightwatson/active">dwightwatson/active</a>
-Активность ссылок, при использовании <code>route</code> и <code>url</code> устанавливается автоматически, но допустимо изменение с помощью явного указания:</p>
+<p>Для определения активности ссылки используется пакет <a href="https://github.com/dwightwatson/active">dwightwatson/active</a>.
+Активность ссылок, при использовании <code>route</code> и <code>url</code>, устанавливается автоматически, но допустимо изменение с помощью явного указания:</p>
 <pre><code class="language-php">ItemMenu::label('Example')
     -&gt;route('route.idea')
     -&gt;active('route.idea*');
@@ -364,10 +364,10 @@ ItemMenu::label('Example')
     -&gt;url('/pages/contact')
     -&gt;active('not:pages/contact');</code></pre>
 <h3><a href="#prava-dostupa" name="prava-dostupa">Права доступа</a></h3>
-<p>Вполне ожидаемая ситуация когда некоторые ссылки должны отсутствовать
+<p>Вполне ожидаема ситуация, когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');</code></pre>
-<p>или любая другая проверка возвращающее булево значение:</p>
+<p>или любая другая проверка возвращающая булево значение:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);</code></pre>
 <h4><a href="#vneshniy-vid" name="vneshniy-vid">Внешний вид</a></h4>
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
