@@ -79,6 +79,7 @@ return [
                 'Уведомления'      => '/ru/docs/alert',
                 'Контроллеры'      => '/ru/docs/controllers',
                 'Использование JS' => '/ru/docs/javascript',
+                'Строитель форм'   => '/ru/docs/builder',
             ],
         ],
         'Сообщество'  => [
