@@ -5,7 +5,7 @@ extends: _layouts.documentation.ru
 section: main
 ---
 
-Простой способ уведомить пользователя о состоянии вашего приложения. Например, они могут информировать пользователя о завершении длительного процесса или приходе нового сообщения. В этом разделе мы покажем вам, как заставить их работать в вашем приложении.
+Уведомления - это отличный способ информировать ваших пользователей о том, что происходит в вашем приложении. Например, они могут оповещать пользователя о завершении длительного процесса или приходе нового сообщения. В этом разделе мы покажем вам, как использовать их в вашем приложении.
 
 ## Одноразовые сообщения
 
@@ -87,27 +87,54 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 
 ## Уведомления в панели администрирования
 
-> **Примечание:** Перед использованием этой функции, прочитайте [Laravel notification documentation](https://laravel.com/docs/notifications).
-
 Уведомление в панели администрирование отличается от flash-сообщений, тем, что не удаляются после просмотра и
 могут быть добавлены любым пользователям даже когда они находятся не в сети. Это ещё один отличный способ информирования,
 например для  приложение "менеджера задач" уведомлять сотрудника о новой задаче.
 
-Для создания уведомления требуется:
+Эти уведомления можно просмотреть, нажав на значок «Колокольчик уведомлений» на панели навигации приложения. При наличии непрочитанных уведомлений будет отображаться счетчик.
+
+> **Примечание:** Перед использованием этой функции, прочитайте [Laravel notification documentation](https://laravel.com/docs/notifications).
+
+
+Чтобы создать уведомление, вы можете использовать следующую команду Artisan:
+
+```php
+php artisan make:notification TaskCompleted
+```
+
+Эта команда создаст новый класс в вашем каталоге `app/Notifications`. 
+Необходимо добавить канал `DashboardChannel` в `via` методе уведомления:
+
+```php
+use Orchid\Platform\Notifications\DashboardChannel;
+
+public function via($notifiable)
+{
+    return [DashboardChannel::class];
+}
+```
+
+Перед использованием `DashboardChannel` необходимо определить `toDashboard` метод в классе уведомлений. 
+Этот метод получит `$notifiable` объект и должен вернуть объект `DashboardMessage`:
+
+```php
+use Orchid\Platform\Notifications\DashboardMessage;
+
+public function toDashboard($notifiable)
+{
+    return (new DashboardMessage)
+        ->title('Hello Word')
+        ->message('New post!')
+        ->action(url('/'));
+}
+```
+
+Уведомления могут быть отправлены двумя способами: с помощью `notify` метода в трейте `Notifiable` или с помощью `Notification` фасада. Вы можете взглянуть на [документацию уведомлений Laravel](https://laravel.com/docs/notifications#sending-notifications), чтобы получить более подробную информацию об этих двух подходах к отправке уведомлений.
+
+Вот пример отправки уведомлений пользователю с использованием `notify` метода:
+
 ```php
 $user = User::find(1);
 
-$user->notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title'   => 'Hello Word',
-    'message' => 'New post!',
-    'action'  => 'http://orchid.software/',
-    'type'    =>  DashboardNotification::INFO,
-]));
+$user->notify(new TaskCompleted);
 ```
-
-Поддерживаемые типы:
-
-- DashboardNotification::INFO (По умолчанию)
-- DashboardNotification::SUCCESS
-- DashboardNotification::WARNING
-- DashboardNotification::ERROR
