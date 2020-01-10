@@ -278,7 +278,7 @@
                     <li class="anchor-h2">
                 <a href="#notifications-in-the-admin-panel">Notifications in the admin panel</a>
             </li>
-            </ul><hr><p>A simple way to notify the user about the status of your application. For example, they can inform the user about the completion of a lengthy process or the arrival of a new message. In this section, we will show you how to make them work in your application.</p>
+            </ul><hr><p>Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we 'll show you how to use them in your app.</p>
 <h2><a href="#flash-messages" name="flash-messages">Flash messages</a></h2>
 <p>Flash notification is a one-time message that will be deleted upon next access.
 Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.</p>
@@ -320,27 +320,39 @@ Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')</code
 Toast::warning('Lorem ipsum dolor sit amet.')
     -&gt;delay(2000);</code></pre>
 <h2><a href="#notifications-in-the-admin-panel" name="notifications-in-the-admin-panel">Notifications in the admin panel</a></h2>
-<blockquote>
-<p><strong>Note:</strong> Before using this feature, check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
-</blockquote>
 <p>The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
 can be added to any users even when they are offline. This is another great way to inform
 for example, for a task manager application to notify an employee about a new task.</p>
-<p>To create a notification is required:</p>
+<p>You can view these notifications by clicking the &#8220;Notification Bell icon&#8221; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
+<blockquote>
+<p><strong>Note:</strong> Before using this feature, check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
+</blockquote>
+<p>To create a notification, you can use the following Artisan command:</p>
+<pre><code class="language-php">php artisan make:notification TaskCompleted</code></pre>
+<p>This command will create a new class in your <code>app/Notifications</code> directory.
+You must add channel <code>DashboardChannel</code> to the <code>via</code> notification method:</p>
+<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardChannel;
+
+public function via($notifiable)
+{
+    return [DashboardChannel::class];
+}</code></pre>
+<p>Before using <code>DashboardChannel</code>, you must define a <code>toDashboard</code> method in the notification class.
+This method will receive a <code>$notifiable</code> object and must return a <code>DashboardMessage</code> object:</p>
+<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardMessage;
+
+public function toDashboard($notifiable)
+{
+    return (new DashboardMessage)
+        -&gt;title('Hello Word')
+        -&gt;message('New post!')
+        -&gt;action(url('/'));
+}</code></pre>
+<p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the <code>Notification</code> facade. You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about these two approaches to sending notifications.</p>
+<p>Here is an example of how to send notifications to a user using the 'notify&#8217; method:</p>
 <pre><code class="language-php">$user = User::find(1);
 
-$user-&gt;notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title'   =&gt; 'Hello Word',
-    'message' =&gt; 'New post!',
-    'action'  =&gt; 'http://orchid.software/',
-    'type'    =&gt;  DashboardNotification::INFO,
-]));</code></pre>
-<p>Supported Types:</p>
-<ul><li>DashboardNotification::INFO (Default)</li>
-<li>DashboardNotification::SUCCESS</li>
-<li>DashboardNotification::WARNING</li>
-<li>DashboardNotification::ERROR</li>
-</ul></main></div>
+$user-&gt;notify(new TaskCompleted);</code></pre>                    </main></div>
             </div>
         </div>
     </div>
