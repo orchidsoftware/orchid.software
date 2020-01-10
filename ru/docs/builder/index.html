@@ -283,15 +283,10 @@
 <p>Для построения необходимо передать набор элементов формы и источник данных:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Repository;
 
-$fields = [
+$builder = new Builder([
     Input::make('name'),
-];
-
-$repository = new Repository();
-
-$builder = new Builder($fields, $repository);
+]);
 
 $html = $builder-&gt;generateForm();</code></pre>
 <h2><a href="#privyazka-dannykh" name="privyazka-dannykh">Привязка данных</a></h2>
