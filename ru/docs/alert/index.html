@@ -278,7 +278,7 @@
                     <li class="anchor-h2">
                 <a href="#uvedomleniya-v-paneli-administrirovaniya">Уведомления в панели администрирования</a>
             </li>
-            </ul><hr><p>Простой способ уведомить пользователя о состоянии вашего приложения. Например, они могут информировать пользователя о завершении длительного процесса или приходе нового сообщения. В этом разделе мы покажем вам, как заставить их работать в вашем приложении.</p>
+            </ul><hr><p>Уведомления – это отличный способ информировать ваших пользователей о том, что происходит в вашем приложении. Например, они могут оповещать пользователя о завершении длительного процесса или приходе нового сообщения. В этом разделе мы покажем вам, как использовать их в вашем приложении.</p>
 <h2><a href="#odnorazovye-soobshcheniya" name="odnorazovye-soobshcheniya">Одноразовые сообщения</a></h2>
 <p>Flash-уведомление — это одноразовое сообщение, которое будет удалено при следующем обращении.
 Уведомления призваны информировать о непосредственно произошедшим событием, например сообщение о сохранении данных.</p>
@@ -320,26 +320,38 @@ Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')</code
 Toast::warning('Lorem ipsum dolor sit amet.')
     -&gt;delay(2000);</code></pre>
 <h2><a href="#uvedomleniya-v-paneli-administrirovaniya" name="uvedomleniya-v-paneli-administrirovaniya">Уведомления в панели администрирования</a></h2>
+<p>Уведомление в панели администрирование отличается от flash-сообщений, тем, что не удаляются после просмотра и
+могут быть добавлены любым пользователям даже когда они находятся не в сети. Это ещё один отличный способ информирования, например для  приложение «менеджера задач» уведомлять сотрудника о новой задаче.</p>
+<p>Эти уведомления можно просмотреть, нажав на значок «Колокольчик уведомлений» на панели навигации приложения. При наличии непрочитанных уведомлений будет отображаться счетчик.</p>
 <blockquote>
 <p><strong>Примечание:</strong> Перед использованием этой функции, прочитайте <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
 </blockquote>
-<p>Уведомление в панели администрирование отличается от flash-сообщений, тем, что не удаляются после просмотра и
-могут быть добавлены любым пользователям даже когда они находятся не в сети. Это ещё один отличный способ информирования, например для  приложение «менеджера задач» уведомлять сотрудника о новой задаче.</p>
-<p>Для создания уведомления требуется:</p>
+<p>Чтобы создать уведомление, вы можете использовать следующую команду Artisan:</p>
+<pre><code class="language-php">php artisan make:notification TaskCompleted</code></pre>
+<p>Эта команда создаст новый класс в вашем каталоге <code>app/Notifications</code>.
+Необходимо добавить канал <code>DashboardChannel</code> в <code>via</code> методе уведомления:</p>
+<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardChannel;
+
+public function via($notifiable)
+{
+    return [DashboardChannel::class];
+}</code></pre>
+<p>Перед использованием <code>DashboardChannel</code> необходимо определить <code>toDashboard</code> метод в классе уведомлений.
+Этот метод получит <code>$notifiable</code> объект и должен вернуть объект <code>DashboardMessage</code>:</p>
+<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardMessage;
+
+public function toDashboard($notifiable)
+{
+    return (new DashboardMessage)
+        -&gt;title('Hello Word')
+        -&gt;message('New post!')
+        -&gt;action(url('/'));
+}</code></pre>
+<p>Уведомления могут быть отправлены двумя способами: с помощью <code>notify</code> метода в трейте <code>Notifiable</code> или с помощью <code>Notification</code> фасада. Вы можете взглянуть на <a href="https://laravel.com/docs/notifications#sending-notifications">документацию уведомлений Laravel</a>, чтобы получить более подробную информацию об этих двух подходах к отправке уведомлений.</p>
+<p>Вот пример отправки уведомлений пользователю с использованием <code>notify</code> метода:</p>
 <pre><code class="language-php">$user = User::find(1);
 
-$user-&gt;notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title'   =&gt; 'Hello Word',
-    'message' =&gt; 'New post!',
-    'action'  =&gt; 'http://orchid.software/',
-    'type'    =&gt;  DashboardNotification::INFO,
-]));</code></pre>
-<p>Поддерживаемые типы:</p>
-<ul><li>DashboardNotification::INFO (По умолчанию)</li>
-<li>DashboardNotification::SUCCESS</li>
-<li>DashboardNotification::WARNING</li>
-<li>DashboardNotification::ERROR</li>
-</ul></main></div>
+$user-&gt;notify(new TaskCompleted);</code></pre>                    </main></div>
             </div>
         </div>
     </div>
