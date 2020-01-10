@@ -5,7 +5,7 @@ extends: _layouts.documentation.en
 section: main
 ---
 
-A simple way to notify the user about the status of your application. For example, they can inform the user about the completion of a lengthy process or the arrival of a new message. In this section, we will show you how to make them work in your application.
+Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we 'll show you how to use them in your app.
 
 ## Flash messages
 
@@ -88,27 +88,55 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 
 ## Notifications in the admin panel
 
-> **Note:** Before using this feature, check out the [Laravel notification documentation](https://laravel.com/docs/notifications).
-
 The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
 can be added to any users even when they are offline. This is another great way to inform
 for example, for a task manager application to notify an employee about a new task.
 
-To create a notification is required:
+You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.
+
+> **Note:** Before using this feature, check out the [Laravel notification documentation](https://laravel.com/docs/notifications).
+
+
+To create a notification, you can use the following Artisan command:
+
+```php
+php artisan make:notification TaskCompleted
+```
+
+This command will create a new class in your `app/Notifications` directory.
+You must add channel `DashboardChannel` to the `via` notification method:
+
+```php
+use Orchid\Platform\Notifications\DashboardChannel;
+
+public function via($notifiable)
+{
+    return [DashboardChannel::class];
+}
+```
+
+Before using `DashboardChannel`, you must define a `toDashboard` method in the notification class.
+This method will receive a `$notifiable` object and must return a `DashboardMessage` object:
+
+
+```php
+use Orchid\Platform\Notifications\DashboardMessage;
+
+public function toDashboard($notifiable)
+{
+    return (new DashboardMessage)
+        ->title('Hello Word')
+        ->message('New post!')
+        ->action(url('/'));
+}
+```
+
+Notifications can be sent in two ways: by using the `notify` method in the `Notifiable` trait or by using the `Notification` facade. You can take a look at [Laravel Notification Documentation](https://laravel.com/docs/notifications#sending-notifications) to learn more about these two approaches to sending notifications.
+
+Here is an example of how to send notifications to a user using the 'notify' method:
+
 ```php
 $user = User::find(1);
 
-$user->notify(new \Orchid\Platform\Notifications\DashboardNotification([
-    'title'   => 'Hello Word',
-    'message' => 'New post!',
-    'action'  => 'http://orchid.software/',
-    'type'    =>  DashboardNotification::INFO,
-]));
+$user->notify(new TaskCompleted);
 ```
-
-Supported Types:
-
-- DashboardNotification::INFO (Default)
-- DashboardNotification::SUCCESS
-- DashboardNotification::WARNING
-- DashboardNotification::ERROR
