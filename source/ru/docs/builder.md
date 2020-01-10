@@ -15,15 +15,10 @@ section: main
 ```php
 use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Repository;
 
-$fields = [
+$builder = new Builder([
     Input::make('name'),
-];
-
-$repository = new Repository();
-
-$builder = new Builder($fields, $repository);
+]);
 
 $html = $builder->generateForm();
 ```
