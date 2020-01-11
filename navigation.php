@@ -81,6 +81,7 @@ return [
                 'Контроллеры'      => '/ru/docs/controllers',
                 'Использование JS' => '/ru/docs/javascript',
                 'Строитель форм'   => '/ru/docs/builder',
+                'Брендирование'    => '/ru/docs/brand',
             ],
         ],
         'Сообщество'  => [
