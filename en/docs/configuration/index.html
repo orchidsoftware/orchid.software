@@ -362,8 +362,8 @@ class AppServiceProvider extends ServiceProvider
 <h2><a href="#appearance-patterns" name="appearance-patterns">Appearance patterns</a></h2>
 <p>To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; 'platform::header',
-    'footer' =&gt; 'platform::footer',
+    'header' =&gt; null,
+    'footer' =&gt; null,
 ],</code></pre>
 <h2><a href="#model-classes" name="model-classes">Model classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
