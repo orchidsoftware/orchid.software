@@ -37,7 +37,7 @@ resources
 ```php
 @push('head')
     <link
-        href="{{ route('platform.resource', ['orchid', 'favicon/orchid-pinned-tab.svg']) }}"
+        href="/favicon.ico"
         id="favicon"
         rel="icon"
     >
@@ -47,7 +47,7 @@ resources
     <i class="icon-database"></i>
     <span class="m-l d-none d-sm-block">
         Analytics
-    <small class="v-top opacity">Nest</small>
+        <small class="v-top opacity">Nest</small>
     </span>
 </p>
 ```
