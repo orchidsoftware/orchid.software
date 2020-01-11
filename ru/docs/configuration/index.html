@@ -361,8 +361,8 @@ class AppServiceProvider extends ServiceProvider
 <h2><a href="#shablony-vneshnego-vida" name="shablony-vneshnego-vida">Шаблоны внешнего вида</a></h2>
 <p>Для изменения некоторых шаблонов необязательно опубликовывать весь пакет, можете настроить часть пользовательского интерфейса для указания логотипа, сопроводительных документов и т.п.</p>
 <pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; 'platform::header',
-    'footer' =&gt; 'platform::footer',
+    'header' =&gt; null,
+    'footer' =&gt; null,
 ],</code></pre>
 <h2><a href="#modelnye-klassy" name="modelnye-klassy">Модельные классы</a></h2>
 <p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы платформа использовала ваши классы моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
