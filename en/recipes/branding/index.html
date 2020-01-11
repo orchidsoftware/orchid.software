@@ -168,12 +168,12 @@
 ],</code></pre>
 <p>Для изменения в шапке страницы или футере в них необходимо указать собственные <code>blade</code> шаблоны.</p>
 <h1>Смена логотипа и названия</h1>
-<p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>.</p>
+<p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>.
+Тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.</p>
 <pre><code class="language-php">resources          
 └── views
     └── brand
         └── header.blade.php</code></pre>
-<p>Тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.</p>
 <p>Допустим, что мы делаем систему для вымышленного аналитического агентства &quot;Analytics Nest&quot;, внесем изменения в только что созданный файл:</p>
 <pre><code class="language-php">@push('head')
     &lt;link
