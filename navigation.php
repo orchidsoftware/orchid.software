@@ -35,6 +35,7 @@ return [
                 'Notifications' => '/en/docs/alert',
                 'Controllers'   => '/en/docs/controllers',
                 'Using JS'      => '/en/docs/javascript',
+                'Form builder'  => '/en/docs/builder',
             ],
         ],
         'Community'  => [
