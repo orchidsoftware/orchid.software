@@ -10,7 +10,7 @@
         <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
         <meta property="og:title" content="Брендирование платформы | Orchid - Laravel Admin Panel"/>
         <meta property="og:description" content="Typically, you manage several dozen permits in a typical business process."/>
-        <meta property="og:url" content="http://orchid.software/en/recipes/platform-branding"/>
+        <meta property="og:url" content="http://orchid.software/en/recipes/branding"/>
         <meta property="og:image" content="/assets/img/orchid.svg"/>
         <meta property="og:type" content="website"/>
 
@@ -160,21 +160,53 @@
                 </div>
                 <div class="col-md-8">
                     <main>
-                        <p>После установки предоставляется две настройки для брендирования пакета,
-которые расположены в <code>config/platform.php</code>:</p>
+                        <p>Есть моменты, когда вы хотите, чтобы визуальный стиль платформы соответствовал вашему бренду.
+После установки предоставляется две настройки которые расположены в <code>config/platform.php</code>:</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
     'footer' =&gt; null,
 ],</code></pre>
+<p>Для изменения в шапке сатраницы или футере в них необходимо указать собственные <code>blade</code> шаблоны.</p>
 <h1>Смена логотипа и названия</h1>
-<p>Изменения вносятся в шапку страницы, для этого необходимо указать собственный <code>blade</code> шаблон.</p>
-<p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>,
-тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.
-Для того, что бы созданный шаблон использовался вместо стандартного, необходимо указать его в конфиге,
-так же как если бы передавали аргумент в момощник <code>view('brand.header')</code>:</p>
+<p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>.</p>
+<pre><code class="language-php">resources          
+└── views
+    └── brand
+        └── header.blade.php</code></pre>
+<p>Тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.</p>
+<p>Допустим, что мы делаем систему для вымышленного аналитического агенства &quot;Analytics Nest&quot;, внесем изменения в только что созданный файл:</p>
+<pre><code class="language-php">@push('head')
+    &lt;link
+        href="{{ route('platform.resource', ['orchid', 'favicon/orchid-pinned-tab.svg']) }}"
+        id="favicon"
+        rel="icon"
+    &gt;
+@endpush
+
+&lt;p class="h2 n-m font-thin v-center"&gt;
+    &lt;i class="icon-database"&gt;&lt;/i&gt;
+    &lt;span class="m-l d-none d-sm-block"&gt;
+        Analytics
+    &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
+    &lt;/span&gt;
+&lt;/p&gt;</code></pre>
+<p>Для того, что бы созданный шаблон использовался вместо стандартного, необходимо указать его в конфиге,
+так же как если бы передавали аргумент в помощник <code>view('brand.header')</code>:</p>
 <pre><code class="language-php">  'template' =&gt; [
       'header' =&gt; 'brand.header',
       'footer' =&gt; null,
+  ],</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong> Файл конфигурации может быть закэширован и изменения не вступят всилу, до выполнения комманды <code>php artisan config:clear</code></p>
+</blockquote>
+<p>Таким же образом мы можем изменить нижнюю часть страницы, снова создадим новый файл <code>/resources/views/brand/footer.blade.php</code> со следующим содержанием:</p>
+<pre><code class="language-php">&lt;p class="small m-n"&gt;
+    © Copyright {{date('Y')}} &lt;a href="//example.com" target="_blank"&gt;"Analytics Nest"&lt;/a&gt;
+&lt;/p&gt;</code></pre>
+<p>Так же внеся изменения в файл конфигурации:</p>
+<pre><code class="language-php">  'template' =&gt; [
+      'header' =&gt; 'brand.header',
+      'footer' =&gt; 'brand.footer',
   ],</code></pre>                    </main>
                 </div>
             </div>
