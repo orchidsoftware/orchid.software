@@ -56,10 +56,10 @@ resources
 так же как если бы передавали аргумент в помощнике `view('brand.header')`:
   
 ```php
-  'template' => [
-      'header' => 'brand.header',
-      'footer' => null,
-  ],
+'template' => [
+    'header' => 'brand.header',
+    'footer' => null,
+],
 ```
 
 > **Обратите внимание.** Файл конфигурации может быть кэширован и изменения не вступят в силу, до выполнения команды `php artisan config:clear`
@@ -76,8 +76,8 @@ resources
 Так же внеся изменения в файл конфигурации:
 
 ```php
-  'template' => [
-      'header' => 'brand.header',
-      'footer' => 'brand.footer',
-  ],
+'template' => [
+    'header' => 'brand.header',
+    'footer' => 'brand.footer',
+],
 ```
