@@ -22,15 +22,15 @@ section: main
 # Смена логотипа и названия
 
 Создадим новую директорию в разделе для шаблонов `brand` и файл `header.blade.php`.
+Тогда полный путь будет выглядеть следующим образом `/resources/views/brand/header.blade.php`.
 
-  ```php
+```php
 resources          
 └── views
     └── brand
         └── header.blade.php
 ```
 
-Тогда полный путь будет выглядеть следующим образом `/resources/views/brand/header.blade.php`.
  
 Допустим, что мы делаем систему для вымышленного аналитического агентства "Analytics Nest", внесем изменения в только что созданный файл:
 
