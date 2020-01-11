@@ -125,8 +125,8 @@ class AppServiceProvider extends ServiceProvider
 
 ```php
 'template' => [
-    'header' => 'platform::header',
-    'footer' => 'platform::footer',
+    'header' => null,
+    'footer' => null,
 ],
 ```
 
