@@ -122,8 +122,8 @@ To change some templates, it is not necessary to publish the entire package; you
 
 ```php
 'template' => [
-    'header' => 'platform::header',
-    'footer' => 'platform::footer',
+    'header' => null,
+    'footer' => null,
 ],
 ```
 
