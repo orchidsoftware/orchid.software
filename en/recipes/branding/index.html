@@ -166,7 +166,7 @@
     'header' =&gt; null,
     'footer' =&gt; null,
 ],</code></pre>
-<p>Для изменения в шапке сатраницы или футере в них необходимо указать собственные <code>blade</code> шаблоны.</p>
+<p>Для изменения в шапке страницы или футере в них необходимо указать собственные <code>blade</code> шаблоны.</p>
 <h1>Смена логотипа и названия</h1>
 <p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>.</p>
 <pre><code class="language-php">resources          
@@ -174,7 +174,7 @@
     └── brand
         └── header.blade.php</code></pre>
 <p>Тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.</p>
-<p>Допустим, что мы делаем систему для вымышленного аналитического агенства &quot;Analytics Nest&quot;, внесем изменения в только что созданный файл:</p>
+<p>Допустим, что мы делаем систему для вымышленного аналитического агентства &quot;Analytics Nest&quot;, внесем изменения в только что созданный файл:</p>
 <pre><code class="language-php">@push('head')
     &lt;link
         href="{{ route('platform.resource', ['orchid', 'favicon/orchid-pinned-tab.svg']) }}"
@@ -190,14 +190,14 @@
     &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
     &lt;/span&gt;
 &lt;/p&gt;</code></pre>
-<p>Для того, что бы созданный шаблон использовался вместо стандартного, необходимо указать его в конфиге,
-так же как если бы передавали аргумент в помощник <code>view('brand.header')</code>:</p>
+<p>Для того, что бы созданный шаблон использовался вместо стандартного, необходимо указать его в файле конфигурации,
+так же как если бы передавали аргумент в помощнике <code>view('brand.header')</code>:</p>
 <pre><code class="language-php">  'template' =&gt; [
       'header' =&gt; 'brand.header',
       'footer' =&gt; null,
   ],</code></pre>
 <blockquote>
-<p><strong>Обратите внимание</strong> Файл конфигурации может быть закэширован и изменения не вступят всилу, до выполнения комманды <code>php artisan config:clear</code></p>
+<p><strong>Обратите внимание</strong> Файл конфигурации может быть кэширован и изменения не вступят в силу, до выполнения команды <code>php artisan config:clear</code></p>
 </blockquote>
 <p>Таким же образом мы можем изменить нижнюю часть страницы, снова создадим новый файл <code>/resources/views/brand/footer.blade.php</code> со следующим содержанием:</p>
 <pre><code class="language-php">&lt;p class="small m-n"&gt;
