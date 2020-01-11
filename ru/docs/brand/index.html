@@ -293,7 +293,7 @@
 <p>Допустим, что мы делаем систему для вымышленного аналитического агентства, внесем изменения в только что созданный файл:</p>
 <pre><code class="language-php">@push('head')
     &lt;link
-        href="{{ route('platform.resource', ['orchid', 'favicon/orchid-pinned-tab.svg']) }}"
+        href="/favicon.ico"
         id="favicon"
         rel="icon"
     &gt;
@@ -303,7 +303,7 @@
     &lt;i class="icon-database"&gt;&lt;/i&gt;
     &lt;span class="m-l d-none d-sm-block"&gt;
         Analytics
-    &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
+        &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
     &lt;/span&gt;
 &lt;/p&gt;</code></pre>
 <p>Для того, что бы созданный шаблон использовался вместо стандартного, необходимо указать его в файле конфигурации, так же как если бы передавали аргумент в помощнике <code>view('brand.header')</code>:</p>
