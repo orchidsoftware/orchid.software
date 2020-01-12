@@ -8,7 +8,7 @@ section: main
 
 This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.
 
-At this stage, it is advisable that you already familiarize yourself with the basics of the concept of [screens](https://orchid.software/en/docs/screens) and watch "[Quick start for beginners](https://orchid.software/eb/docs/quickstart) ".
+At this stage, it is advisable that you already familiarize yourself with the basics of the concept of [screens](https://orchid.software/en/docs/screens) and watch "[Quick start for beginners](https://orchid.software/en/docs/quickstart) ".
 
 First, we need to create a new table. To do this, execute the command:
 
