@@ -79,10 +79,7 @@ class Idea extends Screen
 
 ## Registering routes
 
-Before being available at the direct URL, screens, like controllers, must be registered in the routes file `/routes/platform.php`. The routes recorded in it will go through the middleware specified in the private [configuration](/en/docs/configuration).
-
-
-Each screen can be registered using the `screen` method of `Route`:
+Before being available at the direct URL, screens, like controllers, must be registered in the routes file `/routes/platform.php`. The routes recorded in it will go through the middleware specified in the private [configuration](/en/docs/configuration). Each screen can be registered using the `screen` method of `Route`:
 
 
 ```php
