@@ -1,6 +1,6 @@
 ---
 title: Брендирование платформы
-description: Настройка внешнего вида, для соответсвия вашему бренду
+description: Настройка внешнего вида, для соответствия вашему бренду
 extends: _layouts.documentation.ru
 section: main
 ---
