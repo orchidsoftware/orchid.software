@@ -36,6 +36,7 @@ return [
                 'Controllers'   => '/en/docs/controllers',
                 'Using JS'      => '/en/docs/javascript',
                 'Form builder'  => '/en/docs/builder',
+                'Branding'      => '/en/docs/brand'  
             ],
         ],
         'Community'  => [
