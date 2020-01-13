@@ -68,6 +68,6 @@
 @section('main.github','Contribute on GitHub')
 
 @section('docs.edit','Редактировать страницу')
-@section('read.doc', 'Читать документацию')
+@section('read.doc', 'Начать знакомство')
 
 @section('main.telegram','https://t.me/orchid_russian_community')
