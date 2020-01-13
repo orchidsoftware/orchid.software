@@ -77,14 +77,26 @@ class Idea extends Screen
 
 ```
 
-## Check in routes
+## Registering routes
 
-You can register each screen using the `screen` method of Route
+Before being available at the direct URL, screens, like controllers, must be registered in the routes file `/routes/platform.php`. The routes recorded in it will go through the middleware specified in the private [configuration](/en/docs/configuration).
+
+
+Each screen can be registered using the `screen` method of `Route`:
+
 
 ```php
-use App/Orchid/Screens/Idea;
+use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)->name('platform.idea');
+```
+
+Adding a screen is slightly different from the usual registration, for example, a `GET` request, in that instead of a single address, a whole group is registered. For clarity, you can run the `route:list` command by Artisan:
+
+```php
+Method                      | URI                                  | Name
+----------------------------+--------------------------------------+--------------
+GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
 ```
 
 
