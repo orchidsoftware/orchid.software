@@ -359,8 +359,7 @@ class Idea extends Screen
 }
 </code></pre>
 <h2><a href="#registratsiya-v-marshrutakh" name="registratsiya-v-marshrutakh">Регистрация в маршрутах</a></h2>
-<p>Прежде чем, быть доступными по прямому URL адресу экраны, так же как и контроллеры, необходимо зарегистрировать в файле маршрутов <code>/routes/platform.php</code>. Записанные в него маршруты будут проходить через 'middleware’ указанные в <code>private</code> <a href="/ru/docs/configuration">конфигурации</a>.</p>
-<p>Зарегистрировать каждый экран можно с помощью метода <code>screen</code> у <code>Route</code>:</p>
+<p>Прежде чем, быть доступными по прямому URL адресу экраны, так же как и контроллеры, необходимо зарегистрировать в файле маршрутов <code>/routes/platform.php</code>. Записанные в него маршруты будут проходить через 'middleware’ указанные в <code>private</code> <a href="/ru/docs/configuration">конфигурации</a>. Зарегистрировать каждый экран можно с помощью метода <code>screen</code> у <code>Route</code>:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>

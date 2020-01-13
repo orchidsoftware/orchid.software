@@ -352,8 +352,7 @@ class Idea extends Screen
 }
 </code></pre>
 <h2><a href="#registering-routes" name="registering-routes">Registering routes</a></h2>
-<p>Before being available at the direct URL, screens, like controllers, must be registered in the routes file <code>/routes/platform.php</code>. The routes recorded in it will go through the middleware specified in the private <a href="/en/docs/configuration">configuration</a>.</p>
-<p>Each screen can be registered using the <code>screen</code> method of <code>Route</code>:</p>
+<p>Before being available at the direct URL, screens, like controllers, must be registered in the routes file <code>/routes/platform.php</code>. The routes recorded in it will go through the middleware specified in the private <a href="/en/docs/configuration">configuration</a>. Each screen can be registered using the <code>screen</code> method of <code>Route</code>:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
