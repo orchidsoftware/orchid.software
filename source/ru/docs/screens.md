@@ -97,9 +97,9 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 
 
 ```php
-Method                                 | URI                                   | Name
----------------------------------------+---------------------------------------+----------------
-GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS | dashboard/idea/{method?}/{argument?}  | platform.idea 
+Method                      | URI                                  | Name
+----------------------------+--------------------------------------+--------------
+GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
 ```
 
 
