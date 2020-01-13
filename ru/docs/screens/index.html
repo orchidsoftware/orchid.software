@@ -365,9 +365,9 @@ class Idea extends Screen
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <p>Добавление экрана немного отличаться от привычной регистрации, например, <code>GET</code> запроса, тем, что вместо одного адреса, регистрируется целая группа. Для наглядности можно выполнить Artisan команду <code>route:list</code>:</p>
-<pre><code class="language-php">Method                                 | URI                                   | Name
----------------------------------------+---------------------------------------+----------------
-GET|HEAD|POST|PUT|PATCH|DELETE|OPTIONS | dashboard/idea/{method?}/{argument?}  | platform.idea </code></pre>
+<pre><code class="language-php">Method                      | URI                                  | Name
+----------------------------+--------------------------------------+--------------
+GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea</code></pre>
 <h2><a href="#poluchenie-dannykh" name="poluchenie-dannykh">Получение данных</a></h2>
 <p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
