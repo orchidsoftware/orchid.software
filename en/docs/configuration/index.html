@@ -374,7 +374,24 @@ class AppServiceProvider extends ServiceProvider
 ],</code></pre>
 <h2><a href="#model-classes" name="model-classes">Model classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
-<pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
+<pre><code class="language-php">namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
+    }
+}</code></pre>
 <p>You can use the configuration parameter, which allows you to define all the substitutions at once:</p>
 <pre><code class="language-php">Dashboard::configure([
     'models' =&gt; [
