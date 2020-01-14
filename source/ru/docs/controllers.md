@@ -55,7 +55,7 @@ class CustomOrchidController extends Controller
 ```
 
 Созданный контроллер необходимо объявить в файле маршрута, например, в `routes/platform`,
-что бы на него распространялись общие правила, такие как авторизация.
+чтобы на него распространялись общие правила, такие как авторизация.
 
 ```php
 Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
