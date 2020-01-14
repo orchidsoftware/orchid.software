@@ -59,7 +59,7 @@ When used, several keys will be set per session:
 The default mapping is already built into the template, but you can explicitly call it in the `blade` template with
 To display in the required place is required:
 
-```html
+```php
 @include('platform::partials.alert')
 ```
 
