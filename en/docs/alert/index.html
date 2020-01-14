@@ -318,8 +318,7 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;</code></pre>
 <p>When used, several keys will be set per session:</p>
 <ul><li>'flash_notification.message&#8217; &#8211; Message to display</li>
 <li>'flash_notification.level&#8217; &#8211; A string representing the type of notification</li>
-</ul><p>The default mapping is already built into the template, but you can explicitly call it in the <code>blade</code> template with
-To display in the required place is required:</p>
+</ul><p>The default display is already built into the template, but you can call it explicitly in the <code>blade</code> templates for this you must specify:</p>
 <pre><code class="language-php">@include('platform::partials.alert')</code></pre>
 <h2><a href="#toast-messages" name="toast-messages">Toast messages</a></h2>
 <p>This is a small pop-up message in the upper right corner of the screen, to briefly notify the user of the result.
