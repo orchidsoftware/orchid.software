@@ -56,8 +56,8 @@ When used, several keys will be set per session:
 - 'flash_notification.message' - Message to display
 - 'flash_notification.level' - A string representing the type of notification
 
-The default mapping is already built into the template, but you can explicitly call it in the `blade` template with
-To display in the required place is required:
+
+The default display is already built into the template, but you can call it explicitly in the `blade` templates for this you must specify:
 
 ```php
 @include('platform::partials.alert')
