@@ -373,7 +373,25 @@ class AppServiceProvider extends ServiceProvider
 ],</code></pre>
 <h2><a href="#modelnye-klassy" name="modelnye-klassy">Модельные классы</a></h2>
 <p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки, для того, что бы платформа использовала ваши классы моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
-<pre><code class="language-php">Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);</code></pre>
+<pre><code class="language-php">namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
+    }
+}
+</code></pre>
 <p>Можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
 <pre><code class="language-php">Dashboard::configure([
     'models' =&gt; [
