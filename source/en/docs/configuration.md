@@ -133,7 +133,24 @@ To change some templates, it is not necessary to publish the entire package; you
 The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
 
 ```php
-Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
+    }
+}
 ```
 
 You can use the configuration parameter, which allows you to define all the substitutions at once:
