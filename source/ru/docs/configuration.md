@@ -139,7 +139,6 @@ class AppServiceProvider extends ServiceProvider
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
 use Orchid\Support\Facades\Dashboard;
 
 class AppServiceProvider extends ServiceProvider
