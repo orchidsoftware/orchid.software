@@ -4,7 +4,7 @@
 
 @mixin font-variant($bg-color){
   $font-color: desaturate(lighten($bg-color, 40%), 10%);
-  $link-color: desaturate(lighten($bg-color, 50%), 10%);
+  $link-color: desaturate(lighten($bg-color, 70%), 5%);
   $hover-color: #fff;
   color: $font-color;
   a {

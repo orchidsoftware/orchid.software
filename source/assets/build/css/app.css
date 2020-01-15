@@ -14953,7 +14953,7 @@ code[class*="language-"] {
 .bg-dark a,
 pre[class*=language-] a,
 code[class*="language-"] a {
-  color: #a4a5a5;
+  color: #d5d8da;
 }
 
 .bg-dark a:hover,
@@ -14987,7 +14987,7 @@ code[class*="language-"] .nav > li.active > a {
 .bg-dark .nav > li > a,
 pre[class*=language-] .nav > li > a,
 code[class*="language-"] .nav > li > a {
-  color: #979899;
+  color: #c8cbce;
 }
 
 .bg-dark .nav > li > a:hover,
@@ -15110,7 +15110,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-black a {
-  color: #96abbb;
+  color: #d2dde5;
 }
 
 .bg-black a:hover {
@@ -15130,7 +15130,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-black .nav > li > a {
-  color: #869fb1;
+  color: #c2d1dc;
 }
 
 .bg-black .nav > li > a:hover,
@@ -15284,7 +15284,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-success a {
-  color: #dbf1df;
+  color: white;
 }
 
 .bg-success a:hover {
@@ -15304,7 +15304,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-success .nav > li > a {
-  color: #c9eacf;
+  color: #f2f2f2;
 }
 
 .bg-success .nav > li > a:hover,
@@ -15371,7 +15371,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-info a {
-  color: #f4f9fd;
+  color: white;
 }
 
 .bg-info a:hover {
@@ -15391,7 +15391,7 @@ code[class*="language-"] .auto .list-group-item.active {
 }
 
 .bg-info .nav > li > a {
-  color: #dfecf9;
+  color: #f2f2f2;
 }
 
 .bg-info .nav > li > a:hover,
@@ -15916,10 +15916,10 @@ pre[class*=language-] {
 .nav-docs {
   position: -webkit-sticky;
   position: sticky;
-  top: 1.2em;
-  bottom: 1.2em;
-  max-height: 100vh;
+  top: 1.5em;
+  bottom: 1.5em;
   line-height: 1.8em;
+  margin-top: 2em;
 }
 
 .nav-docs h4 {
@@ -16333,6 +16333,15 @@ li.anchor-h3 {
   .design-macbook {
     left: -1400px;
     bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .cubes {
+    background-image: url("/assets/img/cubes.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
   }
 }
 

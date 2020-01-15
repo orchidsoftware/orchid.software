@@ -416,3 +416,13 @@ li.anchor-h3 {
     bottom: 0
   }
 }
+
+
+@media only screen and (min-width: 1200px) {
+  .cubes {
+    background-image: url("/assets/img/cubes.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+}

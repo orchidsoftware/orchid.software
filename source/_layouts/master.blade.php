@@ -96,33 +96,34 @@
 
     <body itemscope itemtype="http://schema.org/WebPage">
 
-    <div id="app" class="b-t b-primary">
+    <div id="app">
 
         <!-- header -->
-        <header id="header" class="bg-white b-b box-shadow-lg">
+        <header id="header" class="bg-dark">
             <div class="container">
                 <div class="d-flex flex-column flex-md-row align-items-center p-4 px-md-4">
                     <h5 class="my-0 mr-md-auto font-weight-normal">
-                        <a href="{{$page->baseUrl}}/@yield('lang')">
-                            <img src="/assets/img/orchid.svg" alt="Laravel Orchid" style="height: 20px;">
+                        <a href="{{$page->baseUrl}}/@yield('lang')" class="v-center">
+                            <img src="/assets/img/logo-white.svg" alt="Laravel Orchid" class="mr-3" style="height: 20px;">
+                            <span class="h3 font-thin text-uppercase">Orchid</span>
                         </a>
                     </h5>
                     <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3">
-                        <a class="p-3 text-dark m-sm-0" href="/@yield('lang')/docs">
+                        <a class="p-3 m-sm-0" href="/@yield('lang')/docs">
                             <i class="icon-docs m-r-xs text-xs"></i>
                             @yield('main.documentation')
                         </a>
-                        <a class="p-3 text-dark m-sm-0" href="/@yield('lang')/icons">
+                        <a class="p-3 m-sm-0" href="/@yield('lang')/icons">
                             <i class="icon-cup m-r-xs text-xs"></i>
                             @yield('main.icons')
                         </a>
 
-                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
+                        <a class="p-3 m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>
 
-                        <a class="p-3 text-dark m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
+                        <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
                             <i class="icon-support m-r-xs text-xs"></i>
                             @yield('main.support')
                         </a>
