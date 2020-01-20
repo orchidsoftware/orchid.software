@@ -94,7 +94,7 @@
     </section>
     --}}
 
-    <section class="bg-white position-relative cubes">
+    <section class="bg-white position-relative">
         <div class="container pt-5 pb-5">
             <h2 class="text-center center text-dark font-thin w-75 padder-v mb-3 pt-5">
                 @yield('main.description')
