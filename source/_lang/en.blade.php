@@ -9,7 +9,7 @@
     web applications faster than ever
 @endsection
 
-@section('main.screen.title','Screen-based')
+@section('main.screen.title','Simple Architecture')
 @section('main.screen.description','Create pre-populated fields, add tables and use logic to create a reliable page.')
 
 @section('main.design.title','Beautifully-designed')
