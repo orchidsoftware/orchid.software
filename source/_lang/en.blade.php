@@ -33,8 +33,8 @@ The performance of a single-page application without additional complexity, tran
 @section('main.col3.description','Create filters so that users can quickly find different data segments.
 Fully controlling SQL code.')
 
-@section('main.col4.title','Preparing for the future')
-@section('main.col4.description','The components and code patterns provided with the platform are fully extensible, providing the necessary functionality as needed.')
+@section('main.col4.title','User Notifications')
+@section('main.col4.description','One-time and personal notifications will be a great way to notify users about what is happening in your application.')
 
 @section('main.col5.title','Hypothesis Testing')
 @section('main.col5.description','Thanks to the principles that I write, I see, hypothesis testing will be required
