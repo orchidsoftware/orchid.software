@@ -18,7 +18,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-5">
-                            <h4 class="text-white font-thin"><i class="icon-monitor mr-2"></i>  @yield('main.screen.title')</h4>
+                            <h4 class="text-white font-thin"><i class="icon-settings mr-2"></i>  @yield('main.screen.title')</h4>
                             <div>
                                 @yield('main.screen.description')
                             </div>
