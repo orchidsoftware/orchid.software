@@ -24,12 +24,9 @@
 @section('main.col1.title','Easy to get started')
 @section('main.col1.description','Most of the development is done in PHP. It is not necessary to use HTML, CSS or JavaScript to create a web interface. PHP applications are easier to maintain, and the development team is extensible.')
 
-@section('main.col2.title','Suitable technology')
+@section('main.col2.title','Fast loading pages')
 @section('main.col2.description')
-    Built on <a href="https://laravel.com" target="_blank"> Laravel </a> has a wide
-    community, various drivers for databases and services, and a solid foundation in the form of <a href="https://stimulusjs.org" target="_blank"> Stimulus </a> from
-    Basecamp and <a href="http://getbootstrap.com" target="_blank"> Bootstrap </a> from Twitter
-    provide work in users browsers.
+The performance of a single-page application without additional complexity, transitions without reloading the page or any resources.
 @endsection
 
 @section('main.col3.title','Proven Approaches')
