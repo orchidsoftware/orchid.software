@@ -135,7 +135,7 @@
             <div class="row padder-v mt-sm-5 mb-sm-5">
                 <div class="col col-12 col-md-4 m-md-0 mb-4">
                     <div class="item">
-                        <div class="h3"><i class="icon-organization"></i></div>
+                        <div class="h3"><i class="icon-bell"></i></div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
                         <div class="item-name h4 font-thin m-b">@yield('main.col4.title')</div>
                         <div class="item-desc">
