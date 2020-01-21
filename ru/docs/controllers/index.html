@@ -1,5 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Использование контроллеров в приложении"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Контроллеры | Orchid - Laravel Admin Panel"><meta property="og:description" content="Использование контроллеров в приложении"><meta property="og:url" content="http://orchid.software/ru/docs/controllers"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Контроллеры</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<p>&#1055;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090;&#1077; &#1087;&#1088;&#1077;&#1080;&#1084;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1072; &#1087;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1076;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1089;&#1090;&#1080; &#1086;&#1076;&#1085;&#1086;&#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1095;&#1085;&#1086;&#1075;&#1086; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103; &#1073;&#1077;&#1079; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1081; &#1089;&#1083;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1080;, &#1073;&#1083;&#1072;&#1075;&#1086;&#1076;&#1072;&#1088;&#1103; Turbolinks &#1087;&#1077;&#1088;&#1077;&#1093;&#1086;&#1076;&#1099; &#1086;&#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1083;&#1103;&#1102;&#1090;&#1100;&#1089;&#1103; &#1073;&#1077;&#1079; &#1087;&#1077;&#1088;&#1077;&#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1099; &#1080;&#1083;&#1080; &#1082;&#1072;&#1082;&#1080;&#1093;-&#1083;&#1080;&#1073;&#1086; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1086;&#1074; (JS, CSS), &#1089;&#1086;&#1079;&#1076;&#1072;&#1074;&#1072;&#1103; &#1074;&#1087;&#1077;&#1095;&#1072;&#1090;&#1083;&#1077;&#1085;&#1080;&#1077; &#1073;&#1099;&#1089;&#1090;&#1088;&#1086;&#1081; &#1087;&#1086;&#1083;&#1085;&#1086;&#1081; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1099;.
+
+
+
+
+
+
+
+
+
+
+
+
+    </p>
+        <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1086;&#1074; &#1074; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1080;"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="&#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1099; | Orchid - Laravel Admin Panel"><meta property="og:description" content="&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1086;&#1074; &#1074; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1080;"><meta property="og:url" content="http://orchid.software/ru/docs/controllers"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid &ndash; Laravel Admin Panel | &#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1099;</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
             (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter42925369 = new Ya.Metrika2({
@@ -26,7 +39,10 @@
             }
         })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
         <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
-    </noscript><!-- /Yandex.Metrika counter --><script async>
+    </noscript> <!-- /Yandex.Metrika counter -->
+
+
+    <script async>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
             i[r] = i[r] || function () {
@@ -40,9 +56,7 @@
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
         ga('create', 'UA-39757298-4', 'auto');
         ga('send', 'pageview');
-    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=99e84c6463cd1356c627"><script src="/assets/build/js/app.js?id=6cebfb2f68d497d93cb2"></script></head><body itemscope itemtype="http://schema.org/WebPage">
-
-    <div id="app">
+    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=99e84c6463cd1356c627"><script src="/assets/build/js/app.js?id=6cebfb2f68d497d93cb2"></script><div id="app">
 
         <!-- header -->
         <header id="header" class="bg-dark"><div class="container">
@@ -54,18 +68,18 @@
                     </h5>
                     <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 m-sm-0" href="/ru/docs">
                             <i class="icon-docs m-r-xs text-xs"></i>
-                            Документация                        </a>
+                            &#1044;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1103;                        </a>
                         <a class="p-3 m-sm-0" href="/ru/icons">
                             <i class="icon-cup m-r-xs text-xs"></i>
-                            Иконки                        </a>
+                            &#1048;&#1082;&#1086;&#1085;&#1082;&#1080;                        </a>
 
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
-                            Чат                        </a>
+                            &#1063;&#1072;&#1090;                        </a>
 
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
                             <i class="icon-support m-r-xs text-xs"></i>
-                            Помощь                        </a>
+                            &#1055;&#1086;&#1084;&#1086;&#1097;&#1100;                        </a>
                     </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
                         <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
                     </a>
@@ -77,7 +91,7 @@
         <div class="container no-padder" id="docs">
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
-                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">&#1053;&#1072;&#1095;&#1072;&#1083;&#1086; &#1088;&#1072;&#1073;&#1086;&#1090;&#1099;</h4>
 
 <li class="">
     
@@ -85,26 +99,26 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs" class="lvl1 ">
-            Введение в проект
+            &#1042;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077; &#1074; &#1087;&#1088;&#1086;&#1077;&#1082;&#1090;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/installation" class="lvl1 ">
-            Установка платформы
+            &#1059;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1082;&#1072; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1099;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/configuration" class="lvl1 ">
-            Обзор параметров
+            &#1054;&#1073;&#1079;&#1086;&#1088; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1086;&#1074;
         </a>
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Учебные пособия</h4>
+            <h4 class="text-orchid font-thin">&#1059;&#1095;&#1077;&#1073;&#1085;&#1099;&#1077; &#1087;&#1086;&#1089;&#1086;&#1073;&#1080;&#1103;</h4>
 
 <li class="">
     
@@ -112,26 +126,26 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs/quickstart" class="lvl1 ">
-            Быстрый старт
+            &#1041;&#1099;&#1089;&#1090;&#1088;&#1099;&#1081; &#1089;&#1090;&#1072;&#1088;&#1090;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/quickstart-crud" class="lvl1 ">
-            Управление данными
+            &#1059;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1084;&#1080;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/quickstart-files" class="lvl1 ">
-            Работа с файлами
+            &#1056;&#1072;&#1073;&#1086;&#1090;&#1072; &#1089; &#1092;&#1072;&#1081;&#1083;&#1072;&#1084;&#1080;
         </a>
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Основные концепции</h4>
+            <h4 class="text-orchid font-thin">&#1054;&#1089;&#1085;&#1086;&#1074;&#1085;&#1099;&#1077; &#1082;&#1086;&#1085;&#1094;&#1077;&#1087;&#1094;&#1080;&#1080;</h4>
 
 <li class="">
     
@@ -139,40 +153,40 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs/screens" class="lvl1 ">
-            Экраны
+            &#1069;&#1082;&#1088;&#1072;&#1085;&#1099;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts" class="lvl1 ">
-            Макеты экрана
+            &#1052;&#1072;&#1082;&#1077;&#1090;&#1099; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/field" class="lvl1 ">
-            Элементы формы
+            &#1069;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099; &#1092;&#1086;&#1088;&#1084;&#1099;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/menu" class="lvl1 ">
-            Меню панели
+            &#1052;&#1077;&#1085;&#1102; &#1087;&#1072;&#1085;&#1077;&#1083;&#1080;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/access" class="lvl1 ">
-            Права доступа
+            &#1055;&#1088;&#1072;&#1074;&#1072; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072;
         </a>
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Дополнительно</h4>
+            <h4 class="text-orchid font-thin">&#1044;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;</h4>
 
 <li class="">
     
@@ -180,68 +194,68 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs/filters" class="lvl1 ">
-            Фильтрация
+            &#1060;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072;&#1094;&#1080;&#1103;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/global-search" class="lvl1 ">
-            Глобальный поиск
+            &#1043;&#1083;&#1086;&#1073;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1087;&#1086;&#1080;&#1089;&#1082;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/attachments" class="lvl1 ">
-            Вложенные файлы
+            &#1042;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1077; &#1092;&#1072;&#1081;&#1083;&#1099;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/settings" class="lvl1 ">
-            Настройки
+            &#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/alert" class="lvl1 ">
-            Уведомления
+            &#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103;
         </a>
     
     </li>
             <li class="active">
             
         <a href="/ru/docs/controllers" class="lvl1 ">
-            Контроллеры
+            &#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1099;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/javascript" class="lvl1 ">
-            Использование JS
+            &#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; JS
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/builder" class="lvl1 ">
-            Строитель форм
+            &#1057;&#1090;&#1088;&#1086;&#1080;&#1090;&#1077;&#1083;&#1100; &#1092;&#1086;&#1088;&#1084;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/brand" class="lvl1 ">
-            Брендирование
+            &#1041;&#1088;&#1077;&#1085;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;
         </a>
     
     </li>
     </ul></li>
-            <h4 class="text-orchid font-thin">Сообщество</h4>
+            <h4 class="text-orchid font-thin">&#1057;&#1086;&#1086;&#1073;&#1097;&#1077;&#1089;&#1090;&#1074;&#1086;</h4>
 
 <li class="">
     
@@ -249,45 +263,45 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs/code-of-conduct" class="lvl1 ">
-            Кодекс поведения
+            &#1050;&#1086;&#1076;&#1077;&#1082;&#1089; &#1087;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/contributors" class="lvl1 ">
-            Участие в разработке
+            &#1059;&#1095;&#1072;&#1089;&#1090;&#1080;&#1077; &#1074; &#1088;&#1072;&#1079;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1077;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/promote" class="lvl1 ">
-            Содействие проекту
+            &#1057;&#1086;&#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1087;&#1088;&#1086;&#1077;&#1082;&#1090;&#1091;
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/license" class="lvl1 ">
-            Лицензия
+            &#1051;&#1080;&#1094;&#1077;&#1085;&#1079;&#1080;&#1103;
         </a>
     
     </li>
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Контроллеры</h1>
+                    <main class="wrapper-lg order-md-first"><h1>&#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1099;</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/controllers.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
-                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> &#1056;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1091;</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>При разработке могут возникать различные ситуации, в том числе необходимость встраивать контроллеры в работу пакета. </p>
-<p>Для создания нового контроллера необходимо выполнить команду <code>make:controller</code>:</p>
+                        <hr class="mb-4"><p>&#1055;&#1088;&#1080; &#1088;&#1072;&#1079;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1077; &#1084;&#1086;&#1075;&#1091;&#1090; &#1074;&#1086;&#1079;&#1085;&#1080;&#1082;&#1072;&#1090;&#1100; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1077; &#1089;&#1080;&#1090;&#1091;&#1072;&#1094;&#1080;&#1080;, &#1074; &#1090;&#1086;&#1084; &#1095;&#1080;&#1089;&#1083;&#1077; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1074;&#1089;&#1090;&#1088;&#1072;&#1080;&#1074;&#1072;&#1090;&#1100; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1099; &#1074; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1087;&#1072;&#1082;&#1077;&#1090;&#1072;. </p>
+<p>&#1044;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1085;&#1086;&#1074;&#1086;&#1075;&#1086; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1100; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091; <code>make:controller</code>:</p>
 <pre><code class="language-php">php artisan make:controller CustomOrchidController</code></pre>
-<p>В директории <code>app/Http/Controllers</code> будет создан новый класс, изменим его:</p>
+<p>&#1042; &#1076;&#1080;&#1088;&#1077;&#1082;&#1090;&#1086;&#1088;&#1080;&#1080; <code>app/Http/Controllers</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089;, &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1084; &#1077;&#1075;&#1086;:</p>
 <pre><code class="language-php">namespace App\Http\Controllers;
 
 class CustomOrchidController extends Controller
@@ -301,7 +315,7 @@ class CustomOrchidController extends Controller
     }
 }
 </code></pre>
-<p>Метод <code>index</code> возвращает шаблон приложения, именно в нём мы будем визуализировать всю стилистику пакета:</p>
+<p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>index</code> &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1090; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1074; &#1085;&#1105;&#1084; &#1084;&#1099; &#1073;&#1091;&#1076;&#1077;&#1084; &#1074;&#1080;&#1079;&#1091;&#1072;&#1083;&#1080;&#1079;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1074;&#1089;&#1102; &#1089;&#1090;&#1080;&#1083;&#1080;&#1089;&#1090;&#1080;&#1082;&#1091; &#1087;&#1072;&#1082;&#1077;&#1090;&#1072;:</p>
 <pre><code class="language-php">@extends('platform::dashboard')
 
 @section('title','title')
@@ -318,8 +332,8 @@ class CustomOrchidController extends Controller
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
 @stop</code></pre>
-<p>Созданный контроллер необходимо объявить в файле маршрута, например, в <code>routes/platform</code>,
-чтобы на него распространялись общие правила, такие как авторизация.</p>
+<p>&#1057;&#1086;&#1079;&#1076;&#1072;&#1085;&#1085;&#1099;&#1081; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1086;&#1073;&#1098;&#1103;&#1074;&#1080;&#1090;&#1100; &#1074; &#1092;&#1072;&#1081;&#1083;&#1077; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1072;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1074; <code>routes/platform</code>,
+&#1095;&#1090;&#1086;&#1073;&#1099; &#1085;&#1072; &#1085;&#1077;&#1075;&#1086; &#1088;&#1072;&#1089;&#1087;&#1088;&#1086;&#1089;&#1090;&#1088;&#1072;&#1085;&#1103;&#1083;&#1080;&#1089;&#1100; &#1086;&#1073;&#1097;&#1080;&#1077; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1072;, &#1090;&#1072;&#1082;&#1080;&#1077; &#1082;&#1072;&#1082; &#1072;&#1074;&#1090;&#1086;&#1088;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;.</p>
 <pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);</code></pre>                    </main></div>
             </div>
         </div>
