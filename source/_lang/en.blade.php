@@ -29,8 +29,9 @@
 The performance of a single-page application without additional complexity, transitions without reloading the page or any resources.
 @endsection
 
-@section('main.col3.title','Proven Approaches')
-@section('main.col3.description','Developers and end users jointly develop the application, making changes to fly - perfect for changing requirements. It is based on the technique of James Martin since 1991 of the year.')
+@section('main.col3.title','Filtering and Sorting')
+@section('main.col3.description','Create filters so that users can quickly find different data segments.
+Fully controlling SQL code.')
 
 @section('main.col4.title','Preparing for the future')
 @section('main.col4.description','The components and code patterns provided with the platform are fully extensible, providing the necessary functionality as needed.')
