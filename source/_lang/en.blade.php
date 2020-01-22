@@ -22,7 +22,8 @@
 @section('main.code.description','No creation through a graphical interface, only beautiful program code.')
 
 @section('main.col1.title','Easy to get started')
-@section('main.col1.description','Most of the development is done in PHP. It is not necessary to use HTML, CSS or JavaScript to create a web interface. PHP applications are easier to maintain, and the development team is extensible.')
+@section('main.col1.description','The development is conducted in PHP, it is not necessary to use HTML, CSS or JavaScript.
+Everything to make applications easy to use.')
 
 @section('main.col2.title','Fast loading pages')
 @section('main.col2.description')
