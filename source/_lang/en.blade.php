@@ -36,9 +36,8 @@ Fully controlling SQL code.')
 @section('main.col4.title','User Notifications')
 @section('main.col4.description','One-time and personal notifications will be a great way to notify users about what is happening in your application.')
 
-@section('main.col5.title','Hypothesis Testing')
-@section('main.col5.description','Thanks to the principles that I write, I see, hypothesis testing will be required
-at times, there is no time, which allows you to experiment on how the application should look like.')
+@section('main.col5.title','Data search')
+@section('main.col5.description','Find the information you need from any page. Integrated Laravel Scout take care of the search results.')
 
 @section('main.col6.title','Role management')
 @section('main.col6.description','Differentiation of user access rights or entire groups in combination with policies enable easy management in development and support.')
