@@ -22,8 +22,8 @@
 @section('main.code.description','Никакого кодирования через графический интерфейс, только красивый программный код.')
 
 @section('main.col1.title','Легко начать')
-@section('main.col1.description','Большая часть разработки ведётся на PHP, не обязательно использовать HTML, CSS или JavaScript.
- Приложения на PHP проще поддерживать, а команду разработки – расширять.')
+@section('main.col1.description','Разработка ведётся на PHP, не обязательно использовать HTML, CSS или JavaScript.
+Всё чтобы приложения были просты в использовании.')
 
 @section('main.col2.title','Быстрая загрузка страниц')
 @section('main.col2.description')
