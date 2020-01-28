@@ -175,7 +175,7 @@ When the children have different display rules, so as not to list them all in th
 $parent = ItemMenu::label('Dropdown menu')
     ->slug('parent-hidden-menu')
     ->childs()
-    ->hiddenEmpty();
+    ->hideEmpty();
 
 $dashboard->menu->add(Menu::MAIN, $parent)
     ->add('parent-hidden-menu', ItemMenu::label('Sub element item 1')->canSee(false))
