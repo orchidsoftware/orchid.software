@@ -411,7 +411,16 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
     )
     -&gt;add('Idea',
         ItemMenu::label('Sub element')
-    );</code></pre>                    </main></div>
+    );</code></pre>
+<p>Когда дочерние элементы имеют разные правила отображения, что бы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty’. Он спрячет его когда подпункты будут недоступны:</p>
+<pre><code class="language-php">$parent = ItemMenu::label('Dropdown menu')
+    -&gt;slug('parent-hidden-menu')
+    -&gt;childs()
+    -&gt;hiddenEmpty();
+
+$dashboard-&gt;menu-&gt;add(Menu::MAIN, $parent)
+    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 1')-&gt;canSee(false))
+    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 2')-&gt;canSee(false));</code></pre>                    </main></div>
             </div>
         </div>
     </div>
