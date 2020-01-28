@@ -1,5 +1,5 @@
 ---
-title: Шаблоны
+title: Отображение данных
 description: Отображайте данные с помощью готовых шаблонов без написания html 
 extends: _layouts.documentation.ru
 section: main
