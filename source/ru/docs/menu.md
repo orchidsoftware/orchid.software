@@ -171,4 +171,17 @@ $dashboard->menu
     );
 ```
 
+Когда дочерние элементы имеют разные правила отображения, что бы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет его когда подпункты будут недоступны:
+
+```php
+$parent = ItemMenu::label('Dropdown menu')
+    ->slug('parent-hidden-menu')
+    ->childs()
+    ->hiddenEmpty();
+
+$dashboard->menu->add(Menu::MAIN, $parent)
+    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 1')->canSee(false))
+    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 2')->canSee(false));
+```
+
 
