@@ -169,4 +169,17 @@ $dashboard->menu
     );
 ```
 
+When the children have different display rules, so as not to list them all in the parent, you can use the 'hiddenEmpty' method. He will hide it when the subitems are unavailable:
+
+```php
+$parent = ItemMenu::label('Dropdown menu')
+    ->slug('parent-hidden-menu')
+    ->childs()
+    ->hiddenEmpty();
+
+$dashboard->menu->add(Menu::MAIN, $parent)
+    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 1')->canSee(false))
+    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 2')->canSee(false));
+```
+
 
