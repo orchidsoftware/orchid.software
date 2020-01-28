@@ -109,6 +109,11 @@ class PatientListLayout extends Table
 
 - `width()` explicitly sets the width of the column `width('100px')`
 
+- `cantHide` - the column cannot be hidden by the user.
+
+- `defaultHidden` - the column is hidden by default, but can be found at the request of the user.
+
+
 ### Column Extension
 
 Working with the same type of data, it is often required to process them in the same way, in order not to duplicate the code in the layers, it is possible to extend the `TD` class using own methods, for this you need to register the closure function in the service provider.
