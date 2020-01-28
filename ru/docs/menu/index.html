@@ -416,7 +416,7 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
 <pre><code class="language-php">$parent = ItemMenu::label('Dropdown menu')
     -&gt;slug('parent-hidden-menu')
     -&gt;childs()
-    -&gt;hiddenEmpty();
+    -&gt;hideEmpty();
 
 $dashboard-&gt;menu-&gt;add(Menu::MAIN, $parent)
     -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 1')-&gt;canSee(false))
