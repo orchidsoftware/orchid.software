@@ -420,6 +420,12 @@ class PatientListLayout extends Table
 <li>
 <p><code>width()</code> explicitly sets the width of the column <code>width('100px')</code></p>
 </li>
+<li>
+<p><code>cantHide</code> – the column cannot be hidden by the user.</p>
+</li>
+<li>
+<p><code>defaultHidden</code> – the column is hidden by default, but can be found at the request of the user.</p>
+</li>
 </ul><h3><a href="#column-extension" name="column-extension">Column Extension</a></h3>
 <p>Working with the same type of data, it is often required to process them in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using own methods, for this you need to register the closure function in the service provider.</p>
 <p>Registration example:</p>
