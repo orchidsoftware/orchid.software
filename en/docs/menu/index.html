@@ -411,7 +411,16 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
     )
     -&gt;add('Idea',
         ItemMenu::label('Sub element')
-    );</code></pre>                    </main></div>
+    );</code></pre>
+<p>When the children have different display rules, so as not to list them all in the parent, you can use the 'hiddenEmpty&#8217; method. He will hide it when the subitems are unavailable:</p>
+<pre><code class="language-php">$parent = ItemMenu::label('Dropdown menu')
+    -&gt;slug('parent-hidden-menu')
+    -&gt;childs()
+    -&gt;hiddenEmpty();
+
+$dashboard-&gt;menu-&gt;add(Menu::MAIN, $parent)
+    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 1')-&gt;canSee(false))
+    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 2')-&gt;canSee(false));</code></pre>                    </main></div>
             </div>
         </div>
     </div>
