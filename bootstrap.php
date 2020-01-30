@@ -22,7 +22,7 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 
 $events->afterBuild(GenerateDocumentList::class);
-$events->afterBuild(GenerateTypography::class);
+//$events->afterBuild(GenerateTypography::class);
 $events->afterBuild(GenerateSitemap::class);
 $events->afterBuild(GenerateNotFound::class);
 //$events->afterBuild(GeneratePFDDocument::class);

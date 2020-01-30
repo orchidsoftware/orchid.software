@@ -85,6 +85,6 @@ class GenerateDocumentList
             'anchors' => $anchors,
         ]));
 
-        return str_replace('<!--Docs Anchors-->', $anchors, $this->crawler->html());
+        return str_replace('<!--Docs Anchors-->', $anchors, $this->crawler->outerHtml());
     }
 }

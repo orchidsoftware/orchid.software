@@ -63,3 +63,5 @@ Fully controlling SQL code.')
 @section('read.doc', 'Read The Documentation')
 
 @section('main.telegram','https://t.me/orchid_community')
+
+@section('Search', 'Search...')

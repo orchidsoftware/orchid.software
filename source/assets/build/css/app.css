@@ -15919,7 +15919,8 @@ pre[class*=language-] {
   top: 1.5em;
   bottom: 1.5em;
   line-height: 1.8em;
-  margin-top: 2em;
+  margin-top: 0.5em;
+  z-index: 200;
 }
 
 .nav-docs h4 {
@@ -16343,6 +16344,14 @@ li.anchor-h3 {
     background-repeat: no-repeat;
     background-position: bottom left;
   }
+}
+
+.algolia-autocomplete {
+  width: 100%;
+}
+
+.algolia-autocomplete .ds-dropdown-menu {
+  box-shadow: none !important;
 }
 
 .preview {

@@ -20,19 +20,20 @@
   top: 1.5em;
   bottom: 1.5em;
   line-height: 1.8em;
-  margin-top: 2em;
+  margin-top: 0.5em;
+  z-index: 200;
 
   h4 {
     margin-top: 1.2em;
   }
-  
+
   li.active {
     list-style: disc;
     a {
       @extend .text-black;
     }
   }
-  
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -425,4 +426,11 @@ li.anchor-h3 {
     background-repeat: no-repeat;
     background-position: bottom left;
   }
+}
+
+.algolia-autocomplete{
+  width: 100%;
+}
+.algolia-autocomplete .ds-dropdown-menu{
+  box-shadow: none!important;
 }
