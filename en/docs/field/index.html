@@ -1,46 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Fields are used to generate the output form template and edit"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Form elements | Orchid - Laravel Admin Panel"><meta property="og:description" content="Fields are used to generate the output form template and edit"><meta property="og:url" content="http://orchid.software/en/docs/field"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Form elements</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter42925369 = new Ya.Metrika2({
-                        id: 42925369,
-                        clickmap: true,
-                        trackLinks: true,
-                        accurateTrackBounce: true,
-                        webvisor: true,
-                        trackHash: true
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Fields are used to generate the output form template and edit"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Form elements | Orchid - Laravel Admin Panel"><meta property="og:description" content="Fields are used to generate the output form template and edit"><meta property="og:url" content="http://orchid.software/en/docs/field"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Form elements</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function () {
+                        try {
+                            w.yaCounter42925369 = new Ya.Metrika2({
+                                id: 42925369,
+                                clickmap: true,
+                                trackLinks: true,
+                                accurateTrackBounce: true,
+                                webvisor: true,
+                                trackHash: true
+                            });
+                        } catch (e) {
+                        }
                     });
-                } catch (e) {
-                }
-            });
-            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/tag.js";
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else {
-                f();
-            }
-        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
-        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
-    </noscript><!-- /Yandex.Metrika counter --><script async>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-39757298-4', 'auto');
-        ga('send', 'pageview');
-    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=99e84c6463cd1356c627"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+                    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://mc.yandex.ru/metrika/tag.js";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
+                    }
+                })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+                <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+            </noscript><!-- /Yandex.Metrika counter --><script async>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-39757298-4', 'auto');
+                ga('send', 'pageview');
+            </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=cd742c557ae712c6acbc"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -77,7 +76,12 @@
         <div class="container no-padder" id="docs">
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
-                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Get started</h4>
+                    <nav class="nav-docs"><div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
+                            <div class="block w-100">
+                                <input type="search" class="form-control w-full" id="docsearch" placeholder="Search..."></div>
+                        </div>
+
+                            <ul class=" toc-links "><h4 class="text-orchid font-thin">Get started</h4>
 
 <li class="">
     
@@ -284,7 +288,8 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Edit this page</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
                 <a href="#input-fields">Input fields</a>
             </li>
                     <li class="anchor-h3">
@@ -341,7 +346,9 @@
                     <li class="anchor-h2">
                 <a href="#buttonlink">Button/Link</a>
             </li>
-            </ul><hr><p>Fields are used to generate the output form template and edit</p>
+            </ul>
+    <hr>
+<p>Fields are used to generate the output form template and edit</p>
 <blockquote>
 <p>Feel free to add your own fields, for example, to use a convenient editor for you or any components.</p>
 </blockquote>
@@ -362,14 +369,14 @@ Example:</p>
  
 One of the most universal fields due to the type indication, almost all <code>html</code> values ​​are supported:</p>
 </blockquote>
-<ul><li><strong>text</strong> – Text field. Designed to enter characters using the keyboard.</li>
-<li><strong>file</strong> – The field to enter the name of the file that is sent to the server.</li>
-<li><strong>hidden</strong> – Hidden field.</li>
-<li><strong>color</strong> – Widget for color selection.</li>
-<li><strong>email</strong> – For email addresses.</li>
-<li><strong>number</strong> – Enter numbers.</li>
-<li><strong>range</strong> – Slider to select numbers in the specified range.</li>
-<li><strong>url</strong> – For web addresses.</li>
+<ul><li><strong>text</strong> - Text field. Designed to enter characters using the keyboard.</li>
+<li><strong>file</strong> - The field to enter the name of the file that is sent to the server.</li>
+<li><strong>hidden</strong> - Hidden field.</li>
+<li><strong>color</strong> - Widget for color selection.</li>
+<li><strong>email</strong> - For email addresses.</li>
+<li><strong>number</strong> - Enter numbers.</li>
+<li><strong>range</strong> - Slider to select numbers in the specified range.</li>
+<li><strong>url</strong> - For web addresses.</li>
 </ul><h3><a href="#textarea" name="textarea">Textarea</a></h3>
 <p> 
 The <code>textarea</code> field is a form element for creating an area in which you can enter several lines of text.
@@ -382,7 +389,7 @@ Unlike the <code>input</code> tag in a text field, it is permissible to make lin
     -&gt;title('Short description');</code></pre>
 <h3><a href="#checkbox" name="checkbox">Checkbox</a></h3>
 <p> 
-A graphical user interface element that allows the user to control a two-state parameter – ☑ on and ☐ off.</p>
+A graphical user interface element that allows the user to control a two-state parameter - ☑ on and ☐ off.</p>
 <p>Example:</p>
 <pre><code class="language-php">CheckBox::make('free')
     -&gt;value(1)
@@ -426,7 +433,8 @@ The editor allows you to insert images, tables, specify the styles of text, vide
 <pre><code class="language-php">Quill::make('html')</code></pre>
 <h3><a href="#markdown-editor" name="markdown-editor">Markdown editor</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
-<p>Editor for lightweight markup language, created with the purpose of writing the most readable and easy to edit text
+<p>Editor for lightweight markup language,
+  created with the purpose of writing the most readable and easy to edit text
    but suitable for converting to languages for advanced publications</p>
 <p>Example:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
@@ -440,10 +448,10 @@ Field for recording software code with the ability to highlight</p>
 <pre><code class="language-php"> Code::make('code')
      -&gt;language(Code::CSS);</code></pre>
 <p>The following languages are available:</p>
-<ul><li>Markup – <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
-<li>CSS – <code>css</code></li>
-<li>C-like – <code>clike</code></li>
-<li>JavaScript – <code>javascript</code>, <code>js</code></li>
+<ul><li>Markup - <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
+<li>CSS - <code>css</code></li>
+<li>C-like - <code>clike</code></li>
+<li>JavaScript - <code>javascript</code>, <code>js</code></li>
 </ul><p>The indication of the number of lines is supported:</p>
 <pre><code class="language-php">Code::make('code')
     -&gt;lineNumbers();</code></pre>
@@ -549,7 +557,8 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Change key:</p>
 <pre><code class="language-php">Select::make('user')
     -&gt;fromModel(User::class, 'email', 'uuid')</code></pre>
-<p>There are situations when you need to add some value which means that the field is not selected, for this you can use the <code>empty</code> method:</p>
+<p>There are situations when you need to add some value which means that the field is not selected,
+for this you can use the <code>empty</code> method:</p>
 <pre><code class="language-php">// for array
 Select::make('user')
     -&gt;options([
@@ -577,7 +586,8 @@ Select::make('user')
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;title('Select your idea'),</code></pre>
-<p>To modify the load, you can use an indication of the <code>scope</code> model, for example, take only active:</p>
+<p>To modify the load, you can use an indication of the <code>scope</code> model,
+for example, take only active:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -637,14 +647,14 @@ and to add a simple link in the form.</p>
 <pre><code class="language-php">Button::make('Google It!')
     -&gt;method('goToGoogle');</code></pre>
 <p>Available modifiers:</p>
-<ul><li><code>modal('modalName')</code> – creates a button that calls a modal window with the name <code>modalName</code> within the current screen.</li>
-<li><code>right()</code> – Positioning the element on the right edge of the screen</li>
-<li><code>block()</code> – Positioning the element across the entire width of the screen</li>
-<li><code>class('class-names')</code> – rewrites the standard button classes</li>
-<li><code>link('url')</code> – adds a link for the button. Ignored when given modal</li>
-<li><code>method('methodName')</code> – when clicked, the form will be sent to the specified method within the current screen</li>
-<li><code>title('Click Me!')</code> – sets the name of the current button</li>
-<li><code>icon('icon-wallet)</code> – sets an icon for the button</li>
+<ul><li><code>modal('modalName')</code> - creates a button that calls a modal window with the name <code>modalName</code> within the current screen.</li>
+<li><code>right()</code> - Positioning the element on the right edge of the screen</li>
+<li><code>block()</code> - Positioning the element across the entire width of the screen</li>
+<li><code>class('class-names')</code> - rewrites the standard button classes</li>
+<li><code>link('url')</code> - adds a link for the button. Ignored when given modal</li>
+<li><code>method('methodName')</code> - when clicked, the form will be sent to the specified method within the current screen</li>
+<li><code>title('Click Me!')</code> - sets the name of the current button</li>
+<li><code>icon('icon-wallet)</code> - sets an icon for the button</li>
 </ul></main></div>
             </div>
         </div>
@@ -678,3 +688,12 @@ and to add a simple link in the form.</p>
                         </ul></div>
                 </div>
             </section></footer><!-- / footer --></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript"> docsearch({
+            apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+            indexName: 'orchid_software',
+            inputSelector: '#docsearch',
+            algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+            debug: true
+        });
+    </script></body></html>

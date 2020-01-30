@@ -1,46 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Фильтры | Orchid - Laravel Admin Panel"><meta property="og:description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta property="og:url" content="http://orchid.software/ru/docs/filters"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Фильтры</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter42925369 = new Ya.Metrika2({
-                        id: 42925369,
-                        clickmap: true,
-                        trackLinks: true,
-                        accurateTrackBounce: true,
-                        webvisor: true,
-                        trackHash: true
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Фильтры | Orchid - Laravel Admin Panel"><meta property="og:description" content="Фильтры служат для упрощения поиска записей с использованием типичного фильтра."><meta property="og:url" content="http://orchid.software/ru/docs/filters"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Фильтры</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function () {
+                        try {
+                            w.yaCounter42925369 = new Ya.Metrika2({
+                                id: 42925369,
+                                clickmap: true,
+                                trackLinks: true,
+                                accurateTrackBounce: true,
+                                webvisor: true,
+                                trackHash: true
+                            });
+                        } catch (e) {
+                        }
                     });
-                } catch (e) {
-                }
-            });
-            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/tag.js";
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else {
-                f();
-            }
-        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
-        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
-    </noscript><!-- /Yandex.Metrika counter --><script async>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-39757298-4', 'auto');
-        ga('send', 'pageview');
-    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=99e84c6463cd1356c627"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+                    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://mc.yandex.ru/metrika/tag.js";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
+                    }
+                })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+                <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+            </noscript><!-- /Yandex.Metrika counter --><script async>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-39757298-4', 'auto');
+                ga('send', 'pageview');
+            </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=cd742c557ae712c6acbc"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -77,7 +76,12 @@
         <div class="container no-padder" id="docs">
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
-                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+                    <nav class="nav-docs"><div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
+                            <div class="block w-100">
+                                <input type="search" class="form-control w-full" id="docsearch" placeholder="Поиск..."></div>
+                        </div>
+
+                            <ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
 
 <li class="">
     
@@ -284,16 +288,20 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
                 <a href="#klassicheskiy-filtr">Классический фильтр</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a>
             </li>
-            </ul><hr><p>Фильтры служат для упрощения поиска записей с использованием типичного фильтра.
+            </ul>
+    <hr>
+<p>Фильтры служат для упрощения поиска записей с использованием типичного фильтра.
 Например, если вы хотите отфильтровать каталог продуктов по атрибутам, брендам и т.п.
 Выборка значений основана на параметрах Http запросов.</p>
-<p>Это не является готовым решением или универсальным средством, вы должны расширить структуру для своих конкретных приложений.</p>
+<p>Это не является готовым решением или универсальным средством,
+вы должны расширить структуру для своих конкретных приложений.</p>
 <h2><a href="#klassicheskiy-filtr" name="klassicheskiy-filtr">Классический фильтр</a></h2>
 <p>Для создания нового фильтра существует команда:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
@@ -339,7 +347,8 @@ class QueryFilter extends Filter
 <blockquote>
 <p><strong>Примечание.</strong> Вы можете использовать одни и те же фильтры для разных поведений.</p>
 </blockquote>
-<p>Для использования фильтров в собственных моделях, требуется подключить трейт <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
+<p>Для использования фильтров в собственных моделях,
+требуется подключить трейт <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
 <pre><code class="language-php">use App\Model;
 
 Model::filtersApply([
@@ -433,3 +442,12 @@ $model-&gt;orderBy('content.ru.name', 'desc');</code></pre>                    <
                         </ul></div>
                 </div>
             </section></footer><!-- / footer --></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript"> docsearch({
+            apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+            indexName: 'orchid_software',
+            inputSelector: '#docsearch',
+            algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+            debug: true
+        });
+    </script></body></html>

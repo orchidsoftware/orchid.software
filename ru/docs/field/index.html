@@ -1,46 +1,45 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
-<?xml encoding="UTF-8"><html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Поля используются для генерации вывода шаблона формы заполнения и редактирования"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Элементы формы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Поля используются для генерации вывода шаблона формы заполнения и редактирования"><meta property="og:url" content="http://orchid.software/ru/docs/field"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Элементы формы</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
-            (w[c] = w[c] || []).push(function () {
-                try {
-                    w.yaCounter42925369 = new Ya.Metrika2({
-                        id: 42925369,
-                        clickmap: true,
-                        trackLinks: true,
-                        accurateTrackBounce: true,
-                        webvisor: true,
-                        trackHash: true
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Поля используются для генерации вывода шаблона формы заполнения и редактирования"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Элементы формы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Поля используются для генерации вывода шаблона формы заполнения и редактирования"><meta property="og:url" content="http://orchid.software/ru/docs/field"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Элементы формы</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+                    (w[c] = w[c] || []).push(function () {
+                        try {
+                            w.yaCounter42925369 = new Ya.Metrika2({
+                                id: 42925369,
+                                clickmap: true,
+                                trackLinks: true,
+                                accurateTrackBounce: true,
+                                webvisor: true,
+                                trackHash: true
+                            });
+                        } catch (e) {
+                        }
                     });
-                } catch (e) {
-                }
-            });
-            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-            s.type = "text/javascript";
-            s.async = true;
-            s.src = "https://mc.yandex.ru/metrika/tag.js";
-            if (w.opera == "[object Opera]") {
-                d.addEventListener("DOMContentLoaded", f, false);
-            } else {
-                f();
-            }
-        })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
-        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
-    </noscript><!-- /Yandex.Metrika counter --><script async>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-39757298-4', 'auto');
-        ga('send', 'pageview');
-    </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=99e84c6463cd1356c627"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
+                    var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                        n.parentNode.insertBefore(s, n);
+                    };
+                    s.type = "text/javascript";
+                    s.async = true;
+                    s.src = "https://mc.yandex.ru/metrika/tag.js";
+                    if (w.opera == "[object Opera]") {
+                        d.addEventListener("DOMContentLoaded", f, false);
+                    } else {
+                        f();
+                    }
+                })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+                <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+            </noscript><!-- /Yandex.Metrika counter --><script async>
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-39757298-4', 'auto');
+                ga('send', 'pageview');
+            </script><link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet"><link rel="stylesheet" href="/assets/build/css/app.css?id=cd742c557ae712c6acbc"><script src="/assets/build/js/app.js?id=08e35741a65fa356339f"></script></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -77,7 +76,12 @@
         <div class="container no-padder" id="docs">
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
-                    <nav class="nav-docs"><ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+                    <nav class="nav-docs"><div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
+                            <div class="block w-100">
+                                <input type="search" class="form-control w-full" id="docsearch" placeholder="Поиск..."></div>
+                        </div>
+
+                            <ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
 
 <li class="">
     
@@ -284,7 +288,8 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><ul class="pl-5"><li class="anchor-h2">
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
                 <a href="#polya-vvoda">Поля ввода</a>
             </li>
                     <li class="anchor-h3">
@@ -341,7 +346,9 @@
                     <li class="anchor-h2">
                 <a href="#knopkassylka">Кнопка/Ссылка</a>
             </li>
-            </ul><hr><p>Поля используются для генерации вывода шаблона формы заполнения и редактирования.</p>
+            </ul>
+    <hr>
+<p>Поля используются для генерации вывода шаблона формы заполнения и редактирования.</p>
 <blockquote>
 <p>Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.</p>
 </blockquote>
@@ -360,14 +367,14 @@
 <p>Заметьте многие методы такие как <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code>; и многие другие, доступны почти каждым <code>полям</code> системы и являются не обязательными.</p>
 </blockquote>
 <p>Одно из самых универсальных полей за счет указания типа, поддерживаются почти все <code>html</code> значения:</p>
-<ul><li><strong>text</strong>  – Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
-<li><strong>file</strong> –    Поле для ввода имени файла, который пересылается на сервер. </li>
-<li><strong>hidden</strong>    – Скрытое поле.</li>
-<li><strong>color</strong> – Виджет для выбора цвета.</li>
-<li><strong>email</strong> – Для адресов электронной почты.</li>
-<li><strong>number</strong>    – Ввод чисел.</li>
-<li><strong>range</strong> – Ползунок для выбора чисел в указанном диапазоне.</li>
-<li><strong>url</strong>   – Для веб-адресов.</li>
+<ul><li><strong>text</strong>  - Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
+<li><strong>file</strong> -    Поле для ввода имени файла, который пересылается на сервер. </li>
+<li><strong>hidden</strong>    - Скрытое поле.</li>
+<li><strong>color</strong> - Виджет для выбора цвета.</li>
+<li><strong>email</strong> - Для адресов электронной почты.</li>
+<li><strong>number</strong>    - Ввод чисел.</li>
+<li><strong>range</strong> - Ползунок для выбора чисел в указанном диапазоне.</li>
+<li><strong>url</strong>   - Для веб-адресов.</li>
 </ul><h3><a href="#textarea" name="textarea">Textarea</a></h3>
 <p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
 В отличие от тега <code>input</code> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
@@ -423,7 +430,9 @@
 <pre><code class="language-php">Quill::make('html')</code></pre>
 <h3><a href="#markdown-redaktor" name="markdown-redaktor">Markdown редактор</a></h3>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
-<p>Редактор для облегчённого языка разметки, созданный с целью написания максимально читаемого и удобного для правки текста, но пригодного для преобразования в языки для продвинутых публикаций.</p>
+<p>Редактор для облегчённого языка разметки,
+созданный с целью написания максимально читаемого и удобного для правки текста,
+но пригодного для преобразования в языки для продвинутых публикаций.</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown')
     -&gt;title('О чём вы хотите рассказать?')</code></pre>
@@ -436,10 +445,10 @@
 <pre><code class="language-php"> Code::make('code')
      -&gt;language(Code::CSS);</code></pre>
 <p>Доступны следующие языки:</p>
-<ul><li>Markup – <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
-<li>CSS – <code>css</code></li>
-<li>C-like – <code>clike</code></li>
-<li>JavaScript – <code>javascript</code>, <code>js</code></li>
+<ul><li>Markup - <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
+<li>CSS - <code>css</code></li>
+<li>C-like - <code>clike</code></li>
+<li>JavaScript - <code>javascript</code>, <code>js</code></li>
 </ul><p>Поддерживается указание количества строк:</p>
 <pre><code class="language-php">Code::make('code')
     -&gt;lineNumbers();</code></pre>
@@ -545,7 +554,8 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Изменение ключа:</p>
 <pre><code class="language-php">Select::make('user')
     -&gt;fromModel(User::class, 'email', 'uuid')</code></pre>
-<p>Возможны ситуации когда необходимо добавить некоторое значение, которое означает, что поле не выбрано, для этого можно использовать метод <code>empty</code>:</p>
+<p>Возможны ситуации когда необходимо добавить некоторое значение, которое означает, что поле не выбрано,
+для этого можно использовать метод <code>empty</code>:</p>
 <pre><code class="language-php">// Для массива
 Select::make('user')
     -&gt;options([
@@ -573,7 +583,8 @@ Select::make('user')
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;title('Выберите свою идею'),</code></pre>
-<p>Для модификации загрузки можно использовать указание на <code>scope</code> модели, например, взять только активные:</p>
+<p>Для модификации загрузки можно использовать указание на <code>scope</code> модели,
+например, взять только активные:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -633,14 +644,14 @@ class User extends Model
 <pre><code class="language-php">Button::make('Google It!')
     -&gt;method('goToGoogle');</code></pre>
 <p>Доступные модификаторы:</p>
-<ul><li><code>modal('modalName')</code> – создает кнопку вызывающую модальное окно с именем <code>modalName</code> в рамках текущего экрана.</li>
-<li><code>right()</code> – позиционирование элемента по правому краю экрана.</li>
-<li><code>block()</code> – позиционирование элемента по всей ширине экрана.</li>
-<li><code>class('class-names')</code> – переписывает стандартные классы для кнопки.</li>
-<li><code>link('url')</code> – добавляет ссылку для кнопки. Игнорируется при заданном modal.</li>
-<li><code>method('methodName')</code> – при клике форма будет отправлена на заданный метод в рамках текущего экрана.</li>
-<li><code>title('Click Me!')</code> – задает название текущей кнопки.</li>
-<li><code>icon('icon-wallet)</code> – задает иконку для кнопки.</li>
+<ul><li><code>modal('modalName')</code> - создает кнопку вызывающую модальное окно с именем <code>modalName</code> в рамках текущего экрана.</li>
+<li><code>right()</code> - позиционирование элемента по правому краю экрана.</li>
+<li><code>block()</code> - позиционирование элемента по всей ширине экрана.</li>
+<li><code>class('class-names')</code> - переписывает стандартные классы для кнопки.</li>
+<li><code>link('url')</code> - добавляет ссылку для кнопки. Игнорируется при заданном modal.</li>
+<li><code>method('methodName')</code> - при клике форма будет отправлена на заданный метод в рамках текущего экрана.</li>
+<li><code>title('Click Me!')</code> - задает название текущей кнопки.</li>
+<li><code>icon('icon-wallet)</code> - задает иконку для кнопки.</li>
 </ul></main></div>
             </div>
         </div>
@@ -674,3 +685,12 @@ class User extends Model
                         </ul></div>
                 </div>
             </section></footer><!-- / footer --></div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript"> docsearch({
+            apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+            indexName: 'orchid_software',
+            inputSelector: '#docsearch',
+            algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+            debug: true
+        });
+    </script></body></html>
