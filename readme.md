@@ -9,7 +9,7 @@ request.
 
 ## Building 
 
-Now that you’ve edited your configuration variables and know how to customize your styles and content, let’s build the site.
+Let’s build the site.
 
 ```bash
 # build static files with Jigsaw
