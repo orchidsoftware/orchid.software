@@ -5,7 +5,7 @@ extends: _layouts.documentation.en
 section: main
 ---
 
-Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we 'll show you how to use them in your app.
+Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete, or a new message arrives. In this section, we 'll show you how to use them in your app.
 
 ## Flash messages
 

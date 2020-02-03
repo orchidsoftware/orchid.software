@@ -82,13 +82,13 @@ class AppServiceProvider extends ServiceProvider
 
 The search results may include the following parameters:
 - **label** - Is a group, for example: news, users, etc.
-- **titile** - Main line of text, for example, last name and username
+- **titile** - Main lines of text, for example, last name and username
 - **subTitile** - additional line, for example, position, status
 - **url** - available link for transition/editing
 - **avatar** - Images
 
 By default, the specified attributes will be taken from the model. 
-In order to determine which data will be transmitted, the methods with the `search` prefix are specified in an explicit form, for example:
+In order to determine which data will be transmitted, the methods with the `search` prefix specified in an explicit form, for example:
 
 ```php
 /**

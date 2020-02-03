@@ -1,13 +1,13 @@
 ---
 title: Filters
-description: Filters are used to simplify the search for records using a typical filter.
+description: Filters used to simplify the search for records using a typical filter.
 extends: _layouts.documentation.en
 section: main
 ---
 
-Filters are used to simplify the search for records using a typical filter.
+Filters used to simplify the search for records using a typical filter.
 For example, if you want to filter the product catalog by attributes, brands, etc.
-The sample values are based on the Http request parameters.
+The sample values based on the Http request parameters.
 
 This is not a ready-made solution or a universal remedy.
 You must expand the structure for your specific applications.

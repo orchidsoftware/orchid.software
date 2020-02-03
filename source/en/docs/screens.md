@@ -8,7 +8,7 @@ section: main
 The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.
 
-Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance is based on the provided `templates` (Layouts) and all you need to do is just to determine what data will be shown in a particular template.
+Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance based on the provided `templates` (Layouts) and all you need to do is just to determine what data will be shown in a particular template.
 
 ![Screens](https://orchid.software/assets/img/scheme/screens.jpg)
 
@@ -88,7 +88,7 @@ use App\Orchid\Screens\Idea;
 Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
 
-Adding a screen is slightly different from the usual registration, for example, a `GET` request, in that instead of a single address, a whole group is registered. For clarity, you can run the `route:list` command by Artisan:
+Adding a screen is slightly different from the usual registration, for example, a `GET` request, in that instead of a single address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
 
 ```php
 Method                      | URI                                  | Name
@@ -99,8 +99,8 @@ GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.id
 
 ## Data Acquisition
 
-The data to be displayed on the screen is defined in the `query` method, where sampling or generation of information should occur.
-The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.
+The data to be displayed on the screen defined in the `query` method, where sampling or generation of information should occur.
+The transfer carried out in the form of an array, the keys will be available in layouts, for their control.
 
 ```php
 public function query() : array
@@ -175,7 +175,7 @@ public function commandBar() : array
 }
 ```
 
-The `Button` class responds to what will happen when a button is pressed, in the example above, when you click on the Print button,
+The `Button` class responds to what will happen when a button pressed, in the example above, when you click on the Print button,
 The screen method `print` will be called, all the data that the user has seen on the screen will be available in Request.
 
 ```php
@@ -206,7 +206,7 @@ ModalToggle::make('Modal window')
 Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.
 
 Each layout may include a different layout, that is, nesting.
-For example, the screen is divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
+For example, the screen divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.
 
 

@@ -68,12 +68,12 @@ php artisan serve
 Open a browser and go to `http://localhost:8000/dashboard`. If everything works you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
 > **Note.** If your runtime uses a different domain (eg. orchid.loc)
-  the admin panel may not be available and you need to specify your domain in the configuration file `config/platform.php`
+  the admin panel may not be available, and you need to specify your domain in the configuration file `config/platform.php`
   or in `.env` file. This allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`. 
  
 ## Publishing resources
 
-By default static files (css/js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
+By default, static files (css/js) are delivering through application routes: this is the best balance between a configuration and change tracking, but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):
 
  ```php
 php artisan orchid:link

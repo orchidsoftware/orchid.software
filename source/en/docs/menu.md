@@ -134,7 +134,7 @@ ItemMenu::label('Example')->title('Analytics');
 
 ### Display order
 
-Sorting is set by setting the sequence number:
+Sorting set by setting the sequence number:
  ```php
 ItemMenu::label('Second')->sort(5);
 ItemMenu::label('First')->sort(4);

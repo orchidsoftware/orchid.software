@@ -1,5 +1,5 @@
 ---
-title: Quick start for beginners
+title: Quick Start for beginners
 description: The Quick Start Guide is a basic introduction to the Orchid infrastructure.
 extends: _layouts.documentation.en
 section: main
@@ -9,7 +9,7 @@ This quick start guide provides a basic introduction to the infrastructure and i
 about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.
 
-At this stage, it is necessary that you have already [installed the framework and the platform](/en/docs/installation), created the database and started the webserver.
+At this stage, it is necessary you have already [installed the framework and the platform](/en/docs/installation), created the database and started the web server.
 
 First, you need to create a [screen](/en/docs/screens) to display the submission form, using the command:
 
@@ -259,10 +259,10 @@ class EmailSenderScreen extends Screen
 
 After that, can to send email messages to addresses.
 
-> Note that by default the `smtp` driver is enabled for sending mail,
+> Note that by default the `smtp` driver enabled for sending mail,
 You can change it in the `.env` file to` log` for verification.
 
-Since our utility is mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the `query` method with the name of our element:
+Since our utility mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the `query` method with the name of our element:
 
 ```php
 /**
@@ -295,7 +295,7 @@ $this->dashboard->menu
 
 Now our utility is displayed on the left menu and is active when visiting.
 Navigation can be carried out not only through transitions from the menu but also through bread crumbs,
-to add them to our screen you need to add a new ad in the `routes/breadcrumbs.php` by route name
+to add them to our screen you need to add a new ad in the `routes/breadcrumbs.php` by route name.
 
 ```php
 Breadcrumbs::for('platform.email', function ($trail) {

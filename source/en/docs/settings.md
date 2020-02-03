@@ -27,7 +27,7 @@ Setting::get($key, $default);
 setting($key, $default);
 ```
 
-By default, each item is cached before it is changed, in cases if you need to get a value not from the cache, you need to use the getNoCache method.
+By default, each item cached before it is changed, in cases if you need to get a value not from the cache, you need to use the getNoCache method.
 
 ```php
 Setting::getNoCache($key, $default = null);

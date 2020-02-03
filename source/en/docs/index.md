@@ -20,7 +20,7 @@ Some features:
 
 Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based applications, administration panels, or as a content management system.
 
-> **Note!** The manual contains information on using the package, but does not explain the use of the framework. It is strongly recommended that you read the [Laravel documentation](https://laravel.com/docs/).
+> **Note!** The manual contains information on using the package, but does not explain the use of the framework. It is strongly recommended you read the [Laravel documentation](https://laravel.com/docs/).
 
 ## Why is rapid development?
 
@@ -58,7 +58,7 @@ Classic          |   Orchid
 
 ## How to get a platform?
 
-The platform is freely distributed via the Internet, [source codes](https://github.com/orchidsoftware/platform) and [release information](https://github.com/orchidsoftware/platform/releases) published on GitHub. The [installation guide](/en/docs/installation/) contains detailed instructions.
+The platform freely distributed via the Internet, [source codes](https://github.com/orchidsoftware/platform) and [release information](https://github.com/orchidsoftware/platform/releases) published on GitHub. The [installation guide](/en/docs/installation/) contains detailed instructions.
 
 > To suggest improvements to this tutorial, [create a new issue](https://github.com/orchidsoftware/orchid.software/issues).
 If you have questions or find a documentation error, please show the chapter and accompanying the text to show an error.

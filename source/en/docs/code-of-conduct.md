@@ -43,7 +43,7 @@ Life priorities, interests and hobbies can change. If you participate in an ORCH
 
 ## Effects
 
-If you decide not to follow the above rules of behavior, or otherwise interfere with the community, we reserve the right to do the following: change or delete any content that you published; disable or block the account on third-party websites; disable account in Telegram; or in any other way to prevent your interaction with the community.
+If you decide not to follow the above rules of behavior, or otherwise interfere with the community, we reserve the right to do the following: change or delete any content for you published; disable or block the account on third-party websites; disable account in Telegram; or in any other way to prevent your interaction with the community.
 
 ----------
 

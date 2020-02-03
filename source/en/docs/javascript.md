@@ -7,7 +7,7 @@ section: main
 
 The basis of the platform in terms of styles is [Bootstrap](http://getbootstrap.com/), and the browser executes the code [Stimulus](https://stimulusjs.org/), you do not need to use them.
 
-Let's build a basic example that displays the text entered in the field for this:
+Let's build a basic example that displays the text entered the field for this:
 
 In `resources/js`, create the following structure:
 
@@ -61,11 +61,6 @@ It remains only to connect the received script to the panel in the configuration
 ```php
 class ServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(Dashboard $dashboard)
     {
         $dashboard->registerResource('scripts','dashboard.js');

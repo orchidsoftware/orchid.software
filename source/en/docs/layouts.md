@@ -33,7 +33,7 @@ It is from these components that the layers of the platform are made up, the onl
 
 ## Table
 
-Table layout is used to display minimum information for viewing and sampling.
+Table layout used to display minimum information for viewing and sampling.
 
 ```php
 php artisan orchid:table PatientListLayout
@@ -101,9 +101,9 @@ class PatientListLayout extends Table
 
 - `align()` horizontal text alignment, takes the values: 'left', 'center', 'right'
 
-- `set($key, $name)` the main method sets the name of the key from the array and the display name.
+- `set($key, $name)` the main method sets the name of the key from the array, and the display name.
 
-- `render(function ($item) { return $item->id})` possibility of cell generation according to function. The data of the current line is transferred to $item.
+- `render(function ($item) { return $item->id})` possibility of cell generation according to function. The data of the current line transferred to $item.
 
 - `sort()` Adds the ability to sort by this column ([See HTTP filtering and sorting](https://orchid.software/en/docs/filters)) in the header.
 
@@ -111,7 +111,7 @@ class PatientListLayout extends Table
 
 - `cantHide` - the column cannot be hidden by the user.
 
-- `defaultHidden` - the column is hidden by default, but can be found at the request of the user.
+- `defaultHidden` - the column hidden by default, but can be found at the request of the user.
 
 
 ### Column Extension
@@ -255,7 +255,7 @@ Layout::modal('exampleModals', [
 
 ## Charts
 
-Graphic layout is a convenient way to graphically display the dynamics of values, but it requires some
+A graphic layout is a convenient way to graphically display the dynamics of values, but it requires some
 data processing example data from `query`
 
 ```php
@@ -518,7 +518,7 @@ Variables from `query` are also available in the template.
 
 ## Layer Expansion
 
-The `Layouts` class is grouping several different ones; to add a new feature to it, it is enough to specify it in the service provider as:
+The `Layouts` class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:
 
 ```php
 use Orchid\Screen\Layouts\Base;

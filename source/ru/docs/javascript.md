@@ -61,11 +61,6 @@ mix.js('resources/js/dashboard.js', 'public/js')
 ```php
 class ServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(Dashboard $dashboard)
     {
         $dashboard->registerResource('scripts','dashboard.js');

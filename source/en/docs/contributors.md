@@ -82,7 +82,7 @@ And add our package depending:
 composer require orchid/platform:@dev
 ````
 
-Composer add the package from the repository that you specified.
+Composer adds the package from the repository that you specified.
 The remaining actions correspond to the section `Installations`.
 
 ### Submit change request

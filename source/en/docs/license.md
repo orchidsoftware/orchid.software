@@ -1,5 +1,5 @@
 ---
-title: The MIT License (MIT) 
+title: The MIT License (MIT)
 description: MIT License
 extends: _layouts.documentation.en
 section: main
@@ -7,7 +7,7 @@ section: main
 
 ## MIT License
 
-Copyright (c)  Chernyaev Alexandr
+Copyright (c) Chernyaev Alexandr
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

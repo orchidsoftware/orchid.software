@@ -79,7 +79,7 @@ Model::filtersApply([
 ])->simplePaginate();
 ```
 
-Возможно использование целой группы фильтров обьеденённых в слой `Selection`, через:
+Возможно использование целой группы фильтров объединённых в слой `Selection`:
 
 ```php
 Model::filtersApplySelection(RoleSelection::class)->simplePaginate();

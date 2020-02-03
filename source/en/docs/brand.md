@@ -62,7 +62,7 @@ just as if passing an argument in the `view('brand.header')` helper:
 ],
 ```
 
-> **Note.** The configuration file may be cached and the changes will not take effect until the `php artisan config:clear` command is executed
+> **Note.** The configuration file may be cached, and the changes will not take effect until the `php artisan config:clear` command is executed
 
 
 In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php` with the following contents:

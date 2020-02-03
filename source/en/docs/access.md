@@ -67,7 +67,7 @@ php artisan orchid:admin nickname email@email.com secretpassword
 
 
 You can define your own permissions in applications.
-  Using them, you explicitly implement access to certain functions.
+ Using them, you explicitly implement access to certain functions.
 
 An example of adding your own permissions using a provider:
 

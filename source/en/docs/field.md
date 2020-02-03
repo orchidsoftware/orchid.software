@@ -33,7 +33,7 @@ Input::make('name')
 
 > Notice many methods such as `canSee`,`required`, `title`,` help`, `vertical`,` horizontal`; and many others, are available in almost every `field` system and are optional
  
-One of the most universal fields due to the type indication, almost all `html` values ​​are supported:
+One of the most universal fields due to the type indication, almost all `html` values supported:
 
 * **text** - Text field. Designed to enter characters using the keyboard.
 * **file** - The field to enter the name of the file that is sent to the server.

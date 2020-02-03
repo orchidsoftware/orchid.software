@@ -321,7 +321,7 @@ class PostListLayout extends Table
 }
 ```
 
-The `target` property indicates the key that will be the source for our table on the screen.
+The `target` property indicates the key will be the source for our table on the screen.
 
 > ** Note. ** Generating `HTML` directly in the class is an example only and is bad practice. Please use the `Blade` templates.
 

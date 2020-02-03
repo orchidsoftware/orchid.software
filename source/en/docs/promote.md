@@ -10,7 +10,7 @@ lacking technical or programming skills that also contribute to promoting ORCHID
 
 ## Web site
 
-Help on the website is always appreciated.
+Help on the website always appreciated.
 Of course, you will need a minimum knowledge of HTML, but no one needs you to have some cool know-how.
 You can clone the site from the git repository and submit the changes.
 
@@ -26,7 +26,7 @@ There are several ways you can use your graphic skills that can benefit the whol
 
 ## Help for other users
 
-Besides creating a good development platform, it is also extremely important for us to create a strong community around it.
+Besides, creating a good development platform, it is also extremely important for us to create a strong community around it.
   You can help us achieve this goal directly by helping other ORCHID users.
 
 - **Create tutorials.** At all levels, new tutorials are welcome across the community;
