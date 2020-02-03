@@ -323,11 +323,6 @@ application.register("hello", HelloController);</code></pre>
 <p>Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере, используя метод <code>registerResource</code>. Точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику приложений.</p>
 <pre><code class="language-php">class ServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(Dashboard $dashboard)
     {
         $dashboard-&gt;registerResource('scripts','dashboard.js');

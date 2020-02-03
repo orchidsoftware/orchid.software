@@ -289,7 +289,7 @@
                             </a>
                         </div>
                         <hr class="mb-4"><p>The basis of the platform in terms of styles is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser executes the code <a href="https://stimulusjs.org/">Stimulus</a>, you do not need to use them.</p>
-<p>Let's build a basic example that displays the text entered in the field for this:</p>
+<p>Let's build a basic example that displays the text entered the field for this:</p>
 <p>In <code>resources/js</code>, create the following structure:</p>
 <pre><code class="language-php">resources
 ├── js
@@ -323,11 +323,6 @@ application.register("hello", HelloController);</code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file or in the service provider using the <code>registerResource</code> method. You can do the same with style sheets, which will allow you to effectively build application logic.</p>
 <pre><code class="language-php">class ServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(Dashboard $dashboard)
     {
         $dashboard-&gt;registerResource('scripts','dashboard.js');

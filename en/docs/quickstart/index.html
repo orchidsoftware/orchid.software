@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The Quick Start Guide is a basic introduction to the Orchid infrastructure."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Quick start for beginners | Orchid - Laravel Admin Panel"><meta property="og:description" content="The Quick Start Guide is a basic introduction to the Orchid infrastructure."><meta property="og:url" content="http://orchid.software/en/docs/quickstart"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Quick start for beginners</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The Quick Start Guide is a basic introduction to the Orchid infrastructure."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Quick Start for beginners | Orchid - Laravel Admin Panel"><meta property="og:description" content="The Quick Start Guide is a basic introduction to the Orchid infrastructure."><meta property="og:url" content="http://orchid.software/en/docs/quickstart"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Quick Start for beginners</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
                     (w[c] = w[c] || []).push(function () {
                         try {
                             w.yaCounter42925369 = new Ya.Metrika2({
@@ -281,7 +281,7 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first"><h1>Quick start for beginners</h1>
+                    <main class="wrapper-lg order-md-first"><h1>Quick Start for beginners</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/quickstart.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
@@ -291,7 +291,7 @@
                         <hr class="mb-4"><p>This quick start guide provides a basic introduction to the infrastructure and includes information.
 about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.</p>
-<p>At this stage, it is necessary that you have already <a href="/en/docs/installation">installed the framework and the platform</a>, created the database and started the webserver.</p>
+<p>At this stage, it is necessary you have already <a href="/en/docs/installation">installed the framework and the platform</a>, created the database and started the web server.</p>
 <p>First, you need to create a <a href="/en/docs/screens">screen</a> to display the submission form, using the command:</p>
 <pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen</code></pre>
 <p>A new file <code>EmailSenderScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
@@ -513,10 +513,10 @@ class EmailSenderScreen extends Screen
 }</code></pre>
 <p>After that, can to send email messages to addresses.</p>
 <blockquote>
-<p>Note that by default the <code>smtp</code> driver is enabled for sending mail,
+<p>Note that by default the <code>smtp</code> driver enabled for sending mail,
 You can change it in the <code>.env</code> file to<code>log</code> for verification.</p>
 </blockquote>
-<p>Since our utility is mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the <code>query</code> method with the name of our element:</p>
+<p>Since our utility mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the <code>query</code> method with the name of our element:</p>
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -540,7 +540,7 @@ in the composer file at <code>app/Orchid/Composers/MainMenuComposer.php</code> w
     );</code></pre>
 <p>Now our utility is displayed on the left menu and is active when visiting.
 Navigation can be carried out not only through transitions from the menu but also through bread crumbs,
-to add them to our screen you need to add a new ad in the <code>routes/breadcrumbs.php</code> by route name</p>
+to add them to our screen you need to add a new ad in the <code>routes/breadcrumbs.php</code> by route name.</p>
 <pre><code class="language-php">Breadcrumbs::for('platform.email', function ($trail) {
     $trail-&gt;parent('platform.index');
     $trail-&gt;push('Email sender');

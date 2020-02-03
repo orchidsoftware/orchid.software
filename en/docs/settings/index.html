@@ -302,7 +302,7 @@ Setting::set($key, $value);</code></pre>
 Setting::get($key, $default);
 // or using the helper function
 setting($key, $default);</code></pre>
-<p>By default, each item is cached before it is changed, in cases if you need to get a value not from the cache, you need to use the getNoCache method.</p>
+<p>By default, each item cached before it is changed, in cases if you need to get a value not from the cache, you need to use the getNoCache method.</p>
 <pre><code class="language-php">Setting::getNoCache($key, $default = null);</code></pre>
 <blockquote>
 <p><strong>Note.</strong> When transferring keys as an array, subsequent updates of values will not automatically flush the cache.</p>

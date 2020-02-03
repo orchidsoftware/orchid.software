@@ -308,7 +308,7 @@
     <hr>
 <p>The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.</p>
-<p>Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance is based on the provided <code>templates</code> (Layouts) and all you need to do is just to determine what data will be shown in a particular template.</p>
+<p>Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance based on the provided <code>templates</code> (Layouts) and all you need to do is just to determine what data will be shown in a particular template.</p>
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
 <h2><a href="#creation" name="creation">Creation</a></h2>
 <p>You can create a new screen by running the command:</p>
@@ -371,13 +371,13 @@ class Idea extends Screen
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
-<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request, in that instead of a single address, a whole group is registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
+<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request, in that instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
 <pre><code class="language-php">Method                      | URI                                  | Name
 ----------------------------+--------------------------------------+--------------
 GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea</code></pre>
 <h2><a href="#data-acquisition" name="data-acquisition">Data Acquisition</a></h2>
-<p>The data to be displayed on the screen is defined in the <code>query</code> method, where sampling or generation of information should occur.
-The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.</p>
+<p>The data to be displayed on the screen defined in the <code>query</code> method, where sampling or generation of information should occur.
+The transfer carried out in the form of an array, the keys will be available in layouts, for their control.</p>
 <pre><code class="language-php">public function query() : array
 {
     return [
@@ -428,7 +428,7 @@ The <code>commandBar</code> method is responsible for this, which describes the 
         Button::make('Go print')-&gt;method('print'),
     ];
 }</code></pre>
-<p>The <code>Button</code> class responds to what will happen when a button is pressed, in the example above, when you click on the Print button,
+<p>The <code>Button</code> class responds to what will happen when a button pressed, in the example above, when you click on the Print button,
 The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
 <pre><code class="language-php">// By pressing, the 'create' method will be called
 use Orchid\Screen\Actions\Button;
@@ -452,7 +452,7 @@ ModalToggle::make('Modal window')
 <h2><a href="#layouts" name="layouts">Layouts</a></h2>
 <p>Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.</p>
 <p>Each layout may include a different layout, that is, nesting.
-For example, the screen is divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
+For example, the screen divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.</p>
 <pre><code class="language-php">public function layout() : array
 {

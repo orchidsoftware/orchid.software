@@ -354,7 +354,7 @@ class QueryFilter extends Filter
 Model::filtersApply([
    Filter::class,
 ])-&gt;simplePaginate();</code></pre>
-<p>Возможно использование целой группы фильтров обьеденённых в слой <code>Selection</code>, через:</p>
+<p>Возможно использование целой группы фильтров объединённых в слой <code>Selection</code>:</p>
 <pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();</code></pre>
 <p>Тогда все фильтры установленные в слое будут применены.</p>
 <h2><a href="#avtomaticheskaya-http-filtratsiya-i-sortirovka" name="avtomaticheskaya-http-filtratsiya-i-sortirovka">Автоматическая HTTP фильтрация и сортировка</a></h2>

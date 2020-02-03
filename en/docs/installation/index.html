@@ -349,11 +349,11 @@ In other words, install your new framework project.</p>
 <p>Open a browser and go to <code>http://localhost:8000/dashboard</code>. If everything works you will see the control panel login page. Later you can stop the server by pressing <code>Ctrl + C</code> in the terminal.</p>
 <blockquote>
 <p><strong>Note.</strong> If your runtime uses a different domain (eg. orchid.loc)
-the admin panel may not be available and you need to specify your domain in the configuration file <code>config/platform.php</code>
+the admin panel may not be available, and you need to specify your domain in the configuration file <code>config/platform.php</code>
   or in <code>.env</code> file. This allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>. </p>
 </blockquote>
 <h2><a href="#publishing-resources" name="publishing-resources">Publishing resources</a></h2>
-<p>By default static files (css/js) are delivering through application routes: this is the best balance between configuration and change tracking but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
+<p>By default, static files (css/js) are delivering through application routes: this is the best balance between a configuration and change tracking, but you can specify to use web servers for distribution, you need to execute a command that creates a symbolic link in a public directory (Please use it only if your web server is having troubles):</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>

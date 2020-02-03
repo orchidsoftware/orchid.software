@@ -364,11 +364,6 @@ use Orchid\Platform\Dashboard;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot(Dashboard $dashboard)
     {
         $dashboard-&gt;registerResource('stylesheets', 'custom.css');

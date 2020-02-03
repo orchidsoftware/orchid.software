@@ -354,7 +354,7 @@ One of the presentation element called "Layouts" (layouts), can be displayed in 
 <p>A simple display of a block with a profile can appear on dozens of pages and, if they are copied, it can take a long time to maintain their appearance; therefore, various reuse options are worked out. This is called the component approach, regardless of the delivery method and level of responsibility, practiced in both <code>Blade</code> and <code>React/Vue/Angular</code>.</p>
 <p>It is from these components that the layers of the platform are made up, the only difference is that it is necessary to operate with classes, creating which you explicitly determine that the adopted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag without having to edit the source code each time.</p>
 <h2><a href="#table" name="table">Table</a></h2>
-<p>Table layout is used to display minimum information for viewing and sampling.</p>
+<p>Table layout used to display minimum information for viewing and sampling.</p>
 <pre><code class="language-php">php artisan orchid:table PatientListLayout</code></pre>
 <p>Example:</p>
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
@@ -416,10 +416,10 @@ class PatientListLayout extends Table
 <p><code>align()</code> horizontal text alignment, takes the values: 'left', 'center', 'right'</p>
 </li>
 <li>
-<p><code>set($key, $name)</code> the main method sets the name of the key from the array and the display name.</p>
+<p><code>set($key, $name)</code> the main method sets the name of the key from the array, and the display name.</p>
 </li>
 <li>
-<p><code>render(function ($item) { return $item-&gt;id})</code> possibility of cell generation according to function. The data of the current line is transferred to $item.</p>
+<p><code>render(function ($item) { return $item-&gt;id})</code> possibility of cell generation according to function. The data of the current line transferred to $item.</p>
 </li>
 <li>
 <p><code>sort()</code> Adds the ability to sort by this column (<a href="https://orchid.software/en/docs/filters">See HTTP filtering and sorting</a>) in the header.</p>
@@ -431,7 +431,7 @@ class PatientListLayout extends Table
 <p><code>cantHide</code> - the column cannot be hidden by the user.</p>
 </li>
 <li>
-<p><code>defaultHidden</code> - the column is hidden by default, but can be found at the request of the user.</p>
+<p><code>defaultHidden</code> - the column hidden by default, but can be found at the request of the user.</p>
 </li>
 </ul><h3><a href="#column-extension" name="column-extension">Column Extension</a></h3>
 <p>Working with the same type of data, it is often required to process them in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using own methods, for this you need to register the closure function in the service provider.</p>
@@ -539,7 +539,7 @@ for example, when you want to show one or two fields</p>
     -&gt;applyButton(self::APPLY_BUTTON)
     -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
 <h2><a href="#charts" name="charts">Charts</a></h2>
-<p>Graphic layout is a convenient way to graphically display the dynamics of values, but it requires some
+<p>A graphic layout is a convenient way to graphically display the dynamics of values, but it requires some
 data processing example data from <code>query</code></p>
 <pre><code class="language-php">public function query($patient = null) : array
 {
@@ -739,7 +739,7 @@ available indicate exactly where the other layers should be displayed.</p>
 &lt;/div&gt;</code></pre>
 <p>Variables from <code>query</code> are also available in the template.</p>
 <h2><a href="#layer-expansion" name="layer-expansion">Layer Expansion</a></h2>
-<p>The <code>Layouts</code> class is grouping several different ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
+<p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Base;
 use Orchid\Screen\Repository;
 use Orchid\Screen\Layout;
