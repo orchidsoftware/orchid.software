@@ -11,6 +11,8 @@ To select the basic set of functions, we will create a simple utility for sendin
 
 At this stage, it is necessary you have already [installed the framework and the platform](/en/docs/installation), created the database and started the web server.
 
+Before we begin, we highly recommend that you do not copy and paste. Typing each section manually will help you to practice and remember. Let's get started:
+
 First, you need to create a [screen](/en/docs/screens) to display the submission form, using the command:
 
 ```bash
