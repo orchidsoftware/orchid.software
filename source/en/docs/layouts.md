@@ -498,7 +498,7 @@ public function layout(): array
 }
 ```
 
-In the `myTemplate` template, the variables` foo` and `bar` will be transferred, which contain the already compiled` View`, which can be displayed:
+In the `myTemplate` template, the variables` foo` and `bar` will be transferred, which contain the already compiled `View`, which can be displayed:
 
 ```html
 <div class="row">
