@@ -53,6 +53,8 @@ Such a structure will not prevent your application, no matter what kind of front
 It remains only to describe the assembly in webpack.mix.js:
 
 ```php
+let mix = require('laravel-mix');
+
 mix.js('resources/js/dashboard.js', 'public/js')
 ```
 
