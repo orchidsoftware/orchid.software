@@ -319,7 +319,9 @@ import HelloController from "./controllers/hello"
 application.register("hello", HelloController);</code></pre>
 <p>Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
 <p>It remains only to describe the assembly in webpack.mix.js:</p>
-<pre><code class="language-php">mix.js('resources/js/dashboard.js', 'public/js')</code></pre>
+<pre><code class="language-php">let mix = require('laravel-mix');
+
+mix.js('resources/js/dashboard.js', 'public/js')</code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file or in the service provider using the <code>registerResource</code> method. You can do the same with style sheets, which will allow you to effectively build application logic.</p>
 <pre><code class="language-php">class ServiceProvider extends ServiceProvider
 {
