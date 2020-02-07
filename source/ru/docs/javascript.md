@@ -53,6 +53,8 @@ application.register("hello", HelloController);
 Останется только описать сборку в webpack.mix.js :
 
 ```php
+let mix = require('laravel-mix');
+
 mix.js('resources/js/dashboard.js', 'public/js')
 ```
 
