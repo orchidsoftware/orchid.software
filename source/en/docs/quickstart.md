@@ -9,7 +9,7 @@ This quick start guide provides a basic introduction to the infrastructure and i
 about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.
 
-At this stage, it is necessary you have already [installed the framework and the platform](/en/docs/installation), created the database and started the web server.
+At this stage, you must already [installed the framework and the platform](/en/docs/installation), created the database and started the webserver.
 
 > Before we begin, we highly recommend that you do not copy and paste. Typing each section manually will help you to practice and remember.
 
