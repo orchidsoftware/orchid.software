@@ -48,51 +48,14 @@ class Organization extends Model implements Named
 }
 ```
 
-
-По такому принципу формируеться логика трафаретов.
-
-
-  
+С помощью такого решения, мы можем изменить шаблон на такой вид:
 
 ```php
-public function query(): array
-{
-    $user = new class implements Personable {
-
-        public function title(): string
-        {
-            return 'Jon Jonson';
-        }
-
-        public function subTitle(): string
-        {
-            return 'Seeker of adventures';
-        }
-
-        public function url(): string
-        {
-            return 'https://orchid.software/';
-        }
-
-        public function image(): ?string
-        {
-            return 'https://i.pravatar.cc/200';
-        }
-    };
-
-    return [
-        'user' => $user
-    ];
-}
-
-
-public function layout(): array
-{
-    return [
-        new Persona('user'),
-    ];
-}
+Hello {{ $model->name() }}
 ```
+
+И использовать повторно для множества обьектов не изменяя его каждый раз.
+Именно по такому принципу формируеться логика трафаретов.
 
 
 ## Представители (Presenter)
@@ -160,27 +123,67 @@ $presenter->url();
 ```
 
 
-## Cardable
+### Cardable
 
 ```php
 //...
 ```
 
-## Compactable
-
-
-```php
-//...
-```
-
-## Personable
+### Compactable
 
 
 ```php
 //...
 ```
 
-## Searchable
+### Personable
+
+
+```php
+public function query(): array
+{
+    $user = new class implements Personable {
+
+        public function title(): string
+        {
+            return 'Jon Jonson';
+        }
+
+        public function subTitle(): string
+        {
+            return 'Seeker of adventures';
+        }
+
+        public function url(): string
+        {
+            return 'https://orchid.software/';
+        }
+
+        public function image(): ?string
+        {
+            return 'https://i.pravatar.cc/200';
+        }
+    };
+
+    return [
+        'user' => $user
+    ];
+}
+
+
+public function layout(): array
+{
+    return [
+        new Persona('user'),
+    ];
+}
+```
+
+```php
+//...
+```
+
+### Searchable
 
 
 ```php
