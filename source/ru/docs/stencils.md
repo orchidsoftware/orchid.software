@@ -60,58 +60,22 @@ Hello {{ $model->name() }}
 
 ## Представители (Presenter)
 
-Представитель - это класс только для чтения, который предоставлет гибкую альтернативу практике создания подклассов с целью расширения функциональности.
+Представитель - это класс только для чтения, который оборачивает другой объект для того, чтобы расширить его функционал. Предоставлет гибкую альтернативу практике наследования с целью расширения функциональности, так же передает вызовы методов объекту, который был обернут, если их нет.
+
+Возьмём предыдущий пример, с методом `name` для пользователя и организации, запись дополнительных методов не лучшее решения для модели, перенесём его в новый класс представителя:
 
 
 ```php
-declare(strict_types=1);
-
-namespace App\Orchid\Presenters;
-
-use Orchid\Screen\Presenter;
-use Orchid\Screen\Presenters\Personable;
-use Orchid\Screen\Presenters\Searchable;
-
-class UserPresenter extends Presenter implements Searchable, Personable
+class User extends Model
 {
-    /**
-     * @return string
-     */
-    public function label(): string
-    {
-        return 'Users';
-    }
+    //...
+}
 
-    /**
-     * @return string
-     */
-    public function title(): string
+class UserPresenter extends Named
+{
+    public function name(): string
     {
-        return $this->entity->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function subTitle(): string
-    {
-        return 'Administrator';
-    }
-
-    /**
-     * @return string
-     */
-    public function url(): string
-    {
-        return route('platform.systems.users.edit', $this->entity);
-    }
-
-    /**
-     * @return string
-     */
-    public function image(): ?string
-    {
-        return $this->entity->getAvatar();
+        return $this->first_name . $this->last_name;
     }
 }
 
@@ -119,7 +83,7 @@ class UserPresenter extends Presenter implements Searchable, Personable
 $user = User::find(1);
 
 $presenter = new UserPresenter($user);
-$presenter->url();
+$presenter->name();
 ```
 
 
