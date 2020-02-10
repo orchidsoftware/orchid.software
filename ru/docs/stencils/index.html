@@ -295,16 +295,16 @@
                     <li class="anchor-h2">
                 <a href="#predstaviteli-presenter">Представители (Presenter)</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#cardable">Cardable</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#compactable">Compactable</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#personable">Personable</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#searchable">Searchable</a>
             </li>
             </ul>
@@ -338,43 +338,10 @@ class Organization extends Model implements Named
         return $this-&gt;name;
     }
 }</code></pre>
-<p>По такому принципу формируеться логика трафаретов.</p>
-<pre><code class="language-php">public function query(): array
-{
-    $user = new class implements Personable {
-
-        public function title(): string
-        {
-            return 'Jon Jonson';
-        }
-
-        public function subTitle(): string
-        {
-            return 'Seeker of adventures';
-        }
-
-        public function url(): string
-        {
-            return 'https://orchid.software/';
-        }
-
-        public function image(): ?string
-        {
-            return 'https://i.pravatar.cc/200';
-        }
-    };
-
-    return [
-        'user' =&gt; $user
-    ];
-}
-
-public function layout(): array
-{
-    return [
-        new Persona('user'),
-    ];
-}</code></pre>
+<p>С помощью такого решения, мы можем изменить шаблон на такой вид:</p>
+<pre><code class="language-php">Hello {{ $model-&gt;name() }}</code></pre>
+<p>И использовать повторно для множества обьектов не изменяя его каждый раз.
+Именно по такому принципу формируеться логика трафаретов.</p>
 <h2><a href="#predstaviteli-presenter" name="predstaviteli-presenter">Представители (Presenter)</a></h2>
 <p>Представитель - это класс только для чтения, который предоставлет гибкую альтернативу практике создания подклассов с целью расширения функциональности.</p>
 <pre><code class="language-php">declare(strict_types=1);
@@ -433,13 +400,49 @@ $user = User::find(1);
 
 $presenter = new UserPresenter($user);
 $presenter-&gt;url();</code></pre>
-<h2><a href="#cardable" name="cardable">Cardable</a></h2>
+<h3><a href="#cardable" name="cardable">Cardable</a></h3>
 <pre><code class="language-php">//...</code></pre>
-<h2><a href="#compactable" name="compactable">Compactable</a></h2>
+<h3><a href="#compactable" name="compactable">Compactable</a></h3>
 <pre><code class="language-php">//...</code></pre>
-<h2><a href="#personable" name="personable">Personable</a></h2>
+<h3><a href="#personable" name="personable">Personable</a></h3>
+<pre><code class="language-php">public function query(): array
+{
+    $user = new class implements Personable {
+
+        public function title(): string
+        {
+            return 'Jon Jonson';
+        }
+
+        public function subTitle(): string
+        {
+            return 'Seeker of adventures';
+        }
+
+        public function url(): string
+        {
+            return 'https://orchid.software/';
+        }
+
+        public function image(): ?string
+        {
+            return 'https://i.pravatar.cc/200';
+        }
+    };
+
+    return [
+        'user' =&gt; $user
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        new Persona('user'),
+    ];
+}</code></pre>
 <pre><code class="language-php">//...</code></pre>
-<h2><a href="#searchable" name="searchable">Searchable</a></h2>
+<h3><a href="#searchable" name="searchable">Searchable</a></h3>
 <pre><code class="language-php">//...</code></pre>                    </main></div>
             </div>
         </div>
