@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Отображайте данные с помощью готовых шаблонов без написания html"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Отображение данных | Orchid - Laravel Admin Panel"><meta property="og:description" content="Отображайте данные с помощью готовых шаблонов без написания html"><meta property="og:url" content="http://orchid.software/ru/docs/templates"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Отображение данных</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Отображайте данные с помощью готовых шаблонов без написания html"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Отображение данных | Orchid - Laravel Admin Panel"><meta property="og:description" content="Отображайте данные с помощью готовых шаблонов без написания html"><meta property="og:url" content="http://orchid.software/ru/docs/stencil"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Отображение данных</title><link rel="home" href="http://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"><!-- Insert analytics code here --><meta name="yandex-verification" content="23bb1990414a4f0e"><!-- Yandex.Metrika counter --><script type="text/javascript" async> (function (d, w, c) {
                     (w[c] = w[c] || []).push(function () {
                         try {
                             w.yaCounter42925369 = new Ya.Metrika2({
@@ -284,14 +284,61 @@
                     <main class="wrapper-lg order-md-first"><h1>Отображение данных</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/templates.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/stencil.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Пакет имеет широкий набор различных полей для заполнения и редактирования контента, но сложно построить
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#trafaret">Трафарет</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#predstaviteli-presenter">Представители (Presenter)</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#cardable">Cardable</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#compactable">Compactable</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#personable">Personable</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#searchable">Searchable</a>
+            </li>
+            </ul>
+    <hr>
+<p>Пакет имеет широкий набор различных полей для заполнения и редактирования контента, но сложно построить
 профессиональную систему, состоящую только из одних форм. Конечно, можно написать собственное <code>html</code> представление в экране,
-но это может потребовать времени и некоторых навыков в дизайне. Мы постарались позаботиться об этом с помощью комплексного решения "Шаблоны".</p>
-<h2><a href="#shablon" name="shablon">Шаблон</a></h2>
+но это может потребовать времени и некоторых навыков в дизайне. Мы постарались позаботиться об этом с помощью комплексного решения "Трафарет".</p>
+<h2><a href="#trafaret" name="trafaret">Трафарет</a></h2>
+<p>Трафаренты - это готовые наборы, для отображения обыденных элементов на экране пользователя.
+Состоящие из <code>blade/html</code> представления и обязательного интерфейса который абстрагирован от источника информации. </p>
+<p>Например, у нас представлен следующий <code>blade</code> шаблон:</p>
+<pre><code class="language-php">Hello {{ $name }}</code></pre>
+<p>Для того, что бы он работал мы должны каждый раз передавать значение для переменной <code>$name</code>, при этом его формирование, может быть разным, если приветстовать пользователя, то не обходимо конкатинировать имя и фамилию. Но мы так же хотим использовать его и для кампаний. Тогда мы можем определить интерфейс и релизовать его у каждого класса:</p>
+<pre><code class="language-php">interface Named
+{
+    public function name(): string;
+}
+
+class User extends Model implements Named
+{
+    public function name(): string
+    {
+        return $this-&gt;first_name . $this-&gt;last_name;
+    }
+}
+
+class Organization extends Model implements Named
+{
+    public function name(): string
+    {
+        return $this-&gt;name;
+    }
+}</code></pre>
+<p>По такому принципу формируеться логика трафаретов.</p>
 <pre><code class="language-php">public function query(): array
 {
     $user = new class implements Personable {
@@ -327,7 +374,73 @@ public function layout(): array
     return [
         new Persona('user'),
     ];
-}</code></pre>                    </main></div>
+}</code></pre>
+<h2><a href="#predstaviteli-presenter" name="predstaviteli-presenter">Представители (Presenter)</a></h2>
+<p>Представитель - это класс только для чтения, который предоставлет гибкую альтернативу практике создания подклассов с целью расширения функциональности.</p>
+<pre><code class="language-php">declare(strict_types=1);
+
+namespace App\Orchid\Presenters;
+
+use Orchid\Screen\Presenter;
+use Orchid\Screen\Presenters\Personable;
+use Orchid\Screen\Presenters\Searchable;
+
+class UserPresenter extends Presenter implements Searchable, Personable
+{
+    /**
+     * @return string
+     */
+    public function label(): string
+    {
+        return 'Users';
+    }
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return $this-&gt;entity-&gt;name;
+    }
+
+    /**
+     * @return string
+     */
+    public function subTitle(): string
+    {
+        return 'Administrator';
+    }
+
+    /**
+     * @return string
+     */
+    public function url(): string
+    {
+        return route('platform.systems.users.edit', $this-&gt;entity);
+    }
+
+    /**
+     * @return string
+     */
+    public function image(): ?string
+    {
+        return $this-&gt;entity-&gt;getAvatar();
+    }
+}
+
+// Usage
+$user = User::find(1);
+
+$presenter = new UserPresenter($user);
+$presenter-&gt;url();</code></pre>
+<h2><a href="#cardable" name="cardable">Cardable</a></h2>
+<pre><code class="language-php">//...</code></pre>
+<h2><a href="#compactable" name="compactable">Compactable</a></h2>
+<pre><code class="language-php">//...</code></pre>
+<h2><a href="#personable" name="personable">Personable</a></h2>
+<pre><code class="language-php">//...</code></pre>
+<h2><a href="#searchable" name="searchable">Searchable</a></h2>
+<pre><code class="language-php">//...</code></pre>                    </main></div>
             </div>
         </div>
     </div>
