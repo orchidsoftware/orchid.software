@@ -343,55 +343,18 @@ class Organization extends Model implements Named
 <p>И использовать повторно для множества обьектов не изменяя его каждый раз.
 Именно по такому принципу формируеться логика трафаретов.</p>
 <h2><a href="#predstaviteli-presenter" name="predstaviteli-presenter">Представители (Presenter)</a></h2>
-<p>Представитель - это класс только для чтения, который предоставлет гибкую альтернативу практике создания подклассов с целью расширения функциональности.</p>
-<pre><code class="language-php">declare(strict_types=1);
-
-namespace App\Orchid\Presenters;
-
-use Orchid\Screen\Presenter;
-use Orchid\Screen\Presenters\Personable;
-use Orchid\Screen\Presenters\Searchable;
-
-class UserPresenter extends Presenter implements Searchable, Personable
+<p>Представитель - это класс только для чтения, который оборачивает другой объект для того, чтобы расширить его функционал. Предоставлет гибкую альтернативу практике наследования с целью расширения функциональности, так же передает вызовы методов объекту, который был обернут, если их нет.</p>
+<p>Возьмём предыдущий пример, с методом <code>name</code> для пользователя и организации, запись дополнительных методов не лучшее решения для модели, перенесём его в новый класс представителя:</p>
+<pre><code class="language-php">class User extends Model
 {
-    /**
-     * @return string
-     */
-    public function label(): string
-    {
-        return 'Users';
-    }
+    //...
+}
 
-    /**
-     * @return string
-     */
-    public function title(): string
+class UserPresenter extends Named
+{
+    public function name(): string
     {
-        return $this-&gt;entity-&gt;name;
-    }
-
-    /**
-     * @return string
-     */
-    public function subTitle(): string
-    {
-        return 'Administrator';
-    }
-
-    /**
-     * @return string
-     */
-    public function url(): string
-    {
-        return route('platform.systems.users.edit', $this-&gt;entity);
-    }
-
-    /**
-     * @return string
-     */
-    public function image(): ?string
-    {
-        return $this-&gt;entity-&gt;getAvatar();
+        return $this-&gt;first_name . $this-&gt;last_name;
     }
 }
 
@@ -399,7 +362,7 @@ class UserPresenter extends Presenter implements Searchable, Personable
 $user = User::find(1);
 
 $presenter = new UserPresenter($user);
-$presenter-&gt;url();</code></pre>
+$presenter-&gt;name();</code></pre>
 <h3><a href="#cardable" name="cardable">Cardable</a></h3>
 <pre><code class="language-php">//...</code></pre>
 <h3><a href="#compactable" name="compactable">Compactable</a></h3>
