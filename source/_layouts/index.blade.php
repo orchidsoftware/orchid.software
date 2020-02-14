@@ -11,7 +11,7 @@
                 <div class="col-lg-6">
                     <div class="row pb-5 pt-md-5">
                         <div class="col-md-12">
-                            <h1 class="h2 normal text-white mb-4 mt-5 text-center text-sm-left">
+                            <h1 class="h2 normal text-white mb-4 mt-4 text-center text-sm-left">
                                 <span class="icon-rocket text-muted m-r-md"></span> @yield('main.title')
                             </h1>
                         </div>
