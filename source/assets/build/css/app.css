@@ -1,6 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600&amp;
-
-subset=cyrillic);/**
+/**
  * okaidia theme for JavaScript, CSS and HTML
  * Loosely based on Monokai textmate theme by http://www.monokai.nl/
  * @author ocodia
@@ -130,6 +128,7 @@ pre[class*="language-"] {
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
