@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
     $('.code-preview').hide();
     $('.show-code').click(function (e) {
         $(this).children('.name').toggle();

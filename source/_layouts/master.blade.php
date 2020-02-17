@@ -182,13 +182,16 @@
 
     <script src="{{ mix('js/app.js', 'assets/build') }}"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-            apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
-            indexName: 'orchid_software',
-            inputSelector: '#docsearch',
-            algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
-            debug: true
-        });
+    <script type="text/javascript">
+        if(window.document.getElementById('docsearch')) {
+            docsearch({
+                apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+                indexName: 'orchid_software',
+                inputSelector: '#docsearch',
+                algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+                debug: true
+            });
+        }
     </script>
 
     </body>

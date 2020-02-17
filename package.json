@@ -9,19 +9,19 @@
     },
     "devDependencies": {
         "babel-plugin-prismjs": "^1.0.2",
-        "node-sass": "^4.11.0",
         "bootstrap": "^4.3.0",
-        "browser-sync": "^2.26.3",
+        "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^3.2.3",
         "docsearch.js": "^2.6.2",
         "extra-watch-webpack-plugin": "^1.0.3",
         "hasbin": "^1.2.3",
         "highlight.js": "^9.15.6",
-        "jquery": "^3.3.1",
+        "jquery": "^3.4.1",
         "laravel-mix": "^4.0.15",
         "laravel-mix-purgecss": "^3.0.0",
         "node-cmd": "^3.0.0",
+        "node-sass": "^4.13.1",
         "open-color": "^1.6.3",
         "orchid-icons": "^1.0.9",
         "prismjs": "^1.16.0",
@@ -34,6 +34,7 @@
         "yargs": "^4.6.0"
     },
     "dependencies": {
+        "instant.page": "^3.0.0",
         "popper.js": "^1.14.7"
     }
 }

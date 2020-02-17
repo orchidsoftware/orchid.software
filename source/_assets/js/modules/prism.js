@@ -1,5 +1,5 @@
 import Prism from 'prismjs';
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
     Prism.highlightAll();
 });
