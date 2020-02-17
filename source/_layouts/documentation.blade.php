@@ -22,7 +22,7 @@
                     </nav>
                 </div>
                 <div class="col col-md-9">
-                    <main class="wrapper-lg order-md-first">
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first">
                         <h1>{{ $page->title }}</h1>
 
                         <div class="none d-md-block">
