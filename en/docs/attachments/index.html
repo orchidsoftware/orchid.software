@@ -298,7 +298,8 @@ $image-&gt;url();</code></pre>
 <p>Thanks to the hash, attachments are not downloaded again, instead a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
 <h2><a href="#remove" name="remove">Remove</a></h2>
-<p>Attachments won't be remove after model removal automatically. In case when your attachments can't be existed without model, you should remove them on model <code>deleting</code> event manually. If you delete row from <code>attachments</code> table, file won't be deleted. To clear your attachments, you need to use <code>delete()</code> function on <code>Attachment</code> model. In that case additional check will be proceed, if there no any link to the file - it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
+<p>Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won't be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed, if there no link to the file - it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
+<p>Let's come back to our example with hero relation from "Manage file attachments"</p>
 <p>Let's come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">"Manage file attachments"</a></p>
 <pre><code class="language-php">// app/Post.php
 
@@ -311,7 +312,7 @@ public function hero()
 <p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute sql query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
 <pre><code class="language-php">$post-&gt;hero-&gt;delete();</code></pre>
 <blockquote>
-<p><strong>Note.</strong> You should build you relation using <code>withDefault()</code> function to avoid null pointer exception.</p>
+<p><strong>Note.</strong> You should build your relation using <code>withDefault()</code> function to avoid the null pointer exception.</p>
 </blockquote>
 <p>Let's generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
 <pre><code class="language-bash">php artisan make:observer PostObserver</code></pre>
@@ -320,12 +321,12 @@ public function hero()
 {
     $post-&gt;hero-&gt;delete();
 }</code></pre>
-<p>In case, when you have multiple attachments you should use <code>attachment</code> relation from <code>Attachable</code> trait.</p>
+<p>In case, when you have multiple attachments you should use <code>attachment</code> relation from the <code>Attachable</code> trait.</p>
 <pre><code class="language-php">public function deleting(Post $post)
 {
     $post-&gt;attachment-&gt;each-&gt;delete();
 }</code></pre>
-<p>Subscribe example model to observer in <code>AppServiceProvider</code></p>
+<p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 <pre><code class="language-php">public function boot()
 {
     ...
