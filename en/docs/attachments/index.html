@@ -255,6 +255,9 @@
                 <a href="#reload">Reload</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#remove">Remove</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#subscribe-to-download">Subscribe to download</a>
             </li>
             </ul>
@@ -294,6 +297,41 @@ $image-&gt;url();</code></pre>
 <h2><a href="#reload" name="reload">Reload</a></h2>
 <p>Thanks to the hash, attachments are not downloaded again, instead a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
+<h2><a href="#remove" name="remove">Remove</a></h2>
+<p>Attachments won't be remove after model removal automatically. In case when your attachments can't be existed without model, you should remove them on model <code>deleting</code> event manually. If you delete row from <code>attachments</code> table, file won't be deleted. To clear your attachments, you need to use <code>delete()</code> function on <code>Attachment</code> model. In that case additional check will be proceed, if there no any link to the file - it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
+<p>Let's come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">"Manage file attachments"</a></p>
+<pre><code class="language-php">// app/Post.php
+
+use Orchid\Attachment\Models\Attachment;
+
+public function hero()
+{
+    return $this-&gt;hasOne(Attachment::class, 'id', 'hero')-&gt;withDefault();
+}</code></pre>
+<p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute sql query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
+<pre><code class="language-php">$post-&gt;hero-&gt;delete();</code></pre>
+<blockquote>
+<p><strong>Note.</strong> You should build you relation using <code>withDefault()</code> function to avoid null pointer exception.</p>
+</blockquote>
+<p>Let's generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
+<pre><code class="language-bash">php artisan make:observer PostObserver</code></pre>
+<p>In PostObserver we create <code>deleting</code> function</p>
+<pre><code class="language-php">public function deleting(Post $post)
+{
+    $post-&gt;hero-&gt;delete();
+}</code></pre>
+<p>In case, when you have multiple attachments you should use <code>attachment</code> relation from <code>Attachable</code> trait.</p>
+<pre><code class="language-php">public function deleting(Post $post)
+{
+    $post-&gt;attachment-&gt;each-&gt;delete();
+}</code></pre>
+<p>Subscribe example model to observer in <code>AppServiceProvider</code></p>
+<pre><code class="language-php">public function boot()
+{
+    ...
+
+    Post::observe(PostObserver::class);
+}</code></pre>
 <h2><a href="#subscribe-to-download" name="subscribe-to-download">Subscribe to download</a></h2>
 <p>Different file processing options may require additional processing, such as video compression,
 This is possible thanks to an event that you can subscribe to using standard tools and perform a task in the background:</p>
