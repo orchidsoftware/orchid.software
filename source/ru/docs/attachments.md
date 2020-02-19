@@ -64,6 +64,65 @@ $image->url();
 Благодаря хешу, вложения не загружаются повторно, вместо этого создаётся ссылка в базе данных на необходимый физический файл,
 позволяя эффективно использовать ресурсы. Файл будет удалёт только тогда, когда все ссылки будут уничтожены.
 
+## Удаление вложений
+
+При удалении модели ее вложения не удаляются автоматически. В случае если вложение не должно существовать без модели, то его нужно удалить непосредственно перед удалением модели. Если удалить запись о вложении в таблице `attachments`, файл не будет удален. Очищать вложения нужно через функцию `delete()` модели `Attachment`. В этом случае произойдет проверка на существование других ссылок на файл и если их нет, то файл удалится. Это легко можно сделать ипользуя [отношения](https://laravel.com/docs/master/eloquent-relationships) и [обсервер](https://laravel.com/docs/master/eloquent#observers).
+
+Вернемся к примеру с `hero` из ["Управление вложенными файлами"](/ru/docs/quickstart-files)
+
+```php
+// app/Post.php
+
+use Orchid\Attachment\Models\Attachment;
+
+public function hero()
+{
+    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
+}
+```
+
+При обращении к отношению как к функции `$post->hero()` оно вернет экземпляр класса `Illuminate\Database\Eloquent\Builder` у которого тоже есть функция `delete()`, однако она выполняет sql запрос. При обращении к отношению как к свойству `$post->hero` оно вернет экземпляр модели. В данном случае модели `Attachment`, которая нам и нужна.
+
+```php
+$post->hero->delete();
+```
+
+> **Примечание.** Отношение важно описать используя функцию `withDefault()`, чтобы избежать null pointer exception.
+
+Удалять нужно во время события `deleting` модели. Для этого создадим [обсервер](https://laravel.com/docs/master/eloquent#observers) нашей модели.
+
+```bash
+php artisan make:observer PostObserver
+```
+
+В PostObserver создаем функцию `deleting`
+
+```php
+public function deleting(Post $post)
+{
+    $post->hero->delete();
+}
+```
+
+В случае, когда у нас вложений много, мы используем отношение `attachment` из трейта `Attachable`
+
+```php
+public function deleting(Post $post)
+{
+    $post->attachment->each->delete();
+}
+```
+
+Подписываем модель на наш обсервер в `AppServiceProvider`
+
+```php
+public function boot()
+{
+    ...
+    
+    Post::observe(PostObserver::class);
+}
+```
 
 ## Подписка на событие загрузки
 

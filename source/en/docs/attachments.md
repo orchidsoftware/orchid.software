@@ -63,6 +63,65 @@ $image->url();
 Thanks to the hash, attachments are not downloaded again, instead a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.
 
+## Remove
+
+Attachments won't be remove after model removal automatically. In case when your attachments can't be existed without model, you should remove them on model `deleting` event manually. If you delete row from `attachments` table, file won't be deleted. To clear your attachments, you need to use `delete()` function on `Attachment` model. In that case additional check will be proceed, if there no any link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
+
+Let's come back to our example with `hero` relation from ["Manage file attachments"](/en/docs/quickstart-files)
+
+```php
+// app/Post.php
+
+use Orchid\Attachment\Models\Attachment;
+
+public function hero()
+{
+    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
+}
+```
+
+If you call your relation like function `$post->hero()` it will return `Illuminate\Database\Eloquent\Builder` class, that also has `delete()` function. But, it will execute sql query. If you call your relation like attribute `$post->hero` it will return model class. `Attachment` model class.
+
+```php
+$post->hero->delete();
+```
+
+> **Note.** You should build you relation using `withDefault()` function to avoid null pointer exception.
+
+Let's generate [observer](https://laravel.com/docs/master/eloquent#observers) for our example model.
+
+```bash
+php artisan make:observer PostObserver
+```
+
+In PostObserver we create `deleting` function
+
+```php
+public function deleting(Post $post)
+{
+    $post->hero->delete();
+}
+```
+
+In case, when you have multiple attachments you should use `attachment` relation from `Attachable` trait.
+
+```php
+public function deleting(Post $post)
+{
+    $post->attachment->each->delete();
+}
+```
+
+Subscribe example model to observer in `AppServiceProvider`
+
+```php
+public function boot()
+{
+    ...
+    
+    Post::observe(PostObserver::class);
+}
+```
 
 ## Subscribe to download
 
