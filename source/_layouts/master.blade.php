@@ -60,11 +60,6 @@
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>
-
-                        <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/issues" target="_blank">
-                            <i class="icon-support m-r-xs text-xs"></i>
-                            @yield('main.support')
-                        </a>
                     </nav>
 
                     <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
