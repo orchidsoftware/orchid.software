@@ -28,7 +28,7 @@ section: main
 ```php
 // Проверяем, имеет ли пользователь права
 // Проверка осуществляется как для пользователя, так и для его роли
-Auth:user()->hasAccess($string);
+Auth::user()->hasAccess($string);
 
 // Получить все роли пользователя
 Auth::user()->getRoles();
