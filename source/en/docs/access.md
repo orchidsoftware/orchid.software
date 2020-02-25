@@ -30,7 +30,7 @@ The user has several options for managing roles:
 ```php
 // Check whether the user has permissions
 // Check is carried out both for the user and for his role
-Auth:user()->hasAccess($string);
+Auth::user()->hasAccess($string);
 
 // Get all user roles
 Auth::user()->getRoles();
