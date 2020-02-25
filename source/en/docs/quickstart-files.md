@@ -128,7 +128,7 @@ Cropper::make('post.hero')
 > **Note.** In order for your database to be homogeneous, use one of the proposed options.
 
 Let us dwell on the records of the number, but first, delete all existing records.
-In order to display a picture outside the package, you need to establish a connection in our model:
+In order to display a picture outside the package, you need to establish a relation in our model:
 
 ```php
 // app/Post.php
