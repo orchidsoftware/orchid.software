@@ -245,18 +245,80 @@
                         </div>
                         <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#natural-filter">Natural filter</a>
+                <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
+                <a href="#natural-filter">Natural filter</a>
             </li>
             </ul>
     <hr>
 <p>Filters used to simplify the search for records using a typical filter.
 For example, if you want to filter the product catalog by attributes, brands, etc.
 The sample values based on the Http request parameters.</p>
-<p>This is not a ready-made solution or a universal remedy.
+<blockquote>
+<p><strong>Note.</strong> This is not a ready-made solution or a universal remedy.
 You must expand the structure for your specific applications.</p>
+</blockquote>
+<h2><a href="#automatic-http-filtering-and-sorting" name="automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a></h2>
+<p>To respond to HTTP parameters, the model must include <code>Filterable</code>, as well as the definition of available
+attributes:</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filter\Filterable;
+
+class Post extends Model
+{
+    use Filterable;
+
+    /**
+     * @var array
+     */
+    protected $allowedFilters = [
+        'id',
+        'user_id',
+        'type',
+        'status',
+        'content',
+        'options',
+        'slug',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'user_id',
+        'type',
+        'status',
+        'slug',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+}</code></pre>
+<p>Usage is a method call <code>filters</code>:</p>
+<pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
+<p>How filtering will react:</p>
+<pre><code class="language-php">http://example.com/demo?filter[id]=1
+$model-&gt;where('id', '=', 1)
+
+http://example.com/demo?filter[id]=1,2,3,4,5
+$model-&gt;whereIn('id', [1,2,3,4,5]);
+
+http://example.com/demo?filter[content.ru.name]=dwqdwq
+$model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
+</code></pre>
+<p>How sorting will respond:</p>
+<pre><code class="language-php">http://example.com/demo?sort=content.ru.name
+$model-&gt;orderBy('content.ru.name', 'asc');
+
+http://example.com/demo?sort=-content.ru.name
+$model-&gt;orderBy('content.ru.name', 'desc');</code></pre>
 <h2><a href="#natural-filter" name="natural-filter">Natural filter</a></h2>
 <p>To create a new filter there is a command:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
@@ -311,60 +373,7 @@ Model::filtersApply([
 ])-&gt;simplePaginate();</code></pre>
 <p>It is possible to use a whole group of filters merged into the <code>Selection</code> layer, through:</p>
 <pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();</code></pre>
-<p>Then all filters installed in the layer will be applied.</p>
-<h2><a href="#automatic-http-filtering-and-sorting" name="automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a></h2>
-<p>To respond to HTTP parameters, the model must include <code>Filterable</code>, as well as the definition of available
-attributes:</p>
-<pre><code class="language-php">use Filterable;
-
-/**
- * @var
- */
-protected $allowedFilters = [
-    'id',
-    'user_id',
-    'type',
-    'status',
-    'content',
-    'options',
-    'slug',
-    'publish_at',
-    'created_at',
-    'deleted_at',
-];
-
-/**
- * @var
- */
-protected $allowedSorts = [
-    'id',
-    'user_id',
-    'type',
-    'status',
-    'slug',
-    'publish_at',
-    'created_at',
-    'deleted_at',
-];
-</code></pre>
-<p>Usage is a method call <code>filters</code>:</p>
-<pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
-<p>How filtering will react:</p>
-<pre><code class="language-php">http://example.com/demo?filter[id]=1
-$model-&gt;where('id', '=', 1)
-
-http://example.com/demo?filter[id]=1,2,3,4,5
-$model-&gt;whereIn('id', [1,2,3,4,5]);
-
-http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
-</code></pre>
-<p>How sorting will respond:</p>
-<pre><code class="language-php">http://example.com/demo?sort=content.ru.name
-$model-&gt;orderBy('content.ru.name', 'asc');
-
-http://example.com/demo?sort=-content.ru.name
-$model-&gt;orderBy('content.ru.name', 'desc');</code></pre>                    </main></div>
+<p>Then all filters installed in the layer will be applied.</p>                    </main></div>
             </div>
         </div>
     </div>
