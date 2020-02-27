@@ -9,8 +9,88 @@ section: main
 Например, если вы хотите отфильтровать каталог продуктов по атрибутам, брендам и т.п.
 Выборка значений основана на параметрах Http запросов.
 
-Это не является готовым решением или универсальным средством, 
+> Это не является готовым решением или универсальным средством, 
 вы должны расширить структуру для своих конкретных приложений.
+
+## Автоматическая HTTP фильтрация и сортировка
+
+Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
+атрибутов:
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filter\Filterable;
+
+class Post extends Model
+{
+    use Filterable;
+
+    /**
+     * @var array
+     */
+    protected $allowedFilters = [
+        'id',
+        'user_id',
+        'type',
+        'status',
+        'content',
+        'options',
+        'slug',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'user_id',
+        'type',
+        'status',
+        'slug',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+}
+```
+
+Использование заключаеться в вызове метода `filters`:
+
+```php
+Post::filters()->defaultSort('id')->paginate();
+```
+
+Как будет реагировать фильтрация:
+
+```php
+http://example.com/demo?filter[id]=1
+$model->where('id', '=', 1)
+
+
+http://example.com/demo?filter[id]=1,2,3,4,5
+$model->whereIn('id', [1,2,3,4,5]);
+
+
+http://example.com/demo?filter[content.ru.name]=dwqdwq
+$model->where('content->ru->name', '=', 'dwqdwq');
+
+```
+
+Как будет реагировать сортировка:
+
+```php
+http://example.com/demo?sort=content.ru.name
+$model->orderBy('content.ru.name', 'asc');
+
+http://example.com/demo?sort=-content.ru.name
+$model->orderBy('content.ru.name', 'desc');
+```
+
 
 ## Классический фильтр
 
@@ -86,78 +166,3 @@ Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
 ```
 
 Тогда все фильтры установленные в слое будут применены.
-
-
-## Автоматическая HTTP фильтрация и сортировка
-
-Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
-атрибутов:
-
-```php
-use Filterable;
-
-
-/**
- * @var
- */
-protected $allowedFilters = [
-    'id',
-    'user_id',
-    'type',
-    'status',
-    'content',
-    'options',
-    'slug',
-    'publish_at',
-    'created_at',
-    'deleted_at',
-];
-
-/**
- * @var
- */
-protected $allowedSorts = [
-    'id',
-    'user_id',
-    'type',
-    'status',
-    'slug',
-    'publish_at',
-    'created_at',
-    'deleted_at',
-];
-
-```
-
-Использование заключаеться в вызове метода `filters`:
-
-```php
-Post::filters()->defaultSort('id')->paginate();
-```
-
-Как будет реагировать фильтрация:
-
-```php
-http://example.com/demo?filter[id]=1
-$model->where('id', '=', 1)
-
-
-http://example.com/demo?filter[id]=1,2,3,4,5
-$model->whereIn('id', [1,2,3,4,5]);
-
-
-http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name', '=', 'dwqdwq');
-
-```
-
-Как будет реагировать сортировка:
-
-```php
-http://example.com/demo?sort=content.ru.name
-$model->orderBy('content.ru.name', 'asc');
-
-http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content.ru.name', 'desc');
-```
-
