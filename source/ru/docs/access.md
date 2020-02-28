@@ -5,7 +5,7 @@ extends: _layouts.documentation.ru
 section: main
 ---
 
-Обычно пользователям не назначаются разрешения в приложении ORCHID (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. 
+Обычно пользователям не назначаются разрешения в приложении (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. 
 
 Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнес-процессе. 
 Вы также можете иметь, скажем, от 10 до 100 пользователей.
@@ -34,10 +34,10 @@ Auth::user()->hasAccess($string);
 Auth::user()->getRoles();
 
 // Проверить имеет ли пользователь роль
-Auth::user()->inRole($role)
+Auth::user()->inRole($role);
 
 // Добавить к пользователю роль
-Auth::user()->addRole($role)
+Auth::user()->addRole($role);
 ```
 
 > **Примечание.** Права доступа не являются заменой для `Gate` или `Policies` входящих в состав фреймворка.
@@ -89,4 +89,88 @@ class PermissionServiceProvider extends ServiceProvider
         $dashboard->registerPermissions($permissions);
     }
 }
+```
+
+## Проверка в Экранах
+
+Каждый созданный экран уже имеет встроенную проверку прав установленного с помощью свойства 
+`$permission`, который принимает как массив, так и строковое значение для проверки:
+
+```php
+namespace App\Orchid\Screens;
+
+use Orchid\Screen\Screen;
+
+class History extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'History';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'History of changes to system objects';
+
+    /**
+     * Permissions for this screen
+     *
+     * @var array|string
+     */
+    public $permission = [
+        'systems.history'
+    ];
+    
+    // ...
+}
+```
+
+Если перечислено несколько ключей, то доступ будет предоставлен при наличии у пользователя хотя бы одного разрешения.
+
+
+## Проверка в Middleware
+
+Небольшие приложения могут не нуждаться в определении прав для каждого экрана или класса,
+вместо этого имеет смысл проверять их наличие для маршрутов. 
+Для этого необходимо зарегистрировать новый `middleware в `app/Http/Kernel`:
+
+```php
+/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    //...
+    'access' => \Orchid\Platform\Http\Middleware\Access::class,
+];
+```
+
+После этого его можно использовать при любых определений маршрута, через передачу параметра `access:my-permission`, так же как и в `Auth::user()->hasAccess($string);`
+
+```php
+Route::middleware('access:systems.history')->screen('/stories', function () {
+   // ...
+});
+```
+
+Так же вы можете объединять их в группы:
+
+```php
+Route::middleware(['access:systems.history'])->group(function () {
+    Route::get('/stories', function () {
+        // ...
+    });
+
+    Route::get('stories/best', function () {
+        // ...
+    });
+});
 ```
