@@ -1,5 +1,5 @@
 ---
-title: Использование сортировки и фильтров в таблице
+title: Сортировка и фильтрация в таблице
 description: Laravel CRUD
 extends: _layouts.documentation.ru
 section: main
