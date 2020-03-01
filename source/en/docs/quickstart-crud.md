@@ -219,7 +219,7 @@ class PostEditScreen extends Screen
             Layout::rows([
                 Input::make('post.title')
                     ->title('Title')
-                    ->placeholder('Attractive but mysterious title'),
+                    ->placeholder('Attractive but mysterious title')
                     ->help('Specify a short descriptive title for this post.'),
 
                 TextArea::make('post.description')
