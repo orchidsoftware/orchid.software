@@ -58,9 +58,10 @@ return [
         ],
         'Учебные пособия'    => [
             'children' => [
-                'Быстрый старт'      => '/ru/docs/quickstart',
-                'Управление данными' => '/ru/docs/quickstart-crud',
-                'Работа с файлами'   => '/ru/docs/quickstart-files',
+                'Быстрый старт'           => '/ru/docs/quickstart',
+                'Управление данными'      => '/ru/docs/quickstart-crud',
+                'Работа с файлами'        => '/ru/docs/quickstart-files',
+                'Сортировка и фильтрация' => '/ru/docs/quickstart-sort-filter-table',
             ],
         ],
         'Основные концепции' => [
