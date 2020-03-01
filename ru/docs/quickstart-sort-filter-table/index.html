@@ -363,7 +363,7 @@ class PostListLayout extends Table
 protected $allowedFilters = [
     'title',
 ];</code></pre>
-<p>А затем вызовем новый метод для колонки с заголовком:</p>
+<p>А затем вызовем новый метод <code>filter</code> с текстовым типом для колонки с заголовком:</p>
 <pre><code class="language-php"> TD::set('title', 'Title')
     -&gt;sort()
     -&gt;filter(TD::FILTER_TEXT)
