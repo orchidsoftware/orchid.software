@@ -253,9 +253,15 @@
                     <li class="anchor-h2">
                 <a href="#add-your-own-permissions">Add your own permissions</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#check-in-screens">Check in Screens</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#check-in-middleware">Check in Middleware</a>
+            </li>
             </ul>
     <hr>
-<p>Usually, users are not assigned permissions in the ORCHID application (although this is available), but rather roles. The role associated with the permission set, not with the individual user.</p>
+<p>Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role associated with the permission set, not with the individual user.</p>
 <p>Typically, you manage several dozen permits in a typical business.
 process.
 You can also have, say, 10 to 100 users.
@@ -278,10 +284,10 @@ Auth::user()-&gt;hasAccess($string);
 Auth::user()-&gt;getRoles();
 
 // Check whether the user has a role
-Auth::user()-&gt;inRole($role)
+Auth::user()-&gt;inRole($role);
 
 // Add role to user
-Auth::user()-&gt;addRole($role)</code></pre>
+Auth::user()-&gt;addRole($role);</code></pre>
 <blockquote>
 <p><strong> Note. </strong> Permissions are not a substitute for <code>Gate</code> or<code>Policies</code> included in the framework frame.</p>
 </blockquote>
@@ -313,7 +319,70 @@ class PermissionServiceProvider extends ServiceProvider
 
         $dashboard-&gt;registerPermissions($permissions);
     }
-}</code></pre>                    </main></div>
+}</code></pre>
+<h2><a href="#check-in-screens" name="check-in-screens">Check in Screens</a></h2>
+<p>Each created screen already has a built-in permission check set using the property
+<code>$permission</code>, which accepts both an array and a string value for verification:</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
+
+use Orchid\Screen\Screen;
+
+class History extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'History';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'History of changes to system objects';
+
+    /**
+     * Permissions for this screen
+     *
+     * @var array|string
+     */
+    public $permission = [
+        'systems.history'
+    ];
+
+    // ...
+}</code></pre>
+<p>If several keys are listed, then access will be granted if the user has at least one permission.</p>
+<h2><a href="#check-in-middleware" name="check-in-middleware">Check in Middleware</a></h2>
+<p>Small applications may not need to define permissions for each screen or class,
+instead, it makes sense to check their availability for routes.
+To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
+<pre><code class="language-php">/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    //...
+    'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
+];</code></pre>
+<p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
+<pre><code class="language-php">Route::middleware('access:systems.history')-&gt;screen('/stories', function () {
+   // ...
+});</code></pre>
+<p>You can also group them into groups:</p>
+<pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
+    Route::get('/stories', function () {
+        // ...
+    });
+    Route::get('stories/best', function () {
+        // ...
+    });
+});</code></pre>                    </main></div>
             </div>
         </div>
     </div>
