@@ -152,7 +152,7 @@ And then call the new `filter` method with a text type for the header column:
     }),
  ```
  
-After that, an icon will open next to the column name opening the text field, setting its value which you can filter the results.
+After that, an icon will open next to the column name opening the text field, setting its value in which you can filter the results.
  
 > **Please note.** Such an expression will be performed by `sql` with `like` filtering, in order for the search to be case-insensitive you need to check the database encoding.
 
