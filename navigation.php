@@ -12,9 +12,10 @@ return [
         ],
         'Tutorials' => [
             'children' => [
-                'Quick start'           => '/en/docs/quickstart',
-                'Data management'       => '/en/docs/quickstart-crud',
-                'Manage attachments'    => '/en/docs/quickstart-files',
+                'Quick start'                      => '/en/docs/quickstart',
+                'Data management'                  => '/en/docs/quickstart-crud',
+                'Manage attachments'               => '/en/docs/quickstart-files',
+                'Sorting and filtering in a table' => '/en/docs/quickstart-sort-filter-table',
             ],
         ],
         'Core concepts'   => [
