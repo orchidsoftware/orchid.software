@@ -5,7 +5,7 @@ extends: _layouts.documentation.en
 section: main
 ---
 
-Usually, users are not assigned permissions in the ORCHID application (although this is available), but rather roles. The role associated with the permission set, not with the individual user.
+Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role associated with the permission set, not with the individual user.
 
 Typically, you manage several dozen permits in a typical business.
 process.
@@ -36,10 +36,10 @@ Auth::user()->hasAccess($string);
 Auth::user()->getRoles();
 
 // Check whether the user has a role
-Auth::user()->inRole($role)
+Auth::user()->inRole($role);
 
 // Add role to user
-Auth::user()->addRole($role)
+Auth::user()->addRole($role);
 ```
 
 > ** Note. ** Permissions are not a substitute for `Gate` or` Policies` included in the framework frame.
@@ -90,4 +90,89 @@ class PermissionServiceProvider extends ServiceProvider
         $dashboard->registerPermissions($permissions);
     }
 }
+```
+
+
+## Check in Screens
+
+Each created screen already has a built-in permission check set using the property
+`$permission`, which accepts both an array and a string value for verification:
+
+```php
+namespace App\Orchid\Screens;
+
+use Orchid\Screen\Screen;
+
+class History extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'History';
+    
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'History of changes to system objects';
+    
+    /**
+     * Permissions for this screen
+     *
+     * @var array|string
+     */
+    public $permission = [
+        'systems.history'
+    ];
+    
+    // ...
+}
+```
+
+If several keys are listed, then access will be granted if the user has at least one permission.
+
+
+## Check in Middleware
+
+Small applications may not need to define permissions for each screen or class,
+instead, it makes sense to check their availability for routes.
+To do this, register a new `middleware` in `app/Http/Kernel`:
+
+```php
+/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    //...
+    'access' => \Orchid\Platform\Http\Middleware\Access::class,
+];
+```
+
+After that, it can be used for any route definitions, by passing the parameter `access:my-permission`, just like in `Auth::user()->hasAccess($string);`
+
+
+```php
+Route::middleware('access:systems.history')->screen('/stories', function () {
+   // ...
+});
+```
+
+You can also group them into groups:
+
+```php
+Route::middleware(['access:systems.history'])->group(function () {
+    Route::get('/stories', function () {
+        // ...
+    });
+    Route::get('stories/best', function () {
+        // ...
+    });
+});
 ```
