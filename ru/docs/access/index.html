@@ -260,9 +260,15 @@
                     <li class="anchor-h2">
                 <a href="#dobavlenie-sobstvennykh-razresheniy">Добавление собственных разрешений</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#proverka-v-ekranakh">Проверка в Экранах</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#proverka-v-middleware">Проверка в Middleware</a>
+            </li>
             </ul>
     <hr>
-<p>Обычно пользователям не назначаются разрешения в приложении ORCHID (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. </p>
+<p>Обычно пользователям не назначаются разрешения в приложении (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. </p>
 <p>Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнес-процессе.
 Вы также можете иметь, скажем, от 10 до 100 пользователей.
 Хотя эти пользователи не полностью отличные друг от друга,
@@ -283,10 +289,10 @@ Auth::user()-&gt;hasAccess($string);
 Auth::user()-&gt;getRoles();
 
 // Проверить имеет ли пользователь роль
-Auth::user()-&gt;inRole($role)
+Auth::user()-&gt;inRole($role);
 
 // Добавить к пользователю роль
-Auth::user()-&gt;addRole($role)</code></pre>
+Auth::user()-&gt;addRole($role);</code></pre>
 <blockquote>
 <p><strong>Примечание.</strong> Права доступа не являются заменой для <code>Gate</code> или <code>Policies</code> входящих в состав фреймворка.</p>
 </blockquote>
@@ -318,7 +324,71 @@ class PermissionServiceProvider extends ServiceProvider
 
         $dashboard-&gt;registerPermissions($permissions);
     }
-}</code></pre>                    </main></div>
+}</code></pre>
+<h2><a href="#proverka-v-ekranakh" name="proverka-v-ekranakh">Проверка в Экранах</a></h2>
+<p>Каждый созданный экран уже имеет встроенную проверку прав установленного с помощью свойства
+<code>$permission</code>, который принимает как массив, так и строковое значение для проверки:</p>
+<pre><code class="language-php">namespace App\Orchid\Screens;
+
+use Orchid\Screen\Screen;
+
+class History extends Screen
+{
+    /**
+     * Display header name.
+     *
+     * @var string
+     */
+    public $name = 'History';
+
+    /**
+     * Display header description.
+     *
+     * @var string
+     */
+    public $description = 'History of changes to system objects';
+
+    /**
+     * Permissions for this screen
+     *
+     * @var array|string
+     */
+    public $permission = [
+        'systems.history'
+    ];
+
+    // ...
+}</code></pre>
+<p>Если перечислено несколько ключей, то доступ будет предоставлен при наличии у пользователя хотя бы одного разрешения.</p>
+<h2><a href="#proverka-v-middleware" name="proverka-v-middleware">Проверка в Middleware</a></h2>
+<p>Небольшие приложения могут не нуждаться в определении прав для каждого экрана или класса,
+вместо этого имеет смысл проверять их наличие для маршрутов.
+Для этого необходимо зарегистрировать новый <code>middleware в</code>app/Http/Kernel`:</p>
+<pre><code class="language-php">/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * @var array
+ */
+protected $routeMiddleware = [
+    //...
+    'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
+];</code></pre>
+<p>После этого его можно использовать при любых определений маршрута, через передачу параметра <code>access:my-permission</code>, так же как и в <code>Auth::user()-&gt;hasAccess($string);</code></p>
+<pre><code class="language-php">Route::middleware('access:systems.history')-&gt;screen('/stories', function () {
+   // ...
+});</code></pre>
+<p>Так же вы можете объединять их в группы:</p>
+<pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
+    Route::get('/stories', function () {
+        // ...
+    });
+
+    Route::get('stories/best', function () {
+        // ...
+    });
+});</code></pre>                    </main></div>
             </div>
         </div>
     </div>
