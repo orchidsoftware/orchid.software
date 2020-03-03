@@ -59,7 +59,7 @@ class Post extends Model
 }
 ```
 
-Использование заключаеться в вызове метода `filters`:
+Использование заключается в вызове метода `filters`:
 
 ```php
 Post::filters()->defaultSort('id')->paginate();
