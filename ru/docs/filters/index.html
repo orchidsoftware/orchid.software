@@ -308,7 +308,7 @@ class Post extends Model
         'deleted_at',
     ];
 }</code></pre>
-<p>Использование заключаеться в вызове метода <code>filters</code>:</p>
+<p>Использование заключается в вызове метода <code>filters</code>:</p>
 <pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();</code></pre>
 <p>Как будет реагировать фильтрация:</p>
 <pre><code class="language-php">http://example.com/demo?filter[id]=1
