@@ -16,7 +16,7 @@ Before you can use the platform you need install it. This guide should help you 
 Being a package for the framework you must first install Laravel. This can be done using the Composer dependency management tool by running the `composer create-project` command in your terminal:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "6.*" --prefer-dist
+$ composer create-project laravel/laravel orchid-project "7.*" --prefer-dist
 ```
 
 For more information how to install Laravel follow [Official Laravel Installation Guide](https://laravel.com/docs/5.8/installation).
