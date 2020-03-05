@@ -505,7 +505,7 @@ Linking example:
 
 ```php
 Link::make('Google It!')
-    ->link('http://google.com');
+    ->href('http://google.com');
 ```
 
 Example use with method:
@@ -521,7 +521,8 @@ Available modifiers:
 * `right()` - Positioning the element on the right edge of the screen
 * `block()` - Positioning the element across the entire width of the screen
 * `class('class-names')` - rewrites the standard button classes
-* `link('url')` - adds a link for the button. Ignored when given modal
+* `href('url')` - adds a link for the button. Ignored when given modal
+* `route('route.name')` - adds a link to the given route
 * `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
 * `title('Click Me!')` - sets the name of the current button
 * `icon('icon-wallet)` - sets an icon for the button
