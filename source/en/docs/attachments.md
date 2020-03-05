@@ -67,9 +67,6 @@ allowing efficient use of resources. The file will be deleted only when all link
 
 Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model `deleting` events manually. If you delete a row from the `attachments` table, the file won't be deleted. To clear your attachments, you need to use `delete()` function on the `Attachment` model. In that case, an additional check will proceed, if there no link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
 
-Let's come back to our example with hero relation from "Manage file attachments"
-
-
 Let's come back to our example with `hero` relation from ["Manage file attachments"](/en/docs/quickstart-files)
 
 ```php
