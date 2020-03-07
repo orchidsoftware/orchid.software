@@ -592,7 +592,7 @@ blade;
 Если вашему компоненту требуются зависимости от сервисного контейнера, вы можете перечислить их и они будут автоматически внедрены контейнером:
 
 ```php
-use Illuminate\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
 
 /**
  * Create a new component instance.
