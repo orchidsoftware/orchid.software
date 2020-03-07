@@ -501,6 +501,112 @@ public function layout(): array
 Все данные из метода `query` будут переданы в ваш шаблон.
 
 
+## Blade Components
+
+Компоненты `Blade` могут быть вызваны в качестве слоя, для этого необходимо создать компонет с помощью `artisan` команды:
+
+```bash
+php artisan make:component Hello --inline
+```
+
+Для того, чтобы вызвать его в экране необходимо использовать статический метод `Layout::component`:
+
+```php
+use App\View\Components\Hello;
+use Orchid\Screen\Layout;
+
+//...
+
+public function layout(): array
+{
+    return [
+        Layout::component(Hello::class),
+    ];
+}
+```
+
+Все компоненты могут получать данные из запроса (`query`) экрана автоматически в конструкторе.
+Например, добавим информацию в экран:
+
+```php
+use App\View\Components\Hello;
+use Orchid\Screen\Layout;
+
+//...
+
+public function query(): array
+{
+    return [
+        'name' => 'Alexandr Chernyaev',
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Layout::component(Hello::class),
+    ];
+}
+```
+
+Для того, чтобы имя было передано в компонент необходимо опеределить такое же имя в конструкторе компонента:
+
+```php
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+
+class Hello extends Component
+{
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * Create a new component instance.
+     *
+     * @param string $name
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\View\View|string
+     */
+    public function render()
+    {
+        return <<<'blade'
+<div>
+    Hello {{ $name }}!
+</div>
+blade;
+    }
+}
+```
+
+Если вашему компоненту требуются зависимости от сервисного контейнера, вы можете перечислить их и они будут автоматически внедрены контейнером:
+
+```php
+use Illuminate\Foundation\Application;
+
+/**
+ * Create a new component instance.
+ *
+ * @param Application $application
+ * @param string      $name
+ */
+public function __construct(Application $application, string $name)
+{
+    $this->application = $application;
+    $this->name = $name;
+}
+```
+
 ## Обертка
 
 Промежуточным звеном между "Пользовательским шаблоном" и стандартными слоями может служить "Обёртка", с помощью которой
