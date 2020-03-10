@@ -518,6 +518,8 @@ public function layout(): array
 }
 ```
 
+Вы можете отобразить содержимое `name` вот так:
+
 ```php
 // ... /views/hello.blade.php
 
