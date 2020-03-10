@@ -682,8 +682,8 @@ class MySelection extends Selection
 <p><strong>Обратите внимание</strong>, при использовании метода <strong>loadModalAsync</strong> содержимое окна использует динамические данные, которых нет в первоначальной загрузке. Для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: <code>{{ $variable ?? '' }}</code>.</p>
 </blockquote>
 <h2><a href="#polzovatelskiy-shablon" name="polzovatelskiy-shablon">Пользовательский шаблон</a></h2>
-<p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный шаблон,
-для этого:</p>
+<p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный <code>blade</code> шаблон,
+для этого необходимо вызвать <code>Layout::view</code> передав параметром строку имени:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -691,6 +691,25 @@ class MySelection extends Selection
     ];
 }</code></pre>
 <p>Все данные из метода <code>query</code> будут переданы в ваш шаблон.</p>
+<pre><code class="language-php">// ... Screen
+
+public function query(): array
+{
+    return [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Layout::view('hello'),
+    ];
+}</code></pre>
+<pre><code class="language-php">// ... /views/hello.blade.php
+
+Hello {{ $name }}!
+</code></pre>
 <h2><a href="#obertka" name="obertka">Обертка</a></h2>
 <p>Промежуточным звеном между "Пользовательским шаблоном" и стандартными слоями может служить "Обёртка", с помощью которой
 доступно указывать где именно должны отображаться другие слои.</p>
