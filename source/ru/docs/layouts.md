@@ -486,8 +486,8 @@ Layout::modal('exampleModals', [
 ## Пользовательский шаблон
 
 
-Вполне ожидаемая ситуация, когда необходимо отобразить собственный шаблон, 
-для этого:
+Вполне ожидаемая ситуация, когда необходимо отобразить собственный `blade` шаблон, 
+для этого необходимо вызвать `Layout::view` передав параметром строку имени:
 
 ```php
 public function layout(): array
@@ -499,6 +499,33 @@ public function layout(): array
 ```
 
 Все данные из метода `query` будут переданы в ваш шаблон.
+
+```php
+// ... Screen
+
+public function query(): array
+{
+    return [
+        'name' => 'Alexandr Chernyaev',
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Layout::view('hello'),
+    ];
+}
+```
+
+```php
+// ... /views/hello.blade.php
+
+Hello {{ $name }}!
+
+```
+
+
 
 
 ## Обертка
