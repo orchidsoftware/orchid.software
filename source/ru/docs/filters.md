@@ -129,7 +129,7 @@ class QueryFilter extends Filter
     }
 
     /**
-     * @return Array
+     * @return Field[]
      */
     public function display() : array
     {
