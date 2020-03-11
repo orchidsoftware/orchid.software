@@ -42,7 +42,7 @@ section: main
 
 
 
-## Промежуточные слои
+## Middleware
 
 ```php
 'middleware' => [
