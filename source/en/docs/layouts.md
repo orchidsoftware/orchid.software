@@ -477,6 +477,33 @@ public function layout(): array
 
 All data from the `query` method will be passed to your template.
 
+```php
+// ... Screen
+
+public function query(): array
+{
+    return [
+        'name' => 'Alexandr Chernyaev',
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Layout::view('hello'),
+    ];
+}
+```
+
+You can display the contents of `name` like this:
+
+```php
+// ... /views/hello.blade.php
+
+Hello {{ $name }}!
+
+```
+
 
 ## Wrapper
 
