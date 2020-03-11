@@ -130,15 +130,17 @@ class QueryFilter extends Filter
     }
 
     /**
-     * @return Field
+     * @return Field[]
      */
-    public function display(): Field
+    public function display(): array
     {
-        return Input::make('query')
-            ->type('text')
-            ->value($this->request->get('query'))
-            ->placeholder('Search...')
-            ->title('Search');
+        return [
+            Input::make('email')
+                ->type('text')
+                ->value($this->request->get('email'))
+                ->placeholder('Search...')
+                ->title('Search')
+        ];
     }
 }
 ```
