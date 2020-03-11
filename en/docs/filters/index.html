@@ -355,15 +355,17 @@ class QueryFilter extends Filter
     }
 
     /**
-     * @return Field
+     * @return Field[]
      */
-    public function display(): Field
+    public function display(): array
     {
-        return Input::make('query')
-            -&gt;type('text')
-            -&gt;value($this-&gt;request-&gt;get('query'))
-            -&gt;placeholder('Search...')
-            -&gt;title('Search');
+        return [
+            Input::make('email')
+                -&gt;type('text')
+                -&gt;value($this-&gt;request-&gt;get('email'))
+                -&gt;placeholder('Search...')
+                -&gt;title('Search')
+        ];
     }
 }</code></pre>
 <p>The filter will work, provided there is at least one parameter specified in the array <code>$parameters</code>,
