@@ -673,6 +673,26 @@ for this:</p>
     ];
 }</code></pre>
 <p>All data from the <code>query</code> method will be passed to your template.</p>
+<pre><code class="language-php">// ... Screen
+
+public function query(): array
+{
+    return [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Layout::view('hello'),
+    ];
+}</code></pre>
+<p>You can display the contents of <code>name</code> like this:</p>
+<pre><code class="language-php">// ... /views/hello.blade.php
+
+Hello {{ $name }}!
+</code></pre>
 <h2><a href="#wrapper" name="wrapper">Wrapper</a></h2>
 <p>The “Wrap” can serve as an intermediary between the “User Pattern” and standard layers, with which
 available indicate exactly where the other layers should be displayed.</p>
