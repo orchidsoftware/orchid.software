@@ -128,27 +128,8 @@ Cropper::make('post.hero')
 > **Note.** In order for your database to be homogeneous, use one of the proposed options.
 
 Let us dwell on the records of the number, but first, delete all existing records.
-In order to display a picture outside the package, you need to establish a relation in our model:
-
-```php
-// app/Post.php
-
-use Orchid\Attachment\Models\Attachment;
-
-public function hero()
-{
-    return $this->hasOne(Attachment::class, 'id', 'hero');
-}
-```
-
-After that, we can access and load our `Attachment` object, for example:
-
-```php
-$url = \App\Post::find(3)->hero()->first()->url();
-```
 
 Most often, some files are combined, for example, for display in whole groups, the `Upload` field is suitable for this.
-
 
 ```php
 public function layout(): array
