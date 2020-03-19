@@ -16,7 +16,7 @@
 }
 
 .nav-docs {
-  position: sticky;
+  position: initial;
   top: 1.5em;
   bottom: 1.5em;
   line-height: 1.8em;
@@ -33,8 +33,14 @@
       @extend .text-black;
     }
   }
-
 }
+
+@media (min-width: 1920px) and (orientation:landscape) {
+  .nav-docs {
+    position: sticky;
+  }
+}
+
 
 @media only screen and (max-width: 480px) {
   .nav-docs {
