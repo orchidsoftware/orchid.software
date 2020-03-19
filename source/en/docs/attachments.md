@@ -83,7 +83,7 @@ public function hero()
 If you call your relation like function `$post->hero()` it will return `Illuminate\Database\Eloquent\Builder` class, that also has `delete()` function. But, it will execute sql query. If you call your relation like attribute `$post->hero` it will return model class. `Attachment` model class.
 
 ```php
-$post->hero->delete();
+$post->hero()->delete();
 ```
 
 > **Note.** You should build your relation using `withDefault()` function to avoid the null pointer exception.
@@ -99,7 +99,7 @@ In PostObserver we create `deleting` function
 ```php
 public function deleting(Post $post)
 {
-    $post->hero->delete();
+    $post->hero()->delete();
 }
 ```
 
@@ -108,7 +108,7 @@ In case, when you have multiple attachments you should use `attachment` relation
 ```php
 public function deleting(Post $post)
 {
-    $post->attachment->each->delete();
+    $post->attachment()->each->delete();
 }
 ```
 
