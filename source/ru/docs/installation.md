@@ -14,7 +14,7 @@ section: main
 Платформа является пакетом для фреймворка Laravel, необходимо сначала установить его. Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив в терминале команду:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "6.*" --prefer-dist
+$ composer create-project laravel/laravel orchid-project "7.*" --prefer-dist
 ```
 
 > **У вас нет Composer?** Его легко установить, следуя инструкциям на странице [загрузки](https://getcomposer.org/download/).
