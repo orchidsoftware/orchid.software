@@ -255,6 +255,9 @@
                 <a href="#introduction">Introduction</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#what-is-the-difference-between-other-packages">What is the difference between other packages?</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#why-is-rapid-development">Why is rapid development?</a>
             </li>
                     <li class="anchor-h2">
@@ -274,6 +277,33 @@
 <blockquote>
 <p><strong>Note!</strong> The manual contains information on using the package, but does not explain the use of the framework. It is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
 </blockquote>
+<h2><a href="#what-is-the-difference-between-other-packages" name="what-is-the-difference-between-other-packages">What is the difference between other packages?</a></h2>
+<p>The Laravel ecosystem is rich in various admin panels. Maybe,
+You already solve your problems using Nova, Voyager, BackPack, QuickAdminPanel or the like,
+and here you were led by a desire to find out if the platform will simplify and improve your work.
+We hope to answer this question.</p>
+<p>All previous packages are designed to simplify CRUD database operations and
+ they can be divided into several methods:</p>
+<ul><li>
+<p><strong>Scaffolding</strong> - scaffolding method, consists in the generation of physical files
+according to specified specifications, thereby being the fastest at the initial stage of application development.
+As a rule, after generation, developers delete such packages, since they are not able to update
+files with manual changes for updated criteria.</p>
+</li>
+<li>
+<p><strong>Visual programming</strong> - a method in which the developer drags or selects pre-prepared
+objects thus build the application, instead of writing program code. This view is based on the assumption that most programs are simple procedural
+sequences. However, once a program becomes more than a pretty trivial example,
+its complexity will soon afflict the novice programmer. Beginners find it very difficult to reason about a large codebase and bogged down in attempts to create stable and efficient large-scale software.</p>
+</li>
+<li>
+<p><strong>One file</strong> - a method that invites the developer to describe all the basic actions in one single file (Resource, Section, CrudController),
+which binds to the Eloquent model. This is another very good solution, but if we try to go beyond the scope of a CRUD application, then
+libraries concentrated in such a paradigm will not help us, because we do not work with that single class.</p>
+</li>
+</ul><p>Unlike scaffolding, this package will be useful at any stage of development, and not just at the beginning, remaining fast for development due to a ready-made set of components.
+It does not provide visual programming, which means you need to write code on the keyboard, and not click with the mouse.
+And instead of one, the main class, provides many small components for encapsulation and reuse.</p>
 <h2><a href="#why-is-rapid-development" name="why-is-rapid-development">Why is rapid development?</a></h2>
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
 <ul><li>
