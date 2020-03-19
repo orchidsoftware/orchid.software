@@ -140,7 +140,7 @@ ItemMenu::label('Second')->sort(5);
 ItemMenu::label('First')->sort(4);
 ```
 
-### Notifications
+### Badge notifications
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
 
