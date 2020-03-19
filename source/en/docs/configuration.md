@@ -13,7 +13,7 @@ file `platform.php`. Each set comes with a commentary explaining the main point.
 
 Below we dive into the configuration file and give a detailed description of each parameter.
 
-## Platform address
+## Platform domain
 
 ```php
 'domain' => env('DASHBOARD_DOMAIN', null),
