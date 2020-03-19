@@ -350,18 +350,7 @@ public function layout(): array
 <blockquote>
 <p><strong>Примечание.</strong> Для того, что бы ваша база данных была однородна используйте один из предложенных вариантов.</p>
 </blockquote>
-<p>Остановимся на записи номера, но для начала удалите все уже существующие записи.
-Для того, что бы отображать картинку вне пакета, необходимо установить связь в нашей модели: </p>
-<pre><code class="language-php">// app/Post.php
-
-use Orchid\Attachment\Models\Attachment;
-
-public function hero()
-{
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
-}</code></pre>
-<p>После этого, мы можем обращаться и загружать наш обьект <code>Attachment</code>, например:</p>
-<pre><code class="language-php">$url = \App\Post::find(3)-&gt;hero()-&gt;first()-&gt;url();</code></pre>
+<p>Остановимся на записи номера, но для начала удалите все уже существующие записи.</p>
 <p>Чаще всего некоторые файлы обьеденяются, например, для показа целыми группами. Для этого подойдет поле <code>Upload</code>.</p>
 <pre><code class="language-php">public function layout(): array
 {
