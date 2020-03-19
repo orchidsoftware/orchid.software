@@ -312,7 +312,7 @@ public function hero()
     return $this-&gt;hasOne(Attachment::class, 'id', 'hero')-&gt;withDefault();
 }</code></pre>
 <p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute sql query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
-<pre><code class="language-php">$post-&gt;hero-&gt;delete();</code></pre>
+<pre><code class="language-php">$post-&gt;hero()-&gt;delete();</code></pre>
 <blockquote>
 <p><strong>Note.</strong> You should build your relation using <code>withDefault()</code> function to avoid the null pointer exception.</p>
 </blockquote>
@@ -321,12 +321,12 @@ public function hero()
 <p>In PostObserver we create <code>deleting</code> function</p>
 <pre><code class="language-php">public function deleting(Post $post)
 {
-    $post-&gt;hero-&gt;delete();
+    $post-&gt;hero()-&gt;delete();
 }</code></pre>
 <p>In case, when you have multiple attachments you should use <code>attachment</code> relation from the <code>Attachable</code> trait.</p>
 <pre><code class="language-php">public function deleting(Post $post)
 {
-    $post-&gt;attachment-&gt;each-&gt;delete();
+    $post-&gt;attachment()-&gt;each-&gt;delete();
 }</code></pre>
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 <pre><code class="language-php">public function boot()
