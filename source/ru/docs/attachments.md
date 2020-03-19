@@ -84,7 +84,7 @@ public function hero()
 При обращении к отношению как к функции `$post->hero()` оно вернет экземпляр класса `Illuminate\Database\Eloquent\Builder` у которого тоже есть функция `delete()`, однако она выполняет sql запрос. При обращении к отношению как к свойству `$post->hero` оно вернет экземпляр модели. В данном случае модели `Attachment`, которая нам и нужна.
 
 ```php
-$post->hero->delete();
+$post->hero()->delete();
 ```
 
 > **Примечание.** Отношение важно описать используя функцию `withDefault()`, чтобы избежать null pointer exception.
@@ -100,7 +100,7 @@ php artisan make:observer PostObserver
 ```php
 public function deleting(Post $post)
 {
-    $post->hero->delete();
+    $post->hero()->delete();
 }
 ```
 
@@ -109,7 +109,7 @@ public function deleting(Post $post)
 ```php
 public function deleting(Post $post)
 {
-    $post->attachment->each->delete();
+    $post->attachment()->each->delete();
 }
 ```
 
