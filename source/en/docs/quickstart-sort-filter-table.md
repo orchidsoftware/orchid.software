@@ -1,7 +1,7 @@
 ---
 title: Sorting and filtering in a table
 description: Laravel CRUD
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

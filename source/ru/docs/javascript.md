@@ -1,8 +1,9 @@
 ---
 title: Использование JavaScript 
 description: Пример использования Stimulus JS с пакетом Laravel Orchid
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Основой платформы по части стилей является [Bootstrap](http://getbootstrap.com/), а в браузере выполняется код [Stimulus](https://stimulusjs.org/), вам необязательно использовать именно их.

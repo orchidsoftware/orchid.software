@@ -1,8 +1,9 @@
 ---
 title: Глобальный поиск
 description: 
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 ## Использование полнотекстового поиска

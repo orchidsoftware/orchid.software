@@ -1,7 +1,7 @@
 ---
 title: Controllers
 description: Use of controllers in the application
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

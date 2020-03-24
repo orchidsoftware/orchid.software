@@ -1,7 +1,7 @@
 ---
 title: Permissions
 description: Typically, you manage several dozen permits in a typical business process.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: Элементы формы
 description: Поля используются для генерации вывода шаблона формы заполнения и редактирования
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Поля используются для генерации вывода шаблона формы заполнения и редактирования.

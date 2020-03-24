@@ -1,7 +1,7 @@
 ---
 title: Filters
 description: Filters used to simplify the search for records using a typical filter.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

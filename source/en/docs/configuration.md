@@ -1,7 +1,7 @@
 ---
 title: Platform configuration
 description: ORCHID uses the standard configuration system for Laravel.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

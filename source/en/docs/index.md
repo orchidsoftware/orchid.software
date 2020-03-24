@@ -1,7 +1,7 @@
 ---
 title: Documentation
 description: 
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Screen concept
 description: The main components of the user interface
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

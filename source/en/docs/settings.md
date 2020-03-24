@@ -1,7 +1,7 @@
 ---
 title: Settings
 description: Settings this is key-value storage
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

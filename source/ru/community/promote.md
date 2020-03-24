@@ -1,8 +1,10 @@
 ---
 title: Содействие проекту
 description: Есть много способов внести свой вклад в сообщество ORCHID
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
+menu: community
 ---
 
 Есть много способов внести свой вклад в сообщество ORCHID, 

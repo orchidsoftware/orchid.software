@@ -1,8 +1,9 @@
 ---
 title: Концепция экранов
 description: Основные компоненты пользовательского интерфейса
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Основным элементом платформы являются экраны, описанные иерархией компоновки, в соответствии с которой

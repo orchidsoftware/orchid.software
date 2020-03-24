@@ -1,8 +1,9 @@
 ---
 title: Настройки
 description: это хранилище «ключ-значение»
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Простейшее постоянное хранилище данных, использующее ключ для доступа к значениию. 

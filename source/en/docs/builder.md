@@ -1,7 +1,7 @@
 ---
 title: Form builder
 description: Laravel form builder
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

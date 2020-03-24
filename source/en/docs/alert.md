@@ -1,7 +1,7 @@
 ---
 title: Notifications
 description:  A simple way to notify the user about the status of your application.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

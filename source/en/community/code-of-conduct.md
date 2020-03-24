@@ -1,8 +1,10 @@
 ---
 title: Community Guidelines
 description: Being involved in the ORCHID community is an amazing experience
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
+lang: en
+menu: community
 ---
 
 Being involved in the ORCHID community is an amazing experience;

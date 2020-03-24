@@ -1,7 +1,7 @@
 ---
 title: Data management
 description: Laravel CRUD
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Attachments
 description: Attachments are files related to the record.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 Files of various formats and extensions related to the recording are attachments

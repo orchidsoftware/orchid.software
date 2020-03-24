@@ -1,8 +1,9 @@
 ---
 title: Конфигурация платформы
 description: ORCHID использует стандартную систему настроек для Laravel.
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Платформа использует стандартную систему настроек для Laravel.

@@ -1,8 +1,10 @@
 ---
 title: Contributors
 description: I urge everyone to contribute to the project.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
+lang: en
+menu: community
 ---
 
 I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <https://github.com/orchidsoftware/platform>.

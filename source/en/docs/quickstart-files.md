@@ -1,7 +1,7 @@
 ---
 title: Manage file attachments
 description: Laravel File Manager
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

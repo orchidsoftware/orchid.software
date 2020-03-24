@@ -1,8 +1,9 @@
 ---
 title: Отображение данных
 description: Отображайте данные с помощью готовых шаблонов без написания html 
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Пакет имеет широкий набор различных полей для заполнения и редактирования контента, но сложно построить

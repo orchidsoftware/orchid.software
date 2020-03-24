@@ -1,8 +1,9 @@
 ---
 title: Строитель форм
 description: Laravel form builder
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Описывать поля формы может быть нудным и затруднительным занятием, что бы их легко модифицировать и использовать повторно, используется специальный строитель `Orchid\Screen\Builder`, задача которого состоит в генерации `html`-кода.

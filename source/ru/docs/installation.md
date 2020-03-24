@@ -1,8 +1,9 @@
 ---
 title: Установка платформы
 description: Это руководство по началу работы поможет вам начать использовать ORCHID. 
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 

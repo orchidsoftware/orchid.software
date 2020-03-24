@@ -1,8 +1,10 @@
 ---
 title: The MIT License (MIT) 
 description: Лицензионное соглашение 
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
+menu: community
 ---
 
 ## Лицензионное соглашение 

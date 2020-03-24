@@ -1,8 +1,9 @@
 ---
 title: Документация
 description: 
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 ## Введение

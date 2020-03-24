@@ -1,8 +1,9 @@
 ---
 title: Вложения
 description: Вложения - это файлы, относящиеся к записи.
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Файлы различных форматов и расширений относящиеся к записи являются вложениями.

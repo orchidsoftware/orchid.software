@@ -1,7 +1,7 @@
 ---
 title: Platform installation
 description: This getting started guide will help you get started using ORCHID.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

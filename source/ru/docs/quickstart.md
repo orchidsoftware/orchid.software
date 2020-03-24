@@ -1,8 +1,9 @@
 ---
 title: Быстрый старт для начинающих
 description: Краткое руководство представляет собой базовое введение в инфраструктуру Orchid
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Это краткое руководство представляет собой базовое введение в инфраструктуру и включает в себя информацию

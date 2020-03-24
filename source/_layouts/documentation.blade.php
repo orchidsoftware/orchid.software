@@ -1,5 +1,7 @@
 @extends('_layouts.master')
 
+@include('_lang.'.$page->get('lang','en'))
+
 @section('nav-toggle')
     @include('_nav.menu-toggle')
 @endsection
@@ -18,7 +20,10 @@
                             </div>
                         </div>
 
-                        @yield('documentation.menu')
+                        @include('_nav.menu', ['items' => $page->navigation
+                            [$page->get('lang','en')]
+                            [$page->get('menu','docs')]
+                        ])
                     </nav>
                 </div>
                 <div class="col col-md-9">

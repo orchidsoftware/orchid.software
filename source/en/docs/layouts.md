@@ -1,7 +1,7 @@
 ---
 title: Screen layouts
 description: Displaying the appearance of user interface elements in an application is important
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

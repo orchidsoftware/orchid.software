@@ -1,8 +1,9 @@
 ---
 title: Сортировка и фильтрация в таблице
 description: Laravel CRUD
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Это руководство продолжение учебника ["Управление данными"](/ru/docs/quickstart-crud), в котором мы будем помогать пользователю быстрее находить информацию в таблицах.

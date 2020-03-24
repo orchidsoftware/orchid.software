@@ -1,7 +1,7 @@
 ---
 title: Form elements
 description: Fields are used to generate the output form template and edit
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

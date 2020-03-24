@@ -1,8 +1,10 @@
 ---
 title: The MIT License (MIT)
 description: MIT License
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
+lang: en
+menu: community
 ---
 
 ## MIT License

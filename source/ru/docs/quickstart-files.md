@@ -1,8 +1,9 @@
 ---
 title: Управление вложенными файлами
 description: Laravel File Manager
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Это руководство продолжение учебника ["Управление данными"](/ru/docs/quickstart-crud), 

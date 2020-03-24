@@ -84,10 +84,22 @@
             <section class="b-t">
                 <div class="container">
                     <div class="pt-5 pb-5 text-xs text-center">
+
+                        @foreach($page->navigation[$page->get('lang','en')]['community'] as $links)
+                            <ul class="list-inline">
+                            @isset($links['children'])
+                                @foreach($links['children'] as $name => $url)
+                                        <li class="hidden-xs">
+                                            <a href="{{$url}}">
+                                                {{ $name }}
+                                            </a>
+                                        </li>
+                                @endforeach
+                            @endisset
+                            </ul>
+                        @endforeach
+
                         <ul class="list-inline">
-
-
-
                             <li class="hidden-xs">
                                 <a href="https://github.com/orchidsoftware" target="_blank">
                                     <i class="icon-social-github m-r-xs"></i> Github

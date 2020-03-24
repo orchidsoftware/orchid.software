@@ -1,7 +1,7 @@
 ---
 title: Use JavaScript
 description: Stimulus JS usage example with Laravel Orchid package
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

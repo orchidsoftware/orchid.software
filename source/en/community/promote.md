@@ -1,8 +1,10 @@
 ---
 title: Promote
 description: There are many ways to contribute to the ORCHID community
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
+lang: en
+menu: community
 ---
 
 There are many ways to contribute to the ORCHID community,

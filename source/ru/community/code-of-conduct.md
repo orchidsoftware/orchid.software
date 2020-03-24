@@ -1,8 +1,10 @@
 ---
 title: Главные принципы сообщества
 description: Быть вовлеченным в сообщество ORCHID — это потрясающий опыт
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
+menu: community
 ---
 
 Быть вовлеченным в сообщество ORCHID — это потрясающий опыт;

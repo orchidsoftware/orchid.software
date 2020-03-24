@@ -1,8 +1,9 @@
 ---
 title: Фильтры
 description: Фильтры служат для упрощения поиска записей с использованием типичного фильтра.
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 Фильтры служат для упрощения поиска записей с использованием типичного фильтра.

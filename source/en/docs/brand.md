@@ -1,7 +1,7 @@
 ---
 title: Branding
 description: Customize the look to match your brand
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

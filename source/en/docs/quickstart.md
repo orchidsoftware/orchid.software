@@ -1,7 +1,7 @@
 ---
 title: Quick Start for beginners
 description: The Quick Start Guide is a basic introduction to the Orchid infrastructure.
-extends: _layouts.documentation.en
+extends: _layouts.documentation
 section: main
 ---
 

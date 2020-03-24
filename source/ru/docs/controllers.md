@@ -1,8 +1,9 @@
 ---
 title: Контроллеры
 description: Использование контроллеров в приложении
-extends: _layouts.documentation.ru
+extends: _layouts.documentation
 section: main
+lang: ru
 ---
 
 
