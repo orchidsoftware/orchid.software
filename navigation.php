@@ -84,7 +84,7 @@ return [
             ],
             'Дополнительно'      => [
                 'children' => [
-                    'Представители'    => '/ru/docs/presenters'
+                    'Представители'    => '/ru/docs/presenters',
                     'Scout поиск'      => '/ru/docs/global-search',
                     'Настройки'        => '/ru/docs/settings',
                     'Контроллеры'      => '/ru/docs/controllers',
