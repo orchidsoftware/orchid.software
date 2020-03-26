@@ -26,8 +26,6 @@ class Client extends Model
 Прежде чем экземпляр этого класса будет обёрнут в представителя, необходимо создать его:
 
 ```php
-declare(strict_types=1);
-
 namespace App\Presenters;
 
 use Orchid\Support\Presenter;
