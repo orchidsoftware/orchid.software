@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Представители | Orchid - Laravel Admin Panel"><meta property="og:description" content="Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала."><meta property="og:url" content="https://orchid.software/ru/docs/presenter"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Представители</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Представитель (Presenter) - это класс, который оборачивает другой объект с целью добавления в него функционала."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Представители | Orchid - Laravel Admin Panel"><meta property="og:description" content="Представитель (Presenter) - это класс, который оборачивает другой объект с целью добавления в него функционала."><meta property="og:url" content="https://orchid.software/ru/docs/presenter"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Представители</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -216,7 +216,7 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала. </p>
+                        <hr class="mb-4"><p>Представитель (Presenter) - это класс, который оборачивает объект с целью добавления в него функционала. </p>
 <p>Допустим у нас есть модель клиента:</p>
 <pre><code class="language-php">namespace App;
 
@@ -277,7 +277,7 @@ class Client extends Model
 <blockquote>
 <p><strong>Примечание.</strong> Многие функции платформы ожидают представителя в методе <code>presenter</code>, но вам необязательно использовать именно его.</p>
 </blockquote>
-<p>Использование:</p>
+<p>Теперь его использование становиться проще:</p>
 <pre><code class="language-php">use App\Client;
 
 $client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();</code></pre>
