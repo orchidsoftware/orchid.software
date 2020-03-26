@@ -1,0 +1,407 @@
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Представители | Orchid - Laravel Admin Panel"><meta property="og:description" content="Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала."><meta property="og:url" content="https://orchid.software/ru/docs/presenter"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Представители</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+
+    <div id="app">
+
+        <!-- header -->
+        <header id="header" class="bg-dark"><div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center py-3 px-md-4">
+                    <h5 class="my-0 mr-md-auto font-weight-normal">
+                        <a href="https://orchid.software/ru" class="v-center">
+                            <img src="/assets/img/logo-white.svg" alt="Laravel Orchid" class="mr-3" style="height: 20px;"><span class="h3 font-thin text-uppercase">Orchid</span>
+                        </a>
+                    </h5>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3"><a class="p-3 m-sm-0" href="/ru/docs">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            Документация                        </a>
+                        <a class="p-3 m-sm-0" href="/ru/icons">
+                            <i class="icon-cup m-r-xs text-xs"></i>
+                            Иконки                        </a>
+
+                        <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                            <i class="icon-bubbles m-r-xs text-xs"></i>
+                            Чат                        </a>
+                    </nav><a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
+                        <strong><i class="icon-social-github m-r-xs"></i> Contribute on GitHub</strong>
+                    </a>
+                </div>
+            </div>
+        </header><!-- / header --><div id="content">
+            
+    <div class="bg-white-only">
+        <div class="container no-padder" id="docs">
+            <div class="row pt-3 pb-3 m-0">
+                <div class="col col-md-3 b-r">
+                    <nav class="nav-docs"><div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
+                            <div class="block w-100">
+                                <input type="search" class="form-control w-full" id="docsearch" placeholder="Поиск..."></div>
+                        </div>
+
+                        <ul class=" toc-links "><h4 class="text-orchid font-thin">Начало работы</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs" class="lvl1 ">
+            Введение в проект
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/installation" class="lvl1 ">
+            Установка платформы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/configuration" class="lvl1 ">
+            Обзор параметров
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Учебные пособия</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/quickstart" class="lvl1 ">
+            Быстрый старт
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-crud" class="lvl1 ">
+            Управление данными
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-files" class="lvl1 ">
+            Работа с файлами
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/quickstart-sort-filter-table" class="lvl1 ">
+            Сортировка и фильтрация
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Основные концепции</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Экраны
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/field" class="lvl1 ">
+            Элементы формы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/menu" class="lvl1 ">
+            Меню панели
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/access" class="lvl1 ">
+            Права доступа
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/filters" class="lvl1 ">
+            Фильтрация
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/attachments" class="lvl1 ">
+            Вложенные файлы
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/alert" class="lvl1 ">
+            Уведомления
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Дополнительно</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/global-search" class="lvl1 ">
+            Scout поиск
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/settings" class="lvl1 ">
+            Настройки
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/controllers" class="lvl1 ">
+            Контроллеры
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/javascript" class="lvl1 ">
+            Использование JS
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/builder" class="lvl1 ">
+            Строитель форм
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/brand" class="lvl1 ">
+            Брендирование
+        </a>
+    
+    </li>
+    </ul></li>
+    </ul></nav></div>
+                <div class="col col-md-9">
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Представители</h1>
+
+                        <div class="none d-md-block">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/presenter.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
+                            </a>
+                        </div>
+                        <hr class="mb-4"><p>Представитель (Presenter) это объект, который оборачивает другой объект с целью добавления в него функционала. </p>
+<p>Допустим у нас есть модель клиента:</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Client extends Model
+{
+    protected $fillable = [
+        'firstName',
+        'lastName'
+    ];
+}</code></pre>
+<p>Прежде чем экземпляр этого класса будет обёрнут в представителя, необходимо создать его:</p>
+<pre><code class="language-php">declare(strict_types=1);
+
+namespace App\Presenters;
+
+use Orchid\Support\Presenter;
+
+class ClientPresenter extends Presenter
+{
+    public function fullName(): string
+    {
+        return $this-&gt;entity-&gt;firstName . ' ' . $this-&gt;entity-&gt;lastName;
+    }
+}</code></pre>
+<p>После этого мы можем использовать его следующим образом:</p>
+<pre><code class="language-php">use App\Client;
+use App\Presenters\ClientPresenter;
+
+$client = new Client([
+        'fistName' =&gt; 'Alexandr',
+        'lastName' =&gt; 'Chernyaev'
+    ]);
+
+$presenter = new ClientPresenter($client);
+
+$presenter-&gt;fullName();</code></pre>
+<blockquote>
+<p><strong>Заметьте</strong>, что представитель получает свойства <code>firstName</code> и <code>lastName</code> у модели, потому что этих свойств у него нет.</p>
+</blockquote>
+<p>Обычно нет необходимости создавать и передавать представителя каждый раз отдельно, по этому укажем это создание в модели:</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Presenters\ClientPresenter;
+
+class Client extends Model
+{
+    protected $fillable = [
+        'firstName',
+        'lastName'
+    ];
+
+    public function presenter(): ClientPresenter
+    {
+        return new ClientPresenter($this);
+    }
+}</code></pre>
+<blockquote>
+<p><strong>Примечание.</strong> Многие функции платформы ожидают представителя в методе <code>presenter</code>, но вам необязательно использовать именно его.</p>
+</blockquote>
+<p>Использование:</p>
+<pre><code class="language-php">use App\Client;
+
+$client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();</code></pre>
+<p>Если необходимо получить список представителей лучшим вариантом будет использование методов коллекций, например:</p>
+<pre><code class="language-php">use App\Client;
+
+$clients = Client::limit(10)-&gt;get()-&gt;map-&gt;presenter();
+
+foreach($clients as $client)
+{
+    $client-&gt;fullName();
+}</code></pre>                    </main></div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+
+        <!-- footer -->
+        <footer id="footer"><section class="b-t"><div class="container">
+                    <div class="pt-5 pb-5 text-xs text-center">
+
+                                                    <ul class="list-inline"><li class="hidden-xs">
+                                            <a href="/ru/community/code-of-conduct">
+                                                Кодекс поведения
+                                            </a>
+                                        </li>
+                                                                        <li class="hidden-xs">
+                                            <a href="/ru/community/contributors">
+                                                Участие в разработке
+                                            </a>
+                                        </li>
+                                                                        <li class="hidden-xs">
+                                            <a href="/ru/community/promote">
+                                                Содействие проекту
+                                            </a>
+                                        </li>
+                                                                        <li class="hidden-xs">
+                                            <a href="/ru/community/license">
+                                                Лицензия
+                                            </a>
+                                        </li>
+                                                                                        </ul><ul class="list-inline"><li class="hidden-xs">
+                                <a href="https://github.com/orchidsoftware" target="_blank">
+                                    <i class="icon-social-github m-r-xs"></i> Github
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-social-twitter m-r-xs"></i> Twitter
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer">
+                                    <i class="icon-paper-plane m-r-xs"></i> Telegram
+                                </a>
+                            </li>
+                        </ul><ul class="list-inline"><a href="/en">English</a>
+                                <span> / </span>
+                                <a href="/ru">Russian</a>
+                        </ul></div>
+                </div>
+            </section></footer><!-- / footer --></div>
+
+
+            <!-- Insert analytics code here -->
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" async> (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter42925369 = new Ya.Metrika2({
+                            id: 42925369,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true,
+                            trackHash: true
+                        });
+                    } catch (e) {
+                    }
+                });
+                var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://mc.yandex.ru/metrika/tag.js";
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks2"); </script><noscript>
+            <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""></div>
+        </noscript> <!-- /Yandex.Metrika counter -->
+
+
+        <script async>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            ga('create', 'UA-39757298-4', 'auto');
+            ga('send', 'pageview');
+        </script><script src="/assets/build/js/app.js?id=4f0c44e39b3446558f05"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
+        if(window.document.getElementById('docsearch')) {
+            docsearch({
+                apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+                indexName: 'orchid_software',
+                inputSelector: '#docsearch',
+                algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+                debug: true
+            });
+        }
+    </script></body></html>
