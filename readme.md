@@ -1,5 +1,7 @@
 # Orchid Website
 
+![Build and Deploy](https://github.com/orchidsoftware/orchid.software/workflows/Build%20and%20Deploy/badge.svg?branch=master)
+
 This is the repository for website at [orchid.software](http://orchid.software).
 
 ## Contributing
