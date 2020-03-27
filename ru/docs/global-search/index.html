@@ -234,7 +234,111 @@
     <hr>
 <h2><a href="#ispolzovanie-polnotekstovogo-poiska" name="ispolzovanie-polnotekstovogo-poiska">Использование полнотекстового поиска</a></h2>
 <p>Платформа поставляется с пакетом <a href="https://github.com/laravel/scout">Laravel Scout</a>, который является абстракцией для полнотекстового поиска в ваши модели <code>Eloquent</code>. Так как <strong><code>Scout</code> не содержит самого «драйвера» поиска</strong>, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.</p>
-<p>Для использования глобального поиска требуется добавить новый трейт <code>Orchid\Platform\Searchable</code> к модели, он уже включает в себя <code>Laravel Scout</code>.</p>
+<blockquote>
+<p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними. А так же произвести действия по настройки модели из документации <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
+</blockquote>
+<p>Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:</p>
+<pre><code class="language-php">namespace App\Providers;
+
+use App\Idea;
+use Orchid\Platform\Dashboard;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Boot the application events.
+     *
+     * @param Dashboard $dashboard
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard-&gt;registerSearch([
+          Idea::class,
+          //...Models
+        ]);
+    }
+}</code></pre>
+<p>Отображение результатов осуществляеться с помощью вызова <code>presenter()</code> у обьекта.</p>
+<pre><code class="language-php">namespace App;
+
+use App\Orchid\Presenters\IdeaPresenter;
+use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Model;
+
+class Idea extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the presenter for the model.
+     *
+     * @return IdeaPresenter
+     */
+    public function presenter()
+    {
+        return new IdeaPresenter($this);
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this-&gt;toArray();
+
+        // Customize array...
+
+        return $array;
+    }
+}</code></pre>
+<p>В представители укажем интерфейс <code>Searchable</code> и определим методы которые будут возвращать значения для показа пользователю, например так:</p>
+<pre><code class="language-php">namespace App\Orchid\Presenters;
+
+class IdeaPresenter extends Presenter implements Searchable
+{
+    /**
+     * @return string
+     */
+    public function label(): string
+    {
+        return 'Ideas';
+    }
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return $this-&gt;entity-&gt;name;
+    }
+
+    /**
+     * @return string
+     */
+    public function subTitle(): string
+    {
+        return 'Small descriptions';
+    }
+
+    /**
+     * @return string
+     */
+    public function url(): string
+    {
+        return url('/')
+    }
+
+    /**
+     * @return string
+     */
+    public function image(): ?string
+    {
+        return null;
+    }
+}</code></pre>
 <p>Как пример модель может выглядеть так:</p>
 <pre><code class="language-php">
 namespace App;
@@ -269,60 +373,7 @@ class Idea extends Model
         return $array;
     }
 }</code></pre>
-<p>Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:</p>
-<pre><code class="language-php">namespace App\Providers;
-
-use App\Idea;
-use Orchid\Platform\Dashboard;
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Boot the application events.
-     *
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard-&gt;registerGlobalSearch([
-          Idea::class,
-          //...Models
-        ]);
-    }
-}</code></pre>
 <h2><a href="#modifikatsiya-rezultatov" name="modifikatsiya-rezultatov">Модификация результатов</a></h2>
-<p>В результатах поиска могут быть указаны следующие параметры:</p>
-<ul><li><strong>label</strong> - Является группой, например: новости, пользователи и т.п.</li>
-<li><strong>titile</strong> - Главная строка текста, например, фамилия и имя пользователя.</li>
-<li><strong>subTitile</strong> - Дополнительная строка, например, должность, статус.</li>
-<li><strong>url</strong> - Доступная ссылка для перехода/редактирования.</li>
-<li><strong>avatar</strong> - Изображения.</li>
-</ul><p>По умолчанию из модели будут браться указанные атрибуты. Для того, что бы определить какие данные будут передаваться, указываются методы с префиксом <code>search</code> в явном виде, например:</p>
-<pre><code class="language-php">/**
- * @return string
- */
-public function searchLabel(): ?string;
-
-/**
- * @return string
- */
-public function searchTitle(): ?string
-
-/**
- * @return string
- */
-public function searchSubTitle(): ?string
-
-/**
- * @return string
- */
-public function searchUrl(): ?string
-
-/**
- * @return string
- */
-public function searchAvatar(): ?string</code></pre>
 <p>Для модификации запросов, например, выдавать в результатах только актуальные данные, можно модифицировать запрос с помощью переопределения метода:</p>
 <pre><code class="language-php">public function searchQuery(string $query = null) : LengthAwarePaginator</code></pre>                    </main></div>
             </div>
