@@ -10,7 +10,125 @@ lang: ru
 
 Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout), который является абстракцией для полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.
 
-Для использования глобального поиска требуется добавить новый трейт `Orchid\Platform\Searchable` к модели, он уже включает в себя `Laravel Scout`.
+> В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуеться ознакомится с ними. А так же произвести действия по настройки модели из документации [Laravel Scout](https://github.com/laravel/scout).
+
+
+Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:
+
+```php
+namespace App\Providers;
+
+use App\Idea;
+use Orchid\Platform\Dashboard;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Boot the application events.
+     *
+     * @param Dashboard $dashboard
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard->registerSearch([
+          Idea::class,
+          //...Models
+        ]);
+    }
+}
+```
+
+
+Отображение результатов осуществляеться с помощью вызова `presenter()` у обьекта.
+
+```php
+namespace App;
+
+use App\Orchid\Presenters\IdeaPresenter;
+use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Model;
+
+class Idea extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the presenter for the model.
+     *
+     * @return IdeaPresenter
+     */
+    public function presenter()
+    {
+        return new IdeaPresenter($this);
+    }
+    
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+    }
+}
+```
+
+В представители укажем интерфейс `Searchable` и определим методы которые будут возвращать значения для показа пользователю, например так:
+
+```php
+namespace App\Orchid\Presenters;
+
+class IdeaPresenter extends Presenter implements Searchable
+{
+    /**
+     * @return string
+     */
+    public function label(): string
+    {
+        return 'Ideas';
+    }
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return $this->entity->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function subTitle(): string
+    {
+        return 'Small descriptions';
+    }
+
+    /**
+     * @return string
+     */
+    public function url(): string
+    {
+        return url('/')
+    }
+
+    /**
+     * @return string
+     */
+    public function image(): ?string
+    {
+        return null;
+    }
+}
+```
+
+
 
 Как пример модель может выглядеть так:
 ```php
@@ -49,70 +167,9 @@ class Idea extends Model
 }
 ```
 
-Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:
-
-```php
-namespace App\Providers;
-
-use App\Idea;
-use Orchid\Platform\Dashboard;
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Boot the application events.
-     *
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerGlobalSearch([
-          Idea::class,
-          //...Models
-        ]);
-    }
-}
-```
-
 
 ## Модификация результатов
 
-В результатах поиска могут быть указаны следующие параметры:
-- **label** - Является группой, например: новости, пользователи и т.п.
-- **titile** - Главная строка текста, например, фамилия и имя пользователя.
-- **subTitile** - Дополнительная строка, например, должность, статус.
-- **url** - Доступная ссылка для перехода/редактирования.
-- **avatar** - Изображения.
-
-По умолчанию из модели будут браться указанные атрибуты. Для того, что бы определить какие данные будут передаваться, указываются методы с префиксом `search` в явном виде, например:
-
-```php
-/**
- * @return string
- */
-public function searchLabel(): ?string;
-
-/**
- * @return string
- */
-public function searchTitle(): ?string
-
-/**
- * @return string
- */
-public function searchSubTitle(): ?string
-
-/**
- * @return string
- */
-public function searchUrl(): ?string
-
-/**
- * @return string
- */
-public function searchAvatar(): ?string
-```
 
 Для модификации запросов, например, выдавать в результатах только актуальные данные, можно модифицировать запрос с помощью переопределения метода:
 
