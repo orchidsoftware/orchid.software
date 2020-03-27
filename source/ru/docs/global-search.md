@@ -128,46 +128,6 @@ class IdeaPresenter extends Presenter implements Searchable
 }
 ```
 
-
-
-Как пример модель может выглядеть так:
-```php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Searchable;
-
-class Idea extends Model
-{
-    use Searchable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'description', 'photo', 'price'
-    ];
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        // Customize array...
-
-        return $array;
-    }
-}
-```
-
-
 ## Модификация результатов
 
 
