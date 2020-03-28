@@ -350,9 +350,7 @@ if the array is empty, then the filter will work on every request.</p>
 you need to connect the trait <code>Orchid\Filter\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
 <pre><code class="language-php">use App\Model;
 
-Model::filtersApply([
-   Filter::class,
-])-&gt;simplePaginate();</code></pre>
+Model::filtersApply([Filter::class])-&gt;simplePaginate();</code></pre>
 <p>It is possible to use a whole group of filters merged into the <code>Selection</code> layer, through:</p>
 <pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();</code></pre>
 <p>Then all filters installed in the layer will be applied.</p>                    </main></div>
