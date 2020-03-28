@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-The results are displayed using the `presenter ()` call on the object.
+The results are displayed using the `presenter()` call on the object.
 
 ```php
 namespace App;
