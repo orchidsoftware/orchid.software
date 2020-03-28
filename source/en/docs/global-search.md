@@ -10,7 +10,7 @@ section: main
 The platform comes with a package [Laravel Scout](https://github.com/laravel/scout) which is an abstraction for full-text search in your `Eloquent` models. 
 Since **`Scout` does not contain the search driver itself**, you need to supply and specify the required solution, these can be elasticsearch, algolia, sphinx or other solutions.
 
-> This example uses [representatives](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
+> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
 
 In order for the application to have information about which models should participate in the search, it is necessary to register them with the service provider:
 
