@@ -157,9 +157,7 @@ class QueryFilter extends Filter
 ```php
 use App\Model;
 
-Model::filtersApply([
-   Filter::class,
-])->simplePaginate();
+Model::filtersApply([Filter::class])->simplePaginate();
 ```
 
 Возможно использование целой группы фильтров объединённых в слой `Selection`:
