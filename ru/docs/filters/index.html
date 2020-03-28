@@ -350,9 +350,7 @@ class QueryFilter extends Filter
 требуется подключить трейт <code>Orchid\Filter\Filterable</code> и передавать в функцию <code>filtersApply</code> массив классов:</p>
 <pre><code class="language-php">use App\Model;
 
-Model::filtersApply([
-   Filter::class,
-])-&gt;simplePaginate();</code></pre>
+Model::filtersApply([Filter::class])-&gt;simplePaginate();</code></pre>
 <p>Возможно использование целой группы фильтров объединённых в слой <code>Selection</code>:</p>
 <pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();</code></pre>
 <p>Тогда все фильтры установленные в слое будут применены.</p>                    </main></div>
