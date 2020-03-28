@@ -125,6 +125,16 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return null;
     }
+    
+    /**
+     * @param string|null $query
+     *
+     * @return Builder
+     */
+    public function searchQuery(string $query = null): Builder
+    {
+        return $this->entity->search($query);
+    }
 }
 ```
 
@@ -134,5 +144,8 @@ class IdeaPresenter extends Presenter implements Searchable
 Для модификации запросов, например, выдавать в результатах только актуальные данные, можно модифицировать запрос с помощью переопределения метода:
 
 ```php
-public function searchQuery(string $query = null) : LengthAwarePaginator
+public function searchQuery(string $query = null): Builder
+{
+    return $this->entity->search($query)->where('active', true);
+}
 ```
