@@ -156,9 +156,7 @@ you need to connect the trait `Orchid\Filter\Filterable` and pass an array of cl
 ```php
 use App\Model;
 
-Model::filtersApply([
-   Filter::class,
-])->simplePaginate();
+Model::filtersApply([Filter::class])->simplePaginate();
 ```
 
 It is possible to use a whole group of filters merged into the `Selection` layer, through:
