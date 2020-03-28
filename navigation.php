@@ -33,6 +33,7 @@ return [
             ],
             'Extra'         => [
                 'children' => [
+                    'Presenters'   => '/en/docs/presenters',
                     'Scout search' => '/en/docs/global-search',
                     'Settings'     => '/en/docs/settings',
                     'Controllers'  => '/en/docs/controllers',
