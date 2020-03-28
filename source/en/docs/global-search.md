@@ -10,48 +10,10 @@ section: main
 The platform comes with a package [Laravel Scout](https://github.com/laravel/scout) which is an abstraction for full-text search in your `Eloquent` models. 
 Since **`Scout` does not contain the search driver itself**, you need to supply and specify the required solution, these can be elasticsearch, algolia, sphinx or other solutions.
 
-To use global search, you need to add a new treit `Orchid\Platform\Searchable` to the model, it already includes `Laravel Scout`.
+> This example uses [representatives](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
 
-As an example, a model might look like this:
+In order for the application to have information about which models should participate in the search, it is necessary to register them with the service provider:
 
-
-```php
-
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Searchable;
-
-class Idea extends Model
-{
-    use Orchid\Platform\Searchable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'description', 'photo', 'price'
-    ];
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        // Customize array...
-
-        return $array;
-    }
-}
-```
-
-In order for the application to have information about which models should participate in the search, you must register them with the service provider:
 
 ```php
 namespace App\Providers;
@@ -69,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerGlobalSearch([
+        $dashboard->registerSearch([
           Idea::class,
           //...Models
         ]);
@@ -77,48 +39,114 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
+The results are displayed using the `presenter ()` call on the object.
+
+```php
+namespace App;
+
+use App\Orchid\Presenters\IdeaPresenter;
+use Laravel\Scout\Searchable;
+use Illuminate\Database\Eloquent\Model;
+
+class Idea extends Model
+{
+    use Searchable;
+
+    /**
+     * Get the presenter for the model.
+     *
+     * @return IdeaPresenter
+     */
+    public function presenter()
+    {
+        return new IdeaPresenter($this);
+    }
+    
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        // Customize array...
+
+        return $array;
+    }
+}
+```
+
+In the representatives, we indicate the `Searchable` interface and define methods that will return values for a display to the user, for example like this:
+
+
+```php
+namespace App\Orchid\Presenters;
+
+class IdeaPresenter extends Presenter implements Searchable
+{
+    /**
+     * @return string
+     */
+    public function label(): string
+    {
+        return 'Ideas';
+    }
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return $this->entity->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function subTitle(): string
+    {
+        return 'Small descriptions';
+    }
+
+    /**
+     * @return string
+     */
+    public function url(): string
+    {
+        return url('/')
+    }
+
+    /**
+     * @return string
+     */
+    public function image(): ?string
+    {
+        return null;
+    }
+    
+    /**
+     * @param string|null $query
+     *
+     * @return Builder
+     */
+    public function searchQuery(string $query = null): Builder
+    {
+        return $this->entity->search($query);
+    }
+}
+```
+
 
 ## Modifying Results
 
-The search results may include the following parameters:
-- **label** - Is a group, for example: news, users, etc.
-- **titile** - Main lines of text, for example, last name and username
-- **subTitile** - additional line, for example, position, status
-- **url** - available link for transition/editing
-- **avatar** - Images
+To modify queries, for example, to display only relevant data in the results, you can modify the query by overriding the method:
 
-By default, the specified attributes will be taken from the model. 
-In order to determine which data will be transmitted, the methods with the `search` prefix specified in an explicit form, for example:
 
 ```php
-/**
- * @return string
- */
-public function searchLabel(): ?string;
-
-/**
- * @return string
- */
-public function searchTitle(): ?string
-
-/**
- * @return string
- */
-public function searchSubTitle(): ?string
-
-/**
- * @return string
- */
-public function searchUrl(): ?string
-
-/**
- * @return string
- */
-public function searchAvatar(): ?string
-```
-
-To modify queries, for example, to display only actual data in the results, you can modify the query using the method override:
-
-```php
-public function searchQuery(string $query = null) : LengthAwarePaginator
+public function searchQuery(string $query = null): Builder
+{
+    return $this->entity->search($query)->where('active', true);
+}
 ```
