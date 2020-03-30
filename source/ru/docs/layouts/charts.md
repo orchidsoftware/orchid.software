@@ -17,15 +17,15 @@ public function query($patient = null) : array
 {
     $charts = [
         [
-            'title'  => "Some Data",
+            'title'  => 'Some Data',
             'values' => [25, 40, 30, 35, 8, 52, 17, -4],
         ],
         [
-            'title'  => "Another Set",
+            'title'  => 'Another Set',
             'values' => [25, 50, -10, 15, 18, 32, 27, 14],
         ],
         [
-            'title'  => "Yet Another",
+            'title'  => 'Yet Another',
             'values' => [15, 20, -3, -15, 58, 12, -17, 37],
         ],
     ];
@@ -49,16 +49,12 @@ use Orchid\Platform\Layouts\Chart;
 
 class ChartsLayout extends Chart
 {
-
     /**
+     * Add a title to the Chart.
+     * 
      * @var string
      */
     protected $title = 'DemoCharts';
-
-    /**
-     * @var int
-     */
-    protected $height = 150;
 
     /**
      * Available options:
@@ -84,8 +80,58 @@ class ChartsLayout extends Chart
     ];
 
     /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the table.
+     *
      * @var string
      */
     protected $target = 'charts';
 }
 ```
+
+## Высота
+Установите высоту диаграммы в пикселях с помощью указания свойства `height`:
+
+```php
+/**
+ * @var int
+ */
+protected $height = 250;
+```
+
+
+## Цвета
+Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства `colors`:
+
+```php
+/**
+ * Colors used.
+ *
+ * @var array
+ */
+protected $colors = [
+    '#2274A5',
+    '#F75C03',
+    '#F1C40F',
+    '#D90368',
+    '#00CC66',
+];
+```
+
+
+## Экспорт изображения
+
+Диаграммы  можно экспортировать в формате `SVG`, в котором они отображаются изначально. Для этого необходимо указать свойство `export`:
+
+```php
+/**
+ * Determines whether to display the export button.
+ *
+ * @var bool
+ */
+protected $export = true;
+```
+
+
