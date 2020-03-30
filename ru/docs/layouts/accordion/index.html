@@ -137,7 +137,8 @@
                         </div>
                         <hr class="mb-4"><p>Аккордеоны полезны, когда вы хотите переключаться между скрытием и отображением большого количества контента:</p>
 <p><img src="https://orchid.software/assets/img/layouts/accordion.png" alt="Accordion"></p>
-<p>Что бы использовать аккордеон необходимо указать слой, передав ему массив:</p>
+<p>Аккордеоны поддерживают короткий синтаксис через вызов статического метода,
+что не требует создания отдельного класса:</p>
 <pre><code class="language-php">use Orchid\Screen\Layout;
 
 public function layout(): array
@@ -171,7 +172,17 @@ public function layout(): array
         ]),
     ];
 }</code></pre>
-<p>Ключи будут использованы в качестве заголовков.</p>                    </main></div>
+<p>Ключи будут использованы в качестве заголовков.</p>
+<p>Обратите внимание, что вы можете указывать в качестве значений и строчное имя класса:</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' =&gt; PersonalInformationRow::class,
+            'Billing Address'      =&gt; BillingAddressRow::class,
+        ]),
+    ];
+}</code></pre>                    </main></div>
             </div>
         </div>
     </div>

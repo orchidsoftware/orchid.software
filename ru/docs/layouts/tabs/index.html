@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Права доступа | Orchid - Laravel Admin Panel"><meta property="og:description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/tabs"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Права доступа</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Табы | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/tabs"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Табы</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -128,14 +128,61 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Права доступа</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Табы</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/tabs.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"></main></div>
+                        <hr class="mb-4"><p>Табы полезны, когда вы хотите переключаться между скрытием и отображением большого количества контента:</p>
+<p><img src="https://orchid.software/assets/img/layouts/tabs.png" alt="Tabs"></p>
+<p>Табы поддерживают короткий синтаксис через вызов статического метода,
+что не требует создания отдельного класса:</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::tabs([
+            'Personal Information' =&gt; [
+                Layout::rows([
+                    Input::make('user.name')
+                        -&gt;type('text')
+                        -&gt;required()
+                        -&gt;title('Name')
+                        -&gt;placeholder('Name'),
+
+                    Input::make('user.email')
+                        -&gt;type('email')
+                        -&gt;required()
+                        -&gt;title('Email')
+                        -&gt;placeholder('Email'),
+                ]),
+            ],
+            'Billing Address'      =&gt; [
+                Layout::rows([
+                    Input::make('address')
+                        -&gt;type('text')
+                        -&gt;required()
+                        -&gt;title('Адрес доставки')
+                        -&gt;placeholder('Ул. Ленина дом 14 оф.162'),
+                ]),
+            ],
+        ]),
+    ];
+}</code></pre>
+<p>Ключи будут использованы в качестве заголовков.</p>
+<p>Обратите внимание, что вы можете указывать в качестве значений и строчное имя класса:</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::tabs([
+            'Personal Information' =&gt; PersonalInformationRow::class,
+            'Billing Address'      =&gt; BillingAddressRow::class,
+        ]),
+    ];
+}</code></pre>                    </main></div>
             </div>
         </div>
     </div>

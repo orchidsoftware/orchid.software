@@ -160,7 +160,7 @@
                     <li class="anchor-h2">
                 <a href="#parametry-tablitsy">Параметры таблицы</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#rasshirenie-kolonok">Расширение колонок</a>
             </li>
             </ul>
@@ -193,7 +193,7 @@ class PatientListLayout extends Table
     protected $target = 'patients';
 
     /**
-     * @return array
+     * @return TD[]
      */
     protected function columns() : array
     {
@@ -314,7 +314,7 @@ protected function striped(): bool
 {
     return false;
 }</code></pre>
-<h3><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h3>
+<h2><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h2>
 <p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом, для того, что бы не дублировать код в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
 <p>Пример регистрации:</p>
 <pre><code class="language-php">// AppServiceProvider.php
