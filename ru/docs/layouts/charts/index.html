@@ -44,84 +44,84 @@
         <ul class=" toc-links-1 "><li class="">
             
         <a href="/ru/docs/layouts/accordion" class="lvl1 ">
-            accordion
+            Аккордеон
         </a>
     
     </li>
             <li class="active">
             
         <a href="/ru/docs/layouts/charts" class="lvl1 ">
-            charts
+            Графики
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/columns" class="lvl1 ">
-            columns
+            Колонки
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/custom-template" class="lvl1 ">
-            custom-template
+            Пользовательский шаблон
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/drop-down-list" class="lvl1 ">
-            drop-down-list
+            Раскрывающийся список
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/extension" class="lvl1 ">
-            extension
+            Расширение слоёв
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/modals" class="lvl1 ">
-            modals
+            Модальные окна
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/rows" class="lvl1 ">
-            rows
+            Строки
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/selection" class="lvl1 ">
-            selection
+            Набор фильтров
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/table" class="lvl1 ">
-            table
+            Таблицы
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/tabs" class="lvl1 ">
-            tabs
+            Табы
         </a>
     
     </li>
             <li class="">
             
         <a href="/ru/docs/layouts/wrapper" class="lvl1 ">
-            wrapper
+            Обертка
         </a>
     
     </li>
@@ -135,22 +135,34 @@
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой обработки данных.</p>
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#vysota">Высота</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#tsveta">Цвета</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#eksport-izobrazheniya">Экспорт изображения</a>
+            </li>
+            </ul>
+    <hr>
+<p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой обработки данных.</p>
 <p><img src="https://orchid.software/assets/img/layouts/charts.png" alt="Charts"></p>
 <p>Пример данных из <code>query</code>:</p>
 <pre><code class="language-php">public function query($patient = null) : array
 {
     $charts = [
         [
-            'title'  =&gt; "Some Data",
+            'title'  =&gt; 'Some Data',
             'values' =&gt; [25, 40, 30, 35, 8, 52, 17, -4],
         ],
         [
-            'title'  =&gt; "Another Set",
+            'title'  =&gt; 'Another Set',
             'values' =&gt; [25, 50, -10, 15, 18, 32, 27, 14],
         ],
         [
-            'title'  =&gt; "Yet Another",
+            'title'  =&gt; 'Yet Another',
             'values' =&gt; [15, 20, -3, -15, 58, 12, -17, 37],
         ],
     ];
@@ -168,16 +180,12 @@ use Orchid\Platform\Layouts\Chart;
 
 class ChartsLayout extends Chart
 {
-
     /**
+     * Add a title to the Chart.
+     * 
      * @var string
      */
     protected $title = 'DemoCharts';
-
-    /**
-     * @var int
-     */
-    protected $height = 150;
 
     /**
      * Available options:
@@ -203,10 +211,43 @@ class ChartsLayout extends Chart
     ];
 
     /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the table.
+     *
      * @var string
      */
     protected $target = 'charts';
-}</code></pre>                    </main></div>
+}</code></pre>
+<h2><a href="#vysota" name="vysota">Высота</a></h2>
+<p>Установите высоту диаграммы в пикселях с помощью указания свойства <code>height</code>:</p>
+<pre><code class="language-php">/**
+ * @var int
+ */
+protected $height = 250;</code></pre>
+<h2><a href="#tsveta" name="tsveta">Цвета</a></h2>
+<p>Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства <code>colors</code>:</p>
+<pre><code class="language-php">/**
+ * Colors used.
+ *
+ * @var array
+ */
+protected $colors = [
+    '#2274A5',
+    '#F75C03',
+    '#F1C40F',
+    '#D90368',
+    '#00CC66',
+];</code></pre>
+<h2><a href="#eksport-izobrazheniya" name="eksport-izobrazheniya">Экспорт изображения</a></h2>
+<p>Диаграммы  можно экспортировать в формате <code>SVG</code>, в котором они отображаются изначально. Для этого необходимо указать свойство <code>export</code>:</p>
+<pre><code class="language-php">/**
+ * Determines whether to display the export button.
+ *
+ * @var bool
+ */
+protected $export = true;</code></pre>                    </main></div>
             </div>
         </div>
     </div>
