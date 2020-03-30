@@ -92,6 +92,14 @@ http://example.com/demo?sort=-content.ru.name
 $model->orderBy('content.ru.name', 'desc');
 ```
 
+Отличным способом будет использовать такую сортировку в таблицах, для того, что бы заголовки колонки стали активными используйте:
+
+```php
+use Orchid\Screen\TD;
+
+TD::set('name')->sort();
+```
+
 
 ## Классический фильтр
 
