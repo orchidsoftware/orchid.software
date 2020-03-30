@@ -1,8 +1,267 @@
 ---
-title: Права доступа
-description: Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе. 
+title: Таблицы
 extends: _layouts.documentation
 section: main
 lang: ru
 menu: layouts
 ---
+
+## Таблицы
+
+Макет таблицы используется для вывода минимальной информации для просмотра и выборки.
+
+![Table](https://orchid.software/assets/img/layouts/table.png)
+
+
+Для создания выполните команду:
+```php
+php artisan orchid:table PatientListLayout
+```
+
+Пример:
+```php
+namespace App\Layouts\Clinic\Patient;
+
+use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Platform\Http\Filters\SearchFilter;
+use App\Http\Filters\LastNamePatient;
+
+class PatientListLayout extends Table
+{
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the table.
+     *
+     * @var string
+     */
+    protected $target = 'patients';
+
+    /**
+     * @return array
+     */
+    protected function columns() : array
+    {
+        return [
+            TD::set('last_name','Last name')
+                ->align('center')
+                ->width('100px')
+                ->render(function ($patient) {
+                    return Link::make($patient->last_name)
+                        ->route('platform.clinic.patient.edit', $patient);
+                }),
+
+            TD::set('first_name', 'First Name')
+                ->sort()
+                ->render(function ($patient) {
+                    return Link::make($patient->first_name)
+                        ->route('platform.clinic.patient.edit', $patient);
+                }),
+
+            TD::set('phone','Phone')
+                ->render(function ($patient){
+                    return ModalToggle::make($patient->phone)
+                        ->modal('oneAsyncModal')
+                        ->modalTitle('Phone')
+                        ->method('saveUser')
+                        ->asyncParameters([
+                            'id' => $patient->id,
+                        ]);
+                }),
+
+            TD::set('email','Email'),
+            TD::set('created_at','Date of publication'),
+        ];
+    }
+}
+```
+
+## Ячейки
+
+Таблица являеться только общей облочкой, для которой необходимо указать классы TD. Предназначеные для создания одной ячейки.
+
+```php
+use Orchid\Screen\TD;
+
+TD::set('last_name');
+```
+
+Метод `set` является основным методом, устанавливает имя ключа из массива и отображаемое название.
+
+```php
+TD::set('last_name', 'Last name');
+```
+
+
+### Выравнивание
+
+Управнием вырваниванием содержимого можно управлять спомощью метода `align`:
+
+```php
+TD::set('last_name')->align(TD::ALIGN_LEFT);
+TD::set('last_name')->align(TD::ALIGN_CENTER);
+TD::set('last_name')->align(TD::ALIGN_RIGHT);
+```
+
+### Сортировка
+
+Сортировка выборки должна осуществляться в `query` экрана,
+для моделей можно использовать автоматическую `http` [сортировку и 
+фильтрацию](/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka)
+
+Для включения активной возможности сортировки по данному столбцу
+необходимо указать метод `sort`:
+
+```php
+TD::set('last_name')->sort();
+```
+
+### Ширина
+
+Управлять шириной ячейки можно используя метод `width`:
+
+```php
+TD::set('last_name')->width('100px');
+```
+
+### Отображение и скрытие столбцов
+
+По умолчанию пользователь может скрыть для себя любой столбец, но вы можете
+запретить делать это указав:
+
+```php
+TD::set('last_name')->cantHide();
+```
+
+А так же скрыть по умолчанию, но может быть показан по желанию пользователя.
+
+```php
+TD::set('last_name')->defaultHidden();
+```
+
+
+### Вывод данных
+
+В некоторый случаях, может потребоваться отобразить комбинированные
+ данные, для этого предназначен метод `render`. Он реализует возможность генерации ячейки согласно функции:
+ 
+```php
+TD::set('full_name')
+    ->render(function ($user) {
+        return $user->firt_name . ' ' . $user->last_name;
+    });
+```
+
+Функцию замыкания должна возвращать любое строчное значение:
+```php
+TD::set('full_name')
+    ->render(function ($user) {
+        return view('blade_template', [
+            'user' => $user
+        ]);
+    });
+```
+
+Обратите внимание, что вы можете использовать поля и действия:
+
+```php
+use Orchid\Screen\Actions\Link;
+
+TD::set('full_name')
+    ->render(function ($user) {
+        return Link::make($user->last_name)
+               ->route('platform.user.edit', $user);
+    });
+```
+
+
+## Параметры таблицы
+
+Вы можете указать текст который будет отображён если таблица пуста
+дополнительно указав методы:
+
+```php
+/**
+ * @return string
+ */
+protected function iconNotFound(): string
+{
+    return 'icon-table';
+}
+
+/**
+ * @return string
+ */
+protected function textNotFound(): string
+{
+    return __('There are no records in this view');
+}
+
+/**
+ * @return string
+ */
+protected function subNotFound(): string
+{
+    return '';
+}
+```
+
+Если строки таблицы кажутся вам не контрастными, то вы можете ключить 
+`striped` режим:
+
+```php
+/**
+ * @return bool
+ */
+protected function striped(): bool
+{
+    return false;
+}
+```
+
+
+### Расширение колонок
+
+Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом, для того, что бы не дублировать код в слоях имеется возможность расширять класс `TD` собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.
+
+Пример регистрации:
+
+```php
+// AppServiceProvider.php
+TD::macro('bool', function () {
+
+    $column = $this->column;
+
+    $this->render(function ($datum) use ($column) {
+        return view('bool',[
+            'bool' => $datum->$column
+        ]);
+    });
+
+    return $this;
+});
+```
+Пример шаблона:
+```php
+// bool.blade.php
+
+@if($bool)
+    <i class="icon-check text-success"></i>
+@else
+    <i class="icon-close text-danger"></i>
+@endif
+```
+
+Пример использования:
+```php
+public function grid(): array
+{
+    return [
+        TD::set('status')->bool(),
+    ];
+}
+```
