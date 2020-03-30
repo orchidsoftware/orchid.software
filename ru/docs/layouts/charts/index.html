@@ -147,10 +147,10 @@
             </li>
             </ul>
     <hr>
-<p>Макет графиков удобный способ графически отображать динамику значений, но он требует некоторой обработки данных.</p>
+<p>Макет графиков удобный способ графически отображать динамику значений.</p>
 <p><img src="https://orchid.software/assets/img/layouts/charts.png" alt="Charts"></p>
 <p>Пример данных из <code>query</code>:</p>
-<pre><code class="language-php">public function query($patient = null) : array
+<pre><code class="language-php">public function query() : array
 {
     $charts = [
         [
@@ -214,20 +214,20 @@ class ChartsLayout extends Chart
      * Data source.
      *
      * The name of the key to fetch it from the query.
-     * The results of which will be elements of the table.
+     * The results of which will be elements of the charts.
      *
      * @var string
      */
     protected $target = 'charts';
 }</code></pre>
 <h2><a href="#vysota" name="vysota">Высота</a></h2>
-<p>Установите высоту диаграммы в пикселях с помощью указания свойства <code>height</code>:</p>
+<p>Установите высоту диаграммы в пикселях с помощью указания свойства:</p>
 <pre><code class="language-php">/**
  * @var int
  */
 protected $height = 250;</code></pre>
 <h2><a href="#tsveta" name="tsveta">Цвета</a></h2>
-<p>Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства <code>colors</code>:</p>
+<p>Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства:</p>
 <pre><code class="language-php">/**
  * Colors used.
  *
@@ -241,7 +241,7 @@ protected $colors = [
     '#00CC66',
 ];</code></pre>
 <h2><a href="#eksport-izobrazheniya" name="eksport-izobrazheniya">Экспорт изображения</a></h2>
-<p>Диаграммы  можно экспортировать в формате <code>SVG</code>, в котором они отображаются изначально. Для этого необходимо указать свойство <code>export</code>:</p>
+<p>Диаграммы  можно экспортировать в формате <code>SVG</code>, в котором они отображаются изначально. Для этого необходимо указать свойство:</p>
 <pre><code class="language-php">/**
  * Determines whether to display the export button.
  *

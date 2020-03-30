@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Права доступа | Orchid - Laravel Admin Panel"><meta property="og:description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/table"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Права доступа</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Таблицы | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/table"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Таблицы</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -128,14 +128,223 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Права доступа</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Таблицы</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/table.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"></main></div>
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#tablitsy">Таблицы</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#yacheyki">Ячейки</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#vyravnivanie">Выравнивание</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#sortirovka">Сортировка</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#shirina">Ширина</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#otobrazhenie-i-skrytie-stolbtsov">Отображение и скрытие столбцов</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#vyvod-dannykh">Вывод данных</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#parametry-tablitsy">Параметры таблицы</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#rasshirenie-kolonok">Расширение колонок</a>
+            </li>
+            </ul>
+    <hr>
+<h2><a href="#tablitsy" name="tablitsy">Таблицы</a></h2>
+<p>Макет таблицы используется для вывода минимальной информации для просмотра и выборки.</p>
+<p><img src="https://orchid.software/assets/img/layouts/table.png" alt="Table"></p>
+<p>Для создания выполните команду:</p>
+<pre><code class="language-php">php artisan orchid:table PatientListLayout</code></pre>
+<p>Пример:</p>
+<pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
+
+use Orchid\Screen\TD;
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Actions\ModalToggle;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Platform\Http\Filters\SearchFilter;
+use App\Http\Filters\LastNamePatient;
+
+class PatientListLayout extends Table
+{
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the table.
+     *
+     * @var string
+     */
+    protected $target = 'patients';
+
+    /**
+     * @return array
+     */
+    protected function columns() : array
+    {
+        return [
+            TD::set('last_name','Last name')
+                -&gt;align('center')
+                -&gt;width('100px')
+                -&gt;render(function ($patient) {
+                    return Link::make($patient-&gt;last_name)
+                        -&gt;route('platform.clinic.patient.edit', $patient);
+                }),
+
+            TD::set('first_name', 'First Name')
+                -&gt;sort()
+                -&gt;render(function ($patient) {
+                    return Link::make($patient-&gt;first_name)
+                        -&gt;route('platform.clinic.patient.edit', $patient);
+                }),
+
+            TD::set('phone','Phone')
+                -&gt;render(function ($patient){
+                    return ModalToggle::make($patient-&gt;phone)
+                        -&gt;modal('oneAsyncModal')
+                        -&gt;modalTitle('Phone')
+                        -&gt;method('saveUser')
+                        -&gt;asyncParameters([
+                            'id' =&gt; $patient-&gt;id,
+                        ]);
+                }),
+
+            TD::set('email','Email'),
+            TD::set('created_at','Date of publication'),
+        ];
+    }
+}</code></pre>
+<h2><a href="#yacheyki" name="yacheyki">Ячейки</a></h2>
+<p>Таблица являеться только общей облочкой, для которой необходимо указать классы TD. Предназначеные для создания одной ячейки.</p>
+<pre><code class="language-php">use Orchid\Screen\TD;
+
+TD::set('last_name');</code></pre>
+<p>Метод <code>set</code> является основным методом, устанавливает имя ключа из массива и отображаемое название.</p>
+<pre><code class="language-php">TD::set('last_name', 'Last name');</code></pre>
+<h3><a href="#vyravnivanie" name="vyravnivanie">Выравнивание</a></h3>
+<p>Управнием вырваниванием содержимого можно управлять спомощью метода <code>align</code>:</p>
+<pre><code class="language-php">TD::set('last_name')-&gt;align(TD::ALIGN_LEFT);
+TD::set('last_name')-&gt;align(TD::ALIGN_CENTER);
+TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);</code></pre>
+<h3><a href="#sortirovka" name="sortirovka">Сортировка</a></h3>
+<p>Сортировка выборки должна осуществляться в <code>query</code> экрана,
+для моделей можно использовать автоматическую <code>http</code> <a href="/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka">сортировку и
+фильтрацию</a></p>
+<p>Для включения активной возможности сортировки по данному столбцу
+необходимо указать метод <code>sort</code>:</p>
+<pre><code class="language-php">TD::set('last_name')-&gt;sort();</code></pre>
+<h3><a href="#shirina" name="shirina">Ширина</a></h3>
+<p>Управлять шириной ячейки можно используя метод <code>width</code>:</p>
+<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');</code></pre>
+<h3><a href="#otobrazhenie-i-skrytie-stolbtsov" name="otobrazhenie-i-skrytie-stolbtsov">Отображение и скрытие столбцов</a></h3>
+<p>По умолчанию пользователь может скрыть для себя любой столбец, но вы можете
+запретить делать это указав:</p>
+<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();</code></pre>
+<p>А так же скрыть по умолчанию, но может быть показан по желанию пользователя.</p>
+<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();</code></pre>
+<h3><a href="#vyvod-dannykh" name="vyvod-dannykh">Вывод данных</a></h3>
+<p>В некоторый случаях, может потребоваться отобразить комбинированные
+данные, для этого предназначен метод <code>render</code>. Он реализует возможность генерации ячейки согласно функции:</p>
+<pre><code class="language-php">TD::set('full_name')
+    -&gt;render(function ($user) {
+        return $user-&gt;firt_name . ' ' . $user-&gt;last_name;
+    });</code></pre>
+<p>Функцию замыкания должна возвращать любое строчное значение:</p>
+<pre><code class="language-php">TD::set('full_name')
+    -&gt;render(function ($user) {
+        return view('blade_template', [
+            'user' =&gt; $user
+        ]);
+    });</code></pre>
+<p>Обратите внимание, что вы можете использовать поля и действия:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+
+TD::set('full_name')
+    -&gt;render(function ($user) {
+        return Link::make($user-&gt;last_name)
+               -&gt;route('platform.user.edit', $user);
+    });</code></pre>
+<h2><a href="#parametry-tablitsy" name="parametry-tablitsy">Параметры таблицы</a></h2>
+<p>Вы можете указать текст который будет отображён если таблица пуста
+дополнительно указав методы:</p>
+<pre><code class="language-php">/**
+ * @return string
+ */
+protected function iconNotFound(): string
+{
+    return 'icon-table';
+}
+
+/**
+ * @return string
+ */
+protected function textNotFound(): string
+{
+    return __('There are no records in this view');
+}
+
+/**
+ * @return string
+ */
+protected function subNotFound(): string
+{
+    return '';
+}</code></pre>
+<p>Если строки таблицы кажутся вам не контрастными, то вы можете ключить
+<code>striped</code> режим:</p>
+<pre><code class="language-php">/**
+ * @return bool
+ */
+protected function striped(): bool
+{
+    return false;
+}</code></pre>
+<h3><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h3>
+<p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом, для того, что бы не дублировать код в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
+<p>Пример регистрации:</p>
+<pre><code class="language-php">// AppServiceProvider.php
+TD::macro('bool', function () {
+
+    $column = $this-&gt;column;
+
+    $this-&gt;render(function ($datum) use ($column) {
+        return view('bool',[
+            'bool' =&gt; $datum-&gt;$column
+        ]);
+    });
+
+    return $this;
+});</code></pre>
+<p>Пример шаблона:</p>
+<pre><code class="language-php">// bool.blade.php
+
+@if($bool)
+    &lt;i class="icon-check text-success"&gt;&lt;/i&gt;
+@else
+    &lt;i class="icon-close text-danger"&gt;&lt;/i&gt;
+@endif</code></pre>
+<p>Пример использования:</p>
+<pre><code class="language-php">public function grid(): array
+{
+    return [
+        TD::set('status')-&gt;bool(),
+    ];
+}</code></pre>                    </main></div>
             </div>
         </div>
     </div>
