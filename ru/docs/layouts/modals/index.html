@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Права доступа | Orchid - Laravel Admin Panel"><meta property="og:description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/modals"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Права доступа</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Модальные окна | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/modals"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Модальные окна</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -36,7 +36,27 @@
                                 <input type="search" class="form-control w-full" id="docsearch" placeholder="Поиск..."></div>
                         </div>
 
-                        <ul class=" toc-links "><h4 class="text-orchid font-thin">Layouts</h4>
+                        <ul class=" toc-links "><h4 class="text-orchid font-thin">Основное</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Вернуться назад
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Список макетов</h4>
 
 <li class="">
     
@@ -128,14 +148,70 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Права доступа</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Модальные окна</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/modals.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"></main></div>
+                        <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#opisanie-raboty">Описание работы</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#kogda-ispolzovat">Когда использовать</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#ispolzovanie">Использование</a>
+            </li>
+            </ul>
+    <hr>
+<p>Эмуляция модального диалогового окна,  появляющегося поверх основного содержимого страницы  в ответ на действия пользователя.</p>
+<h2><a href="#opisanie-raboty" name="opisanie-raboty">Описание работы</a></h2>
+<p>Модальное окно появляется поверх страницы, затемняя ее. Это помогает сфокусировать внимание пользователя на конкретных действиях, не теряя при этом общий контекст.</p>
+<blockquote>
+<p><strong>Примечание.</strong> Не используйте модальные окна для больших форм.</p>
+</blockquote>
+<p>Модальное окно имеет два действия:</p>
+<ul><li>Цветная кнопка — действие по умолчанию, сохраняет проделанную работу или подтверждает вызванную ранее команду.</li>
+<li>Кнопка отмены — закрывает окно без сохранения введенных данных.</li>
+</ul><h2><a href="#kogda-ispolzovat" name="kogda-ispolzovat">Когда использовать</a></h2>
+<p>В модальное окно нужно выносить второстепенное содержимое страниц, которое требуется только в некоторых случаях. Как правило, это настройки, создание новых документов, заполнение небольших форм, пошаговый мастер. Например, для ввода адреса — при клике по ссылке открывается модальное окно.</p>
+<h2><a href="#ispolzovanie" name="ispolzovanie">Использование</a></h2>
+<p>Модальные окна поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::modal('exampleModal', [
+            Layout::rows([]),
+        ]),
+    ];
+}</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong>, добавление модального окна необходимо делать в верхний уровень возвращаемого методом <code>layout()</code> массива. Например, не стоит делать вот так:</p>
+</blockquote>
+<pre><code class="language-php">public function layouts(): array
+{
+    return [
+        Layout::tabs([
+            'Name' =&gt; Layout::modal('exampleModal', [Layout::rows([])]),
+        ]),
+    ];
+}</code></pre>
+<p>Модальные окна имеют свойства, размеры и названия кнопок, которые доступны для изменения:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;title('Заголовок окна')
+    -&gt;size(Modal::SIZE_LG)
+    -&gt;applyButton(self::APPLY_BUTTON)
+    -&gt;closeButton(self::CLOSE_BUTTON),</code></pre>
+<blockquote>
+<p><strong>Обратите внимание</strong>, при использовании метода <strong>loadModalAsync</strong> содержимое окна использует динамические данные, которых нет в первоначальной загрузке. Для исключения возможных ошибок необходимо делать проверку на существование переменных. В шаблонизаторе Blade это может выглядеть как: <code>{{ $variable ?? '' }}</code>.</p>
+</blockquote>                    </main></div>
             </div>
         </div>
     </div>

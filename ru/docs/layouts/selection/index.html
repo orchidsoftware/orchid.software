@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Права доступа | Orchid - Laravel Admin Panel"><meta property="og:description" content="Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/selection"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Права доступа</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Набор фильтров | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/selection"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Набор фильтров</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=64695ad21ddbcdfbeec3"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -36,7 +36,27 @@
                                 <input type="search" class="form-control w-full" id="docsearch" placeholder="Поиск..."></div>
                         </div>
 
-                        <ul class=" toc-links "><h4 class="text-orchid font-thin">Layouts</h4>
+                        <ul class=" toc-links "><h4 class="text-orchid font-thin">Основное</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/ru/docs/screens" class="lvl1 ">
+            Вернуться назад
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/layouts" class="lvl1 ">
+            Макеты экрана
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Список макетов</h4>
 
 <li class="">
     
@@ -128,14 +148,37 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Права доступа</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Набор фильтров</h1>
 
                         <div class="none d-md-block">
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/selection.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"></main></div>
+                        <hr class="mb-4"><p>Для группировки фильтров, их сброса и применения, существует отдельный слой <code>Selection</code>, в котором они указываются. </p>
+<p>Для создания исполните команду:</p>
+<pre><code class="language-php">php artisan orchid:selection MySelection</code></pre>
+<p>Пример класса:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Platform\Filters\Filter;
+use Orchid\Press\Http\Filters\CreatedFilter;
+use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Screen\Layouts\Selection;
+
+class MySelection extends Selection
+{
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+          SearchFilter::class,
+          CreatedFilter::class
+        ];
+    }
+}</code></pre>                    </main></div>
             </div>
         </div>
     </div>
