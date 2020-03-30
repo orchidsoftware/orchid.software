@@ -43,6 +43,26 @@ return [
                 ],
             ],
         ],
+        /*
+        'layouts' => [
+            'Layouts'         => [
+                'children' => [
+                    'accordion'       => '/ru/docs/layouts/accordion',
+                    'charts'          => '/ru/docs/layouts/charts',
+                    'columns'         => '/ru/docs/layouts/columns',
+                    'custom-template' => '/ru/docs/layouts/custom-template',
+                    'drop-down-list'  => '/ru/docs/layouts/drop-down-list',
+                    'extension'       => '/ru/docs/layouts/extension',
+                    'modals'          => '/ru/docs/layouts/modals',
+                    'rows'            => '/ru/docs/layouts/rows',
+                    'selection'       => '/ru/docs/layouts/selection',
+                    'table'           => '/ru/docs/layouts/table',
+                    'tabs'            => '/ru/docs/layouts/tabs',
+                    'wrapper'         => '/ru/docs/layouts/wrapper',
+                ],
+            ],
+        ],
+        */
         'community' => [
             'Community' => [
                 'children' => [
@@ -92,6 +112,24 @@ return [
                     'Использование JS' => '/ru/docs/javascript',
                     'Строитель форм'   => '/ru/docs/builder',
                     'Брендирование'    => '/ru/docs/brand',
+                ],
+            ],
+        ],
+        'layouts' => [
+            'Layouts'         => [
+                'children' => [
+                    'accordion'       => '/ru/docs/layouts/accordion',
+                    'charts'          => '/ru/docs/layouts/charts',
+                    'columns'         => '/ru/docs/layouts/columns',
+                    'custom-template' => '/ru/docs/layouts/custom-template',
+                    'drop-down-list'  => '/ru/docs/layouts/drop-down-list',
+                    'extension'       => '/ru/docs/layouts/extension',
+                    'modals'          => '/ru/docs/layouts/modals',
+                    'rows'            => '/ru/docs/layouts/rows',
+                    'selection'       => '/ru/docs/layouts/selection',
+                    'table'           => '/ru/docs/layouts/table',
+                    'tabs'            => '/ru/docs/layouts/tabs',
+                    'wrapper'         => '/ru/docs/layouts/wrapper',
                 ],
             ],
         ],
