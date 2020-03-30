@@ -10,7 +10,8 @@ menu: layouts
 
 ![Accordion](https://orchid.software/assets/img/layouts/accordion.png)
 
-Что бы использовать аккордеон необходимо указать слой, передав ему массив:
+Аккордеоны поддерживают короткий синтаксис через вызов статического метода, 
+что не требует создания отдельного класса:
 
 ```php
 use Orchid\Screen\Layout;
@@ -49,3 +50,18 @@ public function layout(): array
 ```
 
 Ключи будут использованы в качестве заголовков.
+
+Обратите внимание, что вы можете указывать в качестве значений и строчное имя класса:
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' => PersonalInformationRow::class,
+            'Billing Address'      => BillingAddressRow::class,
+        ]),
+    ];
+}
+```
+
