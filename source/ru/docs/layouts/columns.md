@@ -1,8 +1,26 @@
 ---
-title: Права доступа
-description: Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе. 
+title: Колонки
 extends: _layouts.documentation
 section: main
 lang: ru
 menu: layouts
 ---
+
+Колонки полезны, когда вам необходимо сгруппировать контент.
+
+Колонки поддерживают короткий синтаксис через вызов статического метода, 
+что не требует создания отдельного класса:
+
+```php
+use Orchid\Screen\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::columns([
+           TableExample::class,
+           RowExample::class,
+        ]),
+    ];
+}
+```

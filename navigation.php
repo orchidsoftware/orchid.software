@@ -116,7 +116,13 @@ return [
             ],
         ],
         'layouts' => [
-            'Layouts'         => [
+            'Основное' => [
+                'children' => [
+                    'Вернуться назад' => '/ru/docs/screens',
+                    'Макеты экрана'   => '/ru/docs/layouts',
+                ],
+            ],
+            'Список макетов' => [
                 'children' => [
                     'Аккордеон'               => '/ru/docs/layouts/accordion',
                     'Графики'                 => '/ru/docs/layouts/charts',
