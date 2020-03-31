@@ -11,8 +11,8 @@
                 <div class="col-lg-6">
                     <div class="row pb-5 pt-md-5">
                         <div class="col-md-12">
-                            <h1 class="h2 normal text-white mb-4 mt-4 text-center text-sm-left">
-                                <span class="icon-rocket text-muted m-r-md"></span> @yield('main.title')
+                            <h1 class="h2 normal text-white mb-4 mt-4 mr-md-4 text-center text-sm-left">
+                                @yield('main.title')
                             </h1>
                         </div>
                     </div>
@@ -96,36 +96,42 @@
 
     <section class="bg-white position-relative">
         <div class="container pt-5 pb-5">
-            <h2 class="text-center center text-dark font-thin w-75 padder-v mb-3 pt-5">
+            <h2 class="center text-dark font-thin w-75 padder-v mb-3 pt-5 ml-0">
                 @yield('main.description')
             </h2>
 
             <div class="row padder-v mt-5">
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-cloud-download"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-cloud-download mr-2"></i>
+                            <span class="item-name h4 font-thin"> @yield('main.col1.title')</span>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b"> @yield('main.col1.title')</div>
                         <div class="item-desc">
                             @yield('main.col1.description')
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-clock"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-clock mr-2"></i>
+                            <div class="item-name h4 font-thin">@yield('main.col2.title')</div>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b">@yield('main.col2.title')</div>
                         <div class="item-desc">
                             @yield('main.col2.description')
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-filter"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-filter mr-2"></i>
+                            <span class="item-name h4 font-thin">@yield('main.col3.title')</span>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b">@yield('main.col3.title')</div>
                         <div class="item-desc">
                             @yield('main.col3.description')
                         </div>
@@ -133,31 +139,37 @@
                 </div>
             </div>
             <div class="row padder-v mt-sm-5 mb-sm-5">
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-bell"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-bell mr-2"></i>
+                            <span class="item-name h4 font-thin">@yield('main.col4.title')</span>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b">@yield('main.col4.title')</div>
                         <div class="item-desc">
                             @yield('main.col4.description')
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-magnifier"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-magnifier mr-2"></i>
+                            <span class="item-name h4 font-thin">@yield('main.col5.title')</span>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b">@yield('main.col5.title')</div>
                         <div class="item-desc">
                             @yield('main.col5.description')
                         </div>
                     </div>
                 </div>
-                <div class="col col-12 col-md-4 m-md-0 mb-4">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3"><i class="icon-friends"></i></div>
+                        <div class="h3 v-center">
+                            <i class="icon-friends mr-2"></i>
+                            <span class="item-name h4 font-thin">@yield('main.col6.title')</span>
+                        </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-name h4 font-thin m-b">@yield('main.col6.title')</div>
                         <div class="item-desc">
                             @yield('main.col6.description')
                         </div>
