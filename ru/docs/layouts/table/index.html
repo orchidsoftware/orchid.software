@@ -249,6 +249,14 @@ class PatientListLayout extends Table
         ];
     }
 }</code></pre>
+<p>Таблицы так же поддерживают запись через короткий синтаксис без создания класса:</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+use Orchid\Screen\TD;
+
+Layout::table('clients', [
+    TD::set('name'),
+    TD::set('created_at')-&gt;sort(),
+]);</code></pre>
 <h2><a href="#yacheyki" name="yacheyki">Ячейки</a></h2>
 <p>Таблица являеться только общей облочкой, для которой необходимо указать классы TD. Предназначеные для создания одной ячейки.</p>
 <pre><code class="language-php">use Orchid\Screen\TD;
@@ -298,6 +306,13 @@ TD::set('full_name')
     -&gt;render(function ($user) {
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
+    });</code></pre>
+<p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не пологаться только на <code>target</code>. Вы пожете получить значение следующим образом:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+
+TD::set('price')
+    -&gt;render(function ($product) {
+        return $product-&gt;price + $this-&gt;query-&gt;get('tax');
     });</code></pre>
 <h2><a href="#parametry-tablitsy" name="parametry-tablitsy">Параметры таблицы</a></h2>
 <p>Вы можете указать текст который будет отображён если таблица пуста
