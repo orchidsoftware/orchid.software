@@ -177,6 +177,12 @@
                     <li class="anchor-h3">
                 <a href="#imena-knopok">Имена кнопок</a>
             </li>
+                    <li class="anchor-h3">
+                <a href="#raspolozhenie">Расположение</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#otklyuchenie-ajax-obrabotki">Отключение AJAX-обработки</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#asinkhronnaya-zagruzka-dannykh">Асинхронная загрузка данных</a>
             </li>
@@ -239,6 +245,21 @@ Layout::modal('exampleModals', [
 ])
     -&gt;applyButton('Отправить')
     -&gt;closeButton('Закрыть');</code></pre>
+<h3><a href="#raspolozhenie" name="raspolozhenie">Расположение</a></h3>
+<p>Модальное окно можно отображать, не только по центру экрана, но и по правой стороне:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
+
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;type(Modal::TYPE_RIGHT);</code></pre>
+<h3><a href="#otklyuchenie-ajax-obrabotki" name="otklyuchenie-ajax-obrabotki">Отключение AJAX-обработки</a></h3>
+<p>По умолчанию результат выполнения действия окна будет выведен пользователю на экран, но такой подход может не подойти, если необходимо выполнить сложную обработку или скачать файл.
+Что бы отключить обработку ответа необходимо добавить вызов метода <code>rawClick</code>:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;rawClick();</code></pre>
 <h2><a href="#asinkhronnaya-zagruzka-dannykh" name="asinkhronnaya-zagruzka-dannykh">Асинхронная загрузка данных</a></h2>
 <p>При работе с набором данных, нет необходимости создавать модальное окно для каждого значения. Вместо этого, можно воспользоваться асинхронной загрузкой.
 Это позволит подменить данные экрана <code>query</code> при открытии окна и отобразить
