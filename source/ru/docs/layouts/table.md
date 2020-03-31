@@ -80,6 +80,18 @@ class PatientListLayout extends Table
 }
 ```
 
+Таблицы так же поддерживают запись через короткий синтаксис без создания класса:
+
+```php
+use Orchid\Screen\Layout;
+use Orchid\Screen\TD;
+
+Layout::table('clients', [
+    TD::set('name'),
+    TD::set('created_at')->sort(),
+]);
+```
+
 ## Ячейки
 
 Таблица являеться только общей облочкой, для которой необходимо указать классы TD. Предназначеные для создания одной ячейки.
@@ -175,6 +187,17 @@ TD::set('full_name')
     ->render(function ($user) {
         return Link::make($user->last_name)
                ->route('platform.user.edit', $user);
+    });
+```
+
+Иногда может потребоваться получить значение из `query` экрана, а не пологаться только на `target`. Вы пожете получить значение следующим образом:
+
+```php
+use Orchid\Screen\Actions\Link;
+
+TD::set('price')
+    ->render(function ($product) {
+        return $product->price + $this->query->get('tax');
     });
 ```
 
