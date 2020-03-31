@@ -136,6 +136,7 @@ return [
                     'Таблицы'                 => '/ru/docs/layouts/table',
                     'Табы'                    => '/ru/docs/layouts/tabs',
                     'Обертка'                 => '/ru/docs/layouts/wrapper',
+                    'Компоненты'              => '/ru/docs/layouts/components',
                 ],
             ],
         ],
