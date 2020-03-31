@@ -65,6 +65,15 @@
                         </a>
                     </nav>
 
+                    <div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
+                        <div class="block w-100">
+                            <input type="search" class="form-control w-full"
+                                   id="docsearch"
+                                   placeholder="@yield('Search')"
+                            >
+                        </div>
+                    </div>
+
                     <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
                         <strong><i class="icon-social-github m-r-xs"></i> @yield('main.github')</strong>
                     </a>

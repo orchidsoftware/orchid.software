@@ -440,3 +440,15 @@ li.anchor-h3 {
 .algolia-autocomplete .ds-dropdown-menu{
   box-shadow: none!important;
 }
+
+input[type="search"] {
+  background: rgba(255, 255, 255, 0.01);
+  color: rgb(255, 255, 255);
+  border-radius: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  vertical-align: top;
+  border-color: #dadfe433!important;
+  height: 28px;
+}

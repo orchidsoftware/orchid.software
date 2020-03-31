@@ -16359,6 +16359,18 @@ li.anchor-h3 {
   box-shadow: none !important;
 }
 
+input[type="search"] {
+  background: rgba(255, 255, 255, 0.01);
+  color: white;
+  border-radius: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  position: relative;
+  vertical-align: top;
+  border-color: #dadfe433 !important;
+  height: 28px;
+}
+
 .preview {
   padding: 15px 0;
   position: relative;

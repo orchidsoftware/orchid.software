@@ -13,13 +13,6 @@
             <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
                     <nav class="nav-docs">
-
-                        <div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
-                            <div class="block w-100">
-                                <input type="search" class="form-control w-full" id="docsearch" placeholder="@yield('Search')">
-                            </div>
-                        </div>
-
                         @include('_nav.menu', ['items' => $page->navigation
                             [$page->get('lang','en')]
                             [$page->get('menu','docs')]
