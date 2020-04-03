@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Facepile | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/facepile"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Facepile</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Персона | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/persona"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Персона</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -159,7 +159,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/ru/docs/layouts/facepile" class="lvl1 ">
             Facepile
@@ -169,16 +169,16 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Facepile</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Персона</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/facepile.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/persona.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот <code>layout</code> при отображении совместного доступа к определённому представлению, файлу или задачи.</p>
-<p><img src="https://orchid.software/assets/img/layouts/facepile.png" alt="facepile"></p>
-<p><code>Facepile</code> принимает набор обьектов которые реализуют интерфейс <code>Personable</code>.</p>
+                        <hr class="mb-4"><p>Персона используются для визуализации аватара и описания человека.</p>
+<p><img src="https://orchid.software/assets/img/layouts/persona.png" alt="persona"></p>
+<p><code>Persona</code> принимает набор обьектов которые реализуют интерфейс <code>Personable</code>.</p>
 <blockquote>
 <p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
 </blockquote>
@@ -241,7 +241,7 @@ class EmployeePresenter extends Presenter implements Personable
 public function query(): array
 {
     return [
-        'avatars' =&gt; Employee::limit(8)-&gt;get()-&gt;map-&gt;presenter(),
+        'employee' =&gt; Employee::find(1)-&gt;presenter(),
     ];
 }
 
@@ -255,7 +255,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        new Facepile('avatars'),
+        new Facepile('employee'),
     ];
 }</code></pre>                    </main></div>
             </div>
