@@ -139,6 +139,7 @@ return [
                     'Компоненты'              => '/ru/docs/layouts/components',
                     'Карточки'                => '/ru/docs/layouts/cards',
                     'Facepile'                => '/ru/docs/layouts/facepile',
+                    'Persona'                 => '/ru/docs/layouts/persona',
                 ],
             ],
         ],
