@@ -1,16 +1,16 @@
 ---
-title: Facepile
+title: Персона
 extends: _layouts.documentation
 section: main
 lang: ru
 menu: layouts
 ---
 
-Показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот `layout` при отображении совместного доступа к определённому представлению, файлу или задачи.
+Персона используются для визуализации аватара и описания человека.
 
-![facepile](https://orchid.software/assets/img/layouts/facepile.png)
+![persona](https://orchid.software/assets/img/layouts/persona.png)
 
-`Facepile` принимает набор обьектов которые реализуют интерфейс `Personable`.
+`Persona` принимает набор обьектов которые реализуют интерфейс `Personable`.
 
 > В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуеться ознакомится с ними.
  
@@ -83,7 +83,7 @@ use Orchid\Screen\Layouts\Facepile;
 public function query(): array
 {
     return [
-        'avatars' => Employee::limit(8)->get()->map->presenter(),
+        'employee' => Employee::find(1)->presenter(),
     ];
 }
 
@@ -97,7 +97,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        new Facepile('avatars'),
+        new Facepile('employee'),
     ];
 }
 ```
