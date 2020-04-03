@@ -138,6 +138,7 @@ return [
                     'Обертка'                 => '/ru/docs/layouts/wrapper',
                     'Компоненты'              => '/ru/docs/layouts/components',
                     'Карточки'                => '/ru/docs/layouts/cards',
+                    'Facepile'                => '/ru/docs/layouts/facepile',
                 ],
             ],
         ],
