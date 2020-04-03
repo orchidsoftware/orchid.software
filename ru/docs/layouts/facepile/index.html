@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Компоненты | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/components"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Компоненты</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Facepile | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/facepile"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Facepile</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -145,7 +145,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/ru/docs/layouts/components" class="lvl1 ">
             Компоненты
@@ -159,7 +159,7 @@
         </a>
     
     </li>
-            <li class="">
+            <li class="active">
             
         <a href="/ru/docs/layouts/facepile" class="lvl1 ">
             Facepile
@@ -169,58 +169,72 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Компоненты</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Facepile</h1>
 
                         <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/components.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/facepile.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                             </a>
                         </div>
-                        <hr class="mb-4"><p>Одним из способов повторного использования шаблонов являеться создание
-<code>Blade</code> компонентов. Такие компоненты могут быть использованы и в платформе.</p>
-<p>Для того, чтобы создать новый компонент воспользуемся <code>artisan</code> командой:</p>
-<pre><code class="language-php">php artisan make:component Hello --inline</code></pre>
+                        <hr class="mb-4"><p><code>Facepile</code> показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот <code>layout</code> при отображении совместного доступа к определённому представлению, файлу или задачи.</p>
+<p>Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления. </p>
+<p><img src="https://orchid.software/assets/img/layouts/facepile.png" alt="facepile"></p>
+<p><code>Facepile</code> принимает набор обьектов которые реализуют интерфейс <code>Personable</code>.</p>
 <blockquote>
-<p><strong>Примечание.</strong> Более подробно вы можете узнать о компонентах в <a href="https://laravel.com/docs/blade#components">документации фреймворка</a></p>
+<p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
 </blockquote>
-<p>В результате будет новый класс <code>Hello</code>, приведём его в следующий вид:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<p>Вместо создания отдельного класса рекомендуется использоватье представителей для <code>Eloquent</code> моделей, например:</p>
+<pre><code class="language-php">namespace App;
 
-use Illuminate\View\Component;
+use App\Presenters\EmployeePresenter;
+use Illuminate\Database\Eloquent\Client;
 
-class Hello extends Component
+class Employee extends Model
 {
-    /**
-     * @var string
-     */
-    public $name;
+    protected $fillable = [
+        'name',
+        'avatar',
+        'position',
+    ];
 
-    /**
-     * Create a new component instance.
-     *
-     * @param string $name
-     */
-    public function __construct(string $name)
+    public function presenter(): EmployeePresenter
     {
-        $this-&gt;name = $name;
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return &lt;&lt;&lt;'blade'
-&lt;div&gt;
-    Hello {{ $name }}!
-&lt;/div&gt;
-blade;
+        return new EmployeePresenter($this);
     }
 }</code></pre>
-<p>Для использование его в экранах необходимо передать его строчное представление:</p>
-<pre><code class="language-php">/**
+<p>Можно записать представителя:</p>
+<pre><code class="language-php">namespace App\Presenters;
+
+use Orchid\Screen\Contracts\Personable;
+use Orchid\Support\Presenter;
+
+class EmployeePresenter extends Presenter implements Cardable
+{
+
+    public function title(): string
+    {
+        return $this-&gt;entity-&gt;name;
+    }
+
+    public function subTitle(): string
+    {
+        return $this-&gt;entity-&gt;position;
+    }
+
+    public function url(): string
+    {
+        return route('platform.systems.users.edit', $this-&gt;entity);
+    }
+
+    public function image(): ?string
+    {
+        return $this-&gt;entity-&gt;avatar;
+    }
+}</code></pre>
+<p>Использование в экране будет следующим:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Facepile;
+
+/**
  * Query data.
  *
  * @return array
@@ -228,65 +242,22 @@ blade;
 public function query(): array
 {
     return [
-        'name' =&gt; 'Sheldon Cooper',
+        'avatars' =&gt; Employee::limit(8)-&gt;get()-&gt;map-&gt;presenter(),
     ];
 }
 
 /**
  * Views.
  *
- * @return Layout[]
+ * @return array
+ * @throws \Throwable
+ *
  */
 public function layout(): array
 {
     return [
-        Layout::component(Hello::class),
+        new Facepile('avatars'),
     ];
-}</code></pre>
-<p>Значения из <code>query</code> будут подставлены в компонент по имени. При этом отсутствующие значения могут быть добавлены из контейнера, например:</p>
-<pre><code class="language-php">namespace App\View\Components;
-
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\View\Component;
-
-class Hello extends Component
-{
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var Application
-     */
-    public $application;
-
-    /**
-     * Create a new component instance.
-     *
-     * @param Application $application
-     * @param string      $name
-     */
-    public function __construct(Application $application, string $name)
-    {
-        $this-&gt;application = $application;
-        $this-&gt;name = $name;
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return &lt;&lt;&lt;'blade'
-&lt;div&gt;
-    Hello {{ $name }}!&lt;br&gt;
-    Version {{ $application-&gt;version() }}
-&lt;/div&gt;
-blade;
-    }
 }</code></pre>                    </main></div>
             </div>
         </div>
