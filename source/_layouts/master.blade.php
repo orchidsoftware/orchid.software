@@ -49,22 +49,26 @@
                             <span class="h3 font-thin text-uppercase">Orchid</span>
                         </a>
                     </h5>
+                    {{--
                     <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3">
+
                         <a class="p-3 m-sm-0" href="/@yield('lang')/docs">
                             <i class="icon-docs m-r-xs text-xs"></i>
                             @yield('main.documentation')
                         </a>
-                        {{--
+
                         <a class="p-3 m-sm-0" href="/@yield('lang')/icons">
                             <i class="icon-cup m-r-xs text-xs"></i>
                             @yield('main.icons')
                         </a>
-                        --}}
+
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>
+
                     </nav>
+                    --}}
 
                     <div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
                         <div class="block w-100">
@@ -75,9 +79,18 @@
                         </div>
                     </div>
 
+                    <a href="/@yield('lang')/docs" class="btn btn-sm btn-outline-primary btn-rounded mt-4 mt-sm-0">
+                        <strong>
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            @yield('main.documentation')
+                        </strong>
+                    </a>
+
+                    {{--
                     <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
                         <strong><i class="icon-social-github m-r-xs"></i> @yield('main.github')</strong>
                     </a>
+                    --}}
                 </div>
             </div>
         </header>
