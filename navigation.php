@@ -36,7 +36,7 @@ return [
                     'Presenters'   => '/en/docs/presenters',
                     'Scout search' => '/en/docs/global-search',
                     'Settings'     => '/en/docs/settings',
-                    'Icons'        => '/ru/docs/icons',
+                    'Icons'        => '/en/docs/icons',
                     'Controllers'  => '/en/docs/controllers',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
