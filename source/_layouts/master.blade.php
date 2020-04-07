@@ -54,11 +54,12 @@
                             <i class="icon-docs m-r-xs text-xs"></i>
                             @yield('main.documentation')
                         </a>
+                        {{--
                         <a class="p-3 m-sm-0" href="/@yield('lang')/icons">
                             <i class="icon-cup m-r-xs text-xs"></i>
                             @yield('main.icons')
                         </a>
-
+                        --}}
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')

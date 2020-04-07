@@ -23,13 +23,15 @@
                     <main class="py-2 px-2 py-md-4 px-md-4 order-md-first">
                         <h1>{{ $page->title }}</h1>
 
-                        <div class="none d-md-block">
-                            <a href="{{$page->editGitHub()}}"
-                               class="pull-right bg-white"
-                               style="margin-top: -0.5em; padding-left: 15px; ">
-                                <small class="text-muted"><i class="icon-pencil m-r-xs"></i> @yield('docs.edit')</small>
-                            </a>
-                        </div>
+                        @if($page->get('githubEdit',true))
+                            <div class="none d-md-block">
+                                <a href="{{$page->editGitHub()}}"
+                                   class="pull-right bg-white"
+                                   style="margin-top: -0.5em; padding-left: 15px; ">
+                                    <small class="text-muted"><i class="icon-pencil m-r-xs"></i> @yield('docs.edit')</small>
+                                </a>
+                            </div>
+                        @endif
                         <hr class="mb-4">
 
                         <!--Docs Anchors-->
