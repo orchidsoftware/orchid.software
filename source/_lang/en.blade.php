@@ -5,8 +5,8 @@
 @endsection
 
 @section('main.description')
-    Develop corporate PHP<br>
-    web applications faster than ever
+    <span class="font-bold">Develop web applications</span><br>
+    faster than ever
 @endsection
 
 @section('main.screen.title','Simple Architecture')
