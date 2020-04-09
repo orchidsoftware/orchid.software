@@ -5,8 +5,8 @@
 @endsection
 
 @section('main.description')
-    Разрабатывайте корпоративные  <br>
-    веб-приложения на PHP быстрее, чем когда-либо
+    <span class="font-bold">Разрабатывайте веб-приложения</span><br>
+    быстрее, чем когда-либо
 @endsection
 
 @section('main.screen.title','Простая архитектура')
