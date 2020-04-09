@@ -103,7 +103,7 @@
             <div class="row padder-v mt-5">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-cloud-download mr-2"></i>
                             <span class="item-name h4 font-thin"> @yield('main.col1.title')</span>
                         </div>
@@ -115,7 +115,7 @@
                 </div>
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-clock mr-2"></i>
                             <div class="item-name h4 font-thin">@yield('main.col2.title')</div>
                         </div>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-filter mr-2"></i>
                             <span class="item-name h4 font-thin">@yield('main.col3.title')</span>
                         </div>
@@ -141,7 +141,7 @@
             <div class="row padder-v mt-sm-5 mb-sm-5">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-bell mr-2"></i>
                             <span class="item-name h4 font-thin">@yield('main.col4.title')</span>
                         </div>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-magnifier mr-2"></i>
                             <span class="item-name h4 font-thin">@yield('main.col5.title')</span>
                         </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
-                        <div class="h3 v-center">
+                        <div class="h3 v-center text-black">
                             <i class="icon-friends mr-2"></i>
                             <span class="item-name h4 font-thin">@yield('main.col6.title')</span>
                         </div>
