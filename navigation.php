@@ -143,13 +143,13 @@ return [
                     'Facepile' => '/ru/docs/layouts/facepile',
                     'Persona'  => '/ru/docs/layouts/persona',
                 ],
-                'Универсальные' => [
-                    'children' => [
-                        'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
-                        'Расширение слоёв'        => '/ru/docs/layouts/extension',
-                        'Обертка'                 => '/ru/docs/layouts/wrapper',
-                        'Компоненты'              => '/ru/docs/layouts/components',
-                    ],
+            ],
+            'Универсальные' => [
+                'children' => [
+                    'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
+                    'Расширение слоёв'        => '/ru/docs/layouts/extension',
+                    'Обертка'                 => '/ru/docs/layouts/wrapper',
+                    'Компоненты'              => '/ru/docs/layouts/components',
                 ],
             ],
         ],
