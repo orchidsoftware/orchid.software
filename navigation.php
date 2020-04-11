@@ -124,24 +124,30 @@ return [
                     'Макеты экрана'   => '/ru/docs/layouts',
                 ],
             ],
-            'Список макетов' => [
+            'Макеты группировки' => [
                 'children' => [
                     'Аккордеон'               => '/ru/docs/layouts/accordion',
-                    'Графики'                 => '/ru/docs/layouts/charts',
                     'Колонки'                 => '/ru/docs/layouts/columns',
-                    'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
                     'Раскрывающийся список'   => '/ru/docs/layouts/drop-down-list',
-                    'Расширение слоёв'        => '/ru/docs/layouts/extension',
                     'Модальные окна'          => '/ru/docs/layouts/modals',
                     'Строки'                  => '/ru/docs/layouts/rows',
                     'Набор фильтров'          => '/ru/docs/layouts/selection',
-                    'Таблицы'                 => '/ru/docs/layouts/table',
                     'Табы'                    => '/ru/docs/layouts/tabs',
-                    'Обертка'                 => '/ru/docs/layouts/wrapper',
-                    'Компоненты'              => '/ru/docs/layouts/components',
+                ],
+            'Макеты отображения' => [
+                'children' => [
+                    'Графики'                 => '/ru/docs/layouts/charts',
+                    'Таблицы'                 => '/ru/docs/layouts/table',
                     'Карточки'                => '/ru/docs/layouts/cards',
                     'Facepile'                => '/ru/docs/layouts/facepile',
                     'Persona'                 => '/ru/docs/layouts/persona',
+                ],
+            'Универсальные' => [
+                'children' => [
+                    'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
+                    'Расширение слоёв'        => '/ru/docs/layouts/extension',
+                    'Обертка'                 => '/ru/docs/layouts/wrapper',
+                    'Компоненты'              => '/ru/docs/layouts/components',
                 ],
             ],
         ],
