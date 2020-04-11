@@ -125,7 +125,7 @@ return [
                 ],
             ],
             'Макеты группировки' => [
-                'children'           => [
+                'children' => [
                     'Аккордеон'             => '/ru/docs/layouts/accordion',
                     'Колонки'               => '/ru/docs/layouts/columns',
                     'Раскрывающийся список' => '/ru/docs/layouts/drop-down-list',
@@ -134,21 +134,21 @@ return [
                     'Набор фильтров'        => '/ru/docs/layouts/selection',
                     'Табы'                  => '/ru/docs/layouts/tabs',
                 ],
-                'Макеты отображения' => [
-                    'children'      => [
-                        'Графики'  => '/ru/docs/layouts/charts',
-                        'Таблицы'  => '/ru/docs/layouts/table',
-                        'Карточки' => '/ru/docs/layouts/cards',
-                        'Facepile' => '/ru/docs/layouts/facepile',
-                        'Persona'  => '/ru/docs/layouts/persona',
-                    ],
-                    'Универсальные' => [
-                        'children' => [
-                            'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
-                            'Расширение слоёв'        => '/ru/docs/layouts/extension',
-                            'Обертка'                 => '/ru/docs/layouts/wrapper',
-                            'Компоненты'              => '/ru/docs/layouts/components',
-                        ],
+            ],
+            'Макеты отображения' => [
+                'children'      => [
+                    'Графики'  => '/ru/docs/layouts/charts',
+                    'Таблицы'  => '/ru/docs/layouts/table',
+                    'Карточки' => '/ru/docs/layouts/cards',
+                    'Facepile' => '/ru/docs/layouts/facepile',
+                    'Persona'  => '/ru/docs/layouts/persona',
+                ],
+                'Универсальные' => [
+                    'children' => [
+                        'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
+                        'Расширение слоёв'        => '/ru/docs/layouts/extension',
+                        'Обертка'                 => '/ru/docs/layouts/wrapper',
+                        'Компоненты'              => '/ru/docs/layouts/components',
                     ],
                 ],
             ],
@@ -164,4 +164,5 @@ return [
             ],
         ],
     ],
+
 ];
