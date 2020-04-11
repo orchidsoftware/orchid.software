@@ -3,7 +3,7 @@
 return [
 
     'en' => [
-        'docs' => [
+        'docs'      => [
             'Get started'   => [
                 'children' => [
                     'Introduction project'  => '/en/docs/',
@@ -76,7 +76,7 @@ return [
         ],
     ],
     'ru' => [
-        'docs' => [
+        'docs'      => [
             'Начало работы'      => [
                 'children' => [
                     'Введение в проект'   => '/ru/docs/',
@@ -117,42 +117,44 @@ return [
                 ],
             ],
         ],
-        'layouts' => [
-            'Основное' => [
+        'layouts'   => [
+            'Основное'           => [
                 'children' => [
                     'Вернуться назад' => '/ru/docs/screens',
                     'Макеты экрана'   => '/ru/docs/layouts',
                 ],
             ],
             'Макеты группировки' => [
-                'children' => [
-                    'Аккордеон'               => '/ru/docs/layouts/accordion',
-                    'Колонки'                 => '/ru/docs/layouts/columns',
-                    'Раскрывающийся список'   => '/ru/docs/layouts/drop-down-list',
-                    'Модальные окна'          => '/ru/docs/layouts/modals',
-                    'Строки'                  => '/ru/docs/layouts/rows',
-                    'Набор фильтров'          => '/ru/docs/layouts/selection',
-                    'Табы'                    => '/ru/docs/layouts/tabs',
+                'children'           => [
+                    'Аккордеон'             => '/ru/docs/layouts/accordion',
+                    'Колонки'               => '/ru/docs/layouts/columns',
+                    'Раскрывающийся список' => '/ru/docs/layouts/drop-down-list',
+                    'Модальные окна'        => '/ru/docs/layouts/modals',
+                    'Строки'                => '/ru/docs/layouts/rows',
+                    'Набор фильтров'        => '/ru/docs/layouts/selection',
+                    'Табы'                  => '/ru/docs/layouts/tabs',
                 ],
-            'Макеты отображения' => [
-                'children' => [
-                    'Графики'                 => '/ru/docs/layouts/charts',
-                    'Таблицы'                 => '/ru/docs/layouts/table',
-                    'Карточки'                => '/ru/docs/layouts/cards',
-                    'Facepile'                => '/ru/docs/layouts/facepile',
-                    'Persona'                 => '/ru/docs/layouts/persona',
-                ],
-            'Универсальные' => [
-                'children' => [
-                    'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
-                    'Расширение слоёв'        => '/ru/docs/layouts/extension',
-                    'Обертка'                 => '/ru/docs/layouts/wrapper',
-                    'Компоненты'              => '/ru/docs/layouts/components',
+                'Макеты отображения' => [
+                    'children'      => [
+                        'Графики'  => '/ru/docs/layouts/charts',
+                        'Таблицы'  => '/ru/docs/layouts/table',
+                        'Карточки' => '/ru/docs/layouts/cards',
+                        'Facepile' => '/ru/docs/layouts/facepile',
+                        'Persona'  => '/ru/docs/layouts/persona',
+                    ],
+                    'Универсальные' => [
+                        'children' => [
+                            'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
+                            'Расширение слоёв'        => '/ru/docs/layouts/extension',
+                            'Обертка'                 => '/ru/docs/layouts/wrapper',
+                            'Компоненты'              => '/ru/docs/layouts/components',
+                        ],
+                    ],
                 ],
             ],
         ],
         'community' => [
-            'Сообщество'         => [
+            'Сообщество' => [
                 'children' => [
                     'Кодекс поведения'     => '/ru/community/code-of-conduct',
                     'Участие в разработке' => '/ru/community/contributors',
@@ -162,5 +164,4 @@ return [
             ],
         ],
     ],
-
 ];
