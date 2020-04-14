@@ -10,7 +10,7 @@
 
     <div class="bg-white-only">
         <div class="container no-padder" id="docs">
-            <div class="row pt-3 pb-3">
+            <div class="row pt-3 pb-3 m-0">
                 <div class="col col-md-3 b-r">
                     <nav class="nav-docs">
                         @include('_nav.menu', ['items' => $page->navigation
