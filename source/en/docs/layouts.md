@@ -259,7 +259,7 @@ A graphic layout is a convenient way to graphically display the dynamics of valu
 data processing example data from `query`
 
 ```php
-public function query($patient = null) : array
+public function query() : array
 {
     $charts = [
         [
