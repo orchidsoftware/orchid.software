@@ -8,7 +8,7 @@ menu: layouts
 
 Эмуляция модального диалогового окна,  появляющегося поверх основного содержимого страницы  в ответ на действия пользователя.
 
-![Modals](https://orchid.software/assets/img/layouts/modals.png)
+![Modals](/assets/img/layouts/modals.png)
 
 ## Описание работы
 

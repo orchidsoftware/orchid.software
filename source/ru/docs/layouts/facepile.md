@@ -8,7 +8,7 @@ menu: layouts
 
 Показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот `layout` при отображении совместного доступа к определённому представлению, файлу или задачи.
 
-![facepile](https://orchid.software/assets/img/layouts/facepile.png)
+![facepile](/assets/img/layouts/facepile.png)
 
 `Facepile` принимает набор обьектов которые реализуют интерфейс `Personable`.
 

@@ -8,7 +8,7 @@ menu: layouts
 
 Колонки полезны, когда вам необходимо сгруппировать контент.
 
-![Columns](https://orchid.software/assets/img/layouts/columns.png)
+![Columns](/assets/img/layouts/columns.png)
 
 Колонки поддерживают короткий синтаксис через вызов статического метода, 
 что не требует создания отдельного класса:

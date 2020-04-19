@@ -10,7 +10,7 @@ menu: layouts
 
 Макет таблицы используется для вывода минимальной информации для просмотра и выборки.
 
-![Table](https://orchid.software/assets/img/layouts/table.png)
+![Table](/assets/img/layouts/table.png)
 
 
 Для создания выполните команду:

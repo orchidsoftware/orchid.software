@@ -8,7 +8,7 @@ menu: layouts
 
 Аккордеоны полезны, когда вы хотите переключаться между скрытием и отображением большого количества контента:
 
-![Accordion](https://orchid.software/assets/img/layouts/accordion.png)
+![Accordion](/assets/img/layouts/accordion.png)
 
 Аккордеоны поддерживают короткий синтаксис через вызов статического метода, 
 что не требует создания отдельного класса:

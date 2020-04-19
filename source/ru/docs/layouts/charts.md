@@ -8,7 +8,7 @@ menu: layouts
 
 Макет графиков удобный способ графически отображать динамику значений.
 
-![Charts](https://orchid.software/assets/img/layouts/charts.png)
+![Charts](/assets/img/layouts/charts.png)
 
 Пример данных из `query`:
 

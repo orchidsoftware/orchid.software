@@ -7,19 +7,43 @@ menu: layouts
 ---
 
 Макет строк служит минимальным набором, который чаще всего используется.
-Его цель объединять все необходимые поля.
+Его цель объединять все необходимые элементы форм.
 
-Для создания исполните команду:
+
+Строки поддерживают короткую запись без создания отдельного класса,
+например, когда требуется показать одно - два поля.
+
 ```php
-php artisan orchid:rows PatientFirstRows
+use Orchid\Screen\Layout;
+use Orchid\Screen\Fields\Input;
+
+public function layout(): array
+{
+    return [
+        Layout::rows([
+           Input::make('example')
+                ->type('text')
+                ->title('Example')
+        ]),
+    ];
+}
 ```
 
-Пример:
+Для повторного использования, можно создать класс выполнив команду:
+
 ```php
-namespace App\Layouts\Clinic\Patient;
+php artisan orchid:rows Appointment
+```
+
+В директории `app/Orchid/Layouts`, будет создан новый класс, где можно определять поля:
+
+```php
+namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
 use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Fields\DateTimer;
+use Orchid\Screen\Fields\TextArea;
 
 class Appointment extends Rows
 {
@@ -46,18 +70,13 @@ class Appointment extends Rows
 }
 ```
 
-Строки поддерживают короткую запись без создания отдельного класса,
-например, когда требуется показать одно - два поля.
+Для использования такого класса в экране необходимо передать его название в методе `layouts`:
 
 ```php
 public function layout(): array
 {
     return [
-        Layout::rows([
-           Input::make('example')
-                ->type('text')
-                ->title('Example')
-        ]),
+        Appointment::class
     ];
 }
 ```

@@ -8,7 +8,7 @@ menu: layouts
 
 Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления. 
 
-![Cards](https://orchid.software/assets/img/layouts/cards.png)
+![Cards](/assets/img/layouts/cards.png)
 
 Карточки принимают только обьекты которые реализуют интерфейс `Cardable`.
 

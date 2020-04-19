@@ -8,7 +8,7 @@ menu: layouts
 
 Персона используются для визуализации аватара и описания человека.
 
-![persona](https://orchid.software/assets/img/layouts/persona.png)
+![persona](/assets/img/layouts/persona.png)
 
 `Persona` принимает набор обьектов которые реализуют интерфейс `Personable`.
 
