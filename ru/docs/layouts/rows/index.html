@@ -192,14 +192,31 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Макет строк служит минимальным набором, который чаще всего используется.
-Его цель объединять все необходимые поля.</p>
-<p>Для создания исполните команду:</p>
-<pre><code class="language-php">php artisan orchid:rows PatientFirstRows</code></pre>
-<p>Пример:</p>
-<pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
+Его цель объединять все необходимые элементы форм.</p>
+<p>Строки поддерживают короткую запись без создания отдельного класса,
+например, когда требуется показать одно - два поля.</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+use Orchid\Screen\Fields\Input;
+
+public function layout(): array
+{
+    return [
+        Layout::rows([
+           Input::make('example')
+                -&gt;type('text')
+                -&gt;title('Example')
+        ]),
+    ];
+}</code></pre>
+<p>Для повторного использования, можно создать класс выполнив команду:</p>
+<pre><code class="language-php">php artisan orchid:rows Appointment</code></pre>
+<p>В директории <code>app/Orchid/Layouts</code>, будет создан новый класс, где можно определять поля:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
 use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Fields\DateTimer;
+use Orchid\Screen\Fields\TextArea;
 
 class Appointment extends Rows
 {
@@ -224,16 +241,11 @@ class Appointment extends Rows
         ];
     }
 }</code></pre>
-<p>Строки поддерживают короткую запись без создания отдельного класса,
-например, когда требуется показать одно - два поля.</p>
+<p>Для использования такого класса в экране необходимо передать его название в методе <code>layouts</code>:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::rows([
-           Input::make('example')
-                -&gt;type('text')
-                -&gt;title('Example')
-        ]),
+        Appointment::class
     ];
 }</code></pre>                    </main></div>
             </div>

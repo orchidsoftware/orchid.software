@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Карточки | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/cards"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Карточки</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Сompact | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/ru/docs/layouts/compact"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Сompact</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -126,7 +126,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/ru/docs/layouts/cards" class="lvl1 ">
             Карточки
@@ -184,183 +184,14 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Карточки</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Сompact</h1>
 
                                                     <div class="none d-md-block">
-                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/cards.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/ru/docs/layouts/compact.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                     <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Редактировать страницу</small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><ul class="pl-5">
-                    <li class="anchor-h2">
-                <a href="#ispolzovanie-sobstvennykh-shablonov">Использование собственных шаблонов</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#ukazanie-deystviy">Указание действий</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#ispolzovanie-s-predstavitelyami">Использование с представителями</a>
-            </li>
-            </ul>
-    <hr>
-<p>Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления. </p>
-<p><img src="/assets/img/layouts/cards.png" alt="Cards"></p>
-<p>Карточки принимают только обьекты которые реализуют интерфейс <code>Cardable</code>.</p>
-<pre><code class="language-php">use Orchid\Screen\Contracts\Cardable;
-use Orchid\Screen\Layouts\Card;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'card'        =&gt; new class implements Cardable {
-
-            public function title(): string
-            {
-                return 'Title of a longer featured blog post';
-            }
-
-            public function description(): string
-            {
-                return 'This is a wider card with supporting text below as a natural lead-in to additional content. 
-                        This content is a little bit longer. This is a wider card with supporting text below as 
-                        a natural lead-in to additional content. This content is a little bit longer. 
-                        This is a wider card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.';
-            }
-
-            public function image(): ?string
-            {
-                return 'https://picsum.photos/600/300';
-            }
-
-            public function color(): ?Color
-            {
-                return Color::INFO();
-            }
-        },
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
-public function layout(): array
-{
-    return [
-        new Card('card'),
-    ];
-}</code></pre>
-<h2><a href="#ispolzovanie-sobstvennykh-shablonov" name="ispolzovanie-sobstvennykh-shablonov">Использование собственных шаблонов</a></h2>
-<p>Карточка позволяет комбинировать любое отображение в методе <code>description</code>,</p>
-<pre><code class="language-php">public function description(): string
-{
-    return view('template')-&gt;render();
-}</code></pre>
-<blockquote>
-<p><strong>Примечание.</strong> Любое значение вернувшиеся в нём будет отображено как есть.</p>
-</blockquote>
-<h2><a href="#ukazanie-deystviy" name="ukazanie-deystviy">Указание действий</a></h2>
-<p>Карточки поддерживают указание действий, так же как и <code>commandBar</code>, для этого необходимо добавить второй аргумент:</p>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        new Card('card', [
-            Button::make('Example Button')
-                -&gt;method('example')
-                -&gt;icon('icon-bag'),
-        ]),
-    ];
-}</code></pre>
-<h2><a href="#ispolzovanie-s-predstavitelyami" name="ispolzovanie-s-predstavitelyami">Использование с представителями</a></h2>
-<blockquote>
-<p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
-</blockquote>
-<p>Вместо создания отдельного класса рекомендуется использоватье представителей для <code>Eloquent</code> моделей, например:</p>
-<pre><code class="language-php">namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Product extends Model
-{
-    protected $fillable = [
-        'title',
-        'descriptions',
-        'image',
-        'amount',
-    ];
-
-    public function presenter(): ProductPresenter
-    {
-        return new ProductPresenter($this);
-    }
-}</code></pre>
-<p>Можно записать представителя:</p>
-<pre><code class="language-php">namespace App\Presenters;
-
-use Orchid\Screen\Contracts\Cardable;
-use Orchid\Support\Presenter;
-
-class ProductPresenter extends Presenter implements Cardable
-{
-    public function title(): string
-    {
-        return $this-&gt;entity-&gt;title;
-    }
-
-    public function description(): string
-    {
-        return $this-&gt;entity-&gt;description;
-    }
-
-    public function image(): ?string
-    {
-        return $this-&gt;entity-&gt;image;
-    }
-
-    public function color(): ?Color
-    {
-        return $this-&gt;entity-&gt;amount &gt; 0
-            ? Color::SUCCESS()
-            : Color::DANGER();
-    }
-}</code></pre>
-<p>Тогда запись использования в экране будет кратким:</p>
-<pre><code class="language-php">use Orchid\Screen\Layouts\Card;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'product' =&gt; Product::findOrFail(1),
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
-public function layout(): array
-{
-    return [
-        new Card('product.presenter'),
-    ];
-}</code></pre>                    </main></div>
+                                                <hr class="mb-4"></main></div>
             </div>
         </div>
     </div>
