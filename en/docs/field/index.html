@@ -524,6 +524,11 @@ Select::make('user')
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;title('Select your idea'),</code></pre>
+<p>If you need a <em>-to-many</em> relation you can use <code>multiple()</code> (please note the final <code>.</code> in the name)</p>
+<pre><code class="language-php">Relation::make('categories.')
+    -&gt;fromModel(Category::class, 'name')
+    -&gt;multiple()
+    -&gt;title('Select your categories'),</code></pre>
 <p>To modify the load, you can use an indication of the <code>scope</code> model,
 for example, take only active:</p>
 <pre><code class="language-php">namespace App;
