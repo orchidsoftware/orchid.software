@@ -425,6 +425,15 @@ Relation::make('idea')
     ->title('Select your idea'),
 ```
 
+If you need a _-to-many_ relation you can use `multiple()` (please note the final `.` in the name)
+
+```php
+Relation::make('categories.')
+    ->fromModel(Category::class, 'name')
+    ->multiple()
+    ->title('Select your categories'),
+```
+
 To modify the load, you can use an indication of the `scope` model,
 for example, take only active:
 
