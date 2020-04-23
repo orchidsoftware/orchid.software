@@ -228,58 +228,70 @@
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#polya-vvoda">Поля ввода</a>
-            </li>
-                    <li class="anchor-h3">
                 <a href="#input">Input</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#textarea">Textarea</a>
+                <a href="#polzovatelskoe-oformlenie">Пользовательское оформление</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#checkbox">Checkbox</a>
+                <a href="#obyazatelnoe-dlya-zapolneniya">Обязательное для заполнения</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#skrytie-poley">Скрытие полей</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#tipy">Типы</a>
             </li>
                     <li class="anchor-h3">
                 <a href="#maska-dlya-vvoda-znacheniy">Маска для ввода значений</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#redaktory-teksta">Редакторы текста</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#html-redaktor-tinymce">HTML редактор TinyMCE</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#html-redaktor-quill">HTML редактор Quill</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#markdown-redaktor">Markdown редактор</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#redaktor-koda">Редактор кода</a>
+                <a href="#textarea">TextArea</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#zagruzka-i-obrabotka-faylov">Загрузка и обработка файлов</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#picture-field">Picture field</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#cropper-field">Cropper field</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#media-field">Media field</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#timezone-field">TimeZone field</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#datetime-field">Datetime field</a>
+                <a href="#checkbox">CheckBox</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#select">Select</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#otnosheniya">Отношения</a>
+                <a href="#relation">Relation</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#datetime">DateTime</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#timezone">TimeZone</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#html-redaktor-tinymce">HTML редактор TinyMCE</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#html-redaktor-quill">HTML редактор Quill</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#markdown-redaktor">Markdown редактор</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#redaktor-koda">Редактор кода</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#picture">Picture</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#cropper">Cropper</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#shirina-i-vysota">Ширина и высота</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#ogranichenie-razmera-fayla">Ограничение размера файла</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#znachenie">Значение</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#upload">Upload</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#knopkassylka">Кнопка/Ссылка</a>
@@ -290,46 +302,61 @@
 <blockquote>
 <p>Не стесняйтесь добавлять свои поля, например, для использования удобного редактора для вас или любых компонентов.</p>
 </blockquote>
-<h2><a href="#polya-vvoda" name="polya-vvoda">Поля ввода</a></h2>
-<h3><a href="#input" name="input">Input</a></h3>
-<p><img src="https://orchid.software/assets/img/ui/input.png" alt="Input"></p>
+<h2><a href="#input" name="input">Input</a></h2>
 <p>Является одним из разносторонних элементов формы и позволяет создавать разные части интерфейса и обеспечивать взаимодействие с пользователем. Главным образом предназначен для создания текстовых полей.</p>
+<p><img src="/assets/img/fields/input.png" alt="Input"></p>
 <p>Пример записи:</p>
+<pre><code class="language-php">Input::make('name');</code></pre>
+<h3><a href="#polzovatelskoe-oformlenie" name="polzovatelskoe-oformlenie">Пользовательское оформление</a></h3>
+<p>Пустые и не выразительные поля для ввода могут запутывать пользователя,
+но вы можете помочь с помощью указания заголовка. </p>
+<pre><code class="language-php">Input::make('name')
+    -&gt;title('First name');</code></pre>
+<p>Когда требуеться более подробно описать предназначение поля,
+тогда можно использовать подсказку:</p>
+<pre><code class="language-php">Input::make('name')
+    -&gt;help('What is your name?');</code></pre>
+<p>Если описание поля очень специфическое и требуеться большое описание,
+можно использовать тултип, которые будет показан в качестве всплывающего окна:</p>
+<pre><code class="language-php">Input::make('name')
+    -&gt;popover('Tooltip - hint that user opens himself.');</code></pre>
+<p>Горизонтальное или вертиальное представление:</p>
+<pre><code class="language-php">Input::make('name')-&gt;vertical();</code></pre>
+<pre><code class="language-php">Input::make('name')-&gt;horizontal();</code></pre>
+<h3><a href="#obyazatelnoe-dlya-zapolneniya" name="obyazatelnoe-dlya-zapolneniya">Обязательное для заполнения</a></h3>
+<p>Иногда вам может потребоваться указать поле обязательным к заполнению,
+для этого необходимо вызвать метод <code>required</code>:</p>
 <pre><code class="language-php">Input::make('name')
     -&gt;type('text')
-    -&gt;max(255)
-    -&gt;required()
-    -&gt;title('Name Articles')
-    -&gt;help('Article title');</code></pre>
+    -&gt;required();</code></pre>
+<h3><a href="#skrytie-poley" name="skrytie-poley">Скрытие полей</a></h3>
+<pre><code class="language-php">Input::make('name')-&gt;canSee(true);
+Input::make('name')-&gt;canSee(false);</code></pre>
 <blockquote>
-<p>Заметьте, многие методы, такие как <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> и многие другие, доступны почти каждым <code>полям</code> системы и являются обязательными.</p>
+<p>Заметьте, многие методы, такие как <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> и многие другие, доступны почти в каждом <code>поле</code> системы.</p>
 </blockquote>
-<p>Одно из самых универсальных полей за счет указания типа, поддерживаются почти все <code>html</code> значения:</p>
-<ul><li><strong>text</strong>  - Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</li>
-<li><strong>file</strong> -    Поле для ввода имени файла, который пересылается на сервер. </li>
-<li><strong>hidden</strong>    - Скрытое поле.</li>
-<li><strong>color</strong> - Виджет для выбора цвета.</li>
-<li><strong>email</strong> - Для адресов электронной почты.</li>
-<li><strong>number</strong>    - Ввод чисел.</li>
-<li><strong>range</strong> - Ползунок для выбора чисел в указанном диапазоне.</li>
-<li><strong>url</strong>   - Для веб-адресов.</li>
-</ul><h3><a href="#textarea" name="textarea">Textarea</a></h3>
-<p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
-В отличие от тега <code>input</code> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">TextArea::make('description')
-    -&gt;max(255)
-    -&gt;rows(5)
-    -&gt;required()
-    -&gt;title('Short description');</code></pre>
-<h3><a href="#checkbox" name="checkbox">Checkbox</a></h3>
-<p>Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">CheckBox::make('free')
-    -&gt;value(1)
-    -&gt;title('Free')
-    -&gt;placeholder('Event for free')
-    -&gt;help('Event for free');</code></pre>
+<h3><a href="#tipy" name="tipy">Типы</a></h3>
+<p>Одно из самых универсальных полей за счет указания типа, поддерживаются  все <code>html</code> значения:</p>
+<blockquote>
+<p><strong>Обратите внимание</strong>. Поддержка новых HTML5 атрибутов полностью зависит от используемого браузера.</p>
+</blockquote>
+<p>Текстовое поле. Предназначено для ввода символов с помощью клавиатуры.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('text');</code></pre>
+<p>Поле для ввода имени файла, который пересылается на сервер. </p>
+<pre><code class="language-php">Input::make('name')-&gt;type('file');</code></pre>
+<p>Скрытое поле.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('hidden');</code></pre>
+<p>Виджет для выбора цвета.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('color');</code></pre>
+<p>Для адресов электронной почты.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('email');</code></pre>
+<p>Ввод чисел.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('number');</code></pre>
+<p>Ползунок для выбора чисел в указанном диапазоне.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('range');</code></pre>
+<p>Для указания веб-адресов.</p>
+<pre><code class="language-php">Input::make('name')-&gt;type('url');</code></pre>
+<p>Более подробно о типов атрибутов можно узнать на <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">сайте Mozilla</a>.</p>
 <h3><a href="#maska-dlya-vvoda-znacheniy" name="maska-dlya-vvoda-znacheniy">Маска для ввода значений</a></h3>
 <p>Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона</p>
 <p>Пример записи:</p>
@@ -338,142 +365,36 @@
     -&gt;title('Номер телефона');</code></pre>
 <p>В маску можно передавать массив с параметрами, например:</p>
 <pre><code class="language-php">Input::make('price')
+    -&gt;title('Стоимость')
     -&gt;mask([
      'mask' =&gt; '999 999 999.99',
      'numericInput' =&gt; true
-    ])
-    -&gt;title('Стоимость');</code></pre>
+    ]);</code></pre>
 <pre><code class="language-php">Input::make('price')
+    -&gt;title('Стоимость')
     -&gt;mask([
         'alias' =&gt; 'currency',
         'prefix' =&gt; ' ',
         'groupSeparator' =&gt; ' ',
         'digitsOptional' =&gt; true,
-    ])
-    -&gt;title('Стоимость');</code></pre>
+    ]);</code></pre>
 <p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a>.</p>
-<h2><a href="#redaktory-teksta" name="redaktory-teksta">Редакторы текста</a></h2>
-<p>Визуальным называется редактор, в котором содержание отображается в процессе редактирования и
-выглядит максимально близко похожим на конечный результат.
-Такой редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.</p>
-<h3><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h3>
-<p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
+<h2><a href="#textarea" name="textarea">TextArea</a></h2>
+<p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
+В отличие от тега <a href="/ru/docs/fields/input"><code>input</code></a> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
 <p>Пример записи:</p>
-<pre><code class="language-php">TinyMCE::make('html')
-    -&gt;required()
-    -&gt;theme('inlite');</code></pre>
-<p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
-<h3><a href="#html-redaktor-quill" name="html-redaktor-quill">HTML редактор Quill</a></h3>
+<pre><code class="language-php">TextArea::make('description');</code></pre>
+<p>Вы можете задать необходимое количество строк с помощью метода <code>rows</code>:</p>
+<pre><code class="language-php">TextArea::make('description')
+    -&gt;rows(5);</code></pre>
+<h2><a href="#checkbox" name="checkbox">CheckBox</a></h2>
+<p>Элемент графического пользовательского интерфейса, позволяющий пользователю управлять параметром с двумя состояниями — ☑ включено и ☐ выключено.</p>
 <p>Пример записи:</p>
-<pre><code class="language-php">Quill::make('html')</code></pre>
-<h3><a href="#markdown-redaktor" name="markdown-redaktor">Markdown редактор</a></h3>
-<p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
-<p>Редактор для облегчённого языка разметки,
-созданный с целью написания максимально читаемого и удобного для правки текста,
-но пригодного для преобразования в языки для продвинутых публикаций.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">SimpleMDE::make('markdown')
-    -&gt;title('О чём вы хотите рассказать?')</code></pre>
-<h3><a href="#redaktor-koda" name="redaktor-koda">Редактор кода</a></h3>
-<p>Поле для записи программного кода с возможностью подсветки.</p>
-<p><img src="https://orchid.software/assets/img/ui/code.png" alt="Code"></p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Code::make('code')</code></pre>
-<p>Для указания подцветки кода под конкретный язык программирования можно использовать метод <code>language()</code>.</p>
-<pre><code class="language-php"> Code::make('code')
-     -&gt;language(Code::CSS);</code></pre>
-<p>Доступны следующие языки:</p>
-<ul><li>Markup - <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
-<li>CSS - <code>css</code></li>
-<li>C-like - <code>clike</code></li>
-<li>JavaScript - <code>javascript</code>, <code>js</code></li>
-</ul><p>Поддерживается указание количества строк:</p>
-<pre><code class="language-php">Code::make('code')
-    -&gt;lineNumbers();</code></pre>
-<h2><a href="#zagruzka-i-obrabotka-faylov" name="zagruzka-i-obrabotka-faylov">Загрузка и обработка файлов</a></h2>
-<h3><a href="#picture-field" name="picture-field">Picture field</a></h3>
-<p>Позволяет загружать изображение.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Picture::make('picture');</code></pre>
-<h3><a href="#cropper-field" name="cropper-field">Cropper field</a></h3>
-<p>Позволяет загружать изображение и обрезать до нужного формата.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;width(500)
-    -&gt;height(300);</code></pre>
-<h3><a href="#media-field" name="media-field">Media field</a></h3>
-<p>Пример записи:</p>
-<pre><code class="language-php">Upload::make('upload');</code></pre>
-<pre><code class="language-php">Upload::make('docs')
-    -&gt;groups('documents');
-
-Upload::make('images')
-    -&gt;groups('photo');</code></pre>
-<p>Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFiles(10)</code></pre>
-<p>Определяет количество параллельных загрузок для обработки файлов:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;parallelUploads(2)</code></pre>
-<p>Максимальный объём загружаемого файла:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFileSize(1024)</code></pre>
-<p>Реализация по умолчанию <code>accept</code> проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;acceptedFiles('image/*,application/pdf,.psd')</code></pre>
-<p>Поле загрузки может работать с различными хранилищами, что бы указать его необходимо передать ключ указанный в <code>config/filesystems.php</code>:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;storage('private')</code></pre>
-<p>По умолчанию используется хранилище <code>public</code>.</p>
-<h2><a href="#timezone-field" name="timezone-field">TimeZone field</a></h2>
-<p>Поле для удобного выбора часового пояса:</p>
-<pre><code class="language-php">TimeZone::make('time');</code></pre>
-<p>Возможно, указание конкретных временных зон используя:</p>
-<pre><code class="language-php">use DateTimeZone;
-
-TimeZone::make('time')
-    -&gt;listIdentifiers(DateTimeZone::ALL); </code></pre>
-<p>По умолчанию принимает значение <code>DateTimeZone::ALL</code>, но возможны и другие:</p>
-<pre><code class="language-php">DateTimeZone::AFRICA;
-DateTimeZone::AMERICA;
-DateTimeZone::ANTARCTICA;
-DateTimeZone::ARCTIC;
-DateTimeZone::ASIA;
-DateTimeZone::ATLANTIC;
-DateTimeZone::AUSTRALIA;
-DateTimeZone::EUROPE;
-DateTimeZone::INDIAN;
-DateTimeZone::PACIFIC;
-DateTimeZone::UTC;
-DateTimeZone::ALL_WITH_BC;
-DateTimeZone::PER_COUNTRY;</code></pre>
-<h2><a href="#datetime-field" name="datetime-field">Datetime field</a></h2>
-<p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
-<p>Позволяет выбрать дату и время.</p>
-<p>Пример записи:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date');</code></pre>
-<p>Разрешить прямой ввод:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;allowInput();</code></pre>
-<p>Формат данных:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;format('Y-m-d');</code></pre>
-<p>Пример, для отображения в 24-ом формате:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;format24hr();</code></pre>
-<p>Календарь со временем:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening time')
-    -&gt;enableTime();</code></pre>
-<p>Выбор только времени:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening time')
-    -&gt;noCalendar()
-    -&gt;format('h:i K');</code></pre>
+<pre><code class="language-php">CheckBox::make('free')
+    -&gt;value(1)
+    -&gt;title('Free')
+    -&gt;placeholder('Event for free')
+    -&gt;help('Event for free');</code></pre>
 <h2><a href="#select" name="select">Select</a></h2>
 <p>Простой выбор из списка массива:</p>
 <pre><code class="language-php">Select::make('select')
@@ -485,22 +406,22 @@ DateTimeZone::PER_COUNTRY;</code></pre>
     -&gt;help('Allow search bots to index');</code></pre>
 <p>Работа с источником:</p>
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email')</code></pre>
+    -&gt;fromModel(User::class, 'email');</code></pre>
 <p>Источник с условием:</p>
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromQuery(User::where('balance', '!=', '0'), 'email'),</code></pre>
+    -&gt;fromQuery(User::where('balance', '!=', '0'), 'email');</code></pre>
 <p>Изменение ключа:</p>
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email', 'uuid')</code></pre>
+    -&gt;fromModel(User::class, 'email', 'uuid');</code></pre>
 <p>Возможны ситуации когда необходимо добавить некоторое значение, которое означает, что поле не выбрано,
 для этого можно использовать метод <code>empty</code>:</p>
 <pre><code class="language-php">// Для массива
 Select::make('user')
+    -&gt;empty('Не выбрано')
     -&gt;options([
         1  =&gt; 'Пункт 1',
         2  =&gt; 'Пункт 2',
-    ])
-   -&gt;empty('Не выбрано');
+    ]);
 
 // Для источника
 Select::make('user')
@@ -511,16 +432,24 @@ Select::make('user')
 </blockquote>
 <p>Метод <code>empty</code> так же принимает и второй аргумент отвечающий за значение:</p>
 <pre><code class="language-php">Select::make('user')
+    -&gt;empty('Не выбрано', 0)
     -&gt;options([
         1  =&gt; 'Пункт 1',
         2  =&gt; 'Пункт 2',
-    ])
-   -&gt;empty('Не выбрано', 0);</code></pre>
-<h2><a href="#otnosheniya" name="otnosheniya">Отношения</a></h2>
+    ]);</code></pre>
+<h2><a href="#relation" name="relation">Relation</a></h2>
 <p>Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.</p>
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
-    -&gt;title('Выберите свою идею'),</code></pre>
+    -&gt;title('Выберите свою идею');</code></pre>
+<p>Для множественого выбора примените метод <code>multiple()</code></p>
+<pre><code class="language-php">Relation::make('ideas.')
+    -&gt;fromModel(Idea::class, 'name')
+    -&gt;multiple()
+    -&gt;title('Выберите свои идеи');</code></pre>
+<blockquote>
+<p><strong>Примечание.</strong> Обратите внимание на точку вконце имени. Она необходима для того, что бы показать ожидаемость массива. Как если бы это был <code>HTML</code> код <code>&lt;input name='ideas[]'&gt;</code></p>
+</blockquote>
 <p>Для модификации загрузки можно использовать указание на <code>scope</code> модели,
 например, взять только активные:</p>
 <pre><code class="language-php">namespace App;
@@ -559,11 +488,154 @@ class User extends Model
         return $this-&gt;attributes['name'] . ' (' . $this-&gt;attributes['email'] . ')';
     }
 }</code></pre>
+<p>Для указания отображаемого поля необходимо:</p>
 <pre><code class="language-php">Relation::make('users.')
     -&gt;fromModel(User::class, 'name')
     -&gt;displayAppend('full')
     -&gt;multiple()
     -&gt;title('Select users');</code></pre>
+<h2><a href="#datetime" name="datetime">DateTime</a></h2>
+<p>Позволяет выбрать дату и время.</p>
+<p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date');</code></pre>
+<p>Разрешить прямой ввод:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;allowInput();</code></pre>
+<p><strong>Обратите внимание</strong>, что установка поля обязательным может быть только при условии прямого ввода:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;allowInput()
+    -&gt;required();</code></pre>
+<p>Формат данных:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;format('Y-m-d');</code></pre>
+<p>Пример, для отображения в 24-ом формате:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening date')
+    -&gt;format24hr();</code></pre>
+<p>Календарь со временем:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening time')
+    -&gt;enableTime();</code></pre>
+<p>Выбор только времени:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;title('Opening time')
+    -&gt;noCalendar()
+    -&gt;format('h:i K');</code></pre>
+<h2><a href="#timezone" name="timezone">TimeZone</a></h2>
+<p>Поле для удобного выбора часового пояса:</p>
+<pre><code class="language-php">TimeZone::make('time');</code></pre>
+<p>Возможно, указание конкретных временных зон используя:</p>
+<pre><code class="language-php">use DateTimeZone;
+
+TimeZone::make('time')
+    -&gt;listIdentifiers(DateTimeZone::ALL); </code></pre>
+<p>По умолчанию принимает значение <code>DateTimeZone::ALL</code>, но возможны и другие:</p>
+<pre><code class="language-php">DateTimeZone::AFRICA;
+DateTimeZone::AMERICA;
+DateTimeZone::ANTARCTICA;
+DateTimeZone::ARCTIC;
+DateTimeZone::ASIA;
+DateTimeZone::ATLANTIC;
+DateTimeZone::AUSTRALIA;
+DateTimeZone::EUROPE;
+DateTimeZone::INDIAN;
+DateTimeZone::PACIFIC;
+DateTimeZone::UTC;
+DateTimeZone::ALL_WITH_BC;
+DateTimeZone::PER_COUNTRY;</code></pre>
+<p>С представлением пременных зон можно ознакомиться в документации <a href="https://www.php.net/manual/ru/class.datetimezone.php">PHP</a>.</p>
+<h2><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h2>
+<p>Такой редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.</p>
+<p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">TinyMCE::make('html')
+    -&gt;required()
+    -&gt;theme('inlite');</code></pre>
+<p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
+<h2><a href="#html-redaktor-quill" name="html-redaktor-quill">HTML редактор Quill</a></h2>
+<p>Пример записи:</p>
+<pre><code class="language-php">Quill::make('html');</code></pre>
+<h2><a href="#markdown-redaktor" name="markdown-redaktor">Markdown редактор</a></h2>
+<p>Редактор для облегчённого языка разметки,
+созданный с целью написания максимально читаемого и удобного для правки текста, но пригодного для преобразования в языки для продвинутых публикаций.</p>
+<p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
+<h2><a href="#redaktor-koda" name="redaktor-koda">Редактор кода</a></h2>
+<p>Поле для записи программного кода с возможностью подсветки.</p>
+<p><img src="/assets/img/ui/code.png" alt="Code"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Code::make('code');</code></pre>
+<p>Для указания подцветки кода под конкретный язык программирования можно использовать метод <code>language()</code>.</p>
+<pre><code class="language-php"> Code::make('code')
+     -&gt;language(Code::CSS);</code></pre>
+<p>Доступны следующие языки:</p>
+<ul><li>Markup - <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
+<li>CSS - <code>css</code></li>
+<li>C-like - <code>clike</code></li>
+<li>JavaScript - <code>javascript</code>, <code>js</code></li>
+</ul><p>Поддерживается указание количества строк:</p>
+<pre><code class="language-php">Code::make('code')
+    -&gt;lineNumbers();</code></pre>
+<h2><a href="#picture" name="picture">Picture</a></h2>
+<p>Позволяет загружать изображение.</p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Picture::make('picture');</code></pre>
+<h2><a href="#cropper" name="cropper">Cropper</a></h2>
+<p>Позволяет загружать изображение и обрезать до нужного формата.</p>
+<p><img src="/assets/img/fields/cropper.png" alt="Cropper"></p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Cropper::make('picture');</code></pre>
+<h3><a href="#shirina-i-vysota" name="shirina-i-vysota">Ширина и высота</a></h3>
+<p>Для чтого, что бы контролировать формат, можно указать ширину и высоту необходимого изображения:</p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;width(500)
+    -&gt;height(300);</code></pre>
+<h3><a href="#ogranichenie-razmera-fayla" name="ogranichenie-razmera-fayla">Ограничение размера файла</a></h3>
+<p>Для ограничения размера загружаемого файла необходимо задать максимальное значение в <code>MB</code></p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;maxFileSize(2);</code></pre>
+<h3><a href="#znachenie" name="znachenie">Значение</a></h3>
+<p>Котроль возращаемого значения осуществляется с помощью методов:</p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;targetId();</code></pre>
+<p>Будет возвращён порядковый номер (<code>id</code>) записи <code>Attachment</code>.</p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;targetRelativeUrl();</code></pre>
+<p>Вернёт относительный путь до изображения.</p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;targetUrl();</code></pre>
+<p>Вернёт абсолютный путь до изображения.</p>
+<h2><a href="#upload" name="upload">Upload</a></h2>
+<p>Визуализирует загрузку для изображений или обычных файлов.</p>
+<p>Пример записи:</p>
+<pre><code class="language-php">Upload::make('upload');</code></pre>
+<pre><code class="language-php">Upload::make('docs')
+    -&gt;groups('documents');
+
+Upload::make('images')
+    -&gt;groups('photo');</code></pre>
+<p>Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;maxFiles(10);</code></pre>
+<p>Определяет количество параллельных загрузок для обработки файлов:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;parallelUploads(2);</code></pre>
+<p>Максимальный объём загружаемого файла:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;maxFileSize(1024);</code></pre>
+<p>Реализация по умолчанию <code>accept</code> проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;acceptedFiles('image/*,application/pdf,.psd');</code></pre>
+<p>Поле загрузки может работать с различными хранилищами, что бы указать его необходимо передать ключ указанный в <code>config/filesystems.php</code>:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;storage('s3');</code></pre>
+<p>По умолчанию используется хранилище <code>public</code>.</p>
 <h2><a href="#knopkassylka" name="knopkassylka">Кнопка/Ссылка</a></h2>
 <p>В определенных случаях необходимо добавить кнопку для вызова модального окна, простую ссылку или добавить кнопку
 отправки формы в конце экрана.
