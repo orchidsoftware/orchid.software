@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Displaying the appearance of user interface elements in the application is of great importance"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screen layouts | Orchid - Laravel Admin Panel"><meta property="og:description" content="Displaying the appearance of user interface elements in the application is of great importance"><meta property="og:url" content="https://orchid.software/en/docs/layouts"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Screen layouts</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Modal windows | Orchid - Laravel Admin Panel"><meta property="og:description" content="RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site."><meta property="og:url" content="https://orchid.software/en/docs/layouts/modals"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Modal windows</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=5bb9188fb5c57c0f1d38"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -44,7 +44,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/en/docs/layouts" class="lvl1 ">
             Screen layouts
@@ -78,7 +78,7 @@
         </a>
     
     </li>
-            <li class="">
+            <li class="active">
             
         <a href="/en/docs/layouts/modals" class="lvl1 ">
             Modals
@@ -184,31 +184,147 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Screen layouts</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Modal windows</h1>
 
                                                     <div class="none d-md-block">
-                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/layouts/index.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/layouts/modals.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                     <small class="text-muted"><i class="icon-pencil m-r-xs"></i> Edit this page</small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>Displaying the appearance of user interface elements in the application is of great importance, makes the application
-easier to use and helps users to intuitively display screen elements to perform their tasks.</p>
-<p>Separation of logic and presentation is one of the design principles with ORCHID.
-One of the elements of the presentation are "Layouts" (layouts), which can be displayed in various variations.
-If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
-<h2><a href="#layout-approach" name="layout-approach">Layout approach</a></h2>
-<p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
-<pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
-    &lt;span class="thumb-sm avatar m-r-xs"&gt;
-        &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
-    &lt;/span&gt;
-    &lt;div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"&gt;
-        &lt;h6 class="mb-0"&gt;Maria&lt;/h6&gt;
-        &lt;p class="text-muted mb-1"&gt;maria@exaple.com&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time, so various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in <code>Blade</code> and in <code>React/Vue/Angular</code>.</p>
-<p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <img> tag, without having to edit the source code every time.</p>                    </main></div>
+                                                <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#description-of-work">Description of work</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#when-to-use">When to use</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#using">Using</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#options">Options</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#title">Title</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#window-size">Window size</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#button-names">Button Names</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#position">Position</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#disabling-ajax-processing">Disabling AJAX Processing</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#asynchronous-data-loading">Asynchronous data loading</a>
+            </li>
+            </ul>
+    <hr>
+<p>Emulation of a modal dialog box that appears on top of the main page content in response to user actions.</p>
+<p><img src="/assets/img/layouts/modals.png" alt="Modals"></p>
+<h2><a href="#description-of-work" name="description-of-work">Description of work</a></h2>
+<p>A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context.</p>
+<blockquote>
+<p><strong>Note:</strong> Do not use modal windows for large forms.</p>
+</blockquote>
+<h2><a href="#when-to-use" name="when-to-use">When to use</a></h2>
+<p>In the modal window you need to make the secondary content of the pages, which is required only in some cases. As a rule, these are settings, creating new documents, filling out small forms, a step-by-step wizard. For example, to enter an address, a click on a link opens a modal window.</p>
+<h2><a href="#using" name="using">Using</a></h2>
+<p>Modal windows support short syntax by calling a static method, which does not require creating a separate class:</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::modal('exampleModal', [
+            Layout::rows([]),
+        ]),
+    ];
+}</code></pre>
+<blockquote>
+<p><strong>Please note</strong>, adding a modal window must be done at the top level of the array returned by the <code>layout()</code> method. For example, you should not do like this:</p>
+</blockquote>
+<pre><code class="language-php">public function layouts(): array
+{
+    return [
+        Layout::tabs([
+            'Name' =&gt; Layout::modal('exampleModal', [Layout::rows([])]),
+        ]),
+    ];
+}</code></pre>
+<h2><a href="#options" name="options">Options</a></h2>
+<h3><a href="#title" name="title">Title</a></h3>
+<p>To set the title, use the <code>title</code> method:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;title('Заголовок окна');</code></pre>
+<h3><a href="#window-size" name="window-size">Window size</a></h3>
+<p>Depending on the contents of the window, you may need to resize it, this can be done by specifying the <code>size</code> method:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
+
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;size(Modal::SIZE_LG);</code></pre>
+<h3><a href="#button-names" name="button-names">Button Names</a></h3>
+<p>A modal window has two actions:</p>
+<ul><li>Color button - the default action, saves the work done or confirms the previously called command.</li>
+<li>Cancel button - closes the window without saving the entered data.</li>
+</ul><p>You can set your own names for them:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;applyButton('Отправить')
+    -&gt;closeButton('Закрыть');</code></pre>
+<h3><a href="#position" name="position">Position</a></h3>
+<p>The modal window can be displayed, not only in the center of the screen, but also on the right side:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
+
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;type(Modal::TYPE_RIGHT);</code></pre>
+<h3><a href="#disabling-ajax-processing" name="disabling-ajax-processing">Disabling AJAX Processing</a></h3>
+<p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
+To disable response processing, you need to add a call to the <code>rawClick</code> method:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;rawClick();</code></pre>
+<h2><a href="#asynchronous-data-loading" name="asynchronous-data-loading">Asynchronous data loading</a></h2>
+<p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use asynchronous loading.
+This will replace the <code>query</code> screen data when opening the window and display
+new content.</p>
+<p>In order to declare a modal window asynchronous, you must call the <code>async</code> method passing in the argument the method name that should be used instead of <code>query</code>:</p>
+<pre><code class="language-php">Layout::modal('asyncModal', [
+    ExampleRow::class,
+])-&gt;async('asyncGetData');</code></pre>
+<p>All asynchronous screen methods start with the <code>async</code> prefix:</p>
+<pre><code class="language-php">/**
+ * @return array
+ */
+public function asyncGetData(string $welcome): array
+{
+    return [
+        'welcome' =&gt; $welcome,
+    ];
+}</code></pre>
+<p>When calling such a modal window, you can pass values using the <code>asyncParameters</code> method, for example:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Open async modal')
+    -&gt;modal('asyncModal')
+    -&gt;modalTitle('Dynamics title')
+    -&gt;method('methodForModal')
+    -&gt;asyncParameters('Hello world!');</code></pre>
+<blockquote>
+<p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$ variable ?? ''}}</code>.</p>
+</blockquote>                    </main></div>
             </div>
         </div>
     </div>
