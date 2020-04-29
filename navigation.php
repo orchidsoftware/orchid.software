@@ -44,26 +44,42 @@ return [
                 ],
             ],
         ],
-        /*
         'layouts' => [
-            'Layouts'         => [
+            'Main'             => [
                 'children' => [
-                    'accordion'       => '/ru/docs/layouts/accordion',
-                    'charts'          => '/ru/docs/layouts/charts',
-                    'columns'         => '/ru/docs/layouts/columns',
-                    'custom-template' => '/ru/docs/layouts/custom-template',
-                    'drop-down-list'  => '/ru/docs/layouts/drop-down-list',
-                    'extension'       => '/ru/docs/layouts/extension',
-                    'modals'          => '/ru/docs/layouts/modals',
-                    'rows'            => '/ru/docs/layouts/rows',
-                    'selection'       => '/ru/docs/layouts/selection',
-                    'table'           => '/ru/docs/layouts/table',
-                    'tabs'            => '/ru/docs/layouts/tabs',
-                    'wrapper'         => '/ru/docs/layouts/wrapper',
+                    'Come back'      => '/en/docs/screens',
+                    'Screen layouts' => '/en/docs/layouts',
+                ],
+            ],
+            'Grouping layouts' => [
+                'children' => [
+                    'Accordion'      => '/en/docs/layouts/accordion',
+                    'Columns'        => '/en/docs/layouts/columns',
+                    'Drop-down list' => '/en/docs/layouts/drop-down-list',
+                    'Modals'         => '/en/docs/layouts/modals',
+                    'Rows'           => '/en/docs/layouts/rows',
+                    'Selection'      => '/en/docs/layouts/selection',
+                    'Tabs'           => '/en/docs/layouts/tabs',
+                ],
+            ],
+            'Display Layouts'  => [
+                'children' => [
+                    'Charts'   => '/en/docs/layouts/charts',
+                    'Table'    => '/en/docs/layouts/table',
+                    'Cards'    => '/en/docs/layouts/cards',
+                    'Facepile' => '/en/docs/layouts/facepile',
+                    'Persona'  => '/en/docs/layouts/persona',
+                ],
+            ],
+            'Universal'        => [
+                'children' => [
+                    'Custom template' => '/en/docs/layouts/custom-template',
+                    'Extension'       => '/en/docs/layouts/extension',
+                    'Wrapper'         => '/en/docs/layouts/wrapper',
+                    'Components'      => '/en/docs/layouts/components',
                 ],
             ],
         ],
-        */
         'community' => [
             'Community' => [
                 'children' => [
