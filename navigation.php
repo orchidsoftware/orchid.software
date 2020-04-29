@@ -51,7 +51,7 @@ return [
                     'Screen layouts' => '/en/docs/layouts',
                 ],
             ],
-            'Grouping layouts' => [
+            'Layers for grouping' => [
                 'children' => [
                     'Accordion'      => '/en/docs/layouts/accordion',
                     'Columns'        => '/en/docs/layouts/columns',
@@ -62,7 +62,7 @@ return [
                     'Tabs'           => '/en/docs/layouts/tabs',
                 ],
             ],
-            'Display Layouts'  => [
+            'Layers to display'  => [
                 'children' => [
                     'Charts'   => '/en/docs/layouts/charts',
                     'Table'    => '/en/docs/layouts/table',
