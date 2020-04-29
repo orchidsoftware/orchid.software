@@ -10,7 +10,7 @@ menu: layouts
 
 ![Cards](/assets/img/layouts/cards.png)
 
-Карточки принимают только обьекты которые реализуют интерфейс `Cardable`.
+Карточки принимают только Объекты которые реализуют интерфейс `Cardable`.
 
 ```php
 use Orchid\Screen\Contracts\Cardable;
