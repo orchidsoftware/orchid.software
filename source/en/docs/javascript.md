@@ -71,7 +71,7 @@ class ServiceProvider extends ServiceProvider
 }
 ```
 
-To display, use the template:
+To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
 
 ```php
 // hello.blade.php
