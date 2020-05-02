@@ -100,7 +100,7 @@ public function layout(): array
 
 ## Use with presenter
 
-> In this example, [presenters] are used (/en/docs/presenters), we strongly recommend that you familiarize yourself with them.
+> In this example, [presenters](/en/docs/presenters) are used, we strongly recommend that you familiarize yourself with them.
  
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
