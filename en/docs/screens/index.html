@@ -313,6 +313,23 @@ Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <pre><code class="language-php">Method                      | URI                                  | Name
 ----------------------------+--------------------------------------+--------------
 GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea</code></pre>
+<p>If you register multiple routes</p>
+<pre><code class="language-php">use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\IdeaEdit;
+Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+<p><strong>Please note</strong>, Routing Laravel chooses the first suitable route.</p>
+<p>By writing the following routes:</p>
+<pre><code class="language-php">Route::screen('/idea', ...
+Route::screen('/idea/edit',...</code></pre>
+<p>We get:</p>
+<pre><code class="language-php">URI                                       | Name
+------------------------------------------+----------------------
+dashboard/idea/{method?}/{argument?}      | platform.idea
+dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit</code></pre>
+<p><code>{method?}</code> - means an optional argument that may go further.
+Correspondingly, the name "edit" in the address falls under it.
+The result will be a redirect to "dashboard/idea/".</p>
 <h2><a href="#data-acquisition" name="data-acquisition">Data Acquisition</a></h2>
 <p>The data to be displayed on the screen defined in the <code>query</code> method, where sampling or generation of information should occur.
 The transfer carried out in the form of an array, the keys will be available in layouts, for their control.</p>
