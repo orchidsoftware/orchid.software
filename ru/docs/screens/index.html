@@ -313,6 +313,24 @@ Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <pre><code class="language-php">Method                      | URI                                  | Name
 ----------------------------+--------------------------------------+--------------
 GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea</code></pre>
+<p>Если вы регистрируете несколько маршрутов</p>
+<pre><code class="language-php">use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\IdeaEdit;
+
+Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+<p>То обратите внимание, Routing Laravel выбирает первый подходящий маршрут.</p>
+<p>Написав такие маршруты:</p>
+<pre><code class="language-php">Route::screen('/idea', ...
+Route::screen('/idea/edit',...</code></pre>
+<p>Мы получаем:</p>
+<pre><code class="language-php">URI                                       | Name
+------------------------------------------+----------------------
+dashboard/idea/{method?}/{argument?}      | platform.idea
+dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit</code></pre>
+<p>{method?} - означает не обязательный аргумент который может идти далее.
+Соотвественно под него попадает имя "edit" в адресе.
+В итоги будет редирект на "dashboard/idea/"</p>
 <h2><a href="#poluchenie-dannykh" name="poluchenie-dannykh">Получение данных</a></h2>
 <p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
