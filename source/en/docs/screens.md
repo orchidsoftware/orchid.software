@@ -96,6 +96,37 @@ Method                      | URI                                  | Name
 GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
 ```
 
+If you register multiple routes
+
+```php
+use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\IdeaEdit;
+Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
+Route::screen('/idea', Idea::class)->name('platform.idea');
+```
+**Please note**, Routing Laravel chooses the first suitable route.
+
+By writing the following routes:
+
+```php
+Route::screen('/idea', ...
+Route::screen('/idea/edit',...
+```
+
+We get:
+
+```php
+URI                                       | Name
+------------------------------------------+----------------------
+dashboard/idea/{method?}/{argument?}      | platform.idea
+dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit
+```
+
+`{method?}` - means an optional argument that may go further.
+Correspondingly, the name "edit" in the address falls under it.
+The result will be a redirect to "dashboard/idea/".
+
+
 
 ## Data Acquisition
 
