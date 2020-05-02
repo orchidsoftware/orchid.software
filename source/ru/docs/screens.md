@@ -98,6 +98,31 @@ Method                      | URI                                  | Name
 GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
 ```
 
+Если вы регистрируете несколько маршрутов
+```php
+use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\IdeaEdit;
+
+Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
+Route::screen('/idea', Idea::class)->name('platform.idea');
+```
+То обратите внимание, Routing Laravel выбирает первый подходящий маршрут.
+
+Написав такие маршруты:
+```php
+Route::screen('/idea', ...
+Route::screen('/idea/edit',...
+```
+Мы получаем:
+```php
+URI                                       | Name
+------------------------------------------+----------------------
+dashboard/idea/{method?}/{argument?}      | platform.idea
+dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit
+```
+{method?} - означает не обязательный аргумент который может идти далее.
+Соотвественно под него попадает имя "edit" в адресе.
+В итоги будет редирект на "dashboard/idea/"
 
 ## Получение данных
 
