@@ -12,7 +12,7 @@ Shows a list of avatars in horizontal view. Each circle represents a person. Use
 
 `Facepile` accepts a set of objects that implement the `Personable` interface.
  
-> This example uses [presenters] (/en/docs/presenters), it is recommended that you familiarize yourself with them.
+> This example uses [presenters](/en/docs/presenters), it is recommended that you familiarize yourself with them.
  
  
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
