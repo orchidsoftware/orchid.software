@@ -266,7 +266,7 @@ class EmailSenderScreen extends Screen
 
 After that, can to send email messages to addresses.
 
-> Note that by default the `smtp` driver enabled for sending mail,
+> **Note** that by default the `smtp` driver enabled for sending mail,
 You can change it in the `.env` file to `log` for verification.
 
 Since our utility mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the `query` method with the name of our element:
