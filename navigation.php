@@ -73,6 +73,7 @@ return [
             ],
             'Universal'        => [
                 'children' => [
+                    'Listener'        => '/en/docs/layouts/listener',
                     'Custom template' => '/en/docs/layouts/custom-template',
                     'Extension'       => '/en/docs/layouts/extension',
                     'Wrapper'         => '/en/docs/layouts/wrapper',

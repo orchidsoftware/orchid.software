@@ -2,15 +2,13 @@
 title: Listener
 extends: _layouts.documentation
 section: main
-lang: ru
+lang: en
 menu: layouts
 ---
 
-Слой слушателя используются, когда необходимо менять отображаемые данные,
- в соответствии с выбранными параметрами пользователя.
+The listener layout is used when it is necessary to change the displayed data, in accordance with the selected user settings.
 
-Например, у нас есть экран на котором расположены два поля для ввода чисел.
-Нам требуется вывести третье поле, значение которого будет суммой двух других:
+For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:
 
 
 ```php
@@ -79,13 +77,13 @@ class PlatformScreen extends Screen
 }
 ```
 
-Для создания слоя слушателя необходимо выполнить `artisan` команду:
+To create a listener layout, run the `artisan` command:
 
 ```php
 php artisan orchid:listener AmountListener
 ```
 
-В директории `app/Orchid/Layouts` будет создан новый класс с именем `AmountListener`:
+In the directory `app/Orchid/Layouts` a new class will be created with the name` AmountListener`:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -123,7 +121,7 @@ class AmountListener extends Listener
 }
 ```
 
-В свойстве `targets` указываются имена полей, при изменениях которых будет выполнено требуемое действие. Для нашего примера это поля с именами `a` и `b` :
+The `targets` property specifies the names of the fields, when changed, the required action will be performed. For our example, these are the fields with the names `a` and `b`:
 
 ```php
 /**
@@ -137,8 +135,8 @@ protected $targets = [
 ];
 ```
 
-В свойстве `asyncMethod` должен быть указан метод который будет вызван при изменении полей. Этот метод необходимо реализовать в экране.
-Добавим его с именем `asyncSum`:
+The `asyncMethod` property must specify the method that will be called when the fields are changed. This method must be implemented on the screen.
+Add it with the name `asyncSum`:
 
 ```php
 namespace App\Orchid\Screens;
@@ -219,9 +217,9 @@ class PlatformScreen extends Screen
 }
 ```
 
-> **Обратите внимание**. Такая функция являться заменой `query` для требуемых слоёв, при этом префикс `async` обязателен.
+> ** Please note **. Such a function is a substitute for the `query` for the required layouts, and the `async` prefix is required.
 
-И укажем его имя:
+And indicate his name:
 
 ```php
 /**
@@ -236,8 +234,8 @@ class PlatformScreen extends Screen
 protected $asyncMethod = 'asyncSum';
 ```
 
-Осталось только определить, что будет показано в этом слоё.
-Полный класс будет выглядеть следующим образом:
+It remains only to determine what will be shown in this layer.
+The full class will look like this:
 
 
 ```php
@@ -286,5 +284,4 @@ protected $asyncMethod = 'asyncSum';
 }
 ```
 
-
-Теперь при изменении значений полей ввода, поле суммы будет меняться автоматически.
+Now, when changing the values of the input fields, the sum field will change automatically.
