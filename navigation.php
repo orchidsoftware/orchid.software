@@ -162,6 +162,7 @@ return [
             ],
             'Универсальные' => [
                 'children' => [
+                    'Слушатель'               => '/ru/docs/layouts/listener',
                     'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
                     'Расширение слоёв'        => '/ru/docs/layouts/extension',
                     'Обертка'                 => '/ru/docs/layouts/wrapper',
