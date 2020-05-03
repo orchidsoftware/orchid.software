@@ -107,6 +107,12 @@ public $description = 'Tool that sends ad-hoc email messages.';
 Для того, чтобы отобразить поля для ввода, мы опишем их в методе `Layouts`:
 
 ```php
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Layout;
+
+
 /**
  * Views.
  *
