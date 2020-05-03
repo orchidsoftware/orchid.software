@@ -153,7 +153,14 @@
 <li class="">
     
             
-        <ul class=" toc-links-1 "><li class="">
+        <ul class=" toc-links-1 "><li class="active">
+            
+        <a href="/ru/docs/layouts/listener" class="lvl1 ">
+            Слушатель
+        </a>
+    
+    </li>
+            <li class="">
             
         <a href="/ru/docs/layouts/custom-template" class="lvl1 ">
             Пользовательский шаблон
@@ -194,7 +201,7 @@
                                                 <hr class="mb-4"><p>Слой слушателя используются, когда необходимо менять отображаемые данные,
 в соответствии с выбранными параметрами пользователя.</p>
 <p>Например, у нас есть экран на котором расположены два поля для ввода чисел.
-Нам требуеться вывести третье поле, значение которого будет суммой двух других:</p>
+Нам требуется вывести третье поле, значение которого будет суммой двух других:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
@@ -258,7 +265,7 @@ class PlatformScreen extends Screen
         ];
     }
 }</code></pre>
-<p>Для создания слоя слушаетеля необходимо выполнить <code>artisan</code> команду:</p>
+<p>Для создания слоя слушателя необходимо выполнить <code>artisan</code> команду:</p>
 <pre><code class="language-php">php artisan orchid:listener AmountListener</code></pre>
 <p>В директории <code>app/Orchid/Layouts</code> будет создан новый класс с именем <code>AmountListener</code>:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
@@ -294,7 +301,7 @@ class AmountListener extends Listener
         return [];
     }
 }</code></pre>
-<p>В свойстве <code>targets</code> указываются имена полей, при изменений которых будет выполнено требуемое действите. Для нашего примера это поля с именами <code>a</code> и <code>b</code> :</p>
+<p>В свойстве <code>targets</code> указываются имена полей, при изменениях которых будет выполнено требуемое действие. Для нашего примера это поля с именами <code>a</code> и <code>b</code> :</p>
 <pre><code class="language-php">/**
  * List of field names for which values will be listened.
  *
@@ -304,7 +311,8 @@ protected $targets = [
     'a',
     'b',
 ];</code></pre>
-<p>В свойстве <code>asyncMethod</code> должен быть указан метод который будет вызван при изменении полей. Этот метод необходимо реализовать в экране:</p>
+<p>В свойстве <code>asyncMethod</code> должен быть указан метод который будет вызван при изменении полей. Этот метод необходимо реализовать в экране.
+Добавим его с именем <code>asyncSum</code>:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
@@ -382,7 +390,7 @@ class PlatformScreen extends Screen
     }
 }</code></pre>
 <blockquote>
-<p><strong>Обратите внимание</strong>. Такая функция являеться заменой <code>query</code> для требуемых слоёв, приэтом префиск <code>async</code> обязателен.</p>
+<p><strong>Обратите внимание</strong>. Такая функция являться заменой <code>query</code> для требуемых слоёв, при этом префикс <code>async</code> обязателен.</p>
 </blockquote>
 <p>И укажем его имя:</p>
 <pre><code class="language-php">/**
