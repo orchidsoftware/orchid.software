@@ -105,6 +105,11 @@ public $description = 'Tool that sends ad-hoc email messages.';
 To display the input fields, we describe them in the `Layouts` method:
 
 ```php
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Quill;
+use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Layout;
+
 /**
  * Views.
  *
