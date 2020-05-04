@@ -428,6 +428,66 @@ ModalToggle::make('Модальное окно')
         ]),
     ];
 }</code></pre>
+<p>Иногда вы захотите использовать один и тот же макет для разных целей, чтобы уменьшить дублирование кода, вы можете создать макет и передавать собственные параметры в конструктор класса:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Rows;
+
+class ReusableEditLayout extends Rows
+{
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string $prefix
+     * @param string $title
+     */
+    public function __construct(string $prefix, string $title)
+    {
+        $this-&gt;prefix = $prefix;
+        $this-&gt;title = $title;
+    }
+
+    /**
+     * Views.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return [
+            Label::make('label')
+                -&gt;title($this-&gt;title),
+
+            Input::make($this-&gt;prefix . '.address')
+                -&gt;required()
+                -&gt;title('Address')
+                -&gt;placeholder('177A Bleecker Street'),
+        ];
+    }
+}</code></pre>
+<p>Экземпляры могут быть использованы таким же образом, принимая параметры</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::columns([
+            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        ]),
+    ];
+}</code></pre>
 <p>Более подробно можно прочитать в разделе <a href="/ru/docs/layouts/">Макеты</a>.</p>                    </main></div>
             </div>
         </div>
