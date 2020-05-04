@@ -287,7 +287,7 @@ class ReusableEditLayout extends Rows
                 ->max(255)
                 ->required()
                 ->title(__('Address'))
-                ->placeholder(__('377a Blaker st.')),
+                ->placeholder(__('177A Bleecker Street')),
         ];
     }
 }
