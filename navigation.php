@@ -35,7 +35,7 @@ return [
                 'children' => [
                     'Presenters'   => '/en/docs/presenters',
                     'Scout search' => '/en/docs/global-search',
-                    'Settings'     => '/en/docs/settings',
+                    //'Settings'     => '/en/docs/settings', deprecation
                     'Icons'        => '/en/docs/icons',
                     'Controllers'  => '/en/docs/controllers',
                     'Using JS'     => '/en/docs/javascript',
@@ -125,7 +125,7 @@ return [
                 'children' => [
                     'Представители'    => '/ru/docs/presenters',
                     'Scout поиск'      => '/ru/docs/global-search',
-                    'Настройки'        => '/ru/docs/settings',
+                    //'Настройки'        => '/ru/docs/settings', deprecation
                     'Иконки'           => '/ru/docs/icons',
                     'Контроллеры'      => '/ru/docs/controllers',
                     'Использование JS' => '/ru/docs/javascript',
