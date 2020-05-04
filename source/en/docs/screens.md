@@ -261,5 +261,50 @@ public function layout() : array
     ];
 }
 ```
+Sometimes you will want to use the same layout for different things, to reduce code duplication you can create a configurable layout.
+To pass custom parameters to your layout you can use the class constructor to handle them:
+```php
+class ReusableEditLayout extends Rows
+{
+    private $field_name;
+    private $type;
+
+    public function __construct(string $field_name, string $type, array $layouts = [])
+    {
+        parent::__construct($layouts);
+        $this->field_name = $field_name;
+        $this->type       = $type;
+    }
+
+    public function fields(): array
+    {
+        return [
+            Label::make('label')
+                ->title($this->type),
+
+            Input::make($this->field_name . '.address')
+                ->type('text')
+                ->max(255)
+                ->required()
+                ->title(__('Address'))
+                ->placeholder(__('177A Bleecker Street')),
+        ];
+    }
+}
+
+```
+Instances can be used in the same way but they can accept parameters
+```php
+public function layout(): array
+{
+    return [
+        Layout::columns([
+            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        ]),
+    ];
+}
+```
+
 
 More details can be found in the [Layouts section](/en/docs/layouts/).
