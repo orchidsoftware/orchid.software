@@ -264,34 +264,55 @@ public function layout() : array
 Sometimes you will want to use the same layout for different things, to reduce code duplication you can create a configurable layout.
 To pass custom parameters to your layout you can use the class constructor to handle them:
 ```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Rows;
+
 class ReusableEditLayout extends Rows
 {
-    private $field_name;
-    private $type;
+    /**
+     * @var string
+     */
+    private $title;
 
-    public function __construct(string $field_name, string $type, array $layouts = [])
+    /**
+     * @var string
+     */
+    private $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string $prefix
+     * @param string $title
+     */
+    public function __construct(string $prefix, string $title)
     {
-        parent::__construct($layouts);
-        $this->field_name = $field_name;
-        $this->type       = $type;
+        $this->prefix = $prefix;
+        $this->title = $title;
     }
 
-    public function fields(): array
+    /**
+     * Views.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
     {
         return [
             Label::make('label')
-                ->title($this->type),
+                ->title($this->title),
 
-            Input::make($this->field_name . '.address')
-                ->type('text')
-                ->max(255)
+            Input::make($this->prefix . '.address')
                 ->required()
-                ->title(__('Address'))
-                ->placeholder(__('177A Bleecker Street')),
+                ->title('Address')
+                ->placeholder('177A Bleecker Street'),
         ];
     }
 }
-
 ```
 Instances can be used in the same way but they can accept parameters
 ```php
