@@ -259,4 +259,72 @@ public function layout() : array
 }
 ```
 
+Иногда вы захотите использовать один и тот же макет для разных целей, чтобы уменьшить дублирование кода, вы можете создать макет и передавать собственные параметры в конструктор класса:
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Rows;
+
+class ReusableEditLayout extends Rows
+{
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string $prefix
+     * @param string $title
+     */
+    public function __construct(string $prefix, string $title)
+    {
+        $this->prefix = $prefix;
+        $this->title = $title;
+    }
+
+    /**
+     * Views.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return [
+            Label::make('label')
+                ->title($this->title),
+
+            Input::make($this->prefix . '.address')
+                ->required()
+                ->title('Address')
+                ->placeholder('177A Bleecker Street'),
+        ];
+    }
+}
+```
+
+Экземпляры могут быть использованы таким же образом, принимая параметры
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::columns([
+            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        ]),
+    ];
+}
+```
+
 Более подробно можно прочитать в разделе [Макеты](/ru/docs/layouts/).
