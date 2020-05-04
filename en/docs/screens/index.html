@@ -427,6 +427,46 @@ You can come up with your examples of attachments.</p>
         ]),
     ];
 }</code></pre>
+<p>Sometimes you will want to use the same layout for different things, to reduce code duplication you can create a configurable layout.
+To pass custom parameters to your layout you can use the class constructor to handle them:</p>
+<pre><code class="language-php">class ReusableEditLayout extends Rows
+{
+    private $field_name;
+    private $type;
+
+    public function __construct(string $field_name, string $type, array $layouts = [])
+    {
+        parent::__construct($layouts);
+        $this-&gt;field_name = $field_name;
+        $this-&gt;type       = $type;
+    }
+
+    public function fields(): array
+    {
+        return [
+            Label::make('label')
+                -&gt;title($this-&gt;type),
+
+            Input::make($this-&gt;field_name . '.address')
+                -&gt;type('text')
+                -&gt;max(255)
+                -&gt;required()
+                -&gt;title(__('Address'))
+                -&gt;placeholder(__('177A Bleecker Street')),
+        ];
+    }
+}
+</code></pre>
+<p>Instances can be used in the same way but they can accept parameters</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::columns([
+            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        ]),
+    ];
+}</code></pre>
 <p>More details can be found in the <a href="/en/docs/layouts/">Layouts section</a>.</p>                    </main></div>
             </div>
         </div>
