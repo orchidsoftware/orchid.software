@@ -301,10 +301,10 @@ php artisan orchid:screen PostListScreen</code></pre>
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 
-$this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
+Route::screen('post/{post?}', PostEditScreen::class)
     -&gt;name('platform.post.edit');
 
-$this-&gt;router-&gt;screen('posts', PostListScreen::class)
+Route::screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
 <p>Now the screens are available for viewing at the address <code>/dashboard/post</code> and <code>/dashboard/posts</code>.
 The resulting screens currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required fields:</p>

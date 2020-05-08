@@ -280,7 +280,7 @@ class EmailSenderScreen extends Screen
 определим его в файле для панели администрирования <code>routes/platform.php</code>:</p>
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 
-$this-&gt;router-&gt;screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
+Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
 <p>После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу <code>/dashboard/email</code>,
 чтобы посмотреть на пустой экран. Наполним его элементами.</p>
 <p>Добавим название и описание:</p>
