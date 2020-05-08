@@ -301,10 +301,10 @@ php artisan orchid:screen PostListScreen</code></pre>
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 
-$this-&gt;router-&gt;screen('post/{post?}', PostEditScreen::class)
+Route::screen('post/{post?}', PostEditScreen::class)
     -&gt;name('platform.post.edit');
 
-$this-&gt;router-&gt;screen('posts', PostListScreen::class)
+Route::screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
 <p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.
 Полученные экраны на текущий момент не имеют, ни данных, ни действий. Отредактируем <code>PostEditScreen</code> для просмотра, добавив название, описание и требуемые поля:</p>
