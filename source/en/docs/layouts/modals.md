@@ -67,6 +67,16 @@ Layout::modal('exampleModals', [
     ->title('Заголовок окна');
 ```
 
+### Method
+
+To process the data received from the modal window, you must specify the public screen method:
+
+```php
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->method('update');
+```
 
 ### Window size
 
