@@ -78,7 +78,7 @@ Define it in the file for the admin panel `routes/platform.php`:
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 
-$this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
+Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 ```
 
 After we have registered a new route, you can go to the browser at `/dashboard/email`,
