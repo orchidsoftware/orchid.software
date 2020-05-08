@@ -256,14 +256,6 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function hero()
-    {
-        return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
-    }
 }</code></pre>
 <p>Теперь при вызове метода <code>filters</code> запрос к базе данных будет модифицирован.
 В методе источника данных у экрана <code>PostListScreen</code>, это  будет выглядеть следующим образом:</p>
