@@ -257,14 +257,6 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function hero()
-    {
-        return $this-&gt;hasOne(Attachment::class, 'id', 'hero');
-    }
 }</code></pre>
 <p>Now, when calling the <code>filters</code> method, the database query will be modified.
 In the data source method of the <code>PostListScreen</code> screen, it will look like this:</p>
