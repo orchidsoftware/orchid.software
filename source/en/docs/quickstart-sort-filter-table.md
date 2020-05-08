@@ -46,14 +46,6 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function hero()
-    {
-        return $this->hasOne(Attachment::class, 'id', 'hero');
-    }
 }
 ```
 
