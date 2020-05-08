@@ -215,9 +215,6 @@
                 <a href="#title">Title</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#method">Method</a>
-            </li>
-                    <li class="anchor-h3">
                 <a href="#window-size">Window size</a>
             </li>
                     <li class="anchor-h3">
@@ -273,12 +270,6 @@ public function layout(): array
     Layout::rows([]),
 ])
     -&gt;title('Заголовок окна');</code></pre>
-<h3><a href="#method" name="method">Method</a></h3>
-<p>To process the data received from the modal window, you must specify the public screen method:</p>
-<pre><code class="language-php">Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
-    -&gt;method('update');</code></pre>
 <h3><a href="#window-size" name="window-size">Window size</a></h3>
 <p>Depending on the contents of the window, you may need to resize it, this can be done by specifying the <code>size</code> method:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
