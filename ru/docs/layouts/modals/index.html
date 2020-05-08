@@ -215,6 +215,9 @@
                 <a href="#zagolovok">Заголовок</a>
             </li>
                     <li class="anchor-h3">
+                <a href="#metod">Метод</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#razmer-okna">Размер окна</a>
             </li>
                     <li class="anchor-h3">
@@ -270,6 +273,12 @@ public function layout(): array
     Layout::rows([]),
 ])
     -&gt;title('Заголовок окна');</code></pre>
+<h3><a href="#metod" name="metod">Метод</a></h3>
+<p>Для обработки данных полученных из модального окна необходимо указать публичный метод экрана:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;method('update');</code></pre>
 <h3><a href="#razmer-okna" name="razmer-okna">Размер окна</a></h3>
 <p>Взависимости от содержимого окна, может потребоваться изменить его размер, это можно сделать указав метод <code>size</code>:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
