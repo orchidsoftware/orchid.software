@@ -115,10 +115,10 @@ php artisan orchid:screen PostListScreen
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 
-$this->router->screen('post/{post?}', PostEditScreen::class)
+Route::screen('post/{post?}', PostEditScreen::class)
     ->name('platform.post.edit');
     
-$this->router->screen('posts', PostListScreen::class)
+Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
 
