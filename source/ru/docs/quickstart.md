@@ -80,7 +80,7 @@ class EmailSenderScreen extends Screen
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 
-$this->router->screen('email', EmailSenderScreen::class)->name('platform.email');
+Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 ```
 
 После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу `/dashboard/email`, 
