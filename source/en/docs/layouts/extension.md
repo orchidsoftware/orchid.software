@@ -1,5 +1,5 @@
 ---
-title: Расширение слоёв
+title: Extension
 extends: _layouts.documentation
 section: main
 lang: en
