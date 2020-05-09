@@ -301,16 +301,16 @@
 <p>Пример записи:</p>
 <pre><code class="language-php">Input::make('name');</code></pre>
 <h3><a href="#polzovatelskoe-oformlenie" name="polzovatelskoe-oformlenie">Пользовательское оформление</a></h3>
-<p>Пустые и не выразительные поля для ввода могут запутывать пользователя,
+<p>Пустые и невыразительные поля для ввода могут запутывать пользователя,
 но вы можете помочь с помощью указания заголовка. </p>
 <pre><code class="language-php">Input::make('name')
     -&gt;title('First name');</code></pre>
-<p>Когда требуеться более подробно описать предназначение поля,
+<p>Когда требуется более подробно описать предназначение поля,
 тогда можно использовать подсказку:</p>
 <pre><code class="language-php">Input::make('name')
     -&gt;help('What is your name?');</code></pre>
-<p>Если описание поля очень специфическое и требуеться большое описание,
-можно использовать тултип, которые будет показан в качестве всплывающего окна:</p>
+<p>Если описание поля очень специфическое и требуется большое описание,
+можно использовать тултип, который будет показан в качестве всплывающего окна:</p>
 <pre><code class="language-php">Input::make('name')
     -&gt;popover('Tooltip - hint that user opens himself.');</code></pre>
 <p>Горизонтальное или вертиальное представление:</p>
@@ -349,7 +349,7 @@ Input::make('name')-&gt;canSee(false);</code></pre>
 <pre><code class="language-php">Input::make('name')-&gt;type('range');</code></pre>
 <p>Для указания веб-адресов.</p>
 <pre><code class="language-php">Input::make('name')-&gt;type('url');</code></pre>
-<p>Более подробно о типов атрибутов можно узнать на <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">сайте Mozilla</a>.</p>
+<p>Более подробно о типах атрибутов можно узнать на <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">сайте Mozilla</a>.</p>
 <h3><a href="#maska-dlya-vvoda-znacheniy" name="maska-dlya-vvoda-znacheniy">Маска для ввода значений</a></h3>
 <p>Отлично подходит если значения должны быть записаны в стандартном виде, например ИНН или номер телефона</p>
 <p>Пример записи:</p>
@@ -406,8 +406,8 @@ Input::make('name')-&gt;canSee(false);</code></pre>
 <p>Изменение ключа:</p>
 <pre><code class="language-php">Select::make('user')
     -&gt;fromModel(User::class, 'email', 'uuid');</code></pre>
-<p>Возможны ситуации когда необходимо добавить некоторое значение, которое означает, что поле не выбрано,
-для этого можно использовать метод <code>empty</code>:</p>
+<p>Возможны ситуации, когда необходимо добавить некоторое значение, которое означает, что поле не выбрано.
+Для этого можно использовать метод <code>empty</code>:</p>
 <pre><code class="language-php">// Для массива
 Select::make('user')
     -&gt;empty('Не выбрано')
@@ -423,7 +423,7 @@ Select::make('user')
 <blockquote>
 <p><strong>Обратите внимание</strong>, что <code>empty</code> вызывается позднее заполняющих методов, иначе добавленное значение будет перезаписано.</p>
 </blockquote>
-<p>Метод <code>empty</code> так же принимает и второй аргумент отвечающий за значение:</p>
+<p>Метод <code>empty</code> так же принимает и второй аргумент, отвечающий за значение:</p>
 <pre><code class="language-php">Select::make('user')
     -&gt;empty('Не выбрано', 0)
     -&gt;options([
@@ -441,7 +441,7 @@ Select::make('user')
     -&gt;multiple()
     -&gt;title('Выберите свои идеи');</code></pre>
 <blockquote>
-<p><strong>Примечание.</strong> Обратите внимание на точку вконце имени. Она необходима для того, что бы показать ожидаемость массива. Как если бы это был <code>HTML</code> код <code>&lt;input name='ideas[]'&gt;</code></p>
+<p><strong>Примечание.</strong> Обратите внимание на точку в конце имени. Она необходима для того, чтобы показать ожидаемость массива. Как если бы это был <code>HTML</code> код <code>&lt;input name='ideas[]'&gt;</code></p>
 </blockquote>
 <p>Для модификации загрузки можно использовать указание на <code>scope</code> модели,
 например, взять только активные:</p>
@@ -522,7 +522,7 @@ class User extends Model
 <h2><a href="#timezone" name="timezone">TimeZone</a></h2>
 <p>Поле для удобного выбора часового пояса:</p>
 <pre><code class="language-php">TimeZone::make('time');</code></pre>
-<p>Возможно, указание конкретных временных зон используя:</p>
+<p>Возможно указание конкретных временных зон, используя:</p>
 <pre><code class="language-php">use DateTimeZone;
 
 TimeZone::make('time')
@@ -585,7 +585,7 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Пример записи:</p>
 <pre><code class="language-php">Cropper::make('picture');</code></pre>
 <h3><a href="#shirina-i-vysota" name="shirina-i-vysota">Ширина и высота</a></h3>
-<p>Для чтого, что бы контролировать формат, можно указать ширину и высоту необходимого изображения:</p>
+<p>Для того чтобы контролировать формат, можно указать ширину и высоту необходимого изображения:</p>
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;width(500)
     -&gt;height(300);</code></pre>
@@ -625,7 +625,7 @@ Upload::make('images')
 <p>Реализация по умолчанию <code>accept</code> проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;acceptedFiles('image/*,application/pdf,.psd');</code></pre>
-<p>Поле загрузки может работать с различными хранилищами, что бы указать его необходимо передать ключ указанный в <code>config/filesystems.php</code>:</p>
+<p>Поле загрузки может работать с различными хранилищами, чтобы указать его необходимо передать ключ указанный в <code>config/filesystems.php</code>:</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;storage('s3');</code></pre>
 <p>По умолчанию используется хранилище <code>public</code>.</p>
