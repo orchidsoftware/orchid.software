@@ -273,7 +273,7 @@ public function layout(): array
     return view('template')-&gt;render();
 }</code></pre>
 <blockquote>
-<p><strong>Примечание.</strong> Любое значение вернувшиеся в нём будет отображено как есть.</p>
+<p><strong>Примечание.</strong> Любое значение, вернувшееся в нём, будет отображено как есть.</p>
 </blockquote>
 <h2><a href="#ukazanie-deystviy" name="ukazanie-deystviy">Указание действий</a></h2>
 <p>Карточки поддерживают указание действий, так же как и <code>commandBar</code>, для этого необходимо добавить второй аргумент:</p>
@@ -291,7 +291,7 @@ public function layout(): array
 <blockquote>
 <p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
 </blockquote>
-<p>Вместо создания отдельного класса рекомендуется использоватье представителей для <code>Eloquent</code> моделей, например:</p>
+<p>Вместо создания отдельного класса рекомендуется использовать представителей для <code>Eloquent</code> моделей, например:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -340,7 +340,7 @@ class ProductPresenter extends Presenter implements Cardable
             : Color::DANGER();
     }
 }</code></pre>
-<p>Тогда запись использования в экране будет кратким:</p>
+<p>Тогда запись использования в экране будет краткой:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Card;
 
 /**

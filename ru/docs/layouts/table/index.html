@@ -301,7 +301,7 @@ Layout::table('clients', [
     TD::set('created_at')-&gt;sort(),
 ]);</code></pre>
 <h2><a href="#yacheyki" name="yacheyki">Ячейки</a></h2>
-<p>Таблица являеться только общей облочкой, для которой необходимо указать классы TD. Предназначеные для создания одной ячейки.</p>
+<p>Таблица является только общей облочкой, для которой необходимо указать классы TD, предназначенные для создания одной ячейки.</p>
 <pre><code class="language-php">use Orchid\Screen\TD;
 
 TD::set('last_name');</code></pre>
@@ -350,7 +350,7 @@ TD::set('full_name')
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
     });</code></pre>
-<p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не пологаться только на <code>target</code>. Вы пожете получить значение следующим образом:</p>
+<p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не полагаться только на <code>target</code>. Вы можете получить значение следующим образом:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('price')
