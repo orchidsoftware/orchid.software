@@ -10,7 +10,7 @@ menu: layouts
 
 ![facepile](/assets/img/layouts/facepile.png)
 
-`Facepile` принимает набор Объектов которые реализуют интерфейс `Personable`.
+`Facepile` принимает набор Объектов, которые реализуют интерфейс `Personable`.
 
 > В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуеться ознакомится с ними.
  

@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
 ```
 
 
-Отображение результатов осуществляеться с помощью вызова `presenter()` у Объекта.
+Отображение результатов осуществляется с помощью вызова `presenter()` у Объекта.
 
 ```php
 namespace App;
