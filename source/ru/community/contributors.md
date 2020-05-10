@@ -60,7 +60,7 @@ php-cs-fixer fix
 Для установки пакета ORCHID в качестве разработчика необходимо поставить фреймворк laravel.
 
 
-> Сначала вы должны сделать `fork` [репозитория на github](https://github.com/orchidsoftware/platform/fork), что бы иметь возможность отправить изменения.
+> Сначала вы должны сделать `fork` [репозитория на github](https://github.com/orchidsoftware/platform/fork), чтобы иметь возможность отправить изменения.
 
 Перейти в каталог и выполнить:
 
