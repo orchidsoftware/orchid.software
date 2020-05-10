@@ -259,7 +259,7 @@ $presenter-&gt;fullName();</code></pre>
 <blockquote>
 <p><strong>Заметьте</strong>, что представитель получает свойства <code>firstName</code> и <code>lastName</code> у модели, потому что этих свойств у него нет.</p>
 </blockquote>
-<p>Обычно нет необходимости создавать и передавать представителя каждый раз отдельно, по этому укажем это создание в модели:</p>
+<p>Обычно нет необходимости создавать и передавать представителя каждый раз отдельно, поэтому укажем это создание в модели:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -280,11 +280,11 @@ class Client extends Model
 <blockquote>
 <p><strong>Примечание.</strong> Многие функции платформы ожидают представителя в методе <code>presenter</code>, но вам необязательно использовать именно его.</p>
 </blockquote>
-<p>Теперь его использование становиться проще:</p>
+<p>Теперь его использование становится проще:</p>
 <pre><code class="language-php">use App\Client;
 
 $client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();</code></pre>
-<p>Если необходимо получить список представителей лучшим вариантом будет использование методов коллекций, например:</p>
+<p>Если необходимо получить список представителей, лучшим вариантом будет использование методов коллекций, например:</p>
 <pre><code class="language-php">use App\Client;
 
 $clients = Client::limit(10)-&gt;get()-&gt;map-&gt;presenter();
