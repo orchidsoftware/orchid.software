@@ -271,7 +271,7 @@ public function layout(): array
 ])
     -&gt;title('Заголовок окна');</code></pre>
 <h3><a href="#razmer-okna" name="razmer-okna">Размер окна</a></h3>
-<p>Взависимости от содержимого окна, может потребоваться изменить его размер, это можно сделать указав метод <code>size</code>:</p>
+<p>В зависимости от содержимого окна, может потребоваться изменить его размер, это можно сделать указав метод <code>size</code>:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
 
 Layout::modal('exampleModals', [
@@ -289,7 +289,7 @@ Layout::modal('exampleModals', [
     -&gt;applyButton('Отправить')
     -&gt;closeButton('Закрыть');</code></pre>
 <h3><a href="#raspolozhenie" name="raspolozhenie">Расположение</a></h3>
-<p>Модальное окно можно отображать, не только по центру экрана, но и по правой стороне:</p>
+<p>Модальное окно можно отображать не только по центру экрана, но и по правой стороне:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
 
 Layout::modal('exampleModals', [
@@ -298,7 +298,7 @@ Layout::modal('exampleModals', [
     -&gt;type(Modal::TYPE_RIGHT);</code></pre>
 <h3><a href="#otklyuchenie-ajax-obrabotki" name="otklyuchenie-ajax-obrabotki">Отключение AJAX-обработки</a></h3>
 <p>По умолчанию результат выполнения действия окна будет выведен пользователю на экран, но такой подход может не подойти, если необходимо выполнить сложную обработку или скачать файл.
-Что бы отключить обработку ответа необходимо добавить вызов метода <code>rawClick</code>:</p>
+Чтобы отключить обработку ответа необходимо добавить вызов метода <code>rawClick</code>:</p>
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
@@ -307,7 +307,7 @@ Layout::modal('exampleModals', [
 <p>При работе с набором данных, нет необходимости создавать модальное окно для каждого значения. Вместо этого, можно воспользоваться асинхронной загрузкой.
 Это позволит подменить данные экрана <code>query</code> при открытии окна и отобразить
 новое содержимое.</p>
-<p>Для того, что бы обьявить модальное окно ассинхронным необходимо вызвать метод <code>async</code> передав в агрументе имя метода который должен использоваться вместо <code>query</code>:</p>
+<p>Для того чтобы объявить модальное окно ассинхронным, необходимо вызвать метод <code>async</code>, передав в агрументе имя метода, который должен использоваться вместо <code>query</code>:</p>
 <pre><code class="language-php">Layout::modal('asyncModal', [
     ExampleRow::class,
 ])-&gt;async('asyncGetData');</code></pre>
@@ -321,7 +321,7 @@ public function asyncGetData(string $welcome): array
         'welcome' =&gt; $welcome,
     ];
 }</code></pre>
-<p>При вызове такого модального окна вы можете передавать значения, c помощью метода <code>asyncParameters</code> например:</p>
+<p>При вызове такого модального окна, вы можете передавать значения c помощью метода <code>asyncParameters</code>, например:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Open async modal')

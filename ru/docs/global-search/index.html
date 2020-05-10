@@ -233,7 +233,7 @@
 <blockquote>
 <p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними. А так же произвести действия по настройки модели из документации <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
 </blockquote>
-<p>Для того, что бы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:</p>
+<p>Для того чтобы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:</p>
 <pre><code class="language-php">namespace App\Providers;
 
 use App\Idea;
@@ -290,7 +290,7 @@ class Idea extends Model
         return $array;
     }
 }</code></pre>
-<p>В представители укажем интерфейс <code>Searchable</code> и определим методы которые будут возвращать значения для показа пользователю, например так:</p>
+<p>В представителе укажем интерфейс <code>Searchable</code> и определим методы, которые будут возвращать значения для показа пользователю, например так:</p>
 <pre><code class="language-php">namespace App\Orchid\Presenters;
 
 class IdeaPresenter extends Presenter implements Searchable

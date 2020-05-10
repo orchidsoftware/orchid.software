@@ -231,7 +231,7 @@
             </li>
             </ul>
     <hr>
-<p>Описывать поля формы может быть нудным и затруднительным занятием, что бы их легко модифицировать и использовать повторно, используется специальный строитель <code>Orchid\Screen\Builder</code>, задача которого состоит в генерации <code>html</code>-кода.</p>
+<p>Описывать поля формы может быть нудным и затруднительным занятием, чтобы их легко модифицировать и использовать повторно, используется специальный строитель <code>Orchid\Screen\Builder</code>, задача которого состоит в генерации <code>html</code>-кода.</p>
 <h2><a href="#osnovnoe-ispolzovanie" name="osnovnoe-ispolzovanie">Основное использование</a></h2>
 <p>Для построения необходимо передать набор элементов формы и источник данных:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
@@ -295,7 +295,7 @@ $builder-&gt;setLanguage('en');
 $html = $builder-&gt;generateForm();</code></pre>
 <h2><a href="#predstavlenie-elementov-formy" name="predstavlenie-elementov-formy">Представление элементов формы</a></h2>
 <p>Любое поле для ввода является только настройкой над представлением, которое передает данные в шаблон. </p>
-<p>Создадим новый класс, что бы посмотреть из чего он состоит:</p>
+<p>Создадим новый класс, чтобы посмотреть из чего он состоит:</p>
 <pre><code class="language-php">namespace App\Orchid\Fields;
 
 use Orchid\Screen\Field;
@@ -342,7 +342,7 @@ class CustomField extends Field
 так как любая форма которая должна добавлять или изменять данные должна ею обладать.</p>
 <p>Обновим только что созданный класс и добавим blade шаблон, на примере указанном выше:</p>
 <pre><code class="language-php">{{ $title }}: &lt;input @attributes($attributes)&gt;&lt;br&gt;</code></pre>
-<p>Для того, что бы попробовать новое поле, необходимо использовать встроенный метод <code>render()</code>:</p>
+<p>Для того чтобы попробовать новое поле, необходимо использовать встроенный метод <code>render()</code>:</p>
 <pre><code class="language-php">$input = CustomField::make('name');
 
 $html = $input-&gt;render(); // html string</code></pre>

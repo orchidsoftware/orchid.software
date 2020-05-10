@@ -308,7 +308,7 @@ TD::set('last_name');</code></pre>
 <p>Метод <code>set</code> является основным методом, устанавливает имя ключа из массива и отображаемое название.</p>
 <pre><code class="language-php">TD::set('last_name', 'Last name');</code></pre>
 <h3><a href="#vyravnivanie" name="vyravnivanie">Выравнивание</a></h3>
-<p>Управнием вырваниванием содержимого можно управлять спомощью метода <code>align</code>:</p>
+<p>Вырваниванием содержимого можно управлять спомощью метода <code>align</code>:</p>
 <pre><code class="language-php">TD::set('last_name')-&gt;align(TD::ALIGN_LEFT);
 TD::set('last_name')-&gt;align(TD::ALIGN_CENTER);
 TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);</code></pre>
@@ -335,7 +335,7 @@ TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);</code></pre>
     -&gt;render(function ($user) {
         return $user-&gt;firt_name . ' ' . $user-&gt;last_name;
     });</code></pre>
-<p>Функцию замыкания должна возвращать любое строчное значение:</p>
+<p>Функция замыкания должна возвращать любое строчное значение:</p>
 <pre><code class="language-php">TD::set('full_name')
     -&gt;render(function ($user) {
         return view('blade_template', [
@@ -350,7 +350,7 @@ TD::set('full_name')
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
     });</code></pre>
-<p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не полагаться только на <code>target</code>. Вы можете получить значение следующим образом:</p>
+<p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не полагаться только на <code>target</code>. Вы мМодальное окно можно отображать, не только ожете получить значение следующим образом:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('price')
@@ -358,7 +358,7 @@ TD::set('price')
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
     });</code></pre>
 <h2><a href="#parametry-tablitsy" name="parametry-tablitsy">Параметры таблицы</a></h2>
-<p>Вы можете указать текст который будет отображён если таблица пуста
+<p>Вы можете указать текст, который будет отображён если таблица пуста,
 дополнительно указав методы:</p>
 <pre><code class="language-php">/**
  * @return string
@@ -393,7 +393,7 @@ protected function striped(): bool
     return false;
 }</code></pre>
 <h2><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h2>
-<p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом, для того, что бы не дублировать код в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
+<p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код, в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
 <p>Пример регистрации:</p>
 <pre><code class="language-php">// AppServiceProvider.php
 TD::macro('bool', function () {
