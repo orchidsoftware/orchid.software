@@ -312,7 +312,9 @@ use App\Orchid\Screens\IdeaEdit;
 
 Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
-<p>То обратите внимание, Routing Laravel выбирает первый подходящий маршрут.</p>
+<blockquote>
+<p><strong>Обратите внимание</strong>, Routing Laravel выбирает первый подходящий маршрут.</p>
+</blockquote>
 <p>Написав такие маршруты:</p>
 <pre><code class="language-php">Route::screen('/idea', ...
 Route::screen('/idea/edit',...</code></pre>
