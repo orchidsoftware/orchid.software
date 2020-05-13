@@ -311,7 +311,9 @@ GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.id
 use App\Orchid\Screens\IdeaEdit;
 Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+<blockquote>
 <p><strong>Please note</strong>, Routing Laravel chooses the first suitable route.</p>
+</blockquote>
 <p>By writing the following routes:</p>
 <pre><code class="language-php">Route::screen('/idea', ...
 Route::screen('/idea/edit',...</code></pre>
