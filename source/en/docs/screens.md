@@ -104,7 +104,8 @@ use App\Orchid\Screens\IdeaEdit;
 Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
 Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
-**Please note**, Routing Laravel chooses the first suitable route.
+
+> **Please note**, Routing Laravel chooses the first suitable route.
 
 By writing the following routes:
 
