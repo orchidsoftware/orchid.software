@@ -78,7 +78,7 @@ class Client extends Model
 }
 ```
 
-> **Note.** Many platform functions expect a representative in the `presenter` method, but you do not need to use it.
+> **Note.** Many platform functions expect a representative in the `presenter` method.
 
 
 Now its use is becoming easier:
