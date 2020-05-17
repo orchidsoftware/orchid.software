@@ -97,6 +97,19 @@ Layout::modal('exampleModals', [
     ->closeButton('Закрыть');
 ```
 
+### Отключение кнопок
+
+Для отключения каждой кнопки имееться собственный метод:
+
+```php
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->withoutApplyButton()
+    ->withoutCloseButton();
+```
+
+
 ### Расположение
 
 Модальное окно можно отображать не только по центру экрана, но и по правой стороне:
