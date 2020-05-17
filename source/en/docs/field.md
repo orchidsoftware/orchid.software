@@ -506,8 +506,7 @@ An example of using the modal window `addNewPayment` added earlier to the screen
 ```php
 ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
-    ->icon('icon-wallet')
-    ->right()
+    ->icon('icon-wallet');
 ```
 
 Linking example:
@@ -515,6 +514,10 @@ Linking example:
 ```php
 Link::make('Google It!')
     ->href('http://google.com');
+
+
+Link::make('Idea')
+    ->route('platform.idea');
 ```
 
 Example use with method:
@@ -526,13 +529,9 @@ Button::make('Google It!')
 
 Available modifiers:
 
-* `modal('modalName')` - creates a button that calls a modal window with the name `modalName` within the current screen.
 * `right()` - Positioning the element on the right edge of the screen
 * `block()` - Positioning the element across the entire width of the screen
 * `class('class-names')` - rewrites the standard button classes
-* `href('url')` - adds a link for the button. Ignored when given modal
-* `route('route.name')` - adds a link to the given route
 * `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
-* `title('Click Me!')` - sets the name of the current button
 * `icon('icon-wallet)` - sets an icon for the button
  
