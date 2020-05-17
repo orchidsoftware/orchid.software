@@ -64,7 +64,7 @@ To set the title, use the `title` method:
 Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    ->title('Заголовок окна');
+    ->title('Window title');
 ```
 
 ### Window size
@@ -94,8 +94,8 @@ You can set your own names for them:
 Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    ->applyButton('Отправить')
-    ->closeButton('Закрыть');
+    ->applyButton('Send')
+    ->closeButton('Close');
 ```
 
 ### Position
