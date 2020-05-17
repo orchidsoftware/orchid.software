@@ -98,6 +98,19 @@ Layout::modal('exampleModals', [
     ->closeButton('Close');
 ```
 
+### Disabling Buttons
+
+To disable each button has its own method:
+
+```php
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->withoutApplyButton()
+    ->withoutCloseButton();
+```
+
+
 ### Position
 
 The modal window can be displayed, not only in the center of the screen, but also on the right side:
