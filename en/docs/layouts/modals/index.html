@@ -221,6 +221,9 @@
                 <a href="#button-names">Button Names</a>
             </li>
                     <li class="anchor-h3">
+                <a href="#disabling-buttons">Disabling Buttons</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#position">Position</a>
             </li>
                     <li class="anchor-h3">
@@ -288,6 +291,13 @@ Layout::modal('exampleModals', [
 ])
     -&gt;applyButton('Send')
     -&gt;closeButton('Close');</code></pre>
+<h3><a href="#disabling-buttons" name="disabling-buttons">Disabling Buttons</a></h3>
+<p>To disable each button has its own method:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;withoutApplyButton()
+    -&gt;withoutCloseButton();</code></pre>
 <h3><a href="#position" name="position">Position</a></h3>
 <p>The modal window can be displayed, not only in the center of the screen, but also on the right side:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
