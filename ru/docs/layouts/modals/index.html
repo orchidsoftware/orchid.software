@@ -221,6 +221,9 @@
                 <a href="#imena-knopok">Имена кнопок</a>
             </li>
                     <li class="anchor-h3">
+                <a href="#otklyuchenie-knopok">Отключение кнопок</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#raspolozhenie">Расположение</a>
             </li>
                     <li class="anchor-h3">
@@ -288,6 +291,13 @@ Layout::modal('exampleModals', [
 ])
     -&gt;applyButton('Отправить')
     -&gt;closeButton('Закрыть');</code></pre>
+<h3><a href="#otklyuchenie-knopok" name="otklyuchenie-knopok">Отключение кнопок</a></h3>
+<p>Для отключения каждой кнопки имееться собственный метод:</p>
+<pre><code class="language-php">Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;withoutApplyButton()
+    -&gt;withoutCloseButton();</code></pre>
 <h3><a href="#raspolozhenie" name="raspolozhenie">Расположение</a></h3>
 <p>Модальное окно можно отображать не только по центру экрана, но и по правой стороне:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
