@@ -269,7 +269,7 @@ public function layout(): array
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;title('Заголовок окна');</code></pre>
+    -&gt;title('Window title');</code></pre>
 <h3><a href="#window-size" name="window-size">Window size</a></h3>
 <p>Depending on the contents of the window, you may need to resize it, this can be done by specifying the <code>size</code> method:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
@@ -286,8 +286,8 @@ Layout::modal('exampleModals', [
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;applyButton('Отправить')
-    -&gt;closeButton('Закрыть');</code></pre>
+    -&gt;applyButton('Send')
+    -&gt;closeButton('Close');</code></pre>
 <h3><a href="#position" name="position">Position</a></h3>
 <p>The modal window can be displayed, not only in the center of the screen, but also on the right side:</p>
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
