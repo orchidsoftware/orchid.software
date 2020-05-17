@@ -666,8 +666,7 @@ Upload::make('upload')
 ```php
 ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
-    ->icon('icon-wallet')
-    ->right()
+    ->icon('icon-wallet');
 ```
 
 Пример использования со ссылкой:
@@ -675,6 +674,9 @@ ModalToggle::make('Add Payment')
 ```php
 Link::make('Google It!')
     ->href('http://google.com');
+
+Link::make('Idea')
+    ->route('platform.idea');
 ```
 
 Пример использования с методом:
@@ -686,12 +688,9 @@ Button::make('Google It!')
 
 Доступные модификаторы:
 
-* `modal('modalName')` - создает кнопку вызывающую модальное окно с именем `modalName` в рамках текущего экрана.
 * `right()` - позиционирование элемента по правому краю экрана.
 * `block()` - позиционирование элемента по всей ширине экрана.
 * `class('class-names')` - переписывает стандартные классы для кнопки.
-* `href('url')` - добавляет ссылку для кнопки. Игнорируется при заданном modal.
-* `route('route.name')` - добавляет ссылку для маршрута.
 * `method('methodName')` - при клике форма будет отправлена на заданный метод в рамках текущего экрана.
 * `title('Click Me!')` - задает название текущей кнопки.
 * `icon('icon-wallet)` - задает иконку для кнопки.
