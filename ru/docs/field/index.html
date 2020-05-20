@@ -257,9 +257,6 @@
                 <a href="#timezone">TimeZone</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#html-redaktor-tinymce">HTML редактор TinyMCE</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#html-redaktor-quill">HTML редактор Quill</a>
             </li>
                     <li class="anchor-h2">
@@ -374,7 +371,7 @@ Input::make('name')-&gt;canSee(false);</code></pre>
 <p>Все доступные параметры <em>Inputmask</em> можно посмотреть <a href="https://github.com/RobinHerbots/Inputmask#options">здесь</a>.</p>
 <h2><a href="#textarea" name="textarea">TextArea</a></h2>
 <p>Поле <code>textarea</code> представляет собой элемент формы для создания области, в которую можно вводить несколько строк текста.
-В отличие от тега <a href="/ru/docs/fields/input"><code>input</code></a> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
+В отличие от тега <code>input</code> в текстовом поле допустимо делать переносы строк, они сохраняются при отправке данных на сервер.</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">TextArea::make('description');</code></pre>
 <p>Вы можете задать необходимое количество строк с помощью метода <code>rows</code>:</p>
@@ -388,6 +385,9 @@ Input::make('name')-&gt;canSee(false);</code></pre>
     -&gt;title('Free')
     -&gt;placeholder('Event for free')
     -&gt;help('Event for free');</code></pre>
+<p>По умолчанию браузеры не отправляют значения не выбранного поля. Это осложняет установку простых булевых типов. Для решения этого есть отдельный метод, при котором значение <code>false</code> будет отправлено:</p>
+<pre><code class="language-php">CheckBox::make('enabled')
+    -&gt;sendTrueOrFalse();</code></pre>
 <h2><a href="#select" name="select">Select</a></h2>
 <p>Простой выбор из списка массива:</p>
 <pre><code class="language-php">Select::make('select')
@@ -542,15 +542,8 @@ DateTimeZone::UTC;
 DateTimeZone::ALL_WITH_BC;
 DateTimeZone::PER_COUNTRY;</code></pre>
 <p>С представлением пременных зон можно ознакомиться в документации <a href="https://www.php.net/manual/ru/class.datetimezone.php">PHP</a>.</p>
-<h2><a href="#html-redaktor-tinymce" name="html-redaktor-tinymce">HTML редактор TinyMCE</a></h2>
-<p>Такой редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.</p>
-<p><img src="https://orchid.software/assets/img/ui/wysing.png" alt="Wysing"></p>
-<p>Пример записи:</p>
-<pre><code class="language-php">TinyMCE::make('html')
-    -&gt;required()
-    -&gt;theme('inlite');</code></pre>
-<p>Для отображения в редакторе верхней панели и меню, в котором доступны функции полноэкранного режима и просмотр html кода, нужно установить атрибут <code>theme('modern')</code>.</p>
 <h2><a href="#html-redaktor-quill" name="html-redaktor-quill">HTML редактор Quill</a></h2>
+<p>Такой редактор позволяет вставлять рисунки, таблицы, указывать стили оформления текста, видео.</p>
 <p>Пример записи:</p>
 <pre><code class="language-php">Quill::make('html');</code></pre>
 <h2><a href="#markdown-redaktor" name="markdown-redaktor">Markdown редактор</a></h2>
