@@ -315,6 +315,7 @@ protected $targets = [
 Добавим его с именем <code>asyncSum</code>:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
+use App\Orchid\Layouts\AmountListener;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layout;
@@ -386,6 +387,7 @@ class PlatformScreen extends Screen
                     -&gt;title('Second argument')
                     -&gt;type('number'),
             ]),
+            AmountListener::class,
         ];
     }
 }</code></pre>
@@ -423,16 +425,16 @@ class AmountListener extends Listener
         'b',
     ];
 
-/**
- * What screen method should be called
- * as a source for an asynchronous request.
- *
- * The name of the method must
- * begin with the prefix "async"
- *
- * @var string
- */
-protected $asyncMethod = 'asyncSum';
+    /**
+     * What screen method should be called
+     * as a source for an asynchronous request.
+     *
+     * The name of the method must
+     * begin with the prefix "async"
+     *
+     * @var string
+     */
+    protected $asyncMethod = 'asyncSum';
 
     /**
      * @return Layout[]
