@@ -18,7 +18,7 @@
 @section('main.idea.title','Любые идеи')
 @section('main.idea.description','Используйте свои любимые пакеты из обширной экосистемы или создавайте собственные наборы.')
 
-@section('main.code.title','Чистый код')
+@section('main.code.title','Только код')
 @section('main.code.description','Никакого кодирования через графический интерфейс, только красивый программный код.')
 
 @section('main.col1.title','Легко начать')
