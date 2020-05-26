@@ -141,6 +141,7 @@ Add it with the name `asyncSum`:
 ```php
 namespace App\Orchid\Screens;
 
+use App\Orchid\Layouts\AmountListener;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layout;
@@ -212,6 +213,7 @@ class PlatformScreen extends Screen
                     ->title('Second argument')
                     ->type('number'),
             ]),
+            AmountListener::class,
         ];
     }
 }
