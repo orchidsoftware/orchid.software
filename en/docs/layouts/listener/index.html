@@ -313,6 +313,7 @@ protected $targets = [
 Add it with the name <code>asyncSum</code>:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
+use App\Orchid\Layouts\AmountListener;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layout;
@@ -384,6 +385,7 @@ class PlatformScreen extends Screen
                     -&gt;title('Second argument')
                     -&gt;type('number'),
             ]),
+            AmountListener::class,
         ];
     }
 }</code></pre>
