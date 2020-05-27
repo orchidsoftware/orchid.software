@@ -19,7 +19,7 @@
 @section('main.idea.description','Используйте свои любимые пакеты из обширной экосистемы или создавайте собственные наборы.')
 
 @section('main.code.title','Только код')
-@section('main.code.description','Никакого кодирования через графический интерфейс, только красивый программный код.')
+@section('main.code.description','Никакого кодирования через графический интерфейс, только программный код.')
 
 @section('main.col1.title','Легко начать')
 @section('main.col1.description','Разработка ведётся на PHP, не обязательно использовать HTML, CSS или JavaScript.
