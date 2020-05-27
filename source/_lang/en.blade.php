@@ -9,11 +9,11 @@
     faster than ever
 @endsection
 
-@section('main.screen.title','Simple Architecture')
+@section('main.screen.title','Form builder')
 @section('main.screen.description','Create pre-populated fields, add tables and use logic to create a reliable page.')
 
 @section('main.design.title','Beautifully-designed')
-@section('main.design.description','Ready-to-use user interface components that look great.')
+@section('main.design.description','Many ready-to-use user interface components.')
 
 @section('main.idea.title','Any Ideas')
 @section('main.idea.description','Use your favorite packages from vast ecosystem or create your own sets.')
