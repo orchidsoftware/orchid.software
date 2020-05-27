@@ -10,7 +10,7 @@
 @endsection
 
 @section('main.screen.title','Form builder')
-@section('main.screen.description','Create pre-populated fields, add tables and use logic to create a reliable page.')
+@section('main.screen.description','Create pre-populated fields without reference to CRUD models.')
 
 @section('main.design.title','Beautifully-designed')
 @section('main.design.description','Many ready-to-use user interface components.')
@@ -19,7 +19,7 @@
 @section('main.idea.description','Use your favorite packages from vast ecosystem or create your own sets.')
 
 @section('main.code.title','Only Code')
-@section('main.code.description','No creation through a graphical interface, only beautiful program code.')
+@section('main.code.description','No creation through a graphical interface, only program code.')
 
 @section('main.col1.title','Easy to get started')
 @section('main.col1.description','The development is conducted in PHP, it is not necessary to use HTML, CSS or JavaScript.
