@@ -16,7 +16,7 @@
 @section('main.design.description','Many ready-to-use user interface components.')
 
 @section('main.idea.title','Any Ideas')
-@section('main.idea.description','Use your favorite packages from vast ecosystem or create your own sets.')
+@section('main.idea.description','Use favorite packages from ecosystem or create your own sets.')
 
 @section('main.code.title','Only Code')
 @section('main.code.description','No creation through a graphical interface, only program code.')
