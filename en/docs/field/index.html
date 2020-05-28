@@ -575,8 +575,11 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Allows you to upload an image.</p>
 <p>Example:</p>
 <pre><code class="language-php">Picture::make('picture');</code></pre>
+<p>Laravel filesystems are supported:</p>
+<pre><code class="language-php">Picture::make('picture')
+    -&gt;storage('s3');</code></pre>
 <h2><a href="#cropper" name="cropper">Cropper</a></h2>
-<p>Allows you to upload an image and crop to the desired format.</p>
+<p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
 <p><img src="/assets/img/fields/cropper.png" alt="Cropper"></p>
 <p>Example:</p>
 <pre><code class="language-php">Cropper::make('picture');</code></pre>
@@ -585,6 +588,11 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;width(500)
     -&gt;height(300);</code></pre>
+<p>Or you can impose specific limits using <code>minWidth</code> / <code>maxWidth</code> or <code>minHeight</code> / <code>maxHeight</code> or use convenience methods <code>minCanvas</code> / <code>maxCanvas</code></p>
+<pre><code class="language-php">Cropper::make('picture')
+    -&gt;minCanvas(500)
+    -&gt;maxWidth(1000)
+    -&gt;maxHeight(800);</code></pre>
 <h3><a href="#file-size-limit" name="file-size-limit">File size limit</a></h3>
 <p>To limit the size of the downloaded file, you must set the maximum value in <code>MB</code></p>
 <pre><code class="language-php">Cropper::make('picture')
