@@ -522,9 +522,16 @@ Example:
 Picture::make('picture');
 ```  
 
+Laravel filesystems are supported:
+
+```php
+Picture::make('picture')
+    ->storage('s3');
+```
+
 ## Cropper
 
-Allows you to upload an image and crop to the desired format.
+Extends Picture and allows you to upload an image and crop to the desired format.
 
 ![Cropper](/assets/img/fields/cropper.png)
 
@@ -542,6 +549,16 @@ Cropper::make('picture')
     ->width(500)
     ->height(300);
 ```
+
+Or you can impose specific limits using `minWidth` / `maxWidth` or `minHeight` / `maxHeight` or use convenience methods `minCanvas` / `maxCanvas`
+
+```php
+Cropper::make('picture')
+    ->minCanvas(500)
+    ->maxWidth(1000)
+    ->maxHeight(800);
+```
+
 
 ### File size limit
     
