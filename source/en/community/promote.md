@@ -51,3 +51,7 @@ Do not forget to add the current link (or print URL)
 - **Create screenshots.** If you are aware of a new feature under development, consider creating one or more screenshots to illustrate this.
 
 - **Get more developers.** If you know or meet people with programming skills, introduce them to the community and ask if they might be interested in developing ORCHID.
+
+## Sponsored the development 
+
+If you run a business and use the package in an income-generating product, it makes sense to finance the development: this ensures that the project on which your product relies remains healthy and actively supported. It can also help you understand the ORCHID community and make it easier to get developers involved. If you are an individual user and use the product, consider donating in appreciation - for example, occasionally buying me coffee 😀
