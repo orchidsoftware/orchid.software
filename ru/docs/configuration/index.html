@@ -238,6 +238,9 @@
                 <a href="#stranitsa-avtorizatsii">Страница авторизации</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#dvukhfaktornaya-autentifikatsiya">Двухфакторная аутентификация</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#glavnaya-stranitsa">Главная страница</a>
             </li>
                     <li class="anchor-h2">
@@ -282,6 +285,27 @@
 <pre><code class="language-php">'auth' =&gt; true,</code></pre>
 <p>Существует возможность и вовсе отключить поставляемую форму авторизации и сделать собственную, например с помощью команды:</p>
 <pre><code class="language-php">php artisan ui:auth</code></pre>
+<h2><a href="#dvukhfaktornaya-autentifikatsiya" name="dvukhfaktornaya-autentifikatsiya">Двухфакторная аутентификация</a></h2>
+<p>Двухфакторная проверка подлинности обеспечивает вашим пользователям дополнительную безопасность учетной записи, требуя, чтобы они указывали токен во время входа в систему в дополнение к своим имени пользователя и паролю. </p>
+<p>По умолчанию используется алгоритм TOTP в качестве поставщика двухфакторной аутентификации. Тем не менее, вы можете реализовать свой собственный поставщик двухфакторной аутентификации, если хотите.</p>
+<pre><code class="language-php">namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Dashboard::useTwoFactorAuth();
+    }
+}</code></pre>
+<p>Вызов этого метода добавит проверку токена для учётных записей при авторизации.</p>
 <h2><a href="#glavnaya-stranitsa" name="glavnaya-stranitsa">Главная страница</a></h2>
 <p>Главная страница приложения записана в виде <strong>названия маршрута</strong>, именно её увидит пользователь при входе или нажатии на логотипы и ссылки.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
