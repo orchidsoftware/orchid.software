@@ -289,8 +289,10 @@ for example, the filtering layer requests only from the white list of IP address
 <p>Two-factor authentication provides your users with additional account security by requiring them to provide a token at logon time in addition to their username and password.</p>
 <p>By default, the TOTP algorithm is used as a two-factor authentication provider. However, you can implement your own two-factor authentication provider if you want.</p>
 <pre><code class="language-php">namespace App\Providers;
+
 use Illuminate\Support\ServiceProvider;
 use Orchid\Support\Facades\Dashboard;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
