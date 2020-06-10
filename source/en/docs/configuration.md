@@ -81,8 +81,10 @@ By default, the TOTP algorithm is used as a two-factor authentication provider. 
 
 ```php
 namespace App\Providers;
+
 use Illuminate\Support\ServiceProvider;
 use Orchid\Support\Facades\Dashboard;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
