@@ -86,10 +86,10 @@ $model->where('content->ru->name', '=', 'dwqdwq');
 
 ```php
 http://example.com/demo?sort=content.ru.name
-$model->orderBy('content.ru.name', 'asc');
+$model->orderBy('content->ru->name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content.ru.name', 'desc');
+$model->orderBy('content->ru->name', 'desc');
 ```
 
 Отличным способом будет использовать такую сортировку в таблицах. Для того чтобы заголовки колонки стали активными, используйте:
