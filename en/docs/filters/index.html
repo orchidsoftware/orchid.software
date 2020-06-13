@@ -296,10 +296,10 @@ $model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
 </code></pre>
 <p>How sorting will respond:</p>
 <pre><code class="language-php">http://example.com/demo?sort=content.ru.name
-$model-&gt;orderBy('content.ru.name', 'asc');
+$model-&gt;orderBy('content-&gt;ru-&gt;name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model-&gt;orderBy('content.ru.name', 'desc');</code></pre>
+$model-&gt;orderBy('content-&gt;ru-&gt;name', 'desc');</code></pre>
 <h2><a href="#natural-filter" name="natural-filter">Natural filter</a></h2>
 <p>To create a new filter there is a command:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter</code></pre>
