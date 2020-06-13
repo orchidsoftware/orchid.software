@@ -86,10 +86,10 @@ How sorting will respond:
 
 ```php
 http://example.com/demo?sort=content.ru.name
-$model->orderBy('content.ru.name', 'asc');
+$model->orderBy('content->ru->name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content.ru.name', 'desc');
+$model->orderBy('content->ru->name', 'desc');
 ```
 
 
