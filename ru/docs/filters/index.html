@@ -296,10 +296,10 @@ $model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
 </code></pre>
 <p>Как будет реагировать сортировка:</p>
 <pre><code class="language-php">http://example.com/demo?sort=content.ru.name
-$model-&gt;orderBy('content.ru.name', 'asc');
+$model-&gt;orderBy('content-&gt;ru-&gt;name', 'asc');
 
 http://example.com/demo?sort=-content.ru.name
-$model-&gt;orderBy('content.ru.name', 'desc');</code></pre>
+$model-&gt;orderBy('content-&gt;ru-&gt;name', 'desc');</code></pre>
 <p>Отличным способом будет использовать такую сортировку в таблицах. Для того чтобы заголовки колонки стали активными, используйте:</p>
 <pre><code class="language-php">use Orchid\Screen\TD;
 
