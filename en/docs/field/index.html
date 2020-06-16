@@ -268,6 +268,9 @@
                 <a href="#markdown-editor">Markdown Editor</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#matrix">Matrix</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#code-editor">Code editor</a>
             </li>
                     <li class="anchor-h2">
@@ -555,6 +558,29 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
 <p>Example:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
+<h2><a href="#matrix" name="matrix">Matrix</a></h2>
+<p>The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns([
+        'Attribute',
+        'Value',
+        'Units',
+    ])</code></pre>
+<p>Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns([
+        'attr'          =&gt; 'Attribute',
+        'product_value' =&gt; 'Value',
+    ])</code></pre>
+<p>By default, each cell element has a textarea field, but you can change it to your own fields as follows:</p>
+<pre><code class="language-php">Matrix::make('users')
+    -&gt;title('Users list')
+    -&gt;columns(['id', 'name'])
+    -&gt;fields([
+        'id'   =&gt; Input::make()-&gt;type('number'),
+        'name' =&gt; TextArea::make(),
+    ]),
+</code></pre>
 <h2><a href="#code-editor" name="code-editor">Code editor</a></h2>
 <p>Field for writing program code with the ability to highlight.</p>
 <p><img src="/assets/img/ui/code.png" alt="Code"></p>
