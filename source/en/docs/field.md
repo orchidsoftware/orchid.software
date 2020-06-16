@@ -477,6 +477,41 @@ Example:
 SimpleMDE::make('markdown');
 ```  
 
+## Matrix
+
+The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:
+
+```php
+Matrix::make('options')
+    ->columns([
+        'Attribute',
+        'Value',
+        'Units',
+    ])
+```
+
+Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:
+
+```php
+Matrix::make('options')
+    ->columns([
+        'attr'          => 'Attribute',
+        'product_value' => 'Value',
+    ])
+```
+
+By default, each cell element has a textarea field, but you can change it to your own fields as follows:
+
+```php
+Matrix::make('users')
+    ->title('Users list')
+    ->columns(['id', 'name'])
+    ->fields([
+        'id'   => Input::make()->type('number'),
+        'name' => TextArea::make(),
+    ]),
+
+```
 
 ## Code editor
 
