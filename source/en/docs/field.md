@@ -510,7 +510,6 @@ Matrix::make('users')
         'id'   => Input::make()->type('number'),
         'name' => TextArea::make(),
     ]),
-
 ```
 
 ## Code editor
