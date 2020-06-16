@@ -292,6 +292,9 @@
                 <a href="#upload">Upload</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#group">Group</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#knopkassylka">Кнопка/Ссылка</a>
             </li>
             </ul>
@@ -655,6 +658,21 @@ Upload::make('images')
 <pre><code class="language-php">Upload::make('upload')
     -&gt;storage('s3');</code></pre>
 <p>По умолчанию используется хранилище <code>public</code>.</p>
+<h2><a href="#group" name="group">Group</a></h2>
+<p>Группа используется для объединения несколько полей на одной строке.</p>
+<pre><code class="language-php">Group::make([
+    Input::make('first_name'),
+    Input::make('last_name'),
+]),</code></pre>
+<p>Для того, что бы определить ширину полей, необходимо использовать один из предложенных методов.</p>
+<p>Поля будут занимать всю доступную ширину экрана.</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;fullWidth();</code></pre>
+<p>Поля будут занимать столько места, сколько необходимо.</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;autoWidth();</code></pre>
 <h2><a href="#knopkassylka" name="knopkassylka">Кнопка/Ссылка</a></h2>
 <p>В определенных случаях необходимо добавить кнопку для вызова модального окна, простую ссылку или добавить кнопку
 отправки формы в конце экрана.
