@@ -292,6 +292,9 @@
                 <a href="#upload">Upload</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#group">Group</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#buttonlink">Button/Link</a>
             </li>
             </ul>
@@ -658,6 +661,21 @@ Upload::make('images')
 <pre><code class="language-php">Upload::make('upload')
     -&gt;storage('s3');</code></pre>
 <p>The default storage is <code>public</code>.</p>
+<h2><a href="#group" name="group">Group</a></h2>
+<p>A group is used to combine several fields on one line.</p>
+<pre><code class="language-php">Group::make([
+    Input::make('first_name'),
+    Input::make('last_name'),
+]),</code></pre>
+<p>In order to determine the width of the fields, you must use one of the proposed methods.</p>
+<p>Fields will occupy the entire available screen width.</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;fullWidth();</code></pre>
+<p>Fields will take up as much space as necessary.</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;autoWidth();</code></pre>
 <h2><a href="#buttonlink" name="buttonlink">Button/Link</a></h2>
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
 submit the form at the end of the screen.
