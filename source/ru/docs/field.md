@@ -481,6 +481,44 @@ Quill::make('html');
 SimpleMDE::make('markdown');
 ```  
 
+## Matrix
+
+Поле предоставляет удобный интерфейс для редактирования плоской таблицы. 
+Например, вы можете хранить информацию внутри столбца типа JSON:
+
+```php
+Matrix::make('options')
+    ->columns([
+        'Attribute',
+        'Value',
+        'Units',
+    ])
+```
+
+Не всегда значения столбцов могут совпадать с тем, что нужно отображать в заголовках,
+ для этого вы можете написать, используя ключи:
+
+```php
+Matrix::make('options')
+    ->columns([
+        'attr'          => 'Attribute',
+        'product_value' => 'Value',
+    ])
+```
+
+По умолчанию каждый элемент ячейки имеет поле textarea, но вы можете изменить
+ его на свои собственные поля следующим образом:
+
+```php
+Matrix::make('users')
+    ->title('Users list')
+    ->columns(['id', 'name'])
+    ->fields([
+        'id'   => Input::make()->type('number'),
+        'name' => TextArea::make(),
+    ]),
+```
+
 
 ## Редактор кода
 
