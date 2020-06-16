@@ -500,6 +500,14 @@ Matrix::make('options')
     ])
 ```
 
+It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:
+
+```php
+Matrix::make('options')
+    ->columns(['id', 'name'])
+    ->maxRows(10)
+```
+
 By default, each cell element has a textarea field, but you can change it to your own fields as follows:
 
 ```php
