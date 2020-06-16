@@ -682,6 +682,34 @@ Upload::make('upload')
 The default storage is `public`.
 
 
+## Group
+
+A group is used to combine several fields on one line.
+
+```php
+Group::make([
+    Input::make('first_name'),
+    Input::make('last_name'),
+]),
+```
+
+In order to determine the width of the fields, you must use one of the proposed methods.
+
+Fields will occupy the entire available screen width.
+```php
+Group::make([
+    // ...
+])->fullWidth();
+```
+
+Fields will take up as much space as necessary.
+```php
+Group::make([
+    // ...
+])->autoWidth();
+```
+
+
 ## Button/Link
 
 In certain cases, you need to add a button to call a modal window, a simple link, or add a button
