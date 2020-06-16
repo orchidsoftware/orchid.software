@@ -579,6 +579,10 @@ DateTimeZone::PER_COUNTRY;</code></pre>
         'attr'          =&gt; 'Attribute',
         'product_value' =&gt; 'Value',
     ])</code></pre>
+<p>Возможно указание максимального количества строк, при достижении которого кнопка добавления не будет доступна:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns(['id', 'name'])
+    -&gt;maxRows(10)</code></pre>
 <p>По умолчанию каждый элемент ячейки имеет поле textarea, но вы можете изменить
 его на свои собственные поля следующим образом:</p>
 <pre><code class="language-php">Matrix::make('users')
