@@ -268,6 +268,9 @@
                 <a href="#markdown-redaktor">Markdown редактор</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#matrix">Matrix</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#redaktor-koda">Редактор кода</a>
             </li>
                     <li class="anchor-h2">
@@ -557,6 +560,31 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
 <p>Пример записи:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
+<h2><a href="#matrix" name="matrix">Matrix</a></h2>
+<p>Поле предоставляет удобный интерфейс для редактирования плоской таблицы.
+Например, вы можете хранить информацию внутри столбца типа JSON:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns([
+        'Attribute',
+        'Value',
+        'Units',
+    ])</code></pre>
+<p>Не всегда значения столбцов могут совпадать с тем, что нужно отображать в заголовках,
+для этого вы можете написать, используя ключи:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns([
+        'attr'          =&gt; 'Attribute',
+        'product_value' =&gt; 'Value',
+    ])</code></pre>
+<p>По умолчанию каждый элемент ячейки имеет поле textarea, но вы можете изменить
+его на свои собственные поля следующим образом:</p>
+<pre><code class="language-php">Matrix::make('users')
+    -&gt;title('Users list')
+    -&gt;columns(['id', 'name'])
+    -&gt;fields([
+        'id'   =&gt; Input::make()-&gt;type('number'),
+        'name' =&gt; TextArea::make(),
+    ]),</code></pre>
 <h2><a href="#redaktor-koda" name="redaktor-koda">Редактор кода</a></h2>
 <p>Поле для записи программного кода с возможностью подсветки.</p>
 <p><img src="/assets/img/ui/code.png" alt="Code"></p>
