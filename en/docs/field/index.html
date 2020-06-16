@@ -575,6 +575,10 @@ DateTimeZone::PER_COUNTRY;</code></pre>
         'attr'          =&gt; 'Attribute',
         'product_value' =&gt; 'Value',
     ])</code></pre>
+<p>It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:</p>
+<pre><code class="language-php">Matrix::make('options')
+    -&gt;columns(['id', 'name'])
+    -&gt;maxRows(10)</code></pre>
 <p>By default, each cell element has a textarea field, but you can change it to your own fields as follows:</p>
 <pre><code class="language-php">Matrix::make('users')
     -&gt;title('Users list')
