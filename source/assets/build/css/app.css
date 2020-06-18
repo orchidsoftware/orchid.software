@@ -16008,6 +16008,10 @@ main p {
   margin: 0 0 1em;
 }
 
+main p:empty {
+  display: none;
+}
+
 main pre {
   margin: 0 0 1.66em;
 }
@@ -16149,6 +16153,12 @@ main div::selection {
   }
 }
 
+@media only screen and (max-width: 1460px) {
+  .github_screenshot {
+    right: -45% !important;
+  }
+}
+
 .github {
   height: 700px;
   position: relative !important;
@@ -16263,7 +16273,7 @@ input::-webkit-inner-adjust-hue-button {
 }
 
 .toc-links {
-  padding-left: 1em;
+  padding-left: 0;
 }
 
 .toc-links > li {
@@ -16462,5 +16472,12 @@ input[type="search"] {
 .font-size-changer a.active {
   border-color: #999;
   color: #333;
+}
+
+svg {
+  display: inline-block;
+  font-size: inherit;
+  overflow: visible;
+  vertical-align: -0.125em;
 }
 
