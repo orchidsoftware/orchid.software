@@ -21,27 +21,33 @@
 @section('main.code.title','Only Code')
 @section('main.code.description','No creation through a graphical interface, only program code.')
 
-@section('main.col1.title','Easy to get started')
+@section('main.col1.title','Easy To Get Started')
 @section('main.col1.description','The development is conducted in PHP, it is not necessary to use HTML, CSS or JavaScript.
 Everything to make applications easy to use.')
 
-@section('main.col2.title','Fast loading pages')
+@section('main.col2.title','Fast Loading Pages')
 @section('main.col2.description')
 The performance of a single-page application without additional complexity, transitions without reloading the page or any resources.
 @endsection
 
-@section('main.col3.title','Filtering and Sorting')
+@section('main.col3.title','Filtering & Sorting')
 @section('main.col3.description','Create filters so that users can quickly find different data segments.
 Fully controlling SQL code.')
 
 @section('main.col4.title','User Notifications')
 @section('main.col4.description','One-time and personal notifications will be a great way to notify users about what is happening in your application.')
 
-@section('main.col5.title','Data search')
+@section('main.col5.title','Data Search')
 @section('main.col5.description','Find the information you need from any page. Integrated Laravel Scout take care of the search results.')
 
-@section('main.col6.title','Role management')
+@section('main.col6.title','Role Management')
 @section('main.col6.description','Differentiation of user access rights or entire groups in combination with policies enable easy management in development and support.')
+
+@section('main.col7.title','User Impersonation')
+@section('main.col7.description','Does your customer have a problem? You can easily repeat it, authenticated in the system as one of your users.')
+
+@section('main.col8.title','Two-Factor Authentication')
+@section('main.col8.description','Protect customer accounts with two-factor authentication using the TOTP protocol, for example, on a mobile device.')
 
 @section('github.title','Open source')
 @section('github.description','Everything that we do is 100% composed of open and free code, jointly developed by people from all over the world.')
