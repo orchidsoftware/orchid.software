@@ -88,6 +88,7 @@ return [
                     'Contribution'    => '/en/community/contributors',
                     'Promote project' => '/en/community/promote',
                     'License'         => '/en/community/license',
+                    'Change log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md'
                 ],
             ],
         ],
@@ -178,6 +179,7 @@ return [
                     'Участие в разработке' => '/ru/community/contributors',
                     'Содействие проекту'   => '/ru/community/promote',
                     'Лицензия'             => '/ru/community/license',
+                    'История изменений'    => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md'
                 ],
             ],
         ],
