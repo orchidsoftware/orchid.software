@@ -725,11 +725,6 @@ blockquote {
 }
 
 .dropdown-item {
-  @include hover-focus {
-    color: $dropdown-link-hover-color;
-    @include gradient-bg($dropdown-link-hover-bg);
-  }
-
   &.active,
   &:active {
     color: $dropdown-link-hover-color;

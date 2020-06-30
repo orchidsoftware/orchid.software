@@ -42,7 +42,7 @@
         <!-- header -->
         <header id="header" class="bg-dark">
             <div class="container">
-                <div class="row d-flex flex-column flex-md-row align-items-center py-3 px-md-4">
+                <div class="d-flex flex-column flex-md-row align-items-center py-3">
                     <h5 class="my-0 mr-md-auto font-weight-normal">
                         <a href="{{$page->baseUrl}}/@yield('lang')" class="v-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.5 64.125" class="mr-3" height="20px" fill="currentColor">
