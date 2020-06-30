@@ -501,8 +501,8 @@ Matrix::make('options')
 ```php
 Matrix::make('options')
     ->columns([
-        'attr'          => 'Attribute',
-        'product_value' => 'Value',
+        'Attribute' => 'attr',
+        'Value' => 'product_value',
     ])
 ```
 
