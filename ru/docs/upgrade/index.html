@@ -229,16 +229,16 @@
                 <a href="#obnovlenie-zavisimostey">Обновление зависимостей</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#konstruktor-ekrana">Конструктор экрана</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#marshruty-ekrana">Маршруты экрана</a>
+                <a href="#izmeneniya-ekrana">Изменения экрана</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#metody">Методы</a>
+                <a href="#metody-marshruta">Методы маршрута</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#podmena-dannykh-ekrana-acync">Подмена данных экрана (Acync)</a>
+                <a href="#podmena-dannykh-acync">Подмена данных (Acync)</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#konstruktor">Конструктор</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#khlebnye-kroshki">Хлебные крошки</a>
@@ -260,7 +260,19 @@
 </blockquote>
 <h2><a href="#obnovlenie-zavisimostey" name="obnovlenie-zavisimostey">Обновление зависимостей</a></h2>
 <p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^8.0</code></p>
-<h2><a href="#konstruktor-ekrana" name="konstruktor-ekrana">Конструктор экрана</a></h2>
+<h2><a href="#izmeneniya-ekrana" name="izmeneniya-ekrana">Изменения экрана</a></h2>
+<h3><a href="#metody-marshruta" name="metody-marshruta">Методы маршрута</a></h3>
+<p>Не использованые методы были удалены.
+Больше нельзя обратиться к экранам через методы <code>PUT|PATCH|DELETE</code>,
+обращение должно использовать <code>GET|POSTS</code> для получения/отправки данных.</p>
+<pre><code class="language-php">Method           | URI                                  | Name
+-----------------+--------------------------------------+--------------
+GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></pre>
+<h3><a href="#podmena-dannykh-acync" name="podmena-dannykh-acync">Подмена данных (Acync)</a></h3>
+<p>Ожидание <code>{argument?}</code> было удалено из адресной строки.
+Теперь для обращения используеться отдельный маршрут:</p>
+<pre><code class="language-php">$this-&gt;router-&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])-&gt;name('async');</code></pre>
+<h3><a href="#konstruktor" name="konstruktor">Конструктор</a></h3>
 <p>В передаче обьекта <code>request</code> и вызова родительского класса больше нет необходимости.
 Определение теперь выглядит так:</p>
 <pre><code class="language-php">class PublicationScreen extends Screen
@@ -270,18 +282,6 @@
         $this-&gt;locator = $locator;
     }
 }</code></pre>
-<h2><a href="#marshruty-ekrana" name="marshruty-ekrana">Маршруты экрана</a></h2>
-<h3><a href="#metody" name="metody">Методы</a></h3>
-<p>Не использованые методы были удалены.
-Больше нельзя обратиться к экранам через методы <code>PUT|PATCH|DELETE</code>,
-обращение должно использовать <code>GET|POSTS</code> для получения/отправки данных.</p>
-<pre><code class="language-php">Method           | URI                                  | Name
------------------+--------------------------------------+--------------
-GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></pre>
-<h3><a href="#podmena-dannykh-ekrana-acync" name="podmena-dannykh-ekrana-acync">Подмена данных экрана (Acync)</a></h3>
-<p>Ожидание <code>{argument?}</code> было удалено из адресной строки.
-Теперь для обращения используеться отдельный маршрут:</p>
-<pre><code class="language-php">$this-&gt;router-&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])-&gt;name('async');</code></pre>
 <h2><a href="#khlebnye-kroshki" name="khlebnye-kroshki">Хлебные крошки</a></h2>
 <p>Пакет <code>davejamesmiller/laravel-breadcrumbs</code> заменён на  <code>tabuna/breadcrumbs</code>
 и должен быть установлен автоматически при обновлении зависимостей.</p>
