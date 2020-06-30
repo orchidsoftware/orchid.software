@@ -572,8 +572,8 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:</p>
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns([
-        'attr'          =&gt; 'Attribute',
-        'product_value' =&gt; 'Value',
+        'Attribute' =&gt; 'attr',
+        'Value' =&gt; 'product_value',
     ])</code></pre>
 <p>It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:</p>
 <pre><code class="language-php">Matrix::make('options')
