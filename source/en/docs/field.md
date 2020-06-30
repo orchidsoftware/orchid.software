@@ -495,8 +495,8 @@ Not always the values of the columns can coincide with what needs to be displaye
 ```php
 Matrix::make('options')
     ->columns([
-        'attr'          => 'Attribute',
-        'product_value' => 'Value',
+        'Attribute' => 'attr',
+        'Value' => 'product_value',
     ])
 ```
 
