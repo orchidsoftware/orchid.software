@@ -121,7 +121,7 @@
 
     <section class="bg-white position-relative">
         <div class="container pt-5 pb-5">
-            <h2 class="center text-dark font-thin w-75 padder-v mb-3 pt-5 ml-0">
+            <h2 class="center text-dark font-thin w-75 padder-v mb-3 pt-5 ml-0 display-6">
                 @yield('main.description')
             </h2>
 
@@ -273,7 +273,7 @@
                         <a href="https://github.com/orchidsoftware/platform">
                             <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
                         </a>
-                        <p class="h3 l-h-1x text-dark font-thin m-b-lg"> @yield('github.title')</p>
+                        <p class="l-h-1x text-dark font-thin m-b-lg display-6"> @yield('github.title')</p>
                         <p>
                             @yield('github.description')
                         </p>
