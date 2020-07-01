@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The main components of the user interface"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screen concept | Orchid - Laravel Admin Panel"><meta property="og:description" content="The main components of the user interface"><meta property="og:url" content="https://orchid.software/en/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Screen concept</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=629b81166175c89c626b"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The main components of the user interface"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screen | Orchid - Laravel Admin Panel"><meta property="og:description" content="The main components of the user interface"><meta property="og:url" content="https://orchid.software/en/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Screen</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=629b81166175c89c626b"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -213,7 +213,7 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Screen concept</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Screen</h1>
 
                                                     <div class="none d-md-block">
                                 <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/screens.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
@@ -225,6 +225,9 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#introduction">Introduction</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#creating-screen">Creating Screen</a>
             </li>
@@ -242,6 +245,7 @@
             </li>
             </ul>
     <hr>
+<h2><a href="#introduction" name="introduction">Introduction</a></h2>
 <p>The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.</p>
 <p>Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance based on the provided <code>templates</code> (Layouts) and all you need to do is just to determine what data will be shown in a particular template.</p>
