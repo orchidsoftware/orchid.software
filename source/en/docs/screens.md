@@ -12,7 +12,7 @@ Simply put, what the user sees on the page and what actions he performs is descr
 
 ![Screens](https://orchid.software/assets/img/scheme/screens.jpg)
 
-## Creation
+## Creating Screen
 
 You can create a new screen by running the command:
 
