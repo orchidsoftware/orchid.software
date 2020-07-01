@@ -1,9 +1,11 @@
 ---
-title: Screen concept
+title: Screen
 description: The main components of the user interface
 extends: _layouts.documentation
 section: main
 ---
+
+## Introduction
 
 The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.
