@@ -58,6 +58,12 @@ Input::make('name')->vertical();
 Input::make('name')->horizontal();
 ```
 
+Добавить CSS:
+
+```php
+Input::make('name')->style('color: red;');
+```
+
 ### Обязательное для заполнения
 
 Иногда вам может потребоваться указать поле обязательным к заполнению,
