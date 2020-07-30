@@ -17,14 +17,17 @@ public function query() : array
 {
     $charts = [
         [
+            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  => 'Some Data',
             'values' => [25, 40, 30, 35, 8, 52, 17, -4],
         ],
         [
+            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  => 'Another Set',
             'values' => [25, 50, -10, 15, 18, 32, 27, 14],
         ],
         [
+            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  => 'Yet Another',
             'values' => [15, 20, -3, -15, 58, 12, -17, 37],
         ],
@@ -64,20 +67,6 @@ class ChartsLayout extends Chart
      * @var string
      */
     protected $type = 'bar';
-
-    /**
-     * @var array
-     */
-    protected $labels = [
-        '12am-3am',
-        '3am-6am',
-        '6am-9am',
-        '9am-12pm',
-        '12pm-3pm',
-        '3pm-6pm',
-        '6pm-9pm',
-        '9pm-12am',
-    ];
 
     /**
      * Data source.
@@ -134,4 +123,171 @@ protected $colors = [
 protected $export = true;
 ```
 
+## Графики для моделей
 
+Для того, что бы использовать методы получения данных для графиков у модели, необходимо добавить трейт `Chartable`:
+
+```php
+namespace App;
+
+use Orchid\Chart\Chartable;
+use Orchid\Platform\Models\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Chartable;
+
+    // ...
+}
+```
+
+Это добавит несколько новых методов именно для построения графиков:
+
+- Сгруппированные данные
+- Временной период
+
+
+### Сгруппированные данные
+
+Например, нужно построить диаграмму, отображающую соотношение пользователей, которые включили двухфакторную аутентификацию.
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class UsageTwoFactorAuth extends Chart
+{
+    /**
+     * Add a title to the Chart.
+     *
+     * @var string
+     */
+    protected $title = 'Usage two-factor authentication';
+
+    /**
+     * Available options:
+     * 'bar', 'line',
+     * 'pie', 'percentage'.
+     *
+     * @var string
+     */
+    protected $type = 'pie';
+
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the chart.
+     *
+     * @var string
+     */
+    protected $target = 'userUsageTwoFactorAuth';
+}
+```
+
+Тогда в качестве источника данных, будет служить запрос модели `countForGroup()`
+
+```php
+public function query(): array
+{
+    return [
+        'userUsageTwoFactorAuth' => User::countForGroup('uses_two_factor_auth')->toChart(),
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        UsageTwoFactorAuth::class,
+    ];
+}
+```
+
+Для того, что бы изменить текст заголовков можно передать первым аргументом функцию замыкания:
+
+```php
+User::countForGroup('uses_two_factor_auth')->toChart(static function (bool $title) {
+    return $title ? 'Enabled' : 'Disabled';
+});
+```
+
+### Временной период
+
+Получает данные за какой-либо временной период, проставляя отсутствующие значения.
+
+Например, выведем график новых пользователей и ролей:
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class Members extends Chart
+{
+    /**
+     * Add a title to the Chart.
+     *
+     * @var string
+     */
+    protected $title = 'New members';
+
+    /**
+     * Available options:
+     * 'bar', 'line',
+     * 'pie', 'percentage'.
+     *
+     * @var string
+     */
+    protected $type = 'line';
+
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the chart.
+     *
+     * @var string
+     */
+    protected $target = 'members';
+}
+```
+
+Тогда источник данных будет:
+
+```php
+public function query(): array
+{
+    return [
+        'members' => [
+            User::countByDays()->toChart('Users'),
+            Role::countByDays()->toChart('Roles'),
+        ]
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Members::class,
+    ];
+}
+```
+
+По умолчанию данные будут взяты за один месяц, для задания собственного периода необходимо передать аргументы:
+
+```php
+$start = Carbon::now()->subDay(7);
+$end = Carbon::now()->subDay(1);
+
+User::countByDays($start, $end)->toChart('Users')
+```
+
+По умолчанию данные группируются по колонке `created_at`, для её изменения:
+
+```php
+$start = Carbon::now()->subDay(7);
+$end = Carbon::now()->subDay(1);
+
+User::countByDays($start, $end, 'updated_at')->toChart('Users')
+```
