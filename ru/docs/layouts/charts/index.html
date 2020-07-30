@@ -213,6 +213,15 @@
                     <li class="anchor-h2">
                 <a href="#eksport-izobrazheniya">Экспорт изображения</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#grafiki-dlya-modeley">Графики для моделей</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#sgruppirovannye-dannye">Сгруппированные данные</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#vremennoy-period">Временной период</a>
+            </li>
             </ul>
     <hr>
 <p>Макет графиков - удобный способ графически отображать динамику значений.</p>
@@ -222,14 +231,17 @@
 {
     $charts = [
         [
+            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  =&gt; 'Some Data',
             'values' =&gt; [25, 40, 30, 35, 8, 52, 17, -4],
         ],
         [
+            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  =&gt; 'Another Set',
             'values' =&gt; [25, 50, -10, 15, 18, 32, 27, 14],
         ],
         [
+            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'title'  =&gt; 'Yet Another',
             'values' =&gt; [15, 20, -3, -15, 58, 12, -17, 37],
         ],
@@ -263,20 +275,6 @@ class ChartsLayout extends Chart
      * @var string
      */
     protected $type = 'bar';
-
-    /**
-     * @var array
-     */
-    protected $labels = [
-        '12am-3am',
-        '3am-6am',
-        '6am-9am',
-        '9am-12pm',
-        '12pm-3pm',
-        '3pm-6pm',
-        '6pm-9pm',
-        '9pm-12am',
-    ];
 
     /**
      * Data source.
@@ -315,7 +313,137 @@ protected $colors = [
  *
  * @var bool
  */
-protected $export = true;</code></pre>                    </main></div>
+protected $export = true;</code></pre>
+<h2><a href="#grafiki-dlya-modeley" name="grafiki-dlya-modeley">Графики для моделей</a></h2>
+<p>Для того, что бы использовать методы получения данных для графиков у модели, необходимо добавить трейт <code>Chartable</code>:</p>
+<pre><code class="language-php">namespace App;
+
+use Orchid\Chart\Chartable;
+use Orchid\Platform\Models\User as Authenticatable;
+
+class User extends Authenticatable
+{
+    use Chartable;
+
+    // ...
+}</code></pre>
+<p>Это добавит несколько новых методов именно для построения графиков:</p>
+<ul><li>Сгруппированные данные</li>
+<li>Временной период</li>
+</ul><h3><a href="#sgruppirovannye-dannye" name="sgruppirovannye-dannye">Сгруппированные данные</a></h3>
+<p>Например, нужно построить диаграмму, отображающую соотношение пользователей, которые включили двухфакторную аутентификацию.</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class UsageTwoFactorAuth extends Chart
+{
+    /**
+     * Add a title to the Chart.
+     *
+     * @var string
+     */
+    protected $title = 'Usage two-factor authentication';
+
+    /**
+     * Available options:
+     * 'bar', 'line',
+     * 'pie', 'percentage'.
+     *
+     * @var string
+     */
+    protected $type = 'pie';
+
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the chart.
+     *
+     * @var string
+     */
+    protected $target = 'userUsageTwoFactorAuth';
+}</code></pre>
+<p>Тогда в качестве источника данных, будет служить запрос модели <code>countForGroup()</code></p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'userUsageTwoFactorAuth' =&gt; User::countForGroup('uses_two_factor_auth')-&gt;toChart(),
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        UsageTwoFactorAuth::class,
+    ];
+}</code></pre>
+<p>Для того, что бы изменить текст заголовков можно передать первым аргументом функцию замыкания:</p>
+<pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
+    return $title ? 'Enabled' : 'Disabled';
+});</code></pre>
+<h3><a href="#vremennoy-period" name="vremennoy-period">Временной период</a></h3>
+<p>Получает данные за какой-либо временной период, проставляя отсутствующие значения.</p>
+<p>Например, выведем график новых пользователей и ролей:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class Members extends Chart
+{
+    /**
+     * Add a title to the Chart.
+     *
+     * @var string
+     */
+    protected $title = 'New members';
+
+    /**
+     * Available options:
+     * 'bar', 'line',
+     * 'pie', 'percentage'.
+     *
+     * @var string
+     */
+    protected $type = 'line';
+
+    /**
+     * Data source.
+     *
+     * The name of the key to fetch it from the query.
+     * The results of which will be elements of the chart.
+     *
+     * @var string
+     */
+    protected $target = 'members';
+}</code></pre>
+<p>Тогда источник данных будет:</p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'members' =&gt; [
+            User::countByDays()-&gt;toChart('Users'),
+            Role::countByDays()-&gt;toChart('Roles'),
+        ]
+    ];
+}
+
+public function layout(): array
+{
+    return [
+        Members::class,
+    ];
+}</code></pre>
+<p>По умолчанию данные будут взяты за один месяц, для задания собственного периода необходимо передать аргументы:</p>
+<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
+$end = Carbon::now()-&gt;subDay(1);
+
+User::countByDays($start, $end)-&gt;toChart('Users')</code></pre>
+<p>По умолчанию данные группируются по колонке <code>created_at</code>, для её изменения:</p>
+<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
+$end = Carbon::now()-&gt;subDay(1);
+
+User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')</code></pre>                    </main></div>
             </div>
         </div>
     </div>
