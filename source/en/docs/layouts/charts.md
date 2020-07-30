@@ -132,8 +132,10 @@ In order to use the methods of obtaining data for charts from the model, you nee
 
 ```php
 namespace App;
+
 use Orchid\Chart\Chartable;
 use Orchid\Platform\Models\User as Authenticatable;
+
 class User extends Authenticatable
 {
     use Chartable;
