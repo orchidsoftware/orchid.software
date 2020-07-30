@@ -317,8 +317,10 @@ protected $export = true;</code></pre>
 <h2><a href="#model-charts" name="model-charts">Model charts</a></h2>
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
 <pre><code class="language-php">namespace App;
+
 use Orchid\Chart\Chartable;
 use Orchid\Platform\Models\User as Authenticatable;
+
 class User extends Authenticatable
 {
     use Chartable;
