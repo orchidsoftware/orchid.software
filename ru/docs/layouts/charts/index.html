@@ -315,7 +315,7 @@ protected $colors = [
  */
 protected $export = true;</code></pre>
 <h2><a href="#grafiki-dlya-modeley" name="grafiki-dlya-modeley">Графики для моделей</a></h2>
-<p>Для того, что бы использовать методы получения данных для графиков у модели, необходимо добавить трейт <code>Chartable</code>:</p>
+<p>Для того чтобы использовать методы получения данных для графиков у модели, необходимо добавить трейт <code>Chartable</code>:</p>
 <pre><code class="language-php">namespace App;
 
 use Orchid\Chart\Chartable;
@@ -378,7 +378,7 @@ public function layout(): array
         UsageTwoFactorAuth::class,
     ];
 }</code></pre>
-<p>Для того, что бы изменить текст заголовков можно передать первым аргументом функцию замыкания:</p>
+<p>Для того чтобы изменить текст заголовков, можно передать первым аргументом функцию замыкания:</p>
 <pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
     return $title ? 'Enabled' : 'Disabled';
 });</code></pre>
