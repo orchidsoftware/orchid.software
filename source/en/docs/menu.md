@@ -16,43 +16,69 @@ To do this, call the method in the menu properties and pass arguments:
 
 ## Example
 
-Registration of the default menu takes place in the `app/Orchid/Composers` directory, but can be specified directly in` ServiceProvider`.
-For example, change `app/Providers/AppServiceProvider.php` to look like this:
-	
+The default menu registration takes place in the `app/Orchid/PlatformProvider.php`:
+
 ```php
-namespace App\Providers;
+namespace App\Orchid;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 use Orchid\Platform\Dashboard;
+use Orchid\Platform\ItemMenu;
+use Orchid\Platform\OrchidServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class PlatformProvider extends OrchidServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     *
      * @param Dashboard $dashboard
-     *
-     * @return void
      */
-    public function boot(Dashboard $dashboard)
+    public function boot(Dashboard $dashboard): void
     {
-        $dashboard->menu->add(Menu::MAIN,
-            ItemMenu::label('Idea')
-                ->icon('icon-bubbles')
-                ->url('https://orchid.software')
-        );
+        parent::boot($dashboard);
+
+        // ...
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerMainMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerProfileMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerSystemMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
     }
 }
 ```
 
+The methods `registerMainMenu`, `registerProfileMenu` and `registerSystemMenu` must return the menu items that are required to be displayed.
+
 ## Location
 
-Let us analyze the example, initially we create the `ItemMenu` object, setting various parameters, then we add an element to a specific place `Menu::MAIN`. There are several such places:
+Let's look at an example, initially we create an `ItemMenu` object, setting various parameters, and then add the item to a specific place.
+There are several such places:
 
-- **Menu::MAIN** - The menu displayed on each page on the left side.
-- **Menu::SYSTEMS** - The menu that forms the navigation on the system page.
-- **Menu::PROFILE** - The menu displayed when you click on the profile.
+- **registerMainMenu** - The menu displayed on each page on the left side.
+- **registerSystemMenu** - The menu that forms the navigation on the system page.
+- **registerProfileMenu** - The menu displayed when you click on the profile.
 - **Name of your own menus** - Makes submenus and attaches items.
 
 ## Options
@@ -158,28 +184,29 @@ ItemMenu::label('Comments')
 To be able to create a submenu, you need to add the main item and specify its unique name using the `slug` method, then you can add other elements to the new item.
 
 ```php
-$dashboard->menu
-    ->add(Menu::MAIN,
-        ItemMenu::label('My menu')
-            ->slug('Idea')
-	    ->childs()
-    )
-    ->add('Idea',
-        ItemMenu::label('Sub element')
-    );
+ItemMenu::label('My menu')
+    ->slug('Idea')
+    ->childs();
+    
+ItemMenu::label('Sub element')
+    ->place('Idea');
 ```
 
-When the children have different display rules, so as not to list them all in the parent, you can use the 'hiddenEmpty' method. He will hide it when the subitems are unavailable:
+When the children have different display rules, so as not to list them all in the parent, you can use the `hiddenEmpty` method. He will hide it when the subitems are unavailable:
 
 ```php
-$parent = ItemMenu::label('Dropdown menu')
+ItemMenu::label('Dropdown menu')
     ->slug('parent-hidden-menu')
     ->childs()
     ->hideEmpty();
 
-$dashboard->menu->add(Menu::MAIN, $parent)
-    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 1')->canSee(false))
-    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 2')->canSee(false));
+ItemMenu::label('Sub element item 1')
+    ->place('parent-hidden-menu')
+    ->canSee(false);
+    
+ItemMenu::label('Sub element item 2')
+    ->place('parent-hidden-menu')
+    ->canSee(false);
 ```
 
 
