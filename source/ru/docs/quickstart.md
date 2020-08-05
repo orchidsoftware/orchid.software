@@ -291,16 +291,23 @@ public function query(): array
 Теперь в поле с именем `subject` автоматически подстанавливается значение из результата.
 
 Все это время для отображения экрана приходилось в браузере указывать явную страницу, добавим новый пункт в меню, для этого
-в файле композера по адресу `app/Orchid/Composers/MainMenuComposer.php` добавим объявление:
+в файле по адресу `app/Orchid/PlatformProvider.php` добавим объявление:
 
 ```php
-$this->dashboard->menu
-    ->add(Menu::MAIN,
+/**
+ * @return ItemMenu[]
+ */
+public function registerMainMenu(): array
+{
+    return [
+        // Другие пункты меню...
+    
         ItemMenu::label('Email sender')
             ->icon('icon-envelope-letter')
             ->route('platform.email')
-            ->title('Tools')
-    );
+            ->title('Tools'),
+    ];
+}
 ```
 
 Теперь наша утилита отображается в левом меню и активна при посещении. 
