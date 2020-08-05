@@ -474,14 +474,21 @@ public function query(): array
 }</code></pre>
 <p>Теперь в поле с именем <code>subject</code> автоматически подстанавливается значение из результата.</p>
 <p>Все это время для отображения экрана приходилось в браузере указывать явную страницу, добавим новый пункт в меню, для этого
-в файле композера по адресу <code>app/Orchid/Composers/MainMenuComposer.php</code> добавим объявление:</p>
-<pre><code class="language-php">$this-&gt;dashboard-&gt;menu
-    -&gt;add(Menu::MAIN,
+в файле по адресу <code>app/Orchid/PlatformProvider.php</code> добавим объявление:</p>
+<pre><code class="language-php">/**
+ * @return ItemMenu[]
+ */
+public function registerMainMenu(): array
+{
+    return [
+        // Другие пункты меню...
+
         ItemMenu::label('Email sender')
             -&gt;icon('icon-envelope-letter')
             -&gt;route('platform.email')
-            -&gt;title('Tools')
-    );</code></pre>
+            -&gt;title('Tools'),
+    ];
+}</code></pre>
 <p>Теперь наша утилита отображается в левом меню и активна при посещении.
 Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки,
 чтобы добавить их к нашему экрану необходимо в <code>routes/breadcrumbs.php</code> добавить новое объявление по имени маршрута:</p>
