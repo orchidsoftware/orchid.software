@@ -47,7 +47,6 @@ There are several such places:
 - **registerMainMenu** - The menu displayed on each page on the left side.
 - **registerSystemMenu** - The menu that forms the navigation on the system page.
 - **registerProfileMenu** - The menu displayed when you click on the profile.
-- **Name of your own menus** - Makes submenus and attaches items.
 
 ## Options
 
