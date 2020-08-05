@@ -17,43 +17,70 @@ lang: ru
 
 ## Пример добавления
 
-Регистрация меню по умолчанию происходит в директории `app/Orchid/Composers`, но можно указывать прямо в `ServiceProvider`.
-Например, изменим `app/Providers/AppServiceProvider.php` в такой вид:
-	
+Регистрация меню по умолчанию происходит в `app/Orchid/PlatformProvider.php`:
+
 ```php
-namespace App\Providers;
+namespace App\Orchid;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 use Orchid\Platform\Dashboard;
+use Orchid\Platform\ItemMenu;
+use Orchid\Platform\OrchidServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class PlatformProvider extends OrchidServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     *
      * @param Dashboard $dashboard
-     *
-     * @return void
      */
-    public function boot(Dashboard $dashboard)
+    public function boot(Dashboard $dashboard): void
     {
-        $dashboard->menu->add(Menu::MAIN,
-            ItemMenu::label('Idea')
-                ->icon('icon-bubbles')
-                ->url('https://orchid.software')
-        );
+        parent::boot($dashboard);
+
+        // ...
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerMainMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerProfileMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerSystemMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')->url('https://orchid.software/'),
+        ];
     }
 }
 ```
 
+Методы `registerMainMenu`, `registerProfileMenu` и `registerProfileMenu` должны возвращать элементы меню которые необходимы для показа.
+
+
 ## Месторасположение
 
-Разберём пример, изначально мы создаём объект `ItemMenu`, устанавливая различные параметры, после чего добавляем элемент к конкретному месту `Menu::MAIN`. Таких мест несколько:
+Разберём пример, изначально мы создаём объект `ItemMenu`, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
+Таких мест несколько:
 
-- **Menu::MAIN** - Меню отображаемое на каждой странице с левой стороны.
-- **Menu::SYSTEMS** - Меню формирующую навигацию по системной странице.
-- **Menu::PROFILE** - Меню отображаемое при нажатии на профиль.
+- **registerMainMenu** - Меню отображаемое на каждой странице с левой стороны.
+- **registerProfileMenu** - Меню формирующую навигацию по системной странице.
+- **registerProfileMenu** - Меню отображаемое при нажатии на профиль.
 - **Название собственных меню** - Делает подменю и прикрепляет элементы.
 
 ## Параметры
@@ -66,7 +93,6 @@ use Orchid\Platform\ItemMenu;
 
 ItemMenu::label('Example');
 ```
-
 
 > **Примечание.** Для каждого элемента при создании генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода `slug`.
 
@@ -137,6 +163,7 @@ ItemMenu::label('Example')->title('Analytics');
 ### Порядок отображения
 
 Сортировка устанавливается через задание порядкового номера:
+
  ```php
 ItemMenu::label('Second')->sort(5);
 ItemMenu::label('First')->sort(4);
@@ -161,28 +188,28 @@ ItemMenu::label('Comments')
 
 
 ```php
-$dashboard->menu
-    ->add(Menu::MAIN,
-        ItemMenu::label('My menu')
-            ->slug('Idea')
-	    ->childs()
-    )
-    ->add('Idea',
-        ItemMenu::label('Sub element')
-    );
+ItemMenu::label('My menu')
+    ->slug('Idea')
+    ->childs();
+    
+ItemMenu::label('Sub element')
+    ->place('Idea')
 ```
+
 
 Когда дочерние элементы имеют разные правила отображения, чтобы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет пункт меню, когда подпункты будут недоступны:
 
 ```php
-$parent = ItemMenu::label('Dropdown menu')
+ItemMenu::label('Dropdown menu')
     ->slug('parent-hidden-menu')
     ->childs()
     ->hideEmpty();
 
-$dashboard->menu->add(Menu::MAIN, $parent)
-    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 1')->canSee(false))
-    ->add('parent-hidden-menu', ItemMenu::label('Sub element item 2')->canSee(false));
+ItemMenu::label('Sub element item 1')
+    ->place('parent-hidden-menu')
+    ->canSee(false);
+    
+ItemMenu::label('Sub element item 2')
+    ->place('parent-hidden-menu')
+    ->canSee(false);
 ```
-
-
