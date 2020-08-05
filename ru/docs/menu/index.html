@@ -269,40 +269,9 @@ use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
+    //...
 
-        // ...
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
     public function registerMainMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerProfileMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerSystemMenu(): array
     {
         return [
             ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
@@ -377,7 +346,7 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
     -&gt;childs();
 
 ItemMenu::label('Sub element')
-    -&gt;place('Idea')</code></pre>
+    -&gt;place('Idea');</code></pre>
 <p>Когда дочерние элементы имеют разные правила отображения, чтобы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет пункт меню, когда подпункты будут недоступны:</p>
 <pre><code class="language-php">ItemMenu::label('Dropdown menu')
     -&gt;slug('parent-hidden-menu')
