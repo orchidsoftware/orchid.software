@@ -260,37 +260,62 @@ To do this, call the method in the menu properties and pass arguments:</p>
 <ul><li>The name of the menu to which you want to attach the item</li>
 <li>A menu object containing the name, links, etc.</li>
 </ul><h2><a href="#example" name="example">Example</a></h2>
-<p>Registration of the default menu takes place in the <code>app/Orchid/Composers</code> directory, but can be specified directly in<code>ServiceProvider</code>.
-For example, change <code>app/Providers/AppServiceProvider.php</code> to look like this:</p>
-<pre><code class="language-php">namespace App\Providers;
+<p>The default menu registration takes place in the <code>app/Orchid/PlatformProvider.php</code>:</p>
+<pre><code class="language-php">namespace App\Orchid;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\View;
 use Orchid\Platform\Dashboard;
+use Orchid\Platform\ItemMenu;
+use Orchid\Platform\OrchidServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class PlatformProvider extends OrchidServiceProvider
 {
     /**
-     * Bootstrap any application services.
-     *
      * @param Dashboard $dashboard
-     *
-     * @return void
      */
-    public function boot(Dashboard $dashboard)
+    public function boot(Dashboard $dashboard): void
     {
-        $dashboard-&gt;menu-&gt;add(Menu::MAIN,
-            ItemMenu::label('Idea')
-                -&gt;icon('icon-bubbles')
-                -&gt;url('https://orchid.software')
-        );
+        parent::boot($dashboard);
+
+        // ...
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerMainMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerProfileMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
+        ];
+    }
+
+    /**
+     * @return ItemMenu[]
+     */
+    public function registerSystemMenu(): array
+    {
+        return [
+            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
+        ];
     }
 }</code></pre>
+<p>The methods <code>registerMainMenu</code>, <code>registerProfileMenu</code> and <code>registerSystemMenu</code> must return the menu items that are required to be displayed.</p>
 <h2><a href="#location" name="location">Location</a></h2>
-<p>Let us analyze the example, initially we create the <code>ItemMenu</code> object, setting various parameters, then we add an element to a specific place <code>Menu::MAIN</code>. There are several such places:</p>
-<ul><li><strong>Menu::MAIN</strong> - The menu displayed on each page on the left side.</li>
-<li><strong>Menu::SYSTEMS</strong> - The menu that forms the navigation on the system page.</li>
-<li><strong>Menu::PROFILE</strong> - The menu displayed when you click on the profile.</li>
+<p>Let's look at an example, initially we create an <code>ItemMenu</code> object, setting various parameters, and then add the item to a specific place.
+There are several such places:</p>
+<ul><li><strong>registerMainMenu</strong> - The menu displayed on each page on the left side.</li>
+<li><strong>registerSystemMenu</strong> - The menu that forms the navigation on the system page.</li>
+<li><strong>registerProfileMenu</strong> - The menu displayed when you click on the profile.</li>
 <li><strong>Name of your own menus</strong> - Makes submenus and attaches items.</li>
 </ul><h2><a href="#options" name="options">Options</a></h2>
 <p>Basic use:</p>
@@ -347,24 +372,25 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
     });</code></pre>
 <h2><a href="#nested-menu" name="nested-menu">Nested menu</a></h2>
 <p>To be able to create a submenu, you need to add the main item and specify its unique name using the <code>slug</code> method, then you can add other elements to the new item.</p>
-<pre><code class="language-php">$dashboard-&gt;menu
-    -&gt;add(Menu::MAIN,
-        ItemMenu::label('My menu')
-            -&gt;slug('Idea')
-        -&gt;childs()
-    )
-    -&gt;add('Idea',
-        ItemMenu::label('Sub element')
-    );</code></pre>
-<p>When the children have different display rules, so as not to list them all in the parent, you can use the 'hiddenEmpty' method. He will hide it when the subitems are unavailable:</p>
-<pre><code class="language-php">$parent = ItemMenu::label('Dropdown menu')
+<pre><code class="language-php">ItemMenu::label('My menu')
+    -&gt;slug('Idea')
+    -&gt;childs();
+
+ItemMenu::label('Sub element')
+    -&gt;place('Idea');</code></pre>
+<p>When the children have different display rules, so as not to list them all in the parent, you can use the <code>hiddenEmpty</code> method. He will hide it when the subitems are unavailable:</p>
+<pre><code class="language-php">ItemMenu::label('Dropdown menu')
     -&gt;slug('parent-hidden-menu')
     -&gt;childs()
     -&gt;hideEmpty();
 
-$dashboard-&gt;menu-&gt;add(Menu::MAIN, $parent)
-    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 1')-&gt;canSee(false))
-    -&gt;add('parent-hidden-menu', ItemMenu::label('Sub element item 2')-&gt;canSee(false));</code></pre>                    </main></div>
+ItemMenu::label('Sub element item 1')
+    -&gt;place('parent-hidden-menu')
+    -&gt;canSee(false);
+
+ItemMenu::label('Sub element item 2')
+    -&gt;place('parent-hidden-menu')
+    -&gt;canSee(false);</code></pre>                    </main></div>
             </div>
         </div>
     </div>
