@@ -288,16 +288,23 @@ public function query(): array
 Now the field with the name `subject` automatically fits the value from the result.
 
 All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the menu, for this
-in the composer file at `app/Orchid/Composers/MainMenuComposer.php` we add the declaration:
+in the file at `app/Orchid/PlatformProvider.php` we add the declaration:
 
 ```php
-$this->dashboard->menu
-    ->add(Menu::MAIN,
+/**
+ * @return ItemMenu[]
+ */
+public function registerMainMenu(): array
+{
+    return [
+        // Other items...
+    
         ItemMenu::label('Email sender')
             ->icon('icon-envelope-letter')
             ->route('platform.email')
             ->title('Tools')
-    );
+    ];
+}
 ```
 
 Now our utility is displayed on the left menu and is active when visiting.
