@@ -22,7 +22,6 @@ lang: ru
 ```php
 namespace App\Orchid;
 
-use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\OrchidServiceProvider;
 
