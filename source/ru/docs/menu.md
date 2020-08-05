@@ -28,40 +28,9 @@ use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
+    //...
 
-        // ...
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
     public function registerMainMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerProfileMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerSystemMenu(): array
     {
         return [
             ItemMenu::label('Example')->url('https://orchid.software/'),
@@ -193,7 +162,7 @@ ItemMenu::label('My menu')
     ->childs();
     
 ItemMenu::label('Sub element')
-    ->place('Idea')
+    ->place('Idea');
 ```
 
 
