@@ -263,46 +263,14 @@ To do this, call the method in the menu properties and pass arguments:</p>
 <p>The default menu registration takes place in the <code>app/Orchid/PlatformProvider.php</code>:</p>
 <pre><code class="language-php">namespace App\Orchid;
 
-use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
+    // ...
 
-        // ...
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
     public function registerMainMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerProfileMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerSystemMenu(): array
     {
         return [
             ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
