@@ -21,46 +21,14 @@ The default menu registration takes place in the `app/Orchid/PlatformProvider.ph
 ```php
 namespace App\Orchid;
 
-use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard): void
-    {
-        parent::boot($dashboard);
-
-        // ...
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
+    // ...
+    
     public function registerMainMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerProfileMenu(): array
-    {
-        return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
-        ];
-    }
-
-    /**
-     * @return ItemMenu[]
-     */
-    public function registerSystemMenu(): array
     {
         return [
             ItemMenu::label('Example')->url('https://orchid.software/'),
