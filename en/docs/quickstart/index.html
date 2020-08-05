@@ -474,14 +474,21 @@ public function query(): array
 }</code></pre>
 <p>Now the field with the name <code>subject</code> automatically fits the value from the result.</p>
 <p>All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the menu, for this
-in the composer file at <code>app/Orchid/Composers/MainMenuComposer.php</code> we add the declaration:</p>
-<pre><code class="language-php">$this-&gt;dashboard-&gt;menu
-    -&gt;add(Menu::MAIN,
+in the file at <code>app/Orchid/PlatformProvider.php</code> we add the declaration:</p>
+<pre><code class="language-php">/**
+ * @return ItemMenu[]
+ */
+public function registerMainMenu(): array
+{
+    return [
+        // Other items...
+
         ItemMenu::label('Email sender')
             -&gt;icon('icon-envelope-letter')
             -&gt;route('platform.email')
             -&gt;title('Tools')
-    );</code></pre>
+    ];
+}</code></pre>
 <p>Now our utility is displayed on the left menu and is active when visiting.
 Navigation can be carried out not only through transitions from the menu but also through bread crumbs,
 to add them to our screen you need to add a new ad in the <code>routes/breadcrumbs.php</code> by route name.</p>
