@@ -350,15 +350,10 @@ protected $routeMiddleware = [
     'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
 ];</code></pre>
 <p>После этого его можно использовать при любых определений маршрута, через передачу параметра <code>access:my-permission</code>, так же как и в <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::middleware('access:systems.history')-&gt;get('/stories', function () {
-   // ...
-});</code></pre>
+<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');</code></pre>
 <p>Так же вы можете объединять их в группы:</p>
 <pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
-    Route::get('/stories', function () {
-        // ...
-    });
-
+    Route::screen('/stories', StoriesScreen::class);
     Route::get('stories/best', function () {
         // ...
     });
