@@ -159,18 +159,14 @@ After that, it can be used for any route definitions, by passing the parameter `
 
 
 ```php
-Route::middleware('access:systems.history')->get('/stories', function () {
-   // ...
-});
+Route::screen('/stories', StoriesScreen::class)->middleware('access:systems.history');
 ```
 
 You can also group them into groups:
 
 ```php
 Route::middleware(['access:systems.history'])->group(function () {
-    Route::get('/stories', function () {
-        // ...
-    });
+    Route::screen('/stories', StoriesScreen::class);
     Route::get('stories/best', function () {
         // ...
     });
