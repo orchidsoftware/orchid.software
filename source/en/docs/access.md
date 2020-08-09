@@ -159,7 +159,7 @@ After that, it can be used for any route definitions, by passing the parameter `
 
 
 ```php
-Route::middleware('access:systems.history')->screen('/stories', function () {
+Route::middleware('access:systems.history')->get('/stories', function () {
    // ...
 });
 ```
