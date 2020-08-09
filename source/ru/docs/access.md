@@ -157,19 +157,14 @@ protected $routeMiddleware = [
 После этого его можно использовать при любых определений маршрута, через передачу параметра `access:my-permission`, так же как и в `Auth::user()->hasAccess($string);`
 
 ```php
-Route::middleware('access:systems.history')->get('/stories', function () {
-   // ...
-});
+Route::screen('/stories', StoriesScreen::class)->middleware('access:systems.history');
 ```
 
 Так же вы можете объединять их в группы:
 
 ```php
 Route::middleware(['access:systems.history'])->group(function () {
-    Route::get('/stories', function () {
-        // ...
-    });
-
+    Route::screen('/stories', StoriesScreen::class);
     Route::get('stories/best', function () {
         // ...
     });
