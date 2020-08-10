@@ -655,9 +655,10 @@ Upload::make('images')
 <p>Determines the number of concurrent downloads for processing files:</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;parallelUploads(2);</code></pre>
-<p>Maximum upload file size:</p>
+<p>Maximum upload file size:
+Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values are 2M , You can change them in <code>php.ini</code> to enable setting max file size to be more than 2M</p>
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFileSize(1024);</code></pre>
+    -&gt;maxFileSize(1024); // Size in MB </code></pre>
 <p>The default implementation of <code>accept</code> checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.</p>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;acceptedFiles('image/*,application/pdf,.psd');</code></pre>
