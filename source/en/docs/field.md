@@ -667,10 +667,10 @@ Upload::make('upload')
 ```
 
 Maximum upload file size:
-
+Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max file size to be more than 2M
 ```php
 Upload::make('upload')
-    ->maxFileSize(1024);
+    ->maxFileSize(1024); // Size in MB 
 ```
 
 The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.
