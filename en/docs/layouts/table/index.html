@@ -229,6 +229,9 @@
                 <a href="#table-options">Table options</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#total-row">Total row</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#column-expansion">Column Expansion</a>
             </li>
             </ul>
@@ -396,6 +399,34 @@ protected function subNotFound(): string
 protected function striped(): bool
 {
     return false;
+}</code></pre>
+<h2><a href="#total-row" name="total-row">Total row</a></h2>
+<p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
+<pre><code class="language-php">public function total():array
+{
+    return [
+        TD::set('total')
+            -&gt;align(TD::ALIGN_RIGHT)
+            -&gt;colspan(2)
+            -&gt;render(function () {
+                return 'Total:';
+            }),
+
+        TD::set('total_count')
+            -&gt;align(TD::ALIGN_RIGHT),
+
+        TD::set('total_active_count')
+            -&gt;align(TD::ALIGN_RIGHT),
+    ];
+}</code></pre>
+<p>This line will ignore the specified <code>target</code> based on the result of the <code>query</code> screen:</p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'total_active_count' =&gt; '$93 960',
+        'total_count' =&gt; '$103 783',
+        // ...
+    ];
 }</code></pre>
 <h2><a href="#column-expansion" name="column-expansion">Column Expansion</a></h2>
 <p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to register the closure function in the service provider.</p>
