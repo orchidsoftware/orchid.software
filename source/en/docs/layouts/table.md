@@ -247,6 +247,44 @@ protected function striped(): bool
 ```
 
 
+## Total row
+
+Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required cells. For example:
+
+```php
+public function total():array
+{
+    return [
+        TD::set('total')
+            ->align(TD::ALIGN_RIGHT)
+            ->colspan(2)
+            ->render(function () {
+                return 'Total:';
+            }),
+
+        TD::set('total_count')
+            ->align(TD::ALIGN_RIGHT),
+
+        TD::set('total_active_count')
+            ->align(TD::ALIGN_RIGHT),
+    ];
+}
+```
+
+This line will ignore the specified `target` based on the result of the `query` screen:
+
+```php
+public function query(): array
+{
+    return [
+        'total_active_count' => '$93 960',
+        'total_count' => '$103 783',
+        // ...
+    ];
+}
+```
+
+
 ## Column Expansion
 
 When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the `TD` class using its own methods. To do this, it is necessary to register the closure function in the service provider.
