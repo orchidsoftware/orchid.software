@@ -247,6 +247,44 @@ protected function striped(): bool
 ```
 
 
+## Строка итога
+
+Добавляет итоговую строку внизу таблицы, для этого необходимо определить метод `total` и описать требуемые ячейки. Например:
+
+```php
+public function total():array
+{
+    return [
+        TD::set('total')
+            ->align(TD::ALIGN_RIGHT)
+            ->colspan(2)
+            ->render(function () {
+                return 'Total:';
+            }),
+
+        TD::set('total_count')
+            ->align(TD::ALIGN_RIGHT),
+
+        TD::set('total_active_count')
+            ->align(TD::ALIGN_RIGHT),
+    ];
+}
+```
+
+Данная строка будет игнорировать указанный `target` смотря на результат `query` экрана:
+
+```php
+public function query(): array
+{
+    return [
+        'total_active_count' => '$93 960',
+        'total_count' => '$103 783',
+        // ...
+    ];
+}
+```
+
+
 ## Расширение колонок
 
 Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код, в слоях имеется возможность расширять класс `TD` собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.
