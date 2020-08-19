@@ -229,6 +229,9 @@
                 <a href="#parametry-tablitsy">Параметры таблицы</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#stroka-itoga">Строка итога</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#rasshirenie-kolonok">Расширение колонок</a>
             </li>
             </ul>
@@ -396,6 +399,34 @@ protected function subNotFound(): string
 protected function striped(): bool
 {
     return false;
+}</code></pre>
+<h2><a href="#stroka-itoga" name="stroka-itoga">Строка итога</a></h2>
+<p>Добавляет итоговую строку внизу таблицы, для этого необходимо определить метод <code>total</code> и описать требуемые ячейки. Например:</p>
+<pre><code class="language-php">public function total():array
+{
+    return [
+        TD::set('total')
+            -&gt;align(TD::ALIGN_RIGHT)
+            -&gt;colspan(2)
+            -&gt;render(function () {
+                return 'Total:';
+            }),
+
+        TD::set('total_count')
+            -&gt;align(TD::ALIGN_RIGHT),
+
+        TD::set('total_active_count')
+            -&gt;align(TD::ALIGN_RIGHT),
+    ];
+}</code></pre>
+<p>Данная строка будет игнорировать указанный <code>target</code> смотря на результат <code>query</code> экрана:</p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'total_active_count' =&gt; '$93 960',
+        'total_count' =&gt; '$103 783',
+        // ...
+    ];
 }</code></pre>
 <h2><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h2>
 <p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код, в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
