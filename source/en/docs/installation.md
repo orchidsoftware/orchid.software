@@ -81,6 +81,17 @@ php artisan orchid:link
  
 > **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
 
+
+## Updating
+
+While in the project directory, use `Composer` to update the package:
+
+```php
+composer update orchid/platform --with-dependencies
+```
+
+> **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
+
 ## What to do next?
 
 Now you can try the step-by-step example of working with the package on the [“Quick Start” page](/en/docs/quickstart) or read the [documentation](/en/docs/screens).
