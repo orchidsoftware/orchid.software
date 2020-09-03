@@ -145,7 +145,7 @@ public function query() : array
 }
 ```
 
-The source can be the `Eloquent` model, for this you need to add the trait` AsSource`:
+The source can be the `Eloquent` model, for this you need to add the trait `AsSource`:
 
 ```php
 namespace App;
