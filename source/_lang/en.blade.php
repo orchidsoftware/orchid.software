@@ -9,6 +9,15 @@
     faster than ever
 @endsection
 
+@section('main.lead')
+    This is a package for creating admin applications.
+    Which abstracts the common functionality required for business applications, CMS, and E-commerce systems.
+@endsection
+
+@section('main.slogan')
+    Stop wasting time trying to design your admin panel, start coding your logic right away!
+@endsection
+
 @section('main.screen.title','Form builder')
 @section('main.screen.description','Create pre-populated fields without reference to CRUD models.')
 
@@ -49,7 +58,7 @@ Fully controlling SQL code.')
 @section('main.col8.title','Two-Factor Authentication')
 @section('main.col8.description','Protect customer accounts with two-factor authentication using the TOTP protocol, for example, on a mobile device.')
 
-@section('github.title','Open source')
+@section('github.title','Free and Open Source for personal and commercial purposes.')
 @section('github.description','Everything that we do is 100% composed of open and free code, jointly developed by people from all over the world.')
 @section('github.button','View on GitHub')
 @section('github.help')
@@ -71,3 +80,6 @@ Fully controlling SQL code.')
 @section('main.telegram','https://t.me/orchid_community')
 
 @section('Search', 'Search...')
+
+@section('main.start', 'Get started')
+@section('main.git', 'View on Github')

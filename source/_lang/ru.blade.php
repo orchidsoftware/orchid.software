@@ -9,6 +9,15 @@
     быстрее, чем когда-либо
 @endsection
 
+@section('main.lead')
+    Это пакет для создания административных приложений.
+    Которая абстрагирует общие функции, необходимые для бизнес-приложений, CMS и систем электронной коммерции.
+@endsection
+
+@section('main.slogan')
+    Хватит тратить время на создание админ-панели, сразу пишите логику!
+@endsection
+
 @section('main.screen.title','Строитель форм')
 @section('main.screen.description','Создавайте предварительно заполненные поля, без привязки к CRUD моделям.')
 
@@ -51,7 +60,7 @@
 @section('main.col8.title','Two-Factor аутентификация')
 @section('main.col8.description','Защитите аккаунты клиентов с помощью двухфакторной аутентификации, использующей протокол TOTP, например, на мобильном устройстве.')
 
-@section('github.title','Открытый исходный код')
+@section('github.title','Бесплатно и с открытым исходным кодом для любых целей.')
 @section('github.description','Всё, что мы делаем, на 100% состоит из открытого и свободного кода, совместно разрабатываемого людьми со всего мира.')
 @section('github.button','Посмотреть на GitHub')
 @section('github.help')
@@ -73,3 +82,7 @@
 @section('main.telegram','https://t.me/orchid_russian_community')
 
 @section('Search', 'Поиск...')
+
+
+@section('main.start', 'Начать сейчас')
+@section('main.git', 'Посмотреть на Github')
