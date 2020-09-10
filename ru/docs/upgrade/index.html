@@ -271,7 +271,9 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></
 <h3><a href="#podmena-dannykh-acync" name="podmena-dannykh-acync">Подмена данных (Acync)</a></h3>
 <p>Ожидание <code>{argument?}</code> было удалено из адресной строки.
 Теперь для обращения используеться отдельный маршрут:</p>
-<pre><code class="language-php">$this-&gt;router-&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])-&gt;name('async');</code></pre>
+<pre><code class="language-php">$this-&gt;router
+    -&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
+    -&gt;name('async');</code></pre>
 <h3><a href="#konstruktor" name="konstruktor">Конструктор</a></h3>
 <p>В передаче обьекта <code>request</code> и вызова родительского класса больше нет необходимости.
 Определение теперь выглядит так:</p>
