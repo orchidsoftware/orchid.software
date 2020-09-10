@@ -9,7 +9,7 @@
         <div class="container pt-4">
             <div class="row pl-sm-2 pr-sm-2">
                 <div class="col-lg-6">
-                    <div class="row pt-md-5">
+                    <div class="row pt-md-5 mb-md-2">
                         <div class="col-md-12">
                             <h1 class="text-white mb-4 mt-4 mr-md-4 text-center text-sm-left font-thin display-6">
                                 @yield('main.title')
@@ -20,7 +20,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="lead mb-4">
+                            <p class="lead mb-5">
                                 @yield('main.lead')
                             </p>
                         </div>
@@ -155,6 +155,8 @@
                     </p>
                 </div>
             </div>
+
+            {{--
             <div class="row justify-content-center mb-6">
                 <div class="col-md-8">
                     <div class="position-relative">
@@ -230,7 +232,64 @@
 
                 </div>
             </div>
+--}}
 
+            <div class="row padder-v mt-md-3">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
+                        <div class="h3 v-center text-black">
+
+                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M23.845 8.125c-1.395-3.701-4.392-6.045-8.92-6.045-5.762 0-9.793 4.279-10.14 9.861-2.779 0.889-4.784 3.723-4.784 6.933 0 3.93 3.089 7.249 6.744 7.249h0.889c0.552 0 1-0.448 1-1s-0.448-1-1-1h-0.889c-2.572 0-4.776-2.404-4.776-5.249 0-2.515 1.763-4.783 3.974-5.163l0.907-0.156-0.081-0.917-0.008-0.011c0-4.871 3.206-8.545 8.162-8.545 3.972 0 6.204 1.957 7.236 5.295l0.213 0.688 0.721 0.015c3.715 0.078 6.971 3.092 6.971 6.837 0 3.408-2.259 7.206-5.679 7.206h-0.285c-0.552 0-1 0.448-1 1s0.448 1 1 1v-0.003c5-0.132 7.883-4.909 7.883-9.203-0.001-4.617-3.619-8.304-8.141-8.791zM20.198 24.233c-0.279-0.292-0.731-0.292-1.010-0l-2.2 2.427v-10.067c0-0.552-0.448-1-1-1s-1 0.448-1 1v10.076l-2.128-2.373c-0.28-0.292-0.732-0.355-1.011-0.063l-0.252 0.138c-0.28 0.293-0.28 0.765 0 1.057l3.61 3.992c0.005 0.005 0.006 0.012 0.011 0.017l0.253 0.265c0.14 0.146 0.324 0.219 0.509 0.218 0.183 0.001 0.368-0.072 0.507-0.218l0.253-0.265c0.005-0.005 0.008-0.011 0.012-0.017l3.701-4.055c0.279-0.292 0.279-0.639 0-0.932z"></path>
+                                </svg>
+                            </div>
+
+                            <span class="item-name h4 font-thin"> @yield('main.col1.title')</span>
+                        </div>
+                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
+                        <div class="item-desc">
+                            @yield('main.col1.description')
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
+                        <div class="h3 v-center text-black">
+
+                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM17 15.594v-9.594c0-0.552-0.448-1-1-1s-1 0.448-1 1v10c0 0.283 0.118 0.537 0.308 0.719 0.017 0.020 0.030 0.041 0.048 0.059l4.949 4.95c0.39 0.39 1.023 0.39 1.414 0s0.39-1.024 0-1.415z"></path>
+                                </svg>
+                            </div>
+
+                            <div class="item-name h4 font-thin">@yield('main.col2.title')</div>
+                        </div>
+                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
+                        <div class="item-desc">
+                            @yield('main.col2.description')
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
+                        <div class="h3 v-center text-black">
+
+                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
+                                </svg>
+                            </div>
+
+                            <span class="item-name h4 font-thin">@yield('main.col5.title')</span>
+                        </div>
+                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
+                        <div class="item-desc">
+                            @yield('main.col5.description')
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="row padder-v mt-md-3">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
@@ -275,27 +334,6 @@
 
                             <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">@yield('main.col5.title')</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            @yield('main.col5.description')
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row padder-v pt-sm-5 pb-sm-5">
-                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
                                     <path d="M15.992 2c3.396 0 6.998 2.86 6.998 4.995v4.997c0 1.924-0.8 5.604-2.945 7.293-0.547 0.43-0.831 1.115-0.749 1.807 0.082 0.692 0.518 1.291 1.151 1.582l8.703 4.127c0.068 0.031 0.834 0.16 0.834 1.23l0.001 1.952-27.984 0.002v-2.029c0-0.795 0.596-1.045 0.835-1.154l8.782-4.145c0.63-0.289 1.065-0.885 1.149-1.573s-0.193-1.37-0.733-1.803c-2.078-1.668-3.046-5.335-3.046-7.287v-4.997c0.001-2.089 3.638-4.995 7.004-4.995zM15.992-0c-4.416 0-9.004 3.686-9.004 6.996v4.997c0 2.184 0.997 6.601 3.793 8.847l-8.783 4.145s-1.998 0.89-1.998 1.999v3.001c0 1.105 0.895 1.999 1.998 1.999h27.986c1.105 0 1.999-0.895 1.999-1.999v-3.001c0-1.175-1.999-1.999-1.999-1.999l-8.703-4.127c2.77-2.18 3.708-6.464 3.708-8.865v-4.997c0-3.31-4.582-6.995-8.998-6.995v0z"></path>
                                 </svg>
                             </div>
@@ -308,6 +346,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row padder-v mt-md-3 pb-sm-5">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
                         <div class="h3 v-center text-black">
@@ -580,7 +621,7 @@
                             </a>
                         </p>
 
-                        <p class="text-muted m-t">
+                        <p class="text-muted mt-4">
                             @yield('github.help')
                         </p>
                     </div>
