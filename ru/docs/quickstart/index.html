@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Быстрый старт для начинающих | Orchid - Laravel Admin Panel"><meta property="og:description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta property="og:url" content="https://orchid.software/ru/docs/quickstart"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Быстрый старт для начинающих</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=41971319223f54a8632a"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Быстрый старт для начинающих | Orchid - Laravel Admin Panel"><meta property="og:description" content="Краткое руководство представляет собой базовое введение в инфраструктуру Orchid"><meta property="og:url" content="https://orchid.software/ru/docs/quickstart"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Быстрый старт для начинающих</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=95ee77a88b4d94a685df"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -56,6 +56,13 @@
             
         <a href="/ru/docs/configuration" class="lvl1 ">
             Обзор параметров
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/upgrade" class="lvl1 ">
+            Руководство по обновлению
         </a>
     
     </li>
@@ -306,7 +313,7 @@ public $description = 'Tool that sends ad-hoc email messages.';</code></pre>
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 /**
  * Views.
@@ -351,7 +358,7 @@ use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -491,11 +498,17 @@ public function registerMainMenu(): array
 }</code></pre>
 <p>Теперь наша утилита отображается в левом меню и активна при посещении.
 Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки,
-чтобы добавить их к нашему экрану необходимо в <code>routes/breadcrumbs.php</code> добавить новое объявление по имени маршрута:</p>
-<pre><code class="language-php">Breadcrumbs::for('platform.email', function ($trail) {
-    $trail-&gt;parent('platform.index');
-    $trail-&gt;push('Email sender');
-});</code></pre>
+чтобы добавить их к нашему экрану необходимо добавить новое объявление к маршрута:</p>
+<pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
+use Tabuna\Breadcrumbs\Trail;
+
+Route::screen('email', EmailSenderScreen::class)
+    -&gt;name('platform.email')
+    -&gt;breadcrumbs(function (Trail $trail){
+        return $trail
+                -&gt;parent('platform.index')
+                -&gt;push('Email sender');
+    });</code></pre>
 <p>Поздравляем, теперь вы должны понимать, как работает платформа! Это очень простой пример, но процесс разработки будет идентичен во многих аспектах. Теперь рекомендуем перейти к разделу <a href="/ru/docs/screens">"Экраны"</a>, чтобы узнать больше о возможностях которые находятся у вас в руках.</p>                    </main></div>
             </div>
         </div>
@@ -604,7 +617,7 @@ public function registerMainMenu(): array
             })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
             ga('create', 'UA-39757298-4', 'auto');
             ga('send', 'pageview');
-        </script><script src="/assets/build/js/app.js?id=ae42c7a1904f41d80827"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
+        </script><script src="/assets/build/js/app.js?id=86cfd1e9325692f5891c"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
         if(window.document.getElementById('docsearch')) {
             docsearch({
                 apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',

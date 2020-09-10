@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Основные компоненты пользовательского интерфейса"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Концепция экранов | Orchid - Laravel Admin Panel"><meta property="og:description" content="Основные компоненты пользовательского интерфейса"><meta property="og:url" content="https://orchid.software/ru/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Концепция экранов</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=41971319223f54a8632a"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Основные компоненты пользовательского интерфейса"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Концепция экранов | Orchid - Laravel Admin Panel"><meta property="og:description" content="Основные компоненты пользовательского интерфейса"><meta property="og:url" content="https://orchid.software/ru/docs/screens"><meta property="og:image" content="/assets/img/orchid.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><title>Orchid - Laravel Admin Panel | Концепция экранов</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/assets/build/css/app.css?id=95ee77a88b4d94a685df"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -56,6 +56,13 @@
             
         <a href="/ru/docs/configuration" class="lvl1 ">
             Обзор параметров
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/ru/docs/upgrade" class="lvl1 ">
+            Руководство по обновлению
         </a>
     
     </li>
@@ -308,9 +315,9 @@ class Idea extends Screen
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <p>Добавление экрана немного отличаться от привычной регистрации, например, <code>GET</code> запроса, тем, что вместо одного адреса, регистрируется целая группа. Для наглядности можно выполнить Artisan команду <code>route:list</code>:</p>
-<pre><code class="language-php">Method                      | URI                                  | Name
-----------------------------+--------------------------------------+--------------
-GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea</code></pre>
+<pre><code class="language-php">Method   | URI                      | Name
+---------+--------------------------+--------------
+GET|POST | dashboard/idea/{method?} | platform.idea</code></pre>
 <p>Если вы регистрируете несколько маршрутов</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
@@ -324,10 +331,10 @@ Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <pre><code class="language-php">Route::screen('/idea', ...
 Route::screen('/idea/edit',...</code></pre>
 <p>Мы получаем:</p>
-<pre><code class="language-php">URI                                       | Name
-------------------------------------------+----------------------
-dashboard/idea/{method?}/{argument?}      | platform.idea
-dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit</code></pre>
+<pre><code class="language-php">URI                           | Name
+------------------------------+----------------------
+dashboard/idea/{method?}      | platform.idea
+dashboard/idea/edit/{method?} | platform.idea.edit</code></pre>
 <p>{method?} - означает не обязательный аргумент который может идти далее.
 Соотвественно под него попадает имя "edit" в адресе.
 В итоге будет редирект на "dashboard/idea/"</p>
@@ -596,7 +603,7 @@ class ReusableEditLayout extends Rows
             })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
             ga('create', 'UA-39757298-4', 'auto');
             ga('send', 'pageview');
-        </script><script src="/assets/build/js/app.js?id=ae42c7a1904f41d80827"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
+        </script><script src="/assets/build/js/app.js?id=86cfd1e9325692f5891c"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
         if(window.document.getElementById('docsearch')) {
             docsearch({
                 apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
