@@ -82,7 +82,7 @@
         <div class="container pt-4">
             <div class="row pl-sm-2 pr-sm-2">
                 <div class="col-lg-6">
-                    <div class="row pt-md-5">
+                    <div class="row pt-md-5 mb-md-2">
                         <div class="col-md-12">
                             <h1 class="text-white mb-4 mt-4 mr-md-4 text-center text-sm-left font-thin display-6">
                                     Платформа для <span class="b-b b-2x b-primary font-bold">back-office приложений</span> на Laravel Framework
@@ -93,7 +93,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="lead mb-4">
+                            <p class="lead mb-5">
                                     Это пакет для создания административных приложений.
     Которая абстрагирует общие функции, необходимые для бизнес-приложений, CMS и систем электронной коммерции.
                             </p>
@@ -139,45 +139,12 @@
                     </p>
                 </div>
             </div>
-            <div class="row justify-content-center mb-6">
-                <div class="col-md-8">
-                    <div class="position-relative">
-                        <div class="rounded bg-dark shadow-lg p-4 text-white mb-2 mr-md-3">
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ composer require orchid/platform</div>
-                                <div class="text-secondary">- Installing <span class="text-success">orchid/platform</span> (<span class="text-warning">8.0.0</span>): Downloading (<span class="text-warning">100%</span>)   </div>
-                                <div class="text-secondary">Discovered Package: <span class="text-success">orchid/platform</span></div>
-                                <div class="text-success">Package manifest generated successfully.</div>
-                            </div>
 
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan orchid:install</div>
-                                <div class="text-secondary">Installation started. Please wait...</div>
-                                <div class="text-success">Completed!</div>
-                            </div>
+            
 
-
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan orchid:admin "Sheldon Cooper" sheldon@bazinga.biz password</div>
-                                <div class="text-secondary">User created successfully.</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan serve</div>
-                                <div class="text-secondary">Starting Laravel development server: http://127.0.0.1:8000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-muted">
-                        Looks unfamiliar? Don’t worry! Our
-                        <a class="text-underline font-weight-bold"
-                           href="/ru/docs/installation/">documentation</a>
-                        has got you covered.
-                    </p>
-                </div>
-                <div class="col-md-4">
-
-                    <div class="item mb-2 mt-3 mt-md-0">
+            <div class="row padder-v mt-md-3">
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
                         <div class="h3 v-center text-black">
 
                             <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
@@ -193,8 +160,9 @@
                             Разработка ведётся на PHP, не обязательно использовать HTML, CSS или JavaScript.
 Всё чтобы приложения были просты в использовании.                        </div>
                     </div>
-
-                    <div class="item mb-2 padder-v pt-sm-5">
+                </div>
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
                         <div class="h3 v-center text-black">
 
                             <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
@@ -210,11 +178,25 @@
                             Производительность одностраничного приложения без дополнительной сложности, переходы без перезагрузки страницы или каких-либо ресурсов.
                         </div>
                     </div>
+                </div>
+                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
+                    <div class="item">
+                        <div class="h3 v-center text-black">
 
+                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                    <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
+                                </svg>
+                            </div>
 
+                            <span class="item-name h4 font-thin">Поиск данных</span>
+                        </div>
+                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
+                        <div class="item-desc">
+                            Находите необходимую информацию с любой страницы. Интегрированный Laravel Scout позаботится о результатах поиска.                        </div>
+                    </div>
                 </div>
             </div>
-
 
             <div class="row padder-v mt-md-3">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
@@ -258,26 +240,6 @@
 
                             <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Поиск данных</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Находите необходимую информацию с любой страницы. Интегрированный Laravel Scout позаботится о результатах поиска.                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row padder-v pt-sm-5 pb-sm-5">
-                <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
                                     <path d="M15.992 2c3.396 0 6.998 2.86 6.998 4.995v4.997c0 1.924-0.8 5.604-2.945 7.293-0.547 0.43-0.831 1.115-0.749 1.807 0.082 0.692 0.518 1.291 1.151 1.582l8.703 4.127c0.068 0.031 0.834 0.16 0.834 1.23l0.001 1.952-27.984 0.002v-2.029c0-0.795 0.596-1.045 0.835-1.154l8.782-4.145c0.63-0.289 1.065-0.885 1.149-1.573s-0.193-1.37-0.733-1.803c-2.078-1.668-3.046-5.335-3.046-7.287v-4.997c0.001-2.089 3.638-4.995 7.004-4.995zM15.992-0c-4.416 0-9.004 3.686-9.004 6.996v4.997c0 2.184 0.997 6.601 3.793 8.847l-8.783 4.145s-1.998 0.89-1.998 1.999v3.001c0 1.105 0.895 1.999 1.998 1.999h27.986c1.105 0 1.999-0.895 1.999-1.999v-3.001c0-1.175-1.999-1.999-1.999-1.999l-8.703-4.127c2.77-2.18 3.708-6.464 3.708-8.865v-4.997c0-3.31-4.582-6.995-8.998-6.995v0z"></path>
                                 </svg>
                             </div>
@@ -290,6 +252,9 @@
                             с политиками дают удобные возможности в разработке и поддержке.                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row padder-v mt-md-3 pb-sm-5">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
                     <div class="item">
                         <div class="h3 v-center text-black">
@@ -362,7 +327,7 @@
                             </a>
                         </p>
 
-                        <p class="text-muted m-t">
+                        <p class="text-muted mt-4">
                                 Существование экосистемы с открытым исходным кодом создает реальную ценность, считают справедливым,
     что сторонники могут получить <a href="https://www.paypal.me/tabuna/10usd"
                                      target="_blank">компенсацию</a> за свою работу реальными деньгами.
