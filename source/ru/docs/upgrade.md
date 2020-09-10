@@ -37,7 +37,9 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
 Теперь для обращения используеться отдельный маршрут:
 
 ```php
-$this->router->post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])->name('async');
+$this->router
+    ->post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
+    ->name('async');
 ```
 
 ### Конструктор 
