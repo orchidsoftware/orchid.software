@@ -18,21 +18,23 @@ githubEdit: false
                     <input type="text"   id="quick-search"  placeholder="Поиск..." class="form-control">
                 </div>
             </div>
-            <p>Нажмите на иконку, чтобы получить имя класса.
-                Исходный код находится на <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
-            </p>
         </div>
 
-        @foreach($page->icons as $icon)
-            <div class="icon-preview-box col-xs-6 col-md-3 col-lg-3">
-                <div class="preview">
-                    <a href="#" class="show-code text-ellipsis" title="click to show css class name"><i
-                                class="icon-{{$icon}} icons"></i><span class="name">{{$icon}}</span> <code
-                                class="code-preview">.icon-{{$icon}}</code></a>
+        <div class="row mt-3">
+            @foreach($page->icons() as $icon)
+                <div class="icon-preview-box col-xs-6 col-md-3 col-lg-3">
+                    <div class="preview">
+                        {!! $page->getIcon($icon) !!}
+                        <span class="ml-2 name">{{$icon}}</span>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
+
+        <p class="mt-5 text-muted">
+            Исходный код находится на <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
+        </p>
 
     </div>
 @endsection

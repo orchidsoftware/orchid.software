@@ -9,12 +9,13 @@ menu: layouts
 Класс `Layouts` является группирующим нескольких различных. Для того чтобы добавить в него новую возможность, достаточно указать её в сервис провайдере как:
 
 ```php
-use Orchid\Screen\Layouts\Base;
-use Orchid\Screen\Repository;
 use Orchid\Screen\Layout;
+use Orchid\Screen\LayoutFactory;
+use Orchid\Screen\Repository;
 
-Layout::macro('hello', function (string $name) {
-    return new class($name) extends Base
+
+LayoutFactory::macro('hello', function (string $name) {
+    return new class($name) extends Layout
     {
         /**
          * @ string
@@ -48,6 +49,8 @@ Layout::macro('hello', function (string $name) {
 Тогда в экране вызов будет выглядеть как:
 
 ```php
+use Orchid\Support\Facades\Layout;
+
 public function layout(): array
 {
     return [

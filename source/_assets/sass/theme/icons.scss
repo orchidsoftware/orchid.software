@@ -1,23 +1,18 @@
 .preview {
   padding: 15px 0;
   position: relative;
-  height: 100px;
+  height: 50px;
   display: flex;
-  align-items: center
-}
+  align-items: center;
 
-.icons {
-  font-size: 1.3em;
-  padding-right: 7px;
-}
-
-.code-preview {
-  display: none;
-  font-family: $font-family-sans-serif;
+  svg{
+    width: 1.5em;
+    height: 1.5em;
+    fill: currentColor;
+  }
 }
 
 .name {
-  font-size: 18px;
   font-family: $font-family-sans-serif;
 }
 

@@ -93,9 +93,9 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 Adding a screen is slightly different from the usual registration, for example, a `GET` request, in that instead of a single address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
 
 ```php
-Method                      | URI                                  | Name
-----------------------------+--------------------------------------+--------------
-GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
+Method   | URI                      | Name
+---------+--------------------------+--------------
+GET|POST | dashboard/idea/{method?} | platform.idea
 ```
 
 If you register multiple routes
@@ -119,10 +119,10 @@ Route::screen('/idea/edit',...
 We get:
 
 ```php
-URI                                       | Name
-------------------------------------------+----------------------
-dashboard/idea/{method?}/{argument?}      | platform.idea
-dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit
+URI                           | Name
+------------------------------+---------------------
+dashboard/idea/{method?}      | platform.idea
+dashboard/idea/edit/{method?} | platform.idea.edit
 ```
 
 `{method?}` - means an optional argument that may go further.

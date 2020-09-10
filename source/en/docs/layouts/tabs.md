@@ -14,7 +14,7 @@ Tabs support short syntax by calling a static method,
 which does not require creating a separate class:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 public function layout(): array
 {

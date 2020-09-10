@@ -14,7 +14,7 @@ Strings support short writing without creating a separate class,
 for example, when you want to show one or two fields.
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 
 public function layout(): array

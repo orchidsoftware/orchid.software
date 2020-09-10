@@ -14,7 +14,7 @@ menu: layouts
 например, когда требуется показать одно - два поля.
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 
 public function layout(): array

@@ -83,7 +83,7 @@ class PatientListLayout extends Table
 Таблицы так же поддерживают запись через короткий синтаксис без создания класса:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
 
 Layout::table('clients', [

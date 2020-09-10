@@ -93,9 +93,9 @@ Route::screen('/idea', Idea::class)->name('platform.idea');
 Добавление экрана немного отличаться от привычной регистрации, например, `GET` запроса, тем, что вместо одного адреса, регистрируется целая группа. Для наглядности можно выполнить Artisan команду `route:list`:
 
 ```php
-Method                      | URI                                  | Name
-----------------------------+--------------------------------------+--------------
-GET|HEAD|POST|PUT|PATCH|... | dashboard/idea/{method?}/{argument?} | platform.idea
+Method   | URI                      | Name
+---------+--------------------------+--------------
+GET|POST | dashboard/idea/{method?} | platform.idea
 ```
 
 Если вы регистрируете несколько маршрутов
@@ -115,10 +115,10 @@ Route::screen('/idea/edit',...
 ```
 Мы получаем:
 ```php
-URI                                       | Name
-------------------------------------------+----------------------
-dashboard/idea/{method?}/{argument?}      | platform.idea
-dashboard/idea/edit/{method?}/{argument?} | platform.idea.edit
+URI                           | Name
+------------------------------+----------------------
+dashboard/idea/{method?}      | platform.idea
+dashboard/idea/edit/{method?} | platform.idea.edit
 ```
 {method?} - означает не обязательный аргумент который может идти далее.
 Соотвественно под него попадает имя "edit" в адресе.

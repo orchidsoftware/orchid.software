@@ -18,7 +18,7 @@ namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
 
 class PlatformScreen extends Screen
@@ -90,7 +90,7 @@ php artisan orchid:listener AmountListener
 ```php
 namespace App\Orchid\Layouts;
 
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
 class AmountListener extends Listener
@@ -146,7 +146,7 @@ namespace App\Orchid\Screens;
 use App\Orchid\Layouts\AmountListener;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
 
 class PlatformScreen extends Screen
@@ -246,7 +246,7 @@ protected $asyncMethod = 'asyncSum';
 namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
 class AmountListener extends Listener

@@ -16,7 +16,7 @@ namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
 
 class PlatformScreen extends Screen
@@ -88,7 +88,7 @@ In the directory `app/Orchid/Layouts` a new class will be created with the name`
 ```php
 namespace App\Orchid\Layouts;
 
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
 class AmountListener extends Listener
@@ -144,7 +144,7 @@ namespace App\Orchid\Screens;
 use App\Orchid\Layouts\AmountListener;
 use Orchid\Screen\Action;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Screen;
 
 class PlatformScreen extends Screen
@@ -244,7 +244,7 @@ The full class will look like this:
 namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
 class AmountListener extends Listener

@@ -108,7 +108,7 @@ To display the input fields, we describe them in the `Layouts` method:
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 /**
  * Views.
@@ -157,7 +157,7 @@ use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -312,10 +312,16 @@ Navigation can be carried out not only through transitions from the menu but als
 to add them to our screen you need to add a new ad in the `routes/breadcrumbs.php` by route name.
 
 ```php
-Breadcrumbs::for('platform.email', function ($trail) {
-    $trail->parent('platform.index');
-    $trail->push('Email sender');
-});
+use App\Orchid\Screens\EmailSenderScreen;
+use Tabuna\Breadcrumbs\Trail;
+
+Route::screen('email', EmailSenderScreen::class)
+    ->name('platform.email')
+    ->breadcrumbs(function (Trail $trail){
+        return $trail
+                ->parent('platform.index')
+                ->push('Email sender');
+    });
 ```
 
 

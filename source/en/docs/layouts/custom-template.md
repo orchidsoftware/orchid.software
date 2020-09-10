@@ -11,7 +11,7 @@ It is an expected situation when you need to display your own `blade` template,
 to do this, call `Layout::view` by passing the parameter a name string:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 public function layout(): array
 {

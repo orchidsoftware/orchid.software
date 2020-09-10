@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b24eff90f21fe44eb752d6c3f544bbf",
+    "content-hash": "450e71e8298c397acce3e3fa2f1924c9",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -738,6 +738,48 @@
                 "time"
             ],
             "time": "2020-01-21T09:36:43+00:00"
+        },
+        {
+            "name": "orchid/icons",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/orchidsoftware/icons.git",
+                "reference": "9990d0259064677fd3130f241a27f666cd905e25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/orchidsoftware/icons/zipball/9990d0259064677fd3130f241a27f666cd905e25",
+                "reference": "9990d0259064677fd3130f241a27f666cd905e25",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Orchid\\IconPack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexandr Chernyaev",
+                    "email": "bliz48rus@gmail.com"
+                },
+                {
+                    "name": "Dmitry Skirta"
+                },
+                {
+                    "name": "Jamal Jama"
+                },
+                {
+                    "name": "Ahmad Firoz"
+                }
+            ],
+            "description": "Simple and Minimal Line Icons",
+            "time": "2020-09-10T20:32:31+00:00"
         },
         {
             "name": "org_heigl/hyphenator",
@@ -2238,5 +2280,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

@@ -28,7 +28,7 @@ In the modal window you need to make the secondary content of the pages, which i
 Modal windows support short syntax by calling a static method, which does not require creating a separate class:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 public function layout(): array
 {

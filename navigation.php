@@ -9,6 +9,7 @@ return [
                     'Introduction project'  => '/en/docs/',
                     'Installation platform' => '/en/docs/installation',
                     'Configuration'         => '/en/docs/configuration',
+                    'Upgrade Guide'         => '/en/docs/upgrade',
                 ],
             ],
             'Tutorials'     => [
@@ -100,6 +101,7 @@ return [
                     'Введение в проект'   => '/ru/docs/',
                     'Установка платформы' => '/ru/docs/installation',
                     'Обзор параметров'    => '/ru/docs/configuration',
+                    'Руководство по обновлению' => '/ru/docs/upgrade',
                 ],
             ],
             'Учебные пособия'    => [

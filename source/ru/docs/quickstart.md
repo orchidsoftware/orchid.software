@@ -110,7 +110,7 @@ public $description = 'Tool that sends ad-hoc email messages.';
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 
 /**
@@ -160,7 +160,7 @@ use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -312,13 +312,19 @@ public function registerMainMenu(): array
 
 Теперь наша утилита отображается в левом меню и активна при посещении. 
 Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки, 
-чтобы добавить их к нашему экрану необходимо в `routes/breadcrumbs.php` добавить новое объявление по имени маршрута:
+чтобы добавить их к нашему экрану необходимо добавить новое объявление к маршрута:
 
 ```php
-Breadcrumbs::for('platform.email', function ($trail) {
-    $trail->parent('platform.index');
-    $trail->push('Email sender');
-});
+use App\Orchid\Screens\EmailSenderScreen;
+use Tabuna\Breadcrumbs\Trail;
+
+Route::screen('email', EmailSenderScreen::class)
+    ->name('platform.email')
+    ->breadcrumbs(function (Trail $trail){
+        return $trail
+                ->parent('platform.index')
+                ->push('Email sender');
+    });
 ```
 
 

@@ -11,7 +11,7 @@ menu: layouts
 для этого необходимо вызвать `Layout::view`, передав параметром строку имени:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 public function layout(): array
 {

@@ -7,7 +7,8 @@
         "erusev/parsedown": "^1.7",
         "symfony/css-selector": "^4.2",
         "jolicode/jolitypo": "^1.0",
-        "spipu/html2pdf": "^5.2"
+        "spipu/html2pdf": "^5.2",
+        "orchid/icons": "^2.0"
     },
     "autoload": {
         "psr-4": {

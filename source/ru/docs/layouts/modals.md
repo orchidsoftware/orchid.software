@@ -27,7 +27,7 @@ menu: layouts
 Модальные окна поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:
 
 ```php
-use Orchid\Screen\Layout;
+use Orchid\Support\Facades\Layout;
 
 public function layout(): array
 {
