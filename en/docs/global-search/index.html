@@ -306,6 +306,10 @@ class Idea extends Model
 <p>In the representatives, we indicate the <code>Searchable</code> interface and define methods that will return values for a display to the user, for example like this:</p>
 <pre><code class="language-php">namespace App\Orchid\Presenters;
 
+use Laravel\Scout\Builder;
+use Orchid\Screen\Contracts\Searchable;
+use Orchid\Support\Presenter;
+
 class IdeaPresenter extends Presenter implements Searchable
 {
     /**
@@ -356,6 +360,14 @@ class IdeaPresenter extends Presenter implements Searchable
     public function searchQuery(string $query = null): Builder
     {
         return $this-&gt;entity-&gt;search($query);
+    }
+
+    /**
+     * @return int
+     */
+    public function perSearchShow(): int
+    {
+        return 3;
     }
 }</code></pre>
 <h2><a href="#modifying-results" name="modifying-results">Modifying Results</a></h2>
