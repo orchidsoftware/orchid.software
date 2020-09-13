@@ -84,6 +84,10 @@ class Idea extends Model
 ```php
 namespace App\Orchid\Presenters;
 
+use Laravel\Scout\Builder;
+use Orchid\Screen\Contracts\Searchable;
+use Orchid\Support\Presenter;
+
 class IdeaPresenter extends Presenter implements Searchable
 {
     /**
@@ -134,6 +138,14 @@ class IdeaPresenter extends Presenter implements Searchable
     public function searchQuery(string $query = null): Builder
     {
         return $this->entity->search($query);
+    }
+    
+    /**
+     * @return int
+     */
+    public function perSearchShow(): int
+    {
+        return 3;
     }
 }
 ```
