@@ -305,6 +305,10 @@ class Idea extends Model
 <p>В представителе укажем интерфейс <code>Searchable</code> и определим методы, которые будут возвращать значения для показа пользователю, например так:</p>
 <pre><code class="language-php">namespace App\Orchid\Presenters;
 
+use Laravel\Scout\Builder;
+use Orchid\Screen\Contracts\Searchable;
+use Orchid\Support\Presenter;
+
 class IdeaPresenter extends Presenter implements Searchable
 {
     /**
@@ -355,6 +359,14 @@ class IdeaPresenter extends Presenter implements Searchable
     public function searchQuery(string $query = null): Builder
     {
         return $this-&gt;entity-&gt;search($query);
+    }
+
+    /**
+     * @return int
+     */
+    public function perSearchShow(): int
+    {
+        return 3;
     }
 }</code></pre>
 <h2><a href="#modifikatsiya-rezultatov" name="modifikatsiya-rezultatov">Модификация результатов</a></h2>
