@@ -27,7 +27,7 @@ lang: ru
 DROP TABLE settings;
 
 DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';Теперь методы экрана ожидающие модели при их отсутствии 
+WHERE migration = '2015_12_02_181214_create_table_settings';
 ```
 
 Исходный код доступен для установки в качестве отдельного [пакета](https://github.com/tabuna/settings).
