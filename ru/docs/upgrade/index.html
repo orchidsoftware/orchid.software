@@ -274,14 +274,14 @@
 <h2><a href="#obnovlenie-zavisimostey" name="obnovlenie-zavisimostey">Обновление зависимостей</a></h2>
 <p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^8.0</code></p>
 <h2><a href="#redaktor-tinymce" name="redaktor-tinymce">Редактор TinyMCE</a></h2>
-<p><code>Html</code> редактор был удалён из стандартной поставке. Код был перенесён в отдельный <a href="https://github.com/orchidcommunity/TinyMCE">репозиторий</a>.</p>
+<p><code>Html</code> редактор был удалён из стандартной поставки. Код был перенесён в отдельный <a href="https://github.com/orchidcommunity/TinyMCE">репозиторий</a>.</p>
 <h2><a href="#model-nastroek" name="model-nastroek">Модель настроек</a></h2>
-<p>Модель настроек так же была удалена. Данные хранящееся в базе данные, не будут удалены автоматически.
+<p>Модель настроек так же была удалена. Данные, хранящееся в базе данных, не будут удалены автоматически.
 Для их удаления необходимо выполнить следующий <code>SQL</code> код:</p>
 <pre><code class="language-php">DROP TABLE settings;
 
 DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';</code></pre>
+WHERE migration = '2015_12_02_181214_create_table_settings';Теперь методы экрана ожидающие модели при их отсутствии </code></pre>
 <p>Исходный код доступен для установки в качестве отдельного <a href="https://github.com/tabuna/settings">пакета</a>.</p>
 <h2><a href="#khlebnye-kroshki" name="khlebnye-kroshki">Хлебные крошки</a></h2>
 <p>Пакет <code>davejamesmiller/laravel-breadcrumbs</code> заменён на  <code>tabuna/breadcrumbs</code>
@@ -340,7 +340,7 @@ use Tabuna\Breadcrumbs\Trail;</code></pre>
 <pre><code class="language-php">Method           | URI                                  | Name
 -----------------+--------------------------------------+--------------
 GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></pre>
-<p>Теперь методы экрана ожидающие модели при их отсутствии будут реализовывать пустую модель так же как и контроллеры. <a href="https://github.com/orchidsoftware/platform/issues/1150">Подробнее</a>.</p>
+<p>Теперь методы экрана, ожидающие модели, при их отсутствии будут реализовывать пустую модель так же, как и контроллеры. <a href="https://github.com/orchidsoftware/platform/issues/1150">Подробнее</a>.</p>
 <h3><a href="#podmena-dannykh-async" name="podmena-dannykh-async">Подмена данных (Async)</a></h3>
 <p>Ожидание <code>{argument?}</code> было удалено из адресной строки.
 Теперь для обращения используется отдельный маршрут:</p>
@@ -348,7 +348,7 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></
     -&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
     -&gt;name('async');</code></pre>
 <h2><a href="#izmeneniya-sloev" name="izmeneniya-sloev">Изменения слоёв</a></h2>
-<p>Каждый слой теперь наследуются от класса <code>Orchid\Screen\Layout</code>, а не от <code>Orchid\Screen\Layouts\Base</code>. </p>
+<p>Каждый слой теперь наследуется от класса <code>Orchid\Screen\Layout</code>, а не от <code>Orchid\Screen\Layouts\Base</code>. </p>
 <p>Для объявления слоёв через короткий синтаксис теперь должен использоваться фасад <code>Orchid\Support\Facades\Layout</code> вместо класса <code>Orchid\Screen\Layout</code>.</p>
 <p>Было:</p>
 <pre><code class="language-php">use Orchid\Screen\Layout;
