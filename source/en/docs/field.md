@@ -287,7 +287,7 @@ Relation::make('ideas.')
     ->title('Choose your ideas');
 ```
 
-> **Note.** Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were `HTML` code` <input name='ideas[]'> `
+> **Note.** Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were `HTML` code `<input name='ideas[]'>`
 
 To modify the load, you can use the reference to the `scope` model,
 for example, take only active:
