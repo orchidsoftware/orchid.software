@@ -16,18 +16,18 @@ lang: ru
 
 ## Редактор TinyMCE
 
-`Html` редактор был удалён из стандартной поставке. Код был перенесён в отдельный [репозиторий](https://github.com/orchidcommunity/TinyMCE).
+`Html` редактор был удалён из стандартной поставки. Код был перенесён в отдельный [репозиторий](https://github.com/orchidcommunity/TinyMCE).
 
 ## Модель настроек
 
-Модель настроек так же была удалена. Данные хранящееся в базе данные, не будут удалены автоматически. 
+Модель настроек так же была удалена. Данные, хранящееся в базе данных, не будут удалены автоматически. 
 Для их удаления необходимо выполнить следующий `SQL` код:
 
 ```php
 DROP TABLE settings;
 
 DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';
+WHERE migration = '2015_12_02_181214_create_table_settings';Теперь методы экрана ожидающие модели при их отсутствии 
 ```
 
 Исходный код доступен для установки в качестве отдельного [пакета](https://github.com/tabuna/settings).
@@ -117,7 +117,7 @@ Method           | URI                                  | Name
 GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
 ```
 
-Теперь методы экрана ожидающие модели при их отсутствии будут реализовывать пустую модель так же как и контроллеры. [Подробнее](https://github.com/orchidsoftware/platform/issues/1150).
+Теперь методы экрана, ожидающие модели, при их отсутствии будут реализовывать пустую модель так же, как и контроллеры. [Подробнее](https://github.com/orchidsoftware/platform/issues/1150).
 
 ### Подмена данных (Async)
 
@@ -132,7 +132,7 @@ $this->router
 
 ## Изменения слоёв
 
-Каждый слой теперь наследуются от класса `Orchid\Screen\Layout`, а не от `Orchid\Screen\Layouts\Base`. 
+Каждый слой теперь наследуется от класса `Orchid\Screen\Layout`, а не от `Orchid\Screen\Layouts\Base`. 
 
 Для объявления слоёв через короткий синтаксис теперь должен использоваться фасад `Orchid\Support\Facades\Layout` вместо класса `Orchid\Screen\Layout`.
 
