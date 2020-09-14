@@ -259,7 +259,6 @@ class EmailSenderScreen extends Screen
 
 
         Alert::info('Your email message has been sent successfully.');
-        return back();
     }
 }
 ```
