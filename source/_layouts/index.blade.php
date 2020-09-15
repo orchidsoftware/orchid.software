@@ -6,7 +6,7 @@
 
     <section class="pb-5 bg-dark position-relative overflow-hidden b-b">
         <img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png" class="dev-macbook none d-md-block">
-        <div class="container pt-5">
+        <div class="container pt-md-5">
             <div class="row pl-sm-2 pr-sm-2">
                 <div class="col-lg-6">
                     <div class="row pt-md-5 mb-md-2">
