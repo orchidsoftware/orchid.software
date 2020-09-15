@@ -356,7 +356,7 @@ class ProductPresenter extends Presenter implements Cardable
 public function query(): array
 {
     return [
-        'product' =&gt; Product::findOrFail(1),
+        'product' =&gt; Product::findOrFail(1)-&gt;presenter(),
     ];
 }
 
@@ -370,7 +370,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        new Card('product.presenter'),
+        new Card('product'),
     ];
 }</code></pre>                    </main></div>
             </div>
