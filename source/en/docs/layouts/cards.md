@@ -171,7 +171,7 @@ use Orchid\Screen\Layouts\Card;
 public function query(): array
 {
     return [
-        'product' => Product::findOrFail(1),
+        'product' => Product::findOrFail(1)->presenter(),
     ];
 }
 
@@ -185,7 +185,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        new Card('product.presenter'),
+        new Card('product'),
     ];
 }
 ```
