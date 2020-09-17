@@ -21,7 +21,6 @@ mix
     .sass('source/_assets/sass/app.scss', 'css/app.css', {
         implementation: require('node-sass')
     })
-    .copy('./node_modules/orchid-icons/dist/fonts/', 'source/assets/build/fonts')
     .js(['source/_assets/js/app.js'], 'js/app.js')
     .sourceMaps()
     .version();
