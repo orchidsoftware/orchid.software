@@ -22,7 +22,6 @@
         "node-cmd": "^3.0.0",
         "node-sass": "^4.14.1",
         "open-color": "^1.7.0",
-        "orchid-icons": "^1.0.10",
         "prismjs": "^1.20.0",
         "resolve-url-loader": "^2.3.2",
         "sass": "^1.26.9",

@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl'         => 'http://localhost:8000',
+    'baseUrl'         => 'http://localhost:3000',
     'production'      => false,
     'siteName'        => 'Orchid - Laravel Admin Panel',
     'siteDescription' => 'RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site.',
