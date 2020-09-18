@@ -120,7 +120,7 @@ URI                           | Name
 dashboard/idea/{method?}      | platform.idea
 dashboard/idea/edit/{method?} | platform.idea.edit
 ```
-{method?} - означает не обязательный аргумент который может идти далее.
+`{method?}` - означает не обязательный аргумент который может идти далее.
 Соотвественно под него попадает имя "edit" в адресе.
 В итоге будет редирект на "dashboard/idea/"
 
