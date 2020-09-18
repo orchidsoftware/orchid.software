@@ -103,6 +103,7 @@ If you register multiple routes
 ```php
 use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
+
 Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
 Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
