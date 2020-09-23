@@ -254,7 +254,7 @@
 <p>Проще говоря, то, что пользователь видит на странице и какие действия совершает, описывается в одном классе под названием "Экран". Он не знает откуда берутся данные, это может быть: база данных, API или любые другие внешние источники. Построение внешнего вида основано на предоставленных <code>шаблонах</code> (Layouts) и всё, что вам нужно сделать, это лишь определить какие данные будут показаны в том или ином шаблоне.</p>
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
 <h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
-<p>Вы можете создать новый экран выполнив Artisan команду:</p>
+<p>Вы можете создать новый экран, выполнив Artisan команду:</p>
 <pre><code class="language-php">php artisan orchid:screen Idea</code></pre>
 <p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Idea</code> со следующим содержанием:</p>
 <pre><code class="language-php">namespace App\Http\Controllers\Screens;
@@ -310,7 +310,7 @@ class Idea extends Screen
 }
 </code></pre>
 <h2><a href="#registratsiya-v-marshrutakh" name="registratsiya-v-marshrutakh">Регистрация в маршрутах</a></h2>
-<p>Прежде чем, быть доступными по прямому URL адресу экраны, так же как и контроллеры, необходимо зарегистрировать в файле маршрутов <code>/routes/platform.php</code>. Записанные в него маршруты будут проходить через 'middleware' указанные в <code>private</code> <a href="/ru/docs/configuration">конфигурации</a>. Зарегистрировать каждый экран можно с помощью метода <code>screen</code> у <code>Route</code>:</p>
+<p>Прежде чем быть доступными по прямому URL адресу, экраны, так же как и контроллеры, необходимо зарегистрировать в файле маршрутов <code>/routes/platform.php</code>. Записанные в него маршруты будут проходить через 'middleware', указанные в <code>private</code> <a href="/ru/docs/configuration">конфигурации</a>. Зарегистрировать каждый экран можно с помощью метода <code>screen</code> у <code>Route</code>:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
@@ -318,7 +318,7 @@ Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
 <pre><code class="language-php">Method   | URI                      | Name
 ---------+--------------------------+--------------
 GET|POST | dashboard/idea/{method?} | platform.idea</code></pre>
-<p>Если вы регистрируете несколько маршрутов</p>
+<p>Если вы регистрируете несколько маршрутов:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
@@ -335,7 +335,7 @@ Route::screen('/idea/edit',...</code></pre>
 ------------------------------+----------------------
 dashboard/idea/{method?}      | platform.idea
 dashboard/idea/edit/{method?} | platform.idea.edit</code></pre>
-<p><code>{method?}</code> - означает не обязательный аргумент который может идти далее.
+<p><code>{method?}</code> - означает необязательный аргумент, который может идти далее.
 Соотвественно под него попадает имя "edit" в адресе.
 В итоге будет редирект на "dashboard/idea/"</p>
 <h2><a href="#poluchenie-dannykh" name="poluchenie-dannykh">Получение данных</a></h2>
