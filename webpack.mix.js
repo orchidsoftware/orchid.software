@@ -25,7 +25,7 @@ mix
     .sourceMaps()
     .version();
 
-if (!mix.inProduction()) {
+if (mix.inProduction()) {
     mix.purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],
