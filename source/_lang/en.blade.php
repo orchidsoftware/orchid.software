@@ -61,8 +61,8 @@ A performance like a single page application. Transitions without reloading the 
 @section('github.description','Everything that we do is 100% composed of open and free code, jointly developed by people from all over the world.')
 @section('github.button','View on GitHub')
 @section('github.help')
-    Since the existence of a healthy open source ecosystem creates real value for the software industry,
-    believe it is fair for maintainers and authors of such software to be  <a href="https://www.paypal.me/tabuna/10usd" target="_blank">compensated</a> for their work with real money.
+Since a healthy open source ecosystem creates real value for the software industry, 
+I believe it is fair for the developers <a href="https://www.paypal.me/tabuna/10usd" target="_blank">to reward their work with real money</a>.
 @endsection
 
 @section('main.donate','Treat coffee')
