@@ -40,17 +40,16 @@ A performance like a single page application. Transitions without reloading the 
 @endsection
 
 @section('main.col3.title','Filtering & Sorting')
-@section('main.col3.description','Create filters so that users can quickly find different data segments.
-Fully controlling SQL code.')
+@section('main.col3.description','Create filters so users can quickly find different segments of data. You are in complete control of the SQL code.')
 
 @section('main.col4.title','User Notifications')
 @section('main.col4.description','One-time and personal notifications will be a great way to notify users about what is happening in your application.')
 
 @section('main.col5.title','Data Search')
-@section('main.col5.description','Find the information you need from any page. Integrated Laravel Scout take care of the search results.')
+@section('main.col5.description','Find the information you need from any page. Integrated Laravel Scout takes care of the search results.')
 
 @section('main.col6.title','Role Management')
-@section('main.col6.description','Differentiation of user access rights or entire groups in combination with policies enable easy management in development and support.')
+@section('main.col6.description','Differentiation of user access rights or entire groups combined with policies enables easy management in development and support.')
 
 @section('main.col7.title','User Impersonation')
 @section('main.col7.description','Does your customer have a problem? You can easily repeat it, authenticated in the system as one of your users.')
