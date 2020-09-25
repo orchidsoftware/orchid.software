@@ -7,25 +7,25 @@ section: main
 
 ## Introduction
 
-**Laravel Orchid** is an open source package (MIT license) to speed up development and create applications in the style of administration. It abstracts common business application templates so that developers can easily implement beautiful and elegant interfaces with little effort.
+**Laravel Orchid** is an open-source package (MIT license) to speed up development and create applications in the style of administration. It abstracts typical business application templates so that developers can quickly implement beautiful and elegant interfaces with little effort.
 
 Some features:
 
-- **Form Builder** - no need to describe HTML fields of the same type every time.
-- **Screens** - a good balance between CRUD generation and manual writing.
-- **Fields** - over 40 types.
+- **Form builder** - no need to describe HTML fields of the same type each time.
+- **Screen** - a comfortable balance between CRUD generation and tedious coding.
+- **Fields** - over 40 varieties.
 - **Permissions** - offers convenient management in development and support.
-- Menus, graphics, settings, notifications, etc.
+- Menus, charts, notifications, etc.
 
 
-Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based applications, administration panels, or as a content management system.
+Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based applications, administration panels, or a content management system.
 
 > **Note!** The manual contains information on using the package, but does not explain the use of the framework. It is strongly recommended you read the [Laravel documentation](https://laravel.com/docs/).
 
 
 ## What Orchid is not
 
-Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make the lives of developers easier when building complex systems, not providing you one out of the box.
+Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you one out of the box.
 
 ## What is the difference between other packages?
 
