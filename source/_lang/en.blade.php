@@ -36,7 +36,7 @@ Everything to make applications easy to use.')
 
 @section('main.col2.title','Fast Loading Pages')
 @section('main.col2.description')
-The performance of a single-page application without additional complexity, transitions without reloading the page or any resources.
+A performance like a single page application. Transitions without reloading the page, not writing a single line of code.
 @endsection
 
 @section('main.col3.title','Filtering & Sorting')
