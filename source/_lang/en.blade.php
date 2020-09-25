@@ -10,8 +10,8 @@
 @endsection
 
 @section('main.lead')
-    This is a package for creating admin applications.
-    Which abstracts the common functionality required for business applications, CMS, and E-commerce systems.
+    It is a package for creating admin applications, which abstracts the standard functionality required 
+    for business applications, CMS, and E-commerce systems.
 @endsection
 
 @section('main.slogan')
