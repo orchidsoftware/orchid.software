@@ -15,7 +15,7 @@
 @endsection
 
 @section('main.slogan')
-    Stop wasting time trying to design your admin panel, start coding your logic right away!
+    Stop wasting time trying to design your admin panel. Start coding your logic right away!
 @endsection
 
 @section('main.screen.title','Form builder')
