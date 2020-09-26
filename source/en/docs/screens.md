@@ -7,10 +7,12 @@ section: main
 
 ## Introduction
 
+
 The main element of the platform is the screens described by the layout hierarchy, according to which
 Each element has properties that affect its appearance and behavior.
 
-Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from, it can be: a database, API or any other external sources. Building the appearance based on the provided `templates` (Layouts) and all you need to do is just to determine what data will be shown in a particular template.
+Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided `templates` (Layouts) and all you need to do is to determine what data will be shown in a particular template.
+
 
 ![Screens](https://orchid.software/assets/img/scheme/screens.jpg)
 
@@ -81,7 +83,7 @@ class Idea extends Screen
 
 ## Registering routes
 
-Before being available at the direct URL, screens, like controllers, must be registered in the routes file `/routes/platform.php`. The routes recorded in it will go through the middleware specified in the private [configuration](/en/docs/configuration). Each screen can be registered using the `screen` method of `Route`:
+Before being available at the direct URL, screens, like controllers, must be registered in the routes file `/routes/platform.php`. The routes recorded in it will go through the middleware specified in the [configuration](/en/docs/configuration). Each screen can be written using the `screen` method of `Route`:
 
 
 ```php
