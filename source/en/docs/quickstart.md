@@ -69,10 +69,10 @@ class EmailSenderScreen extends Screen
 }
 ```
 
-The main difference of the screen from the controller is the structure defined in advance, which serves
-only one-page defining data and events.
+The screen's main difference from the controller is the structure defined in advance,
+which serves only one-page defining data and events.
 
-Like the controller, the screen needs to be registered in the route file,
+Like the controller, the screen needs to register in the route file.
 Define it in the file for the admin panel `routes/platform.php`:
 
 ```php
@@ -145,7 +145,7 @@ public function layout(): array
 ```
 
 Now our page has some elements but does not produce any action.
-to define them you need to create a new public method and specify a link to it in `commandBar`:
+To define them, you need to create a new public method and specify a link to it in `commandBar`:
 
 ```php
 namespace App\Orchid\Screens;
@@ -265,10 +265,11 @@ class EmailSenderScreen extends Screen
 
 After that, can to send email messages to addresses.
 
-> **Note** that by default the `smtp` driver enabled for sending mail,
+> **Note** that by default, the `SMTP` driver enabled for sending mail,
 You can change it in the `.env` file to `log` for verification.
 
-Since our utility mixed up, we can dream up and imagine that our boss asked us to put the title of our messages like “Campaign news for July”, but be able to change it. To do this, add the key to the `query` method with the name of our element:
+We can dream up and imagine that our boss asked us to put our messages like “Campaign news for July” but change it. To do this, 
+add the key to the `query` method with the name of our element:
 
 ```php
 /**
@@ -306,8 +307,8 @@ public function registerMainMenu(): array
 }
 ```
 
-Now our utility is displayed on the left menu and is active when visiting.
-Navigation can be carried out not only through transitions from the menu but also through bread crumbs,
+Now our utility is displayed on the left menu and is active when visiting. 
+Navigation is carried out not only through transitions from the menu but also through bread crumbs,
 to add them to our screen you need to add a new ad in the `routes/breadcrumbs.php` by route name.
 
 ```php
@@ -324,4 +325,7 @@ Route::screen('email', EmailSenderScreen::class)
 ```
 
 
-Congratulations, you should now understand how the platform works! This is a very simple example, but the development process will be identical in many aspects. Now we recommend to going the [Screens](/en/docs/screens) section to learn more about the possibilities that are in your hands.
+
+Congratulations, you should now understand how the platform works!
+It is an elementary example, but the development process will be identical in many aspects.
+We recommend going to the [Screens](/en/docs/screens) section to learn more about the possibilities in your hands.
