@@ -5,13 +5,13 @@ extends: _layouts.documentation
 section: main
 ---
 
-This quick start guide provides a basic introduction to the infrastructure and includes information.
-about screens and form elements.
+
+This quick start guide provides a basic introduction to the infrastructure and includes information about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.
 
-At this stage, you must already [installed the framework and the platform](/en/docs/installation), created the database and started the webserver.
+You should have already [installed the framework and package](/en/docs/installation) at this point and started the webserver.
 
-> Before we begin, we highly recommend that you do not copy and paste. Typing each section manually will help you to practice and remember.
+> Before we start, we strongly recommend that you do not use copy and paste. Entering each piece of code will help you practice and remember.
 
 First, you need to create a [screen](/en/docs/screens) to display the submission form, using the command:
 
