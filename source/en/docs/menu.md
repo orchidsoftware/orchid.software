@@ -116,7 +116,7 @@ ItemMenu::label('Example')->canSee(true);
 For a menu item, you can specify a graphic icon with:
 
 ```php
-ItemMenu::label('Example')->icon('icon-heart');
+ItemMenu::label('Example')->icon('heart');
 ```
 
 It is also possible to integrate into a visual group by setting the title for the first element:
@@ -139,7 +139,7 @@ Menu items have the ability to notify the user about any events in the form of a
 
 ```php
 ItemMenu::label('Comments')
-    ->icon('icon-bubbles')
+    ->icon('bubbles')
     ->route('platform.systems.comments')
     ->badge(function () {
         return 10;

@@ -731,7 +731,7 @@ An example of using the modal window `addNewPayment` added earlier to the screen
 ```php
 ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
-    ->icon('icon-wallet');
+    ->icon('wallet');
 ```
 
 Linking example:

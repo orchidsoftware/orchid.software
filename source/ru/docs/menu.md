@@ -118,7 +118,7 @@ ItemMenu::label('Example')->canSee(true);
 Для элемента меню можно указать графическую иконку с помощью:
 
 ```php
-ItemMenu::label('Example')->icon('icon-heart');
+ItemMenu::label('Example')->icon('heart');
 ```
 
 Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:
@@ -142,7 +142,7 @@ ItemMenu::label('First')->sort(4);
 
 ```php
 ItemMenu::label('Comments')
-    ->icon('icon-bubbles')
+    ->icon('bubbles')
     ->route('platform.systems.comments')
     ->badge(function () {
         return 10;

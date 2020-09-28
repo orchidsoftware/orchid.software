@@ -92,7 +92,7 @@ public function layout(): array
         new Card('card', [
             Button::make('Example Button')
                 ->method('example')
-                ->icon('icon-bag'),
+                ->icon('bag'),
         ]),
     ];
 }

@@ -213,7 +213,7 @@ specifying methods:
  */
 protected function iconNotFound(): string
 {
-    return 'icon-table';
+    return 'table';
 }
 
 /**

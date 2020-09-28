@@ -43,7 +43,8 @@ Suppose that we are creating a system for a fictitious analytical agency, we wil
 @endpush
 
 <p class="h2 n-m font-thin v-center">
-    <i class="icon-database"></i>
+    <x-orchid-icon path="database"/>
+
     <span class="m-l d-none d-sm-block">
         Analytics
         <small class="v-top opacity">Nest</small>

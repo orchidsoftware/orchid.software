@@ -728,7 +728,7 @@ Group::make([
 ```php
 ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
-    ->icon('icon-wallet');
+    ->icon('wallet');
 ```
 
 Пример использования со ссылкой:
@@ -754,5 +754,5 @@ Button::make('Google It!')
 * `block()` - позиционирование элемента по всей ширине экрана.
 * `class('class-names')` - переписывает стандартные классы для кнопки.
 * `method('methodName')` - при клике форма будет отправлена на заданный метод в рамках текущего экрана.
-* `icon('icon-wallet)` - задает иконку для кнопки.
+* `icon('wallet)` - задает иконку для кнопки.
  
