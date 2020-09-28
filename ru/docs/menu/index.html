@@ -329,7 +329,7 @@ ItemMenu::label('Example')
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);</code></pre>
 <h4><a href="#vneshniy-vid" name="vneshniy-vid">Внешний вид</a></h4>
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('icon-heart');</code></pre>
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');</code></pre>
 <p>Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
 <h3><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h3>
@@ -339,7 +339,7 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
 <h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
 <p>Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 <pre><code class="language-php">ItemMenu::label('Comments')
-    -&gt;icon('icon-bubbles')
+    -&gt;icon('bubbles')
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {
         return 10;

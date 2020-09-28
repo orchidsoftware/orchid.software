@@ -329,7 +329,7 @@ depending on the availability of rights or other circumstances, for this:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);</code></pre>
 <h4><a href="#appearance" name="appearance">Appearance</a></h4>
 <p>For a menu item, you can specify a graphic icon with:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('icon-heart');</code></pre>
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');</code></pre>
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
 <pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
 <h3><a href="#display-order" name="display-order">Display order</a></h3>
@@ -339,7 +339,7 @@ ItemMenu::label('First')-&gt;sort(4);</code></pre>
 <h3><a href="#badge-notifications" name="badge-notifications">Badge notifications</a></h3>
 <p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
 <pre><code class="language-php">ItemMenu::label('Comments')
-    -&gt;icon('icon-bubbles')
+    -&gt;icon('bubbles')
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {
         return 10;

@@ -397,7 +397,7 @@ class EmailSenderScreen extends Screen
     {
         return [
             Button::make('Send Message')
-                -&gt;icon('icon-paper-plane')
+                -&gt;icon('paper-plane')
                 -&gt;method('sendMessage')
         ];
     }
@@ -490,7 +490,7 @@ public function registerMainMenu(): array
         // Other items...
 
         ItemMenu::label('Email sender')
-            -&gt;icon('icon-envelope-letter')
+            -&gt;icon('envelope-letter')
             -&gt;route('platform.email')
             -&gt;title('Tools')
     ];

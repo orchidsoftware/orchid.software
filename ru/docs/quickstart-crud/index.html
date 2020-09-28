@@ -385,17 +385,17 @@ class PostEditScreen extends Screen
     {
         return [
             Button::make('Create post')
-                -&gt;icon('icon-pencil')
+                -&gt;icon('pencil')
                 -&gt;method('createOrUpdate')
                 -&gt;canSee(!$this-&gt;exists),
 
             Button::make('Update')
-                -&gt;icon('icon-note')
+                -&gt;icon('note')
                 -&gt;method('createOrUpdate')
                 -&gt;canSee($this-&gt;exists),
 
             Button::make('Remove')
-                -&gt;icon('icon-trash')
+                -&gt;icon('trash')
                 -&gt;method('remove')
                 -&gt;canSee($this-&gt;exists),
         ];
@@ -550,7 +550,7 @@ class PostListScreen extends Screen
     {
         return [
             Link::make('Create new')
-                -&gt;icon('icon-pencil')
+                -&gt;icon('pencil')
                 -&gt;route('platform.post.edit')
         ];
     }
