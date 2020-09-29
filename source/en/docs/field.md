@@ -464,6 +464,14 @@ Example:
 Quill::make('html');
 ``` 
 
+There are 6 groups of controls available:
+
+```php
+Quill::make('html')
+    ->toolbar(["text", "color", "header", "list", "format", "media"]);
+``` 
+
+
 ## Markdown Editor
    
 Editor for lightweight markup language, created with the goal of writing the most readable and easy to edit text, but suitable for converting into languages for advanced publications.
