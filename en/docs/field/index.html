@@ -563,6 +563,9 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <p>Such an editor allows you to insert pictures, tables, specify styles for text, video.</p>
 <p>Example:</p>
 <pre><code class="language-php">Quill::make('html');</code></pre>
+<p>There are 6 groups of controls available:</p>
+<pre><code class="language-php">Quill::make('html')
+    -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);</code></pre>
 <h2><a href="#markdown-editor" name="markdown-editor">Markdown Editor</a></h2>
 <p>Editor for lightweight markup language, created with the goal of writing the most readable and easy to edit text, but suitable for converting into languages for advanced publications.</p>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
