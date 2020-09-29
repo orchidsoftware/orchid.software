@@ -467,6 +467,14 @@ DateTimeZone::PER_COUNTRY;
 Quill::make('html');
 ``` 
 
+Доступно 6 групп элементов управления:
+
+```php
+Quill::make('html')
+    ->toolbar(["text", "color", "header", "list", "format", "media"]);
+``` 
+
+
 ## Markdown редактор
 
 Редактор для облегчённого языка разметки,
