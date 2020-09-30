@@ -282,13 +282,12 @@ For example, the application is located at <code>example.com</code>, and the pla
 ],</code></pre>
 <p>You can add/change intermediate layers (middleware) for the graphical interface.
 Currently, two groups of <code>public</code> can be seen by an unauthorized user,
-for example, the "Login" or "Password Recovery" page and <code>private</code> which, on the contrary, only authorized users to see.</p>
+for example, the "Login" page and <code>private</code> which, on the contrary, only authorized users to see.</p>
 <p>You can add as many new intermediate layers as you like.
 for example, the filtering layer requests only from the white list of IP addresses.</p>
 <h2><a href="#login-page" name="login-page">Login page</a></h2>
 <pre><code class="language-php">'auth' =&gt; true,</code></pre>
-<p>It is possible to completely disable the supplied authorization form and make your own, for example, using the command:</p>
-<pre><code class="language-php">php artisan ui:auth</code></pre>
+<p>It is possible to completely disable the supplied authorization form and make your own, for example, using the package <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a>.</p>
 <h2><a href="#home-page" name="home-page">Home page</a></h2>
 <p>The main page of the application is recorded in the form of the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
