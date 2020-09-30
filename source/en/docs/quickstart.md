@@ -81,7 +81,7 @@ use App\Orchid\Screens\EmailSenderScreen;
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 ```
 
-After we have registered a new route, you can go to the browser at `/dashboard/email`,
+After we have registered a new route, you can go to the browser at `/admin/email`,
 to look at the empty screen, fill it with the elements.
 
 Add a name and description:

@@ -123,7 +123,7 @@ Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
 
-Now the screens are available for viewing at the address `/dashboard/post` and `/dashboard/posts`.
+Now the screens are available for viewing at the address `/admin/post` and `/admin/posts`.
 The resulting screens currently have no data, no actions, edit the `PostEditScreen` for viewing by adding the name, description and required fields:
 
 ```php

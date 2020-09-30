@@ -68,8 +68,8 @@ public function query(): array
 
 Now the data will be different, depending on the parameters in the `url` address, for example:
 
-* `http://localhost:8000/dashboard/posts?sort=id` - Records in ascending order of identification number
-* `http://localhost:8000/dashboard/posts?sort=-id` - Sort descending
+* `http://localhost:8000/admin/posts?sort=id` - Records in ascending order of identification number
+* `http://localhost:8000/admin/posts?sort=-id` - Sort descending
 
 > **Note.** In this way, you cannot sort related models.
 

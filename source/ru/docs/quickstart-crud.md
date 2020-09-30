@@ -122,7 +122,7 @@ Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
 
-Теперь экраны доступны для просмотра по адресу `/dashboard/post` и `/dashboard/posts`.
+Теперь экраны доступны для просмотра по адресу `/admin/post` и `/admin/posts`.
 Полученные экраны на текущий момент не имеют, ни данных, ни действий. Отредактируем `PostEditScreen` для просмотра, добавив название, описание и требуемые поля:
 
 ```php

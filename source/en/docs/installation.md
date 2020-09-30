@@ -66,7 +66,7 @@ If you haven't installed a server (Nginx, Apache, etc.) to run the project, you 
 php artisan serve
 ```
 
-Open a browser and go to `http://localhost:8000/dashboard`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
+Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
 > **Note.** Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file `config/platform.php` or `.env` file. It allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`.
  
