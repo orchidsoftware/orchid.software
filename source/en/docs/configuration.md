@@ -52,7 +52,7 @@ It provides the ability to change the `dashboard` prefix to any other name, such
 
 You can add/change intermediate layers (middleware) for the graphical interface.
 Currently, two groups of `public` can be seen by an unauthorized user,
-for example, the "Login" or "Password Recovery" page and `private` which, on the contrary, only authorized users to see.
+for example, the "Login" page and `private` which, on the contrary, only authorized users to see.
 
 
 You can add as many new intermediate layers as you like.
@@ -65,11 +65,7 @@ for example, the filtering layer requests only from the white list of IP address
 'auth' => true,
 ```
 
-It is possible to completely disable the supplied authorization form and make your own, for example, using the command:
-
-```php
-php artisan ui:auth
-```
+It is possible to completely disable the supplied authorization form and make your own, for example, using the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart).
 
 ## Home page
 
