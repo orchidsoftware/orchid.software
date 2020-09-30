@@ -48,8 +48,8 @@ A performance like a single page application. Transitions without reloading the 
 @section('main.col5.title','Data Search')
 @section('main.col5.description','Find the information you need from any page. Integrated Laravel Scout takes care of the search results.')
 
-@section('main.col6.title','Role Management')
-@section('main.col6.description','Differentiation of user access rights or entire groups combined with policies enables easy management in development and support.')
+@section('main.col6.title','Security Permissions')
+@section('main.col6.description','Can be used to enable or disable whole screens, or user interface behaviors, based on a user’s identity and corresponding role membership.')
 
 @section('main.col7.title','User Impersonation')
 @section('main.col7.description','Does your customer have a problem? You can easily repeat it, authenticated in the system as one of your users.')
