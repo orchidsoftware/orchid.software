@@ -35,6 +35,8 @@ WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
 
 After that, you need to remove the column data from your user model.
 
+------
+
 # Upgrading to 8.0 from 7.x
 
 ## Updating dependencies
