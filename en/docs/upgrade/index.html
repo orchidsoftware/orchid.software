@@ -236,6 +236,12 @@
                 <a href="#updating-dependencies">Updating dependencies</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#auth">Auth</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#updating-dependencies">Updating dependencies</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#tinymce-editor">TinyMCE editor</a>
             </li>
                     <li class="anchor-h2">
@@ -267,10 +273,26 @@
             </li>
             </ul>
     <hr>
-<h1>Upgrading to 8.0 from 7.x</h1>
 <blockquote>
 <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
+<h1>Upgrading to 9.0 from 8.x</h1>
+<h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
+<p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^9.0</code></p>
+<h2><a href="#auth" name="auth">Auth</a></h2>
+<p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">laravel/ui</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui ha</code>s been removed. And with it, the ability to recover your password.</p>
+<p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.</p>
+<p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following <code>SQL</code> code:</p>
+<pre><code class="language-php">ALTER TABLE "users"
+    DROP COLUMN "last_login"
+    DROP COLUMN "uses_two_factor_auth"
+    DROP COLUMN "two_factor_secret_code"
+    DROP COLUMN "two_factor_recovery_code";
+
+DELETE FROM migrations
+WHERE migration = '2020_06_07_184338_added_columns_for_2fa';</code></pre>
+<p>After that, you need to remove the column data from your user model.</p>
+<h1>Upgrading to 8.0 from 7.x</h1>
 <h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^8.0</code></p>
 <h2><a href="#tinymce-editor" name="tinymce-editor">TinyMCE editor</a></h2>
