@@ -67,7 +67,7 @@ lang: ru
 'auth' => true,
 ```
 
-Существует возможность и вовсе отключить поставляемую форму авторизации и сделать собственную, например с помощью пакета [Jetstream](https://laravel.com/docs/8.x/authentication#authentication-quickstart).
+Существует возможность и вовсе отключить поставляемую форму авторизации и сделать собственную, например с помощью пакета [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart).
 
 
 ## Главная страница
