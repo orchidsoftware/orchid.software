@@ -5,10 +5,37 @@ section: main
 lang: en
 ---
 
-# Upgrading to 8.0 from 7.x
-
-
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
+
+
+# Upgrading to 9.0 from 8.x
+
+## Updating dependencies
+
+В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^9.0`
+
+## Auth
+
+The Laravel team has introduced new products [Jetstream](https://github.com/laravel/jetstream) and [Fortify](https://github.com/laravel/fortify), which replace the earlier [laravel/ui](https://github.com/laravel/ui). To ensure compatibility with various options, the dependency on `laravel/ui ha`s been removed. And with it, the ability to recover your password.
+
+New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.
+
+Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following `SQL` code:
+
+```php
+ALTER TABLE "users"
+    DROP COLUMN "last_login"
+    DROP COLUMN "uses_two_factor_auth"
+    DROP COLUMN "two_factor_secret_code"
+    DROP COLUMN "two_factor_recovery_code";
+
+DELETE FROM migrations
+WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
+```
+
+After that, you need to remove the column data from your user model.
+
+# Upgrading to 8.0 from 7.x
 
 ## Updating dependencies
 
