@@ -71,36 +71,6 @@ It is possible to completely disable the supplied authorization form and make yo
 php artisan ui:auth
 ```
 
-
-## Two-factor authentication
-
-Two-factor authentication provides your users with additional account security by requiring them to provide a token at logon time in addition to their username and password.
-
-By default, the TOTP algorithm is used as a two-factor authentication provider. However, you can implement your own two-factor authentication provider if you want.
-
-
-```php
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Orchid\Support\Facades\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Dashboard::useTwoFactorAuth();
-    }
-}
-```
-
-Calling this method will add a token check for accounts during authorization.
-
 ## Home page
 
 The main page of the application is recorded in the form of the **name route** that the user will see when entering or clicking on logos and links.
