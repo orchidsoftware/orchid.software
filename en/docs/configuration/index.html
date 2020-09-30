@@ -245,9 +245,6 @@
                 <a href="#login-page">Login page</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#two-factor-authentication">Two-factor authentication</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#home-page">Home page</a>
             </li>
                     <li class="anchor-h2">
@@ -292,27 +289,6 @@ for example, the filtering layer requests only from the white list of IP address
 <pre><code class="language-php">'auth' =&gt; true,</code></pre>
 <p>It is possible to completely disable the supplied authorization form and make your own, for example, using the command:</p>
 <pre><code class="language-php">php artisan ui:auth</code></pre>
-<h2><a href="#two-factor-authentication" name="two-factor-authentication">Two-factor authentication</a></h2>
-<p>Two-factor authentication provides your users with additional account security by requiring them to provide a token at logon time in addition to their username and password.</p>
-<p>By default, the TOTP algorithm is used as a two-factor authentication provider. However, you can implement your own two-factor authentication provider if you want.</p>
-<pre><code class="language-php">namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Orchid\Support\Facades\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Dashboard::useTwoFactorAuth();
-    }
-}</code></pre>
-<p>Calling this method will add a token check for accounts during authorization.</p>
 <h2><a href="#home-page" name="home-page">Home page</a></h2>
 <p>The main page of the application is recorded in the form of the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
