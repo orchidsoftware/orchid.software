@@ -12,7 +12,7 @@ lang: en
 
 ## Updating dependencies
 
-В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^9.0`
+In your `composer.json` file, update the `orchid/platform` dependency to `^9.0`
 
 ## Auth
 
