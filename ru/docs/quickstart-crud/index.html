@@ -318,7 +318,7 @@ Route::screen('post/{post?}', PostEditScreen::class)
 
 Route::screen('posts', PostListScreen::class)
     -&gt;name('platform.post.list');</code></pre>
-<p>Теперь экраны доступны для просмотра по адресу <code>/dashboard/post</code> и <code>/dashboard/posts</code>.
+<p>Теперь экраны доступны для просмотра по адресу <code>/admin/post</code> и <code>/admin/posts</code>.
 Полученные экраны на текущий момент не имеют, ни данных, ни действий. Отредактируем <code>PostEditScreen</code> для просмотра, добавив название, описание и требуемые поля:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
