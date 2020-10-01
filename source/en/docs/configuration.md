@@ -38,7 +38,7 @@ Remember that your web server settings must be configured properly.
 'prefix' => env('DASHBOARD_PREFIX', 'dashboard'),
 ```
  
-It provides the ability to change the `dashboard` prefix to any other name, such as` admin` or `administrator`.
+It provides the ability to change the `dashboard` prefix to any other name, such as `admin` or `administrator`.
 
 
 ## Middleware
