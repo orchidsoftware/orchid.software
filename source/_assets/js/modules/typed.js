@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         strings: [
             'admin panels',
-            'back-offices application',
+            'back-offices applications',
             'control panels',
             'crud interfaces',
             'user panels',
