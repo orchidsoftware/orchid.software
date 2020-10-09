@@ -12,6 +12,10 @@ class GenerateSitemap
         '/assets/*',
         '*/favicon.ico',
         '*/404',
+        '*.svg',
+        '*.xml',
+        '*.txt',
+        '/CNAME'
     ];
 
     public function handle(Jigsaw $jigsaw)
@@ -30,7 +34,11 @@ class GenerateSitemap
             ->reject(function ($path) {
                 return $this->isExcluded($path);
             })->each(function ($path) use ($baseUrl, $sitemap) {
-                $sitemap->addItem(rtrim($baseUrl, '/').Str::start($path, '/'), time(), Sitemap::DAILY);
+
+             $base = rtrim($baseUrl, '/');
+             $path = Str::finish(Str::start($path, '/'), '/');
+
+              $sitemap->addItem($base.$path, time(), Sitemap::DAILY);
             });
 
         $sitemap->write();
