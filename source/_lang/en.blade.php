@@ -6,11 +6,11 @@
 
 @section('main.description')
     <span class="font-bold">Develop web applications</span><br>
-    faster than ever
+    not admin panels
 @endsection
 
 @section('main.lead')
-    It is a package for creating admin applications, which abstracts the standard functionality required 
+    It is a package for creating admin applications, which abstracts the standard functionality required
     for business applications, CMS, and E-commerce systems.
 @endsection
 
@@ -61,7 +61,7 @@ A performance like a single page application. Transitions without reloading the 
 @section('github.description','Everything that we do is 100% composed of open and free code, jointly developed by people from all over the world.')
 @section('github.button','View on GitHub')
 @section('github.help')
-Since a healthy open source ecosystem creates real value for the software industry, 
+Since a healthy open source ecosystem creates real value for the software industry,
 I believe it is fair for the developers <a href="https://www.paypal.me/tabuna/10usd" target="_blank">to reward their work with real money</a>.
 @endsection
 
