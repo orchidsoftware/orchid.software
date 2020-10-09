@@ -2,7 +2,7 @@
 
 @section('main.title')
     Build
-    <span class="b-b b-2x b-primary font-bold" id="typed">back-office applications</span>
+    <span class="b-b b-2x b-primary font-bold" id="typed">admin panel</span>
     <br>
     with Laravel Orchid
 @endsection
