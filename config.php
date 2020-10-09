@@ -43,7 +43,10 @@ return [
         $url .= $pattern;
       }
 
-      return  $page->baseUrl . str_replace('//', '/', parse_url($url,PHP_URL_PATH));
+
+      $url = $page->baseUrl . str_replace('//', '/', parse_url($url,PHP_URL_PATH));
+
+      return Str::finish($url, '/');
     },
 
     'editGitHub' => function($page) {
