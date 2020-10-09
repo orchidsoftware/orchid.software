@@ -34,16 +34,16 @@ return [
 
       $pattern = "/$locale/";
 
-      $url = str_replace([
-         '/ru/',
-         '/en/',
-      ], $pattern, $page->_meta->url);
+      $url = str_ireplace([
+        $page->baseUrl . '/ru',
+        $page->baseUrl . '/en',
+      ], $pattern, $page->getUrl());
 
       if(!Str::contains($url,$pattern)){
         $url .= $pattern;
       }
 
-      return str_replace('//', '/', $url);
+      return  $page->baseUrl . str_replace('//', '/', parse_url($url,PHP_URL_PATH));
     },
 
     'editGitHub' => function($page) {
