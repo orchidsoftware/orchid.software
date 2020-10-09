@@ -30,6 +30,22 @@ return [
         return Str::startsWith($path, 'http') ? $path : '/'.trimPath($path);
     },
 
+    'ahref' => function($page, $locale){
+
+      $pattern = "/$locale/";
+
+      $url = str_replace([
+         '/ru/',
+         '/en/',
+      ], $pattern, $page->_meta->url);
+
+      if(!Str::contains($url,$pattern)){
+        $url .= $pattern;
+      }
+
+      return str_replace('//', '/', $url);
+    },
+
     'editGitHub' => function($page) {
 
         $path = trimPath($page->getPath());

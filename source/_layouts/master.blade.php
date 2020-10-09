@@ -20,9 +20,9 @@
         <meta name="twitter:image:alt" content="{{ $page->siteName }}">
         <meta name="twitter:card" content="summary_large_image">
 
-        @if ($page->docsearchApiKey && $page->docsearchIndexName)
-            <meta name="generator" content="tighten_jigsaw_doc">
-        @endif
+        <link rel="alternate" href="{{ $page->ahref('ru') }}" hreflang="ru"/>
+        <link rel="alternate" href="{{ $page->ahref('en') }}" hreflang="en"/>
+        <link rel="alternate" href="{{ $page->ahref('en') }}" hreflang="x-default"/>
 
         <title>{{ $page->title ?  $page->title . ' | ' : '' }}{{ $page->siteName }}</title>
 
