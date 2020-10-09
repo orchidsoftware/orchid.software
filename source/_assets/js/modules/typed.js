@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     var options = {
         loop: true,
         strings: [
-            'admin panel',
-            'back-office',
-            'control panel',
-            'crud interface',
-            'user panel',
-            'dashboard',
+            'admin panels',
+            'back-offices application',
+            'control panels',
+            'crud interfaces',
+            'user panels',
+            'dashboards',
         ],
         typeSpeed: 50
     };

@@ -1,7 +1,10 @@
 @section('lang','en')
 
 @section('main.title')
-    Platform for <span class="b-b b-2x b-primary font-bold" id="typed">back-office applications</span><br> on Laravel Framework
+    Build
+    <span class="b-b b-2x b-primary font-bold" id="typed">back-office applications</span>
+    <br>
+    with Laravel Orchid
 @endsection
 
 @section('main.description')
