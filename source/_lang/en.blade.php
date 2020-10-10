@@ -18,7 +18,7 @@
 @endsection
 
 @section('main.slogan')
-    Stop reinventing the wheel and wasting your time in building an own admin panel from scratch. 
+    Stop reinventing the wheel and wasting your time in building an own admin panel from scratch.<br>
     Focus on what really matters for you and start coding application logic right away!
 @endsection
 
