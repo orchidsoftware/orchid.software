@@ -13,8 +13,8 @@
 @endsection
 
 @section('main.lead')
-    It is a package for creating admin applications, which abstracts the standard functionality required
-    for business applications, CMS, and E-commerce systems.
+  A free Laravel package that abstracts standard business logic and allows code-driven rapid
+  application development of back office applications like admin panels and dashboards.
 @endsection
 
 @section('main.slogan')
