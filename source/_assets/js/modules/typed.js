@@ -8,14 +8,18 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         strings: [
             'admin panels',
-            'back office applications',
+            'dashboards',
             'control panels',
             'crud interfaces',
             'user panels',
-            'dashboards',
         ],
         typeSpeed: 50
     };
+
+
+    if(window.screen.width > 1000){
+        options.strings.push('back office applications');
+    }
 
     var typed = new Typed(document.getElementById('typed'), options);
 });
