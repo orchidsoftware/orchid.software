@@ -5,11 +5,11 @@ extends: _layouts.documentation
 section: main
 ---
 
-Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete, or a new message arrives. In this section, we 'll show you how to use them in your app.
+Notifications are a great way to let your users know what's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we'll show you how to use them in your app.
 
 ## Flash messages
 
-Flash notification is a one-time message that will be deleted upon next access.
+Flash notification is a one-time message that will be deleted upon the next access.
 Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.
 
 ORCHID has a convenient call and display notifications over one-time flash-data.
@@ -57,7 +57,7 @@ When used, several keys will be set per session:
 - 'flash_notification.level' - A string representing the type of notification
 
 
-The default display is already built into the template, but you can call it explicitly in the `blade` templates for this you must specify:
+The default display is already built into the template. Still, you can call it explicitly in the `blade` templates for this, you must specify:
 
 ```php
 @include('platform::partials.alert')
@@ -65,9 +65,9 @@ The default display is already built into the template, but you can call it expl
 
 ## Toast messages
 
-This is a small pop-up message in the upper right corner of the screen,
+It is a small pop-up message in the upper right corner of the screen,
 to briefly notify the user of the result.
-It is fully consistent with the one-time `Alert` messages, but has a different appearance and several additional methods:
+It is entirely consistent with the one-time `Alert` messages, but has a different appearance and several additional methods:
 
 ```php
 use Orchid\Support\Facades\Toast;
@@ -88,9 +88,8 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 
 ## Notifications in the admin panel
 
-The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
-can be added to any users even when they are offline. This is another great way to inform
-for example, for a task manager application to notify an employee about a new task.
+The notification in the administration panel differs from flash-messages. They are not deleted after viewing and
+can be added to any users even when they are offline. It is another excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
 You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.
 
