@@ -247,7 +247,7 @@
             </ul>
     <hr>
 <p>Files of various formats and extensions related to the recording are attachments</p>
-<p>Attachments can be attached to any model via links, for this you need to add a trait:</p>
+<p>Attachments can be attached to any model via links. For this, you need to add a trait:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -262,7 +262,7 @@ class Hostel extends Model
 <pre><code class="language-php">$item = Hostel::find(42);
 $item-&gt;attachment()-&gt;get();</code></pre>
 <h2><a href="#upload-example" name="upload-example">Upload example</a></h2>
-<p>In fact, you already have a route for downloading files (unless, of course, access to it is allowed)</p>
+<p>You already have a route for downloading files (unless, of course, access to it is allowed)</p>
 <p>An example of a controller method:</p>
 <pre><code class="language-php">use Orchid\Attachment\File;
 
@@ -273,16 +273,16 @@ public function upload(Request $request)
 
     return response()-&gt;json()
 }</code></pre>
-<p>This will automatically upload your file to the default repository (<code>public</code>) and create an entry in the database.</p>
+<p>It will automatically upload your file to the default repository (<code>public</code>) and create an entry in the database.</p>
 <pre><code class="language-php">$image = $item-&gt;attachment()-&gt;first();
 
 // Get the URL of the file
 $image-&gt;url();</code></pre>
 <h2><a href="#reload" name="reload">Reload</a></h2>
-<p>Thanks to the hash, attachments are not downloaded again, instead a link is created in the database to the required physical file,
+<p>Thanks to the hash, attachments are not downloaded again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
 <h2><a href="#remove" name="remove">Remove</a></h2>
-<p>Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won't be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed, if there no link to the file - it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
+<p>Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won't be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file - it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
 <p>Let's come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">"Manage file attachments"</a></p>
 <pre><code class="language-php">// app/Post.php
 
@@ -304,7 +304,7 @@ public function hero()
 {
     $post-&gt;hero()-&gt;delete();
 }</code></pre>
-<p>In case, when you have multiple attachments you should use <code>attachment</code> relation from the <code>Attachable</code> trait.</p>
+<p>When you have multiple attachments, you should use <code>attachment</code> relation from the <code>Attachable</code> trait.</p>
 <pre><code class="language-php">public function deleting(Post $post)
 {
     $post-&gt;attachment()-&gt;each-&gt;delete();
