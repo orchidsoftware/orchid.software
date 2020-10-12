@@ -452,7 +452,7 @@ Select::make('user')
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;title('Choose your idea');</code></pre>
-<p>For multiple selection, use the <code>multiple()</code> method</p>
+<p>For multiple selections, use the <code>multiple()</code> method.</p>
 <pre><code class="language-php">Relation::make('ideas.')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;multiple()
@@ -567,7 +567,7 @@ DateTimeZone::PER_COUNTRY;</code></pre>
 <pre><code class="language-php">Quill::make('html')
     -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);</code></pre>
 <h2><a href="#markdown-editor" name="markdown-editor">Markdown Editor</a></h2>
-<p>Editor for lightweight markup language, created with the goal of writing the most readable and easy to edit text, but suitable for converting into languages for advanced publications.</p>
+<p>Editor for the lightweight markup language. Created with the goal of writing the most readable and easy to edit text.  But suitable for converting into languages for advanced publications.</p>
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
 <p>Example:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
@@ -598,7 +598,7 @@ DateTimeZone::PER_COUNTRY;</code></pre>
         'name' =&gt; TextArea::make(),
     ]),</code></pre>
 <h2><a href="#code-editor" name="code-editor">Code editor</a></h2>
-<p>Field for writing program code with the ability to highlight.</p>
+<p>A field for writing program code with the ability to highlight.</p>
 <p><img src="/assets/img/ui/code.png" alt="Code"></p>
 <p>Example:</p>
 <pre><code class="language-php">Code::make('code');</code></pre>
@@ -636,7 +636,7 @@ DateTimeZone::PER_COUNTRY;</code></pre>
     -&gt;maxWidth(1000)
     -&gt;maxHeight(800);</code></pre>
 <h3><a href="#file-size-limit" name="file-size-limit">File size limit</a></h3>
-<p>To limit the size of the downloaded file, you must set the maximum value in <code>MB</code></p>
+<p>To limit the size of the downloaded file, you must set the maximum value in <code>MB</code>.</p>
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;maxFileSize(2);</code></pre>
 <h3><a href="#value" name="value">Value</a></h3>
@@ -696,7 +696,7 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 submit the form at the end of the screen.
 For such cases, there is a <code>Button</code> field. The <code>Button</code> field cannot have any
 values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
-and to add a simple link in the form.</p>
+And to add a simple link in the form.</p>
 <p>An example of using the modal window <code>addNewPayment</code> added earlier to the screen:</p>
 <pre><code class="language-php">ModalToggle::make('Add Payment')
     -&gt;modal('addNewPayment')
