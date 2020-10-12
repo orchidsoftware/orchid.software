@@ -243,7 +243,7 @@
             </li>
             </ul>
     <hr>
-<p>Describing form fields can be a naughty and difficult exercise to easily modify and reuse, using a special <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>html</code> code.</p>
+<p>Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>HTML</code> code.</p>
 <h2><a href="#main-use" name="main-use">Main use</a></h2>
 <p>The form feature set and data source must be passed to build:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
@@ -256,7 +256,7 @@ $builder = new Builder([
 $html = $builder-&gt;generateForm();</code></pre>
 <h2><a href="#data-binding" name="data-binding">Data binding</a></h2>
 <p>To specify the value of an element, you must specify the data in the source.
-The data will be automatically replaced by the specified key.</p>
+The specified key will automatically replace the data.</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Repository;
@@ -272,7 +272,7 @@ $repository = new Repository([
 $builder = new Builder($fields, $repository);
 
 $html = $builder-&gt;generateForm();</code></pre>
-<p>At the same time it is possible to enter deep into the object using <code>dot</code>-notation.</p>
+<p>It is also possible to enter deep into the object using <code>dot</code>-notation.</p>
 <pre><code class="language-php">$fields = [
     Input::make('name.ru'),
 ];
@@ -367,7 +367,7 @@ $html = $input-&gt;render(); // html string</code></pre>
 $html = $input-&gt;render();</code></pre>
 <p>After we refresh the page, a new title is displayed on it,
 instead of the default, but neither placeholder nor value was applied.
-This is because they were not specified in the <code>inlineAttributes</code>, fix this:</p>
+It is because they were not specified in the <code>inlineAttributes</code>, fix this:</p>
 <pre><code class="language-php">/**
  * Attributes available for a particular tag.
  *
