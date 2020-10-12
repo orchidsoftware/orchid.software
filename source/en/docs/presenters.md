@@ -1,12 +1,12 @@
 ---
 title: Presenters
-description: Presenter is a class that wraps an object in order to add functionality to it.
+description: The presenter is a class that wraps an object in order to add functionality to it.
 extends: _layouts.documentation
 section: main
 lang: en
 ---
 
-Presenter is a class that wraps an object in order to add functionality to it.
+The presenter is a class that wraps an object in order to add functionality to it.
 
 Let's say we have a client model:
 ```php
@@ -56,7 +56,7 @@ $presenter->fullName();
 
 > **Note** that the representative receives the `firstName` and `lastName` properties of the model because it does not have these properties.
 
-Usually, there is no need to create and transfer a representative each time separately, for this we indicate this creation in the model:
+Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this creation in the model:
 
 ```php
 namespace App;
