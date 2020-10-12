@@ -253,7 +253,7 @@
             </ul>
     <hr>
 <h2><a href="#introduction" name="introduction">Introduction</a></h2>
-<p>The platform's main element is the screens described by the layout hierarchy, according to which Each element has properties that affect its appearance and behavior.</p>
+<p>The platform's main element is the screens described by the layout hierarchy. Each component has properties that affect its appearance and behavior.</p>
 <p>Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided <code>templates</code> (Layouts) and all you need to do is determine what data will be shown in a particular template.</p>
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
 <h2><a href="#creating-screen" name="creating-screen">Creating Screen</a></h2>
@@ -317,7 +317,7 @@ class Idea extends Screen
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
-<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request, in that instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
+<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
 <pre><code class="language-php">Method   | URI                      | Name
 ---------+--------------------------+--------------
 GET|POST | dashboard/idea/{method?} | platform.idea</code></pre>
@@ -343,14 +343,14 @@ Correspondingly, the name "edit" in the address falls under it.
 The result will be a redirect to "dashboard/idea/".</p>
 <h2><a href="#data-acquisition" name="data-acquisition">Data Acquisition</a></h2>
 <p>The data to be displayed on the screen defined in the <code>query</code> method, where sampling or generation of information should occur.
-The transfer carried out in the form of an array, the keys will be available in layouts, for their control.</p>
+The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.</p>
 <pre><code class="language-php">public function query() : array
 {
     return [
         'name'  =&gt; 'Alexandr Chernyaev',
     ];
 }</code></pre>
-<p>The source can be the <code>Eloquent</code> model, for this you need to add the trait <code>AsSource</code>:</p>
+<p>The source can be the <code>Eloquent</code> model. For this, you need to add the trait <code>AsSource</code>:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -402,7 +402,7 @@ use Orchid\Screen\Actions\Button;
 Button::make('New function')
     -&gt;method('create');
 
-// By clicking you will be redirected to the specified address
+// By clicking, you will be redirected to the specified address
 use Orchid\Screen\Actions\Link;
 
 Link::make('External reference')
@@ -416,9 +416,9 @@ ModalToggle::make('Modal window')
     -&gt;modal('CreateUserModal')
     -&gt;method('save');</code></pre>
 <h2><a href="#layouts" name="layouts">Layouts</a></h2>
-<p>Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.</p>
+<p>Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.</p>
 <p>Each layout may include a different layout, that is, nesting.
-For example, the screen divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
+For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.</p>
 <pre><code class="language-php">public function layout() : array
 {
@@ -438,7 +438,7 @@ You can come up with your examples of attachments.</p>
         ]),
     ];
 }</code></pre>
-<p>Sometimes you will want to use the same layout for different things, to reduce code duplication you can create a configurable layout.
+<p>Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a configurable design.
 To pass custom parameters to your layout you can use the class constructor to handle them:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
@@ -489,7 +489,7 @@ class ReusableEditLayout extends Rows
         ];
     }
 }</code></pre>
-<p>Instances can be used in the same way but they can accept parameters</p>
+<p>Instances can be used in the same way, but they can accept parameters</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
