@@ -241,10 +241,10 @@
             </ul>
     <hr>
 <h2><a href="#using-full-text-search" name="using-full-text-search">Using Full-Text Search</a></h2>
-<p>The platform comes with a package <a href="https://github.com/laravel/scout">Laravel Scout</a> which is an abstraction for full-text search in your <code>Eloquent</code> models.
-Since <strong><code>Scout</code> does not contain the search driver itself</strong>, you need to supply and specify the required solution, these can be elasticsearch, algolia, sphinx or other solutions.</p>
+<p>The platform comes with a package <a href="https://github.com/laravel/scout">Laravel Scout</a>, which is an abstraction for full-text search in your <code>Eloquent</code> models.
+Since <strong><code>Scout</code> does not contain the search driver itself</strong>, you need to supply and specify the required solution. These can be elasticsearch, algolia, sphinx, or other solutions.</p>
 <blockquote>
-<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
+<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
 </blockquote>
 <p>In order for the application to have information about which models should participate in the search, it is necessary to register them with the service provider:</p>
 <pre><code class="language-php">namespace App\Providers;
