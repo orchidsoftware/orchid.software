@@ -119,7 +119,7 @@ class PostListLayout extends Table
 
 After that, the column heading will respond to clicking and change the sorting position.
 
-The trait `Filterable`, allows you to set not only sorting, but also simple `Http` filtering, to set it back to the model and add a new property:
+The trait `Filterable`, allows you to set not only sorting. But also simple `Http` filtering, to set it back to the model and add a new property:
  
  ```php
 /**
@@ -144,8 +144,8 @@ And then call the new `filter` method with a text type for the header column:
     }),
  ```
  
-After that, an icon will open next to the column name opening the text field, setting its value in which you can filter the results.
+After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.
  
-> **Please note.** Such an expression will be performed by `sql` with `like` filtering, in order for the search to be case-insensitive you need to check the database encoding.
+> **Please note.** Such an expression will be performed by `sql` with `like` filtering. In order for the search to be case-insensitive, you need to check the database encoding.
 
 Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to create complex filters, it is necessary to familiarize yourself with the [Filtering](/en/docs/filters) section.
