@@ -8,7 +8,7 @@ section: main
 ## Introduction
 
 
-The platform's main element is the screens described by the layout hierarchy, according to which Each element has properties that affect its appearance and behavior.
+The platform's main element is the screens described by the layout hierarchy. Each component has properties that affect its appearance and behavior.
 
 Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided `templates` (Layouts) and all you need to do is determine what data will be shown in a particular template.
 
@@ -91,7 +91,7 @@ use App\Orchid\Screens\Idea;
 Route::screen('/idea', Idea::class)->name('platform.idea');
 ```
 
-Adding a screen is slightly different from the usual registration, for example, a `GET` request, in that instead of a single address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
+Adding a screen is slightly different from the usual registration, for example, a `GET` request. Instead of a single address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
 
 ```php
 Method   | URI                      | Name
@@ -136,7 +136,7 @@ The result will be a redirect to "dashboard/idea/".
 ## Data Acquisition
 
 The data to be displayed on the screen defined in the `query` method, where sampling or generation of information should occur.
-The transfer carried out in the form of an array, the keys will be available in layouts, for their control.
+The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.
 
 ```php
 public function query() : array
@@ -147,7 +147,7 @@ public function query() : array
 }
 ```
 
-The source can be the `Eloquent` model, for this you need to add the trait `AsSource`:
+The source can be the `Eloquent` model. For this, you need to add the trait `AsSource`:
 
 ```php
 namespace App;
@@ -221,7 +221,7 @@ use Orchid\Screen\Actions\Button;
 Button::make('New function')
     ->method('create');
 
-// By clicking you will be redirected to the specified address
+// By clicking, you will be redirected to the specified address
 use Orchid\Screen\Actions\Link;
 
 Link::make('External reference')
@@ -239,10 +239,10 @@ ModalToggle::make('Modal window')
 
 ## Layouts
 
-Layouts are responsible for the appearance of the screen, that is, how and in what form the data will be displayed.
+Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.
 
 Each layout may include a different layout, that is, nesting.
-For example, the screen divided into two columns, in the left-field for filling, on the right, there are a reference table and a graph.
+For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.
 
 
@@ -266,7 +266,7 @@ public function layout() : array
     ];
 }
 ```
-Sometimes you will want to use the same layout for different things, to reduce code duplication you can create a configurable layout.
+Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a configurable design.
 To pass custom parameters to your layout you can use the class constructor to handle them:
 ```php
 namespace App\Orchid\Layouts;
@@ -319,7 +319,7 @@ class ReusableEditLayout extends Rows
     }
 }
 ```
-Instances can be used in the same way but they can accept parameters
+Instances can be used in the same way, but they can accept parameters
 ```php
 public function layout(): array
 {
