@@ -6,7 +6,7 @@ section: main
 ---
 Files of various formats and extensions related to the recording are attachments
 
-Attachments can be attached to any model via links, for this you need to add a trait:
+Attachments can be attached to any model via links. For this, you need to add a trait:
 
 ```php
 namespace App;
@@ -31,7 +31,7 @@ $item->attachment()->get();
 
 ## Upload example
 
-In fact, you already have a route for downloading files (unless, of course, access to it is allowed)
+You already have a route for downloading files (unless, of course, access to it is allowed)
 
 An example of a controller method:
 
@@ -48,7 +48,7 @@ public function upload(Request $request)
 }
 ```
 
-This will automatically upload your file to the default repository (`public`) and create an entry in the database.
+It will automatically upload your file to the default repository (`public`) and create an entry in the database.
 
 ```php
 $image = $item->attachment()->first();
@@ -60,12 +60,12 @@ $image->url();
 
 ## Reload
 
-Thanks to the hash, attachments are not downloaded again, instead a link is created in the database to the required physical file,
+Thanks to the hash, attachments are not downloaded again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.
 
 ## Remove
 
-Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model `deleting` events manually. If you delete a row from the `attachments` table, the file won't be deleted. To clear your attachments, you need to use `delete()` function on the `Attachment` model. In that case, an additional check will proceed, if there no link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
+Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model `deleting` events manually. If you delete a row from the `attachments` table, the file won't be deleted. To clear your attachments, you need to use `delete()` function on the `Attachment` model. In that case, an additional check will proceed. If there no link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
 
 Let's come back to our example with `hero` relation from ["Manage file attachments"](/en/docs/quickstart-files)
 
@@ -103,7 +103,7 @@ public function deleting(Post $post)
 }
 ```
 
-In case, when you have multiple attachments you should use `attachment` relation from the `Attachable` trait.
+When you have multiple attachments, you should use `attachment` relation from the `Attachable` trait.
 
 ```php
 public function deleting(Post $post)
