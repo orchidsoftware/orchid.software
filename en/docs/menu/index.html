@@ -261,11 +261,11 @@
             </li>
             </ul>
     <hr>
-<p>The platform panel menu is an important element of the graphical user interface, because it is the main navigation through the project.</p>
+<p>The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.</p>
 <p>In order to add a new item to the menu, you need to inform our application <code>Dashboard</code>.
 To do this, call the method in the menu properties and pass arguments:</p>
 <ul><li>The name of the menu to which you want to attach the item</li>
-<li>A menu object containing the name, links, etc.</li>
+<li>A menu object is containing the name, links, etc.</li>
 </ul><h2><a href="#example" name="example">Example</a></h2>
 <p>The default menu registration takes place in the <code>app/Orchid/PlatformProvider.php</code>:</p>
 <pre><code class="language-php">namespace App\Orchid;
@@ -284,11 +284,11 @@ class PlatformProvider extends OrchidServiceProvider
         ];
     }
 }</code></pre>
-<p>The methods <code>registerMainMenu</code>, <code>registerProfileMenu</code> and <code>registerSystemMenu</code> must return the menu items that are required to be displayed.</p>
+<p>The methods <code>registerMainMenu</code>, <code>registerProfileMenu</code>, and <code>registerSystemMenu</code> must return the menu items that are required to be displayed.</p>
 <h2><a href="#location" name="location">Location</a></h2>
-<p>Let's look at an example, initially we create an <code>ItemMenu</code> object, setting various parameters, and then add the item to a specific place.
+<p>Let's look at an example. Initially we create an <code>ItemMenu</code> object, setting various parameters, and then add the item to a specific place.
 There are several such places:</p>
-<ul><li><strong>registerMainMenu</strong> - The menu displayed on each page on the left side.</li>
+<ul><li><strong>registerMainMenu</strong> - The menu is displayed on each page on the left side.</li>
 <li><strong>registerSystemMenu</strong> - The menu that forms the navigation on the system page.</li>
 <li><strong>registerProfileMenu</strong> - The menu displayed when you click on the profile.</li>
 </ul><h2><a href="#options" name="options">Options</a></h2>
