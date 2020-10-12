@@ -8,10 +8,9 @@ section: main
 ## Introduction
 
 
-The main element of the platform is the screens described by the layout hierarchy, according to which
-Each element has properties that affect its appearance and behavior.
+The platform's main element is the screens described by the layout hierarchy, according to which Each element has properties that affect its appearance and behavior.
 
-Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided `templates` (Layouts) and all you need to do is to determine what data will be shown in a particular template.
+Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided `templates` (Layouts) and all you need to do is determine what data will be shown in a particular template.
 
 
 ![Screens](https://orchid.software/assets/img/scheme/screens.jpg)
