@@ -5,14 +5,14 @@ extends: _layouts.documentation
 section: main
 ---
 
-The platform panel menu is an important element of the graphical user interface, because it is the main navigation through the project.
+The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.
 
 
 In order to add a new item to the menu, you need to inform our application `Dashboard`.
 To do this, call the method in the menu properties and pass arguments:
 
 * The name of the menu to which you want to attach the item
-* A menu object containing the name, links, etc.
+* A menu object is containing the name, links, etc.
 
 ## Example
 
@@ -37,14 +37,14 @@ class PlatformProvider extends OrchidServiceProvider
 }
 ```
 
-The methods `registerMainMenu`, `registerProfileMenu` and `registerSystemMenu` must return the menu items that are required to be displayed.
+The methods `registerMainMenu`, `registerProfileMenu`, and `registerSystemMenu` must return the menu items that are required to be displayed.
 
 ## Location
 
-Let's look at an example, initially we create an `ItemMenu` object, setting various parameters, and then add the item to a specific place.
+Let's look at an example. Initially we create an `ItemMenu` object, setting various parameters, and then add the item to a specific place.
 There are several such places:
 
-- **registerMainMenu** - The menu displayed on each page on the left side.
+- **registerMainMenu** - The menu is displayed on each page on the left side.
 - **registerSystemMenu** - The menu that forms the navigation on the system page.
 - **registerProfileMenu** - The menu displayed when you click on the profile.
 
@@ -175,5 +175,4 @@ ItemMenu::label('Sub element item 2')
     ->place('parent-hidden-menu')
     ->canSee(false);
 ```
-
 
