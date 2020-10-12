@@ -243,9 +243,9 @@
             </li>
             </ul>
     <hr>
-<p>Notifications are a great way to let your users know what 's going on in your app. For example, they can alert the user when a long process is complete, or a new message arrives. In this section, we 'll show you how to use them in your app.</p>
+<p>Notifications are a great way to let your users know what's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we'll show you how to use them in your app.</p>
 <h2><a href="#flash-messages" name="flash-messages">Flash messages</a></h2>
-<p>Flash notification is a one-time message that will be deleted upon next access.
+<p>Flash notification is a one-time message that will be deleted upon the next access.
 Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.</p>
 <p>ORCHID has a convenient call and display notifications over one-time flash-data.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Alert;
@@ -269,12 +269,12 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;</code></pre>
 <p>When used, several keys will be set per session:</p>
 <ul><li>'flash_notification.message' - Message to display</li>
 <li>'flash_notification.level' - A string representing the type of notification</li>
-</ul><p>The default display is already built into the template, but you can call it explicitly in the <code>blade</code> templates for this you must specify:</p>
+</ul><p>The default display is already built into the template. Still, you can call it explicitly in the <code>blade</code> templates for this, you must specify:</p>
 <pre><code class="language-php">@include('platform::partials.alert')</code></pre>
 <h2><a href="#toast-messages" name="toast-messages">Toast messages</a></h2>
-<p>This is a small pop-up message in the upper right corner of the screen,
+<p>It is a small pop-up message in the upper right corner of the screen,
 to briefly notify the user of the result.
-It is fully consistent with the one-time <code>Alert</code> messages, but has a different appearance and several additional methods:</p>
+It is entirely consistent with the one-time <code>Alert</code> messages, but has a different appearance and several additional methods:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Toast;
 
 Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')</code></pre>
@@ -285,9 +285,8 @@ Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')</code
 Toast::warning('Lorem ipsum dolor sit amet.')
     -&gt;delay(2000);</code></pre>
 <h2><a href="#notifications-in-the-admin-panel" name="notifications-in-the-admin-panel">Notifications in the admin panel</a></h2>
-<p>The notification in the administration panel differs from flash-messages in that they are not deleted after viewing and
-can be added to any users even when they are offline. This is another great way to inform
-for example, for a task manager application to notify an employee about a new task.</p>
+<p>The notification in the administration panel differs from flash-messages. They are not deleted after viewing and
+can be added to any users even when they are offline. It is another excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
 <p>You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
 <blockquote>
 <p><strong>Note:</strong> Before using this feature, check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
