@@ -278,7 +278,7 @@ Relation::make('idea')
     ->title('Choose your idea');
 ```
 
-For multiple selection, use the `multiple()` method
+For multiple selections, use the `multiple()` method.
 
 ```php
 Relation::make('ideas.')
@@ -474,7 +474,7 @@ Quill::make('html')
 
 ## Markdown Editor
    
-Editor for lightweight markup language, created with the goal of writing the most readable and easy to edit text, but suitable for converting into languages for advanced publications.
+Editor for the lightweight markup language. Created with the goal of writing the most readable and easy to edit text.  But suitable for converting into languages for advanced publications.
  
 
 ![Markdown](https://orchid.software/assets/img/ui/markdown.png)
@@ -530,7 +530,7 @@ Matrix::make('users')
 
 ## Code editor
 
-Field for writing program code with the ability to highlight.
+A field for writing program code with the ability to highlight.
 
 ![Code](/assets/img/ui/code.png)
 
@@ -612,7 +612,7 @@ Cropper::make('picture')
 
 ### File size limit
     
-To limit the size of the downloaded file, you must set the maximum value in `MB`
+To limit the size of the downloaded file, you must set the maximum value in `MB`.
 
 ```php
 Cropper::make('picture')
@@ -732,7 +732,7 @@ In certain cases, you need to add a button to call a modal window, a simple link
 submit the form at the end of the screen.
 For such cases, there is a `Button` field. The `Button` field cannot have any
 values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
-and to add a simple link in the form.
+And to add a simple link in the form.
 
 An example of using the modal window `addNewPayment` added earlier to the screen:
 
