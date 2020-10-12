@@ -261,10 +261,9 @@ class PostEditScreen extends Screen
      */
     public function remove(Post $post)
     {
-        $post->delete()
-            ? Alert::info('You have successfully deleted the post.')
-            : Alert::warning('An error has occurred')
-        ;
+        $post->delete();
+
+        Alert::info('You have successfully deleted the post.');
 
         return redirect()->route('platform.post.list');
     }
