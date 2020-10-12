@@ -1,5 +1,5 @@
 ---
-title: Manage file attachments
+title: Manage to file attachments
 description: Laravel File Manager
 extends: _layouts.documentation
 section: main
@@ -107,7 +107,7 @@ http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee9831
 ```
 
 > **Note.** The link to the image is formed from the `url` address specified in your configuration file,
-that for local development through the built-in web server, port indication is required.
+that for local development through the built-in web server, a port indication is required.
 
 This is the easiest entry, but what if you decide to use `https` or change the domain?
 To do this, it is better to use a relative notation:
@@ -167,7 +167,7 @@ public function layout(): array
 }
 ```
 
-The field will differ from the previous ones, because the data does not apply explicitly to the `Post` model, but will be loaded and saved due to the connection, for this we must indicate the` Attachable` trait:
+The field will differ from the previous ones because the data does not apply explicitly to the `Post` model, but will be loaded and saved due to the connection, for this we must indicate the` Attachable` trait:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -209,7 +209,7 @@ id  attachmentable_type  attachmentable_id  attachment_id
 4	App\Post	         3	                104
 ```
 
-But when the record is accessed again, the field will be empty, this is due to the fact that `query` does not know about additional records to our model, we will fix this by adding a download:
+But when the record is accessed again, the field will be empty. This is due to the fact that `query` does not know about additional records to our model. We will fix this by adding a download:
 
 ```php
 public function query(Post $post): array
