@@ -271,7 +271,7 @@ file <code>platform.php</code>. Each set comes with a commentary explaining the 
 For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
 <p>For this you need to specify the address you would like to open.</p>
 <pre><code class="language-php">'domain' =&gt; 'admin.example.com',</code></pre>
-<p>Remember that your web server settings must be configured properly.</p>
+<p>Remember that your web server settings must be configured correctly.</p>
 <h2><a href="#platform-prefix" name="platform-prefix">Platform prefix</a></h2>
 <pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),</code></pre>
 <p>It provides the ability to change the <code>dashboard</code> prefix to any other name, such as <code>admin</code> or <code>administrator</code>.</p>
@@ -284,12 +284,12 @@ For example, the application is located at <code>example.com</code>, and the pla
 Currently, two groups of <code>public</code> can be seen by an unauthorized user,
 for example, the "Login" page and <code>private</code> which, on the contrary, only authorized users to see.</p>
 <p>You can add as many new intermediate layers as you like.
-for example, the filtering layer requests only from the white list of IP addresses.</p>
+For example, the filtering layer requests only from the white list of IP addresses.</p>
 <h2><a href="#login-page" name="login-page">Login page</a></h2>
 <pre><code class="language-php">'auth' =&gt; true,</code></pre>
-<p>It is possible to completely disable the supplied authorization form and make your own, for example, using the package <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a>.</p>
+<p>It is possible to disable the supplied authorization form altogether and make your own, for example, using the package <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a>.</p>
 <h2><a href="#home-page" name="home-page">Home page</a></h2>
-<p>The main page of the application is recorded in the form of the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
+<p>The main page of the application is recorded in the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
 <h2><a href="#dashboard-resources" name="dashboard-resources">Dashboard resources</a></h2>
 <pre><code class="language-php">'resource' =&gt; [
@@ -297,7 +297,7 @@ for example, the filtering layer requests only from the white list of IP address
     'scripts'     =&gt; [],
 ],</code></pre>
 <p>As you work, you may need to add your style sheets or javascript scripts.
-globally, on each page, it is necessary to add paths for them to the corresponding arrays.</p>
+Globally, on each page, it is necessary to add paths for them to the corresponding arrays.</p>
 <p>It is also possible to specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
 <pre><code class="language-php">namespace App\Providers;
 
@@ -313,13 +313,13 @@ class AppServiceProvider extends ServiceProvider
     }
 }</code></pre>
 <h2><a href="#appearance-patterns" name="appearance-patterns">Appearance patterns</a></h2>
-<p>To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
+<p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
     'footer' =&gt; null,
 ],</code></pre>
 <h2><a href="#model-classes" name="model-classes">Model classes</a></h2>
-<p>The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
+<p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
