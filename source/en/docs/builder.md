@@ -6,7 +6,7 @@ section: main
 ---
 
 
-Describing form fields can be a naughty and difficult exercise to easily modify and reuse, using a special `Orchid\Screen\Builder` builder whose task is to generate an `html` code.
+Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique `Orchid\Screen\Builder` builder whose task is to generate an `HTML` code.
 
 ## Main use
 
@@ -27,7 +27,7 @@ $html = $builder->generateForm();
 ## Data binding
 
 To specify the value of an element, you must specify the data in the source.
-The data will be automatically replaced by the specified key.
+The specified key will automatically replace the data.
 
 ```php
 use Orchid\Screen\Builder;
@@ -47,7 +47,7 @@ $builder = new Builder($fields, $repository);
 $html = $builder->generateForm();
 ```
 
-At the same time it is possible to enter deep into the object using `dot`-notation.
+It is also possible to enter deep into the object using `dot`-notation.
 
 ```php
 $fields = [
@@ -175,7 +175,7 @@ $html = $input->render();
 
 After we refresh the page, a new title is displayed on it,
 instead of the default, but neither placeholder nor value was applied.
-This is because they were not specified in the `inlineAttributes`, fix this:
+It is because they were not specified in the `inlineAttributes`, fix this:
 
 ```php
 /**
