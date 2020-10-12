@@ -40,11 +40,11 @@ All previous packages are designed to simplify CRUD database operations, and the
 
 - **Visual programming** - is a method in which the developer drags or selects pre-prepared objects, thus building the application, instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.
 
-- **One file** - a method that invites the developer to describe all the necessary actions in one single class which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that single class.
+- **One file** - a method that invites the developer to describe all the necessary actions in one single class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that single class.
 
 Unlike scaffolding, this package will be useful at any stage of development, and not just at the beginning, remaining fast for development due to a ready-made set of components.
 It does not provide visual programming, which means you need to write code on the keyboard, and not click with the mouse.
-And instead of one, the main class, provides many small components for encapsulation and reuse.
+And instead of one, the main class provides many small components for encapsulation and reuse.
 
 ## Why is rapid development?
 
