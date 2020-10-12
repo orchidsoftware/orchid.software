@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel File Manager"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Manage file attachments | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel File Manager"><meta property="og:url" content="https://orchid.software/en/docs/quickstart-files"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/quickstart-files/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/quickstart-files/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/quickstart-files/" hreflang="x-default"><title>Manage file attachments | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=cc50a6836c897ca1afbc"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Laravel File Manager"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Manage to file attachments | Orchid - Laravel Admin Panel"><meta property="og:description" content="Laravel File Manager"><meta property="og:url" content="https://orchid.software/en/docs/quickstart-files"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/quickstart-files/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/quickstart-files/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/quickstart-files/" hreflang="x-default"><title>Manage to file attachments | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=cc50a6836c897ca1afbc"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -220,7 +220,7 @@
     </ul></li>
     </ul></nav></div>
                 <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Manage file attachments</h1>
+                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first"><h1>Manage to file attachments</h1>
 
                                                     <div class="none d-md-block">
                                 <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/quickstart-files.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
@@ -317,7 +317,7 @@ please check the <code>upload_max_filesize</code> and <code>post_max_size settin
 <pre><code class="language-php">http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</code></pre>
 <blockquote>
 <p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file,
-that for local development through the built-in web server, port indication is required.</p>
+that for local development through the built-in web server, a port indication is required.</p>
 </blockquote>
 <p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain?
 To do this, it is better to use a relative notation:</p>
@@ -365,7 +365,7 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
         ])
     ];
 }</code></pre>
-<p>The field will differ from the previous ones, because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the<code>Attachable</code> trait:</p>
+<p>The field will differ from the previous ones because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the<code>Attachable</code> trait:</p>
 <pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 use Orchid\Attachment\Models\Attachment;
@@ -395,7 +395,7 @@ class Post extends Model
 2   App\Post             3                  102
 3   App\Post             3                  103
 4   App\Post             3                  104</code></pre>
-<p>But when the record is accessed again, the field will be empty, this is due to the fact that <code>query</code> does not know about additional records to our model, we will fix this by adding a download:</p>
+<p>But when the record is accessed again, the field will be empty. This is due to the fact that <code>query</code> does not know about additional records to our model. We will fix this by adding a download:</p>
 <pre><code class="language-php">public function query(Post $post): array
 {
     $this-&gt;exists = $post-&gt;exists;
