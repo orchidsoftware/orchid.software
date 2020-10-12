@@ -272,7 +272,7 @@ class PostEditScreen extends Screen
 ```
 
 
-Now we can create, edit and delete records. But do not browse as a list, change it!
+Now we can create, edit, and delete records. But do not browse as a list. Change it!
 
 In all previous layer definitions, only a short record of the form `Layout:rows()` was used, but to display complex or voluminous information, it is desirable to create separate classes.
 
@@ -390,4 +390,4 @@ class PostListScreen extends Screen
 }
 ```
 
-Now we are a set for managing (creating, viewing, editing and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.
+Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.
