@@ -28,7 +28,7 @@ For this you need to specify the address you would like to open.
 'domain' => 'admin.example.com',
 ```
  
-Remember that your web server settings must be configured properly.
+Remember that your web server settings must be configured correctly.
 
 
 ## Platform prefix
@@ -56,7 +56,7 @@ for example, the "Login" page and `private` which, on the contrary, only authori
 
 
 You can add as many new intermediate layers as you like.
-for example, the filtering layer requests only from the white list of IP addresses.
+For example, the filtering layer requests only from the white list of IP addresses.
 
 
 ## Login page
@@ -65,11 +65,11 @@ for example, the filtering layer requests only from the white list of IP address
 'auth' => true,
 ```
 
-It is possible to completely disable the supplied authorization form and make your own, for example, using the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart).
+It is possible to disable the supplied authorization form altogether and make your own, for example, using the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart).
 
 ## Home page
 
-The main page of the application is recorded in the form of the **name route** that the user will see when entering or clicking on logos and links.
+The main page of the application is recorded in the **name route** that the user will see when entering or clicking on logos and links.
 ```php
 'index' => 'platform.main',
 ```
@@ -85,7 +85,7 @@ The main page of the application is recorded in the form of the **name route** t
 ```
 
 As you work, you may need to add your style sheets or javascript scripts.
-globally, on each page, it is necessary to add paths for them to the corresponding arrays.
+Globally, on each page, it is necessary to add paths for them to the corresponding arrays.
 
 It is also possible to specify resources through the `Dashboard` object, for example, in a service provider:
 
@@ -109,7 +109,7 @@ class AppServiceProvider extends ServiceProvider
 
 ## Appearance patterns
 
-To change some templates, it is not necessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
+To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
 
 ```php
 'template' => [
@@ -121,7 +121,7 @@ To change some templates, it is not necessary to publish the entire package; you
 
 ## Model classes
 
-The desire to change the behavior of some classes from the standard delivery is quite normal, for the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
+The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
 
 ```php
 namespace App\Providers;
