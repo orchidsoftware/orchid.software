@@ -260,7 +260,6 @@ $column-count: 6;
 }
 
 .github {
-  height: 700px;
   position: relative !important;
   overflow: hidden !important;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 121 121' height='121' width='121' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23EFF1F3' fill-rule='evenodd'%3E%3Cpath d='M1 60h60l-.024-60H62v60h59v1H62v59h-1V61H1zM0 0h1v121H0zM1 120h120v1H1z'/%3E%3C/g%3E%3C/svg%3E");
@@ -381,7 +380,8 @@ li.anchor-h3 {
 
 .dev-macbook {
   position: absolute;
-  right: -30rem;
+  left: 0;
+  right: 0;
 }
 
 .github_screenshot {
@@ -391,28 +391,9 @@ li.anchor-h3 {
 }
 
 
-@media (min-width: 1801px) {
-  .dev-macbook {
-    right: -15rem;
-  }
 
-  .design-macbook {
-    left: -1000px;
-    bottom: 0
-  }
-}
-
-@media (max-width: 1440px) {
-  .dev-macbook {
-    right: -30%
-  }
-}
 
 @media only screen and (max-width: 1367px) {
-  .dev-macbook {
-    right: -40rem;
-  }
-
   .design-macbook {
     left: -1300px;
     bottom: 0
@@ -420,10 +401,6 @@ li.anchor-h3 {
 }
 
 @media only screen and (max-width: 1100px) {
-  .dev-macbook {
-    right: -1100px
-  }
-
   .design-macbook {
     left: -1400px;
     bottom: 0
@@ -471,4 +448,10 @@ input[type="search"] {
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
   max-width: 960px;
   width: 100%;
+}
+
+.main-screenshot{
+  position: absolute;
+  left: 0;
+  right: 0;
 }

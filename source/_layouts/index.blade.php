@@ -4,11 +4,10 @@
 
 
 
-    <section class="pb-5 bg-dark position-relative overflow-hidden b-b">
-        <img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png" class="dev-macbook none d-md-block">
-        <div class="container pt-md-5">
-            <div class="row pl-sm-2 pr-sm-2">
-                <div class="col-lg-6">
+    <section class="pb-4 bg-dark position-relative overflow-hidden b-b">
+        <div class="container pt-md-2">
+            <div class="row my-4">
+                <div class="col-12 col-md-6">
                     <div class="row pt-md-5 mb-md-2">
                         <div class="col-md-12">
                             <h1 class="text-white mb-4 mt-4 mr-md-4 text-center text-sm-left font-thin display-6">
@@ -43,6 +42,16 @@
                         </a>
                     </div>
 
+                </div>
+
+                    <div class="d-none d-md-block col position-relative">
+                        <a href="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png"
+                           title="Preview"
+                           class="d-block"
+                           target="_blank">
+                            <img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png" class="main-screenshot">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -517,43 +526,100 @@
 
 
     <section class="github pos-rlt no-overflow b-t hidden-xs">
-        <div class="container h-full v-center">
-            <div class="row w-full m-t-xxl m-b-xxl">
-                <div class="col-lg-5">
-                    <div class="">
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-6 col-12 pt-md-5 mb-md-2">
                         <a href="https://github.com/orchidsoftware/platform">
                             <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
                         </a>
                         <p class="l-h-1x text-dark font-thin m-b-lg display-6"> @yield('github.title')</p>
-                        <p>
-                            @yield('github.description')
-                        </p>
+                        <p>@yield('github.description')</p>
 
-                        <p class="padder-v">
+                        <p class="py-3">
                             <a href="/@yield('lang')/docs"
                                class="btn btn-lg btn-outline-primary btn-rounded">
-                                @yield('read.doc')
-
-
-                                <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
                                     <path d="M29.753 0.049l-13.22 3.581c-0.336 0.090-1.066 0.089-1.4-0.005l-12.88-3.569c-1.149-0.317-2.263 0.512-2.263 1.696v24.316c0 1.003 0.76 1.962 1.728 2.232l12.88 3.57c0.345 0.096 0.788 0.149 1.248 0.149 0.315 0 0.781-0.024 1.21-0.142l13.22-3.581c0.971-0.262 1.734-1.22 1.734-2.227v-24.317c0.001-1.183-1.113-2.014-2.258-1.703zM15 29.904l-12.779-3.533c-0.096-0.026-0.232-0.203-0.232-0.303v-24.001l12.608 3.486c0.122 0.034 0.259 0.061 0.402 0.083v24.269zM30.010 26.068c0 0.099-0.162 0.27-0.258 0.297l-12.753 3.454v-24.247c0.018-0.005 0.038-0.007 0.056-0.012l12.954-3.504v24.012h0zM20.062 11.447c0.090 0 0.182-0.011 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.729 0.962 0.729zM20.063 17.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.693l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.233 0.124 0.442 0.525 0.73 0.962 0.73zM20.063 23.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.151 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.151-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.73 0.962 0.73zM12.332 9.484l-6.998-1.97c-0.529-0.147-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.025 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.729 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 15.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.693s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 21.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.532-0.16-1.083-0.693-1.234z"></path>
                                 </svg>
 
+                                @yield('read.doc')
                             </a>
                         </p>
 
-                        <p class="text-muted mt-4">
-                            @yield('github.help')
-                        </p>
+                        <p class="text-muted mt-4">@yield('github.help')</p>
+                </div>
+
+                <div class="col d-none d-md-block position-relative">
+                    <a href="https://github.com/orchidsoftware/platform" class="d-block">
+                        <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="main-screenshot">
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </section>
+
+{{--
+    <div class="bg-white-only github border-top">
+        <div class="container pt-5 pb-5">
+            <div class="row text-left align-items-center">
+                <div class="col-10 col-sm-6 m-auto m-lg-0 col-lg-4">
+                    <img alt="image" class="img-fluid" src="/assets/img/mobile.png">
+                </div>
+
+                <div class="col-12 col-lg-7 offset-lg-1 pt-4 pt-lg-0">
+                    <a href="https://github.com/orchidsoftware/platform" class="d-none d-md-block">
+                        <img src="/assets/img/github_logo.png" alt="Github" class="mb-3">
+                    </a>
+                    <p class="l-h-1x text-dark font-thin display-6"> @yield('github.title')</p>
+                    <p class="lead">
+                        @yield('github.description')
+                    </p>
+
+
+                    <p class="padder-v">
+                        <a href="/@yield('lang')/docs"
+                           class="btn btn-lg btn-outline-primary btn-rounded">
+
+                            <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+                                <path d="M29.753 0.049l-13.22 3.581c-0.336 0.090-1.066 0.089-1.4-0.005l-12.88-3.569c-1.149-0.317-2.263 0.512-2.263 1.696v24.316c0 1.003 0.76 1.962 1.728 2.232l12.88 3.57c0.345 0.096 0.788 0.149 1.248 0.149 0.315 0 0.781-0.024 1.21-0.142l13.22-3.581c0.971-0.262 1.734-1.22 1.734-2.227v-24.317c0.001-1.183-1.113-2.014-2.258-1.703zM15 29.904l-12.779-3.533c-0.096-0.026-0.232-0.203-0.232-0.303v-24.001l12.608 3.486c0.122 0.034 0.259 0.061 0.402 0.083v24.269zM30.010 26.068c0 0.099-0.162 0.27-0.258 0.297l-12.753 3.454v-24.247c0.018-0.005 0.038-0.007 0.056-0.012l12.954-3.504v24.012h0zM20.062 11.447c0.090 0 0.182-0.011 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.729 0.962 0.729zM20.063 17.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.693l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.233 0.124 0.442 0.525 0.73 0.962 0.73zM20.063 23.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.151 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.151-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.73 0.962 0.73zM12.332 9.484l-6.998-1.97c-0.529-0.147-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.025 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.729 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 15.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.693s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 21.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.532-0.16-1.083-0.693-1.234z"></path>
+                            </svg>
+
+                            @yield('read.doc')
+                        </a>
+                    </p>
+
+                    <div class="row mt-5">
+                        <div class="col-12 col-sm-8">
+                            <p class="h3 l-h-1x text-dark font-thin mb-3">Like the project? Fund!</p>
+                            <p class="lead">Every little bit of support helps us improve Orchid and tackle even more ambitious problems.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="https://github.com/orchidsoftware/platform">
-            <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="github_screenshot none d-md-block">
-        </a>
-    </section>
+    </div>
+--}}
 
-
+    {{--
+    <div class="bg-white-only border-top">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 text-center m-t-xxl m-b-xxl">
+                    <h1>Call to Action</h1>
+                    <p class="lead">
+                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts
+                    </p>
+                    <p class="mt-5 mt-sm-4">
+                        <a class="btn btn-secondary" href="https://www.froala.com">Download</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+--}}
 
 @endsection
