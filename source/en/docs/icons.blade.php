@@ -35,4 +35,5 @@ githubEdit: false
             The source code is located on <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
         </p>
     </div>
+
 @endsection

@@ -32,3 +32,5 @@ In most cases, we use the same type of elements to form a page, for example, ima
 A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time, so various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in `Blade` and in `React/Vue/Angular`.
 
 It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter `avatar` will be inserted in the <img> tag, without having to edit the source code every time.
+
+

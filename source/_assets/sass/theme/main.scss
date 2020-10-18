@@ -455,3 +455,11 @@ input[type="search"] {
   left: 0;
   right: 0;
 }
+
+
+.shape-footer {
+  svg {
+    vertical-align: bottom;
+    fill: $brand-dark;
+  }
+}

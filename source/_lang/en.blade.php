@@ -62,7 +62,7 @@ A performance like a single page application. Transitions without reloading the 
 @section('main.col8.description','Protect customer accounts with two-factor authentication using the TOTP protocol, for example, on a mobile device.')
 
 @section('github.title')
-    Free and Open Source <br> for personal and commercial purposes.
+    <span class="font-weight-bold">Free and Open Source</span> <br> for personal and commercial purposes.
 @endsection
 
 @section('github.description','Everything that we do is 100% composed of open and free code, jointly developed by people from all over the world.')
