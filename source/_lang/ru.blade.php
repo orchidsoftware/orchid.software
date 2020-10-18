@@ -84,3 +84,6 @@
 
 @section('main.start', 'Начать сейчас')
 @section('main.git', 'Посмотреть на Github')
+
+@section('main.blog', 'Блог')
+@section('main.demo', 'Исследовать демо')

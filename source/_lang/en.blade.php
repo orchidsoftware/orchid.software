@@ -89,3 +89,6 @@ I believe it is fair for the developers <a href="https://www.paypal.me/tabuna/10
 
 @section('main.start', 'Get started')
 @section('main.git', 'View on Github')
+
+@section('main.blog', 'Blog')
+@section('main.demo', 'Explore demo')

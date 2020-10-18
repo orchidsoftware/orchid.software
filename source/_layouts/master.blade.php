@@ -55,17 +55,12 @@
                             <span class="h3 font-thin text-uppercase">Orchid</span>
                         </a>
                     </h5>
-                    {{--
-                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3">
 
-                        <a class="p-3 m-sm-0" href="/@yield('lang')/docs">
-                            <i class="icon-docs m-r-xs text-xs"></i>
-                            @yield('main.documentation')
-                        </a>
+                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3 d-none d-md-block">
 
-                        <a class="p-3 m-sm-0" href="/@yield('lang')/icons">
+                        <a class="p-3 m-sm-0" href="https://blog.orchid.software/">
                             <i class="icon-cup m-r-xs text-xs"></i>
-                            @yield('main.icons')
+                            @yield('main.blog')
                         </a>
 
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
@@ -73,8 +68,13 @@
                             @yield('main.discussion')
                         </a>
 
+                        <a class="p-3 m-sm-0" href="https://github.com/orchidsoftware">
+                            <i class="icon-docs m-r-xs text-xs"></i>
+                            GitHub
+                        </a>
+
                     </nav>
-                    --}}
+
 
                     <div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
                         <div class="block w-100">
