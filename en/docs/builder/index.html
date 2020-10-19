@@ -365,7 +365,7 @@ define keys in html format, for example:</p>
 And the <code>make()</code> method is only for quick and convenient initialization,
 since any form that should add or modify data must possess it.</p>
 <p>We only update that the created class and add the blade template, using the example above:</p>
-<pre><code class="language-php">{{ $title }}: &lt;input @attributes($attributes)&gt;&lt;br&gt;</code></pre>
+<pre><code class="language-php">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;</code></pre>
 <p>In order to try a new field, you must use the built-in <code>render()</code> method:</p>
 <pre><code class="language-php">$input = CustomField::make('name');
 
