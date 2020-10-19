@@ -151,7 +151,7 @@ since any form that should add or modify data must possess it.
 We only update that the created class and add the blade template, using the example above:
 
 ```php
-{{ $title }}: <input @attributes($attributes)><br>
+{{ $title }}: <input {{ $attributes }}><br>
 ```
 
 In order to try a new field, you must use the built-in `render()` method:
