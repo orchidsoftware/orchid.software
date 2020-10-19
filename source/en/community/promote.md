@@ -55,3 +55,9 @@ Do not forget to add the current link (or print URL)
 ## Sponsored the development 
 
 If you run a business and use the package in an income-generating product, it makes sense to finance the development: this ensures that the project on which your product relies remains healthy and actively supported. It can also help you understand the ORCHID community and make it easier to get developers involved. If you are an individual user and use the product, consider donating in appreciation - for example, occasionally buying me coffee 😀
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/orchid#backer)]
+
+<a href="https://opencollective.com/orchid#backers" target="_blank"><img src="https://opencollective.com/orchid/backers.svg?width=780"></a>
