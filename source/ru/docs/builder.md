@@ -152,7 +152,7 @@ First name: <input type="text" name="name"><br>
 Обновим только что созданный класс и добавим blade шаблон, на примере указанном выше:
 
 ```php
-{{ $title }}: <input @attributes($attributes)><br>
+{{ $title }}: <input {{ $attributes }}><br>
 ```
 
 Для того чтобы попробовать новое поле, необходимо использовать встроенный метод `render()`:
