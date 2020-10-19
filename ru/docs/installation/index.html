@@ -288,10 +288,11 @@
 <blockquote>
 <p><strong>Примечание.</strong> Если вы устанавливали Laravel иначе, то возможно, вам придется сгенерировать ключ
 используя комманду <code>php artisan key:generate</code></p>
+<p><strong>Примечание.</strong> Вам также необходимо создать новую базу данных и обновить <code>.env</code> файл с учетными данными и добавить URL-адрес вашего приложения в переменную <code>APP_URL</code>.</p>
 </blockquote>
 <h2><a href="#ustanovka-platformy" name="ustanovka-platformy">Установка платформы</a></h2>
 <blockquote>
-<p><strong>Примечание.</strong> Вам также необходимо создать новую базу данных и обновить <code>.env</code> файл с учетными данными и добавить URL-адрес вашего приложения в переменную <code>APP_URL</code>.</p>
+<p><strong>Примечание.</strong> При установке будет перезаписана модель <code>app/Models/User</code>.</p>
 </blockquote>
 <p>Запустим процесс установки, выполнив команду:</p>
 <pre><code class="language-php">php artisan orchid:install</code></pre>
