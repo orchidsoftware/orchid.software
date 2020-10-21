@@ -319,6 +319,15 @@ Relation::make('idea')
     ->title('Choose your idea');
 ```
 
+You can also pass additional parameters to the method:
+
+```php
+Relation::make('idea')
+    ->fromModel(Idea::class, 'name')
+    ->applyScope('status', 'active')
+    ->title('Choose your idea');
+```
+
 
 Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the `displayAppend` method.
 
