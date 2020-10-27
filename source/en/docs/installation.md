@@ -76,7 +76,7 @@ Open a browser and go to `http://localhost:8000/admin`. If everything works, you
  
 ## Publishing resources
 
-By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory (please only use it if your web server is having problems):
+By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. **Please only use it if your web server is having problems**:
 
 
  ```php
