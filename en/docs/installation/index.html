@@ -310,7 +310,7 @@ In other words, install your new framework project.</p>
 <p><strong>Note.</strong> Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file <code>config/platform.php</code> or <code>.env</code> file. It allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>.</p>
 </blockquote>
 <h2><a href="#publishing-resources" name="publishing-resources">Publishing resources</a></h2>
-<p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory (please only use it if your web server is having problems):</p>
+<p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. <strong>Please only use it if your web server is having problems</strong>:</p>
 <pre><code class="language-php">php artisan orchid:link</code></pre>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
