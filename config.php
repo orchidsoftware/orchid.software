@@ -6,7 +6,7 @@ return [
     'baseUrl'         => 'http://localhost:3000',
     'production'      => false,
     'siteName'        => 'Orchid - Laravel Admin Panel',
-    'siteDescription' => 'RAD platform for building a business application using the Laravel framework. Can act as the basis for web applications or perform the functions of CMS, CMF or admin panel for your site.',
+    'siteDescription' => 'A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.',
 
     // Algolia DocSearch credentials
     'docsearchApiKey'    => '',
