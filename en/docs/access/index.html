@@ -259,6 +259,9 @@
                     <li class="anchor-h2">
                 <a href="#check-in-middleware">Check-in Middleware</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#roles-vs-permissions">Roles vs Permissions</a>
+            </li>
             </ul>
     <hr>
 <p>Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.</p>
@@ -377,7 +380,11 @@ protected $routeMiddleware = [
     Route::get('stories/best', function () {
         // ...
     });
-});</code></pre>                    </main></div>
+});</code></pre>
+<h2><a href="#roles-vs-permissions" name="roles-vs-permissions">Roles vs Permissions</a></h2>
+<p>It is generally best to code your app around permissions only.</p>
+<p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.</p>
+<p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>                    </main></div>
             </div>
         </div>
     </div>
