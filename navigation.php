@@ -6,8 +6,8 @@ return [
         'docs'      => [
             'Get started'   => [
                 'children' => [
-                    'Introduction project'  => '/en/docs/',
-                    'Installation platform' => '/en/docs/installation',
+                    'Introduction'  => '/en/docs/',
+                    'Installation' => '/en/docs/installation',
                     'Configuration'         => '/en/docs/configuration',
                     'Upgrade Guide'         => '/en/docs/upgrade',
                 ],
