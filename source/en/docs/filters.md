@@ -1,5 +1,5 @@
 ---
-title: Filters
+title: HTTP and Eloquent Filters
 description: Filters used to simplify the search for records using a typical filter.
 extends: _layouts.documentation
 section: main
@@ -93,7 +93,7 @@ $model->orderBy('content->ru->name', 'desc');
 ```
 
 
-## Natural filter
+## Eloquent filter
 
 To create a new filter there is a command:
 
