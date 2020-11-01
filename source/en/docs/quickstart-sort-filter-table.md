@@ -148,4 +148,4 @@ After that, an icon will open next to the column name, opening the text field, s
  
 > **Please note.** Such an expression will be performed by `sql` with `like` filtering. In order for the search to be case-insensitive, you need to check the database encoding.
 
-Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to create complex filters, it is necessary to familiarize yourself with the [Filtering](/en/docs/filters) section.
+Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to **create complex filters**, it is necessary to familiarize yourself with the [Filtering](/en/docs/filters) section.
