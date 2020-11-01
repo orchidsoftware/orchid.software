@@ -139,7 +139,7 @@ Example:
 ```php
 Input::make('phone')
     ->mask('(999) 999-9999')
-    ->title('Номер телефона');
+    ->title('Phone number');
 ```   
 
 An array with parameters can be passed to the mask, for example:
