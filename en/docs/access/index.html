@@ -247,13 +247,13 @@
                 <a href="#add-your-own-permissions">Add your own permissions</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#roles-vs-permissions">Roles vs Permissions</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#check-in-screens">Check-in Screens</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#check-in-middleware">Check-in Middleware</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#roles-vs-permissions">Roles vs Permissions</a>
             </li>
             </ul>
     <hr>
@@ -317,6 +317,10 @@ class PermissionServiceProvider extends ServiceProvider
         $dashboard-&gt;registerPermissions($permissions);
     }
 }</code></pre>
+<h2><a href="#roles-vs-permissions" name="roles-vs-permissions">Roles vs Permissions</a></h2>
+<p>It is generally best to code your app around permissions only.</p>
+<p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.</p>
+<p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>
 <h2><a href="#check-in-screens" name="check-in-screens">Check-in Screens</a></h2>
 <p>Each created screen already has a built-in permission check set using the property
 <code>$permission</code>, which accepts both an array and a string value for verification:</p>
@@ -375,11 +379,7 @@ protected $routeMiddleware = [
     Route::get('stories/best', function () {
         // ...
     });
-});</code></pre>
-<h2><a href="#roles-vs-permissions" name="roles-vs-permissions">Roles vs Permissions</a></h2>
-<p>It is generally best to code your app around permissions only.</p>
-<p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.</p>
-<p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>                    </main></div>
+});</code></pre>                    </main></div>
             </div>
         </div>
     </div>
