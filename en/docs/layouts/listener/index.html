@@ -216,7 +216,9 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>The listener layout is used when it is necessary to change the displayed data, in accordance with the selected user settings.</p>
+
 <p>For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
@@ -279,10 +281,16 @@ class PlatformScreen extends Screen
             ]),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>To create a listener layout, run the <code>artisan</code> command:</p>
-<pre><code class="language-php">php artisan orchid:listener AmountListener</code></pre>
+
+<pre><code class="language-php">php artisan orchid:listener AmountListener
+</code></pre>
+
 <p>In the directory <code>app/Orchid/Layouts</code> a new class will be created with the name<code>AmountListener</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Support\Facades\Layout;
@@ -315,8 +323,11 @@ class AmountListener extends Listener
     {
         return [];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The <code>targets</code> property specifies the names of the fields, when changed, the required action will be performed. For our example, these are the fields with the names <code>a</code> and <code>b</code>:</p>
+
 <pre><code class="language-php">/**
  * List of field names for which values will be listened.
  *
@@ -325,9 +336,12 @@ class AmountListener extends Listener
 protected $targets = [
     'a',
     'b',
-];</code></pre>
+];
+</code></pre>
+
 <p>The <code>asyncMethod</code> property must specify the method that will be called when the fields are changed. This method must be implemented on the screen.
 Add it with the name <code>asyncSum</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\AmountListener;
@@ -405,11 +419,15 @@ class PlatformScreen extends Screen
             AmountListener::class,
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong> Please note </strong>. Such a function is a substitute for the <code>query</code> for the required layouts, and the <code>async</code> prefix is required.</p>
+  <p>** Please note **. Such a function is a substitute for the <code>query</code> for the required layouts, and the <code>async</code> prefix is required.</p>
 </blockquote>
+
 <p>And indicate his name:</p>
+
 <pre><code class="language-php">/**
  * What screen method should be called
  * as a source for an asynchronous request.
@@ -419,9 +437,12 @@ class PlatformScreen extends Screen
  *
  * @var string
  */
-protected $asyncMethod = 'asyncSum';</code></pre>
+protected $asyncMethod = 'asyncSum';
+</code></pre>
+
 <p>It remains only to determine what will be shown in this layer.
 The full class will look like this:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
@@ -464,8 +485,11 @@ protected $asyncMethod = 'asyncSum';
             ]),
         ];
     }
-}</code></pre>
-<p>Now, when changing the values of the input fields, the sum field will change automatically.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Now, when changing the values of the input fields, the sum field will change automatically.</p>
+                    </main></div>
             </div>
         </div>
     </div>

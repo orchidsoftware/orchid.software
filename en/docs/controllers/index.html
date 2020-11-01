@@ -237,9 +237,14 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>During development, various situations may arise, including the need to build controllers into the package operation.</p>
+
 <p>To create a new controller, you must run the command <code>make:controller</code>:</p>
-<pre><code class="language-php">php artisan make:controller CustomOrchidController</code></pre>
+
+<pre><code class="language-php">php artisan make:controller CustomOrchidController
+</code></pre>
+
 <p>In the <code>app/Http/Controllers</code> directory, a new class will be created, change it:</p>
+
 <pre><code class="language-php">namespace App\Http\Controllers;
 
 class CustomOrchidController extends Controller
@@ -252,8 +257,11 @@ class CustomOrchidController extends Controller
         return view('custom');
     }
 }
+
 </code></pre>
+
 <p>The <code>index</code> method returns the application template, in which we will visualize the entire package style:</p>
+
 <pre><code class="language-php">@extends('platform::dashboard')
 
 @section('title','title')
@@ -269,10 +277,15 @@ class CustomOrchidController extends Controller
     &lt;div class="text-center mt-5 mb-5"&gt;
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
-@stop</code></pre>
+@stop
+</code></pre>
+
 <p>The created controller must be declared in the route file, for example, in <code>routes/platform</code>,
 so that common rules apply to it, such as authorization.</p>
-<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);</code></pre>                    </main></div>
+
+<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

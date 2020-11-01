@@ -249,11 +249,18 @@
             </ul>
     <hr>
 <h2><a href="#tables" name="tables">Tables</a></h2>
+
 <p>The table layout is used to display minimal information for viewing and selection.</p>
+
 <p><img src="/assets/img/layouts/table.png" alt="Table"></p>
+
 <p>To create, run the command:</p>
-<pre><code class="language-php">php artisan orchid:table PatientListLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:table PatientListLayout
+</code></pre>
+
 <p>Example:</p>
+
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Screen\TD;
@@ -311,75 +318,122 @@ class PatientListLayout extends Table
             TD::set('created_at','Date of publication'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Tables also support writing through short syntax without creating a class:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
 
 Layout::table('clients', [
     TD::set('name'),
     TD::set('created_at')-&gt;sort(),
-]);</code></pre>
+]);
+</code></pre>
+
 <h2><a href="#cells" name="cells">Cells</a></h2>
+
 <p>A table is only a general wrapper for which you need to specify TD classes. Designed to create a single cell.</p>
+
 <pre><code class="language-php">use Orchid\Screen\TD;
 
-TD::set('last_name');</code></pre>
+TD::set('last_name');
+</code></pre>
+
 <p>The <code>set</code> method is the main method, sets the key name from the array and the display name.</p>
-<pre><code class="language-php">TD::set('last_name', 'Last name');</code></pre>
+
+<pre><code class="language-php">TD::set('last_name', 'Last name');
+</code></pre>
+
 <h3><a href="#alignment" name="alignment">Alignment</a></h3>
+
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
+
 <pre><code class="language-php">TD::set('last_name')-&gt;align(TD::ALIGN_LEFT);
 TD::set('last_name')-&gt;align(TD::ALIGN_CENTER);
-TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);</code></pre>
+TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);
+</code></pre>
+
 <h3><a href="#sorting" name="sorting">Sorting</a></h3>
+
 <p>Sorting the selection should be done in the <code>query</code> screen,
 for models, you can use automatic <code>http</code> <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">sorting and
 filtering</a></p>
+
 <p>To enable active sorting by this column
 you must specify the <code>sort</code> method:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;sort();</code></pre>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;sort();
+</code></pre>
+
 <h3><a href="#width" name="width">Width</a></h3>
+
 <p>You can control the width of the cell using the <code>width</code> method:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');</code></pre>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');
+</code></pre>
+
 <h3><a href="#show-and-hide-columns" name="show-and-hide-columns">Show and hide columns</a></h3>
+
 <p>By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();</code></pre>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();
+</code></pre>
+
 <p>And also hide by default, but can be shown at the request of the user.</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();</code></pre>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();
+</code></pre>
+
 <h3><a href="#data-output" name="data-output">Data output</a></h3>
+
 <p>In some cases, you may need to display combined
   data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
+
 <pre><code class="language-php">TD::set('full_name')
     -&gt;render(function ($user) {
         return $user-&gt;firt_name . ' ' . $user-&gt;last_name;
-    });</code></pre>
+    });
+</code></pre>
+
 <p>The loopback function must return any string value:</p>
+
 <pre><code class="language-php">TD::set('full_name')
     -&gt;render(function ($user) {
         return view('blade_template', [
             'user' =&gt; $user
         ]);
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Please note that you can use fields and actions:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('full_name')
     -&gt;render(function ($user) {
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Sometimes it may be necessary to get the value from the <code>query</code> screen, rather than relying only on the <code>target</code>. You can get the value as follows:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('price')
     -&gt;render(function ($product) {
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
-    });</code></pre>
+    });
+</code></pre>
+
 <h2><a href="#table-options" name="table-options">Table options</a></h2>
+
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
+
 <pre><code class="language-php">/**
  * @return string
  */
@@ -402,18 +456,25 @@ protected function textNotFound(): string
 protected function subNotFound(): string
 {
     return '';
-}</code></pre>
+}
+</code></pre>
+
 <p>If the table rows do not seem contrasting to you, then you can enable
 <code>striped</code> mode:</p>
+
 <pre><code class="language-php">/**
  * @return bool
  */
 protected function striped(): bool
 {
     return false;
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#total-row" name="total-row">Total row</a></h2>
+
 <p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
+
 <pre><code class="language-php">public function total():array
 {
     return [
@@ -430,8 +491,11 @@ protected function striped(): bool
         TD::set('total_active_count')
             -&gt;align(TD::ALIGN_RIGHT),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>This line will ignore the specified <code>target</code> based on the result of the <code>query</code> screen:</p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -439,10 +503,15 @@ protected function striped(): bool
         'total_count' =&gt; '$103 783',
         // ...
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#column-expansion" name="column-expansion">Column Expansion</a></h2>
+
 <p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to register the closure function in the service provider.</p>
+
 <p>Registration example:</p>
+
 <pre><code class="language-php">// AppServiceProvider.php
 TD::macro('bool', function () {
 
@@ -455,22 +524,30 @@ TD::macro('bool', function () {
     });
 
     return $this;
-});</code></pre>
+});
+</code></pre>
+
 <p>Template example:</p>
+
 <pre><code class="language-php">// bool.blade.php
 
 @if($bool)
     &lt;i class="icon-check text-success"&gt;&lt;/i&gt;
 @else
     &lt;i class="icon-close text-danger"&gt;&lt;/i&gt;
-@endif</code></pre>
+@endif
+</code></pre>
+
 <p>Usage example:</p>
+
 <pre><code class="language-php">public function grid(): array
 {
     return [
         TD::set('status')-&gt;bool(),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

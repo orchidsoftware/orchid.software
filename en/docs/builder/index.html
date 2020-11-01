@@ -249,8 +249,11 @@
             </ul>
     <hr>
 <p>Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>HTML</code> code.</p>
+
 <h2><a href="#main-use" name="main-use">Main use</a></h2>
+
 <p>The form feature set and data source must be passed to build:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 
@@ -258,10 +261,14 @@ $builder = new Builder([
     Input::make('name'),
 ]);
 
-$html = $builder-&gt;generateForm();</code></pre>
+$html = $builder-&gt;generateForm();
+</code></pre>
+
 <h2><a href="#data-binding" name="data-binding">Data binding</a></h2>
+
 <p>To specify the value of an element, you must specify the data in the source.
 The specified key will automatically replace the data.</p>
+
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Repository;
@@ -276,8 +283,11 @@ $repository = new Repository([
 
 $builder = new Builder($fields, $repository);
 
-$html = $builder-&gt;generateForm();</code></pre>
+$html = $builder-&gt;generateForm();
+</code></pre>
+
 <p>It is also possible to enter deep into the object using <code>dot</code>-notation.</p>
+
 <pre><code class="language-php">$fields = [
     Input::make('name.ru'),
 ];
@@ -291,8 +301,11 @@ $repository = new Repository([
 
 $builder = new Builder($fields, $repository);
 
-$html = $builder-&gt;generateForm();</code></pre>
+$html = $builder-&gt;generateForm();
+</code></pre>
+
 <p>You can also specify the desired language and prefix, for example:</p>
+
 <pre><code class="language-php">$fields = [
     Input::make('name'),
 ];
@@ -309,10 +322,15 @@ $repository = new Repository([
 $builder = new Builder($fields, $repository);
 $builder-&gt;setLanguage('en');
 
-$html = $builder-&gt;generateForm();</code></pre>
+$html = $builder-&gt;generateForm();
+</code></pre>
+
 <h2><a href="#representation-of-elements-of-a-form" name="representation-of-elements-of-a-form">Representation of elements of a form</a></h2>
+
 <p>Any input field is only a setting above the view that passes data to the template.</p>
+
 <p>Create a new class to see what it consists of:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Fields;
 
 use Orchid\Screen\Field;
@@ -349,30 +367,46 @@ class CustomField extends Field
     {
         return (new static())-&gt;name($name);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The <code>view</code> property is determined by the blade.
 <code>attributes</code> lists default values, and <code>inlineAttributes</code>
 define keys in html format, for example:</p>
-<pre><code class="language-html">First name: &lt;input type="text" name="name"&gt;&lt;br&gt;</code></pre>
+
+<pre><code class="language-html">First name: &lt;input type="text" name="name"&gt;&lt;br&gt;
+</code></pre>
+
 <p>In this example, the inline attribute is type and name specified directly in the tag.
 And the <code>make()</code> method is only for quick and convenient initialization,
 since any form that should add or modify data must possess it.</p>
+
 <p>We only update that the created class and add the blade template, using the example above:</p>
-<pre><code class="language-php">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;</code></pre>
+
+<pre><code class="language-php">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;
+</code></pre>
+
 <p>In order to try a new field, you must use the built-in <code>render()</code> method:</p>
+
 <pre><code class="language-php">$input = CustomField::make('name');
 
-$html = $input-&gt;render(); // html string</code></pre>
+$html = $input-&gt;render(); // html string
+</code></pre>
+
 <p>The <code>html</code> variable will contain the template just specified, try adding some elements:</p>
+
 <pre><code class="language-php">$input = CustomField::make('name')
     -&gt;title('How your name?')
     -&gt;placeholder('Sheldon Cooper')
     -&gt;value('Alexandr Chernyaev');
 
-$html = $input-&gt;render();</code></pre>
+$html = $input-&gt;render();
+</code></pre>
+
 <p>After we refresh the page, a new title is displayed on it,
 instead of the default, but neither placeholder nor value was applied.
 It is because they were not specified in the <code>inlineAttributes</code>, fix this:</p>
+
 <pre><code class="language-php">/**
  * Attributes available for a particular tag.
  *
@@ -383,8 +417,11 @@ protected $inlineAttributes = [
     'type',
     'placeholder',
     'value'
-];</code></pre>
-<p>After that, each attribute will be drawn in our template.</p>                    </main></div>
+];
+</code></pre>
+
+<p>After that, each attribute will be drawn in our template.</p>
+                    </main></div>
             </div>
         </div>
     </div>

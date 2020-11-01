@@ -220,25 +220,28 @@
                 <a href="#vysota">Высота</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#tsveta">Цвета</a>
+                <a href="#cveta">Цвета</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#eksport-izobrazheniya">Экспорт изображения</a>
+                <a href="#eksport-izobrazeniya">Экспорт изображения</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#grafiki-dlya-modeley">Графики для моделей</a>
+                <a href="#grafiki-dlya-modelei">Графики для моделей</a>
             </li>
                     <li class="anchor-h3">
                 <a href="#sgruppirovannye-dannye">Сгруппированные данные</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#vremennoy-period">Временной период</a>
+                <a href="#vremennoi-period">Временной период</a>
             </li>
             </ul>
     <hr>
 <p>Макет графиков - удобный способ графически отображать динамику значений.</p>
+
 <p><img src="/assets/img/layouts/charts.png" alt="Charts"></p>
+
 <p>Пример данных из <code>query</code>:</p>
+
 <pre><code class="language-php">public function query() : array
 {
     $charts = [
@@ -262,10 +265,16 @@
     return [
         'charts' =&gt; $charts,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Для создания выполните команду:</p>
-<pre><code class="language-php">php artisan orchid:chart ChartsLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:chart ChartsLayout
+</code></pre>
+
 <p>Пример макета:</p>
+
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Platform\Layouts\Chart;
@@ -297,15 +306,23 @@ class ChartsLayout extends Chart
      * @var string
      */
     protected $target = 'charts';
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#vysota" name="vysota">Высота</a></h2>
+
 <p>Установите высоту диаграммы в пикселях с помощью указания свойства:</p>
+
 <pre><code class="language-php">/**
  * @var int
  */
-protected $height = 250;</code></pre>
-<h2><a href="#tsveta" name="tsveta">Цвета</a></h2>
+protected $height = 250;
+</code></pre>
+
+<h2><a href="#cveta" name="cveta">Цвета</a></h2>
+
 <p>Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства:</p>
+
 <pre><code class="language-php">/**
  * Colors used.
  *
@@ -317,17 +334,25 @@ protected $colors = [
     '#F1C40F',
     '#D90368',
     '#00CC66',
-];</code></pre>
-<h2><a href="#eksport-izobrazheniya" name="eksport-izobrazheniya">Экспорт изображения</a></h2>
+];
+</code></pre>
+
+<h2><a href="#eksport-izobrazeniya" name="eksport-izobrazeniya">Экспорт изображения</a></h2>
+
 <p>Диаграммы  можно экспортировать в формате <code>SVG</code>, в котором они отображаются изначально. Для этого необходимо указать свойство:</p>
+
 <pre><code class="language-php">/**
  * Determines whether to display the export button.
  *
  * @var bool
  */
-protected $export = true;</code></pre>
-<h2><a href="#grafiki-dlya-modeley" name="grafiki-dlya-modeley">Графики для моделей</a></h2>
+protected $export = true;
+</code></pre>
+
+<h2><a href="#grafiki-dlya-modelei" name="grafiki-dlya-modelei">Графики для моделей</a></h2>
+
 <p>Для того чтобы использовать методы получения данных для графиков у модели, необходимо добавить трейт <code>Chartable</code>:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Orchid\Chart\Chartable;
@@ -338,12 +363,17 @@ class User extends Authenticatable
     use Chartable;
 
     // ...
-}</code></pre>
+}
+</code></pre>
+
 <p>Это добавит несколько новых методов именно для построения графиков:</p>
+
 <ul><li>Сгруппированные данные</li>
 <li>Временной период</li>
 </ul><h3><a href="#sgruppirovannye-dannye" name="sgruppirovannye-dannye">Сгруппированные данные</a></h3>
+
 <p>Например, нужно построить диаграмму, отображающую соотношение пользователей, которые включили двухфакторную аутентификацию.</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
@@ -375,8 +405,11 @@ class UsageTwoFactorAuth extends Chart
      * @var string
      */
     protected $target = 'userUsageTwoFactorAuth';
-}</code></pre>
+}
+</code></pre>
+
 <p>Тогда в качестве источника данных, будет служить запрос модели <code>countForGroup()</code></p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -389,14 +422,22 @@ public function layout(): array
     return [
         UsageTwoFactorAuth::class,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Для того чтобы изменить текст заголовков, можно передать первым аргументом функцию замыкания:</p>
+
 <pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
     return $title ? 'Enabled' : 'Disabled';
-});</code></pre>
-<h3><a href="#vremennoy-period" name="vremennoy-period">Временной период</a></h3>
+});
+</code></pre>
+
+<h3><a href="#vremennoi-period" name="vremennoi-period">Временной период</a></h3>
+
 <p>Получает данные за какой-либо временной период, проставляя отсутствующие значения.</p>
+
 <p>Например, выведем график новых пользователей и ролей:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
@@ -428,8 +469,11 @@ class Members extends Chart
      * @var string
      */
     protected $target = 'members';
-}</code></pre>
+}
+</code></pre>
+
 <p>Тогда источник данных будет:</p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -445,17 +489,25 @@ public function layout(): array
     return [
         Members::class,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>По умолчанию данные будут взяты за один месяц, для задания собственного периода необходимо передать аргументы:</p>
+
 <pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
 $end = Carbon::now()-&gt;subDay(1);
 
-User::countByDays($start, $end)-&gt;toChart('Users')</code></pre>
+User::countByDays($start, $end)-&gt;toChart('Users')
+</code></pre>
+
 <p>По умолчанию данные группируются по колонке <code>created_at</code>, для её изменения:</p>
+
 <pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
 $end = Carbon::now()-&gt;subDay(1);
 
-User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')</code></pre>                    </main></div>
+User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

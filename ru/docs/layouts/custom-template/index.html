@@ -215,8 +215,9 @@
                                         Редактировать страницу                                    </small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный <code>blade</code> шаблон,
+                                                <hr class="mb-4"><p>Вполне ожидаемая ситуация, когда необходимо отобразить собственный <code>blade</code> шаблон, 
 для этого необходимо вызвать <code>Layout::view</code>, передав параметром строку имени:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -224,8 +225,11 @@ public function layout(): array
     return [
         Layout::view('myTemplate'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Все данные из метода <code>query</code> будут переданы в ваш шаблон.</p>
+
 <pre><code class="language-php">// ... Screen
 
 public function query(): array
@@ -240,11 +244,16 @@ public function layout(): array
     return [
         Layout::view('hello'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Вы можете отобразить содержимое <code>name</code> вот так:</p>
+
 <pre><code class="language-php">// ... /views/hello.blade.php
 
-Hello {{ $name }}!</code></pre>                    </main></div>
+Hello {{ $name }}!
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

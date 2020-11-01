@@ -217,10 +217,10 @@
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#tablitsy">Таблицы</a>
+                <a href="#tablicy">Таблицы</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#yacheyki">Ячейки</a>
+                <a href="#yaceiki">Ячейки</a>
             </li>
                     <li class="anchor-h3">
                 <a href="#vyravnivanie">Выравнивание</a>
@@ -229,31 +229,38 @@
                 <a href="#sortirovka">Сортировка</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#shirina">Ширина</a>
+                <a href="#sirina">Ширина</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#otobrazhenie-i-skrytie-stolbtsov">Отображение и скрытие столбцов</a>
+                <a href="#otobrazenie-i-skrytie-stolbcov">Отображение и скрытие столбцов</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#vyvod-dannykh">Вывод данных</a>
+                <a href="#vyvod-dannyx">Вывод данных</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#parametry-tablitsy">Параметры таблицы</a>
+                <a href="#parametry-tablicy">Параметры таблицы</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#stroka-itoga">Строка итога</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#rasshirenie-kolonok">Расширение колонок</a>
+                <a href="#rassirenie-kolonok">Расширение колонок</a>
             </li>
             </ul>
     <hr>
-<h2><a href="#tablitsy" name="tablitsy">Таблицы</a></h2>
+<h2><a href="#tablicy" name="tablicy">Таблицы</a></h2>
+
 <p>Макет таблицы используется для вывода минимальной информации для просмотра и выборки.</p>
+
 <p><img src="/assets/img/layouts/table.png" alt="Table"></p>
+
 <p>Для создания выполните команду:</p>
-<pre><code class="language-php">php artisan orchid:table PatientListLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:table PatientListLayout
+</code></pre>
+
 <p>Пример:</p>
+
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Screen\TD;
@@ -311,75 +318,122 @@ class PatientListLayout extends Table
             TD::set('created_at','Date of publication'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Таблицы так же поддерживают запись через короткий синтаксис без создания класса:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
 
 Layout::table('clients', [
     TD::set('name'),
     TD::set('created_at')-&gt;sort(),
-]);</code></pre>
-<h2><a href="#yacheyki" name="yacheyki">Ячейки</a></h2>
+]);
+</code></pre>
+
+<h2><a href="#yaceiki" name="yaceiki">Ячейки</a></h2>
+
 <p>Таблица является только общей облочкой, для которой необходимо указать классы TD, предназначенные для создания одной ячейки.</p>
+
 <pre><code class="language-php">use Orchid\Screen\TD;
 
-TD::set('last_name');</code></pre>
+TD::set('last_name');
+</code></pre>
+
 <p>Метод <code>set</code> является основным методом, устанавливает имя ключа из массива и отображаемое название.</p>
-<pre><code class="language-php">TD::set('last_name', 'Last name');</code></pre>
+
+<pre><code class="language-php">TD::set('last_name', 'Last name');
+</code></pre>
+
 <h3><a href="#vyravnivanie" name="vyravnivanie">Выравнивание</a></h3>
+
 <p>Вырваниванием содержимого можно управлять спомощью метода <code>align</code>:</p>
+
 <pre><code class="language-php">TD::set('last_name')-&gt;align(TD::ALIGN_LEFT);
 TD::set('last_name')-&gt;align(TD::ALIGN_CENTER);
-TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);</code></pre>
+TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);
+</code></pre>
+
 <h3><a href="#sortirovka" name="sortirovka">Сортировка</a></h3>
+
 <p>Сортировка выборки должна осуществляться в <code>query</code> экрана,
-для моделей можно использовать автоматическую <code>http</code> <a href="/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka">сортировку и
+для моделей можно использовать автоматическую <code>http</code> <a href="/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka">сортировку и 
 фильтрацию</a></p>
+
 <p>Для включения активной возможности сортировки по данному столбцу
 необходимо указать метод <code>sort</code>:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;sort();</code></pre>
-<h3><a href="#shirina" name="shirina">Ширина</a></h3>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;sort();
+</code></pre>
+
+<h3><a href="#sirina" name="sirina">Ширина</a></h3>
+
 <p>Управлять шириной ячейки можно используя метод <code>width</code>:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');</code></pre>
-<h3><a href="#otobrazhenie-i-skrytie-stolbtsov" name="otobrazhenie-i-skrytie-stolbtsov">Отображение и скрытие столбцов</a></h3>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');
+</code></pre>
+
+<h3><a href="#otobrazenie-i-skrytie-stolbcov" name="otobrazenie-i-skrytie-stolbcov">Отображение и скрытие столбцов</a></h3>
+
 <p>По умолчанию пользователь может скрыть для себя любой столбец, но вы можете
 запретить делать это указав:</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();</code></pre>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();
+</code></pre>
+
 <p>А так же скрыть по умолчанию, но может быть показан по желанию пользователя.</p>
-<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();</code></pre>
-<h3><a href="#vyvod-dannykh" name="vyvod-dannykh">Вывод данных</a></h3>
+
+<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();
+</code></pre>
+
+<h3><a href="#vyvod-dannyx" name="vyvod-dannyx">Вывод данных</a></h3>
+
 <p>В некоторый случаях, может потребоваться отобразить комбинированные
-данные, для этого предназначен метод <code>render</code>. Он реализует возможность генерации ячейки согласно функции:</p>
+ данные, для этого предназначен метод <code>render</code>. Он реализует возможность генерации ячейки согласно функции:</p>
+
 <pre><code class="language-php">TD::set('full_name')
     -&gt;render(function ($user) {
         return $user-&gt;firt_name . ' ' . $user-&gt;last_name;
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Функция замыкания должна возвращать любое строчное значение:</p>
+
 <pre><code class="language-php">TD::set('full_name')
     -&gt;render(function ($user) {
         return view('blade_template', [
             'user' =&gt; $user
         ]);
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Обратите внимание, что вы можете использовать поля и действия:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('full_name')
     -&gt;render(function ($user) {
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Иногда может потребоваться получить значение из <code>query</code> экрана, а не полагаться только на <code>target</code>. Вы можете получить значение следующим образом:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
 TD::set('price')
     -&gt;render(function ($product) {
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
-    });</code></pre>
-<h2><a href="#parametry-tablitsy" name="parametry-tablitsy">Параметры таблицы</a></h2>
+    });
+</code></pre>
+
+<h2><a href="#parametry-tablicy" name="parametry-tablicy">Параметры таблицы</a></h2>
+
 <p>Вы можете указать текст, который будет отображён если таблица пуста,
 дополнительно указав методы:</p>
+
 <pre><code class="language-php">/**
  * @return string
  */
@@ -402,18 +456,25 @@ protected function textNotFound(): string
 protected function subNotFound(): string
 {
     return '';
-}</code></pre>
-<p>Если строки таблицы кажутся вам не контрастными, то вы можете включить
+}
+</code></pre>
+
+<p>Если строки таблицы кажутся вам не контрастными, то вы можете включить 
 <code>striped</code> режим:</p>
+
 <pre><code class="language-php">/**
  * @return bool
  */
 protected function striped(): bool
 {
     return false;
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#stroka-itoga" name="stroka-itoga">Строка итога</a></h2>
+
 <p>Добавляет итоговую строку внизу таблицы, для этого необходимо определить метод <code>total</code> и описать требуемые ячейки. Например:</p>
+
 <pre><code class="language-php">public function total():array
 {
     return [
@@ -430,8 +491,11 @@ protected function striped(): bool
         TD::set('total_active_count')
             -&gt;align(TD::ALIGN_RIGHT),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Данная строка будет игнорировать указанный <code>target</code> смотря на результат <code>query</code> экрана:</p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -439,10 +503,15 @@ protected function striped(): bool
         'total_count' =&gt; '$103 783',
         // ...
     ];
-}</code></pre>
-<h2><a href="#rasshirenie-kolonok" name="rasshirenie-kolonok">Расширение колонок</a></h2>
+}
+</code></pre>
+
+<h2><a href="#rassirenie-kolonok" name="rassirenie-kolonok">Расширение колонок</a></h2>
+
 <p>Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код, в слоях имеется возможность расширять класс <code>TD</code> собственными методами. Для этого необходимо в сервис-провайдере зарегистрировать функцию замыкания.</p>
+
 <p>Пример регистрации:</p>
+
 <pre><code class="language-php">// AppServiceProvider.php
 TD::macro('bool', function () {
 
@@ -455,22 +524,30 @@ TD::macro('bool', function () {
     });
 
     return $this;
-});</code></pre>
+});
+</code></pre>
+
 <p>Пример шаблона:</p>
+
 <pre><code class="language-php">// bool.blade.php
 
 @if($bool)
     &lt;i class="icon-check text-success"&gt;&lt;/i&gt;
 @else
     &lt;i class="icon-close text-danger"&gt;&lt;/i&gt;
-@endif</code></pre>
+@endif
+</code></pre>
+
 <p>Пример использования:</p>
+
 <pre><code class="language-php">public function grid(): array
 {
     return [
         TD::set('status')-&gt;bool(),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -217,8 +217,10 @@
                             </div>
                                                 <hr class="mb-4"><p>The line layout serves as the minimum set that is most often used.
 Its purpose is to combine all the necessary elements of forms.</p>
+
 <p>Strings support short writing without creating a separate class,
 for example, when you want to show one or two fields.</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 
@@ -231,10 +233,16 @@ public function layout(): array
                 -&gt;title('Example')
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>For reuse, you can create a class by running the command:</p>
-<pre><code class="language-php">php artisan orchid:rows Appointment</code></pre>
+
+<pre><code class="language-php">php artisan orchid:rows Appointment
+</code></pre>
+
 <p>In the directory <code>app/Orchid/Layouts</code>, a new class will be created where the fields can be defined:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -264,14 +272,19 @@ class Appointment extends Rows
                 -&gt;help('What did the patient complain about?'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>To use such a class in the screen, pass its name in the <code>layouts</code> method:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
         Appointment::class
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

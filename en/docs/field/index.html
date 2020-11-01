@@ -312,79 +312,146 @@
             </ul>
     <hr>
 <p>Fields are used to generate the output of the fill and edit form template.</p>
+
 <blockquote>
-<p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
+  <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
+
 <h2><a href="#input" name="input">Input</a></h2>
+
 <p>It is one of the versatile form elements and allows you to create different parts of the interface and provide interaction with the user. Mainly designed to create text fields.</p>
+
 <p><img src="/assets/img/fields/input.png" alt="Input"></p>
+
 <p>Example:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 
-Input::make('name');</code></pre>
+Input::make('name');
+</code></pre>
+
 <h3><a href="#design" name="design">Design</a></h3>
+
 <p>Empty and expressionless input fields can confuse the user,
 but you can help by specifying a title.</p>
+
 <pre><code class="language-php">Input::make('name')
-    -&gt;title('First name');</code></pre>
+    -&gt;title('First name');
+</code></pre>
+
 <p>When you need to describe the purpose of the field in more detail,
 then you can use the hint:</p>
+
 <pre><code class="language-php">Input::make('name')
-    -&gt;help('What is your name?');</code></pre>
+    -&gt;help('What is your name?');
+</code></pre>
+
 <p>If the field description is very specific and a large description is required,
 You can use the tooltip that will be shown as a popup:</p>
+
 <pre><code class="language-php">Input::make('name')
-    -&gt;popover('Tooltip - hint that user opens himself.');</code></pre>
+    -&gt;popover('Tooltip - hint that user opens himself.');
+</code></pre>
+
 <p>Horizontal or vertical view:</p>
-<pre><code class="language-php">Input::make('name')-&gt;vertical();</code></pre>
-<pre><code class="language-php">Input::make('name')-&gt;horizontal();</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;vertical();
+</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;horizontal();
+</code></pre>
+
 <h3><a href="#required" name="required">Required</a></h3>
+
 <p>Sometimes you may need to specify a required field,
 to do this, call the <code>required</code> method:</p>
+
 <pre><code class="language-php">Input::make('name')
     -&gt;type('text')
-    -&gt;required();</code></pre>
+    -&gt;required();
+</code></pre>
+
 <h3><a href="#hiding" name="hiding">Hiding</a></h3>
+
 <pre><code class="language-php">Input::make('name')-&gt;canSee(true);
-Input::make('name')-&gt;canSee(false);</code></pre>
+Input::make('name')-&gt;canSee(false);
+</code></pre>
+
 <blockquote>
-<p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
+  <p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
 </blockquote>
+
 <h3><a href="#types" name="types">Types</a></h3>
+
 <p>One of the most universal fields, by specifying a type, all <code>html</code> values are supported:</p>
+
 <blockquote>
-<p><strong>Please note</strong>. Support for the new HTML5 attributes is completely dependent on the browser used.</p>
+  <p><strong>Please note</strong>. Support for the new HTML5 attributes is completely dependent on the browser used.</p>
 </blockquote>
+
 <p>Text field. Designed to enter characters using the keyboard.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('text');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('text');
+</code></pre>
+
 <p>A field for entering the name of the file that is sent to the server.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('file');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('file');
+</code></pre>
+
 <p>Hidden field.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('hidden');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('hidden');
+</code></pre>
+
 <p>Widget for choosing a color.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('color');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('color');
+</code></pre>
+
 <p>For email addresses.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('email');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('email');
+</code></pre>
+
 <p>Entering numbers.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('number');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('number');
+</code></pre>
+
 <p>Slider to select numbers in the specified range.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('range');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('range');
+</code></pre>
+
 <p>To specify web addresses.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('url');</code></pre>
+
+<pre><code class="language-php">Input::make('name')-&gt;type('url');
+</code></pre>
+
 <p>You can learn more about attribute types at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla's website</a>.</p>
+
 <h3><a href="#mask-for-entering-values" name="mask-for-entering-values">Mask for entering values</a></h3>
+
 <p>Great if the values should be written in a standard form, such as TIN or phone number</p>
+
 <p>Example:</p>
+
 <pre><code class="language-php">Input::make('phone')
     -&gt;mask('(999) 999-9999')
-    -&gt;title('Phone number');</code></pre>
+    -&gt;title('Phone number');
+</code></pre>
+
 <p>An array with parameters can be passed to the mask, for example:</p>
+
 <pre><code class="language-php">Input::make('price')
     -&gt;title('Price')
     -&gt;mask([
      'mask' =&gt; '999 999 999.99',
      'numericInput' =&gt; true
-    ]);</code></pre>
+    ]);
+</code></pre>
+
 <pre><code class="language-php">Input::make('price')
     -&gt;title('Price')
     -&gt;mask([
@@ -392,46 +459,79 @@ Input::make('name')-&gt;canSee(false);</code></pre>
         'prefix' =&gt; ' ',
         'groupSeparator' =&gt; ' ',
         'digitsOptional' =&gt; true,
-    ]);</code></pre>
+    ]);
+</code></pre>
+
 <p>All available <em>Inputmask</em> options can be viewed <a href="https://github.com/RobinHerbots/Inputmask#options">here</a>.</p>
+
 <h2><a href="#textarea" name="textarea">TextArea</a></h2>
+
 <p>The <code>textarea</code> field is a form element for creating an area into which multiple lines of text can be entered.
 In contrast to the <code>input</code> tag, it is permissible to do line breaks in the text field, they are saved when sending data to the server.</p>
+
 <p>Example:</p>
-<pre><code class="language-php">TextArea::make('description');</code></pre>
+
+<pre><code class="language-php">TextArea::make('description');
+</code></pre>
+
 <p>You can set the required number of rows using the <code>rows</code> method:</p>
+
 <pre><code class="language-php">TextArea::make('description')
-    -&gt;rows(5);</code></pre>
+    -&gt;rows(5);
+</code></pre>
+
 <h2><a href="#checkbox" name="checkbox">CheckBox</a></h2>
+
 <p>A graphical user interface element that allows the user to control a parameter with two states - ☑ on and ☐ off.</p>
+
 <p>Example:</p>
+
 <pre><code class="language-php">CheckBox::make('free')
     -&gt;value(1)
     -&gt;title('Free')
     -&gt;placeholder('Event for free')
-    -&gt;help('Event for free');</code></pre>
+    -&gt;help('Event for free');
+</code></pre>
+
 <p>By default, browsers do not send the value of an unselected field. This complicates the installation of simple Boolean types. To solve this, there is a separate method in which the value <code>false</code> will be sent:</p>
+
 <pre><code class="language-php">CheckBox::make('enabled')
-    -&gt;sendTrueOrFalse();</code></pre>
+    -&gt;sendTrueOrFalse();
+</code></pre>
+
 <h2><a href="#select" name="select">Select</a></h2>
+
 <p>Simple selection from an array list:</p>
+
 <pre><code class="language-php">Select::make('select')
     -&gt;options([
         'index'   =&gt; 'Index',
         'noindex' =&gt; 'No index',
     ])
     -&gt;title('Select tags')
-    -&gt;help('Allow search bots to index');</code></pre>
+    -&gt;help('Allow search bots to index');
+</code></pre>
+
 <p>Work with a source model:</p>
+
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email');</code></pre>
+    -&gt;fromModel(User::class, 'email');
+</code></pre>
+
 <p>Source with the condition:</p>
+
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromQuery(User::where('balance', '!=', '0'), 'email');</code></pre>
+    -&gt;fromQuery(User::where('balance', '!=', '0'), 'email');
+</code></pre>
+
 <p>Key change:</p>
+
 <pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email', 'uuid');</code></pre>
+    -&gt;fromModel(User::class, 'email', 'uuid');
+</code></pre>
+
 <p>There may be situations when you need to add some value, which means that the field is not selected. To do this, you can use the <code>empty</code> method:</p>
+
 <pre><code class="language-php">// For array
 Select::make('user')
     -&gt;options([
@@ -443,32 +543,47 @@ Select::make('user')
 // For model
 Select::make('user')
     -&gt;fromModel(User::class, 'name')
-    -&gt;empty('No select', 0);</code></pre>
+    -&gt;empty('No select', 0);
+</code></pre>
+
 <blockquote>
-<p><strong>Note</strong> that <code>empty</code> is called later than the filling methods, otherwise the added value will be overwritten.</p>
+  <p><strong>Note</strong> that <code>empty</code> is called later than the filling methods, otherwise the added value will be overwritten.</p>
 </blockquote>
+
 <p>The <code>empty</code> method also accepts the second argument, which is responsible for the value:</p>
+
 <pre><code class="language-php">Select::make('user')
     -&gt;empty('No select', 0)
     -&gt;options([
         1  =&gt; 'Option 1',
         2  =&gt; 'Option 2',
-    ]);</code></pre>
+    ]);
+</code></pre>
+
 <h2><a href="#relation" name="relation">Relation</a></h2>
+
 <p>Relations fields can load dynamic data, this is a good solution if you need connections.</p>
+
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
-    -&gt;title('Choose your idea');</code></pre>
+    -&gt;title('Choose your idea');
+</code></pre>
+
 <p>For multiple selections, use the <code>multiple()</code> method.</p>
+
 <pre><code class="language-php">Relation::make('ideas.')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;multiple()
-    -&gt;title('Choose your ideas');</code></pre>
+    -&gt;title('Choose your ideas');
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were <code>HTML</code> code <code>&lt;input name='ideas[]'&gt;</code></p>
+  <p><strong>Note.</strong> Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were <code>HTML</code> code <code>&lt;input name='ideas[]'&gt;</code></p>
 </blockquote>
+
 <p>To modify the load, you can use the reference to the <code>scope</code> model,
 for example, take only active:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -485,17 +600,25 @@ class Idea extends Model
     {
         return $query-&gt;where('active', true);
     }
-}</code></pre>
+}
+</code></pre>
+
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('active')
-    -&gt;title('Choose your idea');</code></pre>
+    -&gt;title('Choose your idea');
+</code></pre>
+
 <p>You can also pass additional parameters to the method:</p>
+
 <pre><code class="language-php">Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;applyScope('status', 'active')
-    -&gt;title('Choose your idea');</code></pre>
+    -&gt;title('Choose your idea');
+</code></pre>
+
 <p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the <code>displayAppend</code> method.</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -509,54 +632,91 @@ class User extends Model
     {
         return $this-&gt;attributes['name'] . ' (' . $this-&gt;attributes['email'] . ')';
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>To indicate the displayed field you must:</p>
+
 <pre><code class="language-php">Relation::make('users.')
     -&gt;fromModel(User::class, 'name')
     -&gt;displayAppend('full')
     -&gt;multiple()
-    -&gt;title('Select users');</code></pre>
+    -&gt;title('Select users');
+</code></pre>
+
 <h2><a href="#datetime" name="datetime">DateTime</a></h2>
+
 <p>Allows you to select the date and time.</p>
+
 <p><img src="https://orchid.software/assets/img/ui/datatime.png" alt="Datatime"></p>
+
 <p>Example:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date');</code></pre>
+    -&gt;title('Opening date');
+</code></pre>
+
 <p>Allow direct input:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
-    -&gt;allowInput();</code></pre>
+    -&gt;allowInput();
+</code></pre>
+
 <p><strong>Please note</strong> that setting a field can be mandatory only with direct input:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;allowInput()
-    -&gt;required();</code></pre>
+    -&gt;required();
+</code></pre>
+
 <p>Data format:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
-    -&gt;format('Y-m-d');</code></pre>
+    -&gt;format('Y-m-d');
+</code></pre>
+
 <p>Example for display in 24th format:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
-    -&gt;format24hr();</code></pre>
+    -&gt;format24hr();
+</code></pre>
+
 <p>Calendar over time:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening time')
-    -&gt;enableTime();</code></pre>
+    -&gt;enableTime();
+</code></pre>
+
 <p>Choice of time only:</p>
+
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening time')
     -&gt;noCalendar()
-    -&gt;format('h:i K');</code></pre>
+    -&gt;format('h:i K');
+</code></pre>
+
 <h2><a href="#timezone" name="timezone">TimeZone</a></h2>
+
 <p>Field for convenient time zone selection:</p>
-<pre><code class="language-php">TimeZone::make('time');</code></pre>
+
+<pre><code class="language-php">TimeZone::make('time');
+</code></pre>
+
 <p>Specification of specific time zones is possible using:</p>
+
 <pre><code class="language-php">use DateTimeZone;
 
 TimeZone::make('time')
-    -&gt;listIdentifiers(DateTimeZone::ALL); </code></pre>
+    -&gt;listIdentifiers(DateTimeZone::ALL); 
+</code></pre>
+
 <p>The default value is <code>DateTimeZone::ALL</code>, but others are possible:</p>
+
 <pre><code class="language-php">DateTimeZone::AFRICA;
 DateTimeZone::AMERICA;
 DateTimeZone::ANTARCTICA;
@@ -569,160 +729,286 @@ DateTimeZone::INDIAN;
 DateTimeZone::PACIFIC;
 DateTimeZone::UTC;
 DateTimeZone::ALL_WITH_BC;
-DateTimeZone::PER_COUNTRY;</code></pre>
+DateTimeZone::PER_COUNTRY;
+</code></pre>
+
 <p>The representation of variable zones can be found in the documentation <a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
+
 <h2><a href="#html-quill-editor" name="html-quill-editor">HTML Quill Editor</a></h2>
+
 <p>Such an editor allows you to insert pictures, tables, specify styles for text, video.</p>
+
 <p>Example:</p>
-<pre><code class="language-php">Quill::make('html');</code></pre>
+
+<pre><code class="language-php">Quill::make('html');
+</code></pre>
+
 <p>There are 6 groups of controls available:</p>
+
 <pre><code class="language-php">Quill::make('html')
-    -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);</code></pre>
+    -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
+</code></pre>
+
 <h2><a href="#markdown-editor" name="markdown-editor">Markdown Editor</a></h2>
+
 <p>Editor for the lightweight markup language. Created with the goal of writing the most readable and easy to edit text.  But suitable for converting into languages for advanced publications.</p>
+
 <p><img src="https://orchid.software/assets/img/ui/markdown.png" alt="Markdown"><img src="https://orchid.software/assets/img/ui/markdown2.png" alt="Markdown2"></p>
+
 <p>Example:</p>
-<pre><code class="language-php">SimpleMDE::make('markdown');</code></pre>
+
+<pre><code class="language-php">SimpleMDE::make('markdown');
+</code></pre>
+
 <h2><a href="#matrix" name="matrix">Matrix</a></h2>
+
 <p>The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:</p>
+
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns([
         'Attribute',
         'Value',
         'Units',
-    ])</code></pre>
+    ])
+</code></pre>
+
 <p>Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:</p>
+
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns([
         'Attribute' =&gt; 'attr',
         'Value' =&gt; 'product_value',
-    ])</code></pre>
+    ])
+</code></pre>
+
 <p>It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:</p>
+
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns(['id', 'name'])
-    -&gt;maxRows(10)</code></pre>
+    -&gt;maxRows(10)
+</code></pre>
+
 <p>By default, each cell element has a textarea field, but you can change it to your own fields as follows:</p>
+
 <pre><code class="language-php">Matrix::make('users')
     -&gt;title('Users list')
     -&gt;columns(['id', 'name'])
     -&gt;fields([
         'id'   =&gt; Input::make()-&gt;type('number'),
         'name' =&gt; TextArea::make(),
-    ]),</code></pre>
+    ]),
+</code></pre>
+
 <h2><a href="#code-editor" name="code-editor">Code editor</a></h2>
+
 <p>A field for writing program code with the ability to highlight.</p>
+
 <p><img src="/assets/img/ui/code.png" alt="Code"></p>
+
 <p>Example:</p>
-<pre><code class="language-php">Code::make('code');</code></pre>
+
+<pre><code class="language-php">Code::make('code');
+</code></pre>
+
 <p>To specify code highlighting for a specific programming language, you can use the <code>language()</code> method.</p>
+
 <pre><code class="language-php"> Code::make('code')
-     -&gt;language(Code::CSS);</code></pre>
+     -&gt;language(Code::CSS);
+</code></pre>
+
 <p>The following languages are available:</p>
+
 <ul><li>Markup - <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
 <li>CSS - <code>css</code></li>
 <li>C-like - <code>clike</code></li>
 <li>JavaScript - <code>javascript</code>, <code>js</code></li>
 </ul><p>The number of lines is supported:</p>
+
 <pre><code class="language-php">Code::make('code')
-    -&gt;lineNumbers();</code></pre>
+    -&gt;lineNumbers();
+</code></pre>
+
 <h2><a href="#picture" name="picture">Picture</a></h2>
+
 <p>Allows you to upload an image.</p>
+
 <p>Example:</p>
-<pre><code class="language-php">Picture::make('picture');</code></pre>
+
+<pre><code class="language-php">Picture::make('picture');
+</code></pre>
+
 <p>Laravel filesystems are supported:</p>
+
 <pre><code class="language-php">Picture::make('picture')
-    -&gt;storage('s3');</code></pre>
+    -&gt;storage('s3');
+</code></pre>
+
 <h2><a href="#cropper" name="cropper">Cropper</a></h2>
+
 <p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
+
 <p><img src="/assets/img/fields/cropper.png" alt="Cropper"></p>
+
 <p>Example:</p>
-<pre><code class="language-php">Cropper::make('picture');</code></pre>
+
+<pre><code class="language-php">Cropper::make('picture');
+</code></pre>
+
 <h3><a href="#width-and-height" name="width-and-height">Width and height</a></h3>
+
 <p>In order to control the format, you can specify the width and height of the desired image:</p>
+
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;width(500)
-    -&gt;height(300);</code></pre>
+    -&gt;height(300);
+</code></pre>
+
 <p>Or you can impose specific limits using <code>minWidth</code> / <code>maxWidth</code> or <code>minHeight</code> / <code>maxHeight</code> or use convenience methods <code>minCanvas</code> / <code>maxCanvas</code></p>
+
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;minCanvas(500)
     -&gt;maxWidth(1000)
-    -&gt;maxHeight(800);</code></pre>
+    -&gt;maxHeight(800);
+</code></pre>
+
 <h3><a href="#file-size-limit" name="file-size-limit">File size limit</a></h3>
+
 <p>To limit the size of the downloaded file, you must set the maximum value in <code>MB</code>.</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;maxFileSize(2);</code></pre>
+    -&gt;maxFileSize(2);
+</code></pre>
+
 <h3><a href="#value" name="value">Value</a></h3>
+
 <p>The control of the return value is carried out using the methods:</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetId();</code></pre>
+    -&gt;targetId();
+</code></pre>
+
 <p>The sequence number (<code>id</code>) of the<code>Attachment</code> record will be returned.</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetRelativeUrl();</code></pre>
+    -&gt;targetRelativeUrl();
+</code></pre>
+
 <p>Will return the relative path to the image.</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetUrl();</code></pre>
+    -&gt;targetUrl();
+</code></pre>
+
 <p>Will return the absolute path to the image.</p>
+
 <h2><a href="#upload" name="upload">Upload</a></h2>
+
 <p>Renders upload for images or regular files.</p>
+
 <p>Example:</p>
-<pre><code class="language-php">Upload::make('upload');</code></pre>
+
+<pre><code class="language-php">Upload::make('upload');
+</code></pre>
+
 <pre><code class="language-php">Upload::make('docs')
     -&gt;groups('documents');
 
 Upload::make('images')
-    -&gt;groups('photo');</code></pre>
+    -&gt;groups('photo');
+</code></pre>
+
 <p>It can be used to limit the maximum number of files that will be processed:</p>
+
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFiles(10);</code></pre>
+    -&gt;maxFiles(10);
+</code></pre>
+
 <p>Determines the number of concurrent downloads for processing files:</p>
+
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;parallelUploads(2);</code></pre>
+    -&gt;parallelUploads(2);
+</code></pre>
+
 <p>Maximum upload file size:
 Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values are 2M , You can change them in <code>php.ini</code> to enable setting max file size to be more than 2M</p>
+
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFileSize(1024); // Size in MB </code></pre>
+    -&gt;maxFileSize(1024); // Size in MB 
+</code></pre>
+
 <p>The default implementation of <code>accept</code> checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.</p>
+
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;acceptedFiles('image/*,application/pdf,.psd');</code></pre>
+    -&gt;acceptedFiles('image/*,application/pdf,.psd');
+</code></pre>
+
 <p>The upload field can work with various repositories. To specify it, you must pass the key specified in <code>config/filesystems.php</code>:</p>
+
 <pre><code class="language-php">Upload::make('upload')
-    -&gt;storage('s3');</code></pre>
+    -&gt;storage('s3');
+</code></pre>
+
 <p>The default storage is <code>public</code>.</p>
+
 <h2><a href="#group" name="group">Group</a></h2>
+
 <p>A group is used to combine several fields on one line.</p>
+
 <pre><code class="language-php">Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
-]),</code></pre>
+]),
+</code></pre>
+
 <p>In order to determine the width of the fields, you must use one of the proposed methods.</p>
+
 <p>Fields will occupy the entire available screen width.</p>
+
 <pre><code class="language-php">Group::make([
     // ...
-])-&gt;fullWidth();</code></pre>
+])-&gt;fullWidth();
+</code></pre>
+
 <p>Fields will take up as much space as necessary.</p>
+
 <pre><code class="language-php">Group::make([
     // ...
-])-&gt;autoWidth();</code></pre>
+])-&gt;autoWidth();
+</code></pre>
+
 <h2><a href="#buttonlink" name="buttonlink">Button/Link</a></h2>
+
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
 submit the form at the end of the screen.
 For such cases, there is a <code>Button</code> field. The <code>Button</code> field cannot have any
 values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
 And to add a simple link in the form.</p>
+
 <p>An example of using the modal window <code>addNewPayment</code> added earlier to the screen:</p>
+
 <pre><code class="language-php">ModalToggle::make('Add Payment')
     -&gt;modal('addNewPayment')
-    -&gt;icon('wallet');</code></pre>
+    -&gt;icon('wallet');
+</code></pre>
+
 <p>Linking example:</p>
+
 <pre><code class="language-php">Link::make('Google It!')
     -&gt;href('http://google.com');
 
+
 Link::make('Idea')
-    -&gt;route('platform.idea');</code></pre>
+    -&gt;route('platform.idea');
+</code></pre>
+
 <p>Example use with method:</p>
+
 <pre><code class="language-php">Button::make('Google It!')
-    -&gt;method('goToGoogle');</code></pre>
+    -&gt;method('goToGoogle');
+</code></pre>
+
 <p>Available modifiers:</p>
+
 <ul><li><code>right()</code> - Positioning the element on the right edge of the screen</li>
 <li><code>block()</code> - Positioning the element across the entire width of the screen</li>
 <li><code>class('class-names')</code> - rewrites the standard button classes</li>

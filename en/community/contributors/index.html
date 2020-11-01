@@ -183,56 +183,98 @@
                         <!--Docs Anchors-->
 
                         <p>I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <a href="https://github.com/orchidsoftware/platform">https://github.com/orchidsoftware/platform</a>.</p>
+
 <h2>Problem tracking</h2>
+
 <p>You can find unresolved issues on <a href="https://github.com/orchidsoftware/platform/issues">GitHub Issues Tracker</a>.
  If you intend to work on a specific issue, leave a comment on the relevant task to inform other project participants.</p>
+
 <p>For active development, it is strongly recommended that you use only <code>pull request</code> requests, not just bug reports.</p>
+
 <p>If you created a bug report, then it should contain a title and a clear description of the problem. You should also include as complete information and sample code as possible to help reproduce the problem. The main goal of the bug report is to simplify the localization, reproduction of the problem and search for its solution.</p>
+
 <p>Also remember that error reports are created in the hope that other users with the same problems will be able to participate in solving them together with you. But do not expect others to quit and start fixing your problem. The bug report is designed to help you and others start working together to resolve a problem.</p>
+
 <h2>Participate in discussions</h2>
+
 <p>You can offer new features and enhancements to your existing ORCHID behavior. If you are proposing a new function, please be prepared to execute at least the code examples that will be needed to call / use this function.</p>
-<p>Informal discussion about bugs / problems and new features:</p>
-<ol>
-<li><a href="https://t.me/orchid_community">Telegram group @orchid_community</a></li>
-<li><a href="https://t.me/orchid_russian_community">Telegram group @orchid_russian_community</a></li>
-</ol>
+
+<p>Informal discussion about bugs / problems and new features:
+ 1. <a href="https://t.me/orchid_community">Telegram group @orchid_community</a>
+ 1. <a href="https://t.me/orchid_russian_community">Telegram group @orchid_russian_community</a></p>
+
 <h2>Security</h2>
+
 <p>If you find a security vulnerability inside the platform, please send an e-mail message to <code>bliz48rus@gmail.com</code>.
 All appeals will be immediately considered.</p>
+
 <h2>Coding style</h2>
+
 <p>ORCHID follows <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md">PSR-2</a> and <a href="Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md">PSR-4</a> standards.</p>
+
 <p>You can use <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP-CS-Fixer</a> to fix your code style before publishing.</p>
+
 <p>To get started, install the tool on a global level and check the code style by executing the following command from the terminal of the root directory of your project:</p>
-<pre><code class="language-bash">php-cs-fixer fix</code></pre>
+
+<pre><code class="language-bash">php-cs-fixer fix
+</code></pre>
+
 <h2>Debug and submit change request</h2>
+
 <p>At the stage of helping the project, questions may arise related to debugging and installation,
 This section is designed for those who want to send a request for the first time.</p>
+
 <h3>Development Installation</h3>
+
 <p>To install the ORCHID package as a developer, you must install the laravel framework.</p>
+
 <blockquote>
-<p>First you have to make a fork <a href="https://github.com/orchidsoftware/platform/fork">github repository</a> to post changes.</p>
+  <p>First you have to make a fork <a href="https://github.com/orchidsoftware/platform/fork">github repository</a> to post changes.</p>
 </blockquote>
+
 <p>Go to the directory and execute:</p>
-<pre><code class="language-bash">git clone https://github.com/yourname/platform.git</code></pre>
+
+<pre><code class="language-bash">git clone https://github.com/yourname/platform.git
+</code></pre>
+
 <p>Add a local repository to the <code>composer.json</code> application:</p>
+
 <pre><code class="language-php">"repositories": [
     {
         "type": "path",
         "url": "./platform"
     }
-]</code></pre>
+]
+</code></pre>
+
 <p>And add our package depending:</p>
-<pre><code class="language-bash">composer require orchid/platform:@dev</code></pre>
-<p>Composer adds the package from the repository that you specified.
-The remaining actions correspond to the section <code>Installations</code>.</p>
-<h3>Submit change request</h3>
-<p>Create a new branch like this:</p>
-<pre><code class="language-bash">git checkout -b feature/issue_001</code></pre>
+
+<pre><code class="language-bash">composer require orchid/platform:@dev
+````
+
+Composer adds the package from the repository that you specified.
+The remaining actions correspond to the section `Installations`.
+
+### Submit change request
+
+Create a new branch like this:
+
+```bash
+git checkout -b feature/issue_001
+</code></pre>
+
 <p>This will allow you to almost immediately understand that the created branch adds new functionality from the message number 001.</p>
+
 <p>Make changes and commit them:</p>
-<pre><code class="language-bash">git commit -am 'ref #001 [Docs] Fix misprint'</code></pre>
+
+<pre><code class="language-bash">git commit -am 'ref #001 [Docs] Fix misprint'
+</code></pre>
+
 <p>To send your branch you need to do:</p>
-<pre><code class="language-bash">git push origin feature/issue_001</code></pre>                    </main>
+
+<pre><code class="language-bash">git push origin feature/issue_001
+</code></pre>
+                    </main>
                 </div>
             </div>
         </div>

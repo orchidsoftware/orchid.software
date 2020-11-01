@@ -238,40 +238,64 @@
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#shirina-i-vysota">Ширина и высота</a>
+                <a href="#sirina-i-vysota">Ширина и высота</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#ogranichenie-razmera-fayla">Ограничение размера файла</a>
+                <a href="#ogranicenie-razmera-faila">Ограничение размера файла</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#znachenie">Значение</a>
+                <a href="#znacenie">Значение</a>
             </li>
             </ul>
     <hr>
 <p>Позволяет загружать изображение и обрезать до нужного формата.</p>
+
 <p><img src="/assets/img/fields/cropper.png" alt="Cropper"></p>
+
 <p>Пример записи:</p>
-<pre><code class="language-php">Cropper::make('picture');</code></pre>
-<h2><a href="#shirina-i-vysota" name="shirina-i-vysota">Ширина и высота</a></h2>
+
+<pre><code class="language-php">Cropper::make('picture');
+</code></pre>
+
+<h2><a href="#sirina-i-vysota" name="sirina-i-vysota">Ширина и высота</a></h2>
+
 <p>Для того чтобы контролировать формат, можно указать ширину и высоту необходимого изображения:</p>
+
 <pre><code class="language-php">Cropper::make('picture')
     -&gt;width(500)
-    -&gt;height(300);</code></pre>
-<h2><a href="#ogranichenie-razmera-fayla" name="ogranichenie-razmera-fayla">Ограничение размера файла</a></h2>
+    -&gt;height(300);
+</code></pre>
+
+<h2><a href="#ogranicenie-razmera-faila" name="ogranicenie-razmera-faila">Ограничение размера файла</a></h2>
+
 <p>Для ограничения размера загружаемого файла необходимо задать максимальное значение в <code>MB</code></p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;maxFileSize(2);</code></pre>
-<h2><a href="#znachenie" name="znachenie">Значение</a></h2>
+    -&gt;maxFileSize(2);
+</code></pre>
+
+<h2><a href="#znacenie" name="znacenie">Значение</a></h2>
+
 <p>Контроль возращаемого значения осуществляется с помощью методов:</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetId();</code></pre>
+    -&gt;targetId();
+</code></pre>
+
 <p>Будет возвращён порядковый номер (<code>id</code>) записи <code>Attachment</code>.</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetRelativeUrl();</code></pre>
+    -&gt;targetRelativeUrl();
+</code></pre>
+
 <p>Вернёт относительный путь до изображения.</p>
+
 <pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetUrl();</code></pre>
-<p>Вернёт абсолютный путь до изображения.</p>                    </main></div>
+    -&gt;targetUrl();
+</code></pre>
+
+<p>Вернёт абсолютный путь до изображения.</p>
+                    </main></div>
             </div>
         </div>
     </div>

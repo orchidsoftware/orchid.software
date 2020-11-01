@@ -247,16 +247,16 @@
                 <a href="#middleware">Middleware</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#stranitsa-avtorizatsii">Страница авторизации</a>
+                <a href="#stranica-avtorizacii">Страница авторизации</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#glavnaya-stranitsa">Главная страница</a>
+                <a href="#glavnaya-stranica">Главная страница</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#resursy-paneli-upravleniya">Ресурсы панели управления</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#shablony-vneshnego-vida">Шаблоны внешнего вида</a>
+                <a href="#sablony-vnesnego-vida">Шаблоны внешнего вида</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#modelnye-klassy">Модельные классы</a>
@@ -264,46 +264,79 @@
             </ul>
     <hr>
 <p>Платформа использует стандартную систему настроек для Laravel.
-Параметры располагаются в директории <code>config</code>, а основным источником для платформы является
+Параметры располагаются в директории <code>config</code>, а основным источником для платформы является 
 файл <code>platform.php</code>. Каждая настройка поставляется с комментарием поясняющим основную суть.</p>
+
 <blockquote>
-<p><strong>Примечание.</strong> Если вы кешируете свои файлы конфигурации, не забудьте очистить их после изменения, используя команду <code>php artisan config:clear</code></p>
+  <p><strong>Примечание.</strong> Если вы кешируете свои файлы конфигурации, не забудьте очистить их после изменения, используя команду <code>php artisan config:clear</code></p>
 </blockquote>
+
 <p>Ниже мы углубимся в файл конфигурации и дадим подробное описание каждого параметра.</p>
+
 <h2><a href="#adres-platformy" name="adres-platformy">Адрес платформы</a></h2>
-<pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),</code></pre>
+
+<pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),
+</code></pre>
+
 <p>Для многих проектов адрес расположения панели администрирования играет важную роль.
 Например, приложение располагается по адресу <code>example.com</code>, а платформа на <code>admin.example.com</code> или на стороннем домене.</p>
-<p>Для этого требуется указать по какому адресу вы хотели её открывать. </p>
-<pre><code class="language-php">'domain' =&gt; 'admin.example.com',</code></pre>
+
+<p>Для этого требуется указать по какому адресу вы хотели её открывать.</p>
+
+<pre><code class="language-php">'domain' =&gt; 'admin.example.com',
+</code></pre>
+
 <p>Помните, что ваши параметры веб-сервера должны быть настроены должным образом.</p>
+
 <h2><a href="#prefiks-platformy" name="prefiks-platformy">Префикс платформы</a></h2>
-<pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),</code></pre>
+
+<pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),
+</code></pre>
+
 <p>Предоставляется возможность смены префикса <code>dashboard</code> на любое другое название, например <code>admin</code> или <code>administrator</code>.</p>
+
 <h2><a href="#middleware" name="middleware">Middleware</a></h2>
+
 <pre><code class="language-php">'middleware' =&gt; [
     'public'  =&gt; ['web'],
     'private' =&gt; ['web', 'platform'],
-],</code></pre>
-<p>Можете добавлять/изменять промежуточные слои (middleware) для графического интерфейса.
-На данный момент предусмотрены две группы: <code>public</code>, которую может видеть не авторизованный пользователь,
+],
+</code></pre>
+
+<p>Можете добавлять/изменять промежуточные слои (middleware) для графического интерфейса. 
+На данный момент предусмотрены две группы: <code>public</code>, которую может видеть не авторизованный пользователь, 
 например, страницу "Входа", и <code>private</code>, которую наоборот видят только авторизованные пользователи.</p>
-<p>Вы можете добавить сколько угодно новых промежуточных слоёв,
+
+<p>Вы можете добавить сколько угодно новых промежуточных слоёв, 
 например, слой фильтрации запросов только из белого списка IP адресов.</p>
-<h2><a href="#stranitsa-avtorizatsii" name="stranitsa-avtorizatsii">Страница авторизации</a></h2>
-<pre><code class="language-php">'auth' =&gt; true,</code></pre>
+
+<h2><a href="#stranica-avtorizacii" name="stranica-avtorizacii">Страница авторизации</a></h2>
+
+<pre><code class="language-php">'auth' =&gt; true,
+</code></pre>
+
 <p>Существует возможность и вовсе отключить поставляемую форму авторизации и сделать собственную, например с помощью пакета <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a>.</p>
-<h2><a href="#glavnaya-stranitsa" name="glavnaya-stranitsa">Главная страница</a></h2>
+
+<h2><a href="#glavnaya-stranica" name="glavnaya-stranica">Главная страница</a></h2>
+
 <p>Главная страница приложения записана в виде <strong>названия маршрута</strong>, именно её увидит пользователь при входе или нажатии на логотипы и ссылки.</p>
-<pre><code class="language-php">'index' =&gt; 'platform.main',</code></pre>
+
+<pre><code class="language-php">'index' =&gt; 'platform.main',
+</code></pre>
+
 <h2><a href="#resursy-paneli-upravleniya" name="resursy-paneli-upravleniya">Ресурсы панели управления</a></h2>
+
 <pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [],
-],</code></pre>
+],
+</code></pre>
+
 <p>В ходе работы вам может потребоваться добавить свои собственные таблицы стилей или javascript сценарии
 глобально, на каждую страницу, в таком случае необходимо добавить пути для них в соответствующие массивы.</p>
+
 <p>Так же возможно указывать ресурсы через объект <code>Dashboard</code>, например в сервис провайдере:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -316,15 +349,23 @@ class AppServiceProvider extends ServiceProvider
         $dashboard-&gt;registerResource('stylesheets', 'custom.css');
         $dashboard-&gt;registerResource('scripts', 'custom.js');
     }
-}</code></pre>
-<h2><a href="#shablony-vneshnego-vida" name="shablony-vneshnego-vida">Шаблоны внешнего вида</a></h2>
+}
+</code></pre>
+
+<h2><a href="#sablony-vnesnego-vida" name="sablony-vnesnego-vida">Шаблоны внешнего вида</a></h2>
+
 <p>Для изменения некоторых шаблонов необязательно опубликовывать весь пакет, можете настроить часть пользовательского интерфейса для указания логотипа, сопроводительных документов и т.п.</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
     'footer' =&gt; null,
-],</code></pre>
+],
+</code></pre>
+
 <h2><a href="#modelnye-klassy" name="modelnye-klassy">Модельные классы</a></h2>
+
 <p>Вполне нормальным является желание изменить поведение некоторых классов из стандартной поставки. Для того чтобы платформа использовала ваши классы моделей вместо своих, необходимо заранее зарегистрировать их подмену, с помощью:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -342,13 +383,18 @@ class AppServiceProvider extends ServiceProvider
         Dashboard::useModel(\Orchid\Platform\Models\User::class, \App\User::class);
     }
 }
+
 </code></pre>
+
 <p>Можно использовать параметр конфигурации, что позволит определить все подмены сразу:</p>
+
 <pre><code class="language-php">Dashboard::configure([
     'models' =&gt; [
         User::class =&gt; MyCustomClass::class,
     ],
-]);</code></pre>                    </main></div>
+]);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

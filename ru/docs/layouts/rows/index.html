@@ -217,8 +217,10 @@
                             </div>
                                                 <hr class="mb-4"><p>Макет строк служит минимальным набором, который чаще всего используется.
 Его цель - объединять все необходимые элементы форм.</p>
+
 <p>Строки поддерживают короткую запись без создания отдельного класса,
 например, когда требуется показать одно - два поля.</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 
@@ -231,10 +233,16 @@ public function layout(): array
                 -&gt;title('Example')
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Для повторного использования, можно создать класс выполнив команду:</p>
-<pre><code class="language-php">php artisan orchid:rows Appointment</code></pre>
+
+<pre><code class="language-php">php artisan orchid:rows Appointment
+</code></pre>
+
 <p>В директории <code>app/Orchid/Layouts</code>, будет создан новый класс, где можно определять поля:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -264,14 +272,19 @@ class Appointment extends Rows
                 -&gt;help('What did the patient complain about?'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Для использования такого класса в экране необходимо передать его название в методе <code>layouts</code>:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
         Appointment::class
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

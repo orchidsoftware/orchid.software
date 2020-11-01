@@ -237,7 +237,9 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>The presenter is a class that wraps an object in order to add functionality to it.</p>
+
 <p>Let's say we have a "Client" model:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -248,8 +250,11 @@ class Client extends Model
         'firstName',
         'lastName'
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Before an instance of this class is wrapped in a representative, you must create it:</p>
+
 <pre><code class="language-php">namespace App\Presenters;
 
 use Orchid\Support\Presenter;
@@ -260,8 +265,11 @@ class ClientPresenter extends Presenter
     {
         return $this-&gt;entity-&gt;firstName . ' ' . $this-&gt;entity-&gt;lastName;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>After that, we can use it as follows:</p>
+
 <pre><code class="language-php">use App\Client;
 use App\Presenters\ClientPresenter;
 
@@ -272,11 +280,15 @@ $client = new Client([
 
 $presenter = new ClientPresenter($client);
 
-$presenter-&gt;fullName();</code></pre>
+$presenter-&gt;fullName();
+</code></pre>
+
 <blockquote>
-<p><strong>Note</strong> that the representative receives the <code>firstName</code> and <code>lastName</code> properties of the model because it does not have these properties.</p>
+  <p><strong>Note</strong> that the representative receives the <code>firstName</code> and <code>lastName</code> properties of the model because it does not have these properties.</p>
 </blockquote>
+
 <p>Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this creation in the model:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -293,15 +305,22 @@ class Client extends Model
     {
         return new ClientPresenter($this);
     }
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> Many platform functions expect a representative in the <code>presenter</code> method.</p>
+  <p><strong>Note.</strong> Many platform functions expect a representative in the <code>presenter</code> method.</p>
 </blockquote>
+
 <p>Now its use is becoming easier:</p>
+
 <pre><code class="language-php">use App\Client;
 
-$client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();</code></pre>
+$client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();
+</code></pre>
+
 <p>If you need to get a list of representatives, the best option would be to use collection methods, for example:</p>
+
 <pre><code class="language-php">use App\Client;
 
 $clients = Client::limit(10)-&gt;get()-&gt;map-&gt;presenter();
@@ -309,8 +328,11 @@ $clients = Client::limit(10)-&gt;get()-&gt;map-&gt;presenter();
 foreach($clients as $client)
 {
     $client-&gt;fullName();
-}</code></pre>
-<p>Using representatives for models is a common practice of automatically displaying data for <code>Layouts</code>.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Using representatives for models is a common practice of automatically displaying data for <code>Layouts</code>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

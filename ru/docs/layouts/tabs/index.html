@@ -216,9 +216,12 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Табы группируют контент и помогают в навигации. Полезны, когда вы хотите переключаться между скрытием и отображением большого количества контента:</p>
+
 <p><img src="/assets/img/layouts/tabs.png" alt="Tabs"></p>
-<p>Табы поддерживают короткий синтаксис через вызов статического метода,
+
+<p>Табы поддерживают короткий синтаксис через вызов статического метода, 
 что не требует создания отдельного класса:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -251,9 +254,13 @@ public function layout(): array
             ],
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Ключи будут использованы в качестве заголовков.</p>
+
 <p>Обратите внимание, что вы можете указывать в качестве значений и строчное имя класса:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -262,7 +269,9 @@ public function layout(): array
             'Billing Address'      =&gt; BillingAddressRow::class,
         ]),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -244,7 +244,7 @@
                 <a href="#povtornaya-zagruzka">Повторная загрузка</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#udalenie-vlozheniy">Удаление вложений</a>
+                <a href="#udalenie-vlozenii">Удаление вложений</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#podpiska-na-sobytie-zagruzki">Подписка на событие загрузки</a>
@@ -252,7 +252,9 @@
             </ul>
     <hr>
 <p>Файлы различных форматов и расширений относящиеся к записи являются вложениями.</p>
+
 <p>Вложения могут быть прикреплены к любой модели посредством связей, для этого необходимо добавить трейт:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -262,13 +264,21 @@ class Hostel extends Model
 {
     use Attachable;
     //
-}</code></pre>
+}
+</code></pre>
+
 <p>После этого мы можем добавлять и получать её вложения, например:</p>
+
 <pre><code class="language-php">$item = Hostel::find(42);
-$item-&gt;attachment()-&gt;get();</code></pre>
+$item-&gt;attachment()-&gt;get();
+</code></pre>
+
 <h2><a href="#primer-zagruzki" name="primer-zagruzki">Пример загрузки</a></h2>
+
 <p>В действительности вы уже имеете маршрут для загрузки файлов (если конечно, к нему разрешён доступ).</p>
+
 <p>Пример метода контроллера:</p>
+
 <pre><code class="language-php">use Orchid\Attachment\File;
 
 public function upload(Request $request)
@@ -277,18 +287,28 @@ public function upload(Request $request)
     $attachment = $file-&gt;load();
 
     return response()-&gt;json()
-}</code></pre>
+}
+</code></pre>
+
 <p>Это автоматически загрузит ваш файл в хранилище по умолчанию (<code>public</code>) и создаст запись в базе данных.</p>
+
 <pre><code class="language-php">$image = $item-&gt;attachment()-&gt;first();
 
 //Получить URL адрес файла
-$image-&gt;url();</code></pre>
+$image-&gt;url();
+</code></pre>
+
 <h2><a href="#povtornaya-zagruzka" name="povtornaya-zagruzka">Повторная загрузка</a></h2>
+
 <p>Благодаря хешу, вложения не загружаются повторно, вместо этого создаётся ссылка в базе данных на необходимый физический файл,
 позволяя эффективно использовать ресурсы. Файл будет удалён только тогда, когда все ссылки будут уничтожены.</p>
-<h2><a href="#udalenie-vlozheniy" name="udalenie-vlozheniy">Удаление вложений</a></h2>
+
+<h2><a href="#udalenie-vlozenii" name="udalenie-vlozenii">Удаление вложений</a></h2>
+
 <p>При удалении модели ее вложения не удаляются автоматически. В случае если вложение не должно существовать без модели, то его нужно удалить непосредственно перед удалением модели. Если удалить запись о вложении в таблице <code>attachments</code>, файл не будет удален. Очищать вложения нужно через функцию <code>delete()</code> модели <code>Attachment</code>. В этом случае произойдет проверка на существование других ссылок на файл и если их нет, то файл удалится. Это легко можно сделать ипользуя <a href="https://laravel.com/docs/master/eloquent-relationships">отношения</a> и <a href="https://laravel.com/docs/master/eloquent#observers">обсервер</a>.</p>
+
 <p>Вернемся к примеру с <code>hero</code> из <a href="/ru/docs/quickstart-files">"Управление вложенными файлами"</a></p>
+
 <pre><code class="language-php">// app/Post.php
 
 use Orchid\Attachment\Models\Attachment;
@@ -296,34 +316,54 @@ use Orchid\Attachment\Models\Attachment;
 public function hero()
 {
     return $this-&gt;hasOne(Attachment::class, 'id', 'hero')-&gt;withDefault();
-}</code></pre>
+}
+</code></pre>
+
 <p>При обращении к отношению как к функции <code>$post-&gt;hero()</code> оно вернет экземпляр класса <code>Illuminate\Database\Eloquent\Builder</code> у которого тоже есть функция <code>delete()</code>, однако она выполняет sql запрос. При обращении к отношению как к свойству <code>$post-&gt;hero</code> оно вернет экземпляр модели. В данном случае модели <code>Attachment</code>, которая нам и нужна.</p>
-<pre><code class="language-php">$post-&gt;hero()-&gt;delete();</code></pre>
+
+<pre><code class="language-php">$post-&gt;hero()-&gt;delete();
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Отношение важно описать используя функцию <code>withDefault()</code>, чтобы избежать null pointer exception.</p>
+  <p><strong>Примечание.</strong> Отношение важно описать используя функцию <code>withDefault()</code>, чтобы избежать null pointer exception.</p>
 </blockquote>
+
 <p>Удалять нужно во время события <code>deleting</code> модели. Для этого создадим <a href="https://laravel.com/docs/master/eloquent#observers">обсервер</a> нашей модели.</p>
-<pre><code class="language-bash">php artisan make:observer PostObserver</code></pre>
+
+<pre><code class="language-bash">php artisan make:observer PostObserver
+</code></pre>
+
 <p>В PostObserver создаем функцию <code>deleting</code></p>
+
 <pre><code class="language-php">public function deleting(Post $post)
 {
     $post-&gt;hero()-&gt;delete();
-}</code></pre>
+}
+</code></pre>
+
 <p>В случае, когда у нас вложений много, мы используем отношение <code>attachment</code> из трейта <code>Attachable</code></p>
+
 <pre><code class="language-php">public function deleting(Post $post)
 {
     $post-&gt;attachment()-&gt;each-&gt;delete();
-}</code></pre>
+}
+</code></pre>
+
 <p>Подписываем модель на наш обсервер в <code>AppServiceProvider</code></p>
+
 <pre><code class="language-php">public function boot()
 {
     ...
 
     Post::observe(PostObserver::class);
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#podpiska-na-sobytie-zagruzki" name="podpiska-na-sobytie-zagruzki">Подписка на событие загрузки</a></h2>
+
 <p>Различные варианты обработки файлов могут потребовать дополнительной обработки, например, сжатие видео,
 это возможно благодаря событию, на которое можно подписаться стандартными средствами и выполнить задачу в фоне:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -349,8 +389,11 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Каждая подписка получит объект <code>UploadFileEvent</code>:</p>
+
 <pre><code class="language-php">namespace App\Listeners;
 
 use Illuminate\Queue\InteractsWithQueue;
@@ -372,7 +415,9 @@ class UploadListener extends ShouldQueue
         //$event-&gt;attachment
         //$event-&gt;time
     }
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

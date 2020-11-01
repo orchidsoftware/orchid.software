@@ -216,9 +216,11 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Класс <code>Layouts</code> является группирующим нескольких различных. Для того чтобы добавить в него новую возможность, достаточно указать её в сервис провайдере как:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layout;
 use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Repository;
+
 
 LayoutFactory::macro('hello', function (string $name) {
     return new class($name) extends Layout
@@ -249,8 +251,11 @@ LayoutFactory::macro('hello', function (string $name) {
         }
 
     };
-});</code></pre>
+});
+</code></pre>
+
 <p>Тогда в экране вызов будет выглядеть как:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -258,7 +263,9 @@ public function layout(): array
     return [
         Layout::hello('Alexandr Chernyaev')
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -256,66 +256,106 @@
                 <a href="#publishing-resources">Publishing resources</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#updating">Updating</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#what-to-do-next">What to do next?</a>
             </li>
             </ul>
     <hr>
 <p>Before you can use the platform, you need to install it. This guide should help you perform a simple installation to start the project.</p>
+
 <h2><a href="#create-a-project" name="create-a-project">Create a project</a></h2>
+
 <blockquote>
-<p><strong>Note.</strong> If you already have Laravel installation, you can skip this step.</p>
+  <p><strong>Note.</strong> If you already have Laravel installation, you can skip this step.</p>
 </blockquote>
+
 <p>Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the <code>composer create-project</code> command in your terminal:</p>
-<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "8.*" --prefer-dist</code></pre>
+
+<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "8.*" --prefer-dist
+</code></pre>
+
 <p>For more information on how to install Laravel, follow <a href="https://laravel.com/docs/installation">Official Laravel Installation Guide</a>.</p>
+
 <blockquote>
-<p><strong>Don’t you have Composer?</strong> It’s easy to install by following the instructions on the <a href="https://getcomposer.org/download/">download page</a>.</p>
+  <p><strong>Don’t you have Composer?</strong> It’s easy to install by following the instructions on the <a href="https://getcomposer.org/download/">download page</a>.</p>
 </blockquote>
+
 <p>It will create a new <code>orchid-project</code> directory, load the dependencies, and generate the leading directories and files you need to get started.
 In other words, install your new framework project.</p>
-<p><strong>Do not forget</strong></p>
-<ul><li>Set “chmod -R o + w” rights to the <code>storage</code> and <code>bootstrap/cache</code> directories</li>
-<li>Edit the <code>.env</code> file</li>
-</ul><h2><a href="#add-dependency" name="add-dependency">Add dependency</a></h2>
+
+<p><strong>Do not forget</strong>
+- Set “chmod -R o + w” rights to the <code>storage</code> and <code>bootstrap/cache</code> directories
+- Edit the <code>.env</code> file</p>
+
+<h2><a href="#add-dependency" name="add-dependency">Add dependency</a></h2>
+
 <p>Go to the created project directory and run the command:</p>
-<pre><code class="language-php">$ composer require orchid/platform</code></pre>
+
+<pre><code class="language-php">$ composer require orchid/platform
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> If you just installed Laravel, you may need to generate a key with command <code>php artisan key:generate</code></p>
-<p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application's URL to the variable <code>APP_URL</code>.</p>
+  <p><strong>Note.</strong> If you just installed Laravel, you may need to generate a key with command <code>php artisan key:generate</code></p>
+  
+  <p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application's URL to the variable <code>APP_URL</code>.</p>
 </blockquote>
+
 <h2><a href="#platform-installation" name="platform-installation">Platform installation</a></h2>
+
 <blockquote>
-<p><strong>Note.</strong> The installation will overwrite the <code>app/Models/User</code> model. </p>
+  <p><strong>Note.</strong> The installation will overwrite the <code>app/Models/User</code> model.</p>
 </blockquote>
+
 <p>Run the installation process by running the command:</p>
-<pre><code class="language-php">php artisan orchid:install</code></pre>
+
+<pre><code class="language-php">php artisan orchid:install
+</code></pre>
+
 <h2><a href="#create-user" name="create-user">Create user</a></h2>
+
 <p>To create a user with maximum permissions, you can run the following command with a username, email, and password:</p>
-<pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password</code></pre>
+
+<pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password
+</code></pre>
+
 <h2><a href="#start-local-server" name="start-local-server">Start local server</a></h2>
+
 <p>If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:</p>
-<pre><code class="language-php">php artisan serve</code></pre>
+
+<pre><code class="language-php">php artisan serve
+</code></pre>
+
 <p>Open a browser and go to <code>http://localhost:8000/admin</code>. If everything works, you will see the control panel login page. Later you can stop the server by pressing <code>Ctrl + C</code> in the terminal.</p>
+
 <blockquote>
-<p><strong>Note.</strong> Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file <code>config/platform.php</code> or <code>.env</code> file. It allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>.</p>
+  <p><strong>Note.</strong> Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file <code>config/platform.php</code> or <code>.env</code> file. It allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>.</p>
 </blockquote>
+
 <h2><a href="#publishing-resources" name="publishing-resources">Publishing resources</a></h2>
+
 <p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. <strong>Please only use it if your web server is having problems</strong>:</p>
-<pre><code class="language-php">php artisan orchid:link</code></pre>
+
+<p>```php
+php artisan orchid:link</p>
+
+<pre><code><br>&gt; **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
+
+
+## Updating
+
+While in the project directory, use `Composer` to update the package:
+
+```php
+composer update orchid/platform --with-dependencies
+</code></pre>
+
 <blockquote>
-<p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
+  <p><strong>Note.</strong> You can also update all your dependencies listed in the <code>composer.json</code> file by running <code>composer update</code>.</p>
 </blockquote>
-<h2><a href="#updating" name="updating">Updating</a></h2>
-<p>While in the project directory, use <code>Composer</code> to update the package:</p>
-<pre><code class="language-php">composer update orchid/platform --with-dependencies</code></pre>
-<blockquote>
-<p><strong>Note.</strong> You can also update all your dependencies listed in the <code>composer.json</code> file by running <code>composer update</code>.</p>
-</blockquote>
+
 <h2><a href="#what-to-do-next" name="what-to-do-next">What to do next?</a></h2>
-<p>Now you can try the step-by-step example of working with the package on the <a href="/en/docs/quickstart">“Quick Start” page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>                    </main></div>
+
+<p>Now you can try the step-by-step example of working with the package on the <a href="/en/docs/quickstart">“Quick Start” page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

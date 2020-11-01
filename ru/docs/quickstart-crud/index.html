@@ -237,10 +237,16 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Это руководство представляет минимальный набор для создания и редактирования моделей с помощью платформы. В текущем примере мы создадим страницы администрирования для блога.</p>
+
 <p>На этом этапе желательно, чтобы вы уже познакомились с основами концепции <a href="https://orchid.software/ru/docs/screens">экранов</a> и просмотрели "<a href="https://orchid.software/ru/docs/quickstart">Быстрый старт для начинающих</a>".</p>
+
 <p>Для начала нам необходимо создать новую таблицу для этого выполним команду:</p>
-<pre><code class="language-php">php artisan make:migration create_posts_table</code></pre>
+
+<pre><code class="language-php">php artisan make:migration create_posts_table
+</code></pre>
+
 <p>В директории <code>database/migrations</code> будет создан новый файл миграции, добавим в него описание требуемых колонок.</p>
+
 <pre><code class="language-php">// `****_**_**_create_posts_table.php
 
 use Illuminate\Support\Facades\Schema;
@@ -275,12 +281,21 @@ class CreatePostsTable extends Migration
     {
         Schema::dropIfExists('posts');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Для применения новой схемы к подключенной базе данных выполним:</p>
-<pre><code class="language-php">php artisan migrate</code></pre>
+
+<pre><code class="language-php">php artisan migrate
+</code></pre>
+
 <p>После успешного создания таблицы, добавим новую <code>Eloquent</code> модель, для этого выполним:</p>
-<pre><code class="language-php">php artisan make:model Post</code></pre>
+
+<pre><code class="language-php">php artisan make:model Post
+</code></pre>
+
 <p>В директории <code>app</code> будет создан новый файл <code>Post.php</code>, опишем поля как доступные для заполнения:</p>
+
 <pre><code class="language-php">// app/Post.php
 
 namespace App;
@@ -301,18 +316,27 @@ class Post extends Model
         'body',
         'author'
     ];
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Модель имеет трейт <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
+  <p><strong>Примечание.</strong> Модель имеет трейт <code>AsSource</code>, для удобного обращения через dot нотацию.</p>
 </blockquote>
-<p>Теперь мы готовы к настоящему использованию платформы. </p>
+
+<p>Теперь мы готовы к настоящему использованию платформы.</p>
+
 <p><a href="https://orchid.software/ru/docs/quickstart">В предыдущем пособии</a> мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их, поэтому добавим два новых экрана на каждое действие, поочередно выполнив команды:</p>
+
 <pre><code class="language-php">php artisan orchid:screen PostEditScreen
-php artisan orchid:screen PostListScreen</code></pre>
+php artisan orchid:screen PostListScreen
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Создание двух и более экранов для обеспечения CRUD не обязательно, но используется для удобства.</p>
+  <p><strong>Примечание.</strong> Создание двух и более экранов для обеспечения CRUD не обязательно, но используется для удобства.</p>
 </blockquote>
+
 <p>Зарегистрируем новые экраны в маршрутном листе приложения:</p>
+
 <pre><code class="language-php">// routes/platform.php
 
 use App\Orchid\Screens\PostEditScreen;
@@ -322,9 +346,12 @@ Route::screen('post/{post?}', PostEditScreen::class)
     -&gt;name('platform.post.edit');
 
 Route::screen('posts', PostListScreen::class)
-    -&gt;name('platform.post.list');</code></pre>
+    -&gt;name('platform.post.list');
+</code></pre>
+
 <p>Теперь экраны доступны для просмотра по адресу <code>/admin/post</code> и <code>/admin/posts</code>.
 Полученные экраны на текущий момент не имеют, ни данных, ни действий. Отредактируем <code>PostEditScreen</code> для просмотра, добавив название, описание и требуемые поля:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Post;
@@ -466,12 +493,20 @@ class PostEditScreen extends Screen
 
         return redirect()-&gt;route('platform.post.list');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!</p>
+
 <p>Во всех предыдущих определениях слоёв использовалась только короткая запись вида <code>Layout:rows()</code>, но для отображения сложной или объемной информации желательно создавать отдельные классы.</p>
+
 <p>Добавим новый класс <code>Layout</code>, выполнив команду:</p>
-<pre><code class="language-php">php artisan orchid:table PostListLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:table PostListLayout
+</code></pre>
+
 <p>Укажем какие данные мы ходим видеть:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use App\Post;
@@ -504,12 +539,17 @@ class PostListLayout extends Table
             TD::set('updated_at', 'Last edit'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Свойство <code>target</code> указывает ключ, который будет источником для нашей таблицы на экране.</p>
+
 <blockquote>
-<p><strong>Примечание.</strong> Формирование <code>HTML</code> непосредственно в классе необходимо только для примера и является плохой практикой. Пожалуйста, используйте <code>Blade</code> шаблоны.</p>
+  <p><strong>Примечание.</strong> Формирование <code>HTML</code> непосредственно в классе необходимо только для примера и является плохой практикой. Пожалуйста, используйте <code>Blade</code> шаблоны.</p>
 </blockquote>
+
 <p>Определив слой таблицы, вернемся к экрану просмотра, изменим его:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
@@ -570,8 +610,11 @@ class PostListScreen extends Screen
             PostListLayout::class
         ];
     }
-}</code></pre>
-<p>Теперь наш набор для управления (создание, просмотр, редактирование и удаление записи) блогом готов. Не забудьте позаботиться об удобстве навигации из предыдущего материала, добавив пункты меню и хлебные крошки.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Теперь наш набор для управления (создание, просмотр, редактирование и удаление записи) блогом готов. Не забудьте позаботиться об удобстве навигации из предыдущего материала, добавив пункты меню и хлебные крошки.</p>
+                    </main></div>
             </div>
         </div>
     </div>

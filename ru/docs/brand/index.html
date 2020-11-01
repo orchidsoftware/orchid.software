@@ -236,21 +236,30 @@
                                         Редактировать страницу                                    </small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>Есть моменты, когда вы хотите, чтобы визуальный стиль платформы соответствовал вашему бренду.
+                                                <hr class="mb-4"><p>Есть моменты, когда вы хотите, чтобы визуальный стиль платформы соответствовал вашему бренду. 
 После установки предоставляется две настройки которые расположены в <code>config/platform.php</code>:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
     'footer' =&gt; null,
-],</code></pre>
+],
+</code></pre>
+
 <p>Для изменения в шапке страницы или футере в них необходимо указать собственные <code>blade</code> шаблоны.</p>
+
 <h2><a href="#smena-logotipa-i-nazvaniya" name="smena-logotipa-i-nazvaniya">Смена логотипа и названия</a></h2>
+
 <p>Создадим новую директорию в разделе для шаблонов <code>brand</code> и файл <code>header.blade.php</code>.
 Тогда полный путь будет выглядеть следующим образом <code>/resources/views/brand/header.blade.php</code>.</p>
+
 <pre><code class="language-php">resources          
 └── views
     └── brand
-        └── header.blade.php</code></pre>
+        └── header.blade.php
+</code></pre>
+
 <p>Допустим, что мы делаем систему для вымышленного аналитического агентства, внесем изменения в только что созданный файл:</p>
+
 <pre><code class="language-php">@push('head')
     &lt;link
         href="/favicon.ico"
@@ -265,25 +274,37 @@
         Analytics
         &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
     &lt;/span&gt;
-&lt;/p&gt;</code></pre>
+&lt;/p&gt;
+</code></pre>
+
 <p>Для того чтобы созданный шаблон использовался вместо стандартного, необходимо указать его в файле конфигурации,
 так же как если бы передавали аргумент в помощнике <code>view('brand.header')</code>:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'brand.header',
     'footer' =&gt; null,
-],</code></pre>
+],
+</code></pre>
+
 <blockquote>
-<p><strong>Обратите внимание.</strong> Файл конфигурации может быть кэширован и изменения не вступят в силу, до выполнения команды <code>php artisan config:clear</code></p>
+  <p><strong>Обратите внимание.</strong> Файл конфигурации может быть кэширован и изменения не вступят в силу, до выполнения команды <code>php artisan config:clear</code></p>
 </blockquote>
+
 <p>Таким же образом мы можем изменить нижнюю часть страницы, снова создадим новый файл <code>/resources/views/brand/footer.blade.php</code> со следующим содержанием:</p>
+
 <pre><code class="language-php">&lt;p class="small m-n"&gt;
     © Copyright {{date('Y')}} &lt;a href="//example.com" target="_blank"&gt;"Analytics Nest"&lt;/a&gt;
-&lt;/p&gt;</code></pre>
+&lt;/p&gt;
+</code></pre>
+
 <p>Так же внеся изменения в файл конфигурации:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'brand.header',
     'footer' =&gt; 'brand.footer',
-],</code></pre>                    </main></div>
+],
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

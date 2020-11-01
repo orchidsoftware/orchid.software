@@ -252,16 +252,25 @@
             </ul>
     <hr>
 <p>Emulation of a modal dialog box that appears on top of the main page content in response to user actions.</p>
+
 <p><img src="/assets/img/layouts/modals.png" alt="Modals"></p>
+
 <h2><a href="#description-of-work" name="description-of-work">Description of work</a></h2>
+
 <p>A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context.</p>
+
 <blockquote>
-<p><strong>Note:</strong> Do not use modal windows for large forms.</p>
+  <p><strong>Note:</strong> Do not use modal windows for large forms.</p>
 </blockquote>
+
 <h2><a href="#when-to-use" name="when-to-use">When to use</a></h2>
+
 <p>In the modal window you need to make the secondary content of the pages, which is required only in some cases. As a rule, these are settings, creating new documents, filling out small forms, a step-by-step wizard. For example, to enter an address, a click on a link opens a modal window.</p>
+
 <h2><a href="#using" name="using">Using</a></h2>
+
 <p>Modal windows support short syntax by calling a static method, which does not require creating a separate class:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -271,10 +280,13 @@ public function layout(): array
             Layout::rows([]),
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Please note</strong>, adding a modal window must be done at the top level of the array returned by the <code>layout()</code> method. For example, you should not do like this:</p>
+  <p><strong>Please note</strong>, adding a modal window must be done at the top level of the array returned by the <code>layout()</code> method. For example, you should not do like this:</p>
 </blockquote>
+
 <pre><code class="language-php">public function layouts(): array
 {
     return [
@@ -282,63 +294,97 @@ public function layout(): array
             'Name' =&gt; Layout::modal('exampleModal', [Layout::rows([])]),
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#options" name="options">Options</a></h2>
+
 <h3><a href="#title" name="title">Title</a></h3>
+
 <p>To set the title, use the <code>title</code> method:</p>
+
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;title('Window title');</code></pre>
+    -&gt;title('Window title');
+</code></pre>
+
 <h3><a href="#window-size" name="window-size">Window size</a></h3>
+
 <p>Depending on the contents of the window, you may need to resize it, this can be done by specifying the <code>size</code> method:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
 
 Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;size(Modal::SIZE_LG);</code></pre>
+    -&gt;size(Modal::SIZE_LG);
+</code></pre>
+
 <h3><a href="#button-names" name="button-names">Button Names</a></h3>
+
 <p>A modal window has two actions:</p>
+
 <ul><li>Color button - the default action, saves the work done or confirms the previously called command.</li>
 <li>Cancel button - closes the window without saving the entered data.</li>
 </ul><p>You can set your own names for them:</p>
+
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
     -&gt;applyButton('Send')
-    -&gt;closeButton('Close');</code></pre>
+    -&gt;closeButton('Close');
+</code></pre>
+
 <h3><a href="#disabling-buttons" name="disabling-buttons">Disabling Buttons</a></h3>
+
 <p>To disable each button has its own method:</p>
+
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
     -&gt;withoutApplyButton()
-    -&gt;withoutCloseButton();</code></pre>
+    -&gt;withoutCloseButton();
+</code></pre>
+
 <h3><a href="#position" name="position">Position</a></h3>
+
 <p>The modal window can be displayed, not only in the center of the screen, but also on the right side:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
 
 Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;type(Modal::TYPE_RIGHT);</code></pre>
+    -&gt;type(Modal::TYPE_RIGHT);
+</code></pre>
+
 <h3><a href="#disabling-ajax-processing" name="disabling-ajax-processing">Disabling AJAX Processing</a></h3>
+
 <p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
 To disable response processing, you need to add a call to the <code>rawClick</code> method:</p>
+
 <pre><code class="language-php">Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
-    -&gt;rawClick();</code></pre>
+    -&gt;rawClick();
+</code></pre>
+
 <h2><a href="#asynchronous-data-loading" name="asynchronous-data-loading">Asynchronous data loading</a></h2>
+
 <p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use asynchronous loading.
 This will replace the <code>query</code> screen data when opening the window and display
 new content.</p>
+
 <p>In order to declare a modal window asynchronous, you must call the <code>async</code> method passing in the argument the method name that should be used instead of <code>query</code>:</p>
+
 <pre><code class="language-php">Layout::modal('asyncModal', [
     ExampleRow::class,
-])-&gt;async('asyncGetData');</code></pre>
+])-&gt;async('asyncGetData');
+</code></pre>
+
 <p>All asynchronous screen methods start with the <code>async</code> prefix:</p>
+
 <pre><code class="language-php">/**
  * @return array
  */
@@ -347,18 +393,24 @@ public function asyncGetData(string $welcome): array
     return [
         'welcome' =&gt; $welcome,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>When calling such a modal window, you can pass values using the <code>asyncParameters</code> method, for example:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Open async modal')
     -&gt;modal('asyncModal')
     -&gt;modalTitle('Dynamics title')
     -&gt;method('methodForModal')
-    -&gt;asyncParameters('Hello world!');</code></pre>
+    -&gt;asyncParameters('Hello world!');
+</code></pre>
+
 <blockquote>
-<p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$variable ?? ''}}</code>.</p>
-</blockquote>                    </main></div>
+  <p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$variable ?? ''}}</code>.</p>
+</blockquote>
+                    </main></div>
             </div>
         </div>
     </div>

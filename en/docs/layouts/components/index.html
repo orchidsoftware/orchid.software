@@ -217,12 +217,18 @@
                             </div>
                                                 <hr class="mb-4"><p>One way to reuse templates is to create
 <code>Blade</code> of components. Such components can also be used in the platform.</p>
+
 <p>In order to create a new component, use the <code>artisan</code> command:</p>
-<pre><code class="language-php">php artisan make:component Hello --inline</code></pre>
+
+<pre><code class="language-php">php artisan make:component Hello --inline
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> You can learn more about the components in <a href="https://laravel.com/docs/blade#components">framework documentation</a></p>
+  <p><strong>Note.</strong> You can learn more about the components in <a href="https://laravel.com/docs/blade#components">framework documentation</a></p>
 </blockquote>
+
 <p>As a result, there will be a new class <code>Hello</code>, we bring it into the following form:</p>
+
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\View\Component;
@@ -257,8 +263,11 @@ class Hello extends Component
 &lt;/div&gt;
 blade;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>To use it in screens, you must pass its lowercase representation:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -281,8 +290,11 @@ public function layout(): array
     return [
         Layout::component(Hello::class),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>The values from <code>query</code> will be substituted into the component by name. In this case, missing values can be added from the container, for example:</p>
+
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\Contracts\Foundation\Application;
@@ -326,7 +338,9 @@ class Hello extends Component
 &lt;/div&gt;
 blade;
     }
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

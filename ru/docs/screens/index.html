@@ -241,10 +241,10 @@
                 <a href="#sozdanie">Создание</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#registratsiya-v-marshrutakh">Регистрация в маршрутах</a>
+                <a href="#registraciya-v-marsrutax">Регистрация в маршрутах</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#poluchenie-dannykh">Получение данных</a>
+                <a href="#polucenie-dannyx">Получение данных</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#obrabotka">Обработка</a>
@@ -256,12 +256,20 @@
     <hr>
 <p>Основным элементом платформы являются экраны, описанные иерархией компоновки, в соответствии с которой
 каждый элемент имеет свойства, которые влияют на его внешний вид и поведение.</p>
+
 <p>Проще говоря, то, что пользователь видит на странице и какие действия совершает, описывается в одном классе под названием "Экран". Он не знает откуда берутся данные, это может быть: база данных, API или любые другие внешние источники. Построение внешнего вида основано на предоставленных <code>шаблонах</code> (Layouts) и всё, что вам нужно сделать, это лишь определить какие данные будут показаны в том или ином шаблоне.</p>
+
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
+
 <h2><a href="#sozdanie" name="sozdanie">Создание</a></h2>
+
 <p>Вы можете создать новый экран, выполнив Artisan команду:</p>
-<pre><code class="language-php">php artisan orchid:screen Idea</code></pre>
+
+<pre><code class="language-php">php artisan orchid:screen Idea
+</code></pre>
+
 <p>В директории <code>app/Orchid/Screens</code> будет создан файл <code>Idea</code> со следующим содержанием:</p>
+
 <pre><code class="language-php">namespace App\Http\Controllers\Screens;
 
 use Illuminate\Http\Request;
@@ -313,46 +321,71 @@ class Idea extends Screen
         return [];
     }
 }
+
 </code></pre>
-<h2><a href="#registratsiya-v-marshrutakh" name="registratsiya-v-marshrutakh">Регистрация в маршрутах</a></h2>
+
+<h2><a href="#registraciya-v-marsrutax" name="registraciya-v-marsrutax">Регистрация в маршрутах</a></h2>
+
 <p>Прежде чем быть доступными по прямому URL адресу, экраны, так же как и контроллеры, необходимо зарегистрировать в файле маршрутов <code>/routes/platform.php</code>. Записанные в него маршруты будут проходить через 'middleware', указанные в <code>private</code> <a href="/ru/docs/configuration">конфигурации</a>. Зарегистрировать каждый экран можно с помощью метода <code>screen</code> у <code>Route</code>:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+</code></pre>
+
 <p>Добавление экрана немного отличаться от привычной регистрации, например, <code>GET</code> запроса, тем, что вместо одного адреса, регистрируется целая группа. Для наглядности можно выполнить Artisan команду <code>route:list</code>:</p>
+
 <pre><code class="language-php">Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | platform.idea</code></pre>
+GET|POST | dashboard/idea/{method?} | platform.idea
+</code></pre>
+
 <p>Если вы регистрируете несколько маршрутов:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
 Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+</code></pre>
+
 <blockquote>
-<p><strong>Обратите внимание</strong>, Routing Laravel выбирает первый подходящий маршрут.</p>
+  <p><strong>Обратите внимание</strong>, Routing Laravel выбирает первый подходящий маршрут.</p>
 </blockquote>
+
 <p>Написав такие маршруты:</p>
+
 <pre><code class="language-php">Route::screen('/idea', ...
-Route::screen('/idea/edit',...</code></pre>
+Route::screen('/idea/edit',...
+</code></pre>
+
 <p>Мы получаем:</p>
+
 <pre><code class="language-php">URI                           | Name
 ------------------------------+----------------------
 dashboard/idea/{method?}      | platform.idea
-dashboard/idea/edit/{method?} | platform.idea.edit</code></pre>
+dashboard/idea/edit/{method?} | platform.idea.edit
+</code></pre>
+
 <p><code>{method?}</code> - означает необязательный аргумент, который может идти далее.
 Соотвественно под него попадает имя "edit" в адресе.
 В итоге будет редирект на "dashboard/idea/"</p>
-<h2><a href="#poluchenie-dannykh" name="poluchenie-dannykh">Получение данных</a></h2>
+
+<h2><a href="#polucenie-dannyx" name="polucenie-dannyx">Получение данных</a></h2>
+
 <p>Данные для показа на экране определяются в методе <code>query</code>, где должны происходить выборки или формирование информации.
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.</p>
+
 <pre><code class="language-php">public function query() : array
 {
     return [
         'name'  =&gt; 'Alexandr Chernyaev',
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>В качестве источника может выступать модель <code>Eloquent</code>, для этого необходимо добавить трейт <code>AsSource</code> :</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -361,16 +394,22 @@ use Orchid\Screen\AsSource;
 class Order extends Model
 {
     use AsSource
-}</code></pre>
+}
+</code></pre>
+
 <p>Пример, при котором в  Layouts будут доступны ключи <code>order</code> и <code>orders</code>:</p>
+
 <pre><code class="language-php">public function query() : array
 {
     return [
         'order'  =&gt; Order::find(1),
         'orders' =&gt; Order::paginate(),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Использование именно моделей <code>Eloquent</code> не обязательно, возможно использование массивов с помощью обёртки <code>Repository</code>:</p>
+
 <pre><code class="language-php">//...
 use Orchid\Screen\Repository;    
 //...
@@ -385,19 +424,27 @@ public function query() : array
             'created_at' =&gt; '01.01.2020',
       ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#obrabotka" name="obrabotka">Обработка</a></h2>
+
 <p>В экранах предусмотрены встроенные команды, позволяющие пользователям выполнять различные пользовательские сценарии.
-За это отвечает метод <code>commandBar</code>, в котором описываются требуемые кнопки управления. </p>
+За это отвечает метод <code>commandBar</code>, в котором описываются требуемые кнопки управления.</p>
+
 <p>Например:</p>
+
 <pre><code class="language-php">public function commandBar() : array
 {
     return [
         Button::make('Вывести на печать')-&gt;method('print'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Класс <code>Button</code> отвечает за то, что будет происходить по нажатию на кнопку. В примере выше, при нажатии на кнопку <code>Вывести на печать</code>,
 будет вызван метод экрана <code>print</code>, в Request будут доступны все данные, которые пользователь видел на экране.</p>
+
 <pre><code class="language-php">// По нажатию будет вызван метод 'create'
 use Orchid\Screen\Actions\Button;
 
@@ -416,12 +463,17 @@ use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Модальное окно')
     -&gt;modal('CreateUserModal')
-    -&gt;method('save');</code></pre>
+    -&gt;method('save');
+</code></pre>
+
 <h2><a href="#makety" name="makety">Макеты</a></h2>
+
 <p>Макеты отвечают за внешний вид экрана, то есть, как и в каком виде данные будут показаны.</p>
+
 <p>Каждый макет может включать в себя другой макет, то есть возможна вложенность.
 Например, экран делится двумя колонками, в левой поля для заполнения, справа справочная таблица и график.
 Вы можете придумать свои примеры вложения.</p>
+
 <pre><code class="language-php">public function layout() : array
 {
     return [
@@ -439,8 +491,11 @@ ModalToggle::make('Модальное окно')
             ThirdRows::class,
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Иногда вы захотите использовать один и тот же макет для разных целей, чтобы уменьшить дублирование кода, вы можете создать макет и передавать собственные параметры в конструктор класса:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -489,8 +544,11 @@ class ReusableEditLayout extends Rows
                 -&gt;placeholder('177A Bleecker Street'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Экземпляры могут быть использованы таким же образом, принимая параметры</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -499,8 +557,11 @@ class ReusableEditLayout extends Rows
             new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
         ]),
     ];
-}</code></pre>
-<p>Более подробно можно прочитать в разделе <a href="/ru/docs/layouts/">Макеты</a>.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Более подробно можно прочитать в разделе <a href="/ru/docs/layouts/">Макеты</a>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

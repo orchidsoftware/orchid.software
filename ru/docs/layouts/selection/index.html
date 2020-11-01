@@ -215,10 +215,15 @@
                                         Редактировать страницу                                    </small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>Для группировки фильтров, их сброса и применения, существует отдельный слой <code>Selection</code>, в котором они указываются. </p>
+                                                <hr class="mb-4"><p>Для группировки фильтров, их сброса и применения, существует отдельный слой <code>Selection</code>, в котором они указываются.</p>
+
 <p>Для создания исполните команду:</p>
-<pre><code class="language-php">php artisan orchid:selection MySelection</code></pre>
+
+<pre><code class="language-php">php artisan orchid:selection MySelection
+</code></pre>
+
 <p>Пример класса:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Platform\Filters\Filter;
@@ -238,7 +243,9 @@ class MySelection extends Selection
           CreatedFilter::class
         ];
     }
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

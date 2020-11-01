@@ -237,7 +237,9 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Это руководство продолжение учебника <a href="/ru/docs/quickstart-crud">"Управление данными"</a>, в котором мы будем помогать пользователю быстрее находить информацию в таблицах.</p>
+
 <p>Сортировка в таблице полностью основана на автоматическом распознавании <code>Http</code> запроса и применима к моделям <code>Eloquent</code>. Для того чтобы включить его, необходимо добавить трейт <code>Filterable</code> и определить разрешённые колонки:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -273,9 +275,12 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Теперь при вызове метода <code>filters</code> запрос к базе данных будет модифицирован.
 В методе источника данных у экрана <code>PostListScreen</code>, это  будет выглядеть следующим образом:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -286,14 +291,19 @@ public function query(): array
     return [
         'posts' =&gt; Post::filters()-&gt;defaultSort('id')-&gt;paginate()
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Теперь данные будут различными, в зависимости от параметров в <code>url</code> адресе, например:</p>
+
 <ul><li><code>http://localhost:8000/admin/posts?sort=id</code> - Записи по возрастанию идентифицирующего номера</li>
 <li><code>http://localhost:8000/admin/posts?sort=-id</code> - Сортировка по убыванию</li>
 </ul><blockquote>
-<p><strong> Обратите внимание. </strong> Таким способом вы не можете сортировать связанные модели.</p>
+  <p>** Обратите внимание. ** Таким способом вы не можете сортировать связанные модели.</p>
 </blockquote>
+
 <p>Для того чтобы отобразить в графическом интерфейсе возможность сортировки, мы должны вызвать метод <code>sort</code> для необходимых колонок таблицы в <code>PostListLayout</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use App\Post;
@@ -330,30 +340,42 @@ class PostListLayout extends Table
                 -&gt;sort(),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>После этого заголовок колонки будет реагировать на нажатие и менять положение сортировки.</p>
+
 <p>Трейт <code>Filterable</code> позволяет устанавливать не только сортировку, но и простую <code>Http</code> фильтрацию, для её установки вернёмся к модели и добавим новое свойство:</p>
-<pre><code class="language-php">/**
+
+<p><code>php
+/**
  * Name of columns to which http filter can be applied
  *
  * @var array
  */
 protected $allowedFilters = [
     'title',
-];</code></pre>
+];</code></p>
+
 <p>А затем вызовем новый метод <code>filter</code> с текстовым типом для колонки с заголовком:</p>
-<pre><code class="language-php"> TD::set('title', 'Title')
+
+<p><code>php
+ TD::set('title', 'Title')
     -&gt;sort()
     -&gt;filter(TD::FILTER_TEXT)
     -&gt;render(function (Post $post) {
         return Link::make($post-&gt;title)
             -&gt;route('platform.post.edit', $post);
-    }),</code></pre>
+    }),</code></p>
+
 <p>После этого рядом с именем колонки появиться иконка открывающая текстовое поле, устанавливая значение которого можно фильтровать результаты.</p>
+
 <blockquote>
-<p><strong>Обратите внимание.</strong> Такое выражение будет выполнять <code>sql</code> с фильтрацией <code>like</code>. Для того чтобы поиск был не чувствительным к регистру, вам необходимо проверить кодировку базы данных.</p>
+  <p><strong>Обратите внимание.</strong> Такое выражение будет выполнять <code>sql</code> с фильтрацией <code>like</code>. Для того чтобы поиск был не чувствительным к регистру, вам необходимо проверить кодировку базы данных.</p>
 </blockquote>
-<p>Теперь наша таблица обладает некоторой интерактивностью и помогает пользователю быстрее найти информацию. Для детального знакомства и для создания сложных фильтров, необходимо ознакомиться с разделом <a href="/ru/docs/filters">"Фильтрация"</a>.</p>                    </main></div>
+
+<p>Теперь наша таблица обладает некоторой интерактивностью и помогает пользователю быстрее найти информацию. Для детального знакомства и для создания сложных фильтров, необходимо ознакомиться с разделом <a href="/ru/docs/filters">"Фильтрация"</a>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

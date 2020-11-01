@@ -215,14 +215,20 @@
                                         Редактировать страницу                                    </small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>Одним из способов повторного использования шаблонов являеться создание
+                                                <hr class="mb-4"><p>Одним из способов повторного использования шаблонов являеться создание 
 <code>Blade</code> компонентов. Такие компоненты могут быть использованы и в платформе.</p>
+
 <p>Для того чтобы создать новый компонент, воспользуемся <code>artisan</code> командой:</p>
-<pre><code class="language-php">php artisan make:component Hello --inline</code></pre>
+
+<pre><code class="language-php">php artisan make:component Hello --inline
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Более подробно вы можете узнать о компонентах в <a href="https://laravel.com/docs/blade#components">документации фреймворка</a></p>
+  <p><strong>Примечание.</strong> Более подробно вы можете узнать о компонентах в <a href="https://laravel.com/docs/blade#components">документации фреймворка</a></p>
 </blockquote>
+
 <p>В результате будет новый класс <code>Hello</code>, приведём его в следующий вид:</p>
+
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\View\Component;
@@ -257,8 +263,11 @@ class Hello extends Component
 &lt;/div&gt;
 blade;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Для использования его в экранах необходимо передать его строчное представление:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -281,8 +290,11 @@ public function layout(): array
     return [
         Layout::component(Hello::class),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Значения из <code>query</code> будут подставлены в компонент по имени. При этом отсутствующие значения могут быть добавлены из контейнера, например:</p>
+
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\Contracts\Foundation\Application;
@@ -326,7 +338,9 @@ class Hello extends Component
 &lt;/div&gt;
 blade;
     }
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

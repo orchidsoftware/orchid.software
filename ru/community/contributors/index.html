@@ -183,56 +183,97 @@
                         <!--Docs Anchors-->
 
                         <p>Я призываю всех внести свой вклад в проект. Вы можете найти последнюю версию кода на GitHub по адресу <a href="https://github.com/orchidsoftware/platform">https://github.com/orchidsoftware/platform</a>.</p>
+
 <h2>Отслеживание проблем</h2>
+
 <p>Вы можете найти нерешенные вопросы на  <a href="https://github.com/orchidsoftware/platform/issues">GitHub Issues Tracker</a>.
-Если вы намерены работать по конкретному вопросу, оставьте комментарий на соответствующий задачу для информирования других участников проекта.</p>
+ Если вы намерены работать по конкретному вопросу, оставьте комментарий на соответствующий задачу для информирования других участников проекта.</p>
+
 <p>Для активного развития, настоятельно рекомендуется использовать только запросы на добавление изменений <code>(pull requests)</code>, а не просто сообщения об ошибках (bug reports).</p>
+
 <p>Если вы создали отчёт об ошибке, то он должен содержать заглавие и чёткое описание проблемы. Вы так же должны включить в него как можно более полную информацию и пример кода, которые помогут воспроизвести проблему. Основная цель отчёта об ошибке - упростить локализацию, воспроизведение проблемы и поиск её решения.</p>
+
 <p>Также помните, что отчёты об ошибках создаются в надежде, что другие пользователи с такими же проблемами смогут принять участие в их решении вместе с вами. Но не ждите, что другие всё бросят и начнут исправлять вашу проблему. Отчёт об ошибке призван помочь вам и другим начать совместную работу над решением проблемы.</p>
+
 <h2>Участие в основных обсуждениях</h2>
+
 <p>Вы можете предложить новые функции и усовершенствования существующего поведения ORCHID. Если вы предлагаете новую функцию, пожалуйста, будьте готовы выполнять по крайней мере, примеры кода, которые будут необходимы для вызова/использования этой функции.</p>
-<p>Неформальное обсуждение по поводу ошибок/проблем и новых возможностей:</p>
-<ol>
-<li><a href="https://t.me/orchid_community">Telegram группа @orchid_community</a></li>
-<li><a href="https://t.me/orchid_russian_community">Telegram группа @orchid_russian_community</a></li>
-</ol>
+
+<p>Неформальное обсуждение по поводу ошибок/проблем и новых возможностей:
+ 1. <a href="https://t.me/orchid_community">Telegram группа @orchid_community</a>
+ 1. <a href="https://t.me/orchid_russian_community">Telegram группа @orchid_russian_community</a></p>
+
 <h2>Безопасность</h2>
+
 <p>Если вы обнаружили уязвимость в безопасности внутри платформы, пожалуйста отправьте e-mail сообщение на почту <code>bliz48rus@gmail.com</code>.
 Все обращения будут незамедлительно рассмотрены.</p>
+
 <h2>Стиль написания кода</h2>
+
 <p>ORCHID следует <a href="https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md">PSR-2</a> и <a href="Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md">PSR-4</a> стандартам.</p>
+
 <p>Вы можете использовать <a href="https://github.com/FriendsOfPHP/PHP-CS-Fixer">PHP-CS-Fixer</a>, чтобы исправить свой стиль кода перед публикацией.</p>
+
 <p>Чтобы приступить к работе, установите инструмент на глобальном уровне и проверьте стиль кода, выполнив следующую команду из терминала корневой директории вашего проекта:</p>
-<pre><code class="language-bash">php-cs-fixer fix</code></pre>
+
+<pre><code class="language-bash">php-cs-fixer fix
+</code></pre>
+
 <h2>Отладка и отправка запроса на изменение</h2>
-<p>На этапе помощи проекту могут возникнуть вопросы связанные с отладкой и установки,
+
+<p>На этапе помощи проекту могут возникнуть вопросы связанные с отладкой и установки, 
 этот раздел создан для тех кто хочет отправить запрос впервые.</p>
+
 <h3>Установка для разработки</h3>
+
 <p>Для установки пакета ORCHID в качестве разработчика необходимо поставить фреймворк laravel.</p>
+
 <blockquote>
-<p>Сначала вы должны сделать <code>fork</code> <a href="https://github.com/orchidsoftware/platform/fork">репозитория на github</a>, чтобы иметь возможность отправить изменения.</p>
+  <p>Сначала вы должны сделать <code>fork</code> <a href="https://github.com/orchidsoftware/platform/fork">репозитория на github</a>, чтобы иметь возможность отправить изменения.</p>
 </blockquote>
+
 <p>Перейти в каталог и выполнить:</p>
-<pre><code class="language-bash">git clone https://github.com/yourname/platform.git</code></pre>
+
+<pre><code class="language-bash">git clone https://github.com/yourname/platform.git
+</code></pre>
+
 <p>Добавьте локальный репозиторий в <code>composer.json</code> приложения:</p>
+
 <pre><code class="language-php">"repositories": [
     {
         "type": "path",
         "url": "./platform"
     }
-]</code></pre>
+]
+</code></pre>
+
 <p>И добавим наш пакет в зависимости:</p>
-<pre><code class="language-bash">composer require orchid/platform:@dev</code></pre>
-<p>Composer поставит пакет из хранилища который вы указали.
-Остальные действия соответствуют разделу <code>Установки</code>.</p>
-<h3>Отправка запроса на изменение</h3>
-<p>Создайте новую ветку например так:</p>
-<pre><code class="language-bash">git checkout -b feature/issue_001</code></pre>
+
+<pre><code class="language-bash">composer require orchid/platform:@dev
+````
+Composer поставит пакет из хранилища который вы указали.
+Остальные действия соответствуют разделу `Установки`.
+
+### Отправка запроса на изменение
+
+Создайте новую ветку например так:
+
+```bash
+git checkout -b feature/issue_001
+</code></pre>
+
 <p>Это позволит почти сразу понимать, что созданная ветка добавляет новый функционал из сообщения под номером 001.</p>
+
 <p>Внесите изменения и зафиксируйте их:</p>
-<pre><code class="language-bash">git commit -am 'ref #001 [Docs] Fix misprint'</code></pre>
+
+<pre><code class="language-bash">git commit -am 'ref #001 [Docs] Fix misprint'
+</code></pre>
+
 <p>Для отправки своей ветки требуется выполнить:</p>
-<pre><code class="language-bash">git push origin feature/issue_001</code></pre>                    </main>
+
+<pre><code class="language-bash">git push origin feature/issue_001
+</code></pre>
+                    </main>
                 </div>
             </div>
         </div>

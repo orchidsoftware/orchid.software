@@ -241,16 +241,20 @@
                 <a href="#ispolzovanie-polnotekstovogo-poiska">Использование полнотекстового поиска</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#modifikatsiya-rezultatov">Модификация результатов</a>
+                <a href="#modifikaciya-rezultatov">Модификация результатов</a>
             </li>
             </ul>
     <hr>
 <h2><a href="#ispolzovanie-polnotekstovogo-poiska" name="ispolzovanie-polnotekstovogo-poiska">Использование полнотекстового поиска</a></h2>
+
 <p>Платформа поставляется с пакетом <a href="https://github.com/laravel/scout">Laravel Scout</a>, который является абстракцией для полнотекстового поиска в ваши модели <code>Eloquent</code>. Так как <strong><code>Scout</code> не содержит самого «драйвера» поиска</strong>, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.</p>
+
 <blockquote>
-<p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними. А так же произвести действия по настройки модели из документации <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
+  <p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними. А так же произвести действия по настройки модели из документации <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
 </blockquote>
+
 <p>Для того чтобы приложение имело информацию о том, какие модели должны учавствовать в поиске, необходимо зарегистрировать их в сервис провайдере:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use App\Idea;
@@ -271,8 +275,11 @@ class AppServiceProvider extends ServiceProvider
           //...Models
         ]);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Отображение результатов осуществляется с помощью вызова <code>presenter()</code> у Объекта.</p>
+
 <pre><code class="language-php">namespace App;
 
 use App\Orchid\Presenters\IdeaPresenter;
@@ -306,8 +313,11 @@ class Idea extends Model
 
         return $array;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>В представителе укажем интерфейс <code>Searchable</code> и определим методы, которые будут возвращать значения для показа пользователю, например так:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Presenters;
 
 use Laravel\Scout\Builder;
@@ -373,13 +383,19 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return 3;
     }
-}</code></pre>
-<h2><a href="#modifikatsiya-rezultatov" name="modifikatsiya-rezultatov">Модификация результатов</a></h2>
+}
+</code></pre>
+
+<h2><a href="#modifikaciya-rezultatov" name="modifikaciya-rezultatov">Модификация результатов</a></h2>
+
 <p>Для модификации запросов, например, выдавать в результатах только актуальные данные, можно модифицировать запрос с помощью переопределения метода:</p>
+
 <pre><code class="language-php">public function searchQuery(string $query = null): Builder
 {
     return $this-&gt;entity-&gt;search($query)-&gt;where('active', true);
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

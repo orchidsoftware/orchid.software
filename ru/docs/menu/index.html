@@ -241,38 +241,39 @@
                 <a href="#primer-dobavleniya">Пример добавления</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#mestoraspolozhenie">Месторасположение</a>
+                <a href="#mestoraspolozenie">Месторасположение</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#parametry">Параметры</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#nastroyka-ssylok">Настройка ссылок</a>
+                <a href="#nastroika-ssylok">Настройка ссылок</a>
             </li>
                     <li class="anchor-h3">
                 <a href="#prava-dostupa">Права доступа</a>
             </li>
                     <li class="anchor-h4">
-                <a href="#vneshniy-vid">Внешний вид</a>
+                <a href="#vnesnii-vid">Внешний вид</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#poryadok-otobrazheniya">Порядок отображения</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#uvedomleniya">Уведомления</a>
+                <a href="#poryadok-otobrazeniya">Порядок отображения</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#vlozhennoe-menyu">Вложенное меню</a>
+                <a href="#vlozennoe-menyu">Вложенное меню</a>
             </li>
             </ul>
     <hr>
 <p>Меню панели платформы - это важный элемент графического интерфейса пользователя, потому, что с помощью его осуществляется основная навигация по проекту.</p>
+
 <p>Для того чтобы добавить новый элемент в меню, нужно сообщить об этом нашему приложению <code>Dashboard</code>.
-Для этого нужно вызвать метод в свойствах меню и передать аргументы: </p>
+Для этого нужно вызвать метод в свойствах меню и передать аргументы:</p>
+
 <ul><li>Название меню, к которому необходимо прикрепить элемент</li>
 <li>Объект меню, содержащий название, ссылки и т.п.</li>
 </ul><h2><a href="#primer-dobavleniya" name="primer-dobavleniya">Пример добавления</a></h2>
+
 <p>Регистрация меню по умолчанию происходит в <code>app/Orchid/PlatformProvider.php</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid;
 
 use Orchid\Platform\ItemMenu;
@@ -288,30 +289,48 @@ class PlatformProvider extends OrchidServiceProvider
             ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Методы <code>registerMainMenu</code>, <code>registerProfileMenu</code> и <code>registerProfileMenu</code> должны возвращать элементы меню которые необходимы для показа.</p>
-<h2><a href="#mestoraspolozhenie" name="mestoraspolozhenie">Месторасположение</a></h2>
+
+<h2><a href="#mestoraspolozenie" name="mestoraspolozenie">Месторасположение</a></h2>
+
 <p>Разберём пример, изначально мы создаём объект <code>ItemMenu</code>, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
 Таких мест несколько:</p>
+
 <ul><li><strong>registerMainMenu</strong> - Меню отображаемое на каждой странице с левой стороны.</li>
 <li><strong>registerProfileMenu</strong> - Меню формирующую навигацию по системной странице.</li>
 <li><strong>registerProfileMenu</strong> - Меню отображаемое при нажатии на профиль.</li>
 </ul><h2><a href="#parametry" name="parametry">Параметры</a></h2>
+
 <p>Базовое использование:</p>
+
 <pre><code class="language-php">use Orchid\Platform\ItemMenu;
 
-ItemMenu::label('Example');</code></pre>
+ItemMenu::label('Example');
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Для каждого элемента при создании генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода <code>slug</code>.</p>
+  <p><strong>Примечание.</strong> Для каждого элемента при создании генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода <code>slug</code>.</p>
 </blockquote>
-<h3><a href="#nastroyka-ssylok" name="nastroyka-ssylok">Настройка ссылок</a></h3>
+
+<h3><a href="#nastroika-ssylok" name="nastroika-ssylok">Настройка ссылок</a></h3>
+
 <p>Указание ссылки:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');</code></pre>
-<p>Указание ссылки через маршрут:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;route('route.idea');</code></pre>
+
+<p>```php
+ItemMenu::label('Example')-&gt;url('https://orchid.software/');</p>
+
+<pre><code><br>Указание ссылки через маршрут:
+ ```php
+ItemMenu::label('Example')-&gt;route('route.idea');
+</code></pre>
+
 <p>Для определения активности ссылки используется пакет <a href="https://github.com/dwightwatson/active">dwightwatson/active</a>.
 Активность ссылок, при использовании <code>route</code> и <code>url</code>, устанавливается автоматически,
 но допустимо изменение с помощью явного указания:</p>
+
 <pre><code class="language-php">ItemMenu::label('Example')
     -&gt;route('route.idea')
     -&gt;active('route.idea*');
@@ -325,39 +344,70 @@ ItemMenu::label('Example')
 
 ItemMenu::label('Example')
     -&gt;url('/pages/contact')
-    -&gt;active('not:pages/contact');</code></pre>
+    -&gt;active('not:pages/contact');
+</code></pre>
+
 <h3><a href="#prava-dostupa" name="prava-dostupa">Права доступа</a></h3>
+
 <p>Вполне ожидаема ситуация, когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');</code></pre>
-<p>или любая другая проверка возвращающая булево значение:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);</code></pre>
-<h4><a href="#vneshniy-vid" name="vneshniy-vid">Внешний вид</a></h4>
+
+<p>```php
+ItemMenu::label('Example')-&gt;permission('platform.idea');</p>
+
+<pre><code><br>или любая другая проверка возвращающая булево значение:
+
+ ```php
+ItemMenu::label('Example')-&gt;canSee(true);
+</code></pre>
+
+<h4><a href="#vnesnii-vid" name="vnesnii-vid">Внешний вид</a></h4>
+
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');</code></pre>
+
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');
+</code></pre>
+
 <p>Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:</p>
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');</code></pre>
-<h3><a href="#poryadok-otobrazheniya" name="poryadok-otobrazheniya">Порядок отображения</a></h3>
+
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');
+</code></pre>
+
+<h3><a href="#poryadok-otobrazeniya" name="poryadok-otobrazeniya">Порядок отображения</a></h3>
+
 <p>Сортировка устанавливается через задание порядкового номера:</p>
-<pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
-ItemMenu::label('First')-&gt;sort(4);</code></pre>
-<h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
-<p>Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
-<pre><code class="language-php">ItemMenu::label('Comments')
+
+<p>```php
+ItemMenu::label('Second')-&gt;sort(5);
+ItemMenu::label('First')-&gt;sort(4);</p>
+
+<pre><code><br>### Уведомления
+
+Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:
+
+```php
+ItemMenu::label('Comments')
     -&gt;icon('bubbles')
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {
         return 10;
-    });</code></pre>
-<h2><a href="#vlozhennoe-menyu" name="vlozhennoe-menyu">Вложенное меню</a></h2>
+    });
+</code></pre>
+
+<h2><a href="#vlozennoe-menyu" name="vlozennoe-menyu">Вложенное меню</a></h2>
+
 <p>Для возможности создания вложенного меню необходимо добавить основной пункт и указать его уникальное имя с помощью метода <code>slug</code>, после этого можно добавлять остальные элементы к новому пункту.</p>
+
 <pre><code class="language-php">ItemMenu::label('My menu')
     -&gt;slug('Idea')
     -&gt;childs();
 
 ItemMenu::label('Sub element')
-    -&gt;place('Idea');</code></pre>
+    -&gt;place('Idea');
+</code></pre>
+
 <p>Когда дочерние элементы имеют разные правила отображения, чтобы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет пункт меню, когда подпункты будут недоступны:</p>
+
 <pre><code class="language-php">ItemMenu::label('Dropdown menu')
     -&gt;slug('parent-hidden-menu')
     -&gt;childs()
@@ -369,7 +419,9 @@ ItemMenu::label('Sub element item 1')
 
 ItemMenu::label('Sub element item 2')
     -&gt;place('parent-hidden-menu')
-    -&gt;canSee(false);</code></pre>                    </main></div>
+    -&gt;canSee(false);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

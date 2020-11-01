@@ -216,9 +216,11 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Слой слушателя используется, когда необходимо менять отображаемые данные,
-в соответствии с выбранными параметрами пользователя.</p>
+ в соответствии с выбранными параметрами пользователя.</p>
+
 <p>Например, у нас есть экран, на котором расположены два поля для ввода чисел.
 Нам требуется вывести третье поле, значение которого будет суммой двух других:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
@@ -281,10 +283,16 @@ class PlatformScreen extends Screen
             ]),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Для создания слоя слушателя необходимо выполнить <code>artisan</code> команду:</p>
-<pre><code class="language-php">php artisan orchid:listener AmountListener</code></pre>
+
+<pre><code class="language-php">php artisan orchid:listener AmountListener
+</code></pre>
+
 <p>В директории <code>app/Orchid/Layouts</code> будет создан новый класс с именем <code>AmountListener</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Support\Facades\Layout;
@@ -317,8 +325,11 @@ class AmountListener extends Listener
     {
         return [];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>В свойстве <code>targets</code> указываются имена полей, при изменениях которых будет выполнено требуемое действие. Для нашего примера это поля с именами <code>a</code> и <code>b</code> :</p>
+
 <pre><code class="language-php">/**
  * List of field names for which values will be listened.
  *
@@ -327,9 +338,12 @@ class AmountListener extends Listener
 protected $targets = [
     'a',
     'b',
-];</code></pre>
+];
+</code></pre>
+
 <p>В свойстве <code>asyncMethod</code> должен быть указан метод, который будет вызван при изменении полей. Этот метод необходимо реализовать в экране.
 Добавим его с именем <code>asyncSum</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\AmountListener;
@@ -407,11 +421,15 @@ class PlatformScreen extends Screen
             AmountListener::class,
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Обратите внимание</strong>. Такая функция является заменой <code>query</code> для требуемых слоёв, при этом префикс <code>async</code> обязателен.</p>
+  <p><strong>Обратите внимание</strong>. Такая функция является заменой <code>query</code> для требуемых слоёв, при этом префикс <code>async</code> обязателен.</p>
 </blockquote>
+
 <p>И укажем его имя:</p>
+
 <pre><code class="language-php">/**
  * What screen method should be called
  * as a source for an asynchronous request.
@@ -421,9 +439,12 @@ class PlatformScreen extends Screen
  *
  * @var string
  */
-protected $asyncMethod = 'asyncSum';</code></pre>
+protected $asyncMethod = 'asyncSum';
+</code></pre>
+
 <p>Осталось только определить, что будет показано в этом слоё.
 Полный класс будет выглядеть следующим образом:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
@@ -466,8 +487,11 @@ class AmountListener extends Listener
             ]),
         ];
     }
-}</code></pre>
-<p>Теперь при изменении значений полей ввода, поле суммы будет меняться автоматически.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Теперь при изменении значений полей ввода, поле суммы будет меняться автоматически.</p>
+                    </main></div>
             </div>
         </div>
     </div>

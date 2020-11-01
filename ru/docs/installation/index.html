@@ -253,69 +253,106 @@
                 <a href="#zapusk-lokalnogo-servera">Запуск локального сервера</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#publikatsiya-staticheskikh-resursov">Публикация статических ресурсов</a>
+                <a href="#publikaciya-staticeskix-resursov">Публикация статических ресурсов</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#obnovlenie">Обновление</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#chto-delat-dalshe">Что делать дальше?</a>
+                <a href="#cto-delat-dalse">Что делать дальше?</a>
             </li>
             </ul>
     <hr>
 <p>Прежде чем вы сможете использовать платформу, нужно будет установить ее. Это руководство поможет вам выполнить простую установку, чтобы запустить проект.</p>
+
 <h2><a href="#sozdat-proekt" name="sozdat-proekt">Создать проект</a></h2>
+
 <p>Платформа является пакетом для фреймворка Laravel, необходимо сначала установить его. Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив в терминале команду:</p>
-<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "8.*" --prefer-dist</code></pre>
+
+<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "8.*" --prefer-dist
+</code></pre>
+
 <blockquote>
-<p><strong>У вас нет Composer?</strong> Его легко установить, следуя инструкциям на странице <a href="https://getcomposer.org/download/">загрузки</a>.</p>
+  <p><strong>У вас нет Composer?</strong> Его легко установить, следуя инструкциям на странице <a href="https://getcomposer.org/download/">загрузки</a>.</p>
 </blockquote>
-<p>Это создаст новый каталог <code>orchid-project</code>, загрузит в него зависимости и сгенерирует основные каталоги и файлы, которые понадобятся для начала работы.
+
+<p>Это создаст новый каталог <code>orchid-project</code>, загрузит в него зависимости и сгенерирует основные каталоги и файлы, которые понадобятся для начала работы. 
 Другими словами, установит ваш новый проект фреймворка.</p>
-<p><strong>Не забывайте</strong></p>
-<ul><li>Установить права «chmod -R o+w» на каталоги <code>storage</code> и <code>bootstrap/cache</code></li>
-<li>Отредактировать <code>.env</code> файл</li>
-</ul><h2><a href="#dobavit-zavisimost" name="dobavit-zavisimost">Добавить зависимость</a></h2>
+
+<p><strong>Не забывайте</strong>
+- Установить права «chmod -R o+w» на каталоги <code>storage</code> и <code>bootstrap/cache</code>
+- Отредактировать <code>.env</code> файл</p>
+
+<h2><a href="#dobavit-zavisimost" name="dobavit-zavisimost">Добавить зависимость</a></h2>
+
 <p>Перейдите в созданный каталог проекта и выполните команду:</p>
-<pre><code class="language-php">$ composer require orchid/platform</code></pre>
+
+<pre><code class="language-php">$ composer require orchid/platform
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Если вы устанавливали Laravel иначе, то возможно, вам придется сгенерировать ключ
-используя комманду <code>php artisan key:generate</code></p>
-<p><strong>Примечание.</strong> Вам также необходимо создать новую базу данных и обновить <code>.env</code> файл с учетными данными и добавить URL-адрес вашего приложения в переменную <code>APP_URL</code>.</p>
+  <p><strong>Примечание.</strong> Если вы устанавливали Laravel иначе, то возможно, вам придется сгенерировать ключ
+  используя комманду <code>php artisan key:generate</code></p>
+  
+  <p><strong>Примечание.</strong> Вам также необходимо создать новую базу данных и обновить <code>.env</code> файл с учетными данными и добавить URL-адрес вашего приложения в переменную <code>APP_URL</code>.</p>
 </blockquote>
+
 <h2><a href="#ustanovka-platformy" name="ustanovka-platformy">Установка платформы</a></h2>
+
 <blockquote>
-<p><strong>Примечание.</strong> При установке будет перезаписана модель <code>app/Models/User</code>.</p>
+  <p><strong>Примечание.</strong> При установке будет перезаписана модель <code>app/Models/User</code>.</p>
 </blockquote>
+
 <p>Запустим процесс установки, выполнив команду:</p>
-<pre><code class="language-php">php artisan orchid:install</code></pre>
+
+<pre><code class="language-php">php artisan orchid:install
+</code></pre>
+
 <h2><a href="#sozdanie-polzovatelya" name="sozdanie-polzovatelya">Создание пользователя</a></h2>
+
 <p>Для создания пользователя с максимальными правами на текущий момент, необходимо выполнить команду передав
 имя пользователя, электронный адрес и пароль:</p>
-<pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password</code></pre>
+
+<pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password
+</code></pre>
+
 <h2><a href="#zapusk-lokalnogo-servera" name="zapusk-lokalnogo-servera">Запуск локального сервера</a></h2>
+
 <p>Для запуска проекта можно использовать встроенный сервер:</p>
-<pre><code class="language-php">php artisan serve</code></pre>
+
+<pre><code class="language-php">php artisan serve
+</code></pre>
+
 <p>Откройте браузер и перейдите к <code>http://localhost:8000/admin</code>. Если все работает, вы увидите страницу входа в панель управления. Позже, когда вы закончите работу, остановите сервер, нажав <code>Ctrl+C</code> в используемом терминале.</p>
+
 <blockquote>
-<p><strong>Примечание.</strong> Если используемая среда выполнения настроенна на другой домен (например orchid.loc),
-то панель администратора будет не доступна, требуется указать его в файле конфигурации <code>config/platform.php</code>
-или в <code>.env</code>. Это позволяет делать доступной панель администратора на другом домене или поддомене, например <code>platform.example.com</code>.</p>
+  <p><strong>Примечание.</strong> Если используемая среда выполнения настроенна на другой домен (например orchid.loc),
+   то панель администратора будет не доступна, требуется указать его в файле конфигурации <code>config/platform.php</code>
+   или в <code>.env</code>. Это позволяет делать доступной панель администратора на другом домене или поддомене, например <code>platform.example.com</code>.</p>
 </blockquote>
-<h2><a href="#publikatsiya-staticheskikh-resursov" name="publikatsiya-staticheskikh-resursov">Публикация статических ресурсов</a></h2>
+
+<h2><a href="#publikaciya-staticeskix-resursov" name="publikaciya-staticeskix-resursov">Публикация статических ресурсов</a></h2>
+
 <p>По умолчанию раздача статических файлов (css/js) происходит через маршруты приложения, это наилучший баланс между настройкой и отслеживанием изменений, но вы можете указать использовать для раздачи веб-серверы. Для этого необходимо выполнить команду, которая создаст символическую ссылку в публичном каталоге. <strong>Пожалуйста применяйте её, только если ваш веб-сервер испытывает трудности</strong>:</p>
-<pre><code class="language-php">php artisan orchid:link</code></pre>
+
+<p>```php
+php artisan orchid:link</p>
+
+<pre><code><br>&gt; **Возникли проблемы во время установки?** Возможно, что у кого-то уже была такая проблема https://github.com/orchidsoftware/platform/issues . Если нет, вы можете отправить сообщение или обратиться за [помощью](https://github.com/orchidsoftware/platform/issues/new).
+
+## Обновление
+
+Находясь в директории проекта используйте `Composer` для обновления пакета:
+
+```php
+composer update orchid/platform --with-dependencies
+</code></pre>
+
 <blockquote>
-<p><strong>Возникли проблемы во время установки?</strong> Возможно, что у кого-то уже была такая проблема <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a> . Если нет, вы можете отправить сообщение или обратиться за <a href="https://github.com/orchidsoftware/platform/issues/new">помощью</a>.</p>
+  <p><strong>Примечание.</strong> Вы так же можете обновить все ваши зависимости перечисленные в файле <code>composer.json</code> запустить <code>composer update</code>.</p>
 </blockquote>
-<h2><a href="#obnovlenie" name="obnovlenie">Обновление</a></h2>
-<p>Находясь в директории проекта используйте <code>Composer</code> для обновления пакета:</p>
-<pre><code class="language-php">composer update orchid/platform --with-dependencies</code></pre>
-<blockquote>
-<p><strong>Примечание.</strong> Вы так же можете обновить все ваши зависимости перечисленные в файле <code>composer.json</code> запустить <code>composer update</code>.</p>
-</blockquote>
-<h2><a href="#chto-delat-dalshe" name="chto-delat-dalshe">Что делать дальше?</a></h2>
-<p>В зависимости от того, насколько вы новичок, можете попробовать пошаговый пример работы с пакетом на странице <a href="/ru/docs/quickstart">"Быстрый старт"</a> или просто погрузиться в <a href="/ru/docs/screens">документацию</a>.</p>                    </main></div>
+
+<h2><a href="#cto-delat-dalse" name="cto-delat-dalse">Что делать дальше?</a></h2>
+
+<p>В зависимости от того, насколько вы новичок, можете попробовать пошаговый пример работы с пакетом на странице <a href="/ru/docs/quickstart">"Быстрый старт"</a> или просто погрузиться в <a href="/ru/docs/screens">документацию</a>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

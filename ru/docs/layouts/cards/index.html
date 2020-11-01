@@ -217,19 +217,22 @@
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#ispolzovanie-sobstvennykh-shablonov">Использование собственных шаблонов</a>
+                <a href="#ispolzovanie-sobstvennyx-sablonov">Использование собственных шаблонов</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#ukazanie-deystviy">Указание действий</a>
+                <a href="#ukazanie-deistvii">Указание действий</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#ispolzovanie-s-predstavitelyami">Использование с представителями</a>
             </li>
             </ul>
     <hr>
-<p>Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления. </p>
+<p>Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления.</p>
+
 <p><img src="/assets/img/layouts/cards.png" alt="Cards"></p>
+
 <p>Карточки принимают только Объекты, которые реализуют интерфейс <code>Cardable</code>.</p>
+
 <pre><code class="language-php">use Orchid\Screen\Contracts\Cardable;
 use Orchid\Screen\Layouts\Card;
 
@@ -282,18 +285,27 @@ public function layout(): array
     return [
         new Card('card'),
     ];
-}</code></pre>
-<h2><a href="#ispolzovanie-sobstvennykh-shablonov" name="ispolzovanie-sobstvennykh-shablonov">Использование собственных шаблонов</a></h2>
+}
+</code></pre>
+
+<h2><a href="#ispolzovanie-sobstvennyx-sablonov" name="ispolzovanie-sobstvennyx-sablonov">Использование собственных шаблонов</a></h2>
+
 <p>Карточка позволяет комбинировать любое отображение в методе <code>description</code>,</p>
+
 <pre><code class="language-php">public function description(): string
 {
     return view('template')-&gt;render();
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Любое значение, вернувшееся в нём, будет отображено как есть.</p>
+  <p><strong>Примечание.</strong> Любое значение, вернувшееся в нём, будет отображено как есть.</p>
 </blockquote>
-<h2><a href="#ukazanie-deystviy" name="ukazanie-deystviy">Указание действий</a></h2>
+
+<h2><a href="#ukazanie-deistvii" name="ukazanie-deistvii">Указание действий</a></h2>
+
 <p>Карточки поддерживают указание действий, так же как и <code>commandBar</code>, для этого необходимо добавить второй аргумент:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -303,12 +315,17 @@ public function layout(): array
                 -&gt;icon('bag'),
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#ispolzovanie-s-predstavitelyami" name="ispolzovanie-s-predstavitelyami">Использование с представителями</a></h2>
+
 <blockquote>
-<p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
+  <p>В этом примере используется <a href="/ru/docs/presenters">представители</a>, настоятельно рекомендуеться ознакомится с ними.</p>
 </blockquote>
+
 <p>Вместо создания отдельного класса рекомендуется использовать представителей для <code>Eloquent</code> моделей, например:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -326,8 +343,11 @@ class Product extends Model
     {
         return new ProductPresenter($this);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Можно записать представителя:</p>
+
 <pre><code class="language-php">namespace App\Presenters;
 
 use Orchid\Screen\Contracts\Cardable;
@@ -356,8 +376,11 @@ class ProductPresenter extends Presenter implements Cardable
             ? Color::SUCCESS()
             : Color::DANGER();
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Тогда запись использования в экране будет краткой:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layouts\Card;
 
 /**
@@ -384,7 +407,9 @@ public function layout(): array
     return [
         new Card('product'),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

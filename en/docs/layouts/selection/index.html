@@ -216,9 +216,14 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>To group filters, reset them and apply them, there is a separate layer <code>Selection</code>, in which they are indicated.</p>
+
 <p>To create, run the command:</p>
-<pre><code class="language-php">php artisan orchid:selection MySelection</code></pre>
+
+<pre><code class="language-php">php artisan orchid:selection MySelection
+</code></pre>
+
 <p>Class Example:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Platform\Filters\Filter;
@@ -238,7 +243,9 @@ class MySelection extends Selection
           CreatedFilter::class
         ];
     }
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

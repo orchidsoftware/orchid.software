@@ -217,6 +217,7 @@
                             </div>
                                                 <hr class="mb-4"><p>It is an expected situation when you need to display your own <code>blade</code> template,
 to do this, call <code>Layout::view</code> by passing the parameter a name string:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -224,8 +225,11 @@ public function layout(): array
     return [
         Layout::view('myTemplate'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>All data from the <code>query</code> method will be passed to your template.</p>
+
 <pre><code class="language-php">// ... Screen
 
 public function query(): array
@@ -240,11 +244,16 @@ public function layout(): array
     return [
         Layout::view('hello'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>You can display the contents of <code>name</code> like this:</p>
+
 <pre><code class="language-php">// ... /views/hello.blade.php
 
-Hello {{ $name }}!</code></pre>                    </main></div>
+Hello {{ $name }}!
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

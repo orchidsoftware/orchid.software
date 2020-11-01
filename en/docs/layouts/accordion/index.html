@@ -216,9 +216,12 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Accordions are useful when you want to switch between hiding and displaying a lot of content:</p>
+
 <p><img src="/assets/img/layouts/accordion.png" alt="Accordion"></p>
+
 <p>Accordions support short syntax by calling a static method,
 which does not require creating a separate class:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -249,9 +252,13 @@ public function layout(): array
             ],
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Keys will be used as headers.</p>
+
 <p>Please note that you can specify the lowercase name of the class as values:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -260,7 +267,9 @@ public function layout(): array
             'Billing Address'      =&gt; BillingAddressRow::class,
         ]),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

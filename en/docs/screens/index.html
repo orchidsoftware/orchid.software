@@ -258,13 +258,22 @@
             </ul>
     <hr>
 <h2><a href="#introduction" name="introduction">Introduction</a></h2>
+
 <p>The platform's main element is the screens described by the layout hierarchy. Each component has properties that affect its appearance and behavior.</p>
+
 <p>Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided <code>templates</code> (Layouts) and all you need to do is determine what data will be shown in a particular template.</p>
+
 <p><img src="https://orchid.software/assets/img/scheme/screens.jpg" alt="Screens"></p>
+
 <h2><a href="#creating-screen" name="creating-screen">Creating Screen</a></h2>
+
 <p>You can create a new screen by running the command:</p>
-<pre><code class="language-php">php artisan orchid:screen Idea</code></pre>
+
+<pre><code class="language-php">php artisan orchid:screen Idea
+</code></pre>
+
 <p>An <code>Idea</code> file will be created in the <code>app/Orchid/Screens</code> directory with the following contents:</p>
+
 <pre><code class="language-php">namespace App\Http\Controllers\Screens;
 
 use Illuminate\Http\Request;
@@ -316,46 +325,71 @@ class Idea extends Screen
         return [];
     }
 }
+
 </code></pre>
+
 <h2><a href="#registering-routes" name="registering-routes">Registering routes</a></h2>
+
 <p>Before being available at the direct URL, screens, like controllers, must be registered in the routes file <code>/routes/platform.php</code>. The routes recorded in it will go through the middleware specified in the <a href="/en/docs/configuration">configuration</a>. Each screen can be written using the <code>screen</code> method of <code>Route</code>:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+</code></pre>
+
 <p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
+
 <pre><code class="language-php">Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | platform.idea</code></pre>
+GET|POST | dashboard/idea/{method?} | platform.idea
+</code></pre>
+
 <p>If you register multiple routes</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
 Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');</code></pre>
+Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+</code></pre>
+
 <blockquote>
-<p><strong>Please note</strong>, Routing Laravel chooses the first suitable route.</p>
+  <p><strong>Please note</strong>, Routing Laravel chooses the first suitable route.</p>
 </blockquote>
+
 <p>By writing the following routes:</p>
+
 <pre><code class="language-php">Route::screen('/idea', ...
-Route::screen('/idea/edit',...</code></pre>
+Route::screen('/idea/edit',...
+</code></pre>
+
 <p>We get:</p>
+
 <pre><code class="language-php">URI                           | Name
 ------------------------------+---------------------
 dashboard/idea/{method?}      | platform.idea
-dashboard/idea/edit/{method?} | platform.idea.edit</code></pre>
+dashboard/idea/edit/{method?} | platform.idea.edit
+</code></pre>
+
 <p><code>{method?}</code> - means an optional argument that may go further.
 Correspondingly, the name "edit" in the address falls under it.
 The result will be a redirect to "dashboard/idea/".</p>
+
 <h2><a href="#data-acquisition" name="data-acquisition">Data Acquisition</a></h2>
+
 <p>The data to be displayed on the screen defined in the <code>query</code> method, where sampling or generation of information should occur.
 The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.</p>
+
 <pre><code class="language-php">public function query() : array
 {
     return [
         'name'  =&gt; 'Alexandr Chernyaev',
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>The source can be the <code>Eloquent</code> model. For this, you need to add the trait <code>AsSource</code>:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -364,16 +398,22 @@ use Orchid\Screen\AsSource;
 class Order extends Model
 {
     use AsSource
-}</code></pre>
+}
+</code></pre>
+
 <p>An example where the <code>order</code> and <code>orders</code> keys will be available in Layouts:</p>
+
 <pre><code class="language-php">public function query() : array
 {
     return [
         'order'  =&gt; Order::find(1),
         'orders' =&gt; Order::paginate(),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>The use of the <code>Eloquent</code> models is not necessary, it is possible to use arrays using the<code>Repository</code> wrapper:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Repository;    
 
 public function query() : array
@@ -386,19 +426,27 @@ public function query() : array
             'created_at' =&gt; '01.01.2020',
       ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#actions" name="actions">Actions</a></h2>
+
 <p>The screens include built-in commands that allow users to execute various user scripts.
 The <code>commandBar</code> method is responsible for this, which describes the required control buttons.</p>
+
 <p>For example:</p>
+
 <pre><code class="language-php">public function commandBar() : array
 {
     return [
         Button::make('Go print')-&gt;method('print'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>The <code>Button</code> class responds to what will happen when a button pressed, in the example above, when you click on the Print button,
 The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
+
 <pre><code class="language-php">// By pressing, the 'create' method will be called
 use Orchid\Screen\Actions\Button;
 
@@ -417,12 +465,17 @@ use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Modal window')
     -&gt;modal('CreateUserModal')
-    -&gt;method('save');</code></pre>
+    -&gt;method('save');
+</code></pre>
+
 <h2><a href="#layouts" name="layouts">Layouts</a></h2>
+
 <p>Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.</p>
+
 <p>Each layout may include a different layout, that is, nesting.
 For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.</p>
+
 <pre><code class="language-php">public function layout() : array
 {
     return [
@@ -440,9 +493,12 @@ You can come up with your examples of attachments.</p>
             ThirdRows::class,
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a configurable design.
 To pass custom parameters to your layout you can use the class constructor to handle them:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -491,8 +547,11 @@ class ReusableEditLayout extends Rows
                 -&gt;placeholder('177A Bleecker Street'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Instances can be used in the same way, but they can accept parameters</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -501,8 +560,11 @@ class ReusableEditLayout extends Rows
             new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
         ]),
     ];
-}</code></pre>
-<p>More details can be found in the <a href="/en/docs/layouts/">Layouts section</a>.</p>                    </main></div>
+}
+</code></pre>
+
+<p>More details can be found in the <a href="/en/docs/layouts/">Layouts section</a>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -237,8 +237,10 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">"Data Management"</a>, in which we will help the user find information in tables faster.</p>
-<p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the <code>Eloquent</code> models.
+
+<p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the <code>Eloquent</code> models. 
 In order to enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -274,9 +276,12 @@ class Post extends Model
         'created_at',
         'updated_at'
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Now, when calling the <code>filters</code> method, the database query will be modified.
 In the data source method of the <code>PostListScreen</code> screen, it will look like this:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -287,14 +292,19 @@ public function query(): array
     return [
         'posts' =&gt; Post::filters()-&gt;defaultSort('id')-&gt;paginate()
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Now the data will be different, depending on the parameters in the <code>url</code> address, for example:</p>
+
 <ul><li><code>http://localhost:8000/admin/posts?sort=id</code> - Records in ascending order of identification number</li>
 <li><code>http://localhost:8000/admin/posts?sort=-id</code> - Sort descending</li>
 </ul><blockquote>
-<p><strong>Note.</strong> In this way, you cannot sort related models.</p>
+  <p><strong>Note.</strong> In this way, you cannot sort related models.</p>
 </blockquote>
+
 <p>In order to display the sorting feature in the graphical interface, we must call the <code>sort</code> method for the necessary table columns in the <code>PostListLayout</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use App\Post;
@@ -331,30 +341,42 @@ class PostListLayout extends Table
                 -&gt;sort(),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>After that, the column heading will respond to clicking and change the sorting position.</p>
+
 <p>The trait <code>Filterable</code>, allows you to set not only sorting. But also simple <code>Http</code> filtering, to set it back to the model and add a new property:</p>
-<pre><code class="language-php">/**
+
+<p><code>php
+/**
  * Name of columns to which http filter can be applied
  *
  * @var array
  */
 protected $allowedFilters = [
     'title',
-];</code></pre>
+];</code></p>
+
 <p>And then call the new <code>filter</code> method with a text type for the header column:</p>
-<pre><code class="language-php"> TD::set('title', 'Title')
+
+<p><code>php
+ TD::set('title', 'Title')
     -&gt;sort()
     -&gt;filter(TD::FILTER_TEXT)
     -&gt;render(function (Post $post) {
         return Link::make($post-&gt;title)
             -&gt;route('platform.post.edit', $post);
-    }),</code></pre>
+    }),</code></p>
+
 <p>After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.</p>
+
 <blockquote>
-<p><strong>Please note.</strong> Such an expression will be performed by <code>sql</code> with <code>like</code> filtering. In order for the search to be case-insensitive, you need to check the database encoding.</p>
+  <p><strong>Please note.</strong> Such an expression will be performed by <code>sql</code> with <code>like</code> filtering. In order for the search to be case-insensitive, you need to check the database encoding.</p>
 </blockquote>
-<p>Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to <strong>create complex filters</strong>, it is necessary to familiarize yourself with the <a href="/en/docs/filters">Filtering</a> section.</p>                    </main></div>
+
+<p>Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to <strong>create complex filters</strong>, it is necessary to familiarize yourself with the <a href="/en/docs/filters">Filtering</a> section.</p>
+                    </main></div>
             </div>
         </div>
     </div>

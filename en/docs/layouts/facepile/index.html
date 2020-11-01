@@ -216,12 +216,17 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Shows a list of avatars in horizontal view. Each circle represents a person. Use this <code>layout</code> when displaying shared access to a specific view, file or task.</p>
+
 <p><img src="/assets/img/layouts/facepile.png" alt="facepile"></p>
+
 <p><code>Facepile</code> accepts a set of objects that implement the <code>Personable</code> interface.</p>
+
 <blockquote>
-<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is recommended that you familiarize yourself with them.</p>
+  <p>This example uses <a href="/en/docs/presenters">presenters</a>, it is recommended that you familiarize yourself with them.</p>
 </blockquote>
+
 <p>Instead of creating a separate class, it is recommended to use representatives for <code>Eloquent</code> models, for example:</p>
+
 <pre><code class="language-php">namespace App;
 
 use App\Presenters\EmployeePresenter;
@@ -239,8 +244,11 @@ class Employee extends Model
     {
         return new EmployeePresenter($this);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>You can record a presenter:</p>
+
 <pre><code class="language-php">namespace App\Presenters;
 
 use Orchid\Screen\Contracts\Personable;
@@ -268,8 +276,11 @@ class EmployeePresenter extends Presenter implements Personable
     {
         return $this-&gt;entity-&gt;avatar;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Use on the screen will be as follows:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layouts\Facepile;
 
 /**
@@ -296,7 +307,9 @@ public function layout(): array
     return [
         new Facepile('avatars'),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

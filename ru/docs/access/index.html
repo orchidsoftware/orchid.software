@@ -244,29 +244,33 @@
                 <a href="#sozdanie-administratora">Создание администратора</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#dobavlenie-sobstvennykh-razresheniy">Добавление собственных разрешений</a>
+                <a href="#dobavlenie-sobstvennyx-razresenii">Добавление собственных разрешений</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#proverka-v-ekranakh">Проверка в Экранах</a>
+                <a href="#proverka-v-ekranax">Проверка в Экранах</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#proverka-v-middleware">Проверка в Middleware</a>
             </li>
             </ul>
     <hr>
-<p>Обычно пользователям не назначаются разрешения в приложении (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. </p>
-<p>Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнес-процессе.
+<p>Обычно пользователям не назначаются разрешения в приложении (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем.</p>
+
+<p>Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнес-процессе. 
 Вы также можете иметь, скажем, от 10 до 100 пользователей.
 Хотя эти пользователи не полностью отличные друг от друга,
 вы можете разделить их на логические группы в соответствии с тем, что они делают с программой.
 Эти группы называются ролями.</p>
+
 <p>Если вам нужно было управлять пользователями напрямую, назначив им разрешения,
 это было бы утомительным и ошибочным,
-из-за большого количества пользователей и разрешений. </p>
+из-за большого количества пользователей и разрешений.</p>
+
 <ul><li>Вы можете группировать одно, два или больше разрешений в роли.</li>
 <li>Пользователю назначается одна или несколько ролей.</li>
 <li>Набор разрешений, которыми владеет пользователь, вычисляется как объединение разрешений от каждой роли пользователя.</li>
 </ul><p>У пользователя есть несколько вариантов управления ролями:</p>
+
 <pre><code class="language-php">// Проверяем, имеет ли пользователь права
 // Проверка осуществляется как для пользователя, так и для его роли
 Auth::user()-&gt;hasAccess($string);
@@ -278,21 +282,35 @@ Auth::user()-&gt;getRoles();
 Auth::user()-&gt;inRole($role);
 
 // Добавить к пользователю роль
-Auth::user()-&gt;addRole($role);</code></pre>
+Auth::user()-&gt;addRole($role);
+</code></pre>
+
 <blockquote>
-<p><strong>Примечание.</strong> Права доступа не являются заменой для <code>Gate</code> или <code>Policies</code> входящих в состав фреймворка.</p>
+  <p><strong>Примечание.</strong> Права доступа не являются заменой для <code>Gate</code> или <code>Policies</code> входящих в состав фреймворка.</p>
 </blockquote>
+
 <h2><a href="#roli" name="roli">Роли</a></h2>
+
 <p>Роли также имеют процедуры для:</p>
+
 <pre><code class="language-php">// Возвращает всех пользователей с этой ролью
-$role-&gt;getUsers();</code></pre>
+$role-&gt;getUsers();
+</code></pre>
+
 <h2><a href="#sozdanie-administratora" name="sozdanie-administratora">Создание администратора</a></h2>
+
 <p>Чтобы создать пользователя с максимальными (на момент создания) правами, выполните следующую команду:</p>
-<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword</code></pre>
-<h2><a href="#dobavlenie-sobstvennykh-razresheniy" name="dobavlenie-sobstvennykh-razresheniy">Добавление собственных разрешений</a></h2>
+
+<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword
+</code></pre>
+
+<h2><a href="#dobavlenie-sobstvennyx-razresenii" name="dobavlenie-sobstvennyx-razresenii">Добавление собственных разрешений</a></h2>
+
 <p>Вы можете определять ваши собственные разрешения в приложениях.
-Используя их, вы явно реализуете доступ к определённым функциям.</p>
+ Используя их, вы явно реализуете доступ к определённым функциям.</p>
+
 <p>Пример добавления собственных разрешений с использованием поставщика:</p>
+
 <pre><code class="language-php">use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\Dashboard;
@@ -310,10 +328,14 @@ class PermissionServiceProvider extends ServiceProvider
 
         $dashboard-&gt;registerPermissions($permissions);
     }
-}</code></pre>
-<h2><a href="#proverka-v-ekranakh" name="proverka-v-ekranakh">Проверка в Экранах</a></h2>
-<p>Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью свойства
+}
+</code></pre>
+
+<h2><a href="#proverka-v-ekranax" name="proverka-v-ekranax">Проверка в Экранах</a></h2>
+
+<p>Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью свойства 
 <code>$permission</code>, которое принимает как массив, так и строковое значение для проверки:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
@@ -344,12 +366,17 @@ class History extends Screen
     ];
 
     // ...
-}</code></pre>
+}
+</code></pre>
+
 <p>Если перечислено несколько ключей, то доступ будет предоставлен при наличии у пользователя хотя бы одного разрешения.</p>
+
 <h2><a href="#proverka-v-middleware" name="proverka-v-middleware">Проверка в Middleware</a></h2>
+
 <p>Небольшие приложения могут не нуждаться в определении прав для каждого экрана или класса,
-вместо этого имеет смысл проверять их наличие для маршрутов.
+вместо этого имеет смысл проверять их наличие для маршрутов. 
 Для этого необходимо зарегистрировать новый <code>middleware</code> в <code>app/Http/Kernel</code>:</p>
+
 <pre><code class="language-php">/**
  * The application's route middleware.
  *
@@ -360,16 +387,24 @@ class History extends Screen
 protected $routeMiddleware = [
     //...
     'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
-];</code></pre>
+];
+</code></pre>
+
 <p>После этого его можно использовать при любых определений маршрута, через передачу параметра <code>access:my-permission</code>, так же как и в <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');</code></pre>
+
+<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');
+</code></pre>
+
 <p>Так же вы можете объединять их в группы:</p>
+
 <pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
     Route::screen('/stories', StoriesScreen::class);
     Route::get('stories/best', function () {
         // ...
     });
-});</code></pre>                    </main></div>
+});
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -246,12 +246,16 @@
             </ul>
     <hr>
 <h2><a href="#using-full-text-search" name="using-full-text-search">Using Full-Text Search</a></h2>
-<p>The platform comes with a package <a href="https://github.com/laravel/scout">Laravel Scout</a>, which is an abstraction for full-text search in your <code>Eloquent</code> models.
+
+<p>The platform comes with a package <a href="https://github.com/laravel/scout">Laravel Scout</a>, which is an abstraction for full-text search in your <code>Eloquent</code> models. 
 Since <strong><code>Scout</code> does not contain the search driver itself</strong>, you need to supply and specify the required solution. These can be elasticsearch, algolia, sphinx, or other solutions.</p>
+
 <blockquote>
-<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
+  <p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
 </blockquote>
+
 <p>In order for the application to have information about which models should participate in the search, it is necessary to register them with the service provider:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use App\Idea;
@@ -272,8 +276,11 @@ class AppServiceProvider extends ServiceProvider
           //...Models
         ]);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The results are displayed using the <code>presenter()</code> call on the object.</p>
+
 <pre><code class="language-php">namespace App;
 
 use App\Orchid\Presenters\IdeaPresenter;
@@ -307,8 +314,11 @@ class Idea extends Model
 
         return $array;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>In the representatives, we indicate the <code>Searchable</code> interface and define methods that will return values for a display to the user, for example like this:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Presenters;
 
 use Laravel\Scout\Builder;
@@ -374,13 +384,19 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return 3;
     }
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#modifying-results" name="modifying-results">Modifying Results</a></h2>
+
 <p>To modify queries, for example, to display only relevant data in the results, you can modify the query by overriding the method:</p>
+
 <pre><code class="language-php">public function searchQuery(string $query = null): Builder
 {
     return $this-&gt;entity-&gt;search($query)-&gt;where('active', true);
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -237,8 +237,11 @@
             </ul>
     <hr>
 <p>Graph layout is a convenient way to graphically display the dynamics of values.</p>
+
 <p><img src="/assets/img/layouts/charts.png" alt="Charts"></p>
+
 <p>Example data from <code>query</code>:</p>
+
 <pre><code class="language-php">public function query() : array
 {
     $charts = [
@@ -262,10 +265,16 @@
     return [
         'charts' =&gt; $charts,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>To create, run the command:</p>
-<pre><code class="language-php">php artisan orchid:chart ChartsLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:chart ChartsLayout
+</code></pre>
+
 <p>Layout example:</p>
+
 <pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
 
 use Orchid\Platform\Layouts\Chart;
@@ -297,15 +306,23 @@ class ChartsLayout extends Chart
      * @var string
      */
     protected $target = 'charts';
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#height" name="height">Height</a></h2>
+
 <p>Set the height of the chart in pixels by specifying the property:</p>
+
 <pre><code class="language-php">/**
  * @var int
  */
-protected $height = 250;</code></pre>
+protected $height = 250;
+</code></pre>
+
 <h2><a href="#colors" name="colors">Colors</a></h2>
+
 <p>Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:</p>
+
 <pre><code class="language-php">/**
  * Colors used.
  *
@@ -317,17 +334,25 @@ protected $colors = [
     '#F1C40F',
     '#D90368',
     '#00CC66',
-];</code></pre>
+];
+</code></pre>
+
 <h2><a href="#export-image" name="export-image">Export Image</a></h2>
+
 <p>Charts can be exported in the <code>SVG</code> format, in which they are displayed initially. To do this, specify the property:</p>
+
 <pre><code class="language-php">/**
  * Determines whether to display the export button.
  *
  * @var bool
  */
-protected $export = true;</code></pre>
+protected $export = true;
+</code></pre>
+
 <h2><a href="#model-charts" name="model-charts">Model charts</a></h2>
+
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Orchid\Chart\Chartable;
@@ -337,12 +362,17 @@ class User extends Authenticatable
 {
     use Chartable;
     // ...
-}</code></pre>
+}
+</code></pre>
+
 <p>This will add several new methods specifically for charting:</p>
+
 <ul><li>Grouped data</li>
 <li>A period of time</li>
 </ul><h3><a href="#grouped-data" name="grouped-data">Grouped data</a></h3>
+
 <p>For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
@@ -374,8 +404,11 @@ class UsageTwoFactorAuth extends Chart
      * @var string
      */
     protected $target = 'userUsageTwoFactorAuth';
-}</code></pre>
+}
+</code></pre>
+
 <p>Then the model query will serve as a data source <code>countForGroup()</code></p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -388,14 +421,22 @@ public function layout(): array
     return [
         UsageTwoFactorAuth::class,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>In order to change the text of headers, you can pass the closure function as the first argument:</p>
+
 <pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
     return $title ? 'Enabled' : 'Disabled';
-});</code></pre>
+});
+</code></pre>
+
 <h3><a href="#a-period-of-time" name="a-period-of-time">A period of time</a></h3>
+
 <p>Receives data for a certain period of time, filling in the missing values.</p>
+
 <p>For example, let's display a graph of new users and roles:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
@@ -427,8 +468,11 @@ class Members extends Chart
      * @var string
      */
     protected $target = 'members';
-}</code></pre>
+}
+</code></pre>
+
 <p>Then the data source will be:</p>
+
 <pre><code class="language-php">public function query(): array
 {
     return [
@@ -444,17 +488,25 @@ public function layout(): array
     return [
         Members::class,
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>By default, the data will be taken for one month; to set your own period, you need to pass the arguments:</p>
+
 <pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
 $end = Carbon::now()-&gt;subDay(1);
 
-User::countByDays($start, $end)-&gt;toChart('Users')</code></pre>
+User::countByDays($start, $end)-&gt;toChart('Users')
+</code></pre>
+
 <p>By default, data is grouped by the <code>created_at</code> column, to change it:</p>
+
 <pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
 $end = Carbon::now()-&gt;subDay(1);
 
-User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')</code></pre>                    </main></div>
+User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

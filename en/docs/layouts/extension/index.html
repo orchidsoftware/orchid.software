@@ -216,6 +216,7 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layout;
 use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Repository;
@@ -249,8 +250,11 @@ LayoutFactory::macro('hello', function (string $name) {
         }
 
     };
-});</code></pre>
+});
+</code></pre>
+
 <p>Then on the screen, the call will look like:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -258,7 +262,9 @@ public function layout(): array
     return [
         Layout::hello('Alexandr Chernyaev')
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

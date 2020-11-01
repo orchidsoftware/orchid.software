@@ -255,55 +255,61 @@
             </ul>
     <hr>
 <h2><a href="#introduction" name="introduction">Introduction</a></h2>
+
 <p><strong>Laravel Orchid</strong> is an open-source package (MIT license) to speed up development and create applications in the style of administration. It abstracts typical business application templates so that developers can quickly implement beautiful and elegant interfaces with little effort.</p>
+
 <p>Some features:</p>
+
 <ul><li><strong>Form builder</strong> - no need to describe HTML fields of the same type each time.</li>
 <li><strong>Screen</strong> - a comfortable balance between CRUD generation and tedious coding.</li>
 <li><strong>Fields</strong> - over 40 varieties.</li>
 <li><strong>Permissions</strong> - offers convenient management in development and support.</li>
 <li>Menus, charts, notifications, etc.</li>
 </ul><p>Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based applications, administration panels, or a content management system.</p>
+
 <blockquote>
-<p><strong>Note!</strong> The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
+  <p><strong>Note!</strong> The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
 </blockquote>
+
 <h2><a href="#what-orchid-is-not" name="what-orchid-is-not">What Orchid is not</a></h2>
+
 <p>Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you one out of the box.</p>
+
 <h2><a href="#what-is-the-difference-between-other-packages" name="what-is-the-difference-between-other-packages">What is the difference between other packages?</a></h2>
+
 <p>The Laravel ecosystem is rich in various admin panels.
 Maybe, You already solve your problems using Nova, Voyager, BackPack, QuickAdminPanel, or the like.
 Here you were led by a desire to find out if the platform will simplify and improve your work.
 We hope to answer this question.</p>
+
 <p>All previous packages are designed to simplify CRUD database operations, and they can be divided into several methods:</p>
-<ul><li>
-<p><strong>Scaffolding</strong> - scaffolding method consists of the generation of physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, after age, developers delete such packages, since they cannot update files with manual changes for updated criteria.</p>
-</li>
-<li>
-<p><strong>Visual programming</strong> - is a method in which the developer drags or selects pre-prepared objects, thus building the application, instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.</p>
-</li>
-<li>
-<p><strong>One file</strong> - a method that invites the developer to describe all the necessary actions in one single class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that single class.</p>
-</li>
+
+<ul><li><p><strong>Scaffolding</strong> - scaffolding method consists of the generation of physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, after age, developers delete such packages, since they cannot update files with manual changes for updated criteria.</p></li>
+<li><p><strong>Visual programming</strong> - is a method in which the developer drags or selects pre-prepared objects, thus building the application, instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.</p></li>
+<li><p><strong>One file</strong> - a method that invites the developer to describe all the necessary actions in one single class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that single class.</p></li>
 </ul><p>Unlike scaffolding, this package will be useful at any stage of development, and not just at the beginning, remaining fast for development due to a ready-made set of components.
 It does not provide visual programming, which means you need to write code on the keyboard, and not click with the mouse.
 And instead of one, the main class provides many small components for encapsulation and reuse.</p>
+
 <h2><a href="#why-is-rapid-development" name="why-is-rapid-development">Why is rapid development?</a></h2>
+
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
-<ul><li>
-<p><strong>Presentation level</strong> - a graphical interface presented to the user (browser), including scripts, styles, and other resources.</p>
-</li>
-<li>
-<p><strong>The level of applied logic</strong> - in our cases, this framework is the link where most business logic concentrated, work with the database (Eloquent), sending resources, and various processing.</p>
-</li>
-<li>
-<p><strong>Level of resource management</strong> - provides we implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p>
-</li>
+
+<ul><li><p><strong>Presentation level</strong> - a graphical interface presented to the user (browser), including scripts, styles, and other resources.</p></li>
+<li><p><strong>The level of applied logic</strong> - in our cases, this framework is the link where most business logic concentrated, work with the database (Eloquent), sending resources, and various processing.</p></li>
+<li><p><strong>Level of resource management</strong> - provides we implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
 </ul><p><img src="https://orchid.software/assets/img/scheme/architecture.jpg" alt="Architecture"></p>
+
 <p>It is reducing development time directly related to the distribution of responsibilities between each of the levels. It is especially noticeable when it is necessary to create auxiliary code. At the same time, it takes most of the beneficial work over by the application layer.</p>
-<p>As various examples of opposing duties can be cited:</p>
-<ul><li>Generation of <code>HTML</code> with the <code>Blade</code> template engine or the <code>Vue</code> framework.</li>
-<li>Using ORM or stored procedures.</li>
-</ul><p>Depending on the choice of decisions, responsibilities will be allocated, where each decision has both advantages and disadvantages.</p>
+
+<p>As various examples of opposing duties can be cited:
+- Generation of <code>HTML</code> with the <code>Blade</code> template engine or the <code>Vue</code> framework.
+- Using ORM or stored procedures.</p>
+
+<p>Depending on the choice of decisions, responsibilities will be allocated, where each decision has both advantages and disadvantages.</p>
+
 <p>Similarly, the platform endows the application layer with new responsibilities for managing the mapping and bridging of data.</p>
+
 <pre><code class="language-php">Classic          |   Orchid
 ├── Route        |   ├── Route   
 ├── Model        |   ├── Model 
@@ -311,13 +317,18 @@ And instead of one, the main class provides many small components for encapsulat
 └── View         |
     ├── HTML     |
     ├── CSS      |
-    └── JS       |</code></pre>
+    └── JS       |
+</code></pre>
+
 <h2><a href="#how-to-get-a-platform" name="how-to-get-a-platform">How to get a platform?</a></h2>
+
 <p>The platform is freely distributed via the Internet, <a href="https://github.com/orchidsoftware/platform">source codes</a>, and <a href="https://github.com/orchidsoftware/platform/releases">release information</a> published on GitHub. The <a href="/en/docs/installation/">installation guide</a> contains detailed instructions.</p>
+
 <blockquote>
-<p>To suggest improvements to this tutorial, <a href="https://github.com/orchidsoftware/orchid.software/issues">create a new issue</a>.
-If you have questions or find a documentation error, please show the chapter and accompanying the text to indicate an error.</p>
-</blockquote>                    </main></div>
+  <p>To suggest improvements to this tutorial, <a href="https://github.com/orchidsoftware/orchid.software/issues">create a new issue</a>.
+  If you have questions or find a documentation error, please show the chapter and accompanying the text to indicate an error.</p>
+</blockquote>
+                    </main></div>
             </div>
         </div>
     </div>

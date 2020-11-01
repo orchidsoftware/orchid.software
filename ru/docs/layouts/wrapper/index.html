@@ -217,6 +217,7 @@
                             </div>
                                                 <hr class="mb-4"><p>Промежуточным звеном между "Пользовательским шаблоном" и стандартными слоями может служить "Обёртка", с помощью которой
 доступно указывать где именно должны отображаться другие слои.</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -228,8 +229,11 @@
             'bar' =&gt; RowLayout::class,
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>В шаблон <code>myTemplate</code> будут переданы переменные <code>foo</code> и <code>bar</code>, содержащие уже собранные <code>View</code>, которые можно выводить:</p>
+
 <pre><code class="language-html">&lt;div class="row"&gt;
     &lt;div class="col-7 border-right"&gt;
         @foreach($foo as $row)
@@ -239,8 +243,11 @@
     &lt;div class="col-5 no-gutter"&gt;
         {!! $bar !!}
     &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>Переменные из <code>query</code> так же доступны в шаблоне.</p>                    </main></div>
+&lt;/div&gt;
+</code></pre>
+
+<p>Переменные из <code>query</code> так же доступны в шаблоне.</p>
+                    </main></div>
             </div>
         </div>
     </div>

@@ -228,8 +228,11 @@
             </ul>
     <hr>
 <p>Cards are used to pack a small amount of content. Usually they contain a title, a short paragraph and control buttons.</p>
+
 <p><img src="/assets/img/layouts/cards.png" alt="Cards"></p>
+
 <p>Cards accept only objects that implement the interface <code>Cardable</code>.</p>
+
 <pre><code class="language-php">use Orchid\Screen\Contracts\Cardable;
 use Orchid\Screen\Layouts\Card;
 
@@ -282,18 +285,27 @@ public function layout(): array
     return [
         new Card('card'),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#using-custom-templates" name="using-custom-templates">Using custom templates</a></h2>
+
 <p>The card allows you to combine any display in the <code>description</code> method,</p>
+
 <pre><code class="language-php">public function description(): string
 {
     return view('template')-&gt;render();
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong> Note. </strong> Any value returned in it will be displayed as is.</p>
+  <p>** Note. ** Any value returned in it will be displayed as is.</p>
 </blockquote>
+
 <h2><a href="#action" name="action">Action</a></h2>
+
 <p>Cards support the indication of actions, as well as the <code>commandBar</code>, for this you need to add the second argument:</p>
+
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -303,12 +315,17 @@ public function layout(): array
                 -&gt;icon('bag'),
         ]),
     ];
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#use-with-presenter" name="use-with-presenter">Use with presenter</a></h2>
+
 <blockquote>
-<p>In this example, <a href="/en/docs/presenters">presenters</a> are used, we strongly recommend that you familiarize yourself with them.</p>
+  <p>In this example, <a href="/en/docs/presenters">presenters</a> are used, we strongly recommend that you familiarize yourself with them.</p>
 </blockquote>
+
 <p>Instead of creating a separate class, it is recommended to use representatives for <code>Eloquent</code> models, for example:</p>
+
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -326,8 +343,11 @@ class Product extends Model
     {
         return new ProductPresenter($this);
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>You can record a presenter:</p>
+
 <pre><code class="language-php">namespace App\Presenters;
 
 use Orchid\Screen\Contracts\Cardable;
@@ -356,8 +376,11 @@ class ProductPresenter extends Presenter implements Cardable
             ? Color::SUCCESS()
             : Color::DANGER();
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Then the usage record in the screen will be short:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layouts\Card;
 
 /**
@@ -384,7 +407,9 @@ public function layout(): array
     return [
         new Card('product'),
     ];
-}</code></pre>                    </main></div>
+}
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

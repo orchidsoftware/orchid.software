@@ -238,19 +238,28 @@
                             </div>
                                                 <hr class="mb-4"><p>There are times when you want the visual style of the platform to match your brand.
 After installation, two settings are provided that are located in <code>config/platform.php</code>:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
     'footer' =&gt; null,
-],</code></pre>
+],
+</code></pre>
+
 <p>To change the page header or footer, you must specify your own <code>blade</code> templates.</p>
+
 <h2><a href="#change-logo-and-name" name="change-logo-and-name">Change logo and name</a></h2>
+
 <p>Create a new directory in the <code>brand</code> template section and the<code>header.blade.php</code> file.
 Then the full path will look like <code>/resources/views/brand/header.blade.php</code>.</p>
+
 <pre><code class="language-php">resources          
 └── views
     └── brand
-        └── header.blade.php</code></pre>
+        └── header.blade.php
+</code></pre>
+
 <p>Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:</p>
+
 <pre><code class="language-php">@push('head')
     &lt;link
         href="/favicon.ico"
@@ -266,25 +275,37 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
         Analytics
         &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
     &lt;/span&gt;
-&lt;/p&gt;</code></pre>
+&lt;/p&gt;
+</code></pre>
+
 <p>In order for the created template to be used instead of the standard one, you must specify it in the configuration file,
 just as if passing an argument in the <code>view('brand.header')</code> helper:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'brand.header',
     'footer' =&gt; null,
-],</code></pre>
+],
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> The configuration file may be cached, and the changes will not take effect until the <code>php artisan config:clear</code> command is executed</p>
+  <p><strong>Note.</strong> The configuration file may be cached, and the changes will not take effect until the <code>php artisan config:clear</code> command is executed</p>
 </blockquote>
+
 <p>In the same way, we can change the bottom of the page, again create a new file <code>/resources/views/brand/footer.blade.php</code> with the following contents:</p>
+
 <pre><code class="language-php">&lt;p class="small m-n"&gt;
     © Copyright {{date('Y')}} &lt;a href="//example.com" target="_blank"&gt;"Analytics Nest"&lt;/a&gt;
-&lt;/p&gt;</code></pre>
+&lt;/p&gt;
+</code></pre>
+
 <p>Also making changes to the configuration file:</p>
+
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; 'brand.header',
     'footer' =&gt; 'brand.footer',
-],</code></pre>                    </main></div>
+],
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

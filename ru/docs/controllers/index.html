@@ -236,10 +236,15 @@
                                         Редактировать страницу                                    </small>
                                 </a>
                             </div>
-                                                <hr class="mb-4"><p>При разработке могут возникать различные ситуации, в том числе необходимость встраивать контроллеры в работу пакета. </p>
+                                                <hr class="mb-4"><p>При разработке могут возникать различные ситуации, в том числе необходимость встраивать контроллеры в работу пакета.</p>
+
 <p>Для создания нового контроллера необходимо выполнить команду <code>make:controller</code>:</p>
-<pre><code class="language-php">php artisan make:controller CustomOrchidController</code></pre>
+
+<pre><code class="language-php">php artisan make:controller CustomOrchidController
+</code></pre>
+
 <p>В директории <code>app/Http/Controllers</code> будет создан новый класс, изменим его:</p>
+
 <pre><code class="language-php">namespace App\Http\Controllers;
 
 class CustomOrchidController extends Controller
@@ -252,8 +257,11 @@ class CustomOrchidController extends Controller
         return view('custom');
     }
 }
+
 </code></pre>
+
 <p>Метод <code>index</code> возвращает шаблон приложения, именно в нём мы будем визуализировать всю стилистику пакета:</p>
+
 <pre><code class="language-php">@extends('platform::dashboard')
 
 @section('title','title')
@@ -269,10 +277,15 @@ class CustomOrchidController extends Controller
     &lt;div class="text-center mt-5 mb-5"&gt;
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
-@stop</code></pre>
+@stop
+</code></pre>
+
 <p>Созданный контроллер необходимо объявить в файле маршрута, например, в <code>routes/platform</code>,
 чтобы на него распространялись общие правила, такие как авторизация.</p>
-<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);</code></pre>                    </main></div>
+
+<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

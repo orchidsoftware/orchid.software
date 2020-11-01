@@ -258,19 +258,23 @@
             </ul>
     <hr>
 <p>Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.</p>
+
 <p>Typically, you manage several dozen permits in a typical business process.
 You can also have, say, 10 to 100 users.
 Although these users are not entirely different from each other,
 You can divide them into logical groups according to what they do with the program.
 These groups are called roles.</p>
+
 <p>If you needed to manage users directly by assigning them permissions,
 it would be tedious and erroneous
 due to a large number of users and permissions.</p>
+
 <ul><li>You can group one, two, or more permissions in a role.</li>
 <li>The user is assigned one or more roles.</li>
 <li>A set of permissions owned by the user,
 calculated as a combination of permissions from each user role.</li>
 </ul><p>The user has several options for managing roles:</p>
+
 <pre><code class="language-php">// Check whether the user has permissions
 // Check is carried out both for the user and for his role
 Auth::user()-&gt;hasAccess($string);
@@ -282,23 +286,40 @@ Auth::user()-&gt;getRoles();
 Auth::user()-&gt;inRole($role);
 
 // Add role to user
-Auth::user()-&gt;addRole($role);</code></pre>
+Auth::user()-&gt;addRole($role);
+</code></pre>
+
 <blockquote>
-<p><strong> Note. </strong> Permissions are not a substitute for <code>Gate</code> or <code>Policies</code> included in the framework frame.</p>
+  <p>** Note. ** Permissions are not a substitute for <code>Gate</code> or <code>Policies</code> included in the framework frame.</p>
 </blockquote>
+
 <h2><a href="#roles" name="roles">Roles</a></h2>
+
 <p>Roles also have procedures for:</p>
+
 <pre><code class="language-php">// Returns all users with this role.
-$role-&gt;getUsers();</code></pre>
+$role-&gt;getUsers();
+</code></pre>
+
 <h2><a href="#admin-creation" name="admin-creation">Admin Creation</a></h2>
+
 <p>To create a user with the maximum (at the time of creation) rights, run the following command:</p>
-<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword</code></pre>
+
+<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword
+</code></pre>
+
 <p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
-<pre><code class="language-php">php artisan orchid:admin --id=1</code></pre>
+
+<pre><code class="language-php">php artisan orchid:admin --id=1
+</code></pre>
+
 <h2><a href="#add-your-own-permissions" name="add-your-own-permissions">Add your own permissions</a></h2>
+
 <p>You can define your own permissions in applications.
-Using them, you explicitly implement access to certain functions.</p>
+ Using them, you explicitly implement access to certain functions.</p>
+
 <p>An example of adding your own permissions using a provider:</p>
+
 <pre><code class="language-php">use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\ItemPermission;
 use Orchid\Platform\Dashboard;
@@ -316,14 +337,22 @@ class PermissionServiceProvider extends ServiceProvider
 
         $dashboard-&gt;registerPermissions($permissions);
     }
-}</code></pre>
+}
+</code></pre>
+
 <h2><a href="#roles-vs-permissions" name="roles-vs-permissions">Roles vs Permissions</a></h2>
+
 <p>It is generally best to code your app around permissions only.</p>
+
 <p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.</p>
+
 <p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>
+
 <h2><a href="#check-in-screens" name="check-in-screens">Check-in Screens</a></h2>
+
 <p>Each created screen already has a built-in permission check set using the property
 <code>$permission</code>, which accepts both an array and a string value for verification:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
@@ -354,12 +383,17 @@ class History extends Screen
     ];
 
     // ...
-}</code></pre>
+}
+</code></pre>
+
 <p>If several keys are listed, access will be granted if the user has at least one permission.</p>
+
 <h2><a href="#check-in-middleware" name="check-in-middleware">Check-in Middleware</a></h2>
+
 <p>Small applications may not need to define permissions for each screen or class,
 instead, it makes sense to check their availability for routes.
 To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
+
 <pre><code class="language-php">/**
  * The application's route middleware.
  *
@@ -370,16 +404,24 @@ To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</cod
 protected $routeMiddleware = [
     //...
     'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
-];</code></pre>
+];
+</code></pre>
+
 <p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');</code></pre>
+
+<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');
+</code></pre>
+
 <p>You can also group them into groups:</p>
+
 <pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
     Route::screen('/stories', StoriesScreen::class);
     Route::get('stories/best', function () {
         // ...
     });
-});</code></pre>                    </main></div>
+});
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>

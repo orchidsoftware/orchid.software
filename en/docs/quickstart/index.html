@@ -238,13 +238,20 @@
                             </div>
                                                 <hr class="mb-4"><p>This quick start guide provides a basic introduction to the infrastructure and includes information about screens and form elements.
 To select the basic set of functions, we will create a simple utility for sending emails.</p>
+
 <p>You should have already <a href="/en/docs/installation">installed the framework and package</a> at this point and started the webserver.</p>
+
 <blockquote>
-<p>Before we start, we strongly recommend that you do not use copy and paste. Entering each piece of code will help you practice and remember.</p>
+  <p>Before we start, we strongly recommend that you do not use copy and paste. Entering each piece of code will help you practice and remember.</p>
 </blockquote>
+
 <p>First, you need to create a <a href="/en/docs/screens">screen</a> to display the submission form, using the command:</p>
-<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen</code></pre>
+
+<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen
+</code></pre>
+
 <p>A new file <code>EmailSenderScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
@@ -289,17 +296,25 @@ class EmailSenderScreen extends Screen
     {
         return [];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The screen's main difference from the controller is the structure defined in advance,
 which serves only one-page defining data and events.</p>
+
 <p>Like the controller, the screen needs to register in the route file.
 Define it in the file for the admin panel <code>routes/platform.php</code>:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 
-Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
+Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');
+</code></pre>
+
 <p>After we have registered a new route, you can go to the browser at <code>/admin/email</code>,
 to look at the empty screen, fill it with the elements.</p>
+
 <p>Add a name and description:</p>
+
 <pre><code class="language-php">/**
  * Display header name.
  *
@@ -312,8 +327,11 @@ public $name = 'Email sender';
  *
  * @var string
  */
-public $description = 'Tool that sends ad-hoc email messages.';</code></pre>
+public $description = 'Tool that sends ad-hoc email messages.';
+</code></pre>
+
 <p>To display the input fields, we describe them in the <code>Layouts</code> method:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
@@ -350,9 +368,12 @@ public function layout(): array
 
         ])
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Now our page has some elements but does not produce any action.
 To define them, you need to create a new public method and specify a link to it in <code>commandBar</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\User;
@@ -462,16 +483,22 @@ class EmailSenderScreen extends Screen
             }
         });
 
+
         Alert::info('Your email message has been sent successfully.');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>After that, can to send email messages to addresses.</p>
+
 <blockquote>
-<p><strong>Note</strong> that by default, the <code>SMTP</code> driver enabled for sending mail,
-You can change it in the <code>.env</code> file to <code>log</code> for verification.</p>
+  <p><strong>Note</strong> that by default, the <code>SMTP</code> driver enabled for sending mail,
+  You can change it in the <code>.env</code> file to <code>log</code> for verification.</p>
 </blockquote>
-<p>We can dream up and imagine that our boss asked us to put our messages like “Campaign news for July” but change it. To do this,
+
+<p>We can dream up and imagine that our boss asked us to put our messages like “Campaign news for July” but change it. To do this, 
 add the key to the <code>query</code> method with the name of our element:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -482,10 +509,14 @@ public function query(): array
     return [
         'subject' =&gt; date('F').' Campaign News',
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Now the field with the name <code>subject</code> automatically fits the value from the result.</p>
+
 <p>All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the menu, for this
 in the file at <code>app/Orchid/PlatformProvider.php</code> we add the declaration:</p>
+
 <pre><code class="language-php">/**
  * @return ItemMenu[]
  */
@@ -499,10 +530,13 @@ public function registerMainMenu(): array
             -&gt;route('platform.email')
             -&gt;title('Tools')
     ];
-}</code></pre>
-<p>Now our utility is displayed on the left menu and is active when visiting.
+}
+</code></pre>
+
+<p>Now our utility is displayed on the left menu and is active when visiting. 
 Navigation is carried out not only through transitions from the menu but also through bread crumbs,
 to add them to our screen you need to add a new ad in the <code>routes/breadcrumbs.php</code> by route name.</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -512,10 +546,13 @@ Route::screen('email', EmailSenderScreen::class)
         return $trail
                 -&gt;parent('platform.index')
                 -&gt;push('Email sender');
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Congratulations, you should now understand how the platform works!
 It is an elementary example, but the development process will be identical in many aspects.
-We recommend going to the <a href="/en/docs/screens">Screens</a> section to learn more about the possibilities in your hands.</p>                    </main></div>
+We recommend going to the <a href="/en/docs/screens">Screens</a> section to learn more about the possibilities in your hands.</p>
+                    </main></div>
             </div>
         </div>
     </div>

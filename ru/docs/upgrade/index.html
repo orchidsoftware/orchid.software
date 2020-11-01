@@ -238,13 +238,13 @@
                             </div>
                                                 <hr class="mb-4"><ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#obnovlenie-zavisimostey">Обновление зависимостей</a>
+                <a href="#obnovlenie-zavisimostei">Обновление зависимостей</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#auth">Auth</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#obnovlenie-zavisimostey">Обновление зависимостей</a>
+                <a href="#obnovlenie-zavisimostei">Обновление зависимостей</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#redaktor-tinymce">Редактор TinyMCE</a>
@@ -253,7 +253,7 @@
                 <a href="#model-nastroek">Модель настроек</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#khlebnye-kroshki">Хлебные крошки</a>
+                <a href="#xlebnye-kroski">Хлебные крошки</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#izmeneniya-ekrana">Изменения экрана</a>
@@ -262,16 +262,16 @@
                 <a href="#konstruktor">Конструктор</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#metody-marshruta">Методы маршрута</a>
+                <a href="#metody-marsruta">Методы маршрута</a>
             </li>
                     <li class="anchor-h3">
-                <a href="#podmena-dannykh-async">Подмена данных (Async)</a>
+                <a href="#podmena-dannyx-async">Подмена данных (Async)</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#izmeneniya-sloev">Изменения слоёв</a>
+                <a href="#izmeneniya-sloyov">Изменения слоёв</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#soobshchenie-o-relize">Сообщение о релизе</a>
+                <a href="#soobshhenie-o-relize">Сообщение о релизе</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#ikonki">Иконки</a>
@@ -279,17 +279,25 @@
             </ul>
     <hr>
 <blockquote>
-<p>Мы пытаемся задокументировать все возможные критические изменения. Некоторые из этих изменений относятся к внутренним обращениям, поэтому только часть этих изменений может фактически повлиять на ваше приложение.</p>
+  <p>Мы пытаемся задокументировать все возможные критические изменения. Некоторые из этих изменений относятся к внутренним обращениям, поэтому только часть этих изменений может фактически повлиять на ваше приложение.</p>
 </blockquote>
+
 <h1>Обновление до 9.0 с 8.x</h1>
-<h2><a href="#obnovlenie-zavisimostey" name="obnovlenie-zavisimostey">Обновление зависимостей</a></h2>
+
+<h2><a href="#obnovlenie-zavisimostei" name="obnovlenie-zavisimostei">Обновление зависимостей</a></h2>
+
 <p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^9.0</code></p>
+
 <h2><a href="#auth" name="auth">Auth</a></h2>
+
 <p>Команда Laravel представила новые продукты <a href="https://github.com/laravel/jetstream">Jetstream</a> и  <a href="https://github.com/laravel/fortify">Fortify</a>, которые пришли на смену более раннему <a href="https://github.com/laravel/ui">laravel/ui</a>. Чтобы обеспечивать совместимость с различными вариантами, зависимость от <code>laravel/ui</code> была удалена. А вместе с ней возможность восстановления пароля.</p>
+
 <p>Новые продукты предоставляют двухфакторую аутентификацию пользователя, а также просмотр последних активных сессий.
 Чтобы не конкурировать с ними, такие же возможности были удалены из пакета.</p>
-<p>Хотя миграции были удалены, данные, хранящиеся в базе данных, не будут удалены автоматически.
+
+<p>Хотя миграции были удалены, данные, хранящиеся в базе данных, не будут удалены автоматически. 
 Для их удаления необходимо выполнить следующий <code>SQL</code> код:</p>
+
 <pre><code class="language-php">ALTER TABLE "users"
     DROP COLUMN "last_login"
     DROP COLUMN "uses_two_factor_auth"
@@ -297,35 +305,55 @@
     DROP COLUMN "two_factor_recovery_code";
 
 DELETE FROM migrations
-WHERE migration = '2020_06_07_184338_added_columns_for_2fa';</code></pre>
+WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
+</code></pre>
+
 <p>После этого необходимо удалить данные колонки из вашей модели пользователя.</p>
+
 <hr><h1>Обновление до 8.0 с 7.x</h1>
-<h2><a href="#obnovlenie-zavisimostey" name="obnovlenie-zavisimostey">Обновление зависимостей</a></h2>
+
+<h2><a href="#obnovlenie-zavisimostei" name="obnovlenie-zavisimostei">Обновление зависимостей</a></h2>
+
 <p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^8.0</code></p>
+
 <h2><a href="#redaktor-tinymce" name="redaktor-tinymce">Редактор TinyMCE</a></h2>
+
 <p><code>Html</code> редактор был удалён из стандартной поставки. Код был перенесён в отдельный <a href="https://github.com/orchidcommunity/TinyMCE">репозиторий</a>.</p>
+
 <h2><a href="#model-nastroek" name="model-nastroek">Модель настроек</a></h2>
-<p>Модель настроек так же была удалена. Данные, хранящиеся в базе данных, не будут удалены автоматически.
+
+<p>Модель настроек так же была удалена. Данные, хранящиеся в базе данных, не будут удалены автоматически. 
 Для их удаления необходимо выполнить следующий <code>SQL</code> код:</p>
+
 <pre><code class="language-php">DROP TABLE settings;
 
 DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';</code></pre>
+WHERE migration = '2015_12_02_181214_create_table_settings';
+</code></pre>
+
 <p>Исходный код доступен для установки в качестве отдельного <a href="https://github.com/tabuna/settings">пакета</a>.</p>
-<h2><a href="#khlebnye-kroshki" name="khlebnye-kroshki">Хлебные крошки</a></h2>
-<p>Пакет <code>davejamesmiller/laravel-breadcrumbs</code> заменён на  <code>tabuna/breadcrumbs</code>
+
+<h2><a href="#xlebnye-kroski" name="xlebnye-kroski">Хлебные крошки</a></h2>
+
+<p>Пакет <code>davejamesmiller/laravel-breadcrumbs</code> заменён на  <code>tabuna/breadcrumbs</code> 
 и должен быть установлен автоматически при обновлении зависимостей.</p>
+
 <blockquote>
-<p><strong>Примечание.</strong> Может потребоваться удаление загрузочных файлов кэша в директории <code>bootstrap/cache</code>.</p>
+  <p><strong>Примечание.</strong> Может потребоваться удаление загрузочных файлов кэша в директории <code>bootstrap/cache</code>.</p>
 </blockquote>
+
 <p>Синтаксис нового пакета позволяет показывать хлебные крошки прямо в определении маршрута:</p>
+
 <pre><code class="language-php">Route::screen('example', ExampleScreen::class)
     -&gt;name('platform.example')
     -&gt;breadcrumbs(function (Trail $trail) {
         return $trail-&gt;parent('platform.index')-&gt;push(__('Example screen'));
-    });</code></pre>
+    });
+</code></pre>
+
 <p>Так же, вы можете продолжить использовать отдельный файл для них.
 Для этого, необходимо загрузить его в сервис провайдере:</p>
+
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -341,13 +369,21 @@ class AppServiceProvider extends ServiceProvider
     {
         require base_path('routes/breadcrumbs.php');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Если вы использовали полные имена классов, то необходимо произвести замену на аналогичные:</p>
+
 <pre><code class="language-php">use Tabuna\Breadcrumbs\Breadcrumbs;
-use Tabuna\Breadcrumbs\Trail;</code></pre>
+use Tabuna\Breadcrumbs\Trail;
+</code></pre>
+
 <h2><a href="#izmeneniya-ekrana" name="izmeneniya-ekrana">Изменения экрана</a></h2>
+
 <h3><a href="#konstruktor" name="konstruktor">Конструктор</a></h3>
+
 <p>В передаче объекта <code>Request</code> и вызова родительского класса больше нет необходимости. До:</p>
+
 <pre><code class="language-php">class PublicationScreen extends Screen
 {
     public function __construct(Request $request, Locator $locator)
@@ -355,54 +391,86 @@ use Tabuna\Breadcrumbs\Trail;</code></pre>
         $this-&gt;request = $request;
         $this-&gt;locator = $locator;
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Определение теперь выглядит так:</p>
+
 <pre><code class="language-php">class PublicationScreen extends Screen
 {
     public function __construct(Locator $locator)
     {
         $this-&gt;locator = $locator;
     }
-}</code></pre>
-<h3><a href="#metody-marshruta" name="metody-marshruta">Методы маршрута</a></h3>
+}
+</code></pre>
+
+<h3><a href="#metody-marsruta" name="metody-marsruta">Методы маршрута</a></h3>
+
 <p>Не использованные методы были удалены. Больше нельзя обратиться к экранам через методы <code>PUT|PATCH|DELETE</code>, обращение должно использовать <code>GET|POSTS</code> для получения/отправки данных.</p>
+
 <pre><code class="language-php">Method           | URI                                  | Name
 -----------------+--------------------------------------+--------------
-GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea</code></pre>
+GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
+</code></pre>
+
 <p>Теперь методы экрана, ожидающие модели, при их отсутствии будут реализовывать пустую модель так же, как и контроллеры. <a href="https://github.com/orchidsoftware/platform/issues/1150">Подробнее</a>.</p>
-<h3><a href="#podmena-dannykh-async" name="podmena-dannykh-async">Подмена данных (Async)</a></h3>
+
+<h3><a href="#podmena-dannyx-async" name="podmena-dannyx-async">Подмена данных (Async)</a></h3>
+
 <p>Ожидание <code>{argument?}</code> было удалено из адресной строки.
 Теперь для обращения используется отдельный маршрут:</p>
+
 <pre><code class="language-php">$this-&gt;router
     -&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
-    -&gt;name('async');</code></pre>
-<h2><a href="#izmeneniya-sloev" name="izmeneniya-sloev">Изменения слоёв</a></h2>
-<p>Каждый слой теперь наследуется от класса <code>Orchid\Screen\Layout</code>, а не от <code>Orchid\Screen\Layouts\Base</code>. </p>
+    -&gt;name('async');
+</code></pre>
+
+<h2><a href="#izmeneniya-sloyov" name="izmeneniya-sloyov">Изменения слоёв</a></h2>
+
+<p>Каждый слой теперь наследуется от класса <code>Orchid\Screen\Layout</code>, а не от <code>Orchid\Screen\Layouts\Base</code>.</p>
+
 <p>Для объявления слоёв через короткий синтаксис теперь должен использоваться фасад <code>Orchid\Support\Facades\Layout</code> вместо класса <code>Orchid\Screen\Layout</code>.</p>
+
 <p>Было:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Layout;
 
 Layout::row([
      // ...
-]);</code></pre>
+]);
+</code></pre>
+
 <p>Стало:</p>
+
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 Layout::row([
      // ...
-]);</code></pre>
-<h2><a href="#soobshchenie-o-relize" name="soobshchenie-o-relize">Сообщение о релизе</a></h2>
+]);
+</code></pre>
+
+<h2><a href="#soobshhenie-o-relize" name="soobshhenie-o-relize">Сообщение о релизе</a></h2>
+
 <p>Системное сообщение проинформировало пользователей о выпуске новой версии пакета. Но у них нет возможности обновиться без помощи разработчика.
 Это раздражало больше, чем поддерживало программное обеспечение в актуальном состоянии. По этому он был удалён, если вы использовали его (По умолчанию только на первом экране), то следует удалить его вызов так же как и <code>blade</code> шаблон. Пример вызова в экране:</p>
+
 <pre><code class="language-php">return [
     'status' =&gt; Dashboard::checkUpdate(),
-];</code></pre>
+];
+</code></pre>
+
 <p>Использование шаблона в экране:</p>
-<pre><code class="language-php">Layout::view('platform::partials.update');</code></pre>
+
+<pre><code class="language-php">Layout::view('platform::partials.update');
+</code></pre>
+
 <h2><a href="#ikonki" name="ikonki">Иконки</a></h2>
-<p>Отображение иконок было переработано с <code>font</code> на <code>SVG</code> формат.
+
+<p>Отображение иконок было переработано с <code>font</code> на <code>SVG</code> формат. 
 Теперь методы <code>-&gt;icon</code> принимают не значение <code>css</code> которое необходимо установить, а название файла.
-В большинстве случаев необходимо только убрать префикс <code>icon-</code>.</p>                    </main></div>
+В большинстве случаев необходимо только убрать префикс <code>icon-</code>.</p>
+                    </main></div>
             </div>
         </div>
     </div>

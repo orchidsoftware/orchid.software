@@ -237,15 +237,22 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>Это краткое руководство представляет собой базовое введение в инфраструктуру и включает в себя информацию
-об экранах и элементах формы.
+об экранах и элементах формы. 
 Чтобы отобрать базовый набор функций, мы создадим простую утилиту по отправке сообщений по электронной почте.</p>
+
 <p>На этом этапе необходимо, чтобы вы уже <a href="/ru/docs/installation">установили фреймворк и платформу</a>, создали базу данных и запустили веб-сервер.</p>
+
 <blockquote>
-<p>Прежде чем мы начнем, настоятельно рекомендуем вам не копировать и не вставлять код. Ввод каждого раздела вручную поможет вам попрактиковаться и запомнить материал.</p>
+  <p>Прежде чем мы начнем, настоятельно рекомендуем вам не копировать и не вставлять код. Ввод каждого раздела вручную поможет вам попрактиковаться и запомнить материал.</p>
 </blockquote>
+
 <p>Для начала необходимо создать <a href="/ru/docs/screens">экран</a> для отображения формы отправки, с помощью команды:</p>
-<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen</code></pre>
+
+<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen
+</code></pre>
+
 <p>В директории <code>app/Orchid/Screens</code> будет создан новый файл <code>EmailSenderScreen.php</code> :</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
@@ -290,17 +297,25 @@ class EmailSenderScreen extends Screen
     {
         return [];
     }
-}</code></pre>
-<p>Главным отличием экрана от контроллера, является определённая заранее структура, которая обслуживает
+}
+</code></pre>
+
+<p>Главным отличием экрана от контроллера, является определённая заранее структура, которая обслуживает 
 только одну страницу, определяя данные и события.</p>
-<p>Как и контроллер, экран нужно регистрировать в файле маршрутов,
+
+<p>Как и контроллер, экран нужно регистрировать в файле маршрутов, 
 определим его в файле для панели администрирования <code>routes/platform.php</code>:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 
-Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');</code></pre>
-<p>После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу <code>/admin/email</code>,
+Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');
+</code></pre>
+
+<p>После того как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу <code>/admin/email</code>, 
 чтобы посмотреть на пустой экран. Наполним его элементами.</p>
+
 <p>Добавим название и описание:</p>
+
 <pre><code class="language-php">/**
  * Display header name.
  *
@@ -313,12 +328,16 @@ public $name = 'Email sender';
  *
  * @var string
  */
-public $description = 'Tool that sends ad-hoc email messages.';</code></pre>
+public $description = 'Tool that sends ad-hoc email messages.';
+</code></pre>
+
 <p>Для того, чтобы отобразить поля для ввода, мы опишем их в методе <code>Layouts</code>:</p>
+
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Support\Facades\Layout;
+
 
 /**
  * Views.
@@ -351,9 +370,12 @@ public function layout(): array
 
         ])
     ];
-}</code></pre>
-<p>Теперь наша страница имеет некоторые элементы, но не производит действий,
+}
+</code></pre>
+
+<p>Теперь наша страница имеет некоторые элементы, но не производит действий, 
 чтобы определить их необходимо создать новый публичный метод и указать ссылку на него в <code>commandBar</code>:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\User;
@@ -463,15 +485,21 @@ class EmailSenderScreen extends Screen
             }
         });
 
+
         Alert::info('Your email message has been sent successfully.');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>После этого мы имеем возможность отправлять email сообщения на адреса.</p>
+
 <blockquote>
-<p><strong>Обратите внимание</strong>, по умолчанию включен <code>smtp</code> драйвер для отправки почты,
-вы можете изменить его в <code>.env</code> файле на <code>log</code> для проверки.</p>
+  <p><strong>Обратите внимание</strong>, по умолчанию включен <code>smtp</code> драйвер для отправки почты, 
+  вы можете изменить его в <code>.env</code> файле на <code>log</code> для проверки.</p>
 </blockquote>
+
 <p>Так как наша утилита вымышленная, мы можем пофантазировать и представить, что наш босс попросил ставить заголовок наших сообщений вида "Новости кампании за июль", но иметь возможность менять его. Для этого добавим ключ в метод <code>query</code> с именем нашего элемента:</p>
+
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -482,10 +510,14 @@ public function query(): array
     return [
         'subject' =&gt; date('F').' Campaign News',
     ];
-}</code></pre>
+}
+</code></pre>
+
 <p>Теперь в поле с именем <code>subject</code> автоматически подстанавливается значение из результата.</p>
+
 <p>Все это время для отображения экрана приходилось в браузере указывать явную страницу, добавим новый пункт в меню, для этого
 в файле по адресу <code>app/Orchid/PlatformProvider.php</code> добавим объявление:</p>
+
 <pre><code class="language-php">/**
  * @return ItemMenu[]
  */
@@ -499,10 +531,13 @@ public function registerMainMenu(): array
             -&gt;route('platform.email')
             -&gt;title('Tools'),
     ];
-}</code></pre>
-<p>Теперь наша утилита отображается в левом меню и активна при посещении.
-Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки,
+}
+</code></pre>
+
+<p>Теперь наша утилита отображается в левом меню и активна при посещении. 
+Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки, 
 чтобы добавить их к нашему экрану, необходимо добавить новое объявление к маршруту:</p>
+
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -512,8 +547,11 @@ Route::screen('email', EmailSenderScreen::class)
         return $trail
                 -&gt;parent('platform.index')
                 -&gt;push('Email sender');
-    });</code></pre>
-<p>Поздравляем, теперь вы должны понимать, как работает платформа! Это очень простой пример, но процесс разработки будет идентичен во многих аспектах. Теперь рекомендуем перейти к разделу <a href="/ru/docs/screens">"Экраны"</a>, чтобы узнать больше о возможностях которые находятся у вас в руках.</p>                    </main></div>
+    });
+</code></pre>
+
+<p>Поздравляем, теперь вы должны понимать, как работает платформа! Это очень простой пример, но процесс разработки будет идентичен во многих аспектах. Теперь рекомендуем перейти к разделу <a href="/ru/docs/screens">"Экраны"</a>, чтобы узнать больше о возможностях которые находятся у вас в руках.</p>
+                    </main></div>
             </div>
         </div>
     </div>

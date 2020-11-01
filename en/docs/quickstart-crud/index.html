@@ -237,10 +237,16 @@
                                 </a>
                             </div>
                                                 <hr class="mb-4"><p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.</p>
+
 <p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch "<a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a> ".</p>
+
 <p>First, we need to create a new table. To do this, execute the command:</p>
-<pre><code class="language-php">php artisan make:migration create_posts_table</code></pre>
+
+<pre><code class="language-php">php artisan make:migration create_posts_table
+</code></pre>
+
 <p>A new migration file will be created in the <code>database/migrations</code> directory, we will add a description of the required columns to it.</p>
+
 <pre><code class="language-php">// `****_**_**_create_posts_table.php
 
 use Illuminate\Support\Facades\Schema;
@@ -275,12 +281,21 @@ class CreatePostsTable extends Migration
     {
         Schema::dropIfExists('posts');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>To apply the new scheme to the connected database, we will do:</p>
-<pre><code class="language-php">php artisan migrate</code></pre>
+
+<pre><code class="language-php">php artisan migrate
+</code></pre>
+
 <p>After successfully creating the table, add a new <code>Eloquent</code> model, to do this:</p>
-<pre><code class="language-php">php artisan make:model Post</code></pre>
+
+<pre><code class="language-php">php artisan make:model Post
+</code></pre>
+
 <p>In the <code>app</code> directory, a new file <code>Post.php</code> will be created, we will describe the fields as available for filling:</p>
+
 <pre><code class="language-php">// app/Post.php
 
 namespace App;
@@ -301,18 +316,27 @@ class Post extends Model
         'body',
         'author'
     ];
-}</code></pre>
+}
+</code></pre>
+
 <blockquote>
-<p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
+  <p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
 </blockquote>
+
 <p>Now we are ready for the real use of the platform.</p>
+
 <p><a href="https://orchid.software/en/docs/quickstart">In the previous tutorial</a> we already created our first screen for sending email messages, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:</p>
+
 <pre><code class="language-php">php artisan orchid:screen PostEditScreen
-php artisan orchid:screen PostListScreen</code></pre>
+php artisan orchid:screen PostListScreen
+</code></pre>
+
 <blockquote>
-<p><strong>Note:</strong> Creating two or more screens to provide CRUD is optional, but is used for convenience.</p>
+  <p><strong>Note:</strong> Creating two or more screens to provide CRUD is optional, but is used for convenience.</p>
 </blockquote>
+
 <p>Register new screens in the application route list:</p>
+
 <pre><code class="language-php">// routes/platform.php
 
 use App\Orchid\Screens\PostEditScreen;
@@ -322,9 +346,12 @@ Route::screen('post/{post?}', PostEditScreen::class)
     -&gt;name('platform.post.edit');
 
 Route::screen('posts', PostListScreen::class)
-    -&gt;name('platform.post.list');</code></pre>
+    -&gt;name('platform.post.list');
+</code></pre>
+
 <p>Now the screens are available for viewing at the address <code>/admin/post</code> and <code>/admin/posts</code>.
 The resulting screens currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required fields:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Post;
@@ -466,12 +493,20 @@ class PostEditScreen extends Screen
 
         return redirect()-&gt;route('platform.post.list');
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>Now we can create, edit, and delete records. But do not browse as a list. Change it!</p>
+
 <p>In all previous layer definitions, only a short record of the form <code>Layout:rows()</code> was used, but to display complex or voluminous information, it is desirable to create separate classes.</p>
+
 <p>Add a new <code>Layout</code> class by running the command:</p>
-<pre><code class="language-php">php artisan orchid:table PostListLayout</code></pre>
+
+<pre><code class="language-php">php artisan orchid:table PostListLayout
+</code></pre>
+
 <p>We indicate what data we want to see:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use App\Post;
@@ -504,12 +539,17 @@ class PostListLayout extends Table
             TD::set('updated_at', 'Last edit'),
         ];
     }
-}</code></pre>
+}
+</code></pre>
+
 <p>The <code>target</code> property indicates the key will be the source for our table on the screen.</p>
+
 <blockquote>
-<p><strong> Note. </strong> Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code> templates.</p>
+  <p>** Note. ** Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code> templates.</p>
 </blockquote>
+
 <p>Having defined the table layer, we return to the view screen, change it:</p>
+
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
@@ -570,8 +610,11 @@ class PostListScreen extends Screen
             PostListLayout::class
         ];
     }
-}</code></pre>
-<p>Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>                    </main></div>
+}
+</code></pre>
+
+<p>Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>
+                    </main></div>
             </div>
         </div>
     </div>
