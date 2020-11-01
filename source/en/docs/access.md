@@ -97,6 +97,14 @@ class PermissionServiceProvider extends ServiceProvider
 }
 ```
 
+## Roles vs Permissions
+
+It is generally best to code your app around permissions only.
+
+Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.
+
+eg: `users` have `roles`, and `roles` have `permissions`, and your app always checks for `permissions`, not `roles`.
+
 
 ## Check-in Screens
 
@@ -177,11 +185,3 @@ Route::middleware(['access:systems.history'])->group(function () {
     });
 });
 ```
-
-## Roles vs Permissions
-
-It is generally best to code your app around permissions only.
-
-Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel's Gate layer to do all the heavy lifting.
-
-eg: `users` have `roles`, and `roles` have `permissions`, and your app always checks for `permissions`, not `roles`.
