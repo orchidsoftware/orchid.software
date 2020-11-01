@@ -61,7 +61,7 @@ To create a user with the maximum (at the time of creation) rights, run the foll
 php artisan orchid:admin nickname email@email.com secretpassword
 ```
 
-If you need to add the current maximum permissions to an already existing user, then run with the `--id` option:
+To give the existing user the maximum permissions, run with the `--id` option:
 
 ```php
 php artisan orchid:admin --id=1
