@@ -176,9 +176,7 @@ public function query() : array
 The use of the `Eloquent` models is not necessary, it is possible to use arrays using the` Repository` wrapper:
 
 ```php
-//...
 use Orchid\Screen\Repository;    
-//...
 
 public function query() : array
 {
