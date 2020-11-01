@@ -7,14 +7,7 @@ section: main
 
 The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.
 
-
-In order to add a new item to the menu, you need to inform our application `Dashboard`.
-To do this, call the method in the menu properties and pass arguments:
-
-* The name of the menu to which you want to attach the item
-* A menu object is containing the name, links, etc.
-
-## Example
+## Usage example
 
 The default menu registration takes place in the `app/Orchid/PlatformProvider.php`:
 
