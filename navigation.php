@@ -20,7 +20,7 @@ return [
                     'Sorting and filtering in a table' => '/en/docs/quickstart-sort-filter-table',
                 ],
             ],
-            'Core concepts' => [
+            'Concepts' => [
                 'children' => [
                     'Screens'        => '/en/docs/screens',
                     'Screen layouts' => '/en/docs/layouts',
