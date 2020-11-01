@@ -18,6 +18,8 @@ It is one of the versatile form elements and allows you to create different part
  
 Example:
 ```php
+use Orchid\Screen\Fields\Input;
+
 Input::make('name');
 ``` 
 
