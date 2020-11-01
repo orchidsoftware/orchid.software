@@ -1,47 +1,33 @@
-@extends('_layouts.index')
+@extends('_layouts.documentation')
 
-@section('content')
-<div class="bg-white-only">
-
-    <div class="container">
-        <div class="row pt-5 pb-5">
-
-            <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="row">
-                    <div class="col-md-6 col-xs-12">
-                        <h1 class="font-thin l-h-1x text-black">
-                            Icons Preview
-                        </h1>
-                        <p class="text-muted m-b-lg">
-                            Click on the icons to get the icon class name<br>
-                            The source code is located on <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
-                        </p>
-                    </div>
-                    <div class="col-md-6 col-xs-12">
-                        <div class="form-group form-group-default m-t-xl">
-                            <label>Search Icons</label>
-                            <div class="controls">
-                                <input type="text"   id="quick-search"  placeholder="Search..." class="form-control">
-                            </div>
-                        </div>
-                    </div>
+@section('main')
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group form-group-default">
+                <label>Search Icons</label>
+                <div class="controls">
+                    <input type="text"   id="quick-search"  placeholder="Search..." class="form-control">
                 </div>
-                <hr>
             </div>
+        </div>
 
-
-            @foreach($page->icons as $icon)
-                <div class="icon-preview-box col-xs-6 col-md-3 col-lg-3">
+        <div class="row mt-3">
+            @foreach($page->icons() as $icon)
+                <div class="icon-preview-box col-6 col-md-3 col-lg-3">
                     <div class="preview">
-                        <a href="#" class="show-code text-ellipsis" title="click to show css class name"><i
-                                    class="icon-{{$icon}} icons"></i><span class="name">{{$icon}}</span> <code
-                                    class="code-preview">.icon-{{$icon}}</code></a>
+                        {!! $page->getIcon($icon) !!}
+                        <span class="ml-2 name">{{$icon}}</span>
                     </div>
                 </div>
             @endforeach
-
-
         </div>
+
+        <p class="mt-5 text-muted">
+            The source code is located on <a href="https://github.com/orchidsoftware/icons" target="_blank">github</a>
+        </p>
+
+        @yield('sub-main')
+
     </div>
-</div>
 @endsection
+
