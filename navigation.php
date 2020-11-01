@@ -38,7 +38,7 @@ return [
                     'Scout search' => '/en/docs/global-search',
                     //'Settings'     => '/en/docs/settings', deprecation
                     'Icons'        => '/en/docs/icons',
-                    'Controllers'  => '/en/docs/controllers',
+                    //'Controllers'  => '/en/docs/controllers',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
                     'Branding'     => '/en/docs/brand',
@@ -130,7 +130,7 @@ return [
                     'Scout поиск'      => '/ru/docs/global-search',
                     //'Настройки'        => '/ru/docs/settings', deprecation
                     'Иконки'           => '/ru/docs/icons',
-                    'Контроллеры'      => '/ru/docs/controllers',
+                    //'Контроллеры'      => '/ru/docs/controllers',
                     'Использование JS' => '/ru/docs/javascript',
                     'Строитель форм'   => '/ru/docs/builder',
                     'Брендирование'    => '/ru/docs/brand',
