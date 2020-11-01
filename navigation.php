@@ -4,15 +4,15 @@ return [
 
     'en' => [
         'docs'      => [
-            'Get started'   => [
+            'Get started' => [
                 'children' => [
                     'Introduction'  => '/en/docs/',
-                    'Installation' => '/en/docs/installation',
-                    'Configuration'         => '/en/docs/configuration',
-                    'Upgrade Guide'         => '/en/docs/upgrade',
+                    'Installation'  => '/en/docs/installation',
+                    'Configuration' => '/en/docs/configuration',
+                    'Upgrade Guide' => '/en/docs/upgrade',
                 ],
             ],
-            'Tutorials'     => [
+            'Tutorials'   => [
                 'children' => [
                     'Quick start'                      => '/en/docs/quickstart',
                     'Data management'                  => '/en/docs/quickstart-crud',
@@ -20,7 +20,7 @@ return [
                     'Sorting and filtering in a table' => '/en/docs/quickstart-sort-filter-table',
                 ],
             ],
-            'Concepts' => [
+            'Concepts'    => [
                 'children' => [
                     'Screens'        => '/en/docs/screens',
                     'Screen layouts' => '/en/docs/layouts',
@@ -32,7 +32,7 @@ return [
                     'Notifications'  => '/en/docs/alert',
                 ],
             ],
-            'Extra'         => [
+            'Extra'       => [
                 'children' => [
                     'Presenters'   => '/en/docs/presenters',
                     'Scout search' => '/en/docs/global-search',
@@ -45,8 +45,8 @@ return [
                 ],
             ],
         ],
-        'layouts' => [
-            'Main'             => [
+        'layouts'   => [
+            'Main'                => [
                 'children' => [
                     'Come back'      => '/en/docs/screens',
                     'Screen layouts' => '/en/docs/layouts',
@@ -63,7 +63,7 @@ return [
                     'Tabs'           => '/en/docs/layouts/tabs',
                 ],
             ],
-            'Layers to display'  => [
+            'Layers to display'   => [
                 'children' => [
                     'Charts'   => '/en/docs/layouts/charts',
                     'Table'    => '/en/docs/layouts/table',
@@ -72,7 +72,7 @@ return [
                     'Persona'  => '/en/docs/layouts/persona',
                 ],
             ],
-            'Universal'        => [
+            'Universal'           => [
                 'children' => [
                     'Listener'        => '/en/docs/layouts/listener',
                     'Custom template' => '/en/docs/layouts/custom-template',
@@ -89,7 +89,7 @@ return [
                     'Contribution'    => '/en/community/contributors',
                     'Promote project' => '/en/community/promote',
                     'License'         => '/en/community/license',
-                    'Change log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md'
+                    'Change log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
                 ],
             ],
         ],
@@ -98,9 +98,9 @@ return [
         'docs'      => [
             'Начало работы'      => [
                 'children' => [
-                    'Введение в проект'   => '/ru/docs/',
-                    'Установка платформы' => '/ru/docs/installation',
-                    'Обзор параметров'    => '/ru/docs/configuration',
+                    'Введение в проект'         => '/ru/docs/',
+                    'Установка платформы'       => '/ru/docs/installation',
+                    'Обзор параметров'          => '/ru/docs/configuration',
                     'Руководство по обновлению' => '/ru/docs/upgrade',
                 ],
             ],
@@ -156,7 +156,7 @@ return [
                 ],
             ],
             'Макеты отображения' => [
-                'children'      => [
+                'children' => [
                     'Графики'  => '/ru/docs/layouts/charts',
                     'Таблицы'  => '/ru/docs/layouts/table',
                     'Карточки' => '/ru/docs/layouts/cards',
@@ -164,7 +164,7 @@ return [
                     'Persona'  => '/ru/docs/layouts/persona',
                 ],
             ],
-            'Универсальные' => [
+            'Универсальные'      => [
                 'children' => [
                     'Слушатель'               => '/ru/docs/layouts/listener',
                     'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
@@ -181,7 +181,7 @@ return [
                     'Участие в разработке' => '/ru/community/contributors',
                     'Содействие проекту'   => '/ru/community/promote',
                     'Лицензия'             => '/ru/community/license',
-                    'История изменений'    => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md'
+                    'История изменений'    => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
                 ],
             ],
         ],
