@@ -8,7 +8,7 @@ lang: en
 
 The presenter is a class that wraps an object in order to add functionality to it.
 
-Let's say we have a client model:
+Let's say we have a "Client" model:
 ```php
 namespace App;
 
