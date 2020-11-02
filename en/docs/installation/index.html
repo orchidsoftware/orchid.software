@@ -256,6 +256,9 @@
                 <a href="#publishing-resources">Publishing resources</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#updating">Updating</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#what-to-do-next">What to do next?</a>
             </li>
             </ul>
@@ -332,20 +335,20 @@ In other words, install your new framework project.</p>
 
 <h2><a href="#publishing-resources" name="publishing-resources">Publishing resources</a></h2>
 
-<p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. <strong>Please only use it if your web server is having problems</strong>:</p>
+<p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. <strong>Please only use it if your web server is having problems</strong> :</p>
 
-<p>```php
-php artisan orchid:link</p>
+<pre><code class="language-php">php artisan orchid:link
+</code></pre>
 
-<pre><code><br>&gt; **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
+<blockquote>
+  <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
+</blockquote>
 
+<h2><a href="#updating" name="updating">Updating</a></h2>
 
-## Updating
+<p>While in the project directory, use <code>Composer</code> to update the package:</p>
 
-While in the project directory, use `Composer` to update the package:
-
-```php
-composer update orchid/platform --with-dependencies
+<pre><code class="language-php">composer update orchid/platform --with-dependencies
 </code></pre>
 
 <blockquote>
