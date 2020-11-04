@@ -14,16 +14,15 @@ return [
             ],
             'Tutorials'   => [
                 'children' => [
-                    'Quick start'                      => '/en/docs/quickstart',
-                    'Data management'                  => '/en/docs/quickstart-crud',
-                    'Manage attachments'               => '/en/docs/quickstart-files',
-                    'Sorting and filtering in a table' => '/en/docs/quickstart-sort-filter-table',
+                    'Quick start'           => '/en/docs/quickstart',
+                    'Data management'       => '/en/docs/quickstart-crud',
+                    'Manage attachments'    => '/en/docs/quickstart-files',
+                    'Sorting and filtering' => '/en/docs/quickstart-sort-filter-table',
                 ],
             ],
             'Concepts'    => [
                 'children' => [
                     'Screens'        => '/en/docs/screens',
-                    'Screen layouts' => '/en/docs/layouts',
                     'Form elements'  => '/en/docs/field',
                     'Panel menu'     => '/en/docs/menu',
                     'Permissions'    => '/en/docs/access',
@@ -32,53 +31,26 @@ return [
                     'Notifications'  => '/en/docs/alert',
                 ],
             ],
+            'Layouts' => [
+                'children' => [
+                    'Rows'             => '/en/docs/rows',
+                    'Table'            => '/en/docs/table',
+                    'Charts'           => '/en/docs/charts',
+                    'Modals'           => '/en/docs/modals',
+                    'Listener'         => '/en/docs/listener',
+                    'Grouping'         => '/en/docs/grouping',
+                    'Display elements' => '/en/docs/display-elements',
+                    'Custom template'  => '/en/docs/custom-template',
+                ],
+            ],
             'Extra'       => [
                 'children' => [
                     'Presenters'   => '/en/docs/presenters',
                     'Scout search' => '/en/docs/global-search',
-                    //'Settings'     => '/en/docs/settings', deprecation
                     'Icons'        => '/en/docs/icons',
-                    //'Controllers'  => '/en/docs/controllers',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
                     'Branding'     => '/en/docs/brand',
-                ],
-            ],
-        ],
-        'layouts'   => [
-            'Main'                => [
-                'children' => [
-                    'Come back'      => '/en/docs/screens',
-                    'Screen layouts' => '/en/docs/layouts',
-                ],
-            ],
-            'Layers for grouping' => [
-                'children' => [
-                    'Accordion'      => '/en/docs/layouts/accordion',
-                    'Columns'        => '/en/docs/layouts/columns',
-                    'Drop-down list' => '/en/docs/layouts/drop-down-list',
-                    'Modals'         => '/en/docs/layouts/modals',
-                    'Rows'           => '/en/docs/layouts/rows',
-                    'Selection'      => '/en/docs/layouts/selection',
-                    'Tabs'           => '/en/docs/layouts/tabs',
-                ],
-            ],
-            'Layers to display'   => [
-                'children' => [
-                    'Charts'   => '/en/docs/layouts/charts',
-                    'Table'    => '/en/docs/layouts/table',
-                    'Cards'    => '/en/docs/layouts/cards',
-                    'Facepile' => '/en/docs/layouts/facepile',
-                    'Persona'  => '/en/docs/layouts/persona',
-                ],
-            ],
-            'Universal'           => [
-                'children' => [
-                    'Listener'        => '/en/docs/layouts/listener',
-                    'Custom template' => '/en/docs/layouts/custom-template',
-                    'Extension'       => '/en/docs/layouts/extension',
-                    'Wrapper'         => '/en/docs/layouts/wrapper',
-                    'Components'      => '/en/docs/layouts/components',
                 ],
             ],
         ],

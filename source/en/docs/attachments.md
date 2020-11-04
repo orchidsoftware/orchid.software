@@ -4,9 +4,8 @@ description: Attachments are files related to the record.
 extends: _layouts.documentation
 section: main
 ---
-Files of various formats and extensions related to the recording are attachments
 
-Attachments can be attached to any model via links. For this, you need to add a trait:
+Files of various formats and extensions related to the recording are attachments. Them can be attached to any model via links. For this, you need to add a trait:
 
 ```php
 namespace App;
@@ -58,7 +57,7 @@ $image->url();
 ```
 
 
-## Reload
+## Reload File
 
 Thanks to the hash, attachments are not downloaded again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.

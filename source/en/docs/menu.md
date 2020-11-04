@@ -41,29 +41,19 @@ There are several such places:
 - **registerSystemMenu** - The menu that forms the navigation on the system page.
 - **registerProfileMenu** - The menu displayed when you click on the profile.
 
-## Options
-
-
-Basic use:
-
-```php
-use Orchid\Platform\ItemMenu;
-
-ItemMenu::label('Example');
-```
 
 > **Note.** for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the `slug` method.
 
-### Setting Links
+## Links
 
 Reference Reference:
 
- ```php
+```php
 ItemMenu::label('Example')->url('https://orchid.software/');
 ```
  
 Specifying a link through the route:
- ```php
+```php
 ItemMenu::label('Example')->route('route.idea');
 ```
 
@@ -89,22 +79,22 @@ ItemMenu::label('Example')
     ->active('not:pages/contact');
 ```
 
-### Permission
+## Permission
 
 Quite an expected situation when some links should be missing
 depending on the availability of rights or other circumstances, for this:
 
- ```php
+```php
 ItemMenu::label('Example')->permission('platform.idea');
 ```
 
 or any other check returning a boolean value:
 
- ```php
+```php
 ItemMenu::label('Example')->canSee(true);
 ```
 
-#### Appearance
+## Appearance
 
 For a menu item, you can specify a graphic icon with:
 
@@ -118,15 +108,15 @@ It is also possible to integrate into a visual group by setting the title for th
 ItemMenu::label('Example')->title('Analytics');
 ```
 
-### Display order
+## Display order
 
 Sorting set by setting the sequence number:
- ```php
+```php
 ItemMenu::label('Second')->sort(5);
 ItemMenu::label('First')->sort(4);
 ```
 
-### Badge notifications
+## Badge notifications
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
 

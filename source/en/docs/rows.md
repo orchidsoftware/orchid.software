@@ -3,8 +3,8 @@ title: Rows
 extends: _layouts.documentation
 section: main
 lang: en
-menu: layouts
 ---
+
 
 The line layout serves as the minimum set that is most often used.
 Its purpose is to combine all the necessary elements of forms.

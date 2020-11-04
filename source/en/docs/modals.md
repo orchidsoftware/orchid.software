@@ -1,9 +1,9 @@
 ---
 title: Modal windows
+description: Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
 extends: _layouts.documentation
 section: main
 lang: en
-menu: layouts
 ---
 
 Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
@@ -53,10 +53,7 @@ public function layouts(): array
 }
 ```
 
-
-## Options
-
-### Title
+## Title
 
 To set the title, use the `title` method:
 
@@ -67,7 +64,7 @@ Layout::modal('exampleModals', [
     ->title('Window title');
 ```
 
-### Window size
+## Window size
 
 Depending on the contents of the window, you may need to resize it, this can be done by specifying the `size` method:
 
@@ -80,7 +77,7 @@ Layout::modal('exampleModals', [
     ->size(Modal::SIZE_LG);
 ```
 
-### Button Names
+## Button Names
 
 A modal window has two actions:
 
@@ -98,7 +95,7 @@ Layout::modal('exampleModals', [
     ->closeButton('Close');
 ```
 
-### Disabling Buttons
+## Disabling Buttons
 
 To disable each button has its own method:
 
@@ -111,7 +108,7 @@ Layout::modal('exampleModals', [
 ```
 
 
-### Position
+## Position
 
 The modal window can be displayed, not only in the center of the screen, but also on the right side:
 
@@ -124,7 +121,7 @@ Layout::modal('exampleModals', [
     ->type(Modal::TYPE_RIGHT);
 ```
 
-### Disabling AJAX Processing
+## Disabling AJAX Processing
 
 By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
 To disable response processing, you need to add a call to the `rawClick` method:
@@ -135,7 +132,6 @@ Layout::modal('exampleModals', [
 ])
     ->rawClick();
 ```
-
 
 ## Asynchronous data loading
 

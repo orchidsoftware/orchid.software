@@ -121,7 +121,7 @@ After that, the column heading will respond to clicking and change the sorting p
 
 The trait `Filterable`, allows you to set not only sorting. But also simple `Http` filtering, to set it back to the model and add a new property:
  
- ```php
+```php
 /**
  * Name of columns to which http filter can be applied
  *
@@ -130,11 +130,11 @@ The trait `Filterable`, allows you to set not only sorting. But also simple `Htt
 protected $allowedFilters = [
     'title',
 ];
- ```
+```
  
 And then call the new `filter` method with a text type for the header column:
  
- ```php
+```php
  TD::set('title', 'Title')
     ->sort()
     ->filter(TD::FILTER_TEXT)
@@ -142,7 +142,7 @@ And then call the new `filter` method with a text type for the header column:
         return Link::make($post->title)
             ->route('platform.post.edit', $post);
     }),
- ```
+```
  
 After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.
  

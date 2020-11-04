@@ -1,9 +1,9 @@
 ---
 title: Charts
+description: Creating various graphs in Laravel Orchid, using an eloquent model
 extends: _layouts.documentation
 section: main
 lang: en
-menu: layouts
 ---
 
 Graph layout is a convenient way to graphically display the dynamics of values.

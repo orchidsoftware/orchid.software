@@ -3,10 +3,7 @@ title: Table
 extends: _layouts.documentation
 section: main
 lang: en
-menu: layouts
 ---
-
-## Tables
 
 The table layout is used to display minimal information for viewing and selection.
 

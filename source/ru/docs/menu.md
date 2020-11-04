@@ -67,12 +67,12 @@ ItemMenu::label('Example');
 
 Указание ссылки:
 
- ```php
+```php
 ItemMenu::label('Example')->url('https://orchid.software/');
 ```
  
 Указание ссылки через маршрут:
- ```php
+```php
 ItemMenu::label('Example')->route('route.idea');
 ```
 
@@ -102,13 +102,13 @@ ItemMenu::label('Example')
 Вполне ожидаема ситуация, когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:
 
- ```php
+```php
 ItemMenu::label('Example')->permission('platform.idea');
 ```
 
 или любая другая проверка возвращающая булево значение:
 
- ```php
+```php
 ItemMenu::label('Example')->canSee(true);
 ```
 
@@ -131,7 +131,7 @@ ItemMenu::label('Example')->title('Analytics');
 
 Сортировка устанавливается через задание порядкового номера:
 
- ```php
+```php
 ItemMenu::label('Second')->sort(5);
 ItemMenu::label('First')->sort(4);
 ```

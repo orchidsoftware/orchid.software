@@ -123,7 +123,7 @@ class PostListLayout extends Table
 
 Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию, для её установки вернёмся к модели и добавим новое свойство:
  
- ```php
+```php
 /**
  * Name of columns to which http filter can be applied
  *
@@ -132,11 +132,11 @@ class PostListLayout extends Table
 protected $allowedFilters = [
     'title',
 ];
- ```
+```
  
  А затем вызовем новый метод `filter` с текстовым типом для колонки с заголовком:
  
- ```php
+```php
  TD::set('title', 'Title')
     ->sort()
     ->filter(TD::FILTER_TEXT)
@@ -144,7 +144,7 @@ protected $allowedFilters = [
         return Link::make($post->title)
             ->route('platform.post.edit', $post);
     }),
- ```
+```
  
  После этого рядом с именем колонки появиться иконка открывающая текстовое поле, устанавливая значение которого можно фильтровать результаты.
  

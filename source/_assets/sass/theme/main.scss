@@ -35,12 +35,13 @@
   }
 }
 
+/**
 @media (min-width: 1900px) and (orientation:landscape) {
   .nav-docs {
     position: sticky;
   }
 }
-
+*/
 
 @media only screen and (max-width: 480px) {
   .nav-docs {
@@ -355,6 +356,10 @@ input::-webkit-inner-adjust-hue-button {
 
 li.anchor-h3 {
     margin-left: 1.5em;
+}
+
+li.anchor-h4 {
+  margin-left: 2.5em;
 }
 
 .topics-list{

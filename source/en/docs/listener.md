@@ -3,7 +3,6 @@ title: Listener
 extends: _layouts.documentation
 section: main
 lang: en
-menu: layouts
 ---
 
 The listener layout is used when it is necessary to change the displayed data, in accordance with the selected user settings.
