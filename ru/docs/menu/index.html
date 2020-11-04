@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Важный элемент графического интерфейса пользователя, потому, что спомощью него осуществляется основаня навигация по проекту."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Меню панели платформы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Важный элемент графического интерфейса пользователя, потому, что спомощью него осуществляется основаня навигация по проекту."><meta property="og:url" content="https://orchid.software/ru/docs/menu"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/menu/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="x-default"><title>Меню панели платформы | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=c7a9eda83d242aa62f16"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Важный элемент графического интерфейса пользователя, потому, что спомощью него осуществляется основаня навигация по проекту."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Меню панели платформы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Важный элемент графического интерфейса пользователя, потому, что спомощью него осуществляется основаня навигация по проекту."><meta property="og:url" content="https://orchid.software/ru/docs/menu"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/menu/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="x-default"><title>Меню панели платформы | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=5a0c95b7fb92cd97bccf"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -258,6 +258,9 @@
                     <li class="anchor-h3">
                 <a href="#poryadok-otobrazeniya">Порядок отображения</a>
             </li>
+                    <li class="anchor-h3">
+                <a href="#uvedomleniya">Уведомления</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#vlozennoe-menyu">Вложенное меню</a>
             </li>
@@ -319,12 +322,12 @@ ItemMenu::label('Example');
 
 <p>Указание ссылки:</p>
 
-<p>```php
-ItemMenu::label('Example')-&gt;url('https://orchid.software/');</p>
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');
+</code></pre>
 
-<pre><code><br>Указание ссылки через маршрут:
- ```php
-ItemMenu::label('Example')-&gt;route('route.idea');
+<p>Указание ссылки через маршрут:</p>
+
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;route('route.idea');
 </code></pre>
 
 <p>Для определения активности ссылки используется пакет <a href="https://github.com/dwightwatson/active">dwightwatson/active</a>.
@@ -352,13 +355,12 @@ ItemMenu::label('Example')
 <p>Вполне ожидаема ситуация, когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 
-<p>```php
-ItemMenu::label('Example')-&gt;permission('platform.idea');</p>
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');
+</code></pre>
 
-<pre><code><br>или любая другая проверка возвращающая булево значение:
+<p>или любая другая проверка возвращающая булево значение:</p>
 
- ```php
-ItemMenu::label('Example')-&gt;canSee(true);
+<pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);
 </code></pre>
 
 <h4><a href="#vnesnii-vid" name="vnesnii-vid">Внешний вид</a></h4>
@@ -377,16 +379,15 @@ ItemMenu::label('Example')-&gt;canSee(true);
 
 <p>Сортировка устанавливается через задание порядкового номера:</p>
 
-<p>```php
-ItemMenu::label('Second')-&gt;sort(5);
-ItemMenu::label('First')-&gt;sort(4);</p>
+<pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
+ItemMenu::label('First')-&gt;sort(4);
+</code></pre>
 
-<pre><code><br>### Уведомления
+<h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
 
-Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:
+<p>Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 
-```php
-ItemMenu::label('Comments')
+<pre><code class="language-php">ItemMenu::label('Comments')
     -&gt;icon('bubbles')
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {

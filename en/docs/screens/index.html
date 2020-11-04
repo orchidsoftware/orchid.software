@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The main components of the user interface"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screen | Orchid - Laravel Admin Panel"><meta property="og:description" content="The main components of the user interface"><meta property="og:url" content="https://orchid.software/en/docs/screens"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/screens/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/screens/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/screens/" hreflang="x-default"><title>Screen | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=c7a9eda83d242aa62f16"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="The main components of the user interface"><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Screen | Orchid - Laravel Admin Panel"><meta property="og:description" content="The main components of the user interface"><meta property="og:url" content="https://orchid.software/en/docs/screens"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/screens/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/screens/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/screens/" hreflang="x-default"><title>Screen | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=5a0c95b7fb92cd97bccf"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -108,7 +108,7 @@
             <li class="">
             
         <a href="/en/docs/quickstart-sort-filter-table" class="lvl1 ">
-            Sorting and filtering in a table
+            Sorting and filtering
         </a>
     
     </li>
@@ -122,13 +122,6 @@
             
         <a href="/en/docs/screens" class="lvl1 ">
             Screens
-        </a>
-    
-    </li>
-            <li class="">
-            
-        <a href="/en/docs/layouts" class="lvl1 ">
-            Screen layouts
         </a>
     
     </li>
@@ -171,6 +164,68 @@
             
         <a href="/en/docs/alert" class="lvl1 ">
             Notifications
+        </a>
+    
+    </li>
+    </ul></li>
+            <h4 class="text-orchid font-thin">Layouts</h4>
+
+<li class="">
+    
+            
+        <ul class=" toc-links-1 "><li class="">
+            
+        <a href="/en/docs/rows" class="lvl1 ">
+            Rows
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/table" class="lvl1 ">
+            Table
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/charts" class="lvl1 ">
+            Charts
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/modals" class="lvl1 ">
+            Modals
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/listener" class="lvl1 ">
+            Listener
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/grouping" class="lvl1 ">
+            Grouping
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/display-elements" class="lvl1 ">
+            Display elements
+        </a>
+    
+    </li>
+            <li class="">
+            
+        <a href="/en/docs/custom-template" class="lvl1 ">
+            Custom template
         </a>
     
     </li>
@@ -472,6 +527,30 @@ ModalToggle::make('Modal window')
 
 <p>Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.</p>
 
+<p>Displaying the appearance of user interface elements in the application is of great importance, makes the application
+easier to use and helps users to intuitively display screen elements to perform their tasks.</p>
+
+<p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
+One of the elements of the presentation are "Layouts" (layouts), which can be displayed in various variations.
+If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
+
+<p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
+
+<pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
+    &lt;span class="thumb-sm avatar m-r-xs"&gt;
+        &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
+    &lt;/span&gt;
+    &lt;div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"&gt;
+        &lt;h6 class="mb-0"&gt;Maria&lt;/h6&gt;
+        &lt;p class="text-muted mb-1"&gt;maria@exaple.com&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time, so various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in <code>Blade</code> and in <code>React/Vue/Angular</code>.</p>
+
+<p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
+
 <p>Each layout may include a different layout, that is, nesting.
 For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.</p>
@@ -563,7 +642,7 @@ class ReusableEditLayout extends Rows
 }
 </code></pre>
 
-<p>More details can be found in the <a href="/en/docs/layouts/">Layouts section</a>.</p>
+<p>More details can be found in the <code>Layouts</code> section.</p>
                     </main></div>
             </div>
         </div>

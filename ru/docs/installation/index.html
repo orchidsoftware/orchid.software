@@ -1,4 +1,4 @@
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Это руководство по началу работы поможет вам начать использовать ORCHID."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Установка платформы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Это руководство по началу работы поможет вам начать использовать ORCHID."><meta property="og:url" content="https://orchid.software/ru/docs/installation"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/installation/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/installation/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/installation/" hreflang="x-default"><title>Установка платформы | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=c7a9eda83d242aa62f16"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Это руководство по началу работы поможет вам начать использовать ORCHID."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Установка платформы | Orchid - Laravel Admin Panel"><meta property="og:description" content="Это руководство по началу работы поможет вам начать использовать ORCHID."><meta property="og:url" content="https://orchid.software/ru/docs/installation"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/installation/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/installation/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/installation/" hreflang="x-default"><title>Установка платформы | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=5a0c95b7fb92cd97bccf"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -256,6 +256,9 @@
                 <a href="#publikaciya-staticeskix-resursov">Публикация статических ресурсов</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#obnovlenie">Обновление</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#cto-delat-dalse">Что делать дальше?</a>
             </li>
             </ul>
@@ -332,17 +335,18 @@
 
 <p>По умолчанию раздача статических файлов (css/js) происходит через маршруты приложения, это наилучший баланс между настройкой и отслеживанием изменений, но вы можете указать использовать для раздачи веб-серверы. Для этого необходимо выполнить команду, которая создаст символическую ссылку в публичном каталоге. <strong>Пожалуйста применяйте её, только если ваш веб-сервер испытывает трудности</strong>:</p>
 
-<p>```php
-php artisan orchid:link</p>
+<pre><code class="language-php">php artisan orchid:link
+</code></pre>
 
-<pre><code><br>&gt; **Возникли проблемы во время установки?** Возможно, что у кого-то уже была такая проблема https://github.com/orchidsoftware/platform/issues . Если нет, вы можете отправить сообщение или обратиться за [помощью](https://github.com/orchidsoftware/platform/issues/new).
+<blockquote>
+  <p><strong>Возникли проблемы во время установки?</strong> Возможно, что у кого-то уже была такая проблема https://github.com/orchidsoftware/platform/issues . Если нет, вы можете отправить сообщение или обратиться за <a href="https://github.com/orchidsoftware/platform/issues/new">помощью</a>.</p>
+</blockquote>
 
-## Обновление
+<h2><a href="#obnovlenie" name="obnovlenie">Обновление</a></h2>
 
-Находясь в директории проекта используйте `Composer` для обновления пакета:
+<p>Находясь в директории проекта используйте <code>Composer</code> для обновления пакета:</p>
 
-```php
-composer update orchid/platform --with-dependencies
+<pre><code class="language-php">composer update orchid/platform --with-dependencies
 </code></pre>
 
 <blockquote>
