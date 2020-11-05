@@ -4,6 +4,8 @@
 
 This is the repository for website at [orchid.software](http://orchid.software).
 
+The docs are auto-generated and each page has an edit button. So if you come across any errors, or if you think of anything else that should be included, then please make the changes and submit them as a pull-request.
+
 ## Contributing
 
 If you spot any errors, typos or missing information, please submit a pull
