@@ -41,9 +41,9 @@
 
         <div class="alert alert-light mb-0 border-bottom border-top" role="alert">
             <div class="container">
-                <span class="pr-2">Hello everybody 👋</span>
+                <span class="pr-1">Hello everybody 👋</span>
                 We are launching a new package for the rapid creation of CRUD on an Orchid basis.
-                <span class="pl-2">
+                <span class="pl-1">
                     <a href="https://blog.orchid.software/laravel-orchid-crud-available-now/" class="alert-link">Click here to read more ⇢</a>
                 </span>
             </div>
