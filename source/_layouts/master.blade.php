@@ -39,6 +39,16 @@
 
     <div id="app">
 
+        <div class="alert alert-light mb-0 border-bottom border-top" role="alert">
+            <div class="container">
+                <span class="pr-2">Hello everybody 👋</span>
+                We are launching a new package for the rapid creation of CRUD on an Orchid basis.
+                <span class="pl-2">
+                    <a href="https://blog.orchid.software/laravel-orchid-crud-available-now/">Click here to read more ⇢</a>
+                </span>
+            </div>
+        </div>
+
         <!-- header -->
         <header id="header" class="bg-dark">
             <div class="container">
