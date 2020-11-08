@@ -39,7 +39,7 @@
 
     <div id="app">
 
-        <div class="alert alert-light mb-0 border-bottom border-top" role="alert">
+        <div class="alert bg-dark mb-0" role="alert">
             <div class="container">
                 <span class="pr-1">Hello everybody 👋</span>
                 We are launching a new package for the rapid creation of CRUD on an Orchid basis.
