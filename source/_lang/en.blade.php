@@ -69,7 +69,8 @@ A performance like a single page application. Transitions without reloading the 
 @section('github.button','View on GitHub')
 @section('github.help')
 Since a healthy open source ecosystem creates real value for the software industry,
-I believe it is fair for the developers <a href="https://www.paypal.me/tabuna/10usd" target="_blank">to reward their work with real money</a>.
+we thank the existing bakers for their generous financial support and to make it
+possible for us to spend our time and energy improving Orchid for everyone.
 @endsection
 
 @section('main.donate','Treat coffee')
