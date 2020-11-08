@@ -167,7 +167,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #f6f8fa;
+  background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -724,7 +724,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f6f8fa;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -2525,7 +2525,7 @@ progress {
   height: 1.25em;
   margin-top: 0.125em;
   vertical-align: top;
-  background-color: #f6f8fa;
+  background-color: #fff;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2730,15 +2730,15 @@ progress {
 }
 
 .form-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f6f8fa, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
 }
 
 .form-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f6f8fa, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
 }
 
 .form-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f6f8fa, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(172, 92, 160, 0.25);
 }
 
 .form-range::-moz-focus-outer {
@@ -4342,8 +4342,8 @@ fieldset:disabled .btn {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f6f8fa;
-  border-color: #dee2e6 #dee2e6 #f6f8fa;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -4827,11 +4827,6 @@ fieldset:disabled .btn {
   margin-bottom: -0.5rem;
   margin-left: -0.5rem;
   border-bottom: 0;
-}
-
-.card-header-tabs .nav-link.active {
-  background-color: #ffffff;
-  border-bottom-color: #ffffff;
 }
 
 .card-header-pills {
@@ -7817,7 +7812,7 @@ code[class*="language-"] {
 }
 
 .bg-body {
-  background-color: #f6f8fa !important;
+  background-color: #fff !important;
 }
 
 .bg-white {
@@ -11109,7 +11104,7 @@ code[class*="language-"] {
 }
 
 html {
-  background-color: #f6f8fa;
+  background-color: #fff;
   font-size: 14px;
 }
 

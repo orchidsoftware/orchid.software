@@ -63,7 +63,17 @@ return [
                 ],
             ],
         ],
-        'community' => [],
+        'community' => [
+            'Community' => [
+                'children' => [
+                    'Code of conduct' => '/en/community/code-of-conduct',
+                    'Contribution'    => '/en/community/contributors',
+                    'Promote project' => '/en/community/promote',
+                    'License'         => '/en/community/license',
+                    'Change log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md'
+                ],
+            ],
+        ],
     ],
     'ru' => [
         'docs'      => [

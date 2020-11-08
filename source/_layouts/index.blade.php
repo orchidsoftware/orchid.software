@@ -52,99 +52,6 @@
         </div>
     </section>
 
-    {{--
-<div class="row">
-    <div class="d-md-flex mb-3">
-        <div class="card">
-            <div class="card-body d-flex py-4">
-                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon mr-3 flex-shrink-0">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34 27.011V31.001C34 32.657 32.644 34.001 31 34.001H17C16.2052 33.9984 15.4436 33.6814 14.8816 33.1194C14.3196 32.5574 14.0026 31.7958 14 31.001V17.001C14 15.345 15.356 14.001 17 14.001H31C32.656 14.001 34 15.357 34 17.001V20.991C34 21.549 33.536 22.001 33 22.001C32.8675 22.0024 32.736 21.9771 32.6134 21.9267C32.4908 21.8763 32.3795 21.8018 32.2863 21.7076C32.193 21.6134 32.1196 21.5014 32.0704 21.3783C32.0213 21.2552 31.9973 21.1235 32 20.991V17.001C32 16.463 31.552 16.001 31 16.001H17C16.462 16.001 16 16.449 16 17.001V31.001C16 31.539 16.448 32.001 17 32.001H31C31.538 32.001 32 31.553 32 31.001V27.011C32 26.453 32.464 26.001 33 26.001C33.1325 25.9996 33.264 26.0249 33.3866 26.0753C33.5092 26.1257 33.6205 26.2002 33.7137 26.2944C33.807 26.3886 33.8804 26.5006 33.9296 26.6237C33.9787 26.7468 34.0027 26.8785 34 27.011V27.011ZM20 1.003C20 0.449001 20.464 5.49316e-07 21 5.49316e-07C21.552 5.49316e-07 22 0.445001 22 1.003V4.001H26V1.004C26 0.45 26.464 0.001 27 0.001C27.552 0.001 28 0.446 28 1.004V4.001H32V1.004C32 0.45 32.464 0.001 33 0.001C33.552 0.001 34 0.446 34 1.004V4.001H41C42.656 4.001 44 5.354 44 7.001V14.001H46.997C47.551 14.001 48 14.465 48 15.001C48 15.553 47.555 16.001 46.997 16.001H44V20.001H46.997C47.551 20.001 48 20.465 48 21.001C48 21.553 47.555 22.001 46.997 22.001H44V26.001H46.997C47.551 26.001 48 26.465 48 27.001C48 27.553 47.555 28.001 46.997 28.001H44V32.001H46.997C47.551 32.001 48 32.465 48 33.001C48 33.553 47.555 34.001 46.997 34.001H44V41.001C44 42.657 42.647 44.001 41 44.001H34V46.998C34 47.552 33.536 48.001 33 48.001C32.448 48.001 32 47.556 32 46.998V44.001H28V46.998C28 47.552 27.536 48.001 27 48.001C26.448 48.001 26 47.556 26 46.998V44.001H22V46.998C22 47.552 21.536 48.001 21 48.001C20.448 48.001 20 47.556 20 46.998V44.001H16V46.998C16 47.552 15.536 48.001 15 48.001C14.448 48.001 14 47.556 14 46.998V44.001H7C5.344 44.001 4 42.648 4 41.001V34.001H1.003C0.738229 33.9987 0.484918 33.8927 0.297409 33.7057C0.1099 33.5188 0.00312939 33.2658 0 33.001C0 32.449 0.445 32.001 1.003 32.001H4V28.001H1.003C0.738229 27.9987 0.484918 27.8927 0.297409 27.7057C0.1099 27.5188 0.00312939 27.2658 0 27.001C0 26.449 0.445 26.001 1.003 26.001H4V22.001H1.003C0.738229 21.9987 0.484918 21.8927 0.297409 21.7057C0.1099 21.5188 0.00312939 21.2658 0 21.001C0 20.449 0.445 20.001 1.003 20.001H4V16.001H1.003C0.738229 15.9987 0.484918 15.8927 0.297409 15.7057C0.1099 15.5188 0.00312939 15.2658 0 15.001C0 14.449 0.445 14.001 1.003 14.001H4V7.001C4 5.345 5.353 4.001 7 4.001H14V1.004C14 0.45 14.464 0.001 15 0.001C15.552 0.001 16 0.446 16 1.004V4.001H20V1.004V1.003ZM6 7.001V40.999C6 41.542 6.448 42 7 42H41C41.542 42 42 41.552 42 41V7.001C42 6.459 41.552 6.001 41 6.001H7C6.458 6.001 6 6.449 6 7.001Z" transform="translate(5 4.99902)" fill="#333333"></path>
-                </svg>
-
-                <div>
-                    <h5 class="mb-1">Modular Structure</h5>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti.</p>
-                    <a href="#">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="d-md-flex my-3">
-        <div class="card">
-            <div class="card-body d-flex py-4">
-                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon mr-3 flex-shrink-0">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10 47C10 46.448 10.61 46 11.334 46H40.666C41.403 46 42 46.464 42 47C42 47.552 41.39 48 40.666 48H11.334C10.597 48 10 47.536 10 47ZM18 40H20V46H18V40ZM52 19.01V35.998C52.0003 36.5235 51.897 37.044 51.696 37.5296C51.495 38.0152 51.2004 38.4564 50.8288 38.8281C50.4572 39.1997 50.0161 39.4945 49.5305 39.6956C49.045 39.8967 48.5245 40.0001 47.999 40H4C3.47444 40.0004 2.95395 39.8971 2.46834 39.6961C1.98273 39.4951 1.54153 39.2003 1.16999 38.8286C0.798449 38.4569 0.503867 38.0155 0.303106 37.5298C0.102344 37.0441 -0.000654471 36.5236 3.12904e-06 35.998V4.002C-0.000259657 3.47646 0.103042 2.95602 0.304006 2.47042C0.50497 1.98482 0.799656 1.54359 1.17122 1.17193C1.54279 0.800268 1.98395 0.505472 2.4695 0.304387C2.95505 0.103302 3.47546 -0.000130322 4.001 1.1283e-06H48C48.5256 -0.000393754 49.0461 0.102866 49.5317 0.30387C50.0173 0.504874 50.4585 0.799676 50.83 1.1714C51.2016 1.54313 51.4961 1.98448 51.6969 2.47019C51.8977 2.9559 52.0007 3.47644 52 4.002V10.991C52 11.548 51.536 12 51 12C50.8675 12.0014 50.736 11.9761 50.6134 11.9257C50.4908 11.8753 50.3796 11.8008 50.2863 11.7066C50.193 11.6124 50.1196 11.5004 50.0705 11.3773C50.0213 11.2542 49.9973 11.1225 50 10.99V4.002C50.0007 3.73899 49.9494 3.47845 49.849 3.23532C49.7487 2.99219 49.6014 2.77128 49.4155 2.58526C49.2295 2.39924 49.0087 2.25178 48.7656 2.15134C48.5225 2.0509 48.262 1.99947 47.999 2H4C3.73719 2 3.47696 2.0518 3.23417 2.15243C2.99139 2.25307 2.77083 2.40056 2.58508 2.58649C2.39934 2.77242 2.25206 2.99314 2.15167 3.23602C2.05128 3.4789 1.99974 3.73919 2 4.002V35.998C2 37.111 2.896 38 4.001 38H48C48.2628 38 48.5231 37.9482 48.7658 37.8476C49.0086 37.7469 49.2292 37.5994 49.4149 37.4135C49.6007 37.2276 49.7479 37.0069 49.8483 36.764C49.9487 36.5211 50.0003 36.2608 50 35.998V19.01C50 18.453 50.464 18.001 51 18.001C51.1326 17.9996 51.264 18.0249 51.3866 18.0753C51.5092 18.1257 51.6205 18.2002 51.7137 18.2944C51.807 18.3886 51.8804 18.5006 51.9296 18.6237C51.9787 18.7468 52.0027 18.8785 52 19.011V19.01ZM32 40H34V46H32V40ZM4 33C4 32.448 4.435 32 5.002 32H46.998C47.552 32 48 32.464 48 33C48 33.552 47.565 34 46.998 34H5.002C4.73733 33.9977 4.48412 33.8916 4.29677 33.7046C4.10942 33.5177 4.00287 33.2647 4 33V33Z" transform="translate(3 7)" fill="#333333"></path>
-                </svg>
-
-                <div>
-                    <h5 class="mb-1">Modern Workflow</h5>
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
-                    <a href="#">Start Exploring</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
---}}
-    {{--
-    <div class="py-2">
-        <div class="row">
-            <div class="col-md-6 mb-5">
-                <h4 class="text-black font-thin">
-
-                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M30.015 12.97l-2.567-0.569c-0.2-0.64-0.462-1.252-0.762-1.841l1.389-2.313c0.518-0.829 0.78-2.047 0-2.829l-1.415-1.414c-0.78-0.781-2.098-0.64-2.894-0.088l-2.251 1.434c-0.584-0.303-1.195-0.563-1.829-0.768l-0.576-2.598c-0.172-0.953-1.005-1.984-2.11-1.984h-2c-1.104 0-1.781 1.047-2 2l-0.642 2.567c-0.678 0.216-1.328 0.492-1.948 0.819l-2.308-1.47c-0.795-0.552-2.114-0.692-2.894 0.088l-1.415 1.414c-0.781 0.782-0.519 2 0 2.828l1.461 2.435c-0.274 0.552-0.517 1.123-0.705 1.72l-2.566 0.569c-0.953 0.171-1.984 1.005-1.984 2.109v2c0 1.105 1.047 1.782 2 2l2.598 0.649c0.179 0.551 0.404 1.080 0.658 1.593l-1.462 2.438c-0.518 0.828-0.78 2.047 0 2.828l1.415 1.414c0.78 0.782 2.098 0.64 2.894 0.089l2.313-1.474c0.623 0.329 1.277 0.608 1.96 0.823l0.64 2.559c0.219 0.953 0.896 2 2 2h2c1.105 0 1.938-1.032 2.11-1.985l0.577-2.604c0.628-0.203 1.23-0.459 1.808-0.758l2.256 1.438c0.796 0.552 2.114 0.692 2.895-0.089l1.415-1.414c0.78-0.782 0.518-2 0-2.828l-1.39-2.317c0.279-0.549 0.521-1.12 0.716-1.714l2.599-0.649c0.953-0.219 2-0.895 2-2v-2c0-1.104-1.031-1.938-1.985-2.11zM30.001 16.939c-0.085 0.061-0.245 0.145-0.448 0.192l-3.708 0.926-0.344 1.051c-0.155 0.474-0.356 0.954-0.597 1.428l-0.502 0.986 1.959 3.267c0.125 0.2 0.183 0.379 0.201 0.485l-1.316 1.314c-0.127-0.040-0.271-0.092-0.341-0.14l-3.292-2.099-1.023 0.529c-0.493 0.256-0.999 0.468-1.503 0.631l-1.090 0.352-0.824 3.723c-0.038 0.199-0.145 0.36-0.218 0.417h-1.8c-0.061-0.085-0.145-0.245-0.191-0.448l-0.921-3.681-1.066-0.338c-0.549-0.173-1.097-0.404-1.63-0.684l-1.028-0.543-3.293 2.099c-0.135 0.091-0.279 0.143-0.409 0.143l-1.311-1.276c0.018-0.104 0.072-0.274 0.181-0.449l2.045-3.408-0.487-0.98c-0.227-0.462-0.407-0.895-0.547-1.325l-0.343-1.052-3.671-0.918c-0.231-0.052-0.398-0.139-0.485-0.2v-1.86c0.001 0.001 0.002 0.001 0.005 0.001 0.034 0 0.198-0.117 0.335-0.142l3.772-0.835 0.346-1.103c0.141-0.449 0.333-0.917 0.588-1.43l0.487-0.98-2.024-3.373c-0.125-0.201-0.184-0.38-0.201-0.485l1.315-1.314c0.128 0.041 0.271 0.093 0.34 0.14l3.354 2.138 1.027-0.542c0.527-0.278 1.073-0.507 1.622-0.682l1.063-0.338 0.912-3.649c0.053-0.231 0.138-0.398 0.2-0.485h1.859c-0.014 0.020 0.115 0.195 0.142 0.339l0.84 3.794 1.089 0.352c0.511 0.165 1.023 0.38 1.523 0.639l1.023 0.532 3.224-2.053c0.135-0.092 0.279-0.143 0.409-0.143l1.313 1.276c-0.017 0.104-0.072 0.276-0.181 0.45l-1.98 3.296 0.505 0.988c0.273 0.533 0.48 1.033 0.635 1.529l0.346 1.104 3.697 0.82c0.224 0.041 0.398 0.171 0.434 0.241zM16.013 9.99c-3.321 0-6.023 2.697-6.023 6.010s2.702 6.010 6.023 6.010 6.023-2.697 6.023-6.009c0-3.313-2.702-6.010-6.023-6.010zM16 20c-2.205 0-4-1.794-4-4s1.794-4 4-4c2.206 0 4 1.794 4 4s-1.794 4-4 4z"></path>
-                    </svg>
-
-                    @yield('main.screen.title')
-                </h4>
-                <div>
-                    @yield('main.screen.description')
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <h4 class="text-black font-thin">
-
-                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M0.682 9.431l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.474-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892s-0.216-0.711-0.547-0.88l-14.848-7.54c-0.283-0.143-0.617-0.144-0.902-0.002l-15.002 7.54c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895zM16.161 2.134l12.692 6.446-12.843 6.921-12.693-6.912zM31.292 15.010l-2.968-1.507-2.142 1.155 2.5 1.27-12.842 6.921-12.694-6.912 2.666-1.34-2.136-1.164-3.135 1.575c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.474-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892s-0.215-0.711-0.546-0.88zM31.292 22.010l-2.811-1.382-2.142 1.155 2.344 1.145-12.843 6.921-12.694-6.912 2.478-1.121-2.136-1.164-2.947 1.357c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.475-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892-0.005-0.373-0.215-0.712-0.546-0.88z"></path>
-                    </svg>
-
-                    @yield('main.design.title')</h4>
-                <div>
-                    @yield('main.design.description')
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 mb-5">
-                <h4 class="text-black font-thin">
-
-                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M15.999 0c-6.188 0-11.035 5.035-11.035 11.223 0 4.662 2.29 6.883 4.1 8.504 1.165 1.044 1.949 1.674 1.949 2.448v1.695c0 0.044 0.006 0.086 0.011 0.129h-0.023v2.895c0.001 3.053 1.975 5.105 5.033 5.105 2.952 0 4.967-2.052 4.967-5.105v-2.895h-0.029c0.006-0.043 0.013-0.085 0.013-0.129v-1.695c0-1.18 0.876-1.893 2.204-3.053 1.797-1.569 3.844-3.521 3.844-7.899 0-6.189-4.847-11.223-11.036-11.223zM15.962 30c-1.872 0-2.959-1.161-2.959-3.105l-0.014-1.334c0.72 0.246 1.7 0.439 3.012 0.439 1.294 0 2.276-0.207 3.003-0.462v1.356c0 1.974-1.102 3.105-3.041 3.105zM21.876 17.616c-1.358 1.186-2.889 2.413-2.889 4.559v1.264c-0.474 0.265-1.349 0.58-3.004 0.58-1.736 0-2.56-0.308-2.969-0.546v-1.298c0-1.706-1.334-2.791-2.615-3.938-1.697-1.521-3.434-3.245-3.434-7.014-0-5.085 3.95-9.223 9.034-9.223 5.086 0 9.036 4.138 9.036 9.223 0 3.47-1.515 4.956-3.16 6.393z"></path>
-                    </svg>
-
-                    @yield('main.idea.title')</h4>
-                <div>
-                    @yield('main.idea.description')
-                </div>
-            </div>
-            <div class="col-md-6 mb-5">
-                <h4 class="text-black font-thin">
-
-                    <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                        <path d="M7.11,23.52l1.42-1.41C5.14,18.72,3.37,17,2.39,16L8.53,9.89A1,1,0,1,0,7.11,8.47L.29,15.29A1.05,1.05,0,0,0,0,16a1,1,0,0,0,.3.71Z"/><path d="M31.71,15.29c-.1-.09-6.82-6.82-6.82-6.82L23.48,9.89c3.38,3.38,5.15,5.16,6.13,6.09l-6.13,6.13a1,1,0,0,0,.7,1.71,1,1,0,0,0,.71-.3l6.82-6.81A1,1,0,0,0,32,16,1,1,0,0,0,31.71,15.29Z"/><path d="M13.27,27.91a1,1,0,0,0,1-.76L19.7,5.33a1,1,0,0,0-1.94-.48L12.3,26.67A1,1,0,0,0,13,27.88,1,1,0,0,0,13.27,27.91Z"/>
-                    </svg>
-
-                    @yield('main.code.title')</h4>
-                <div>
-                    @yield('main.code.description')
-                </div>
-            </div>
-        </div>
-    </div>
-    --}}
-
-
     <section class="bg-white">
         <div class="container pt-5 pb-5">
             <div class="row justify-content-center text-black mb-4">
@@ -159,84 +66,6 @@
                     </p>
                 </div>
             </div>
-
-            {{--
-            <div class="row justify-content-center mb-6">
-                <div class="col-md-8">
-                    <div class="position-relative">
-                        <div class="rounded bg-dark shadow-lg p-4 text-white mb-2 mr-md-3">
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ composer require orchid/platform</div>
-                                <div class="text-secondary">- Installing <span class="text-success">orchid/platform</span> (<span class="text-warning">8.0.0</span>): Downloading (<span class="text-warning">100%</span>)   </div>
-                                <div class="text-secondary">Discovered Package: <span class="text-success">orchid/platform</span></div>
-                                <div class="text-success">Package manifest generated successfully.</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan orchid:install</div>
-                                <div class="text-secondary">Installation started. Please wait...</div>
-                                <div class="text-success">Completed!</div>
-                            </div>
-
-
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan orchid:admin "Sheldon Cooper" sheldon@bazinga.biz password</div>
-                                <div class="text-secondary">User created successfully.</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <div class="font-weight-normal">&gt; $ php artisan serve</div>
-                                <div class="text-secondary">Starting Laravel development server: http://127.0.0.1:8000</div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="mt-4 text-muted">
-                        Looks unfamiliar? Don’t worry! Our
-                        <a class="text-underline font-weight-bold"
-                           href="/@yield('lang')/docs/installation/">documentation</a>
-                        has got you covered.
-                    </p>
-                </div>
-                <div class="col-md-4">
-
-                    <div class="item mb-2 mt-3 mt-md-0">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M23.845 8.125c-1.395-3.701-4.392-6.045-8.92-6.045-5.762 0-9.793 4.279-10.14 9.861-2.779 0.889-4.784 3.723-4.784 6.933 0 3.93 3.089 7.249 6.744 7.249h0.889c0.552 0 1-0.448 1-1s-0.448-1-1-1h-0.889c-2.572 0-4.776-2.404-4.776-5.249 0-2.515 1.763-4.783 3.974-5.163l0.907-0.156-0.081-0.917-0.008-0.011c0-4.871 3.206-8.545 8.162-8.545 3.972 0 6.204 1.957 7.236 5.295l0.213 0.688 0.721 0.015c3.715 0.078 6.971 3.092 6.971 6.837 0 3.408-2.259 7.206-5.679 7.206h-0.285c-0.552 0-1 0.448-1 1s0.448 1 1 1v-0.003c5-0.132 7.883-4.909 7.883-9.203-0.001-4.617-3.619-8.304-8.141-8.791zM20.198 24.233c-0.279-0.292-0.731-0.292-1.010-0l-2.2 2.427v-10.067c0-0.552-0.448-1-1-1s-1 0.448-1 1v10.076l-2.128-2.373c-0.28-0.292-0.732-0.355-1.011-0.063l-0.252 0.138c-0.28 0.293-0.28 0.765 0 1.057l3.61 3.992c0.005 0.005 0.006 0.012 0.011 0.017l0.253 0.265c0.14 0.146 0.324 0.219 0.509 0.218 0.183 0.001 0.368-0.072 0.507-0.218l0.253-0.265c0.005-0.005 0.008-0.011 0.012-0.017l3.701-4.055c0.279-0.292 0.279-0.639 0-0.932z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin"> @yield('main.col1.title')</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            @yield('main.col1.description')
-                        </div>
-                    </div>
-
-                    <div class="item mb-2 padder-v pt-sm-5">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM17 15.594v-9.594c0-0.552-0.448-1-1-1s-1 0.448-1 1v10c0 0.283 0.118 0.537 0.308 0.719 0.017 0.020 0.030 0.041 0.048 0.059l4.949 4.95c0.39 0.39 1.023 0.39 1.414 0s0.39-1.024 0-1.415z"></path>
-                                </svg>
-                            </div>
-
-                            <div class="item-name h4 font-thin">@yield('main.col2.title')</div>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            @yield('main.col2.description')
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
---}}
 
             <div class="row padder-v mt-md-3">
                 <div class="col col-12 col-md-4 m-md-0 mb-4 py-2">
@@ -520,36 +349,24 @@
     </section>
 
 
-    <section class="github pos-rlt no-overflow b-t hidden-xs">
+    <section class="pos-rlt no-overflow b-t hidden-xs">
         <div class="container">
-            <div class="row my-5">
+            <div class="row my-5 align-items-end">
                 <div class="col-md-6 col-12 pt-md-5 mb-md-2">
                         <a href="https://github.com/orchidsoftware/platform">
                             <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
                         </a>
                         <p class="l-h-1x text-dark font-thin m-b-lg display-6"> @yield('github.title')</p>
                         <p>@yield('github.description')</p>
-
-                        <p class="py-3">
-                            <a href="/@yield('lang')/docs"
-                               class="btn btn-lg btn-outline-primary btn-rounded">
-                                <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                    <path d="M29.753 0.049l-13.22 3.581c-0.336 0.090-1.066 0.089-1.4-0.005l-12.88-3.569c-1.149-0.317-2.263 0.512-2.263 1.696v24.316c0 1.003 0.76 1.962 1.728 2.232l12.88 3.57c0.345 0.096 0.788 0.149 1.248 0.149 0.315 0 0.781-0.024 1.21-0.142l13.22-3.581c0.971-0.262 1.734-1.22 1.734-2.227v-24.317c0.001-1.183-1.113-2.014-2.258-1.703zM15 29.904l-12.779-3.533c-0.096-0.026-0.232-0.203-0.232-0.303v-24.001l12.608 3.486c0.122 0.034 0.259 0.061 0.402 0.083v24.269zM30.010 26.068c0 0.099-0.162 0.27-0.258 0.297l-12.753 3.454v-24.247c0.018-0.005 0.038-0.007 0.056-0.012l12.954-3.504v24.012h0zM20.062 11.447c0.090 0 0.182-0.011 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.729 0.962 0.729zM20.063 17.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.15 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.693l-6.998 1.97c-0.532 0.15-0.842 0.702-0.692 1.233 0.124 0.442 0.525 0.73 0.962 0.73zM20.063 23.447c0.090 0 0.182-0.012 0.272-0.037l6.998-1.97c0.532-0.151 0.842-0.702 0.692-1.234s-0.705-0.84-1.234-0.692l-6.998 1.97c-0.532 0.151-0.842 0.702-0.692 1.234 0.124 0.441 0.525 0.73 0.962 0.73zM12.332 9.484l-6.998-1.97c-0.529-0.147-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.025 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.729 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 15.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.693s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.531-0.16-1.083-0.693-1.234zM12.332 21.484l-6.998-1.97c-0.529-0.148-1.084 0.161-1.234 0.692s0.16 1.083 0.692 1.234l6.998 1.97c0.090 0.026 0.181 0.037 0.271 0.037 0.437 0 0.838-0.288 0.962-0.73 0.149-0.532-0.16-1.083-0.693-1.234z"></path>
-                                </svg>
-
-                                @yield('read.doc')
-                            </a>
-                        </p>
-
-                        <p class="text-muted mt-4">@yield('github.help')</p>
                 </div>
 
-                <div class="col d-none d-md-block position-relative">
-                    <a href="https://github.com/orchidsoftware/platform" class="d-block">
-                        <img src="/assets/img/github_browser.png" alt="Laravel Orchid Github" class="main-screenshot">
+                <div class="col-md-6 col-12 pt-md-5 mb-md-2">
+                    <a href="https://opencollective.com/orchid#backers" target="_blank">
+                        <img src="https://opencollective.com/orchid/backers.svg">
                     </a>
-                </div>
 
+                    <p class="text-muted mt-4">@yield('github.help')</p>
+                </div>
             </div>
         </div>
 
@@ -557,25 +374,19 @@
 
     </section>
 
-{{--
-    <div class="bg-white-only github border-top">
-        <div class="container pt-5 pb-5">
-            <div class="row text-left align-items-center">
-                <div class="col-10 col-sm-6 m-auto m-lg-0 col-lg-4">
-                    <img alt="image" class="img-fluid" src="/assets/img/mobile.png">
-                </div>
 
-                <div class="col-12 col-lg-7 offset-lg-1 pt-4 pt-lg-0">
-                    <a href="https://github.com/orchidsoftware/platform" class="d-none d-md-block">
-                        <img src="/assets/img/github_logo.png" alt="Github" class="mb-3">
-                    </a>
-                    <p class="l-h-1x text-dark font-thin display-6"> @yield('github.title')</p>
+    {{--
+    <div class="bg-white-only">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-7 text-center mt-5 ">
+                    <p class="display-6 text-black font-weight-light mb-3 mt-2">Its not just a Dashboard</p>
                     <p class="lead">
-                        @yield('github.description')
+                        Stop wasting time trying to do it the "right way" and build your app from scratch.
+                        Orchid is faster, easier, and you still have complete control.
                     </p>
+                    <p class="mt-5 mt-sm-4">
 
-
-                    <p class="padder-v">
                         <a href="/@yield('lang')/docs"
                            class="btn btn-lg btn-outline-primary btn-rounded">
 
@@ -585,31 +396,11 @@
 
                             @yield('read.doc')
                         </a>
+
                     </p>
 
-                    <div class="row mt-5">
-                        <div class="col-12 col-sm-8">
-                            <p class="h3 l-h-1x text-dark font-thin mb-3">Like the project? Fund!</p>
-                            <p class="lead">Every little bit of support helps us improve Orchid and tackle even more ambitious problems.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
---}}
-
-    {{--
-    <div class="bg-white-only border-top">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 text-center m-t-xxl m-b-xxl">
-                    <h1>Call to Action</h1>
-                    <p class="lead">
-                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts
-                    </p>
-                    <p class="mt-5 mt-sm-4">
-                        <a class="btn btn-secondary" href="https://www.froala.com">Download</a>
+                    <p class="small opacity-75">
+                        We value your privacy. None of the details supplied will be shared with external parties.
                     </p>
                 </div>
             </div>
