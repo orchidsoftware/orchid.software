@@ -3,7 +3,7 @@
 return [
 
     'en' => [
-        'docs'      => [
+        'docs' => [
             'Get started' => [
                 'children' => [
                     'Introduction'  => '/en/docs/',
@@ -22,16 +22,16 @@ return [
             ],
             'Concepts'    => [
                 'children' => [
-                    'Screens'        => '/en/docs/screens',
-                    'Form elements'  => '/en/docs/field',
-                    'Panel menu'     => '/en/docs/menu',
-                    'Permissions'    => '/en/docs/access',
-                    'Filtration'     => '/en/docs/filters',
-                    'Attachments'    => '/en/docs/attachments',
-                    'Notifications'  => '/en/docs/alert',
+                    'Screens'       => '/en/docs/screens',
+                    'Form elements' => '/en/docs/field',
+                    'Panel menu'    => '/en/docs/menu',
+                    'Permissions'   => '/en/docs/access',
+                    'Filtration'    => '/en/docs/filters',
+                    'Attachments'   => '/en/docs/attachments',
+                    'Notifications' => '/en/docs/alert',
                 ],
             ],
-            'Layouts' => [
+            'Layouts'     => [
                 'children' => [
                     'Rows'             => '/en/docs/rows',
                     'Table'            => '/en/docs/table',
@@ -53,9 +53,7 @@ return [
                     'Branding'     => '/en/docs/brand',
                 ],
             ],
-        ],
-        'community' => [
-            'Community' => [
+            'Community'   => [
                 'children' => [
                     'Code of conduct' => '/en/community/code-of-conduct',
                     'Contribution'    => '/en/community/contributors',
@@ -65,6 +63,7 @@ return [
                 ],
             ],
         ],
+        'community' => [],
     ],
     'ru' => [
         'docs'      => [

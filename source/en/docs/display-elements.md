@@ -80,7 +80,7 @@ public function description(): string
 }
 ```
 
-> ** Note. ** Any value returned in it will be displayed as is.
+> **Note.** Any value returned in it will be displayed as is.
 
 ### Action
 

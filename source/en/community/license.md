@@ -4,7 +4,6 @@ description: MIT License
 extends: _layouts.documentation
 section: main
 lang: en
-menu: community
 ---
 
 ## MIT License

@@ -41,7 +41,7 @@ Auth::user()->inRole($role);
 Auth::user()->addRole($role);
 ```
 
-> ** Note. ** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
+> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
 
 ## Roles
 
