@@ -362,7 +362,7 @@
 
                 <div class="col-md-6 col-12 pt-md-5 mb-md-2">
                     <a href="https://opencollective.com/orchid#backers" target="_blank">
-                        <img src="https://opencollective.com/orchid/backers.svg">
+                        <img src="https://opencollective.com/orchid/backers.svg" class="img-fluid">
                     </a>
 
                     <p class="text-muted mt-4">@yield('github.help')</p>

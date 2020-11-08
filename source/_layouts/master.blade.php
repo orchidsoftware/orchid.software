@@ -133,7 +133,7 @@
             <div class="container">
 
                 <div class="row pt-3 pb-4">
-                    <div class="col-sm-6">
+                    <div class="d-none d-sm-block col-sm-6">
 
                         <div class="d-block my-3">
 
@@ -155,7 +155,7 @@
 
                                     @isset($links['children'])
                                         @foreach($links['children'] as $name => $url)
-                                            <li class="hidden-xs">
+                                            <li>
                                                 <a href="{{$url}}">
                                                     {{ $name }}
                                                 </a>
@@ -168,7 +168,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-6 text-right font-arial sm-text-left">
+                    <div class="col-sm-6 col-12 text-sm-right font-arial text-center">
 
                         <ul class="list-inline">
                             <li class="hidden-xs">
