@@ -133,7 +133,7 @@
             <div class="container">
 
                 <div class="row pt-3 pb-4">
-                    <div class="d-none d-sm-block col-sm-6">
+                    <div class="d-none d-sm-block col-sm-8">
 
                         <div class="d-block my-3">
 
@@ -168,7 +168,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-6 col-12 text-sm-right font-arial text-center">
+                    <div class="col-sm-4 col-12 text-sm-right font-arial text-center">
 
                         <ul class="list-inline">
                             <li class="hidden-xs">
