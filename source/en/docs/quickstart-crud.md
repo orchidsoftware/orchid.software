@@ -71,9 +71,9 @@ php artisan make:model Post
 In the `app` directory, a new file `Post.php` will be created, we will describe the fields as available for filling:
 
 ```php
-// app/Post.php
+// app/Models/Post.php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -129,8 +129,8 @@ The resulting screens currently have no data, no actions, edit the `PostEditScre
 ```php
 namespace App\Orchid\Screens;
 
-use App\Post;
-use App\User;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
@@ -287,7 +287,7 @@ We indicate what data we want to see:
 ```php
 namespace App\Orchid\Layouts;
 
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
@@ -330,7 +330,7 @@ Having defined the table layer, we return to the view screen, change it:
 namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
