@@ -11,7 +11,7 @@ The sorting in the table is based entirely on the automatic recognition of the `
 In order to enable it, you need to add the `Filterable` trait and define the allowed columns:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
@@ -79,7 +79,7 @@ In order to display the sorting feature in the graphical interface, we must call
 ```php
 namespace App\Orchid\Layouts;
 
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
