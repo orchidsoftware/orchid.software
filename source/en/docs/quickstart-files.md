@@ -47,7 +47,7 @@ class AddHeroColumnForPostTable extends Migration
 Add to the model for automatic recording:
 
 ```php
-// app/Post.php
+// app/Models/Post.php
 
 protected $fillable = [
     'title',
