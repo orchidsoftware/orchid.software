@@ -15624,6 +15624,15 @@ input[type="search"] {
   right: 0;
 }
 
+.img-blog {
+  width: 100%;
+  height: 200px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .preview {
   padding: 15px 0;
   position: relative;

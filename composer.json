@@ -8,7 +8,8 @@
         "symfony/css-selector": "^4.2",
         "jolicode/jolitypo": "^1.0",
         "spipu/html2pdf": "^5.2",
-        "orchid/icons": "^2.0"
+        "orchid/icons": "^2.0",
+        "dg/rss-php": "^1.4"
     },
     "autoload": {
         "psr-4": {

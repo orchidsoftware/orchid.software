@@ -234,7 +234,7 @@
                                 </svg>
                             </div>
 
-                            <span class="item-name h4 font-thin">Charts</span>
+                            <span class="item-name h4 font-thin">Data Visulization</span>
                         </div>
                         <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
                         <div class="item-desc">
@@ -458,7 +458,46 @@ this structure to speed up development in other projects.
     </section>
 
 
+    @empty(!$page->getBlogItems())
+        <section class="border-top bg-light border-bottom">
+        <div class="container">
 
+            <div class="row justify-content-center text-black my-5">
+                <div class="col-12">
+                    <h2 class="center text-dark font-thin w-75 pt-5 ml-0 display-6">
+                        <span class="font-bold">Latest News</span>
+                    </h2>
+                </div>
+            </div>
+
+
+            <div class="row my-5">
+
+                @foreach($page->getBlogItems() as $entry)
+                    <div class="col-md-4 my-2">
+
+
+                        <a href="{{$entry->link['href']}}" class="d-block">
+                            <img src="{{ $entry->logo }}" class="img-blog mb-3 border">
+                        </a>
+
+                        <h5 class="l-h-1x h3 text-dark font-thin">
+                            <a href="{{$entry->link['href']}}">{{ $entry->title }}</a>
+                        </h5>
+
+                        <time class="my-2 d-block text-muted">
+                            {{ date('F j, Y', (int) $entry->timestamp) }}
+                        </time>
+
+                        <p class="my-2 text-left">{!!  $entry->summary !!}</p>
+
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+    @endempty
 
     <section class="pos-rlt no-overflow hidden-xs">
         <div class="container">

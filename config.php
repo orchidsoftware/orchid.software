@@ -80,4 +80,23 @@ return [
         }
 
     },
+
+    'getBlogItems' => function () {
+
+        if(isset($this->rssBlogItems)){
+            return $this->rssBlogItems;
+        }
+
+        try {
+            $lastNews = collect();
+
+            foreach (Feed::loadAtom('https://blog.orchid.software/feed.atom')->entry as $entry) {
+                $lastNews->push($entry);
+            }
+
+            return $this->rssBlogItems = $lastNews->take(3)->toArray();
+        } catch (\Exception $exception) {
+            return $this->rssBlogItems = [];
+        }
+    },
 ];
