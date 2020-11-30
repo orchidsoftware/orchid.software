@@ -623,6 +623,14 @@ class Idea extends Model
     -&gt;title('Выберите свою идею');
 </code></pre>
 
+<p>Вы можете добавить одно или несколько полей, по которым будет дополнительно осуществляться поиск:</p>
+
+<pre><code class="language-php">Relation::make('idea')
+    -&gt;fromModel(Idea::class, 'name')
+    -&gt;searchColumns('author')
+    -&gt;title('Выберите свою идею');
+</code></pre>
+
 <p>Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только по одной колонке в базе данных. Для этого используется метод <code>displayAppend</code>.</p>
 
 <pre><code class="language-php">namespace App;
