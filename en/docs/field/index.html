@@ -723,6 +723,14 @@ class Idea extends Model
     -&gt;title('Choose your idea');
 </code></pre>
 
+<p>You can add one or several fields, which will be additionally searched for:</p>
+
+<pre><code class="language-php">Relation::make('idea')
+     -&gt;fromModel(Idea::class, 'name')
+     -&gt;searchColumns('author', 'description')
+     -&gt;title('Choose your idea');
+</code></pre>
+
 <p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the <code>displayAppend</code> method.</p>
 
 <pre><code class="language-php">namespace App;
