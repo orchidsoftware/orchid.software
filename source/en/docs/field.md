@@ -331,6 +331,16 @@ Relation::make('idea')
 ```
 
 
+You can add one or several fields, which will be additionally searched for:
+
+```php
+Relation::make('idea')
+     ->fromModel(Idea::class, 'name')
+     ->searchColumns('author', 'description')
+     ->title('Choose your idea');
+```
+
+
 Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the `displayAppend` method.
 
 ```php
