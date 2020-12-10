@@ -47,7 +47,7 @@ class PlatformProvider extends OrchidServiceProvider
 Таких мест несколько:
 
 - **registerMainMenu** - Меню отображаемое на каждой странице с левой стороны.
-- **registerProfileMenu** - Меню формирующую навигацию по системной странице.
+- **registerSystemMenu** - Меню формирующую навигацию по системной странице.
 - **registerProfileMenu** - Меню отображаемое при нажатии на профиль.
 
 ## Параметры
