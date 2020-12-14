@@ -8,6 +8,10 @@ lang: en
 
 I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <https://github.com/orchidsoftware/platform>.
 
+[![Contributors](https://opencollective.com/orchid/contributors.svg?width=600&button=false)](https://github.com/orchidsoftware/platform)
+
+
+
 ## Problem tracking
 
 You can find unresolved issues on [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
