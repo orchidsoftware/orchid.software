@@ -73,7 +73,7 @@
                             @yield('main.blog')
                         </a>
 
-                        <a class="p-3 m-sm-0 d-none d-sm-inline" href=" @yield('main.telegram')" target="_blank" rel="noopener noreferrer">
+                        <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/discussions" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
                         </a>
