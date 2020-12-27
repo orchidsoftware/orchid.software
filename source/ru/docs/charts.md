@@ -3,7 +3,6 @@ title: Графики
 extends: _layouts.documentation
 section: main
 lang: ru
-menu: layouts
 ---
 
 Макет графиков - удобный способ графически отображать динамику значений.

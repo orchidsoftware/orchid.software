@@ -3,7 +3,6 @@ title: Listener
 extends: _layouts.documentation
 section: main
 lang: ru
-menu: layouts
 ---
 
 Слой слушателя используется, когда необходимо менять отображаемые данные,

@@ -3,7 +3,6 @@ title: Строки
 extends: _layouts.documentation
 section: main
 lang: ru
-menu: layouts
 ---
 
 Макет строк служит минимальным набором, который чаще всего используется.

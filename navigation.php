@@ -105,6 +105,18 @@ return [
                     'Уведомления'     => '/ru/docs/alert',
                 ],
             ],
+            'Макеты'     => [
+                'children' => [
+                    'Строки'             => '/ru/docs/rows',
+                    'Таблицы'            => '/ru/docs/table',
+                    'Графики'            => '/ru/docs/charts',
+                    'Модальные окна'     => '/ru/docs/modals',
+                    'Слушатель'          => '/ru/docs/listener',
+                    'Макеты группировки' => '/ru/docs/grouping',
+                    'Макеты отображения' => '/ru/docs/display-elements',
+                    'Универсальные'      => '/ru/docs/custom-template',
+                ],
+            ],
             'Дополнительно'      => [
                 'children' => [
                     'Представители'    => '/ru/docs/presenters',
@@ -115,43 +127,6 @@ return [
                     'Использование JS' => '/ru/docs/javascript',
                     'Строитель форм'   => '/ru/docs/builder',
                     'Брендирование'    => '/ru/docs/brand',
-                ],
-            ],
-        ],
-        'layouts'   => [
-            'Основное'           => [
-                'children' => [
-                    'Вернуться назад' => '/ru/docs/screens',
-                    'Макеты экрана'   => '/ru/docs/layouts',
-                ],
-            ],
-            'Макеты группировки' => [
-                'children' => [
-                    'Аккордеон'             => '/ru/docs/layouts/accordion',
-                    'Колонки'               => '/ru/docs/layouts/columns',
-                    'Раскрывающийся список' => '/ru/docs/layouts/drop-down-list',
-                    'Модальные окна'        => '/ru/docs/layouts/modals',
-                    'Строки'                => '/ru/docs/layouts/rows',
-                    'Набор фильтров'        => '/ru/docs/layouts/selection',
-                    'Табы'                  => '/ru/docs/layouts/tabs',
-                ],
-            ],
-            'Макеты отображения' => [
-                'children' => [
-                    'Графики'  => '/ru/docs/layouts/charts',
-                    'Таблицы'  => '/ru/docs/layouts/table',
-                    'Карточки' => '/ru/docs/layouts/cards',
-                    'Facepile' => '/ru/docs/layouts/facepile',
-                    'Persona'  => '/ru/docs/layouts/persona',
-                ],
-            ],
-            'Универсальные'      => [
-                'children' => [
-                    'Слушатель'               => '/ru/docs/layouts/listener',
-                    'Пользовательский шаблон' => '/ru/docs/layouts/custom-template',
-                    'Расширение слоёв'        => '/ru/docs/layouts/extension',
-                    'Обертка'                 => '/ru/docs/layouts/wrapper',
-                    'Компоненты'              => '/ru/docs/layouts/components',
                 ],
             ],
         ],

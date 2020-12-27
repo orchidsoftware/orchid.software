@@ -3,7 +3,6 @@ title: Таблицы
 extends: _layouts.documentation
 section: main
 lang: ru
-menu: layouts
 ---
 
 ## Таблицы
