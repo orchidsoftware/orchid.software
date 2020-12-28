@@ -46,7 +46,7 @@ class PatientListLayout extends Table
     protected function columns() : array
     {
         return [
-            TD::set('last_name','Last name')
+            TD::make('last_name','Last name')
                 ->align('center')
                 ->width('100px')
                 ->render(function ($patient) {
@@ -54,14 +54,14 @@ class PatientListLayout extends Table
                         ->route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('first_name', 'First Name')
+            TD::make('first_name', 'First Name')
                 ->sort()
                 ->render(function ($patient) {
                     return Link::make($patient->first_name)
                         ->route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('phone','Phone')
+            TD::make('phone','Phone')
                 ->render(function ($patient){
                     return ModalToggle::make($patient->phone)
                         ->modal('oneAsyncModal')
@@ -72,8 +72,8 @@ class PatientListLayout extends Table
                         ]);
                 }),
 
-            TD::set('email','Email'),
-            TD::set('created_at','Date of publication'),
+            TD::make('email','Email'),
+            TD::make('created_at','Date of publication'),
         ];
     }
 }
@@ -86,8 +86,8 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
 
 Layout::table('clients', [
-    TD::set('name'),
-    TD::set('created_at')->sort(),
+    TD::make('name'),
+    TD::make('created_at')->sort(),
 ]);
 ```
 
@@ -98,13 +98,13 @@ Layout::table('clients', [
 ```php
 use Orchid\Screen\TD;
 
-TD::set('last_name');
+TD::make('last_name');
 ```
 
 Метод `set` является основным методом, устанавливает имя ключа из массива и отображаемое название.
 
 ```php
-TD::set('last_name', 'Last name');
+TD::make('last_name', 'Last name');
 ```
 
 
@@ -113,9 +113,9 @@ TD::set('last_name', 'Last name');
 Вырваниванием содержимого можно управлять спомощью метода `align`:
 
 ```php
-TD::set('last_name')->align(TD::ALIGN_LEFT);
-TD::set('last_name')->align(TD::ALIGN_CENTER);
-TD::set('last_name')->align(TD::ALIGN_RIGHT);
+TD::make('last_name')->align(TD::ALIGN_LEFT);
+TD::make('last_name')->align(TD::ALIGN_CENTER);
+TD::make('last_name')->align(TD::ALIGN_RIGHT);
 ```
 
 ### Сортировка
@@ -128,7 +128,7 @@ TD::set('last_name')->align(TD::ALIGN_RIGHT);
 необходимо указать метод `sort`:
 
 ```php
-TD::set('last_name')->sort();
+TD::make('last_name')->sort();
 ```
 
 ### Ширина
@@ -136,7 +136,7 @@ TD::set('last_name')->sort();
 Управлять шириной ячейки можно используя метод `width`:
 
 ```php
-TD::set('last_name')->width('100px');
+TD::make('last_name')->width('100px');
 ```
 
 ### Отображение и скрытие столбцов
@@ -145,13 +145,13 @@ TD::set('last_name')->width('100px');
 запретить делать это указав:
 
 ```php
-TD::set('last_name')->cantHide();
+TD::make('last_name')->cantHide();
 ```
 
 А так же скрыть по умолчанию, но может быть показан по желанию пользователя.
 
 ```php
-TD::set('last_name')->defaultHidden();
+TD::make('last_name')->defaultHidden();
 ```
 
 
@@ -161,7 +161,7 @@ TD::set('last_name')->defaultHidden();
  данные, для этого предназначен метод `render`. Он реализует возможность генерации ячейки согласно функции:
  
 ```php
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return $user->firt_name . ' ' . $user->last_name;
     });
@@ -169,7 +169,7 @@ TD::set('full_name')
 
 Функция замыкания должна возвращать любое строчное значение:
 ```php
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return view('blade_template', [
             'user' => $user
@@ -182,7 +182,7 @@ TD::set('full_name')
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return Link::make($user->last_name)
                ->route('platform.user.edit', $user);
@@ -194,7 +194,7 @@ TD::set('full_name')
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::set('price')
+TD::make('price')
     ->render(function ($product) {
         return $product->price + $this->query->get('tax');
     });
@@ -254,17 +254,17 @@ protected function striped(): bool
 public function total():array
 {
     return [
-        TD::set('total')
+        TD::make('total')
             ->align(TD::ALIGN_RIGHT)
             ->colspan(2)
             ->render(function () {
                 return 'Total:';
             }),
 
-        TD::set('total_count')
+        TD::make('total_count')
             ->align(TD::ALIGN_RIGHT),
 
-        TD::set('total_active_count')
+        TD::make('total_active_count')
             ->align(TD::ALIGN_RIGHT),
     ];
 }
@@ -321,7 +321,7 @@ TD::macro('bool', function () {
 public function grid(): array
 {
     return [
-        TD::set('status')->bool(),
+        TD::make('status')->bool(),
     ];
 }
 ```

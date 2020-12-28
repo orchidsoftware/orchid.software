@@ -307,14 +307,14 @@ class PostListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::set('title', 'Title')
+            TD::make('title', 'Title')
                 ->render(function (Post $post) {
                     return Link::make($post->title)
                         ->route('platform.post.edit', $post);
                 }),
 
-            TD::set('created_at', 'Created'),
-            TD::set('updated_at', 'Last edit'),
+            TD::make('created_at', 'Created'),
+            TD::make('updated_at', 'Last edit'),
         ];
     }
 }

@@ -97,7 +97,7 @@ $model->orderBy('content->ru->name', 'desc');
 ```php
 use Orchid\Screen\TD;
 
-TD::set('name')->sort();
+TD::make('name')->sort();
 ```
 
 

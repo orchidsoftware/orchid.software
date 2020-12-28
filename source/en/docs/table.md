@@ -44,7 +44,7 @@ class PatientListLayout extends Table
     protected function columns() : array
     {
         return [
-            TD::set('last_name','Last name')
+            TD::make('last_name','Last name')
                 ->align('center')
                 ->width('100px')
                 ->render(function ($patient) {
@@ -52,14 +52,14 @@ class PatientListLayout extends Table
                         ->route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('first_name', 'First Name')
+            TD::make('first_name', 'First Name')
                 ->sort()
                 ->render(function ($patient) {
                     return Link::make($patient->first_name)
                         ->route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('phone','Phone')
+            TD::make('phone','Phone')
                 ->render(function ($patient){
                     return ModalToggle::make($patient->phone)
                         ->modal('oneAsyncModal')
@@ -70,8 +70,8 @@ class PatientListLayout extends Table
                         ]);
                 }),
 
-            TD::set('email','Email'),
-            TD::set('created_at','Date of publication'),
+            TD::make('email','Email'),
+            TD::make('created_at','Date of publication'),
         ];
     }
 }
@@ -84,8 +84,8 @@ use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
 
 Layout::table('clients', [
-    TD::set('name'),
-    TD::set('created_at')->sort(),
+    TD::make('name'),
+    TD::make('created_at')->sort(),
 ]);
 ```
 
@@ -96,13 +96,13 @@ A table is only a general wrapper for which you need to specify TD classes. Desi
 ```php
 use Orchid\Screen\TD;
 
-TD::set('last_name');
+TD::make('last_name');
 ```
 
 The `set` method is the main method, sets the key name from the array and the display name.
 
 ```php
-TD::set('last_name', 'Last name');
+TD::make('last_name', 'Last name');
 ```
 
 
@@ -111,9 +111,9 @@ TD::set('last_name', 'Last name');
 Content alignment control can be controlled using the `align` method:
 
 ```php
-TD::set('last_name')->align(TD::ALIGN_LEFT);
-TD::set('last_name')->align(TD::ALIGN_CENTER);
-TD::set('last_name')->align(TD::ALIGN_RIGHT);
+TD::make('last_name')->align(TD::ALIGN_LEFT);
+TD::make('last_name')->align(TD::ALIGN_CENTER);
+TD::make('last_name')->align(TD::ALIGN_RIGHT);
 ```
 
 ### Sorting
@@ -126,7 +126,7 @@ To enable active sorting by this column
 you must specify the `sort` method:
 
 ```php
-TD::set('last_name')->sort();
+TD::make('last_name')->sort();
 ```
 
 ### Width
@@ -134,7 +134,7 @@ TD::set('last_name')->sort();
 You can control the width of the cell using the `width` method:
 
 ```php
-TD::set('last_name')->width('100px');
+TD::make('last_name')->width('100px');
 ```
 
 ###Show and hide columns
@@ -143,13 +143,13 @@ By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:
 
 ```php
-TD::set('last_name')->cantHide();
+TD::make('last_name')->cantHide();
 ```
 
 And also hide by default, but can be shown at the request of the user.
 
 ```php
-TD::set('last_name')->defaultHidden();
+TD::make('last_name')->defaultHidden();
 ```
 
 
@@ -159,7 +159,7 @@ In some cases, you may need to display combined
   data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
  
 ```php
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return $user->firt_name . ' ' . $user->last_name;
     });
@@ -167,7 +167,7 @@ TD::set('full_name')
 
 The loopback function must return any string value:
 ```php
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return view('blade_template', [
             'user' => $user
@@ -180,7 +180,7 @@ Please note that you can use fields and actions:
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::set('full_name')
+TD::make('full_name')
     ->render(function ($user) {
         return Link::make($user->last_name)
                ->route('platform.user.edit', $user);
@@ -192,7 +192,7 @@ Sometimes it may be necessary to get the value from the `query` screen, rather t
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::set('price')
+TD::make('price')
     ->render(function ($product) {
         return $product->price + $this->query->get('tax');
     });
@@ -252,17 +252,17 @@ Adds a summary row at the bottom of the table, for this you need to define the `
 public function total():array
 {
     return [
-        TD::set('total')
+        TD::make('total')
             ->align(TD::ALIGN_RIGHT)
             ->colspan(2)
             ->render(function () {
                 return 'Total:';
             }),
 
-        TD::set('total_count')
+        TD::make('total_count')
             ->align(TD::ALIGN_RIGHT),
 
-        TD::set('total_active_count')
+        TD::make('total_active_count')
             ->align(TD::ALIGN_RIGHT),
     ];
 }
@@ -321,7 +321,7 @@ Usage example:
 public function grid(): array
 {
     return [
-        TD::set('status')->bool(),
+        TD::make('status')->bool(),
     ];
 }
 ```
