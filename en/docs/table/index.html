@@ -410,7 +410,7 @@ class PatientListLayout extends Table
     protected function columns() : array
     {
         return [
-            TD::set('last_name','Last name')
+            TD::make('last_name','Last name')
                 -&gt;align('center')
                 -&gt;width('100px')
                 -&gt;render(function ($patient) {
@@ -418,14 +418,14 @@ class PatientListLayout extends Table
                         -&gt;route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('first_name', 'First Name')
+            TD::make('first_name', 'First Name')
                 -&gt;sort()
                 -&gt;render(function ($patient) {
                     return Link::make($patient-&gt;first_name)
                         -&gt;route('platform.clinic.patient.edit', $patient);
                 }),
 
-            TD::set('phone','Phone')
+            TD::make('phone','Phone')
                 -&gt;render(function ($patient){
                     return ModalToggle::make($patient-&gt;phone)
                         -&gt;modal('oneAsyncModal')
@@ -436,8 +436,8 @@ class PatientListLayout extends Table
                         ]);
                 }),
 
-            TD::set('email','Email'),
-            TD::set('created_at','Date of publication'),
+            TD::make('email','Email'),
+            TD::make('created_at','Date of publication'),
         ];
     }
 }
@@ -449,8 +449,8 @@ class PatientListLayout extends Table
 use Orchid\Screen\TD;
 
 Layout::table('clients', [
-    TD::set('name'),
-    TD::set('created_at')-&gt;sort(),
+    TD::make('name'),
+    TD::make('created_at')-&gt;sort(),
 ]);
 </code></pre>
 
@@ -460,21 +460,21 @@ Layout::table('clients', [
 
 <pre><code class="language-php">use Orchid\Screen\TD;
 
-TD::set('last_name');
+TD::make('last_name');
 </code></pre>
 
 <p>The <code>set</code> method is the main method, sets the key name from the array and the display name.</p>
 
-<pre><code class="language-php">TD::set('last_name', 'Last name');
+<pre><code class="language-php">TD::make('last_name', 'Last name');
 </code></pre>
 
 <h3><a href="#alignment" name="alignment">Alignment</a></h3>
 
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
 
-<pre><code class="language-php">TD::set('last_name')-&gt;align(TD::ALIGN_LEFT);
-TD::set('last_name')-&gt;align(TD::ALIGN_CENTER);
-TD::set('last_name')-&gt;align(TD::ALIGN_RIGHT);
+<pre><code class="language-php">TD::make('last_name')-&gt;align(TD::ALIGN_LEFT);
+TD::make('last_name')-&gt;align(TD::ALIGN_CENTER);
+TD::make('last_name')-&gt;align(TD::ALIGN_RIGHT);
 </code></pre>
 
 <h3><a href="#sorting" name="sorting">Sorting</a></h3>
@@ -486,14 +486,14 @@ filtering</a></p>
 <p>To enable active sorting by this column
 you must specify the <code>sort</code> method:</p>
 
-<pre><code class="language-php">TD::set('last_name')-&gt;sort();
+<pre><code class="language-php">TD::make('last_name')-&gt;sort();
 </code></pre>
 
 <h3><a href="#width" name="width">Width</a></h3>
 
 <p>You can control the width of the cell using the <code>width</code> method:</p>
 
-<pre><code class="language-php">TD::set('last_name')-&gt;width('100px');
+<pre><code class="language-php">TD::make('last_name')-&gt;width('100px');
 </code></pre>
 
 <h3><a href="#show-and-hide-columns" name="show-and-hide-columns">Show and hide columns</a></h3>
@@ -501,12 +501,12 @@ you must specify the <code>sort</code> method:</p>
 <p>By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:</p>
 
-<pre><code class="language-php">TD::set('last_name')-&gt;cantHide();
+<pre><code class="language-php">TD::make('last_name')-&gt;cantHide();
 </code></pre>
 
 <p>And also hide by default, but can be shown at the request of the user.</p>
 
-<pre><code class="language-php">TD::set('last_name')-&gt;defaultHidden();
+<pre><code class="language-php">TD::make('last_name')-&gt;defaultHidden();
 </code></pre>
 
 <h3><a href="#data-output" name="data-output">Data output</a></h3>
@@ -514,7 +514,7 @@ prohibit doing this by specifying:</p>
 <p>In some cases, you may need to display combined
   data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
 
-<pre><code class="language-php">TD::set('full_name')
+<pre><code class="language-php">TD::make('full_name')
     -&gt;render(function ($user) {
         return $user-&gt;firt_name . ' ' . $user-&gt;last_name;
     });
@@ -522,7 +522,7 @@ prohibit doing this by specifying:</p>
 
 <p>The loopback function must return any string value:</p>
 
-<pre><code class="language-php">TD::set('full_name')
+<pre><code class="language-php">TD::make('full_name')
     -&gt;render(function ($user) {
         return view('blade_template', [
             'user' =&gt; $user
@@ -534,7 +534,7 @@ prohibit doing this by specifying:</p>
 
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
-TD::set('full_name')
+TD::make('full_name')
     -&gt;render(function ($user) {
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
@@ -545,7 +545,7 @@ TD::set('full_name')
 
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
-TD::set('price')
+TD::make('price')
     -&gt;render(function ($product) {
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
     });
@@ -600,17 +600,17 @@ protected function striped(): bool
 <pre><code class="language-php">public function total():array
 {
     return [
-        TD::set('total')
+        TD::make('total')
             -&gt;align(TD::ALIGN_RIGHT)
             -&gt;colspan(2)
             -&gt;render(function () {
                 return 'Total:';
             }),
 
-        TD::set('total_count')
+        TD::make('total_count')
             -&gt;align(TD::ALIGN_RIGHT),
 
-        TD::set('total_active_count')
+        TD::make('total_active_count')
             -&gt;align(TD::ALIGN_RIGHT),
     ];
 }
@@ -665,7 +665,7 @@ TD::macro('bool', function () {
 <pre><code class="language-php">public function grid(): array
 {
     return [
-        TD::set('status')-&gt;bool(),
+        TD::make('status')-&gt;bool(),
     ];
 }
 </code></pre>

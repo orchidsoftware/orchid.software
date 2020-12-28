@@ -433,17 +433,17 @@ class PostListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::set('title', 'Title')
+            TD::make('title', 'Title')
                 -&gt;sort()
                 -&gt;render(function (Post $post) {
                     return Link::make($post-&gt;title)
                         -&gt;route('platform.post.edit', $post);
                 }),
 
-            TD::set('created_at', 'Created')
+            TD::make('created_at', 'Created')
                 -&gt;sort(),
 
-            TD::set('updated_at', 'Last edit')
+            TD::make('updated_at', 'Last edit')
                 -&gt;sort(),
         ];
     }
@@ -466,7 +466,7 @@ protected $allowedFilters = [
 
 <p>And then call the new <code>filter</code> method with a text type for the header column:</p>
 
-<pre><code class="language-php"> TD::set('title', 'Title')
+<pre><code class="language-php"> TD::make('title', 'Title')
     -&gt;sort()
     -&gt;filter(TD::FILTER_TEXT)
     -&gt;render(function (Post $post) {
