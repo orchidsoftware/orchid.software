@@ -6,7 +6,7 @@ lang: en
 ---
 
 
-In general, we like to keep things as modern as possible and have a "release early, often release" approach to major releases. Meaning, we won't wait an arbitrary number of months to accumulate big changes and release the next major version. By releasing major versions often, new features will be out earlier, and upgrading between versions will be much easier.
+We like to keep things as modern as possible and have a "release early, often release" approach to major releases. Meaning, we won't wait an arbitrary number of months to accumulate big changes and release the next major version. By releasing major versions often, new features will be out earlier, and upgrading between versions will be much easier.
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
