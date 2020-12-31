@@ -24,7 +24,7 @@ return [
                 'children' => [
                     'Screens'       => '/en/docs/screens',
                     'Form elements' => '/en/docs/field',
-                    'Panel menu'    => '/en/docs/menu',
+                    'Navigation'    => '/en/docs/menu',
                     'Permissions'   => '/en/docs/access',
                     'Filtration'    => '/en/docs/filters',
                     'Attachments'   => '/en/docs/attachments',
