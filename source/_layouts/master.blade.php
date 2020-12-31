@@ -39,16 +39,6 @@
 
     <div id="app">
 
-        <div class="alert bg-dark mb-0" role="alert">
-            <div class="container">
-                <span class="pr-1">Hello everybody 👋</span>
-                We are launching a new package for the rapid creation of CRUD on an Orchid basis.
-                <span class="pl-1">
-                    <a href="https://github.com/orchidsoftware/crud" target="_blank" class="alert-link">Click here to read more ⇢</a>
-                </span>
-            </div>
-        </div>
-
         <!-- header -->
         <header id="header" class="bg-dark">
             <div class="container">
