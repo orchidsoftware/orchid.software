@@ -1,5 +1,5 @@
 ---
-title: Platform Menu
+title: Navigation
 description: An important element of the graphical user interface, because with the help of it is based on the navigation project.
 extends: _layouts.documentation
 section: main
