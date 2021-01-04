@@ -48,7 +48,7 @@ Input::make('name')
     ->popover('Tooltip - hint that user opens himself.');
 ```
 
-Горизонтальное или вертиальное представление:
+Горизонтальное или вертикальное представление:
 
 ```php
 Input::make('name')->vertical();
@@ -281,7 +281,7 @@ Relation::make('idea')
     ->title('Выберите свою идею');
 ```
 
-Для множественого выбора примените метод `multiple()`
+Для множественного выбора примените метод `multiple()`
 
 ```php
 Relation::make('ideas.')
@@ -471,7 +471,7 @@ DateTimeZone::ALL_WITH_BC;
 DateTimeZone::PER_COUNTRY;
 ```
 
-С представлением пременных зон можно ознакомиться в документации [PHP](https://www.php.net/manual/ru/class.datetimezone.php).
+С представлением переменных зон можно ознакомиться в документации [PHP](https://www.php.net/manual/ru/class.datetimezone.php).
 
 
 ## HTML редактор Quill
@@ -634,7 +634,7 @@ Cropper::make('picture')
 
 ### Значение
 
-Контроль возращаемого значения осуществляется с помощью методов:
+Контроль возвращаемого значения осуществляется с помощью методов:
 
 ```php
 Cropper::make('picture')

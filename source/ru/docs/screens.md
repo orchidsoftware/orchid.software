@@ -121,7 +121,7 @@ dashboard/idea/{method?}      | platform.idea
 dashboard/idea/edit/{method?} | platform.idea.edit
 ```
 `{method?}` - означает необязательный аргумент, который может идти далее.
-Соотвественно под него попадает имя "edit" в адресе.
+Соответственно под него попадает имя "edit" в адресе.
 В итоге будет редирект на "dashboard/idea/"
 
 ## Получение данных
