@@ -791,26 +791,24 @@ Available modifiers:
 
 ## Dropdown
 
-You can easly create a Dropdown action button combining all other actions.
+You can easily create a DropDown action button combining all other actions. 
 For example, you can create the typical three dots dropdown:
 
 ```php
 DropDown::make()
- ->icon('options-vertical')
- ->list([
-
-     Link::make(__('Edit'))
-         ->route('platform.systems.users.edit', $user->id)
-         ->icon('pencil'),
-
-     Button::make(__('Delete'))
-         ->method('remove')
-         ->confirm(__('Are you sure you want to delete the user?'))
-         ->parameters([
-             'id' => $user->id,
-         ])
-         ->icon('trash'),
- ]);
+    ->icon('options-vertical')
+    ->list([
+        Link::make(__('Edit'))
+            ->route('platform.systems.users.edit', $user->id)
+            ->icon('pencil'),
+        Button::make(__('Delete'))
+            ->method('remove')
+            ->icon('trash')
+            ->confirm(__('Are you sure you want to delete the user?'))
+            ->parameters([
+                'id' => $user->id,
+            ]),
+    ]);
 ```
 
  
