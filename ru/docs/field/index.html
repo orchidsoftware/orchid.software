@@ -368,6 +368,9 @@
                     <li class="anchor-h2">
                 <a href="#knopkassylka">Кнопка/Ссылка</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#dropdown">Dropdown</a>
+            </li>
             </ul>
     <hr>
 <p>Поля используются для генерации вывода шаблона формы заполнения и редактирования.</p>
@@ -1068,7 +1071,27 @@ Link::make('Idea')
 <li><code>class('class-names')</code> - переписывает стандартные классы для кнопки.</li>
 <li><code>method('methodName')</code> - при клике форма будет отправлена на заданный метод в рамках текущего экрана.</li>
 <li><code>icon('wallet)</code> - задает иконку для кнопки.</li>
-</ul></main></div>
+</ul><h2><a href="#dropdown" name="dropdown">Dropdown</a></h2>
+
+<p>Вы можете легко создать кнопку действия DropDown, объединяющую все остальные действия.
+Например, создать типичный раскрывающийся список из трех точек:</p>
+
+<pre><code class="language-php">DropDown::make()
+    -&gt;icon('options-vertical')
+    -&gt;list([
+        Link::make(__('Edit'))
+            -&gt;route('platform.systems.users.edit', $user-&gt;id)
+            -&gt;icon('pencil'),
+        Button::make(__('Delete'))
+            -&gt;method('remove')
+            -&gt;icon('trash')
+            -&gt;confirm(__('Are you sure you want to delete the user?'))
+            -&gt;parameters([
+                'id' =&gt; $user-&gt;id,
+            ]),
+    ]);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>
