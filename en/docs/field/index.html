@@ -405,6 +405,9 @@
                     <li class="anchor-h2">
                 <a href="#buttonlink">Button/Link</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#dropdown">Dropdown</a>
+            </li>
             </ul>
     <hr>
 <p>Fields are used to generate the output of the fill and edit form template.</p>
@@ -1118,7 +1121,29 @@ Link::make('Idea')
 <li><code>class('class-names')</code> - rewrites the standard button classes</li>
 <li><code>method('methodName')</code> - when clicked, the form will be sent to the specified method within the current screen</li>
 <li><code>icon('icon-wallet)</code> - sets an icon for the button</li>
-</ul></main></div>
+</ul><h2><a href="#dropdown" name="dropdown">Dropdown</a></h2>
+
+<p>You can easly create a Dropdown action button combining all other actions.
+For example, you can create the typical three dots dropdown:</p>
+
+<pre><code class="language-php">DropDown::make()
+ -&gt;icon('options-vertical')
+ -&gt;list([
+
+     Link::make(__('Edit'))
+         -&gt;route('platform.systems.users.edit', $user-&gt;id)
+         -&gt;icon('pencil'),
+
+     Button::make(__('Delete'))
+         -&gt;method('remove')
+         -&gt;confirm(__('Are you sure you want to delete the user?'))
+         -&gt;parameters([
+             'id' =&gt; $user-&gt;id,
+         ])
+         -&gt;icon('trash'),
+ ]);
+</code></pre>
+                    </main></div>
             </div>
         </div>
     </div>
