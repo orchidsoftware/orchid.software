@@ -780,3 +780,26 @@ Button::make('Google It!')
 * `method('methodName')` - при клике форма будет отправлена на заданный метод в рамках текущего экрана.
 * `icon('wallet)` - задает иконку для кнопки.
  
+
+
+## Dropdown
+
+Вы можете легко создать кнопку действия DropDown, объединяющую все остальные действия.
+Например, создать типичный раскрывающийся список из трех точек:
+
+```php
+DropDown::make()
+    ->icon('options-vertical')
+    ->list([
+        Link::make(__('Edit'))
+            ->route('platform.systems.users.edit', $user->id)
+            ->icon('pencil'),
+        Button::make(__('Delete'))
+            ->method('remove')
+            ->icon('trash')
+            ->confirm(__('Are you sure you want to delete the user?'))
+            ->parameters([
+                'id' => $user->id,
+            ]),
+    ]);
+```
