@@ -788,4 +788,29 @@ Available modifiers:
 * `class('class-names')` - rewrites the standard button classes
 * `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
 * `icon('icon-wallet)` - sets an icon for the button
+
+## Dropdown
+
+You can easly create a Dropdown action button combining all other actions.
+For example, you can create the typical three dots dropdown:
+
+```php
+DropDown::make()
+ ->icon('options-vertical')
+ ->list([
+
+     Link::make(__('Edit'))
+         ->route('platform.systems.users.edit', $user->id)
+         ->icon('pencil'),
+
+     Button::make(__('Delete'))
+         ->method('remove')
+         ->confirm(__('Are you sure you want to delete the user?'))
+         ->parameters([
+             'id' => $user->id,
+         ])
+         ->icon('trash'),
+ ]);
+```
+
  
