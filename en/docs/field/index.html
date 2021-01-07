@@ -1123,25 +1123,23 @@ Link::make('Idea')
 <li><code>icon('icon-wallet)</code> - sets an icon for the button</li>
 </ul><h2><a href="#dropdown" name="dropdown">Dropdown</a></h2>
 
-<p>You can easly create a Dropdown action button combining all other actions.
+<p>You can easily create a DropDown action button combining all other actions. 
 For example, you can create the typical three dots dropdown:</p>
 
 <pre><code class="language-php">DropDown::make()
- -&gt;icon('options-vertical')
- -&gt;list([
-
-     Link::make(__('Edit'))
-         -&gt;route('platform.systems.users.edit', $user-&gt;id)
-         -&gt;icon('pencil'),
-
-     Button::make(__('Delete'))
-         -&gt;method('remove')
-         -&gt;confirm(__('Are you sure you want to delete the user?'))
-         -&gt;parameters([
-             'id' =&gt; $user-&gt;id,
-         ])
-         -&gt;icon('trash'),
- ]);
+    -&gt;icon('options-vertical')
+    -&gt;list([
+        Link::make(__('Edit'))
+            -&gt;route('platform.systems.users.edit', $user-&gt;id)
+            -&gt;icon('pencil'),
+        Button::make(__('Delete'))
+            -&gt;method('remove')
+            -&gt;icon('trash')
+            -&gt;confirm(__('Are you sure you want to delete the user?'))
+            -&gt;parameters([
+                'id' =&gt; $user-&gt;id,
+            ]),
+    ]);
 </code></pre>
                     </main></div>
             </div>
