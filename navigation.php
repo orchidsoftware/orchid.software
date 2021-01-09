@@ -96,7 +96,6 @@ return [
             'Основные концепции' => [
                 'children' => [
                     'Экраны'          => '/ru/docs/screens',
-                    'Макеты экрана'   => '/ru/docs/layouts',
                     'Элементы формы'  => '/ru/docs/field',
                     'Меню панели'     => '/ru/docs/menu',
                     'Права доступа'   => '/ru/docs/access',
