@@ -83,7 +83,8 @@ git clone https://github.com/yourname/platform.git
 
 ```bash
 composer require orchid/platform:@dev
-````
+```
+
 Composer поставит пакет из хранилища который вы указали.
 Остальные действия соответствуют разделу `Установки`.
 
