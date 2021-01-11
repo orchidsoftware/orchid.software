@@ -28,7 +28,7 @@ In other words, install your new framework project.
 
 **Do not forget**
 
-- Set “chmod -R o + w” rights to the `storage` and `bootstrap/cache` directories
+- Set “chmod -R o+w” rights to the `storage` and `bootstrap/cache` directories
 - Edit the `.env` file
 
 ## Add dependency
