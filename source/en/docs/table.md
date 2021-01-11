@@ -243,6 +243,19 @@ protected function striped(): bool
 }
 ```
 
+You can dinamically change the amount of links to display in the table pagination with the following method:
+
+```php
+/**
+ * The number of links to display on each side of current page link.
+ *
+ * @return int
+ */
+protected function onEachSide(): int
+{
+    return 3;
+}
+```
 
 ## Total row
 
