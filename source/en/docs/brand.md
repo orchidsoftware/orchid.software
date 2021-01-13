@@ -35,7 +35,8 @@ resources
 Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:
 
 ```php
-//resources/views/brand/header.blade.php.
+//resources/views/brand/header.blade.php.cd ..
+
 @push('head')
     <link
         href="/favicon.ico"
@@ -59,6 +60,8 @@ just as if passing an argument in the `view('brand.header')` helper:
 
   
 ```php
+//`config/platform.php`
+
 'template' => [
     'header' => 'brand.header',
     'footer' => null,
@@ -80,6 +83,8 @@ In the same way, we can change the bottom of the page, again create a new file `
 Also making changes to the configuration file:
 
 ```php
+//`config/platform.php`
+
 'template' => [
     'header' => 'brand.header',
     'footer' => 'brand.footer',
