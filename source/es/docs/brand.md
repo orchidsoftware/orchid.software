@@ -1,12 +1,12 @@
 ---
-title: Branding
-description: Customize the look to match your brand
+title: Marca
+description: Personaliza el look para que coincida con tu marca
 extends: _layouts.documentation
 section: main
 ---
 
-There are times when you want the visual style of the platform to match your brand.
-After installation, two settings are provided that are located in `config/platform.php`:
+Hay momentos en los que quieres que la plataforma coincida visualmente  con tu marca.
+Después de la instalación, se proporcionan dos entradas de configuración que se encuentran en `config/platform.php`:
 
 ```php
 'template' => [
@@ -15,13 +15,13 @@ After installation, two settings are provided that are located in `config/platfo
 ],
 ```
 
-To change the page header or footer, you must specify your own `blade` templates.
+Para cambiar el encabezado o el pie de la página, se debe hacer referencia la ubicación de tus propias plantillas blade.
 
 
-## Change logo and name
+## Cambiar el logo y el nombre
 
-Create a new directory in the `brand` template section and the` header.blade.php` file.
-Then the full path will look like `/resources/views/brand/header.blade.php`.
+Dentro del directorio: `resources/views` de tu proyecto, añade una nueva carpeta con el nombre `brand` (marca en inglés), luego dentro de esa carpeta crea un nuevo archivo llamado header.blade.php.
+Quedando entonces la dirección completa del archivo como: `/resources/views/brand/header.blade.php`.
 
 ```php
 resources          
@@ -31,14 +31,16 @@ resources
 ```
 
  
-Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:
+Supongamos que estamos creando un sistema para una agencia ficticia de análisis de datos llamada Analitica, haremos entonces los siguientes cambios en el archivo que acabamos de crear:
 
 ```php
-@push('head')
+//resources/views/brand/header.blade.php.
+
+@push('cabeza')
     <link
         href="/favicon.ico"
         id="favicon"
-        rel="icon"
+        rel="icono"
     >
 @endpush
 
@@ -46,38 +48,42 @@ Suppose that we are creating a system for a fictitious analytical agency, we wil
     <x-orchid-icon path="database"/>
 
     <span class="m-l d-none d-sm-block">
-        Analytics
+        Analítica
         <small class="v-top opacity">Nest</small>
     </span>
 </p>
 ```
  
-In order for the created template to be used instead of the standard one, you must specify it in the configuration file,
-just as if passing an argument in the `view('brand.header')` helper:
+Para que plantilla creada sea usada por la plataforma en lugar de la estándar, debe especificarse el nombre en el archivo de configuración, tal y como cuando se pasa un argumento al *view helper* de laravel `view('brand.header')`:
 
   
 ```php
+//`config/platform.php`
+
 'template' => [
     'header' => 'brand.header',
     'footer' => null,
 ],
 ```
+```
 
-> **Note.** The configuration file may be cached, and the changes will not take effect until the `php artisan config:clear` command is executed
-
-
-In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php` with the following contents:
+> **Nota.** El archivo de configuración puede ser cacheado, y los cambios no tendrán efecto hasta que el comando `php artisan config:clear` sea ejecutado.
 
 
-```php
+De la misma manera, podemos cambiar la parte inferior de la página, de nuevo crea un archivo nuevo `/recursos/visitas/marca/pie.blade.php` con el siguiente contenido:
+
+
+``php
 <p class="small m-n">
-    © Copyright {{date('Y')}} <a href="//example.com" target="_blank">"Analytics Nest"</a>
+    Copyright {{date('Y')}} <a href="//example.com" target="_blank">"Analytics Nest"</a>
 </p>
 ```
 
-Also making changes to the configuration file:
+También haciendo cambios en el archivo de configuración:
 
 ```php
+//`config/platform.php`
+
 'template' => [
     'header' => 'brand.header',
     'footer' => 'brand.footer',
