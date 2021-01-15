@@ -456,7 +456,7 @@ ItemMenu::label('First')-&gt;sort(4);
 
 <pre><code class="language-php">ItemMenu::label('My menu')
     -&gt;slug('Idea')
-    -&gt;childs();
+    -&gt;withChildren();
 
 ItemMenu::label('Sub element')
     -&gt;place('Idea');
@@ -466,7 +466,7 @@ ItemMenu::label('Sub element')
 
 <pre><code class="language-php">ItemMenu::label('Dropdown menu')
     -&gt;slug('parent-hidden-menu')
-    -&gt;childs()
+    -&gt;withChildren()
     -&gt;hideEmpty();
 
 ItemMenu::label('Sub element item 1')
