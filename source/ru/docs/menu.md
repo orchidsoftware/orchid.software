@@ -157,7 +157,7 @@ ItemMenu::label('Comments')
 ```php
 ItemMenu::label('My menu')
     ->slug('Idea')
-    ->childs();
+    ->withChildren();
     
 ItemMenu::label('Sub element')
     ->place('Idea');
@@ -169,7 +169,7 @@ ItemMenu::label('Sub element')
 ```php
 ItemMenu::label('Dropdown menu')
     ->slug('parent-hidden-menu')
-    ->childs()
+    ->withChildren()
     ->hideEmpty();
 
 ItemMenu::label('Sub element item 1')
