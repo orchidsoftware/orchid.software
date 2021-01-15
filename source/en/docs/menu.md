@@ -136,7 +136,7 @@ To be able to create a submenu, you need to add the main item and specify its un
 ```php
 ItemMenu::label('My menu')
     ->slug('Idea')
-    ->childs();
+    ->withChildren();
     
 ItemMenu::label('Sub element')
     ->place('Idea');
@@ -147,7 +147,7 @@ When the children have different display rules, so as not to list them all in th
 ```php
 ItemMenu::label('Dropdown menu')
     ->slug('parent-hidden-menu')
-    ->childs()
+    ->withChildren()
     ->hideEmpty();
 
 ItemMenu::label('Sub element item 1')
