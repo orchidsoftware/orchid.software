@@ -521,7 +521,7 @@ this structure to speed up development in other projects.
         <div class="container">
             <div class="row my-5 align-items-end">
                 <div class="col-md-6 col-12 pt-md-5 mb-md-2">
-                        <a href="https://github.com/orchidsoftware/platform">
+                        <a href="https://github.com/orchidsoftware">
                             <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
                         </a>
                         <p class="l-h-1x text-dark font-thin m-b-lg display-6"> @yield('github.title')</p>
