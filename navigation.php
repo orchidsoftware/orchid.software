@@ -45,12 +45,12 @@ return [
             ],
             'Extra'       => [
                 'children' => [
-                    'Presenters'   => '/en/docs/presenters',
-                    'Scout search' => '/en/docs/global-search',
+                    'Branding'     => '/en/docs/brand',
                     'Icons'        => '/en/docs/icons',
+                    'Scout search' => '/en/docs/global-search',
+                    'Presenters'   => '/en/docs/presenters',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
-                    'Branding'     => '/en/docs/brand',
                 ],
             ],
             'Community'   => [
