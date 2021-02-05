@@ -29,6 +29,6 @@ if (mix.inProduction()) {
     mix.purgeCss({
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],
-        whitelistPatterns: [/language/, /hljs/, /algolia/, /icon/],
+        whitelistPatterns: [/language/, /hljs/, /algolia/, /icon/, /anchor/],
     })
 }
