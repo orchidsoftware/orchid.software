@@ -86,7 +86,7 @@ possible for us to spend our time and energy improving Orchid for everyone.
 
 @section('main.telegram','https://t.me/orchid_community')
 
-@section('Search', 'Search...')
+@section('Search', 'Search the docs (Press "/" to focus)')
 
 @section('main.start', 'Get started')
 @section('main.git', 'View on Github')

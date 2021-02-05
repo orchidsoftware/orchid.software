@@ -79,7 +79,7 @@
 
 @section('main.telegram','https://t.me/orchid_russian_community')
 
-@section('Search', 'Поиск...')
+@section('Search', 'Поиск (нажмите "/", для фокуса)')
 
 
 @section('main.start', 'Начать сейчас')

@@ -271,7 +271,7 @@
     <script src="{{ mix('js/app.js', 'assets/build') }}"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
     <script type="text/javascript">
-        if(window.document.getElementById('docsearch')) {
+        if (window.document.getElementById('docsearch')) {
             docsearch({
                 apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
                 indexName: 'orchid_software',
@@ -279,6 +279,18 @@
                 algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
                 debug: true
             });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode == 191) {
+                    document.getElementById('docsearch').focus();
+                    e.preventDefault()
+                }
+                if (e.keyCode == 27) {
+                    document.getElementById('docsearch').blur();
+                    e.preventDefault()
+                }
+            })
+
         }
     </script>
 
