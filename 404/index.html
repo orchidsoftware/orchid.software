@@ -28,7 +28,7 @@
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=9e6452404a9cc9887992">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=223e65bf76c67b8ed5ce">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
 
             </head>
@@ -77,7 +77,7 @@
                         <div class="block w-100">
                             <input type="search" class="form-control w-full"
                                    id="docsearch"
-                                   placeholder="Search..."
+                                   placeholder="Search the docs (Press &quot;/&quot; to focus)"
                             >
                         </div>
                     </div>
@@ -277,7 +277,7 @@
     <script src="/assets/build/js/app.js?id=4f1cefcbfe96dd88540c"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
     <script type="text/javascript">
-        if(window.document.getElementById('docsearch')) {
+        if (window.document.getElementById('docsearch')) {
             docsearch({
                 apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
                 indexName: 'orchid_software',
@@ -285,6 +285,18 @@
                 algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
                 debug: true
             });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode == 191) {
+                    document.getElementById('docsearch').focus();
+                    e.preventDefault()
+                }
+                if (e.keyCode == 27) {
+                    document.getElementById('docsearch').blur();
+                    e.preventDefault()
+                }
+            })
+
         }
     </script>
 

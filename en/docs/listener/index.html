@@ -1,4 +1,4 @@
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Listener | Orchid - Laravel Admin Panel"><meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."><meta property="og:url" content="https://orchid.software/en/docs/listener"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/listener/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/listener/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/listener/" hreflang="x-default"><title>Listener | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=9e6452404a9cc9887992"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."><meta name="author" content="Alexandr Chernyaev"><meta property="og:site_name" content="Orchid - Laravel Admin Panel"><meta property="og:title" content="Listener | Orchid - Laravel Admin Panel"><meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."><meta property="og:url" content="https://orchid.software/en/docs/listener"><meta property="og:image" content="/favicon.svg"><meta property="og:type" content="website"><meta name="yandex-verification" content="23bb1990414a4f0e"><meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"><meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel"><meta name="twitter:card" content="summary_large_image"><link rel="alternate" href="https://orchid.software/ru/docs/listener/" hreflang="ru"><link rel="alternate" href="https://orchid.software/en/docs/listener/" hreflang="en"><link rel="alternate" href="https://orchid.software/en/docs/listener/" hreflang="x-default"><title>Listener | Orchid - Laravel Admin Panel</title><link rel="home" href="https://orchid.software"><link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml"><link rel="stylesheet" href="/assets/build/css/app.css?id=223e65bf76c67b8ed5ce"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"></head><body itemscope itemtype="http://schema.org/WebPage">
 
     <div id="app">
 
@@ -26,7 +26,7 @@
 
                     </nav><div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
                         <div class="block w-100">
-                            <input type="search" class="form-control w-full" id="docsearch" placeholder="Search..."></div>
+                            <input type="search" class="form-control w-full" id="docsearch" placeholder='Search the docs (Press "/" to focus)'></div>
                     </div>
 
                     <a href="/en/docs" class="btn btn-sm btn-outline-primary btn-rounded mt-4 mt-sm-0 d-none d-md-block">
@@ -735,7 +735,7 @@ protected $asyncMethod = 'asyncSum';
             ga('create', 'UA-39757298-4', 'auto');
             ga('send', 'pageview');
         </script><script src="/assets/build/js/app.js?id=4f1cefcbfe96dd88540c"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script type="text/javascript">
-        if(window.document.getElementById('docsearch')) {
+        if (window.document.getElementById('docsearch')) {
             docsearch({
                 apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
                 indexName: 'orchid_software',
@@ -743,5 +743,17 @@ protected $asyncMethod = 'asyncSum';
                 algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
                 debug: true
             });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode == 191) {
+                    document.getElementById('docsearch').focus();
+                    e.preventDefault()
+                }
+                if (e.keyCode == 27) {
+                    document.getElementById('docsearch').blur();
+                    e.preventDefault()
+                }
+            })
+
         }
     </script></body></html>
