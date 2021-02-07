@@ -8,19 +8,19 @@
 
 @section('content')
 
-    <div class="bg-white-only">
+    <div class="documentation pos-rlt">
         <div class="container no-padder" id="docs">
-            <div class="row pt-3 pb-3 m-0">
-                <div class="col-md-3 b-r">
-                    <nav class="nav-docs">
+            <div class="row m-0">
+                <div class="col-auto">
+                    <nav class="nav-docs pr-md-4 py-2">
                         @include('_nav.menu', ['items' => $page->navigation
                             [$page->get('lang','en')]
                             [$page->get('menu','docs')]
                         ])
                     </nav>
                 </div>
-                <div class="col col-md-9">
-                    <main class="py-2 px-2 py-md-4 px-md-4 order-md-first">
+                <main class="col bg-white">
+                    <div class="py-2 px-2 py-md-4 px-md-4 order-md-first">
                         <h1>{{ $page->title }}</h1>
 
                         @if($page->get('githubEdit',true))
@@ -44,8 +44,8 @@
                         <!--Docs Anchors-->
 
                         @yield('main')
-                    </main>
-                </div>
+                    </div>
+                </main>
             </div>
         </div>
     </div>

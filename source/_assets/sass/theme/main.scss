@@ -75,6 +75,7 @@
 
 
 main {
+  max-width: 800px!important;
   line-height: 2em;
   overflow: initial;
   color: $gray-900;
@@ -83,6 +84,10 @@ main {
     display: block;
     max-width: 100%;
     object-fit: cover;
+  }
+
+  h1 {
+    margin-top: 0.5em;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -349,8 +354,27 @@ input::-webkit-inner-adjust-hue-button {
   > li {
     list-style: none;
   }
-  .toc-links-1 li{
-    padding-top: 0.3em;
+  .toc-links-1 li {
+    list-style: none;
+    margin-bottom: 0.2em;
+    margin-left: 0.5em;
+
+    a {
+      display: block;
+      padding: 0.3em 0.8em;
+      border-radius: 8px;
+    }
+
+    &.active, &:hover {
+      a {
+        background: #fff;
+      }
+    }
+  }
+
+
+  ul {
+    padding-left: 0;
   }
 }
 
@@ -471,5 +495,22 @@ input[type="search"] {
 @include media-breakpoint-up(md) {
   #docsearch {
     width: 280px;
+  }
+}
+
+
+.documentation {
+  @include media-breakpoint-up(md) {
+    main::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: -1px;
+      z-index: -1;
+      left: 0;
+      display: block;
+      width: 35vw;
+      background: linear-gradient(to bottom, #f3f2f1 0%, #f3f2f170 100%);
+    }
   }
 }

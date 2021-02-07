@@ -111,7 +111,7 @@
 
         <!-- footer -->
 
-        <div class="shape-footer mt-3">
+        <div class="shape-footer">
             <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -1px;width: 100%;fill:#212529; vertical-align: bottom;">
                 <path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z"></path>
             </svg>

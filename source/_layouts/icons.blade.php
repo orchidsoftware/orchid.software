@@ -11,12 +11,12 @@
             </div>
         </div>
 
-        <div class="row mt-3">
+        <div class="row mt-3 text-black">
             @foreach($page->icons() as $icon)
                 <div class="icon-preview-box col-6 col-md-3 col-lg-3">
                     <div class="preview">
                         {!! $page->getIcon($icon) !!}
-                        <span class="ml-2 name">{{$icon}}</span>
+                        <small class="ml-2 name ">{{$icon}}</small>
                     </div>
                 </div>
             @endforeach

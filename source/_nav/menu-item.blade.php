@@ -1,6 +1,6 @@
 @if (!$url = is_string($item) ? $item : $item->url)
         {{-- Menu item without URL--}}
-        <h4 class="text-orchid font-thin">{{ $label }}</h4>
+        <h4 class="h5 text-black mb-3">{{ $label }}</h4>
 @endif
 
 <li class="{{ $page->isActive($url) ? 'active' : '' }}">
