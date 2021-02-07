@@ -12,7 +12,7 @@
         <div class="container no-padder" id="docs">
             <div class="row m-0">
                 <div class="col-auto">
-                    <nav class="nav-docs pr-md-4 py-2">
+                    <nav class="nav-docs pr-md-5 py-2">
                         @include('_nav.menu', ['items' => $page->navigation
                             [$page->get('lang','en')]
                             [$page->get('menu','docs')]
