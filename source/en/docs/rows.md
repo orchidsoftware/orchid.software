@@ -41,7 +41,7 @@ In the directory `app/Orchid/Layouts`, a new class will be created where the fie
 namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
-use Orchid\Platform\Layouts\Rows;
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\DateTimer;
 use Orchid\Screen\Fields\TextArea;
 
