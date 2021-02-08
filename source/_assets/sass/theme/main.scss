@@ -356,18 +356,25 @@ input::-webkit-inner-adjust-hue-button {
   }
   .toc-links-1 li {
     list-style: none;
-    margin-bottom: 0.2em;
-    margin-left: 0.5em;
+    //margin-bottom: 0.1em;
+    margin-left: 0.3em;
 
     a {
       display: block;
       padding: 0.3em 0.8em;
-      border-radius: 8px;
+      @include media-breakpoint-up(md) {
+        border-left: 2px solid #d6d9db;
+      }
     }
 
     &.active, &:hover {
+
       a {
-        background: #fff;
+        @include media-breakpoint-up(md) {
+          border-left: 2px solid $primary;
+          text-decoration: none;
+        }
+        text-decoration: underline;
       }
     }
   }

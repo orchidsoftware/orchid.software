@@ -15512,19 +15512,31 @@ input::-webkit-inner-adjust-hue-button {
 
 .toc-links .toc-links-1 li {
   list-style: none;
-  margin-bottom: 0.2em;
-  margin-left: 0.5em;
+  margin-left: 0.3em;
 }
 
 .toc-links .toc-links-1 li a {
   display: block;
   padding: 0.3em 0.8em;
-  border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+  .toc-links .toc-links-1 li a {
+    border-left: 2px solid #d6d9db;
+  }
 }
 
 .toc-links .toc-links-1 li.active a,
 .toc-links .toc-links-1 li:hover a {
-  background: #fff;
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .toc-links .toc-links-1 li.active a,
+  .toc-links .toc-links-1 li:hover a {
+    border-left: 2px solid #AC5CA0;
+    text-decoration: none;
+  }
 }
 
 .toc-links ul {
