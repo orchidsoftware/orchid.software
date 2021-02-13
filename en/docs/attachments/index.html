@@ -392,7 +392,9 @@ public function upload(Request $request)
 $image-&gt;url();
 </code></pre>
 
-<p>The url() method will first check for the path existense, and then get the url. When using external storage like s3, this will make two calls. To improve performance you can use the s3 <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by Laravel to improve performance. You can also simply override the this method and adjust to your needs.</p>
+<blockquote>
+  <p><strong>Note.</strong> The <code>url()</code> method will first check for the path exists, and then get the URL. When using external storage like <code>s3</code>, this will make two calls. To improve performance you can use the <code>s3</code> <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve performance. You can also simply override this method and adjust to your needs.</p>
+</blockquote>
 
 <h2><a href="#reload-file" name="reload-file">Reload File</a></h2>
 
