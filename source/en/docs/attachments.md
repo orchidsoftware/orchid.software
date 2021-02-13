@@ -56,6 +56,8 @@ $image = $item->attachment()->first();
 $image->url();
 ```
 
+The url() method will first check for the path existense, and then get the url. When using external storage like s3, this will make two calls. To improve performance you can use the s3 [caching adapter](https://laravel.com/docs/filesystem#driver-prerequisites) recommended by Laravel to improve performance. You can also simply override the this method and adjust to your needs. 
+
 
 ## Reload File
 
