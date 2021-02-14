@@ -157,6 +157,11 @@ main {
     >p{
       margin-bottom: 0;
     }
+    
+    p:last-child {
+        color: lime;
+    }
+    
   }
 
 }
