@@ -13,9 +13,9 @@ The docs are auto-generated and each page has an edit button. So if you come acr
 If you spot any errors, typos or missing information, please submit a pull
 request.
 
-## Building 
+## Local Development
 
-Let’s build the site.
+If you want to work on this project on your local machine, you may follow the instructions below.
 
 ```bash
 # build static files with Jigsaw
