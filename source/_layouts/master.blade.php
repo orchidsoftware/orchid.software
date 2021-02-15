@@ -94,12 +94,6 @@
                             @yield('main.documentation')
                         </strong>
                     </a>
-
-                    {{--
-                    <a href="https://github.com/orchidsoftware/platform" target="_blank" class="btn btn-sm btn-outline-primary btn-rounded d-none d-sm-inline">
-                        <strong><i class="icon-social-github m-r-xs"></i> @yield('main.github')</strong>
-                    </a>
-                    --}}
                 </div>
             </div>
         </header>
@@ -112,7 +106,7 @@
         <!-- footer -->
 
         <div class="shape-footer">
-            <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -1px;width: 100%;fill:#212529; vertical-align: bottom;">
+            <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -1px;width: 101%;fill:#212529; vertical-align: bottom;">
                 <path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z"></path>
             </svg>
         </div>
@@ -188,14 +182,6 @@
                                     </svg>
                                 </a>
                             </li>
-
-                            {{--
-                            <li>
-                                <a href="https://blog.orchid.software/" target="_blank" rel="noopener noreferrer">
-                                    <i class="icon-paper-plane m-r-xs"></i> Blog
-                                </a>
-                            </li>
-                            --}}
                         </ul>
                         <ul class="list-inline">
                             <a href="/en">English</a>
