@@ -51,6 +51,13 @@ return [
                     'Presenters'   => '/en/docs/presenters',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
+                    'Form builder' => '/en/docs/builder',
+                ],
+            ],
+            'Packages'   => [
+                'children' => [
+                    'CRUD'     => 'https://github.com/orchidsoftware/crud',
+                    'Fortify'  => 'https://github.com/orchidsoftware/fortify',
                 ],
             ],
             'Community'   => [
