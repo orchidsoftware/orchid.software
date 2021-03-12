@@ -15179,12 +15179,12 @@ pre[class*="language-"] {
 
   .nav-docs ul {
     margin: 0;
-    padding: 0 10px;
+    padding: 0;
     display: inline-block;
   }
 
   .nav-docs ul li {
-    padding: 0 15px;
+    padding: 0;
     display: inline-block;
   }
 }
@@ -15286,6 +15286,10 @@ main blockquote:before {
 }
 
 main blockquote > p {
+  margin-bottom: 0;
+}
+
+main blockquote p:last-child {
   margin-bottom: 0;
 }
 

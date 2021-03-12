@@ -60,11 +60,11 @@
 
     ul {
       margin: 0;
-      padding: 0 10px;
+      padding: 0;
       display: inline-block;
 
       li {
-        padding: 0 15px;
+        padding: 0;
         display: inline-block;
       }
 
@@ -157,11 +157,11 @@ main {
     >p{
       margin-bottom: 0;
     }
-    
+
     p:last-child {
         margin-bottom: 0;
     }
-    
+
   }
 
 }
