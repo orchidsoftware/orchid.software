@@ -787,7 +787,7 @@ Available modifiers:
 * `block()` - Positioning the element across the entire width of the screen
 * `class('class-names')` - rewrites the standard button classes
 * `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
-* `icon('icon-wallet)` - sets an icon for the button
+* `icon('icon-wallet')` - sets an icon for the button
 
 ## Dropdown
 
