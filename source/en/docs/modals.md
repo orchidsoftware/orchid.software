@@ -61,7 +61,6 @@ public function layout(): array
     ];
 }
 
-
 /**
  * The action that will take place when
  * the form of the modal window is submitted
