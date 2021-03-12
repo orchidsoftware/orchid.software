@@ -54,7 +54,7 @@ public function layout(): array
 {
     return [
         Layout::modal('exampleModal', [
-	        Layout::rows([]),
+            Layout::rows([]),
         ]),
     ];
 }
