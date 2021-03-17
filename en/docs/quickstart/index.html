@@ -727,8 +727,8 @@ public function registerMainMenu(): array
 </code></pre>
 
 <p>Now our utility is displayed on the left menu and is active when visiting. 
-Navigation is carried out not only through transitions from the menu but also through bread crumbs,
-to add them to our screen you need to add a new ad in the <code>routes/breadcrumbs.php</code> by route name.</p>
+Navigation is carried out not only through transitions from the menu but also through breadcrumbs,
+to add them to our screen, you need to append your route with <code>-&gt;breadcrumbs(...)</code> in <code>routes/platform.php</code>.</p>
 
 <pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
 use Tabuna\Breadcrumbs\Trail;
