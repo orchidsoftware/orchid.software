@@ -11,6 +11,10 @@ lang: en
 
 I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <https://github.com/orchidsoftware/platform>.
 
+Open discussions, questions, proposals are being held in [GitHub discussions](https://github.com/orchidsoftware/platform/discussions)
+
+If you are having specific bugs or specific feature requests, take a look at [issues](https://github.com/orchidsoftware/platform/issues)
+
 ## Problem tracking
 
 You can find unresolved issues on [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
@@ -58,19 +62,19 @@ This section is designed for those who want to send a request for the first time
 
 ### Development Installation
     
-To install the Laravel Orchid package as a developer, you must install the laravel framework.
+To install the Laravel Orchid package as a developer, you will need an installation of the Laravel framework.
     
 
 > First you have to make a fork [github repository](https://github.com/orchidsoftware/platform/fork) to post changes.
 
 
-Go to the directory and execute:
+Go to the directory of your fresh Laravel installation and execute:
 
 ```bash
 git clone https://github.com/yourname/platform.git
 ```
 
-Add a local repository to the `composer.json` application:
+Add a local repository to the `composer.json` of the Laravel project, so the Orchid platform points to your locally cloned fork:
 
 ```php
 "repositories": [
@@ -110,3 +114,20 @@ To send your branch you need to do:
 ```bash
 git push origin feature/issue_001
 ```
+
+## Help translate Orchid in different languages!
+
+Take a look at the conversation [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) on the Discussion-tab.
+Translation files can be found in https://github.com/orchidsoftware/platform/tree/master/resources/lang
+
+To start translating, create a dev install as mentioned in "Development Installation" and create your own branch. 
+
+```bash
+git checkout -b feature/translation_nl
+```
+
+Copy one of the existing json-files in https://github.com/orchidsoftware/platform/tree/master/resources/lang to your new language-file. Name your file according to the codes mentioned in [List of ISO_639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+
+You can then start translating all the entries.
+
+Finally, submit your translation using the instructions found in "Submit change request"
