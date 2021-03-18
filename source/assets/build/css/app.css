@@ -13120,9 +13120,7 @@ main div iframe {
   border-right: 1px solid #dadfe4;
 }
 
-.b-b,
-.how-to-do-it h1,
-.how-to-do-it .h1 {
+.b-b {
   border-bottom: 1px solid #dadfe4;
 }
 
@@ -15560,9 +15558,8 @@ li.anchor-h4 {
   margin-top: 1em;
 }
 
-.how-to-do-it h1,
-.how-to-do-it .h1 {
-  margin-bottom: 1em;
+.topics-list li {
+  padding: 0.3em 0;
 }
 
 .design-macbook {

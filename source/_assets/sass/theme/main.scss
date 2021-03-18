@@ -403,15 +403,11 @@ li.anchor-h4 {
     margin-top: 1em;
   }
 
-}
 
-.how-to-do-it{
-  h1{
-    margin-bottom: 1em;
-    @extend .b-b;
+  li{
+    padding: 0.3em 0;
   }
 }
-
 
 .design-macbook {
   position: absolute;
