@@ -96,22 +96,10 @@
                                     Table & Columns
                                 </h3>
                                 <ul class="list-group pl-5">
-                                    <li>
-                                        <a href="/en/recipes/changing-the-visual-table">
-                                            How do change the look of a table?
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/en/recipes/how-to-use-sorting-in-a-table">
-                                            How to use sorting on a table?
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/en/recipes/column-expansion">
-                                            How to re-use the column?
-                                        </a>
-                                    </li>
-                                    <li><a href="#">Coming soon </a></li>
+                                    <li><a href="/en/recipes/changing-the-visual-table">How do change the look of a table?</a></li>
+                                    <li><a href="/en/recipes/how-to-use-sorting-in-a-table">How to use sorting on a table?</a></li>
+                                    <li><a href="/en/recipes/column-expansion">How to re-use the column?</a></li>
+                                    <li><a href="/en/recipes/how-to-use-a-field-in-a-table">How to use a field in a table?</a></li>
                                 </ul>
                             </div>
                         </div>

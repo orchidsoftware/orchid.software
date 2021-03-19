@@ -95,7 +95,7 @@ class IdeaListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::set('id', 'ID')
+            TD::make('id', 'ID')
                 ->align(TD::ALIGN_CENTER)
                 ->width('100px')
                 ->sort(),
