@@ -243,7 +243,7 @@ protected function striped(): bool
 }
 ```
 
-You can dinamically change the amount of links to display in the table pagination with the following method:
+You can dynamically change the amount of links to display in the table pagination with the following method:
 
 ```php
 /**
