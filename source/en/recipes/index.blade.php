@@ -35,11 +35,11 @@
                                     Installation
                                 </h3>
                                 <ul class="list-group pl-5">
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
 
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
                                 </ul>
                             </div>
 
@@ -53,10 +53,10 @@
                                     Screen & Actions
                                 </h3>
                                 <ul class="list-group pl-5">
-                                    <li><a href="#">Coming soon</a></li>
-                                    <li><a href="#">Coming soon</a></li>
-                                    <li><a href="#">Coming soon</a></li>
-                                    <li><a href="#">Coming soon</a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i></a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i></a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i></a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i></a></li>
                                 </ul>
                             </div>
 
@@ -73,8 +73,8 @@
                                     <li><a href="/en/recipes/how-to-re-use-layers">How to re-use layers?</a></li>
                                     <li><a href="/en/recipes/how-to-avoid-duplicate-fields">How to avoid duplicate
                                             fields?</a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
                                 </ul>
                             </div>
 
@@ -94,9 +94,9 @@
                                 <ul class="list-group pl-5">
                                     <li><a href="/en/recipes/js-call-on-page-refresh">How to call a script whenever the
                                             page?</a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
                                 </ul>
                             </div>
 
@@ -116,8 +116,8 @@
                                                 soon)</i></a></li>
                                     <li><a href="#">How to change the path of the file upload? <i class="text-muted">(Coming
                                                 soon)</i></a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
                                 </ul>
                             </div>
 
@@ -160,11 +160,11 @@
                                     Navigation &amp; Messages
                                 </h3>
                                 <ul class="list-group pl-5">
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
 
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
+                                    <li><a href="#">In the process <i class="text-muted">(Coming soon)</i> </a></li>
                                 </ul>
                             </div>
 
