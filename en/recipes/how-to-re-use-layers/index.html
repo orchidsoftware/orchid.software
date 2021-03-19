@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
+        <meta name="description" content="Reusing layers for Laravel Orchid">
         <meta name="author" content="Alexandr Chernyaev">
 
         <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
-        <meta property="og:title" content="Change the appearance of a table | Orchid - Laravel Admin Panel"/>
-        <meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."/>
-        <meta property="og:url" content="https://orchid.software/en/recipes/changing-the-visual-table"/>
+        <meta property="og:title" content="Reuse Layers | Orchid - Laravel Admin Panel"/>
+        <meta property="og:description" content="Reusing layers for Laravel Orchid"/>
+        <meta property="og:url" content="https://orchid.software/en/recipes/how-to-re-use-layers"/>
         <meta property="og:image" content="/favicon.svg"/>
         <meta property="og:type" content="website"/>
 
@@ -20,11 +20,11 @@
         <meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel">
         <meta name="twitter:card" content="summary_large_image">
 
-        <link rel="alternate" href="https://orchid.software/ru/recipes/changing-the-visual-table/" hreflang="ru"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/changing-the-visual-table/" hreflang="en"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/changing-the-visual-table/" hreflang="x-default"/>
+        <link rel="alternate" href="https://orchid.software/ru/recipes/how-to-re-use-layers/" hreflang="ru"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-re-use-layers/" hreflang="en"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-re-use-layers/" hreflang="x-default"/>
 
-        <title>Change the appearance of a table | Orchid - Laravel Admin Panel</title>
+        <title>Reuse Layers | Orchid - Laravel Admin Panel</title>
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
@@ -105,13 +105,13 @@
                         <ol class="breadcrumb bg-white-only p-0">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="/en/recipes">Recipes</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Change the appearance of a table</li>
+                            <li class="breadcrumb-item active" aria-current="page">Reuse Layers</li>
                         </ol>
                     </nav>
-                    <h1 class="text-dark font-thin mt-2 mb-2">Change the appearance of a table</h1>
+                    <h1 class="text-dark font-thin mt-2 mb-2">Reuse Layers</h1>
 
                                             <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/changing-the-visual-table.md"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/how-to-re-use-layers.md"
                                class="pull-right bg-white"
                                style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted">
@@ -128,68 +128,146 @@
 
 
                     <main>
-                        <p>There should be a story about additional methods for the table:</p>
+                        <p>Layouts are easy to reuse when fields are related to the relations of different models. During installation, we have a layer for defining permissions, which is used immediately at the user and roles editing screen. But sometimes you want to apply the same set of fields with different values. Let's consider an example when you need to specify an address.</p>
+
+<p>Such a set will be both for the client, the customer, and it will appear twice on the same form (for example, in order, delivery and invoice). To solve this situation, you do not need to create and describe almost identical layouts. Instead, let's add logic to one single layer.</p>
 
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Table;
-use Orchid\Screen\TD;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Rows;
 
-class ExampleTable extends Table
+class AddressLayout extends Rows
 {
     /**
-     * Data source.
+     * Used to create the title of a group of form elements.
+     *
+     * @var string|null
+     */
+    protected $title;
+
+    /**
+     * Prefix for a field name
      *
      * @var string
      */
-    protected $target = '';
+    protected $prefix;
 
     /**
-     * @var string
+     * ReusableEditLayout constructor.
+     *
+     * @param string      $prefix
+     * @param string|null $title
      */
-    protected $template = 'platform::layouts.table';
-
-    /**
-     * @return TD[]
-     */
-    protected function columns(): array
+    public function __construct(string $prefix, string $title = null)
     {
-        return [];
+        $this-&gt;prefix = $prefix;
+        $this-&gt;title = $title;
     }
 
     /**
-     * @return string
+     * Views.
+     *
+     * @return Field[]
      */
-    protected function iconNotFound(): string
+    protected function fields(): array
     {
-        return 'icon-table';
-    }
-
-    /**
-     * @return string
-     */
-    protected function textNotFound(): string
-    {
-        return __('Records not found');
-    }
-
-    /**
-     * @return string
-     */
-    protected function subNotFound(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return bool
-     */
-    protected function striped(): bool
-    {
-        return false;
+        return [
+            Input::make($this-&gt;prefix . '.address')
+                -&gt;required()
+                -&gt;title('Address')
+                -&gt;placeholder('177A Bleecker Street'),
+        ];
     }
 }
 </code></pre>
+
+<p>Now, when used, we will pass the prefix and header values:</p>
+
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::columns([
+            new AddressLayout('order.shipping_address', 'Shipping Address'),
+            new AddressLayout('order.invoice_address', 'Invoice Address'),
+        ]),
+    ];
+}
+</code></pre>
+
+<p>But this is also inconvenient. Why? Now in the definition, we will think, do we need to end the prefix with a dot? And also, specify strange names through the concatenation <code>$this-&gt;prefix. '.address'</code>.</p>
+
+<p>Let's fix it! Since the main thing is to return an array of objects, you can modify the fields before returning, as well as take care of the point in the constructor:</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Illuminate\Support\Str;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Rows;
+
+class AddressLayout extends Rows
+{
+    /**
+     * Used to create the title of a group of form elements.
+     *
+     * @var string|null
+     */
+    protected $title;
+
+    /**
+     * Prefix for a field name
+     *
+     * @var string
+     */
+    protected $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string      $prefix
+     * @param string|null $title
+     */
+    public function __construct(string $prefix, string $title = null)
+    {
+        $this-&gt;prefix = Str::finish($prefix, '.');
+        $this-&gt;title = $title;
+    }
+
+    /**
+     * Get the fields elements to be displayed.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return $this-&gt;addPrefix([
+            Input::make('address')
+                -&gt;required()
+                -&gt;title('Address')
+                -&gt;placeholder('177A Bleecker Street'),
+        ]);
+    }
+
+    /**
+     * @param Field[] $fields
+     *
+     * @return array
+     */
+    protected function addPrefix(array $fields): array
+    {
+        return array_map(function (Field $field) {
+            return $field-&gt;set('name',
+                $this-&gt;prefix . $field-&gt;get('name')
+            );
+        }, $fields);
+    }
+}
+</code></pre>
+
+<p>The main task has been solved. Now, the reuse of a class with one set of fields for the address does not make you think and duplicate it.</p>
                     </main>
                 </div>
 

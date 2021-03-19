@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
+        <meta name="description" content="You don&#039;t have to declare all fields every time">
         <meta name="author" content="Alexandr Chernyaev">
 
         <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
-        <meta property="og:title" content="Change the appearance of a table | Orchid - Laravel Admin Panel"/>
-        <meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."/>
-        <meta property="og:url" content="https://orchid.software/en/recipes/changing-the-visual-table"/>
+        <meta property="og:title" content="Do not repeat the definition of fields. | Orchid - Laravel Admin Panel"/>
+        <meta property="og:description" content="You don&#039;t have to declare all fields every time"/>
+        <meta property="og:url" content="https://orchid.software/en/recipes/how-to-avoid-duplicate-fields"/>
         <meta property="og:image" content="/favicon.svg"/>
         <meta property="og:type" content="website"/>
 
@@ -20,11 +20,11 @@
         <meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel">
         <meta name="twitter:card" content="summary_large_image">
 
-        <link rel="alternate" href="https://orchid.software/ru/recipes/changing-the-visual-table/" hreflang="ru"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/changing-the-visual-table/" hreflang="en"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/changing-the-visual-table/" hreflang="x-default"/>
+        <link rel="alternate" href="https://orchid.software/ru/recipes/how-to-avoid-duplicate-fields/" hreflang="ru"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-avoid-duplicate-fields/" hreflang="en"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-avoid-duplicate-fields/" hreflang="x-default"/>
 
-        <title>Change the appearance of a table | Orchid - Laravel Admin Panel</title>
+        <title>Do not repeat the definition of fields. | Orchid - Laravel Admin Panel</title>
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
@@ -105,13 +105,13 @@
                         <ol class="breadcrumb bg-white-only p-0">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="/en/recipes">Recipes</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Change the appearance of a table</li>
+                            <li class="breadcrumb-item active" aria-current="page">Do not repeat the definition of fields.</li>
                         </ol>
                     </nav>
-                    <h1 class="text-dark font-thin mt-2 mb-2">Change the appearance of a table</h1>
+                    <h1 class="text-dark font-thin mt-2 mb-2">Do not repeat the definition of fields.</h1>
 
                                             <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/changing-the-visual-table.md"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/how-to-avoid-duplicate-fields.md"
                                class="pull-right bg-white"
                                style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted">
@@ -128,68 +128,125 @@
 
 
                     <main>
-                        <p>There should be a story about additional methods for the table:</p>
+                        <p>Sometimes I get tired of specifying many fields to fill, especially when the same fields are repeated. <a href="https://laravel.com/docs/collections">Collections</a> can come to our aid.</p>
 
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<p>Let's try to consider an example:</p>
 
-use Orchid\Screen\Layouts\Table;
-use Orchid\Screen\TD;
+<pre><code class="language-php">namespace App\Orchid\Layouts\User;
 
-class ExampleTable extends Table
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+class ClientEditLayout extends Rows
 {
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    protected $target = '';
-
-    /**
-     * @var string
-     */
-    protected $template = 'platform::layouts.table';
-
-    /**
-     * @return TD[]
-     */
-    protected function columns(): array
+    public function fields(): array
     {
-        return [];
-    }
+        return [
+            Input::make('client.name')
+                -&gt;type('text')
+                -&gt;required()
+                -&gt;title('Name')
+                -&gt;placeholder('Name'),
 
-    /**
-     * @return string
-     */
-    protected function iconNotFound(): string
-    {
-        return 'icon-table';
-    }
-
-    /**
-     * @return string
-     */
-    protected function textNotFound(): string
-    {
-        return __('Records not found');
-    }
-
-    /**
-     * @return string
-     */
-    protected function subNotFound(): string
-    {
-        return '';
-    }
-
-    /**
-     * @return bool
-     */
-    protected function striped(): bool
-    {
-        return false;
+            Input::make('client.email')
+                -&gt;type('email')
+                -&gt;required()
+                -&gt;title('Email')
+                -&gt;placeholder('Email'),
+        ];
     }
 }
 </code></pre>
+
+<p>The method for defining fields must return a list of them, and so on every time. Why don't we define it just once, by analogy with the model?</p>
+
+<pre><code class="language-php">namespace App\Models;
+
+use Orchid\Screen\Fields\Input;
+use Illuminate\Database\Eloquent\Model;
+
+class Client extends Model
+{
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public static function fields()
+    {
+        return collect([
+            'name' =&gt; Input::make('client.name')
+                -&gt;type('text')
+                -&gt;required()
+                -&gt;title('Name')
+                -&gt;placeholder('Name'),
+
+            'email' =&gt; Input::make('client.email')
+                -&gt;type('email')
+                -&gt;required()
+                -&gt;title('Email')
+                -&gt;placeholder('Email'),
+        ]);
+    }
+}
+</code></pre>
+
+<p>We have created a static method that will return us a collection of our fields, but this will help us with the addition of keys. In cases where we need to display only a part of the properties, we will use the collections' capabilities.</p>
+
+<p>All available fields:</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts\User;
+
+use App\Models\Client;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+class ClientEditLayout extends Rows
+{
+    public function fields(): array
+    {
+        return Client::fields()-&gt;all();
+    }
+}
+</code></pre>
+
+<p>Return only the specified ones:</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts\User;
+
+use App\Models\Client;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+class ClientEditLayout extends Rows
+{
+    public function fields(): array
+    {
+        return Client::fields()-&gt;only([
+          'email',
+        ])-&gt;toArray();
+    }
+}
+</code></pre>
+
+<p>Return everything except the specified ones:</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts\User;
+
+use App\Models\Client;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+class ClientEditLayout extends Rows
+{
+    public function fields(): array
+    {
+        return Client::fields()-&gt;except([
+          'email',
+        ])-&gt;toArray();
+    }
+}
+</code></pre>
+
+<p>And so on, such simple examples may not duplicate field descriptions every time it is required.</p>
                     </main>
                 </div>
 
