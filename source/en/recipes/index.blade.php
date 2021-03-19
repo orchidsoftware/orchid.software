@@ -126,9 +126,8 @@
                                     Layouts &amp; Fields
                                 </h3>
                                 <ul class="list-group pl-5">
-                                    <li><a href="#"> Coming soon </a></li>
-
-                                    <li><a href="#"> Coming soon </a></li>
+                                    <li><a href="/en/recipes/how-to-re-use-layers">How to re-use layers?</a></li>
+                                    <li><a href="/en/recipes/how-to-avoid-duplicate-fields">How to avoid duplicate fields?</a></li>
                                     <li><a href="#"> Coming soon </a></li>
                                     <li><a href="#"> Coming soon </a></li>
                                 </ul>
