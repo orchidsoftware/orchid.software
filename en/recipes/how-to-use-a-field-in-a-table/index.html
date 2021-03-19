@@ -8,9 +8,9 @@
         <meta name="author" content="Alexandr Chernyaev">
 
         <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
-        <meta property="og:title" content="How to use sorting on a table? | Orchid - Laravel Admin Panel"/>
+        <meta property="og:title" content="Using fields in a table | Orchid - Laravel Admin Panel"/>
         <meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."/>
-        <meta property="og:url" content="https://orchid.software/en/recipes/how-to-use-sorting-in-a-table"/>
+        <meta property="og:url" content="https://orchid.software/en/recipes/how-to-use-a-field-in-a-table"/>
         <meta property="og:image" content="/favicon.svg"/>
         <meta property="og:type" content="website"/>
 
@@ -20,11 +20,11 @@
         <meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel">
         <meta name="twitter:card" content="summary_large_image">
 
-        <link rel="alternate" href="https://orchid.software/ru/recipes/how-to-use-sorting-in-a-table/" hreflang="ru"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-use-sorting-in-a-table/" hreflang="en"/>
-        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-use-sorting-in-a-table/" hreflang="x-default"/>
+        <link rel="alternate" href="https://orchid.software/ru/recipes/how-to-use-a-field-in-a-table/" hreflang="ru"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-use-a-field-in-a-table/" hreflang="en"/>
+        <link rel="alternate" href="https://orchid.software/en/recipes/how-to-use-a-field-in-a-table/" hreflang="x-default"/>
 
-        <title>How to use sorting on a table? | Orchid - Laravel Admin Panel</title>
+        <title>Using fields in a table | Orchid - Laravel Admin Panel</title>
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
@@ -105,13 +105,13 @@
                         <ol class="breadcrumb bg-white-only p-0">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="/en/recipes">Recipes</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">How to use sorting on a table?</li>
+                            <li class="breadcrumb-item active" aria-current="page">Using fields in a table</li>
                         </ol>
                     </nav>
-                    <h1 class="text-dark font-thin mt-2 mb-2">How to use sorting on a table?</h1>
+                    <h1 class="text-dark font-thin mt-2 mb-2">Using fields in a table</h1>
 
                                             <div class="none d-md-block">
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/how-to-use-sorting-in-a-table.md"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/recipes/how-to-use-a-field-in-a-table.md"
                                class="pull-right bg-white"
                                style="margin-top: -0.5em; padding-left: 15px; ">
                                 <small class="text-muted">
@@ -128,105 +128,22 @@
 
 
                     <main>
-                        <p>Sorting in a table is entirely based on the automatic recognition of an HTTP request and applies to Eloquent models.</p>
+                        <p>...</p>
 
-<p>Consider this on an empty <code>Idea</code> model:</p>
+<pre><code class="language-php">use App\Models\User;
+use Orchid\Screen\TD;
+use Orchid\Screen\Fields\CheckBox;
 
-<pre><code class="language-php">namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\AsSource;
-
-class Idea extends Model
-{
-    use AsSource;
-
-    //
-}
+TD::make('id')-&gt;render(function (User $user){
+    return CheckBox::make('users[]')
+            -&gt;value($user-&gt;id)
+            -&gt;placeholder($user-&gt;name)
+            -&gt;checked(false);
+});
 </code></pre>
 
-<p>It is necessary to add the trait <code>Filterable</code> and define the allowed fields for sorting:</p>
-
-<pre><code class="language-php">namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filters\Filterable;
-use Orchid\Screen\AsSource;
-
-class Idea extends Model
-{
-    use AsSource, Filterable;
-
-    /**
-     * Name of columns to which http sorting can be applied
-     * 
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'name',
-        'created_at',
-        'updated_at',
-    ];
-}
-</code></pre>
-
-<p>Now, when calling the <code>filters</code> method, the database query will be modified.
-In the data source method at the screen, it might look like this:</p>
-
-<pre><code class="language-php">/**
- * Query data
- *
- * @return array
- */
-public function query() : array
-{
-    return [
-        'ideas' =&gt; Idea::filters()-&gt;defaultSort('id')-&gt;paginate(),
-    ];
-}
-</code></pre>
-
-<p>Now the data will be different depending on the parameters in the URL, for example:</p>
-
-<ul>
-<li><code>http://example.com/yourScreen?sort=id</code> - the result will be records in ascending order of the identifying number</li>
-<li><code>http://example.com/yourScreen?sort=-id</code> - Sort descending</li>
-</ul>
-
-<blockquote>
-  <p><strong>Please note.</strong> You cannot sort related models this way.</p>
-</blockquote>
-
-<p>In order to display the sorting option in the GUI, we must add the <code>sort</code> method</p>
-
-<pre><code class="language-php">use Orchid\Screen\TD;
-use Orchid\Screen\Layouts\Table;
-
-class IdeaListLayout extends Table
-{
-    /**
-     * @var string
-     */
-    public $target = 'ideas';
-
-    /**
-     * @return array
-     */
-    public function columns(): array
-    {
-        return [
-            TD::make('id', 'ID')
-                -&gt;align(TD::ALIGN_CENTER)
-                -&gt;width('100px')
-                -&gt;sort(),
-            //...
-        ];
-    }
-}
-</code></pre>
-
-<p>After that, the column heading will react to clicking and change the sorting position.</p>
+<p>...</p>
                     </main>
                 </div>
 
