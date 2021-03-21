@@ -544,7 +544,7 @@ class QueryFilter extends Filter
     /**
      * @var array
      */
-    public $parameters = ['query'];
+    public $parameters = ['email'];
 
     /**
      * @param Builder $builder
@@ -553,7 +553,7 @@ class QueryFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder-&gt;where('demo', $this-&gt;request-&gt;get('query'));
+        return $builder-&gt;where('demo', $this-&gt;request-&gt;get('email'));
     }
 
     /**
