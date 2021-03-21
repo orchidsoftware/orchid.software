@@ -117,7 +117,7 @@ class QueryFilter extends Filter
     /**
      * @var array
      */
-    public $parameters = ['query'];
+    public $parameters = ['email'];
 
     /**
      * @param Builder $builder
@@ -126,7 +126,7 @@ class QueryFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->where('demo', $this->request->get('query'));
+        return $builder->where('demo', $this->request->get('email'));
     }
 
     /**
