@@ -143,6 +143,8 @@
                                     <li><a href="/en/recipes/column-expansion">How to re-use the column?</a></li>
                                     <li><a href="/en/recipes/how-to-use-a-field-in-a-table">How to use a field in a
                                             table?</a></li>
+                                    <li><a href="/en/recipes/how-to-use-multiple-elements-in-a-column">How to add multiple fields
+                                            in a column?</a></li>
                                 </ul>
                             </div>
                         </div>
