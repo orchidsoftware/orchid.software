@@ -8,7 +8,7 @@ section: main
 
 Sometimes you want to show more elements in a single column, for example more buttons.
 
-For this you can use a `Group`, which also had a `render()`-method.
+For this you can use a `Group`:
 
 ```php
 TD::make()->render(function(Project $project) {
