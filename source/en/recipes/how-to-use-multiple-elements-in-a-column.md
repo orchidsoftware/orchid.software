@@ -11,17 +11,15 @@ Sometimes you want to show more elements in a single column, for example more bu
 For this you can use a `Group`, which also had a `render()`-method.
 
 ```php
-TD::make('options', trans('admin.options') )
-    ->render( function(Project $project) {
-        return
-            Group::make([
-                Link::make(__('admin.crud.show'))
-                ->icon('magnifier')
-                ->route('platform.projects.show', $project->id),
+TD::make()->render(function(Project $project) {
+  return Group::make([
+      Link::make('Show')
+        ->icon('magnifier')
+        ->route('platform.projects.show', $project->id),
 
-                Link::make(__('admin.crud.edit'))
-                ->icon('pencil')
-                ->route('platform.projects.edit', $project->id)
-            ])->render();
-    }),
+      Link::make('Edit')
+        ->icon('pencil')
+        ->route('platform.projects.edit', $project->id)
+    ]);
+});
 ```
