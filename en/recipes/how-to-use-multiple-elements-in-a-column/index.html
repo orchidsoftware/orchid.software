@@ -132,19 +132,17 @@
 
 <p>For this you can use a <code>Group</code>, which also had a <code>render()</code>-method.</p>
 
-<pre><code class="language-php">TD::make('options', trans('admin.options') )
-    -&gt;render( function(Project $project) {
-        return
-            Group::make([
-                Link::make(__('admin.crud.show'))
-                -&gt;icon('magnifier')
-                -&gt;route('platform.projects.show', $project-&gt;id),
+<pre><code class="language-php">TD::make()-&gt;render(function(Project $project) {
+  return Group::make([
+      Link::make('Show')
+        -&gt;icon('magnifier')
+        -&gt;route('platform.projects.show', $project-&gt;id),
 
-                Link::make(__('admin.crud.edit'))
-                -&gt;icon('pencil')
-                -&gt;route('platform.projects.edit', $project-&gt;id)
-            ])-&gt;render();
-    }),
+      Link::make('Edit')
+        -&gt;icon('pencil')
+        -&gt;route('platform.projects.edit', $project-&gt;id)
+    ]);
+});
 </code></pre>
                     </main>
                 </div>
