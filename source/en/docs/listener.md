@@ -222,7 +222,7 @@ class PlatformScreen extends Screen
 }
 ```
 
-> ** Please note **. Such a function is a substitute for the `query` for the required layouts, and the `async` prefix is required.
+> **Please note**. Such a function is a substitute for the `query` for the required layouts, and the `async` prefix is required.
 
 And indicate his name:
 
