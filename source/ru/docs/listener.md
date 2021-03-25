@@ -89,6 +89,7 @@ php artisan orchid:listener AmountListener
 ```php
 namespace App\Orchid\Layouts;
 
+use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
@@ -117,7 +118,17 @@ class AmountListener extends Listener
      */
     protected function layouts(): array
     {
-        return [];
+        return [
+            Layout::rows([
+                Input::make('a')
+                    ->title('First argument')
+                    ->type('number'),
+
+                Input::make('b')
+                    ->title('Second argument')
+                    ->type('number'),
+            ]),
+        ];
     }
 }
 ```
@@ -193,6 +204,8 @@ class PlatformScreen extends Screen
     public function asyncSum(int $a = null, int $b = null)
     {
         return [
+            'a' => $a,
+            'b' => $b,
             'sum' => $a + $b,
         ];
     }
@@ -205,15 +218,6 @@ class PlatformScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::rows([
-                Input::make('a')
-                    ->title('First argument')
-                    ->type('number'),
-
-                Input::make('b')
-                    ->title('Second argument')
-                    ->type('number'),
-            ]),
             AmountListener::class,
         ];
     }
@@ -278,6 +282,14 @@ class AmountListener extends Listener
     {
         return [
             Layout::rows([
+                Input::make('a')
+                    ->title('First argument')
+                    ->type('number'),
+
+                Input::make('b')
+                    ->title('Second argument')
+                    ->type('number'),
+
                 Input::make('sum')
                     ->readonly()
                     ->canSee($this->query->has('sum')),
