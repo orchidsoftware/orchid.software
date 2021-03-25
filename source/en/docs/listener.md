@@ -262,16 +262,16 @@ class AmountListener extends Listener
         'b',
     ];
 
-/**
- * What screen method should be called
- * as a source for an asynchronous request.
- *
- * The name of the method must
- * begin with the prefix "async"
- *
- * @var string
- */
-protected $asyncMethod = 'asyncSum';
+    /**
+     * What screen method should be called
+     * as a source for an asynchronous request.
+     *
+     * The name of the method must
+     * begin with the prefix "async"
+     *
+     * @var string
+     */
+    protected $asyncMethod = 'asyncSum';
 
     /**
      * @return Layout[]
