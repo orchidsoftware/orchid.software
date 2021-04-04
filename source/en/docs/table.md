@@ -161,7 +161,7 @@ In some cases, you may need to display combined
 ```php
 TD::make('full_name')
     ->render(function ($user) {
-        return $user->firt_name . ' ' . $user->last_name;
+        return $user->first_name . ' ' . $user->last_name;
     });
 ```
 
