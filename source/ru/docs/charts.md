@@ -129,7 +129,7 @@ protected $export = true;
 ```php
 namespace App;
 
-use Orchid\Chart\Chartable;
+use Orchid\Metrics\Chartable;
 use Orchid\Platform\Models\User as Authenticatable;
 
 class User extends Authenticatable
