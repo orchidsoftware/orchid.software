@@ -620,7 +620,6 @@ ItemMenu::label('Sub element item 2')
 
 <pre><code class="language-php">Input::make()-&gt;canSee(false);
 TD::make()-&gt;canSee(false);
-
 Layout::rows([])-&gt;canSee(false);
 </code></pre>
 
@@ -629,13 +628,13 @@ Layout::rows([])-&gt;canSee(false);
 <pre><code class="language-php">// before
 public function canSee(Repository $query): bool
 {
-return ...;
+    return ...;
 }
 
 // after
 public function isSee(): bool
 {
-return ...;
+    return ...;
 }
 </code></pre>
 
