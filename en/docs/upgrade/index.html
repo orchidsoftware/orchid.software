@@ -27,7 +27,7 @@
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=2ddeba440a26a9184d43">
+        <link rel="stylesheet" href="/assets/build/css/app.css?id=f60f9bec2453e9457dfc">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
 
             </head>
@@ -432,6 +432,24 @@
                 <a href="#updating-dependencies">Updating dependencies</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#menu">Menu</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#cansee">CanSee</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#stimulus">Stimulus</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#turbo">Turbo</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#compendium">Compendium</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#updating-dependencies">Updating dependencies</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#auth">Auth</a>
             </li>
                     <li class="anchor-h2">
@@ -476,6 +494,173 @@
 <blockquote>
   <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
+
+<h1>Upgrading to 10.0 from 9.x</h1>
+
+<h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
+
+<p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^10.0</code></p>
+
+<h2><a href="#menu" name="menu">Menu</a></h2>
+
+<p>Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class <code>Orchid\Platform\Dashboard</code>.</p>
+
+<pre><code class="language-php">use Orchid\Platform\Dashboard;
+
+Dashboard::MENU_MAIN;
+Dashboard::MENU_PROFILE;
+</code></pre>
+
+<p>Menus are now <code>Field</code> classes and have a unified syntax. Before:</p>
+
+<pre><code class="language-php">ItemMenu::label('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;badge(function () {
+        return 6;
+    });
+</code></pre>
+
+<p>After:</p>
+
+<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;badge(function () {
+        return 6;
+    });
+</code></pre>
+
+<p>As you can see, the update should be very soft.
+But the differences will also be, for example, the writing of nested elements will be more visual:</p>
+
+<p>Before:</p>
+
+<pre><code class="language-php">ItemMenu::label('Dropdown menu')
+    -&gt;slug('example-menu')
+    -&gt;icon('code')
+    -&gt;withChildren(),
+
+ItemMenu::label('Sub element item 1')
+    -&gt;place('example-menu')
+    -&gt;icon('bag'),
+
+ItemMenu::label('Sub element item 2')
+    -&gt;place('example-menu')
+    -&gt;icon('heart'),
+</code></pre>
+
+<p>After:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
+
+<p>The default for sorting has been changed from 1000 to 0:</p>
+
+<pre><code class="language-php">Menu::make('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;sort(2),
+</code></pre>
+
+<p>This is also true for nested elements:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
+        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+    ]),
+</code></pre>
+
+<p>For dynamic definition, you need to add a slug method in which to pass a unique string:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;slug('sub-menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
+
+<p>And then add new items in our own packages like:</p>
+
+<pre><code class="language-php">Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+   Menu::make('Sub element item 3')-&gt;icon('badge')
+]);
+</code></pre>
+
+<blockquote>
+  <p><strong>Warning.</strong> If the menu is used deferred, then you need to follow the loading order</p>
+</blockquote>
+
+<h2><a href="#cansee" name="cansee">CanSee</a></h2>
+
+<p>Now <code>Fields/Layouts/TD</code> and have a common trait. Without any restrictions. Now you can do this:</p>
+
+<pre><code class="language-php">Input::make()-&gt;canSee(false);
+TD::make()-&gt;canSee(false);
+
+Layout::rows([])-&gt;canSee(false);
+</code></pre>
+
+<p>But now the definition inside the layer is different</p>
+
+<pre><code class="language-php">// before
+public function canSee(Repository $query): bool
+{
+return ...;
+}
+
+// after
+public function isSee(): bool
+{
+return ...;
+}
+</code></pre>
+
+<h2><a href="#stimulus" name="stimulus">Stimulus</a></h2>
+
+<p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
+
+<pre><code class="language-js">&lt;!--  before: --&gt;
+&lt;div data-controller="fields--checkbox"&gt;
+
+&lt;!--  after: --&gt;
+&lt;div data-controller="checkbox"&gt;
+</code></pre>
+
+<h2><a href="#turbo" name="turbo">Turbo</a></h2>
+
+<p>The Turbolinks library has been updated to Turbo for more details here: https://turbo.hotwire.dev/</p>
+
+<p>If you used your own js scripts, then it is recommended to read their changes. For example:</p>
+
+<pre><code class="language-js">// before
+document.addEventListener("turbolinks:load", function() {
+    // ...
+})
+
+// after
+document.addEventListener("turbo:load", function() {
+  // ...
+})
+</code></pre>
+
+<h2><a href="#compendium" name="compendium">Compendium</a></h2>
+
+<p>The <code>Compendium</code> class has been removed. Recommend using a newer <code>Legend</code>.</p>
 
 <h1>Upgrading to 9.0 from 8.x</h1>
 
