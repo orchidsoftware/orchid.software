@@ -429,60 +429,69 @@
 
                         <ul class="pl-5">
                     <li class="anchor-h2">
+                <a href="#upgrading-to-100-from-9x">Upgrading to 10.0 from 9.x</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#updating-dependencies">Updating dependencies</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#menu">Menu</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#cansee">CanSee</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#stimulus">Stimulus</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#turbo">Turbo</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#compendium">Compendium</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#upgrading-to-90-from-8x">Upgrading to 9.0 from 8.x</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#updating-dependencies">Updating dependencies</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#auth">Auth</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#upgrading-to-80-from-7x">Upgrading to 8.0 from 7.x</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#updating-dependencies">Updating dependencies</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#tinymce-editor">TinyMCE editor</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#settings-model">Settings model</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#bread-crumbs">Bread crumbs</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#screen-changes">Screen changes</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h4">
                 <a href="#constructor">Constructor</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h4">
                 <a href="#route-methods">Route methods</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h4">
                 <a href="#data-spoofing-async">Data spoofing (Async)</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#layouts">Layouts</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#release-message">Release message</a>
             </li>
-                    <li class="anchor-h2">
+                    <li class="anchor-h3">
                 <a href="#icons">Icons</a>
             </li>
             </ul>
@@ -495,13 +504,13 @@
   <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
 
-<h1>Upgrading to 10.0 from 9.x</h1>
+<h2><a href="#upgrading-to-100-from-9x" name="upgrading-to-100-from-9x">Upgrading to 10.0 from 9.x</a></h2>
 
-<h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
+<h3><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h3>
 
 <p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^10.0</code></p>
 
-<h2><a href="#menu" name="menu">Menu</a></h2>
+<h3><a href="#menu" name="menu">Menu</a></h3>
 
 <p>Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class <code>Orchid\Platform\Dashboard</code>.</p>
 
@@ -605,7 +614,7 @@ ItemMenu::label('Sub element item 2')
   <p><strong>Warning.</strong> If the menu is used deferred, then you need to follow the loading order</p>
 </blockquote>
 
-<h2><a href="#cansee" name="cansee">CanSee</a></h2>
+<h3><a href="#cansee" name="cansee">CanSee</a></h3>
 
 <p>Now <code>Fields/Layouts/TD</code> and have a common trait. Without any restrictions. Now you can do this:</p>
 
@@ -630,7 +639,7 @@ return ...;
 }
 </code></pre>
 
-<h2><a href="#stimulus" name="stimulus">Stimulus</a></h2>
+<h3><a href="#stimulus" name="stimulus">Stimulus</a></h3>
 
 <p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
 
@@ -641,7 +650,7 @@ return ...;
 &lt;div data-controller="checkbox"&gt;
 </code></pre>
 
-<h2><a href="#turbo" name="turbo">Turbo</a></h2>
+<h3><a href="#turbo" name="turbo">Turbo</a></h3>
 
 <p>The Turbolinks library has been updated to Turbo for more details here: https://turbo.hotwire.dev/</p>
 
@@ -658,17 +667,17 @@ document.addEventListener("turbo:load", function() {
 })
 </code></pre>
 
-<h2><a href="#compendium" name="compendium">Compendium</a></h2>
+<h3><a href="#compendium" name="compendium">Compendium</a></h3>
 
 <p>The <code>Compendium</code> class has been removed. Recommend using a newer <code>Legend</code>.</p>
 
-<h1>Upgrading to 9.0 from 8.x</h1>
+<h2><a href="#upgrading-to-90-from-8x" name="upgrading-to-90-from-8x">Upgrading to 9.0 from 8.x</a></h2>
 
-<h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
+<h3><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h3>
 
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^9.0</code></p>
 
-<h2><a href="#auth" name="auth">Auth</a></h2>
+<h3><a href="#auth" name="auth">Auth</a></h3>
 
 <p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">laravel/ui</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui ha</code>s been removed. And with it, the ability to recover your password.</p>
 
@@ -690,17 +699,17 @@ WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
 
 <hr>
 
-<h1>Upgrading to 8.0 from 7.x</h1>
+<h2><a href="#upgrading-to-80-from-7x" name="upgrading-to-80-from-7x">Upgrading to 8.0 from 7.x</a></h2>
 
-<h2><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h2>
+<h3><a href="#updating-dependencies" name="updating-dependencies">Updating dependencies</a></h3>
 
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^8.0</code></p>
 
-<h2><a href="#tinymce-editor" name="tinymce-editor">TinyMCE editor</a></h2>
+<h3><a href="#tinymce-editor" name="tinymce-editor">TinyMCE editor</a></h3>
 
 <p>The <code>HTML</code> editor has been removed from the standard distribution. The code has been moved to a separate <a href="https://github.com/orchidcommunity/TinyMCE">repository</a>.</p>
 
-<h2><a href="#settings-model" name="settings-model">Settings model</a></h2>
+<h3><a href="#settings-model" name="settings-model">Settings model</a></h3>
 
 <p>The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following <code>SQL</code> code:</p>
@@ -713,7 +722,7 @@ WHERE migration = '2015_12_02_181214_create_table_settings';
 
 <p>The source code is available for installation as a separate <a href="https://github.com/tabuna/settings">package</a>.</p>
 
-<h2><a href="#bread-crumbs" name="bread-crumbs">Bread crumbs</a></h2>
+<h3><a href="#bread-crumbs" name="bread-crumbs">Bread crumbs</a></h3>
 
 <p>Package <code>davejamesmiller/laravel-breadcrumbs</code> is replaced with <code>tabuna/breadcrumbs</code>
 and should be installed automatically when the dependencies are updated.</p>
@@ -758,9 +767,9 @@ class AppServiceProvider extends ServiceProvider
 use Tabuna\Breadcrumbs\Trail;
 </code></pre>
 
-<h2><a href="#screen-changes" name="screen-changes">Screen changes</a></h2>
+<h3><a href="#screen-changes" name="screen-changes">Screen changes</a></h3>
 
-<h3><a href="#constructor" name="constructor">Constructor</a></h3>
+<h4><a href="#constructor" name="constructor">Constructor</a></h4>
 
 <p>Passing a <code>Request</code> object and calling the parent class is no longer necessary. Before:</p>
 
@@ -785,7 +794,7 @@ use Tabuna\Breadcrumbs\Trail;
 }
 </code></pre>
 
-<h3><a href="#route-methods" name="route-methods">Route methods</a></h3>
+<h4><a href="#route-methods" name="route-methods">Route methods</a></h4>
 
 <p>Methods not used have been removed. It is no longer possible to access screens via the <code>PUT|PATCH|DELETE</code> methods, the call must use <code>GET|POSTS</code> to receive/send data.</p>
 
@@ -796,7 +805,7 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
 
 <p>Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers. <a href="https://github.com/orchidsoftware/platform/issues/1150">More</a>.</p>
 
-<h3><a href="#data-spoofing-async" name="data-spoofing-async">Data spoofing (Async)</a></h3>
+<h4><a href="#data-spoofing-async" name="data-spoofing-async">Data spoofing (Async)</a></h4>
 
 <p>The <code>{argument?}</code> Expectation has been removed from the address bar.
 Now a separate route is used for the call:</p>
@@ -806,7 +815,7 @@ Now a separate route is used for the call:</p>
     -&gt;name('async');
 </code></pre>
 
-<h2><a href="#layouts" name="layouts">Layouts</a></h2>
+<h3><a href="#layouts" name="layouts">Layouts</a></h3>
 
 <p>Each layer now inherits from the class <code>Orchid\Screen\Layout</code>, rather than from <code>Orchid\Screen\Layouts\Base</code>.</p>
 
@@ -830,7 +839,7 @@ Layout::row([
 ]);
 </code></pre>
 
-<h2><a href="#release-message" name="release-message">Release message</a></h2>
+<h3><a href="#release-message" name="release-message">Release message</a></h3>
 
 <p>A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
 This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the <code>blade</code> template. Screen call example:</p>
@@ -845,7 +854,7 @@ This was more annoying than keeping the software up to date. Therefore, it was r
 <pre><code class="language-php">Layout::view('platform::partials.update');
 </code></pre>
 
-<h2><a href="#icons" name="icons">Icons</a></h2>
+<h3><a href="#icons" name="icons">Icons</a></h3>
 
 <p>The icon display has been changed from <code>font</code> to <code>SVG</code> format.
 Now the <code>-&gt;icon</code> methods do not accept the <code>css</code> value to be set, but the file name.
