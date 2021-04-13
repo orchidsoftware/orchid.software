@@ -10,6 +10,185 @@ We like to keep things as modern as possible and have a "release early, release 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+# Upgrading to 10.0 from 9.x
+
+## Updating dependencies
+
+В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^10.0`
+
+## Menu
+
+Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class `Orchid\Platform\Dashboard`.
+
+```php
+use Orchid\Platform\Dashboard;
+
+Dashboard::MENU_MAIN;
+Dashboard::MENU_PROFILE;
+```
+
+Menus are now `Field` classes and have a unified syntax. Before:
+
+```php
+ItemMenu::label('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->badge(function () {
+        return 6;
+    });
+```
+
+After:
+```php
+use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->badge(function () {
+        return 6;
+    });
+```
+
+As you can see, the update should be very soft.
+But the differences will also be, for example, the writing of nested elements will be more visual:
+
+Before:
+
+```php
+ItemMenu::label('Dropdown menu')
+    ->slug('example-menu')
+    ->icon('code')
+    ->withChildren(),
+
+ItemMenu::label('Sub element item 1')
+    ->place('example-menu')
+    ->icon('bag'),
+
+ItemMenu::label('Sub element item 2')
+    ->place('example-menu')
+    ->icon('heart'),
+```
+
+After:
+
+```php
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
+
+The default for sorting has been changed from 1000 to 0:
+
+```php
+Menu::make('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->sort(2),
+```
+
+This is also true for nested elements:
+
+```php
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag')->sort(2),
+        Menu::make('Sub element item 2')->icon('heart')->sort(0),
+    ]),
+```
+
+For dynamic definition, you need to add a slug method in which to pass a unique string:
+
+```php
+Menu::make('Dropdown menu')
+    ->slug('sub-menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
+
+And then add new items in our own packages like:
+
+```php
+Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+   Menu::make('Sub element item 3')->icon('badge')
+]);
+```
+
+> **Warning.** If the menu is used deferred, then you need to follow the loading order
+
+## CanSee
+
+
+Now `Fields/Layouts/TD` and have a common trait. Without any restrictions. Now you can do this:
+
+```php
+Input::make()->canSee(false);
+TD::make()->canSee(false);
+
+Layout::rows([])->canSee(false);
+```
+
+
+But now the definition inside the layer is different
+
+```php
+// before
+public function canSee(Repository $query): bool
+{
+return ...;
+}
+
+// after
+public function isSee(): bool
+{
+return ...;
+}
+```
+
+## Stimulus
+
+The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:
+
+```js
+<!--  before: -->
+<div data-controller="fields--checkbox">
+
+<!--  after: -->
+<div data-controller="checkbox">
+```
+
+## Turbo
+
+The Turbolinks library has been updated to Turbo for more details here: https://turbo.hotwire.dev/
+
+If you used your own js scripts, then it is recommended to read their changes. For example:
+
+```js
+// before
+document.addEventListener("turbolinks:load", function() {
+    // ...
+})
+
+// after
+document.addEventListener("turbo:load", function() {
+  // ...
+})
+```
+
+## Compendium
+
+The `Compendium` class has been removed. Recommend using a newer `Legend`.
+
 
 # Upgrading to 9.0 from 8.x
 
