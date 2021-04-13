@@ -88,23 +88,6 @@ public function layout(): array
 ```
 
 
-## Drop-down list
-
-```php
-public function layout(): array
-{
-    return [
-        Layout::collapse([
-            Input::make('name')
-                ->type('text')
-                ->title('Name Articles')
-        ])->label('More'),
-    ];
-}
-```
-
-
-
 ## Selection
 
 To group filters, reset them and apply them, there is a separate layer `Selection`, in which they are indicated.

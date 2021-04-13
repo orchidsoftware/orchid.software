@@ -188,6 +188,9 @@ document.addEventListener("turbo:load", function() {
 
 The `Compendium` class has been removed. Recommend using a newer `Legend`.
 
+### Collapse
+
+The `Collapse` class has been removed.
 
 ## Upgrading to 9.0 from 8.x
 
