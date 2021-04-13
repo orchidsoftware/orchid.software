@@ -31,15 +31,14 @@ In other words, install your new framework project.
 - Set “chmod -R o+w” rights to the `storage` and `bootstrap/cache` directories
 - Edit the `.env` file
 
+> **Note.** If you just installed Laravel, you may need to generate a key with command `php artisan key:generate`
+
 ## Add dependency
 
 Go to the created project directory and run the command:
 ```php
 $ composer require orchid/platform
 ```
-
-> **Note.** If you just installed Laravel, you may need to generate a key with command `php artisan key:generate`
-
 
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
 
