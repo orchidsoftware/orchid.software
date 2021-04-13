@@ -40,6 +40,7 @@ $ composer require orchid/platform
 
 > **Note.** If you just installed Laravel, you may need to generate a key with command `php artisan key:generate`
 
+
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
 
 
