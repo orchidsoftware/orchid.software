@@ -134,7 +134,6 @@ Now `Fields/Layouts/TD` and have a common trait. Without any restrictions. Now y
 ```php
 Input::make()->canSee(false);
 TD::make()->canSee(false);
-
 Layout::rows([])->canSee(false);
 ```
 
@@ -145,13 +144,13 @@ But now the definition inside the layer is different
 // before
 public function canSee(Repository $query): bool
 {
-return ...;
+    return ...;
 }
 
 // after
 public function isSee(): bool
 {
-return ...;
+    return ...;
 }
 ```
 
