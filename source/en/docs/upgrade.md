@@ -10,13 +10,13 @@ We like to keep things as modern as possible and have a "release early, release 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
-# Upgrading to 10.0 from 9.x
+## Upgrading to 10.0 from 9.x
 
-## Updating dependencies
+### Updating dependencies
 
 В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^10.0`
 
-## Menu
+### Menu
 
 Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class `Orchid\Platform\Dashboard`.
 
@@ -126,7 +126,7 @@ Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
 
 > **Warning.** If the menu is used deferred, then you need to follow the loading order
 
-## CanSee
+### CanSee
 
 
 Now `Fields/Layouts/TD` and have a common trait. Without any restrictions. Now you can do this:
@@ -155,7 +155,7 @@ return ...;
 }
 ```
 
-## Stimulus
+### Stimulus
 
 The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:
 
@@ -167,7 +167,7 @@ The Stimulus framework has been updated to version 2.0. Backward compatibility w
 <div data-controller="checkbox">
 ```
 
-## Turbo
+### Turbo
 
 The Turbolinks library has been updated to Turbo for more details here: https://turbo.hotwire.dev/
 
@@ -185,18 +185,18 @@ document.addEventListener("turbo:load", function() {
 })
 ```
 
-## Compendium
+### Compendium
 
 The `Compendium` class has been removed. Recommend using a newer `Legend`.
 
 
-# Upgrading to 9.0 from 8.x
+## Upgrading to 9.0 from 8.x
 
-## Updating dependencies
+### Updating dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^9.0`
 
-## Auth
+### Auth
 
 The Laravel team has introduced new products [Jetstream](https://github.com/laravel/jetstream) and [Fortify](https://github.com/laravel/fortify), which replace the earlier [laravel/ui](https://github.com/laravel/ui). To ensure compatibility with various options, the dependency on `laravel/ui ha`s been removed. And with it, the ability to recover your password.
 
@@ -219,17 +219,17 @@ After that, you need to remove the column data from your user model.
 
 ------
 
-# Upgrading to 8.0 from 7.x
+## Upgrading to 8.0 from 7.x
 
-## Updating dependencies
+### Updating dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^8.0`
 
-## TinyMCE editor
+### TinyMCE editor
 
 The `HTML` editor has been removed from the standard distribution. The code has been moved to a separate [repository](https://github.com/orchidcommunity/TinyMCE).
 
-## Settings model
+### Settings model
 
 The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following `SQL` code:
@@ -243,7 +243,7 @@ WHERE migration = '2015_12_02_181214_create_table_settings';
 
 The source code is available for installation as a separate [package](https://github.com/tabuna/settings).
 
-## Bread crumbs
+### Bread crumbs
 
 Package `davejamesmiller/laravel-breadcrumbs` is replaced with `tabuna/breadcrumbs`
 and should be installed automatically when the dependencies are updated.
@@ -290,9 +290,9 @@ use Tabuna\Breadcrumbs\Breadcrumbs;
 use Tabuna\Breadcrumbs\Trail;
 ```
 
-## Screen changes
+### Screen changes
 
-### Constructor
+#### Constructor
 
 Passing a `Request` object and calling the parent class is no longer necessary. Before:
 ```php
@@ -318,7 +318,7 @@ class PublicationScreen extends Screen
 }
 ```
 
-### Route methods
+#### Route methods
 
 Methods not used have been removed. It is no longer possible to access screens via the `PUT|PATCH|DELETE` methods, the call must use `GET|POSTS` to receive/send data.
 
@@ -331,7 +331,7 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
 
 Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers. [More](https://github.com/orchidsoftware/platform/issues/1150).
 
-### Data spoofing (Async)
+#### Data spoofing (Async)
 
 The `{argument?}` Expectation has been removed from the address bar.
 Now a separate route is used for the call:
@@ -342,7 +342,7 @@ $this->router
     ->name('async');
 ```
 
-## Layouts
+### Layouts
 
 Each layer now inherits from the class `Orchid\Screen\Layout`, rather than from `Orchid\Screen\Layouts\Base`.
 
@@ -366,7 +366,7 @@ Layout::row([
 ]);
 ```
 
-## Release message
+### Release message
 
 A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
 This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the `blade` template. Screen call example:
@@ -381,7 +381,7 @@ Using a template in the screen:
 Layout::view('platform::partials.update');
 ```
 
-## Icons
+### Icons
 
 The icon display has been changed from `font` to `SVG` format.
 Now the `->icon` methods do not accept the `css` value to be set, but the file name.
