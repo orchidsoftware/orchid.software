@@ -435,9 +435,6 @@
                 <a href="#columns">Columns</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#drop-down-list">Drop-down list</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#selection">Selection</a>
             </li>
                     <li class="anchor-h2">
@@ -522,20 +519,6 @@ public function layout(): array
            TableExample::class,
            RowExample::class,
         ]),
-    ];
-}
-</code></pre>
-
-<h2><a href="#drop-down-list" name="drop-down-list">Drop-down list</a></h2>
-
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::collapse([
-            Input::make('name')
-                -&gt;type('text')
-                -&gt;title('Name Articles')
-        ])-&gt;label('More'),
     ];
 }
 </code></pre>

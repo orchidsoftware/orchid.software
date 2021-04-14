@@ -464,7 +464,7 @@
 
 <pre><code class="language-php">namespace App\Orchid;
 
-use Orchid\Platform\ItemMenu;
+use Orchid\Screen\Actions\Menu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
@@ -474,22 +474,21 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
+            Menu::make('Example')-&gt;url('https://orchid.software/'),
         ];
     }
 }
 </code></pre>
 
-<p>The methods <code>registerMainMenu</code>, <code>registerProfileMenu</code>, and <code>registerSystemMenu</code> must return the menu items that are required to be displayed.</p>
+<p>The methods <code>registerMainMenu</code> and <code>registerProfileMenu</code> must return the menu items that are required to be displayed.</p>
 
 <h2><a href="#location" name="location">Location</a></h2>
 
-<p>Let's look at an example. Initially we create an <code>ItemMenu</code> object, setting various parameters, and then add the item to a specific place.
+<p>Let's look at an example. Initially we create an <code>Menu</code> object, setting various parameters, and then add the item to a specific place.
 There are several such places:</p>
 
 <ul>
 <li><strong>registerMainMenu</strong> - The menu is displayed on each page on the left side.</li>
-<li><strong>registerSystemMenu</strong> - The menu that forms the navigation on the system page.</li>
 <li><strong>registerProfileMenu</strong> - The menu displayed when you click on the profile.</li>
 </ul>
 
@@ -501,30 +500,32 @@ There are several such places:</p>
 
 <p>Reference Reference:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;url('https://orchid.software/');
+<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example')-&gt;url('https://orchid.software/');
 </code></pre>
 
 <p>Specifying a link through the route:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;route('route.idea');
+<pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
 </code></pre>
 
 <p>To determine the link activity, use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package
 Link activity, when using <code>route</code> and <code>url</code> is set automatically,
 but it is acceptable to change with the help of explicit instructions:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')
+<pre><code class="language-php">Menu::make('Example')
     -&gt;route('route.idea')
     -&gt;active('route.idea*');
 
-ItemMenu::label('Example')
+Menu::make('Example')
     -&gt;route('route.idea')
     -&gt;active([
         'route.idea',
         'route.other'
     ]);
 
-ItemMenu::label('Example')
+Menu::make('Example')
     -&gt;url('/pages/contact')
     -&gt;active('not:pages/contact');
 </code></pre>
@@ -534,41 +535,41 @@ ItemMenu::label('Example')
 <p>Quite an expected situation when some links should be missing
 depending on the availability of rights or other circumstances, for this:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');
+<pre><code class="language-php">Menu::make('Example')-&gt;permission('platform.idea');
 </code></pre>
 
 <p>or any other check returning a boolean value:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);
+<pre><code class="language-php">Menu::make('Example')-&gt;canSee(true);
 </code></pre>
 
 <h2><a href="#appearance" name="appearance">Appearance</a></h2>
 
 <p>For a menu item, you can specify a graphic icon with:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');
+<pre><code class="language-php">Menu::make('Example')-&gt;icon('heart');
 </code></pre>
 
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');
+<pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
 </code></pre>
 
 <h2><a href="#display-order" name="display-order">Display order</a></h2>
 
 <p>Sorting set by setting the sequence number:</p>
 
-<pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
-ItemMenu::label('First')-&gt;sort(4);
+<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
+Menu::make('First')-&gt;sort(4);
 </code></pre>
 
 <h2><a href="#badge-notifications" name="badge-notifications">Badge notifications</a></h2>
 
 <p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
 
-<pre><code class="language-php">ItemMenu::label('Comments')
+<pre><code class="language-php">Menu::make('Comments')
     -&gt;icon('bubbles')
-    -&gt;route('platform.systems.comments')
+    -&gt;route('platform.comments')
     -&gt;badge(function () {
         return 10;
     });
@@ -576,30 +577,32 @@ ItemMenu::label('First')-&gt;sort(4);
 
 <h2><a href="#nested-menu" name="nested-menu">Nested menu</a></h2>
 
-<p>To be able to create a submenu, you need to add the main item and specify its unique name using the <code>slug</code> method, then you can add other elements to the new item.</p>
+<p>You can specify a single-level submenu as follows:</p>
 
-<pre><code class="language-php">ItemMenu::label('My menu')
-    -&gt;slug('Idea')
-    -&gt;withChildren();
-
-ItemMenu::label('Sub element')
-    -&gt;place('Idea');
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
+        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+    ]),
 </code></pre>
 
-<p>When the children have different display rules, so as not to list them all in the parent, you can use the <code>hiddenEmpty</code> method. He will hide it when the subitems are unavailable:</p>
+<p>To create a submenu dynamic, you need to add the main item and specify its unique name using the <code>slug</code> method. Then you can add other elements to the new item.</p>
 
-<pre><code class="language-php">ItemMenu::label('Dropdown menu')
-    -&gt;slug('parent-hidden-menu')
-    -&gt;withChildren()
-    -&gt;hideEmpty();
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;slug('sub-menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
 
-ItemMenu::label('Sub element item 1')
-    -&gt;place('parent-hidden-menu')
-    -&gt;canSee(false);
+<p>And then add new items in our own packages like:</p>
 
-ItemMenu::label('Sub element item 2')
-    -&gt;place('parent-hidden-menu')
-    -&gt;canSee(false);
+<pre><code class="language-php">Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+    Menu::make('Sub element item 3')-&gt;icon('badge')
+]);
 </code></pre>
                     </div>
                 </main>
