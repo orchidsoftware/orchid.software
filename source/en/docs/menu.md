@@ -14,7 +14,7 @@ The default menu registration takes place in the `app/Orchid/PlatformProvider.ph
 ```php
 namespace App\Orchid;
 
-use Orchid\Platform\ItemMenu;
+use Orchid\Screen\Actions\Menu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
@@ -24,21 +24,20 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
+            Menu::make('Example')->url('https://orchid.software/'),
         ];
     }
 }
 ```
 
-The methods `registerMainMenu`, `registerProfileMenu`, and `registerSystemMenu` must return the menu items that are required to be displayed.
+The methods `registerMainMenu` and `registerProfileMenu` must return the menu items that are required to be displayed.
 
 ## Location
 
-Let's look at an example. Initially we create an `ItemMenu` object, setting various parameters, and then add the item to a specific place.
+Let's look at an example. Initially we create an `Menu` object, setting various parameters, and then add the item to a specific place.
 There are several such places:
 
 - **registerMainMenu** - The menu is displayed on each page on the left side.
-- **registerSystemMenu** - The menu that forms the navigation on the system page.
 - **registerProfileMenu** - The menu displayed when you click on the profile.
 
 
@@ -49,12 +48,14 @@ There are several such places:
 Reference Reference:
 
 ```php
-ItemMenu::label('Example')->url('https://orchid.software/');
+use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example')->url('https://orchid.software/');
 ```
  
 Specifying a link through the route:
 ```php
-ItemMenu::label('Example')->route('route.idea');
+Menu::make('Example')->route('route.idea');
 ```
 
 
@@ -63,18 +64,18 @@ Link activity, when using `route` and `url` is set automatically,
 but it is acceptable to change with the help of explicit instructions:
 
 ```php
-ItemMenu::label('Example')
+Menu::make('Example')
     ->route('route.idea')
     ->active('route.idea*');
     
-ItemMenu::label('Example')
+Menu::make('Example')
     ->route('route.idea')
     ->active([
         'route.idea',
         'route.other'
     ]);
     
-ItemMenu::label('Example')
+Menu::make('Example')
     ->url('/pages/contact')
     ->active('not:pages/contact');
 ```
@@ -85,13 +86,13 @@ Quite an expected situation when some links should be missing
 depending on the availability of rights or other circumstances, for this:
 
 ```php
-ItemMenu::label('Example')->permission('platform.idea');
+Menu::make('Example')->permission('platform.idea');
 ```
 
 or any other check returning a boolean value:
 
 ```php
-ItemMenu::label('Example')->canSee(true);
+Menu::make('Example')->canSee(true);
 ```
 
 ## Appearance
@@ -99,21 +100,21 @@ ItemMenu::label('Example')->canSee(true);
 For a menu item, you can specify a graphic icon with:
 
 ```php
-ItemMenu::label('Example')->icon('heart');
+Menu::make('Example')->icon('heart');
 ```
 
 It is also possible to integrate into a visual group by setting the title for the first element:
 
 ```php
-ItemMenu::label('Example')->title('Analytics');
+Menu::make('Example')->title('Analytics');
 ```
 
 ## Display order
 
 Sorting set by setting the sequence number:
 ```php
-ItemMenu::label('Second')->sort(5);
-ItemMenu::label('First')->sort(4);
+Menu::make('Second')->sort(5);
+Menu::make('First')->sort(4);
 ```
 
 ## Badge notifications
@@ -121,9 +122,9 @@ ItemMenu::label('First')->sort(4);
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
 
 ```php
-ItemMenu::label('Comments')
+Menu::make('Comments')
     ->icon('bubbles')
-    ->route('platform.systems.comments')
+    ->route('platform.comments')
     ->badge(function () {
         return 10;
     });
@@ -131,31 +132,34 @@ ItemMenu::label('Comments')
 
 ## Nested menu
 
-To be able to create a submenu, you need to add the main item and specify its unique name using the `slug` method, then you can add other elements to the new item.
+You can specify a single-level submenu as follows:
 
 ```php
-ItemMenu::label('My menu')
-    ->slug('Idea')
-    ->withChildren();
-    
-ItemMenu::label('Sub element')
-    ->place('Idea');
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag')->sort(2),
+        Menu::make('Sub element item 2')->icon('heart')->sort(0),
+    ]),
 ```
 
-When the children have different display rules, so as not to list them all in the parent, you can use the `hiddenEmpty` method. He will hide it when the subitems are unavailable:
+To create a submenu dynamic, you need to add the main item and specify its unique name using the `slug` method. Then you can add other elements to the new item.
 
 ```php
-ItemMenu::label('Dropdown menu')
-    ->slug('parent-hidden-menu')
-    ->withChildren()
-    ->hideEmpty();
+Menu::make('Dropdown menu')
+    ->slug('sub-menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
 
-ItemMenu::label('Sub element item 1')
-    ->place('parent-hidden-menu')
-    ->canSee(false);
-    
-ItemMenu::label('Sub element item 2')
-    ->place('parent-hidden-menu')
-    ->canSee(false);
+And then add new items in our own packages like:
+
+```php
+Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+    Menu::make('Sub element item 3')->icon('badge')
+]);
 ```
 
