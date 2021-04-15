@@ -364,6 +364,30 @@
 
                         <ul class="pl-5">
                     <li class="anchor-h2">
+                <a href="#obnovlenie-do-100-s-9x">Обновление до 10.0 с 9.x</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#obnovlenie-zavisimostei">Обновление зависимостей</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#menyu">Меню</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#cansee">CanSee</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#stimulus">Stimulus</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#turbo">Turbo</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#compendium">Compendium</a>
+            </li>
+                    <li class="anchor-h3">
+                <a href="#collapse">Collapse</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#obnovlenie-do-90-s-8x">Обновление до 9.0 с 8.x</a>
             </li>
                     <li class="anchor-h3">
@@ -415,6 +439,176 @@
                         <blockquote>
   <p>Мы пытаемся задокументировать все возможные критические изменения. Некоторые из этих изменений относятся к внутренним обращениям, поэтому только часть этих изменений может фактически повлиять на ваше приложение.</p>
 </blockquote>
+
+<h2><a href="#obnovlenie-do-100-s-9x" name="obnovlenie-do-100-s-9x">Обновление до 10.0 с 9.x</a></h2>
+
+<h3><a href="#obnovlenie-zavisimostei" name="obnovlenie-zavisimostei">Обновление зависимостей</a></h3>
+
+<p>В вашем файле <code>composer.json</code> обновите зависимость <code>orchid/platform</code> до <code>^10.0</code></p>
+
+<h3><a href="#menyu" name="menyu">Меню</a></h3>
+
+<p>Разделы меню были сокращены,  "системное меню" было удалено. Константы теперь в классе <code>Orchid\Platform\Dashboard</code>.</p>
+
+<pre><code class="language-php">use Orchid\Platform\Dashboard;
+
+Dashboard::MENU_MAIN;
+Dashboard::MENU_PROFILE;
+</code></pre>
+
+<p>Меню теперь являются классами <code>Field</code> и имеют унифицированный синтаксис. До:</p>
+
+<pre><code class="language-php">ItemMenu::label('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;badge(function () {
+        return 6;
+    });
+</code></pre>
+
+<p>После:</p>
+
+<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;badge(function () {
+        return 6;
+    });
+</code></pre>
+
+<p>Как видите, обновление должно быть очень мягким.
+Но отличия также будут, например, написание вложенных элементов будет более наглядным:</p>
+
+<p>До:</p>
+
+<pre><code class="language-php">ItemMenu::label('Dropdown menu')
+    -&gt;slug('example-menu')
+    -&gt;icon('code')
+    -&gt;withChildren(),
+
+ItemMenu::label('Sub element item 1')
+    -&gt;place('example-menu')
+    -&gt;icon('bag'),
+
+ItemMenu::label('Sub element item 2')
+    -&gt;place('example-menu')
+    -&gt;icon('heart'),
+</code></pre>
+
+<p>После:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
+
+<p>Значение по умолчанию для сортировки изменено с 1000 на 0:</p>
+
+<pre><code class="language-php">Menu::make('Example screen')
+    -&gt;icon('monitor')
+    -&gt;route('platform.example')
+    -&gt;title('Navigation')
+    -&gt;sort(2),
+</code></pre>
+
+<p>Это также верно для вложенных элементов:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
+        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+    ]),
+</code></pre>
+
+<p>Для динамического определения вам нужно вызвать метод <code>slug</code>, в котором передается уникальная строка:</p>
+
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;slug('sub-menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
+
+<p>Что бы добавить новые элементы динамически:</p>
+
+<pre><code class="language-php">Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+   Menu::make('Sub element item 3')-&gt;icon('badge')
+]);
+</code></pre>
+
+<blockquote>
+  <p><strong>Внимание.</strong> Нужно соблюдать порядок загрузки.</p>
+</blockquote>
+
+<h3><a href="#cansee" name="cansee">CanSee</a></h3>
+
+<p>Теперь у <code>Fields/Layouts/TD</code> есть общий trait. Теперь вы можете это сделать:</p>
+
+<pre><code class="language-php">Input::make()-&gt;canSee(false);
+TD::make()-&gt;canSee(false);
+Layout::rows([])-&gt;canSee(false);
+</code></pre>
+
+<p>Но теперь определение внутри слоя другое:</p>
+
+<pre><code class="language-php">// before
+public function canSee(Repository $query): bool
+{
+    return ...;
+}
+
+// after
+public function isSee(): bool
+{
+    return ...;
+}
+</code></pre>
+
+<h3><a href="#stimulus" name="stimulus">Stimulus</a></h3>
+
+<p>Фреймворк Stimulus обновлен до версии 2.0. Обратная совместимость сохранена, но в именах контроллеров избавлены от префиксов:</p>
+
+<pre><code class="language-js">&lt;!--  before: --&gt;
+&lt;div data-controller="fields--checkbox"&gt;
+
+&lt;!--  after: --&gt;
+&lt;div data-controller="checkbox"&gt;
+</code></pre>
+
+<h3><a href="#turbo" name="turbo">Turbo</a></h3>
+
+<p>Библиотека Turbolinks была обновлена до Turbo, подробнее здесь: https://turbo.hotwire.dev/</p>
+
+<p>Если вы использовали собственные js-скрипты, то рекомендуется ознакомиться с их изменениями. Например:</p>
+
+<pre><code class="language-js">// before
+document.addEventListener("turbolinks:load", function() {
+    // ...
+})
+
+// after
+document.addEventListener("turbo:load", function() {
+  // ...
+})
+</code></pre>
+
+<h3><a href="#compendium" name="compendium">Compendium</a></h3>
+
+<p>Класс <code>Compendium</code> был удален. Рекомендую использовать более новую версию <code>Legend</code>.</p>
+
+<h3><a href="#collapse" name="collapse">Collapse</a></h3>
+
+<p>Класс <code>Collapse</code> был удален.</p>
 
 <h2><a href="#obnovlenie-do-90-s-8x" name="obnovlenie-do-90-s-8x">Обновление до 9.0 с 8.x</a></h2>
 
