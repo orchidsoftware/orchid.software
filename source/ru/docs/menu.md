@@ -22,7 +22,7 @@ lang: ru
 ```php
 namespace App\Orchid;
 
-use Orchid\Platform\ItemMenu;
+use Orchid\Screen\Actions\Menu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
@@ -32,22 +32,21 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            ItemMenu::label('Example')->url('https://orchid.software/'),
+            Menu::make('Example')->url('https://orchid.software/'),
         ];
     }
 }
 ```
 
-Методы `registerMainMenu`, `registerProfileMenu` и `registerProfileMenu` должны возвращать элементы меню которые необходимы для показа.
+Методы `registerMainMenu` и `registerProfileMenu` должны возвращать элементы меню которые необходимы для показа.
 
 
 ## Месторасположение
 
-Разберём пример, изначально мы создаём объект `ItemMenu`, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
+Разберём пример, изначально мы создаём объект `Menu`, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
 Таких мест несколько:
 
 - **registerMainMenu** - Меню отображаемое на каждой странице с левой стороны.
-- **registerSystemMenu** - Меню формирующую навигацию по системной странице.
 - **registerProfileMenu** - Меню отображаемое при нажатии на профиль.
 
 ## Параметры
@@ -56,9 +55,9 @@ class PlatformProvider extends OrchidServiceProvider
 Базовое использование:
 
 ```php
-use Orchid\Platform\ItemMenu;
+use Orchid\Screen\Actions\Menu;
 
-ItemMenu::label('Example');
+Menu::make('Example')->url('https://orchid.software/');
 ```
 
 > **Примечание.** Для каждого элемента при создании генерируется уникальный ключ, который не может повторяться, но его можно изменить вручную с помощью метода `slug`.
@@ -73,7 +72,7 @@ ItemMenu::label('Example')->url('https://orchid.software/');
  
 Указание ссылки через маршрут:
 ```php
-ItemMenu::label('Example')->route('route.idea');
+Menu::make('Example')->route('route.idea');
 ```
 
 Для определения активности ссылки используется пакет [dwightwatson/active](https://github.com/dwightwatson/active).
@@ -81,18 +80,18 @@ ItemMenu::label('Example')->route('route.idea');
 но допустимо изменение с помощью явного указания:
 
 ```php
-ItemMenu::label('Example')
+Menu::make('Example')
     ->route('route.idea')
     ->active('route.idea*');
     
-ItemMenu::label('Example')
+Menu::make('Example')
     ->route('route.idea')
     ->active([
         'route.idea',
         'route.other'
     ]);
     
-ItemMenu::label('Example')
+Menu::make('Example')
     ->url('/pages/contact')
     ->active('not:pages/contact');
 ```
@@ -103,13 +102,13 @@ ItemMenu::label('Example')
 в зависимости от наличия прав или других обстоятельств, для этого:
 
 ```php
-ItemMenu::label('Example')->permission('platform.idea');
+Menu::make('Example')->permission('platform.idea');
 ```
 
 или любая другая проверка возвращающая булево значение:
 
 ```php
-ItemMenu::label('Example')->canSee(true);
+Menu::make('Example')->canSee(true);
 ```
 
 #### Внешний вид
@@ -118,13 +117,13 @@ ItemMenu::label('Example')->canSee(true);
 Для элемента меню можно указать графическую иконку с помощью:
 
 ```php
-ItemMenu::label('Example')->icon('heart');
+Menu::make('Example')->icon('heart');
 ```
 
 Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:
 
 ```php
-ItemMenu::label('Example')->title('Analytics');
+Menu::make('Example')->title('Analytics');
 ```
 
 ### Порядок отображения
@@ -132,8 +131,8 @@ ItemMenu::label('Example')->title('Analytics');
 Сортировка устанавливается через задание порядкового номера:
 
 ```php
-ItemMenu::label('Second')->sort(5);
-ItemMenu::label('First')->sort(4);
+Menu::make('Second')->sort(5);
+Menu::make('First')->sort(4);
 ```
 
 ### Уведомления
@@ -141,7 +140,7 @@ ItemMenu::label('First')->sort(4);
 Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:
 
 ```php
-ItemMenu::label('Comments')
+Menu::make('Comments')
     ->icon('bubbles')
     ->route('platform.systems.comments')
     ->badge(function () {
@@ -151,32 +150,35 @@ ItemMenu::label('Comments')
 
 ## Вложенное меню
 
-Для возможности создания вложенного меню необходимо добавить основной пункт и указать его уникальное имя с помощью метода `slug`, после этого можно добавлять остальные элементы к новому пункту.
-
+Вы можете указать одноуровневое подменю следующим образом:
 
 ```php
-ItemMenu::label('My menu')
-    ->slug('Idea')
-    ->withChildren();
-    
-ItemMenu::label('Sub element')
-    ->place('Idea');
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag')->sort(2),
+        Menu::make('Sub element item 2')->icon('heart')->sort(0),
+    ]),
 ```
 
 
-Когда дочерние элементы имеют разные правила отображения, чтобы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет пункт меню, когда подпункты будут недоступны:
+Чтобы создать динамическое подменю, вам нужно добавить основной элемент и указать его уникальное имя с помощью метода `slug`. 
+Затем вы можете добавить к новому элементу другие элементы.
 
 ```php
-ItemMenu::label('Dropdown menu')
-    ->slug('parent-hidden-menu')
-    ->withChildren()
-    ->hideEmpty();
+Menu::make('Dropdown menu')
+    ->slug('sub-menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
 
-ItemMenu::label('Sub element item 1')
-    ->place('parent-hidden-menu')
-    ->canSee(false);
-    
-ItemMenu::label('Sub element item 2')
-    ->place('parent-hidden-menu')
-    ->canSee(false);
+А затем добавляем новые элементы, например:
+
+```php
+Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+    Menu::make('Sub element item 3')->icon('badge')
+]);
 ```
