@@ -14,7 +14,7 @@ We like to keep things as modern as possible and have a "release early, release 
 
 ### Updating dependencies
 
-В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^10.0`
+In your `composer.json` file, update the `orchid/platform` dependency to `^10.0`
 
 ### Menu
 
