@@ -410,7 +410,7 @@
 
 <pre><code class="language-php">namespace App\Orchid;
 
-use Orchid\Platform\ItemMenu;
+use Orchid\Screen\Actions\Menu;
 use Orchid\Platform\OrchidServiceProvider;
 
 class PlatformProvider extends OrchidServiceProvider
@@ -420,22 +420,21 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            ItemMenu::label('Example')-&gt;url('https://orchid.software/'),
+            Menu::make('Example')-&gt;url('https://orchid.software/'),
         ];
     }
 }
 </code></pre>
 
-<p>Методы <code>registerMainMenu</code>, <code>registerProfileMenu</code> и <code>registerProfileMenu</code> должны возвращать элементы меню которые необходимы для показа.</p>
+<p>Методы <code>registerMainMenu</code> и <code>registerProfileMenu</code> должны возвращать элементы меню которые необходимы для показа.</p>
 
 <h2><a href="#mestoraspolozenie" name="mestoraspolozenie">Месторасположение</a></h2>
 
-<p>Разберём пример, изначально мы создаём объект <code>ItemMenu</code>, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
+<p>Разберём пример, изначально мы создаём объект <code>Menu</code>, устанавливая различные параметры, после чего добавляем элемент к конкретному месту.
 Таких мест несколько:</p>
 
 <ul>
 <li><strong>registerMainMenu</strong> - Меню отображаемое на каждой странице с левой стороны.</li>
-<li><strong>registerSystemMenu</strong> - Меню формирующую навигацию по системной странице.</li>
 <li><strong>registerProfileMenu</strong> - Меню отображаемое при нажатии на профиль.</li>
 </ul>
 
@@ -443,9 +442,9 @@ class PlatformProvider extends OrchidServiceProvider
 
 <p>Базовое использование:</p>
 
-<pre><code class="language-php">use Orchid\Platform\ItemMenu;
+<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
 
-ItemMenu::label('Example');
+Menu::make('Example')-&gt;url('https://orchid.software/');
 </code></pre>
 
 <blockquote>
@@ -461,25 +460,25 @@ ItemMenu::label('Example');
 
 <p>Указание ссылки через маршрут:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;route('route.idea');
+<pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
 </code></pre>
 
 <p>Для определения активности ссылки используется пакет <a href="https://github.com/dwightwatson/active">dwightwatson/active</a>.
 Активность ссылок, при использовании <code>route</code> и <code>url</code>, устанавливается автоматически,
 но допустимо изменение с помощью явного указания:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')
+<pre><code class="language-php">Menu::make('Example')
     -&gt;route('route.idea')
     -&gt;active('route.idea*');
 
-ItemMenu::label('Example')
+Menu::make('Example')
     -&gt;route('route.idea')
     -&gt;active([
         'route.idea',
         'route.other'
     ]);
 
-ItemMenu::label('Example')
+Menu::make('Example')
     -&gt;url('/pages/contact')
     -&gt;active('not:pages/contact');
 </code></pre>
@@ -489,39 +488,39 @@ ItemMenu::label('Example')
 <p>Вполне ожидаема ситуация, когда некоторые ссылки должны отсутствовать
 в зависимости от наличия прав или других обстоятельств, для этого:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;permission('platform.idea');
+<pre><code class="language-php">Menu::make('Example')-&gt;permission('platform.idea');
 </code></pre>
 
 <p>или любая другая проверка возвращающая булево значение:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;canSee(true);
+<pre><code class="language-php">Menu::make('Example')-&gt;canSee(true);
 </code></pre>
 
 <h4><a href="#vnesnii-vid" name="vnesnii-vid">Внешний вид</a></h4>
 
 <p>Для элемента меню можно указать графическую иконку с помощью:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;icon('heart');
+<pre><code class="language-php">Menu::make('Example')-&gt;icon('heart');
 </code></pre>
 
 <p>Так же, возможно объединение в визуальную группу с помощью установки заголовка для первого элемента:</p>
 
-<pre><code class="language-php">ItemMenu::label('Example')-&gt;title('Analytics');
+<pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
 </code></pre>
 
 <h3><a href="#poryadok-otobrazeniya" name="poryadok-otobrazeniya">Порядок отображения</a></h3>
 
 <p>Сортировка устанавливается через задание порядкового номера:</p>
 
-<pre><code class="language-php">ItemMenu::label('Second')-&gt;sort(5);
-ItemMenu::label('First')-&gt;sort(4);
+<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
+Menu::make('First')-&gt;sort(4);
 </code></pre>
 
 <h3><a href="#uvedomleniya" name="uvedomleniya">Уведомления</a></h3>
 
 <p>Пункты меню имеют возможность уведомлять пользователя о каких либо событиях в виде числового значения, для этого:</p>
 
-<pre><code class="language-php">ItemMenu::label('Comments')
+<pre><code class="language-php">Menu::make('Comments')
     -&gt;icon('bubbles')
     -&gt;route('platform.systems.comments')
     -&gt;badge(function () {
@@ -531,30 +530,33 @@ ItemMenu::label('First')-&gt;sort(4);
 
 <h2><a href="#vlozennoe-menyu" name="vlozennoe-menyu">Вложенное меню</a></h2>
 
-<p>Для возможности создания вложенного меню необходимо добавить основной пункт и указать его уникальное имя с помощью метода <code>slug</code>, после этого можно добавлять остальные элементы к новому пункту.</p>
+<p>Вы можете указать одноуровневое подменю следующим образом:</p>
 
-<pre><code class="language-php">ItemMenu::label('My menu')
-    -&gt;slug('Idea')
-    -&gt;withChildren();
-
-ItemMenu::label('Sub element')
-    -&gt;place('Idea');
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
+        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+    ]),
 </code></pre>
 
-<p>Когда дочерние элементы имеют разные правила отображения, чтобы не перечислять их все и в родительском, можно воспользоваться методом 'hiddenEmpty'. Он спрячет пункт меню, когда подпункты будут недоступны:</p>
+<p>Чтобы создать динамическое подменю, вам нужно добавить основной элемент и указать его уникальное имя с помощью метода <code>slug</code>. 
+Затем вы можете добавить к новому элементу другие элементы.</p>
 
-<pre><code class="language-php">ItemMenu::label('Dropdown menu')
-    -&gt;slug('parent-hidden-menu')
-    -&gt;withChildren()
-    -&gt;hideEmpty();
+<pre><code class="language-php">Menu::make('Dropdown menu')
+    -&gt;slug('sub-menu')
+    -&gt;icon('code')
+    -&gt;list([
+        Menu::make('Sub element item 1')-&gt;icon('bag'),
+        Menu::make('Sub element item 2')-&gt;icon('heart'),
+    ]),
+</code></pre>
 
-ItemMenu::label('Sub element item 1')
-    -&gt;place('parent-hidden-menu')
-    -&gt;canSee(false);
+<p>А затем добавляем новые элементы, например:</p>
 
-ItemMenu::label('Sub element item 2')
-    -&gt;place('parent-hidden-menu')
-    -&gt;canSee(false);
+<pre><code class="language-php">Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+    Menu::make('Sub element item 3')-&gt;icon('badge')
+]);
 </code></pre>
                     </div>
                 </main>
