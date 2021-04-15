@@ -7,6 +7,187 @@ lang: ru
 
 > Мы пытаемся задокументировать все возможные критические изменения. Некоторые из этих изменений относятся к внутренним обращениям, поэтому только часть этих изменений может фактически повлиять на ваше приложение.
 
+## Обновление до 10.0 с 9.x
+
+### Обновление зависимостей
+
+В вашем файле `composer.json` обновите зависимость `orchid/platform` до `^10.0`
+
+### Меню
+
+Разделы меню были сокращены,  "системное меню" было удалено. Константы теперь в классе `Orchid\Platform\Dashboard`.
+
+```php
+use Orchid\Platform\Dashboard;
+
+Dashboard::MENU_MAIN;
+Dashboard::MENU_PROFILE;
+```
+
+Меню теперь являются классами `Field` и имеют унифицированный синтаксис. До:
+
+```php
+ItemMenu::label('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->badge(function () {
+        return 6;
+    });
+```
+
+После:
+```php
+use Orchid\Screen\Actions\Menu;
+
+Menu::make('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->badge(function () {
+        return 6;
+    });
+```
+
+Как видите, обновление должно быть очень мягким.
+Но отличия также будут, например, написание вложенных элементов будет более наглядным:
+
+До:
+
+```php
+ItemMenu::label('Dropdown menu')
+    ->slug('example-menu')
+    ->icon('code')
+    ->withChildren(),
+
+ItemMenu::label('Sub element item 1')
+    ->place('example-menu')
+    ->icon('bag'),
+
+ItemMenu::label('Sub element item 2')
+    ->place('example-menu')
+    ->icon('heart'),
+```
+
+После:
+
+```php
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
+
+Значение по умолчанию для сортировки изменено с 1000 на 0:
+
+```php
+Menu::make('Example screen')
+    ->icon('monitor')
+    ->route('platform.example')
+    ->title('Navigation')
+    ->sort(2),
+```
+
+Это также верно для вложенных элементов:
+
+```php
+Menu::make('Dropdown menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag')->sort(2),
+        Menu::make('Sub element item 2')->icon('heart')->sort(0),
+    ]),
+```
+
+Для динамического определения вам нужно вызвать метод `slug`, в котором передается уникальная строка:
+
+```php
+Menu::make('Dropdown menu')
+    ->slug('sub-menu')
+    ->icon('code')
+    ->list([
+        Menu::make('Sub element item 1')->icon('bag'),
+        Menu::make('Sub element item 2')->icon('heart'),
+    ]),
+```
+
+Что бы добавить новые элементы динамически:
+
+```php
+Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
+   Menu::make('Sub element item 3')->icon('badge')
+]);
+```
+
+> **Внимание.** Нужно соблюдать порядок загрузки.
+
+### CanSee
+
+Теперь у `Fields/Layouts/TD` есть общий trait. Теперь вы можете это сделать:
+
+```php
+Input::make()->canSee(false);
+TD::make()->canSee(false);
+Layout::rows([])->canSee(false);
+```
+
+Но теперь определение внутри слоя другое:
+
+```php
+// before
+public function canSee(Repository $query): bool
+{
+    return ...;
+}
+
+// after
+public function isSee(): bool
+{
+    return ...;
+}
+```
+
+### Stimulus
+
+Фреймворк Stimulus обновлен до версии 2.0. Обратная совместимость сохранена, но в именах контроллеров избавлены от префиксов:
+
+```js
+<!--  before: -->
+<div data-controller="fields--checkbox">
+
+<!--  after: -->
+<div data-controller="checkbox">
+```
+
+### Turbo
+
+Библиотека Turbolinks была обновлена до Turbo, подробнее здесь: https://turbo.hotwire.dev/
+
+Если вы использовали собственные js-скрипты, то рекомендуется ознакомиться с их изменениями. Например:
+
+```js
+// before
+document.addEventListener("turbolinks:load", function() {
+    // ...
+})
+
+// after
+document.addEventListener("turbo:load", function() {
+  // ...
+})
+```
+
+### Compendium
+
+Класс `Compendium` был удален. Рекомендую использовать более новую версию `Legend`.
+
+### Collapse
+
+Класс `Collapse` был удален.
+
+
 ## Обновление до 9.0 с 8.x
 
 ### Обновление зависимостей
