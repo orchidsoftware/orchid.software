@@ -91,22 +91,6 @@ public function layout(): array
 }
 ```
 
-## Раскрывающийся список
-
-```php
-public function layout(): array
-{
-    return [
-        Layout::collapse([
-            Input::make('name')
-                ->type('text')
-                ->title('Name Articles')
-        ])->label('More'),
-    ];
-}
-```
-
-
 ## Набор фильтров
 
 Для группировки фильтров, их сброса и применения, существует отдельный слой `Selection`, в котором они указываются.
