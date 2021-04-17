@@ -158,6 +158,8 @@ Menu::make('Dropdown menu')
 And then add new items in our own packages like:
 
 ```php
+use Orchid\Support\Facades\Dashboard;
+
 Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
     Menu::make('Sub element item 3')->icon('badge')
 ]);
