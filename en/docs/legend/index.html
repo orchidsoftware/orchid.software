@@ -7,9 +7,9 @@
         <meta name="author" content="Alexandr Chernyaev">
 
         <meta property="og:site_name" content="Orchid - Laravel Admin Panel">
-        <meta property="og:title" content="Display elements | Orchid - Laravel Admin Panel">
+        <meta property="og:title" content="Legend | Orchid - Laravel Admin Panel">
         <meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
-        <meta property="og:url" content="https://orchid.software/en/docs/display-elements">
+        <meta property="og:url" content="https://orchid.software/en/docs/legend">
         <meta property="og:image" content="/favicon.svg">
         <meta property="og:type" content="website">
 
@@ -19,11 +19,11 @@
         <meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel">
         <meta name="twitter:card" content="summary_large_image">
 
-        <link rel="alternate" href="https://orchid.software/ru/docs/display-elements/" hreflang="ru">
-        <link rel="alternate" href="https://orchid.software/en/docs/display-elements/" hreflang="en">
-        <link rel="alternate" href="https://orchid.software/en/docs/display-elements/" hreflang="x-default">
+        <link rel="alternate" href="https://orchid.software/ru/docs/legend/" hreflang="ru">
+        <link rel="alternate" href="https://orchid.software/en/docs/legend/" hreflang="en">
+        <link rel="alternate" href="https://orchid.software/en/docs/legend/" hreflang="x-default">
 
-        <title>Display elements | Orchid - Laravel Admin Panel</title>
+        <title>Legend | Orchid - Laravel Admin Panel</title>
 
         <link rel="home" href="https://orchid.software">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
@@ -248,7 +248,7 @@
         </a>
     
     </li>
-            <li class="">
+            <li class="active">
             
         <a href="/en/docs/legend" class="lvl1 ">
             Legend
@@ -283,7 +283,7 @@
         </a>
     
     </li>
-            <li class="active">
+            <li class="">
             
         <a href="/en/docs/display-elements" class="lvl1 ">
             Display elements
@@ -419,10 +419,10 @@
                 </div>
                 <main class="col bg-white">
                     <div class="py-2 px-2 py-md-4 px-md-4 order-md-first">
-                        <h1>Display elements</h1>
+                        <h1>Legend</h1>
 
                                                     <div class="none d-md-block">
-                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/display-elements.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/source/en/docs/legend.md" class="pull-right bg-white" style="margin-top: -0.5em; padding-left: 15px; ">
                                     <small class="text-muted">
 
                                         <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewbox="0 0 32 32" fill="currentColor">
@@ -434,406 +434,52 @@
                             </div>
                                                 <hr class="mb-4">
 
-                        <ul class="pl-5">
-                    <li class="anchor-h2">
-                <a href="#cards">Cards</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#using-custom-templates">Using custom templates</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#action">Action</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#use-with-presenter">Use with presenter</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#persona">Persona</a>
-            </li>
-                    <li class="anchor-h2">
-                <a href="#facepile">Facepile</a>
-            </li>
-            </ul>
-    <hr>
+                        
 
+                        <p>Legend layout is used to view one model:</p>
 
-                        <h2><a href="#cards" name="cards">Cards</a></h2>
+<p><img src="/assets/img/layouts/legend.png" alt="Legend"></p>
 
-<p>Cards are used to pack a small amount of content. Usually they contain a title, a short paragraph and control buttons.</p>
+<p>Legend supports short writing without creating a separate class, for example:</p>
 
-<p><img src="/assets/img/layouts/cards.png" alt="Cards"></p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Sight;
 
-<p>Cards accept only objects that implement the interface <code>Cardable</code>.</p>
-
-<pre><code class="language-php">use Orchid\Screen\Contracts\Cardable;
-use Orchid\Screen\Layouts\Card;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'card'        =&gt; new class implements Cardable {
-
-            public function title(): string
-            {
-                return 'Title of a longer featured blog post';
-            }
-
-            public function description(): string
-            {
-                return 'This is a wider card with supporting text below as a natural lead-in to additional content. 
-                        This content is a little bit longer. This is a wider card with supporting text below as 
-                        a natural lead-in to additional content. This content is a little bit longer. 
-                        This is a wider card with supporting text below as a natural lead-in to additional content.
-                        This content is a little bit longer.';
-            }
-
-            public function image(): ?string
-            {
-                return 'https://picsum.photos/600/300';
-            }
-
-            public function color(): ?Color
-            {
-                return Color::INFO();
-            }
-        },
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
 public function layout(): array
 {
     return [
-        new Card('card'),
-    ];
-}
-</code></pre>
-
-<h3><a href="#using-custom-templates" name="using-custom-templates">Using custom templates</a></h3>
-
-<p>The card allows you to combine any display in the <code>description</code> method,</p>
-
-<pre><code class="language-php">public function description(): string
-{
-    return view('template')-&gt;render();
-}
-</code></pre>
-
-<blockquote>
-  <p><strong>Note.</strong> Any value returned in it will be displayed as is.</p>
-</blockquote>
-
-<h3><a href="#action" name="action">Action</a></h3>
-
-<p>Cards support the indication of actions, as well as the <code>commandBar</code>, for this you need to add the second argument:</p>
-
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        new Card('card', [
-            Button::make('Example Button')
-                -&gt;method('example')
-                -&gt;icon('bag'),
+        Layout::legend('user', [
+            Sight::make('id'),
+            Sight::make('name'),
+            Sight::make('email'),
         ]),
     ];
 }
 </code></pre>
 
-<h3><a href="#use-with-presenter" name="use-with-presenter">Use with presenter</a></h3>
+<p>The first argument is expected to receive a key specified in the query method of the screen, which should be arrays or models. And the second is which columns you want to display.</p>
 
-<blockquote>
-  <p>In this example, <a href="/en/docs/presenters">presenters</a> are used, we strongly recommend that you familiarize yourself with them.</p>
-</blockquote>
+<p>Many methods for the <code>Sight</code> class are in common with <code>TD</code> (used in the table). For example, you can also add an explanation:</p>
 
-<p>Instead of creating a separate class, it is recommended to use representatives for <code>Eloquent</code> models, for example:</p>
-
-<pre><code class="language-php">namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Product extends Model
-{
-    protected $fillable = [
-        'title',
-        'descriptions',
-        'image',
-        'amount',
-    ];
-
-    public function presenter(): ProductPresenter
-    {
-        return new ProductPresenter($this);
-    }
-}
+<pre><code class="language-php">Layout::legend('user', [
+    Sight::make('id')-&gt;popover('Unique number in the system'),
+]),
 </code></pre>
 
-<p>You can record a presenter:</p>
+<p>In order to render your own template or additional processing, you can use the closure function passed to the <code>render</code> method:</p>
 
-<pre><code class="language-php">namespace App\Presenters;
-
-use Orchid\Screen\Contracts\Cardable;
-use Orchid\Support\Presenter;
-
-class ProductPresenter extends Presenter implements Cardable
-{
-    public function title(): string
-    {
-        return $this-&gt;entity-&gt;title;
-    }
-
-    public function description(): string
-    {
-        return $this-&gt;entity-&gt;description;
-    }
-
-    public function image(): ?string
-    {
-        return $this-&gt;entity-&gt;image;
-    }
-
-    public function color(): ?Color
-    {
-        return $this-&gt;entity-&gt;amount &gt; 0
-            ? Color::SUCCESS()
-            : Color::DANGER();
-    }
-}
+<pre><code class="language-php">Layout::legend('user', [
+    Sight::make('id')-&gt;render(function (){
+        return 'Any html';
+    }),
+]),
 </code></pre>
 
-<p>Then the usage record in the screen will be short:</p>
+<p>If such processing is needed often, then a more appropriate solution would be to create a <code>Blade component</code> (<a href="https://laravel.com/docs/blade#components">More details</a>) and specify it:</p>
 
-<pre><code class="language-php">use Orchid\Screen\Layouts\Card;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'product' =&gt; Product::findOrFail(1)-&gt;presenter(),
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
-public function layout(): array
-{
-    return [
-        new Card('product'),
-    ];
-}
-</code></pre>
-
-<h2><a href="#persona" name="persona">Persona</a></h2>
-
-<p>A person is used to visualize an avatar and describe a person.</p>
-
-<p><img src="/assets/img/layouts/persona.png" alt="persona"></p>
-
-<p><code>Persona</code> accepts a set of objects that implement the <code>Personable</code> interface.</p>
-
-<blockquote>
-  <p>This example uses <a href="/en/docs/presenters">presenters</a>, recommend that you familiarize yourself with them.</p>
-</blockquote>
-
-<p>Instead of creating a separate class, it is recommended to use representatives for <code>Eloquent</code> models, for example:</p>
-
-<pre><code class="language-php">namespace App;
-
-use App\Presenters\EmployeePresenter;
-use Illuminate\Database\Eloquent\Client;
-
-class Employee extends Model
-{
-    protected $fillable = [
-        'name',
-        'avatar',
-        'position',
-    ];
-
-    public function presenter(): EmployeePresenter
-    {
-        return new EmployeePresenter($this);
-    }
-}
-</code></pre>
-
-<p>You can record a representative:</p>
-
-<pre><code class="language-php">namespace App\Presenters;
-
-use Orchid\Screen\Contracts\Personable;
-use Orchid\Support\Presenter;
-
-class EmployeePresenter extends Presenter implements Personable
-{
-
-    public function title(): string
-    {
-        return $this-&gt;entity-&gt;name;
-    }
-
-    public function subTitle(): string
-    {
-        return $this-&gt;entity-&gt;position;
-    }
-
-    public function url(): string
-    {
-        return route('platform.systems.users.edit', $this-&gt;entity);
-    }
-
-    public function image(): ?string
-    {
-        return $this-&gt;entity-&gt;avatar;
-    }
-}
-</code></pre>
-
-<p>Use on the screen will be as follows:</p>
-
-<pre><code class="language-php">use Orchid\Screen\Layouts\Persona;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'employee' =&gt; Employee::find(1)-&gt;presenter(),
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
-public function layout(): array
-{
-    return [
-        new Persona('employee'),
-    ];
-}
-</code></pre>
-
-<h2><a href="#facepile" name="facepile">Facepile</a></h2>
-
-<p>Shows a list of avatars in horizontal view. Each circle represents a person. Use this <code>layout</code> when displaying shared access to a specific view, file or task.</p>
-
-<p><img src="/assets/img/layouts/facepile.png" alt="facepile"></p>
-
-<p><code>Facepile</code> accepts a set of objects that implement the <code>Personable</code> interface.</p>
-
-<blockquote>
-  <p>This example uses <a href="/en/docs/presenters">presenters</a>, it is recommended that you familiarize yourself with them.</p>
-</blockquote>
-
-<p>Instead of creating a separate class, it is recommended to use representatives for <code>Eloquent</code> models, for example:</p>
-
-<pre><code class="language-php">namespace App;
-
-use App\Presenters\EmployeePresenter;
-use Illuminate\Database\Eloquent\Client;
-
-class Employee extends Model
-{
-    protected $fillable = [
-        'name',
-        'avatar',
-        'position',
-    ];
-
-    public function presenter(): EmployeePresenter
-    {
-        return new EmployeePresenter($this);
-    }
-}
-</code></pre>
-
-<p>You can record a presenter:</p>
-
-<pre><code class="language-php">namespace App\Presenters;
-
-use Orchid\Screen\Contracts\Personable;
-use Orchid\Support\Presenter;
-
-class EmployeePresenter extends Presenter implements Personable
-{
-
-    public function title(): string
-    {
-        return $this-&gt;entity-&gt;name;
-    }
-
-    public function subTitle(): string
-    {
-        return $this-&gt;entity-&gt;position;
-    }
-
-    public function url(): string
-    {
-        return route('platform.systems.users.edit', $this-&gt;entity);
-    }
-
-    public function image(): ?string
-    {
-        return $this-&gt;entity-&gt;avatar;
-    }
-}
-</code></pre>
-
-<p>Use on the screen will be as follows:</p>
-
-<pre><code class="language-php">use Orchid\Screen\Layouts\Facepile;
-
-/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'avatars' =&gt; Employee::limit(8)-&gt;get()-&gt;map-&gt;presenter(),
-    ];
-}
-
-/**
- * Views.
- *
- * @return array
- * @throws \Throwable
- *
- */
-public function layout(): array
-{
-    return [
-        new Facepile('avatars'),
-    ];
-}
+<pre><code class="language-php">Layout::legend('user', [
+    Sight::make('id')-&gt;component(IdInformation::class),
+]),
 </code></pre>
                     </div>
                 </main>
