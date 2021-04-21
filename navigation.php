@@ -35,6 +35,7 @@ return [
                 'children' => [
                     'Rows'             => '/en/docs/rows',
                     'Table'            => '/en/docs/table',
+                    'Legend'           => '/en/docs/legend',
                     'Charts'           => '/en/docs/charts',
                     'Modals'           => '/en/docs/modals',
                     'Listener'         => '/en/docs/listener',
@@ -50,7 +51,6 @@ return [
                     'Scout search' => '/en/docs/global-search',
                     'Presenters'   => '/en/docs/presenters',
                     'Using JS'     => '/en/docs/javascript',
-                    'Form builder' => '/en/docs/builder',
                     'Form builder' => '/en/docs/builder',
                 ],
             ],
