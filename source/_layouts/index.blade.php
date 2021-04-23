@@ -538,6 +538,7 @@
 
                 <div class="col-md-6 col-12 pt-md-5 mb-md-2">
                     <a href="https://opencollective.com/orchid#backers" target="_blank">
+                        <img src="https://opencollective.com/orchid/sponsors.svg?width=600&amp;button=false" class="img-fluid">
                         <img src="https://opencollective.com/orchid/backers.svg?width=600" class="img-fluid">
                     </a>
 
