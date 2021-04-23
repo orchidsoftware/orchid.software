@@ -291,6 +291,8 @@ All this time, to display the screen, it was necessary to specify an explicit pa
 in the file at `app/Orchid/PlatformProvider.php` we add the declaration:
 
 ```php
+use Orchid\Screen\Actions\Menu;
+
 /**
  * @return ItemMenu[]
  */
@@ -299,7 +301,7 @@ public function registerMainMenu(): array
     return [
         // Other items...
     
-        ItemMenu::label('Email sender')
+        Menu::make('Email sender')
             ->icon('envelope-letter')
             ->route('platform.email')
             ->title('Tools')
