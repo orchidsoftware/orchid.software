@@ -293,6 +293,8 @@ public function query(): array
 в файле по адресу `app/Orchid/PlatformProvider.php` добавим объявление:
 
 ```php
+use Orchid\Screen\Actions\Menu;
+
 /**
  * @return ItemMenu[]
  */
@@ -301,10 +303,10 @@ public function registerMainMenu(): array
     return [
         // Другие пункты меню...
     
-        ItemMenu::label('Email sender')
+        Menu::make('Email sender')
             ->icon('envelope-letter')
             ->route('platform.email')
-            ->title('Tools'),
+            ->title('Tools')
     ];
 }
 ```
