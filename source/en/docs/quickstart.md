@@ -294,7 +294,7 @@ in the file at `app/Orchid/PlatformProvider.php` we add the declaration:
 use Orchid\Screen\Actions\Menu;
 
 /**
- * @return ItemMenu[]
+ * @return Menu[]
  */
 public function registerMainMenu(): array
 {
