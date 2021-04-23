@@ -34,7 +34,7 @@ All we have done here is declare the prefix by which we will refer to fa and the
 To display in the components of the package, you only need to pass the prefix + name, for example, the definition of the icon in the menu will look like this:
 
 ```php
-ItemMenu::label('Example of custom icons')
+Menu::make('Example of custom icons')
     ->icon('fa.address-book')
     ->url(#);
 ```
