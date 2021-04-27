@@ -46,7 +46,7 @@ Unlike scaffolding, this package will be useful at any stage of development, and
 It does not provide visual programming, which means you need to write code on the keyboard, and not click with the mouse.
 And instead of one, the main class provides many small components for encapsulation and reuse.
 
-## Why is rapid development?
+## What is rapid development?
 
 A classic web application is a subsystem with a common three-tier architecture, which comprises:
 
