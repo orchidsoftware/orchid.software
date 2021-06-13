@@ -33,7 +33,10 @@ You can offer new features and enhancements to your existing Laravel Orchid beha
 Informal discussion about bugs/problems and new features:
 
  1. [Telegram group @orchid_community](https://t.me/orchid_community)
- 1. [Telegram group @orchid_russian_community](https://t.me/orchid_russian_community)
+ 2. [Telegram group @orchid_russian_community](https://t.me/orchid_russian_community)
+ 3. [Discord forum invite](https://discord.gg/aEVdGMyRt4)
+ 4. [Discord forum invite Russian](https://discord.gg/CNYwzWVnjX)
+ 
 
 ## Security
 
