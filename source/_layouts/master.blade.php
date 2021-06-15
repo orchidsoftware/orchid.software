@@ -63,12 +63,6 @@
                             @yield('main.blog')
                         </a>
                         
-                          <a class="p-3 m-sm-0" href="https://discord.gg/aEVdGMyRt4">
-                            <i class="icon-cup m-r-xs text-xs"></i>
-                            @yield('main.discord')
-                        </a>
-
-
                         <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/discussions" target="_blank" rel="noopener noreferrer">
                             <i class="icon-bubbles m-r-xs text-xs"></i>
                             @yield('main.discussion')
@@ -190,7 +184,7 @@
                             </li>
                             
                                  <li>
-                                <a href="@yield('main.discord')" target="_blank" rel="noopener noreferrer" title="Discord">
+                                <a href="@yield('main.discord')" target="https://discord.gg/aEVdGMyRt4" rel="noopener noreferrer" title="Discord">
                                  
                                     <svg width="1.2em" height="1.2em" role="img" fill="currentColor" viewBox="0 0 32 32" class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
