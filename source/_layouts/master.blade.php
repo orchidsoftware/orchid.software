@@ -184,7 +184,7 @@
                             </li>
                             
                                  <li>
-                                <a href="@yield('main.discord')" target="https://discord.gg/aEVdGMyRt4" rel="noopener noreferrer" title="Discord">
+                                <a href="https://discord.gg/aEVdGMyRt4" target="_blank" rel="noopener noreferrer" title="Discord">
                                  
                                     <svg width="1.2em" height="1.2em" role="img" fill="currentColor" viewBox="0 0 32 32" class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
