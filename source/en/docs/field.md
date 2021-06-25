@@ -256,8 +256,6 @@ Select::make('user')
     ->empty('No select', 0);
 ```
 
-> **Note** that `empty` is called later than the filling methods, otherwise the added value will be overwritten.
-
 The `empty` method also accepts the second argument, which is responsible for the value:
 
 ```php
