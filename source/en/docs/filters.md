@@ -166,3 +166,5 @@ Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
 ```
 
 Then all filters installed in the layer will be applied.
+
+For display and join filters each others use layout "[Selection](https://orchid.software/en/docs/grouping/#selection)".
