@@ -175,3 +175,6 @@ Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
 ```
 
 Тогда все фильтры установленные в слое будут применены.
+
+Для удобного отображения и объединения фильтров используйте слой "[Selection](https://orchid.software/ru/docs/grouping/#nabor-filtrov)".
+
