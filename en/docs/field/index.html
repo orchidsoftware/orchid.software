@@ -748,17 +748,13 @@ Select::make('user')
         1  =&gt; 'Option 1',
         2  =&gt; 'Option 2',
     ])
-    -&gt;empty('No select', 0);
+    -&gt;empty('No select');
 
 // For model
 Select::make('user')
     -&gt;fromModel(User::class, 'name')
-    -&gt;empty('No select', 0);
+    -&gt;empty('No select');
 </code></pre>
-
-<blockquote>
-  <p><strong>Note</strong> that <code>empty</code> is no longer relevant for the latest versions. <code>empty</code> in older versions is called later than the filling methods, otherwise the added value will be overwritten.</p>
-</blockquote>
 
 <p>The <code>empty</code> method also accepts the second argument, which is responsible for the value:</p>
 
