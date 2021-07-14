@@ -554,7 +554,8 @@ public function hero()
 
 <pre><code class="language-php">public function deleting(Post $post)
 {
-    $post-&gt;attachment()-&gt;each-&gt;delete();
+    //load attachment as collection and not query attachment()
+    $post-&gt;attachment-&gt;each-&gt;delete();
 }
 </code></pre>
 
