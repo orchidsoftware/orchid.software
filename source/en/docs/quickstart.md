@@ -250,7 +250,7 @@ class EmailSenderScreen extends Screen
         ]);
 
         Mail::raw($request->get('content'), function (Message $message) use ($request) {
-
+            $message->from('sample@email.com');
             $message->subject($request->get('subject'));
 
             foreach ($request->get('users') as $email) {
