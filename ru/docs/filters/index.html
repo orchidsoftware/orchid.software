@@ -444,7 +444,7 @@ $model-&gt;whereIn('id', [1,2,3,4,5]);
 
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model-&gt;where('content-&gt;ru-&gt;name', '=', 'dwqdwq');
+$model-&gt;where('content-&gt;ru-&gt;name', 'like', 'dwqdwq');
 
 </code></pre>
 
