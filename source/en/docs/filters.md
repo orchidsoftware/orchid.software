@@ -78,7 +78,7 @@ $model->whereIn('id', [1,2,3,4,5]);
 
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name', '=', 'dwqdwq');
+$model->where('content->ru->name', 'like', 'dwqdwq');
 
 ```
 
