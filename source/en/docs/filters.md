@@ -22,7 +22,7 @@ attributes:
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Filter\Filterable;
+use Orchid\Filters\Filterable;
 
 class Post extends Model
 {
@@ -151,7 +151,7 @@ if the array is empty, then the filter will work on every request.
 > **Note.** You can use the same filters for different models.
 
 To use filters in your own models,
-you need to connect the trait `Orchid\Filter\Filterable` and pass an array of classes to the `filtersApply` function:
+you need to connect the trait `Orchid\Filters\Filterable` and pass an array of classes to the `filtersApply` function:
 
 ```php
 use App\Model;
