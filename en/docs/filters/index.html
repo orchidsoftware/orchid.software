@@ -469,7 +469,7 @@ attributes:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Filter\Filterable;
+use Orchid\Filters\Filterable;
 
 class Post extends Model
 {
@@ -594,7 +594,7 @@ if the array is empty, then the filter will work on every request.</p>
 </blockquote>
 
 <p>To use filters in your own models,
-you need to connect the trait <code>Orchid\Filter\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
+you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
 
 <pre><code class="language-php">use App\Model;
 
