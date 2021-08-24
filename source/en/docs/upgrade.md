@@ -218,6 +218,7 @@ WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
 ```
 
 After that, you need to remove the column data from your user model.
+If you copied migration `2020_06_07_184338_added_columns_for_2fa` in project - don't forget delete it.
 
 ------
 
@@ -235,6 +236,8 @@ The `HTML` editor has been removed from the standard distribution. The code has 
 
 The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following `SQL` code:
+
+If you copied migration `2015_12_02_181214_create_table_settings` in project - don't forget delete it.
 
 ```php
 DROP TABLE settings;
