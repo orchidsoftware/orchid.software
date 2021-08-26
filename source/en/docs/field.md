@@ -680,6 +680,23 @@ Upload::make('images')
     ->groups('photo');
 ```  
 
+To get specific files via Model relation
+```
+use Orchid\Attachment\Models\Attachment;
+
+One-to-Many (with foreign id)
+public function hero()
+{
+    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
+}
+
+Many-to-Many (no foreign id on table, should be uploaded with groups() function)
+public function documents()
+{
+    return $this->hasMany(Attachment::class)->where('group','documents');
+}
+```
+
 It can be used to limit the maximum number of files that will be processed:
 
 ```php
