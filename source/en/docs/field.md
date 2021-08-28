@@ -490,6 +490,18 @@ Quill::make('html')
     ->toolbar(["text", "color", "header", "list", "format", "media"]);
 ``` 
 
+You can install additional plugins or options using an event:
+
+```js
+document.addEventListener('orchid:quill', (event) => {
+    // Object for registering plugins
+    event.detail.quill;
+
+    // Parameter object for initialization
+    event.detail.options;
+});
+```
+
 
 ## Markdown Editor
    
