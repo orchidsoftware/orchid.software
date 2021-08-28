@@ -65,7 +65,9 @@ For example, the filtering layer requests only from the white list of IP address
 'auth' => true,
 ```
 
-It is possible to disable the supplied authorization form altogether and make your own, for example, using the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart).
+By default, Orchid uses its own simple login interface when `auth` is `true`. If you require more advanced functions
+such as password recovery or 2FA, set `auth` to `false` and use the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart)
+or roll your own.
 
 ## Home page
 
