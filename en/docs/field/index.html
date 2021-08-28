@@ -963,6 +963,17 @@ DateTimeZone::PER_COUNTRY;
     -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
 </code></pre>
 
+<p>You can install additional plugins or options using an event:</p>
+
+<pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
+    // Object for registering plugins
+    event.detail.quill;
+
+    // Parameter object for initialization
+    event.detail.options;
+});
+</code></pre>
+
 <h2><a href="#markdown-editor" name="markdown-editor">Markdown Editor</a></h2>
 
 <p>Editor for the lightweight markup language. Created with the goal of writing the most readable and easy to edit text.  But suitable for converting into languages for advanced publications.</p>
