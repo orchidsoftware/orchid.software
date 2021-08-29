@@ -963,7 +963,7 @@ DateTimeZone::PER_COUNTRY;
     -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
 </code></pre>
 
-<p>You can install additional plugins or options using an event:</p>
+<p>It's possible to install additional plugins with a simple Javascript file</p>
 
 <pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
     // Object for registering plugins
@@ -971,6 +971,34 @@ DateTimeZone::PER_COUNTRY;
 
     // Parameter object for initialization
     event.detail.options;
+});
+</code></pre>
+
+<p><strong>Note</strong>: You can add custom scripts and stylesheets through the <code>platform.php</code> config file</p>
+
+<p>Example for <a href="https://github.com/benwinding/quill-image-compress">quill-image-compress</a>:</p>
+
+<p>Add the following in <code>config/platform.php</code> into the <code>resource.scripts</code> array</p>
+
+<pre><code>"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
+"/js/admin/quill.imagecropper.js",
+</code></pre>
+
+<p>create a <code>quill.imagecropper.js</code> in <code>public/js/admin</code> with the following content</p>
+
+<pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
+    // Object for registering plugins
+    event.detail.quill.register("modules/imageCompressor", imageCompressor);
+
+    // Parameter object for initialization
+    event.detail.options.modules = {
+         imageCompressor: {
+            quality: 0.9,
+            maxWidth: 1000, // default
+            maxHeight: 1000, // default
+            imageType: 'image/jpeg'
+        }
+    };
 });
 </code></pre>
 
