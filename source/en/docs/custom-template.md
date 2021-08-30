@@ -219,6 +219,37 @@ blade;
 ```
 
 
+## Browsing
+
+The admin panel is where you can view and perform all the necessary actions in the project. But sometimes, the technology and graphical appearance are not consistent and are located at different addresses (For example, if you use [Telescope])(https://laravel.com/docs/telescope) or [Horizon](https://laravel.com/docs/horizon). This leads to the fact that you need to move between two browser tabs constantly.
+
+To avoid this, you can open an iframe to view a different page:
+
+```php
+use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::browsing('http://127.0.0.1:8000/telescope'),
+    ];
+}
+```
+
+Attributes are also available to the html definition:
+
+```php
+Layout::browsing('http://127.0.0.1:8000/telescope')
+    ->allow('...')
+    ->loading('...')
+    ->csp('...')
+    ->name('...')
+    ->referrerpolicy('...')
+    ->sandbox('...')
+    ->src('...')
+    ->srcdoc('...');
+```
+
 ## Extension
 
 
