@@ -721,16 +721,17 @@ Upload::make('images')
 ```  
 
 To get specific files via Model relation
-```
+
+```php
 use Orchid\Attachment\Models\Attachment;
 
-One-to-Many (with foreign id)
+// One-to-Many (with foreign id)
 public function hero()
 {
     return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
 }
 
-Many-to-Many (no foreign id on table, should be uploaded with groups() function)
+// Many-to-Many (no foreign id on table, should be uploaded with groups() function)
 public function documents()
 {
     return $this->hasMany(Attachment::class)->where('group','documents');
