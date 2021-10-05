@@ -167,7 +167,7 @@ public function layout(): array
 }
 ```
 
-The field will differ from the previous ones because the data does not apply explicitly to the `Post` model, but will be loaded and saved due to the connection, for this we must indicate the` Attachable` trait:
+The field will differ from the previous ones because the data does not apply explicitly to the `Post` model, but will be loaded and saved due to the connection, for this we must indicate the `Attachable` trait:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
