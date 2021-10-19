@@ -606,6 +606,10 @@ You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering
 <pre><code class="language-php">TD::make('SKU')-&gt;filter(Input::make()-&gt;mask('A-999999'));
 </code></pre>
 
+<blockquote>
+  <p>Note: There is no need to specify the field name. It will be delivered automatically by the column name.</p>
+</blockquote>
+
 <h3><a href="#width" name="width">Width</a></h3>
 
 <p>You can control the width of the cell using the <code>width</code> method:</p>
