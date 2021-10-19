@@ -452,6 +452,9 @@
                 <a href="#sorting">Sorting</a>
             </li>
                     <li class="anchor-h3">
+                <a href="#filtration">Filtration</a>
+            </li>
+                    <li class="anchor-h3">
                 <a href="#width">Width</a>
             </li>
                     <li class="anchor-h3">
@@ -588,6 +591,19 @@ filtering</a></p>
 you must specify the <code>sort</code> method:</p>
 
 <pre><code class="language-php">TD::make('last_name')-&gt;sort();
+</code></pre>
+
+<h3><a href="#filtration" name="filtration">Filtration</a></h3>
+
+<p>When building simple tables, the use of separate filters may seem overkill.
+Therefore, you can display the field for filtering right above the column heading.</p>
+
+<p>It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP Filtering".
+You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">"Eloquent Filters" page</a>.</p>
+
+<p>To add a field, call the filter method and pass the instance of the class you would like to display:</p>
+
+<pre><code class="language-php">TD::make('SKU')-&gt;filter(Input::make()-&gt;mask('A-999999'));
 </code></pre>
 
 <h3><a href="#width" name="width">Width</a></h3>
