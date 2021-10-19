@@ -181,3 +181,17 @@ public function layout(): array
 }
 ```
 
+By default, the active tab will be either the first or the last active one. 
+If you need to define the active tab explicitly, you can do this using the `->activeTab($key)` method
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::tabs([
+            'Personal Information' => PersonalInformationRow::class,
+            'Billing Address'      => BillingAddressRow::class,
+        ])->activeTab('Billing Address'),
+    ];
+}
+```
