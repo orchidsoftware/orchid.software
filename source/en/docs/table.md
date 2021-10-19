@@ -129,6 +129,20 @@ you must specify the `sort` method:
 TD::make('last_name')->sort();
 ```
 
+### Filtration
+
+When building simple tables, the use of separate filters may seem overkill.
+Therefore, you can display the field for filtering right above the column heading.
+
+It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP Filtering".
+You can find out more on the ["Eloquent Filters" page](/en/docs/filters/#automatic-http-filtering-and-sorting).
+
+To add a field, call the filter method and pass the instance of the class you would like to display:
+
+```php
+TD::make('SKU')->filter(Input::make()->mask('A-999999'));
+```
+
 ### Width
 
 You can control the width of the cell using the `width` method:
