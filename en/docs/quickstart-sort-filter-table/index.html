@@ -570,13 +570,14 @@ protected $allowedFilters = [
 
 <p>And then call the new <code>filter</code> method with a text type for the header column:</p>
 
-<pre><code class="language-php"> TD::make('title', 'Title')
-    -&gt;sort()
-    -&gt;filter(TD::FILTER_TEXT)
-    -&gt;render(function (Post $post) {
-        return Link::make($post-&gt;title)
-            -&gt;route('platform.post.edit', $post);
-    }),
+<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+
+TD::make('title', 'Title')
+   -&gt;sort()
+   -&gt;filter(Input::make())
+   -&gt;render(function (Post $post) {
+       return Link::make($post-&gt;title)-&gt;route('platform.post.edit', $post);
+   }),
 </code></pre>
 
 <p>After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.</p>
