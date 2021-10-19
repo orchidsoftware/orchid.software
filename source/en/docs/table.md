@@ -215,6 +215,104 @@ TD::make('price')
     });
 ```
 
+### Components
+
+Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display logic, as well as reuse.
+
+For example, there is an `Order` model, and depending on the status, we can show different descriptions in our components.
+It is much nicer than specifying things directly in the view or creating particular areas for such processing.
+
+```php
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+use App\Models\Order;
+
+class OrderShortInformation extends Component
+{
+    /**
+     * @var Order
+     */
+    public $order;
+
+    /**
+     * Create the component instance.
+     *
+     * @param  Order $order
+     * @return void
+     */
+    public function __construct(Order $order)
+    {
+        $this->order = $order;
+    }
+
+    /**
+     * @return string
+     */
+    public function status()
+    {
+        $descriptions = [
+            1 => __('In the process'),
+            2 => __('Paid'),
+            3 => __('Cancellation'),
+            4 => __('Refund'),
+        ];
+
+        if (array_key_exists($this->order->status, $descriptions)) {
+            return $descriptions[$this->order->status];
+        }
+
+        return 'Unknown';
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\View\View|\Closure|string
+     */
+    public function render()
+    {
+        return view('components.order.short-information');
+    }
+}
+```
+
+To use a component in a cell, you must pass it:
+
+```php
+use App\View\CompochangingOrderShortInformation;
+
+TD::make('status')->component(OrderShortInformation::class);
+```
+
+The component will receive the entire row as its first argument, not just the cell data.
+
+
+Therefore, if you are using deep injection in your component, then it is important to specify the name of the variable.
+
+```php
+public function __construct(Application $application, Order $order, int $limit = 300)
+{
+    $this->order = $order;
+    // ...
+}
+```
+
+The name is specified in the second argument:
+
+```php
+use App\View\CompochangingOrderShortInformation;
+
+TD::make('status')->component(OrderShortInformation::class, 'order');
+```
+
+Other additional arguments, for example, limit. You can specify in the following way:
+
+```php
+TD::make('status')->component(OrderShortInformation::class, 'order', [
+    'limit' => 100
+]);
+```
 
 ## Table options
 
