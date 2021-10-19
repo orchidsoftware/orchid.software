@@ -154,7 +154,7 @@ You can control the width of the cell using the `width` method:
 TD::make('last_name')->width('100px');
 ```
 
-###Show and hide columns
+### Show/Hide
 
 By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:
