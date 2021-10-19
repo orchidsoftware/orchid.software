@@ -181,3 +181,15 @@ public function layout(): array
 }
 ```
 
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::tabs([
+            'Personal Information' => PersonalInformationRow::class,
+            'Billing Address'      => BillingAddressRow::class,
+        ])=,
+    ];
+}
+```
