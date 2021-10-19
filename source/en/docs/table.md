@@ -287,8 +287,7 @@ TD::make('status')->component(OrderShortInformation::class);
 
 The component will receive the entire row as its first argument, not just the cell data.
 
-
-Therefore, if you are using deep injection in your component, then it is important to specify the name of the variable.
+Therefore, if you are using a deep injection in your component, it is essential to specify the variable's name.
 
 ```php
 public function __construct(Application $application, Order $order, int $limit = 300)
