@@ -463,6 +463,9 @@
                     <li class="anchor-h3">
                 <a href="#data-output">Data output</a>
             </li>
+                    <li class="anchor-h3">
+                <a href="#components">Components</a>
+            </li>
                     <li class="anchor-h2">
                 <a href="#table-options">Table options</a>
             </li>
@@ -670,6 +673,99 @@ TD::make('price')
     -&gt;render(function ($product) {
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
     });
+</code></pre>
+
+<h3><a href="#components" name="components">Components</a></h3>
+
+<p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
+
+<p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our components.
+It is much nicer than specifying things directly in the view or creating particular areas for such processing.</p>
+
+<pre><code class="language-php">namespace App\View\Components;
+
+use Illuminate\View\Component;
+use App\Models\Order;
+
+class OrderShortInformation extends Component
+{
+    /**
+     * @var Order
+     */
+    public $order;
+
+    /**
+     * Create the component instance.
+     *
+     * @param  Order $order
+     * @return void
+     */
+    public function __construct(Order $order)
+    {
+        $this-&gt;order = $order;
+    }
+
+    /**
+     * @return string
+     */
+    public function status()
+    {
+        $descriptions = [
+            1 =&gt; __('In the process'),
+            2 =&gt; __('Paid'),
+            3 =&gt; __('Cancellation'),
+            4 =&gt; __('Refund'),
+        ];
+
+        if (array_key_exists($this-&gt;order-&gt;status, $descriptions)) {
+            return $descriptions[$this-&gt;order-&gt;status];
+        }
+
+        return 'Unknown';
+    }
+
+    /**
+     * Get the view / contents that represent the component.
+     *
+     * @return \Illuminate\View\View|\Closure|string
+     */
+    public function render()
+    {
+        return view('components.order.short-information');
+    }
+}
+</code></pre>
+
+<p>To use a component in a cell, you must pass it:</p>
+
+<pre><code class="language-php">use App\View\CompochangingOrderShortInformation;
+
+TD::make('status')-&gt;component(OrderShortInformation::class);
+</code></pre>
+
+<p>The component will receive the entire row as its first argument, not just the cell data.</p>
+
+<p>Therefore, if you are using a deep injection in your component, it is essential to specify the variable's name.</p>
+
+<pre><code class="language-php">public function __construct(Application $application, Order $order, int $limit = 300)
+{
+    $this-&gt;order = $order;
+    // ...
+}
+</code></pre>
+
+<p>The name is specified in the second argument:</p>
+
+<pre><code class="language-php">use App\View\CompochangingOrderShortInformation;
+
+TD::make('status')-&gt;component(OrderShortInformation::class, 'order');
+</code></pre>
+
+<p>Other additional arguments, for example, limit. You can specify in the following way:</p>
+
+<pre><code class="language-php">TD::make('status')-&gt;component(OrderShortInformation::class, 'order', [
+    'limit' =&gt; 100
+]);
 </code></pre>
 
 <h2><a href="#table-options" name="table-options">Table options</a></h2>
