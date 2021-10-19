@@ -143,7 +143,7 @@ To add a field, call the filter method and pass the instance of the class you wo
 TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 ```
 
-> Note: There is no need to specify the field name. It will be delivered automatically by the column name.
+> **Note**: There is no need to specify the field name. It will be delivered automatically by the column name.
 
 
 ### Width
