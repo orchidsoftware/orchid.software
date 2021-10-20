@@ -84,3 +84,4 @@ Also making changes to the configuration file:
 ],
 ```
 
+> **Note**. If you want the text or images to be different for the login and panel pages, you can use [Authentication Directives](https://laravel.com/docs/blade#authentication-directives).
