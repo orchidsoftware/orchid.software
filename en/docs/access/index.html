@@ -443,21 +443,6 @@
 
                         <ul class="pl-5">
                     <li class="anchor-h2">
-                <a href="#usage">Usage</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#hasaccess">hasAccess</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#hasanyaccess">hasAnyAccess</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#wildcard-checks">Wildcard Checks</a>
-            </li>
-                    <li class="anchor-h3">
-                <a href="#management">Management</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#roles">Roles</a>
             </li>
                     <li class="anchor-h2">
@@ -502,21 +487,13 @@ calculated as a combination of permissions from each user role.</li>
   <p><strong>Note.</strong> Permissions are not a substitute for <code>Gate</code> or <code>Policies</code> included in the framework frame.</p>
 </blockquote>
 
-<h2><a href="#usage" name="usage">Usage</a></h2>
-
-<p>The user has several options for managing roles:</p>
-
-<h3><a href="#hasaccess" name="hasaccess">hasAccess</a></h3>
-
-<p>This method will strictly require passed permission to be valid to grant access.</p>
+<p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
 
 <pre><code class="language-php">// Check is carried out both for the user and for his role
 Auth::user()-&gt;hasAccess($string);
 </code></pre>
 
-<h3><a href="#hasanyaccess" name="hasanyaccess">hasAnyAccess</a></h3>
-
-<p>This method will grant access if any permission passes the check.</p>
+<p>Method <code>hasAnyAccess</code> will grant access if any permission passes the check.</p>
 
 <pre><code class="language-php">$user = User::find(1);
 
@@ -525,8 +502,6 @@ if ($user-&gt;hasAnyAccess(['user.admin', 'user.update']))
     // Execute this code if the user has permission
 }
 </code></pre>
-
-<h3><a href="#wildcard-checks" name="wildcard-checks">Wildcard Checks</a></h3>
 
 <p>Permissions can be checked based on wildcards using the <code>*</code> character to match any set of permissions.</p>
 
@@ -538,7 +513,7 @@ if ($user-&gt;hasAccess('user.*'))
 }
 </code></pre>
 
-<h3><a href="#management" name="management">Management</a></h3>
+<p>The user has several options for managing roles:</p>
 
 <pre><code class="language-php">// Get all user roles
 Auth::user()-&gt;getRoles();
