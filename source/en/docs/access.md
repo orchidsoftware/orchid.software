@@ -7,6 +7,8 @@ section: main
 
 Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.
 
+> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
+
 Typically, you manage several dozen permits in a typical business process.
 You can also have, say, 10 to 100 users.
 Although these users are not entirely different from each other,
@@ -23,8 +25,8 @@ due to a large number of users and permissions.
 - A set of permissions owned by the user,
  calculated as a combination of permissions from each user role.
 
-> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
 
+## Usage
 
 Method `hasAccess` will strictly require passed permission to be valid to grant access.
 
