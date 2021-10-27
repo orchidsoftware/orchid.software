@@ -502,7 +502,7 @@ Auth::user()-&gt;hasAccess($string);
 
 <pre><code class="language-php">$user = User::find(1);
 
-if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])){
+if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])) {
     // Execute this code if the user has permission
 }
 </code></pre>
@@ -511,7 +511,7 @@ if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])){
 
 <pre><code class="language-php">$user = User::find(1);
 
-if ($user-&gt;hasAccess('user.*')){
+if ($user-&gt;hasAccess('user.*')) {
     // Execute this code if the user has permission
 }
 </code></pre>
