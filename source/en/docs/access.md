@@ -23,14 +23,53 @@ due to a large number of users and permissions.
 - A set of permissions owned by the user,
  calculated as a combination of permissions from each user role.
 
+> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
+
+
+## Usage
 
 The user has several options for managing roles:
 
+
+### hasAccess
+
+This method will strictly require passed permission to be valid to grant access.
+
+
 ```php
-// Check whether the user has permissions
 // Check is carried out both for the user and for his role
 Auth::user()->hasAccess($string);
+```
 
+###  hasAnyAccess
+
+This method will grant access if any permission passes the check.
+
+```php
+$user = User::find(1);
+
+if ($user->hasAnyAccess(['user.admin', 'user.update']))
+{
+    // Execute this code if the user has permission
+}
+```
+
+### Wildcard Checks
+
+Permissions can be checked based on wildcards using the `*` character to match any set of permissions.
+
+```php
+$user = User::find(1);
+
+if ($user->hasAccess('user.*'))
+{
+    // Execute this code if the user has permission
+}
+```
+
+### Management
+
+```php
 // Get all user roles
 Auth::user()->getRoles();
 
@@ -41,7 +80,7 @@ Auth::user()->inRole($role);
 Auth::user()->addRole($role);
 ```
 
-> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
+
 
 ## Roles
 
