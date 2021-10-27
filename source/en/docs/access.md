@@ -40,8 +40,7 @@ Method `hasAnyAccess` will grant access if any permission passes the check.
 ```php
 $user = User::find(1);
 
-if ($user->hasAnyAccess(['user.admin', 'user.update']))
-{
+if ($user->hasAnyAccess(['user.admin', 'user.update'])){
     // Execute this code if the user has permission
 }
 ```
@@ -51,8 +50,7 @@ Permissions can be checked based on wildcards using the `*` character to match a
 ```php
 $user = User::find(1);
 
-if ($user->hasAccess('user.*'))
-{
+if ($user->hasAccess('user.*')){
     // Execute this code if the user has permission
 }
 ```
