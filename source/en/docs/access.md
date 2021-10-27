@@ -26,24 +26,14 @@ due to a large number of users and permissions.
 > **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
 
 
-## Usage
-
-The user has several options for managing roles:
-
-
-### hasAccess
-
-This method will strictly require passed permission to be valid to grant access.
-
+Method `hasAccess` will strictly require passed permission to be valid to grant access.
 
 ```php
 // Check is carried out both for the user and for his role
 Auth::user()->hasAccess($string);
 ```
 
-###  hasAnyAccess
-
-This method will grant access if any permission passes the check.
+Method `hasAnyAccess` will grant access if any permission passes the check.
 
 ```php
 $user = User::find(1);
@@ -53,8 +43,6 @@ if ($user->hasAnyAccess(['user.admin', 'user.update']))
     // Execute this code if the user has permission
 }
 ```
-
-### Wildcard Checks
 
 Permissions can be checked based on wildcards using the `*` character to match any set of permissions.
 
@@ -67,7 +55,7 @@ if ($user->hasAccess('user.*'))
 }
 ```
 
-### Management
+The user has several options for managing roles:
 
 ```php
 // Get all user roles
