@@ -241,7 +241,7 @@ protected function subNotFound(): string
  */
 protected function striped(): bool
 {
-    return false;
+    return true;
 }
 ```
 
