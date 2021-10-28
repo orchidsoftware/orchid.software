@@ -353,7 +353,7 @@ If the table rows do not seem contrasting to you, then you can enable
  */
 protected function striped(): bool
 {
-    return false;
+    return true;
 }
 ```
 
