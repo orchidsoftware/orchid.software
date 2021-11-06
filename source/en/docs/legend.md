@@ -30,7 +30,7 @@ public function layout(): array
 The first argument is expected to receive a key specified in the query method of the screen, which should be arrays or models. And the second is which columns you want to display.
 
 
-Many methods for the `Sight` class are in common with `TD` (used in the table). For example, you can also add an explanation:
+Many methods for the `Sight` class are in common with `TD` (used in the [table](en/docs/table/)). For example, you can also add an explanation:
 
 ```php
 Layout::legend('user', [
