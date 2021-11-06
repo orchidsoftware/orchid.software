@@ -52,7 +52,7 @@ return [
                     'Presenters'   => '/en/docs/presenters',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
-                    'Recipes'      => '/en/recipes',
+                    //'Recipes'      => '/en/recipes',
                 ],
             ],
             'Packages'   => [
