@@ -434,9 +434,42 @@
                             </div>
                                                 <hr class="mb-4">
 
-                        
+                        <ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#turbo">Turbo</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#stimulus">Stimulus</a>
+            </li>
+            </ul>
+    <hr>
 
-                        <p>The basis of the platform in terms of styles is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser executes the code <a href="https://stimulusjs.org/">Stimulus</a>, you do not need to use them.</p>
+
+                        <p>The basis of the platform in terms of styles is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser executes the code <a href="https://hotwired.dev">Hotwired</a>, you do not need to use them.</p>
+
+<h2><a href="#turbo" name="turbo">Turbo</a></h2>
+
+<p>Thanks to <a href="https://turbo.hotwire.dev">Turbo</a>, the admin panel emulates the Single Page Application, loading resources only on the first call and giving the impression of re-rendering content in the browser instead of natural standard transitions between pages.</p>
+
+<p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
+
+<pre><code class="language-js">document.addEventListener("load", () =&gt; {
+    console.log('Page load');
+});
+</code></pre>
+
+<p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
+
+<pre><code class="language-js">document.addEventListener("turbo:load", () =&gt; {
+    console.log('Page load');
+})
+</code></pre>
+
+<p>You can find more details on the website <a href="https://turbo.hotwire.dev">turbo.hotwire.dev</a>.</p>
+
+<h2><a href="#stimulus" name="stimulus">Stimulus</a></h2>
+
+<p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.</p>
 
 <p>Let's build a basic example that displays the text entered the field for this:</p>
 
@@ -487,7 +520,23 @@ mix.js('resources/js/dashboard.js', 'public/js')
 
 <p>It remains only to connect the received script to the panel in the configuration file or in the service provider using the <code>registerResource</code> method. You can do the same with style sheets, which will allow you to effectively build application logic.</p>
 
-<pre><code class="language-php">class ServiceProvider extends ServiceProvider
+<pre><code class="language-php">// config/platform.php
+'resource' =&gt; [
+    'stylesheets' =&gt; [],
+    'scripts'     =&gt; [
+        'dashboard.js'
+    ],
+],
+</code></pre>
+
+<blockquote>
+  <p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
+</blockquote>
+
+<p>An example of a record for a service provider</p>
+
+<pre><code class="language-php">// app/Providers/AppServiceProvider.php
+class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
     {

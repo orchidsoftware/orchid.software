@@ -434,7 +434,16 @@
                             </div>
                                                 <hr class="mb-4">
 
-                        
+                        <ul class="pl-5">
+                    <li class="anchor-h2">
+                <a href="#accessing-screen-data">Accessing screen data</a>
+            </li>
+                    <li class="anchor-h2">
+                <a href="#reuse-layers">Reuse Layers</a>
+            </li>
+            </ul>
+    <hr>
+
 
                         <p>The line layout serves as the minimum set that is most often used.
 Its purpose is to combine all the necessary elements of forms.</p>
@@ -502,6 +511,144 @@ class Appointment extends Rows
 {
     return [
         Appointment::class
+    ];
+}
+</code></pre>
+
+<h2><a href="#accessing-screen-data" name="accessing-screen-data">Accessing screen data</a></h2>
+
+<p>Every time a layer is displayed, it is passed data from the screen to use its data through the <code>query</code> property. For example:</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+class Appointment extends Rows
+{
+
+    /**
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return [
+            Input::make('appointment_time')
+                -&gt;canSee($this-&gt;query-&gt;has('available'))
+                -&gt;required()
+                -&gt;title('Time'),
+        ];
+    }
+}
+</code></pre>
+
+<p>If the screen's <code>query</code> method returns the specified key, then the field will be displayed:</p>
+
+<pre><code class="language-php">/**
+ * Query data
+ *
+ * @return array
+ */
+public function query() : array
+{
+    return [
+      'available' =&gt; true,
+    ];
+}
+</code></pre>
+
+<p>In addition to a simple check, you can also get a value:</p>
+
+<pre><code class="language-php">$this-&gt;query-&gt;get('available');
+</code></pre>
+
+<p>Access is also available through dot-notation:</p>
+
+<pre><code class="language-php">$this-&gt;query-&gt;get('user.name');
+</code></pre>
+
+<h2><a href="#reuse-layers" name="reuse-layers">Reuse Layers</a></h2>
+
+<p>Layouts are easy to reuse when fields are related to the relations of different models. During installation, we have a layer for defining permissions, which is used immediately at the user and roles editing screen. But sometimes you want to apply the same set of fields with different values. Let's consider an example when you need to specify an address.</p>
+
+<p>Such a set will be both for the client, the customer, and it will appear twice on the same form (for example, in order, delivery and invoice). To solve this situation, you do not need to create and describe almost identical layouts. Instead, let's add logic to one single layer.</p>
+
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Illuminate\Support\Str;
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Rows;
+
+class AddressLayout extends Rows
+{
+    /**
+     * Used to create the title of a group of form elements.
+     *
+     * @var string|null
+     */
+    protected $title;
+
+    /**
+     * Prefix for a field name
+     *
+     * @var string
+     */
+    protected $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string      $prefix
+     * @param string|null $title
+     */
+    public function __construct(string $prefix, string $title = null)
+    {
+        $this-&gt;prefix = Str::finish($prefix, '.');
+        $this-&gt;title = $title;
+    }
+
+    /**
+     * Get the fields elements to be displayed.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return $this-&gt;addPrefix([
+            Input::make('address')
+                -&gt;required()
+                -&gt;title('Address')
+                -&gt;placeholder('177A Bleecker Street'),
+        ]);
+    }
+
+    /**
+     * @param Field[] $fields
+     *
+     * @return array
+     */
+    protected function addPrefix(array $fields): array
+    {
+        return array_map(function (Field $field) {
+            return $field-&gt;set('name',
+                $this-&gt;prefix . $field-&gt;get('name')
+            );
+        }, $fields);
+    }
+}
+</code></pre>
+
+<p>Now, when used, we will pass the prefix and header values:</p>
+
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::columns([
+            new AddressLayout('order.shipping_address', 'Shipping Address'),
+            new AddressLayout('order.invoice_address', 'Invoice Address'),
+        ]),
     ];
 }
 </code></pre>
