@@ -178,7 +178,7 @@ TD::make()
     });
 ```
 
-Or grouping several at once:
+Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a `Group`:
 
 ```php
 use Orchid\Screen\Actions\Link;
