@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: main
 ---
 
-The basis of the platform in terms of styles is [Bootstrap](http://getbootstrap.com/), and the browser executes the code [Hotwired](https://hotwired.dev), you do not need to use them.
+The core of the platform in terms of styling is [Bootstrap](http://getbootstrap.com/), and the browser runs [Hotwired](https://hotwired.dev) code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.
 
 ## Turbo
 
