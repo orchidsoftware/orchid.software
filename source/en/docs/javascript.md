@@ -5,7 +5,35 @@ extends: _layouts.documentation
 section: main
 ---
 
-The basis of the platform in terms of styles is [Bootstrap](http://getbootstrap.com/), and the browser executes the code [Stimulus](https://stimulusjs.org/), you do not need to use them.
+The basis of the platform in terms of styles is [Bootstrap](http://getbootstrap.com/), and the browser executes the code [Hotwired](https://hotwired.dev), you do not need to use them.
+
+## Turbo
+
+Thanks to [Turbo](https://turbo.hotwire.dev), the admin panel emulates the Single Page Application, loading resources only on the first call and giving the impression of re-rendering content in the browser instead of natural standard transitions between pages.
+
+
+Since all resources will be loaded on the first call, classic calls like this will not work:
+
+```js
+document.addEventListener("load", () => {
+    console.log('Page load');
+});
+```
+
+It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:
+
+```js
+document.addEventListener("turbo:load", () => {
+    console.log('Page load');
+})
+```
+
+You can find more details on the website [turbo.hotwire.dev](https://turbo.hotwire.dev).
+
+
+## Stimulus
+
+[Stimulus](https://stimulus.hotwired.dev/) is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.
 
 Let's build a basic example that displays the text entered the field for this:
 
@@ -61,7 +89,22 @@ mix.js('resources/js/dashboard.js', 'public/js')
 It remains only to connect the received script to the panel in the configuration file or in the service provider using the `registerResource` method. You can do the same with style sheets, which will allow you to effectively build application logic.
 
 ```php
-class ServiceProvider extends ServiceProvider
+// config/platform.php
+'resource' => [
+    'stylesheets' => [],
+    'scripts'     => [
+        'dashboard.js'
+    ],
+],
+```
+
+> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
+
+An example of a record for a service provider
+
+```php
+// app/Providers/AppServiceProvider.php
+class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
     {
