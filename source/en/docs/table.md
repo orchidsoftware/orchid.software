@@ -142,8 +142,7 @@ TD::make('last_name')->defaultHidden();
 
 ## Data output
 
-In some cases, you may need to display combined
-  data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
+In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
  
 ```php
 TD::make('full_name')
