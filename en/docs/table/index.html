@@ -438,25 +438,25 @@
                     <li class="anchor-h2">
                 <a href="#cells">Cells</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#alignment">Alignment</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#sorting">Sorting</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#filtration">Filtration</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#width">Width</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#showhide">Show/Hide</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#data-output">Data output</a>
             </li>
-                    <li class="anchor-h3">
+                    <li class="anchor-h2">
                 <a href="#components">Components</a>
             </li>
                     <li class="anchor-h2">
@@ -483,14 +483,10 @@
 
 <p>Example:</p>
 
-<pre><code class="language-php">namespace App\Layouts\Clinic\Patient;
+<pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-use Orchid\Platform\Http\Filters\SearchFilter;
-use App\Http\Filters\LastNamePatient;
 
 class PatientListLayout extends Table
 {
@@ -510,34 +506,8 @@ class PatientListLayout extends Table
     protected function columns() : array
     {
         return [
-            TD::make('last_name','Last name')
-                -&gt;align('center')
-                -&gt;width('100px')
-                -&gt;render(function ($patient) {
-                    return Link::make($patient-&gt;last_name)
-                        -&gt;route('platform.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('first_name', 'First Name')
-                -&gt;sort()
-                -&gt;render(function ($patient) {
-                    return Link::make($patient-&gt;first_name)
-                        -&gt;route('platform.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('phone','Phone')
-                -&gt;render(function ($patient){
-                    return ModalToggle::make($patient-&gt;phone)
-                        -&gt;modal('oneAsyncModal')
-                        -&gt;modalTitle('Phone')
-                        -&gt;method('saveUser')
-                        -&gt;asyncParameters([
-                            'id' =&gt; $patient-&gt;id,
-                        ]);
-                }),
-
-            TD::make('email','Email'),
-            TD::make('created_at','Date of publication'),
+            TD::make('name'),
+            TD::make('created_at')-&gt;sort(),
         ];
     }
 }
@@ -568,7 +538,7 @@ TD::make('last_name');
 <pre><code class="language-php">TD::make('last_name', 'Last name');
 </code></pre>
 
-<h3><a href="#alignment" name="alignment">Alignment</a></h3>
+<h2><a href="#alignment" name="alignment">Alignment</a></h2>
 
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
 
@@ -577,7 +547,7 @@ TD::make('last_name')-&gt;align(TD::ALIGN_CENTER);
 TD::make('last_name')-&gt;align(TD::ALIGN_RIGHT);
 </code></pre>
 
-<h3><a href="#sorting" name="sorting">Sorting</a></h3>
+<h2><a href="#sorting" name="sorting">Sorting</a></h2>
 
 <p>Sorting the selection should be done in the <code>query</code> screen,
 for models, you can use automatic <code>http</code> <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">sorting and
@@ -589,7 +559,7 @@ you must specify the <code>sort</code> method:</p>
 <pre><code class="language-php">TD::make('last_name')-&gt;sort();
 </code></pre>
 
-<h3><a href="#filtration" name="filtration">Filtration</a></h3>
+<h2><a href="#filtration" name="filtration">Filtration</a></h2>
 
 <p>When building simple tables, the use of separate filters may seem overkill.
 Therefore, you can display the field for filtering right above the column heading.</p>
@@ -606,14 +576,14 @@ You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering
   <p><strong>Note</strong>: There is no need to specify the field name. It will be delivered automatically by the column name.</p>
 </blockquote>
 
-<h3><a href="#width" name="width">Width</a></h3>
+<h2><a href="#width" name="width">Width</a></h2>
 
 <p>You can control the width of the cell using the <code>width</code> method:</p>
 
 <pre><code class="language-php">TD::make('last_name')-&gt;width('100px');
 </code></pre>
 
-<h3><a href="#showhide" name="showhide">Show/Hide</a></h3>
+<h2><a href="#showhide" name="showhide">Show/Hide</a></h2>
 
 <p>By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:</p>
@@ -626,7 +596,7 @@ prohibit doing this by specifying:</p>
 <pre><code class="language-php">TD::make('last_name')-&gt;defaultHidden();
 </code></pre>
 
-<h3><a href="#data-output" name="data-output">Data output</a></h3>
+<h2><a href="#data-output" name="data-output">Data output</a></h2>
 
 <p>In some cases, you may need to display combined
   data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
@@ -636,6 +606,10 @@ prohibit doing this by specifying:</p>
         return $user-&gt;first_name . ' ' . $user-&gt;last_name;
     });
 </code></pre>
+
+<blockquote>
+  <p><strong>Note.</strong> The returned string will not be escaped! You need to take care of this yourself with the <code>e()</code> helper or use <code>Blade</code> view.</p>
+</blockquote>
 
 <p>The loopback function must return any string value:</p>
 
@@ -651,11 +625,36 @@ prohibit doing this by specifying:</p>
 
 <pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
-TD::make('full_name')
+TD::make()
     -&gt;render(function ($user) {
         return Link::make($user-&gt;last_name)
                -&gt;route('platform.user.edit', $user);
     });
+</code></pre>
+
+<p>Or grouping several at once:</p>
+
+<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Group;
+
+TD::make()
+    -&gt;render(function ($user) {
+        return Group::make([
+            Link::make('Show')-&gt;route('platform.user.show', $user);
+            Link::make('Edit')-&gt;route('platform.user.edit', $user);
+        ]);
+    });
+</code></pre>
+
+<p>For example, display a checkbox for each line for a bulk action:</p>
+
+<pre><code class="language-php">TD::make()
+    -&gt;render(function (User $user){
+        return CheckBox::make('users[]')
+            -&gt;value($user-&gt;id)
+            -&gt;placeholder($user-&gt;name)
+            -&gt;checked(false);
+});
 </code></pre>
 
 <p>Sometimes it may be necessary to get the value from the <code>query</code> screen, rather than relying only on the <code>target</code>. You can get the value as follows:</p>
@@ -668,7 +667,7 @@ TD::make('price')
     });
 </code></pre>
 
-<h3><a href="#components" name="components">Components</a></h3>
+<h2><a href="#components" name="components">Components</a></h2>
 
 <p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
 
