@@ -17,14 +17,10 @@ php artisan orchid:table PatientListLayout
 
 Example:
 ```php
-namespace App\Layouts\Clinic\Patient;
+namespace App\Orchid\Layouts;
 
 use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-use Orchid\Platform\Http\Filters\SearchFilter;
-use App\Http\Filters\LastNamePatient;
 
 class PatientListLayout extends Table
 {
@@ -44,34 +40,8 @@ class PatientListLayout extends Table
     protected function columns() : array
     {
         return [
-            TD::make('last_name','Last name')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($patient) {
-                    return Link::make($patient->last_name)
-                        ->route('platform.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('first_name', 'First Name')
-                ->sort()
-                ->render(function ($patient) {
-                    return Link::make($patient->first_name)
-                        ->route('platform.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('phone','Phone')
-                ->render(function ($patient){
-                    return ModalToggle::make($patient->phone)
-                        ->modal('oneAsyncModal')
-                        ->modalTitle('Phone')
-                        ->method('saveUser')
-                        ->asyncParameters([
-                            'id' => $patient->id,
-                        ]);
-                }),
-
-            TD::make('email','Email'),
-            TD::make('created_at','Date of publication'),
+            TD::make('name'),
+            TD::make('created_at')->sort(),
         ];
     }
 }
@@ -106,7 +76,7 @@ TD::make('last_name', 'Last name');
 ```
 
 
-### Alignment
+## Alignment
 
 Content alignment control can be controlled using the `align` method:
 
@@ -116,7 +86,7 @@ TD::make('last_name')->align(TD::ALIGN_CENTER);
 TD::make('last_name')->align(TD::ALIGN_RIGHT);
 ```
 
-### Sorting
+## Sorting
 
 Sorting the selection should be done in the `query` screen,
 for models, you can use automatic `http` [sorting and
@@ -129,7 +99,7 @@ you must specify the `sort` method:
 TD::make('last_name')->sort();
 ```
 
-### Filtration
+## Filtration
 
 When building simple tables, the use of separate filters may seem overkill.
 Therefore, you can display the field for filtering right above the column heading.
@@ -146,7 +116,7 @@ TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 > **Note**: There is no need to specify the field name. It will be delivered automatically by the column name.
 
 
-### Width
+## Width
 
 You can control the width of the cell using the `width` method:
 
@@ -154,7 +124,7 @@ You can control the width of the cell using the `width` method:
 TD::make('last_name')->width('100px');
 ```
 
-### Show/Hide
+## Show/Hide
 
 By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:
@@ -170,7 +140,7 @@ TD::make('last_name')->defaultHidden();
 ```
 
 
-### Data output
+## Data output
 
 In some cases, you may need to display combined
   data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
@@ -182,7 +152,11 @@ TD::make('full_name')
     });
 ```
 
+> **Note.** The returned string will not be escaped! You need to take care of this yourself with the `e()` helper or use `Blade` view.
+
+
 The loopback function must return any string value:
+
 ```php
 TD::make('full_name')
     ->render(function ($user) {
@@ -197,11 +171,38 @@ Please note that you can use fields and actions:
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::make('full_name')
+TD::make()
     ->render(function ($user) {
         return Link::make($user->last_name)
                ->route('platform.user.edit', $user);
     });
+```
+
+Or grouping several at once:
+
+```php
+use Orchid\Screen\Actions\Link;
+use Orchid\Screen\Fields\Group;
+
+TD::make()
+    ->render(function ($user) {
+        return Group::make([
+            Link::make('Show')->route('platform.user.show', $user);
+            Link::make('Edit')->route('platform.user.edit', $user);
+        ]);
+    });
+```
+
+For example, display a checkbox for each line for a bulk action:
+
+```php
+TD::make()
+    ->render(function (User $user){
+        return CheckBox::make('users[]')
+            ->value($user->id)
+            ->placeholder($user->name)
+            ->checked(false);
+});
 ```
 
 Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You can get the value as follows:
@@ -215,7 +216,7 @@ TD::make('price')
     });
 ```
 
-### Components
+## Components
 
 Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display logic, as well as reuse.
 
