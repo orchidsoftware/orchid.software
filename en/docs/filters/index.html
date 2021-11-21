@@ -498,6 +498,10 @@ class Post extends Model
 <pre><code class="language-php">Post::filters()-&gt;defaultSort('id')-&gt;paginate();
 </code></pre>
 
+<blockquote>
+  <p><strong>Note.</strong> Automatic HTTP filters will not work with relationships. If you are interested in these you can use the Eloquent filter discussed below.</p>
+</blockquote>
+
 <p>How filtering will react:</p>
 
 <pre><code class="language-php">http://example.com/demo?filter[id]=1
