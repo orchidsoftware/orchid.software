@@ -138,7 +138,7 @@ public function boot()
 }
 ```
 
-## Subscribe to download
+## Event subscription
 
 Different file processing options may require additional processing, such as video compression,
 This is possible thanks to an event that you can subscribe to using standard tools and perform a task in the background:
