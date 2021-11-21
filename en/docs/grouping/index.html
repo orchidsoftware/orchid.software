@@ -435,9 +435,6 @@
                 <a href="#columns">Columns</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#selection">Selection</a>
-            </li>
-                    <li class="anchor-h2">
                 <a href="#tabs">Tabs</a>
             </li>
             </ul>
@@ -520,39 +517,6 @@ public function layout(): array
            RowExample::class,
         ]),
     ];
-}
-</code></pre>
-
-<h2><a href="#selection" name="selection">Selection</a></h2>
-
-<p>To group filters, reset them and apply them, there is a separate layer <code>Selection</code>, in which they are indicated.</p>
-
-<p>To create, run the command:</p>
-
-<pre><code class="language-php">php artisan orchid:selection MySelection
-</code></pre>
-
-<p>Class Example:</p>
-
-<pre><code class="language-php">namespace App\Orchid\Layouts;
-
-use Orchid\Platform\Filters\Filter;
-use Orchid\Press\Http\Filters\CreatedFilter;
-use Orchid\Press\Http\Filters\SearchFilter;
-use Orchid\Screen\Layouts\Selection;
-
-class MySelection extends Selection
-{
-    /**
-     * @return Filter[]
-     */
-    public function filters(): array
-    {
-        return [
-          SearchFilter::class,
-          CreatedFilter::class
-        ];
-    }
 }
 </code></pre>
 
