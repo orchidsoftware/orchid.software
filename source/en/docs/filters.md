@@ -132,7 +132,7 @@ class QueryFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->where('demo', $this->request->get('email'));
+        return $builder->where('email', $this->request->get('email'));
     }
 
     /**
