@@ -563,7 +563,7 @@ class QueryFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder-&gt;where('demo', $this-&gt;request-&gt;get('email'));
+        return $builder-&gt;where('email', $this-&gt;request-&gt;get('email'));
     }
 
     /**
