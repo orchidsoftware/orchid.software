@@ -127,6 +127,9 @@ public function deleting(Post $post)
 }
 ```
 
+> **Note.** An experienced Laravel developer will see that there is an `N+1` problem here. It is intentionally done to access the filesystem to delete a file (The database won't do it for us). 
+
+
 Subscribe example model to the observer in `AppServiceProvider`
 
 ```php
