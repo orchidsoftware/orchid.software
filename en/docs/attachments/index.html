@@ -441,6 +441,9 @@
                 <a href="#remove">Remove</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#default-configuration">Default configuration</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#event-subscription">Event subscription</a>
             </li>
             </ul>
@@ -573,6 +576,30 @@ public function hero()
     Post::observe(PostObserver::class);
 }
 </code></pre>
+
+<h2><a href="#default-configuration" name="default-configuration">Default configuration</a></h2>
+
+<p>By default, each file uploaded follows the strategy described in <code>config/platform.php</code>:</p>
+
+<pre><code class="language-php">/*
+|--------------------------------------------------------------------------
+| Default configuration for attachments.
+|--------------------------------------------------------------------------
+|
+| Strategy properties for the file and storage used.
+|
+*/
+
+'attachment' =&gt; [
+    'disk'      =&gt; 'public',
+    'generator' =&gt; \Orchid\Attachment\Engines\Generator::class,
+],
+</code></pre>
+
+<ul>
+<li><p><strong>disk</strong> - storage name used to store files. The entire settings of which should be defined in <code>/config/filesystems.php</code>.</p></li>
+<li><p><strong>generator</strong> - a class that defines how the uploaded files will be named and in which directories they will be located and how to avoid duplicating them.</p></li>
+</ul>
 
 <h2><a href="#event-subscription" name="event-subscription">Event subscription</a></h2>
 
