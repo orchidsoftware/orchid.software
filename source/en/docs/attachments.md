@@ -28,7 +28,7 @@ $item->attachment()->get();
 ```
 
 
-## Upload example
+## Uploading a file via the HTTP 
 
 You already have a route for downloading files (unless, of course, access to it is allowed)
 
