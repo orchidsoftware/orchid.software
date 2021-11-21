@@ -194,8 +194,6 @@ public function createOrUpdate(Post $post, Request $request)
     );
 
     Alert::info('You have successfully created an post.');
-
-    return redirect()->route('platform.post.list');
 }
 ```
 
