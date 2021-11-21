@@ -67,7 +67,7 @@ Sometimes the necessary files are already on the server, then you can use the fo
 use Illuminate\Http\UploadedFile;
 use Orchid\Attachment\File;
 
-$file = new UploadedFile($path, $originalName)
+$file = new UploadedFile($path, $originalName);
 
 $attachment = (new File($file))->load();
 ```
