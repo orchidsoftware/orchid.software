@@ -58,6 +58,20 @@ $image->url();
 
 > **Note.** The `url()` method will first check for the path existence, and then get the URL. When using external storage like `s3`, this will make two calls. To improve performance you can use the [caching adapter](https://laravel.com/docs/filesystem#driver-prerequisites) recommended by `Laravel` to improve performance. You can also simply override this method and adjust to your needs.
 
+
+## Uploading a file via the console
+
+Sometimes the necessary files are already on the server, then you can use the following to upload to the desired storage:
+
+```php
+use Illuminate\Http\UploadedFile;
+use Orchid\Attachment\File;
+
+$file = new UploadedFile($path, $originalName)
+
+$attachment = (new File($file))->load();
+```
+
 ## Reload File
 
 Thanks to the hash, attachments are not downloaded again; instead, a link is created in the database to the required physical file,
