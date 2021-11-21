@@ -165,12 +165,60 @@ use App\Model;
 Model::filtersApply([Filter::class])->simplePaginate();
 ```
 
-It is possible to use a whole group of filters merged into the `Selection` layer, through:
+
+## Selection
+
+When you need to display filters and apply them to a model, it is more convenient to group them by creating a separate layer, "Selection".
+To make, run the command:
 
 ```php
-Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
+php artisan orchid:selection MySelection
 ```
 
-Then all filters installed in the layer will be applied.
+In this class, there is one single method in which it is necessary to list all filters that should be displayed and applied, for example:
 
-For display and join filters each others use layout "[Selection](https://orchid.software/en/docs/grouping/#selection)".
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Platform\Filters\Filter;
+use Orchid\Press\Http\Filters\CreatedFilter;
+use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Screen\Layouts\Selection;
+
+class MySelection extends Selection
+{
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+          SearchFilter::class,
+          CreatedFilter::class
+        ];
+    }
+}
+```
+
+
+After that, we can apply it to the model:
+
+```php
+Model::filtersApplySelection(MySelection::class)->simplePaginate();
+```
+
+Since this is a layer, it can also be used to display fields on the screen:
+
+```php
+use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        MySelection::class,
+    ];
+}
+```
+
+
+
