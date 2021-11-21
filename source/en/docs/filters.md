@@ -100,7 +100,8 @@ HTTP filters or sorting do not have separate display templates. You can see an e
 
 ## Eloquent filter
 
-To create a new filter there is a command:
+When you need to create more complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
+There is an artisan command to create a new filter:
 
 ```php
 php artisan orchid:filter QueryFilter
