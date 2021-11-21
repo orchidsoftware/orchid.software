@@ -560,6 +560,10 @@ public function hero()
 }
 </code></pre>
 
+<blockquote>
+  <p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done to access the filesystem to delete a file (The database won't do it for us).</p>
+</blockquote>
+
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 
 <pre><code class="language-php">public function boot()
