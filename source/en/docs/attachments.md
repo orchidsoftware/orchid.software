@@ -141,6 +141,33 @@ public function boot()
 }
 ```
 
+
+## Default configuration
+
+
+By default, each file uploaded follows the strategy described in `config/platform.php`:
+
+```php
+/*
+|--------------------------------------------------------------------------
+| Default configuration for attachments.
+|--------------------------------------------------------------------------
+|
+| Strategy properties for the file and storage used.
+|
+*/
+
+'attachment' => [
+    'disk'      => 'public',
+    'generator' => \Orchid\Attachment\Engines\Generator::class,
+],
+```
+
+- **disk** - storage name used to store files. The entire settings of which should be defined in `/config/filesystems.php`.
+
+- **generator** - a class that defines how the uploaded files will be named and in which directories they will be located and how to avoid duplicating them.
+
+
 ## Event subscription
 
 Different file processing options may require additional processing, such as video compression,
