@@ -66,7 +66,7 @@ Usage is a method call `filters`:
 Post::filters()->defaultSort('id')->paginate();
 ```
 
-> **Note.** Automatic HTTP filters will not work with relationships. If you are interested in these you can use the Eloquent filter discussed below.
+> **Note.** Automatic HTTP filters will not work with relationships. If you are interested in these, you can use the Eloquent filter discussed below.
 
 
 How filtering will react:
