@@ -435,7 +435,7 @@
                 <a href="#uploading-a-file-via-the-console">Uploading a file via the console</a>
             </li>
                     <li class="anchor-h2">
-                <a href="#reload-file">Reload File</a>
+                <a href="#duplicate-uploaded-files">Duplicate uploaded  files</a>
             </li>
                     <li class="anchor-h2">
                 <a href="#remove">Remove</a>
@@ -511,7 +511,7 @@ $file = new UploadedFile($path, $originalName);
 $attachment = (new File($file))-&gt;load();
 </code></pre>
 
-<h2><a href="#reload-file" name="reload-file">Reload File</a></h2>
+<h2><a href="#duplicate-uploaded-files" name="duplicate-uploaded-files">Duplicate uploaded  files</a></h2>
 
 <p>Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
