@@ -672,8 +672,6 @@ class PostEditScreen extends Screen
         $post-&gt;fill($request-&gt;get('post'))-&gt;save();
 
         Alert::info('You have successfully created an post.');
-
-        return redirect()-&gt;route('platform.post.list');
     }
 
     /**
@@ -687,8 +685,6 @@ class PostEditScreen extends Screen
         $post-&gt;delete();
 
         Alert::info('You have successfully deleted the post.');
-
-        return redirect()-&gt;route('platform.post.list');
     }
 }
 </code></pre>
