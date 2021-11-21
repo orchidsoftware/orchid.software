@@ -265,6 +265,8 @@ class PostEditScreen extends Screen
         $post->delete();
 
         Alert::info('You have successfully deleted the post.');
+
+        return redirect()->route('platform.post.list');
     }
 }
 ```
