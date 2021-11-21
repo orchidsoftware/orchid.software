@@ -107,10 +107,8 @@ There is an artisan command to create a new filter:
 php artisan orchid:filter QueryFilter
 ```
 
-This will create a class filter in the `app/Http/Filters` folder.
+This will create a class filter in the `app/Http/Filters` folder. Filter example:
 
-
-Filter example:
 ```php
 namespace App\Http\Filters;
 
