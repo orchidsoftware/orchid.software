@@ -432,6 +432,9 @@
                 <a href="#upload-example">Upload example</a>
             </li>
                     <li class="anchor-h2">
+                <a href="#uploading-a-file-via-the-console">Uploading a file via the console</a>
+            </li>
+                    <li class="anchor-h2">
                 <a href="#reload-file">Reload File</a>
             </li>
                     <li class="anchor-h2">
@@ -492,6 +495,18 @@ $image-&gt;url();
 <blockquote>
   <p><strong>Note.</strong> The <code>url()</code> method will first check for the path existence, and then get the URL. When using external storage like <code>s3</code>, this will make two calls. To improve performance you can use the <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve performance. You can also simply override this method and adjust to your needs.</p>
 </blockquote>
+
+<h2><a href="#uploading-a-file-via-the-console" name="uploading-a-file-via-the-console">Uploading a file via the console</a></h2>
+
+<p>Sometimes the necessary files are already on the server, then you can use the following to upload to the desired storage:</p>
+
+<pre><code class="language-php">use Illuminate\Http\UploadedFile;
+use Orchid\Attachment\File;
+
+$file = new UploadedFile($path, $originalName)
+
+$attachment = (new File($file))-&gt;load();
+</code></pre>
 
 <h2><a href="#reload-file" name="reload-file">Reload File</a></h2>
 
