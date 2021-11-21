@@ -503,7 +503,7 @@ $image-&gt;url();
 <pre><code class="language-php">use Illuminate\Http\UploadedFile;
 use Orchid\Attachment\File;
 
-$file = new UploadedFile($path, $originalName)
+$file = new UploadedFile($path, $originalName);
 
 $attachment = (new File($file))-&gt;load();
 </code></pre>
