@@ -95,6 +95,8 @@ http://example.com/demo?sort=-content.ru.name
 $model->orderBy('content->ru->name', 'desc');
 ```
 
+HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
+
 
 ## Eloquent filter
 
