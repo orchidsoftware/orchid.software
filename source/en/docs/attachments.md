@@ -74,7 +74,7 @@ $attachment = (new File($file))->load();
 
 ## Reload File
 
-Thanks to the hash, attachments are not downloaded again; instead, a link is created in the database to the required physical file,
+Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.
 
 ## Remove
