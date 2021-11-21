@@ -672,6 +672,8 @@ class PostEditScreen extends Screen
         $post-&gt;fill($request-&gt;get('post'))-&gt;save();
 
         Alert::info('You have successfully created an post.');
+
+        return redirect()-&gt;route('platform.post.list');
     }
 
     /**
