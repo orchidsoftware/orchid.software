@@ -434,6 +434,9 @@
                     <li class="anchor-h2">
                 <a href="#eloquent-filter">Eloquent filter</a>
             </li>
+                    <li class="anchor-h2">
+                <a href="#selection">Selection</a>
+            </li>
             </ul>
     <hr>
 
@@ -594,14 +597,54 @@ you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an
 Model::filtersApply([Filter::class])-&gt;simplePaginate();
 </code></pre>
 
-<p>It is possible to use a whole group of filters merged into the <code>Selection</code> layer, through:</p>
+<h2><a href="#selection" name="selection">Selection</a></h2>
 
-<pre><code class="language-php">Model::filtersApplySelection(RoleSelection::class)-&gt;simplePaginate();
+<p>When you need to display filters and apply them to a model, it is more convenient to group them by creating a separate layer, "Selection".
+To make, run the command:</p>
+
+<pre><code class="language-php">php artisan orchid:selection MySelection
 </code></pre>
 
-<p>Then all filters installed in the layer will be applied.</p>
+<p>In this class, there is one single method in which it is necessary to list all filters that should be displayed and applied, for example:</p>
 
-<p>For display and join filters each others use layout "<a href="https://orchid.software/en/docs/grouping/#selection">Selection</a>".</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Platform\Filters\Filter;
+use Orchid\Press\Http\Filters\CreatedFilter;
+use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Screen\Layouts\Selection;
+
+class MySelection extends Selection
+{
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+          SearchFilter::class,
+          CreatedFilter::class
+        ];
+    }
+}
+</code></pre>
+
+<p>After that, we can apply it to the model:</p>
+
+<pre><code class="language-php">Model::filtersApplySelection(MySelection::class)-&gt;simplePaginate();
+</code></pre>
+
+<p>Since this is a layer, it can also be used to display fields on the screen:</p>
+
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        MySelection::class,
+    ];
+}
+</code></pre>
                     </div>
                 </main>
             </div>
