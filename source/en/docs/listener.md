@@ -145,6 +145,9 @@ protected $targets = [
 ];
 ```
 
+> **Note**. Multiple choice fields such as `<select name="users[]">` need to indicate that they are an array by ending the target value with a dot, such as `"users."`
+
+
 The `asyncMethod` property must specify the method that will be called when the fields are changed. This method must be implemented on the screen.
 Add it with the name `asyncSum`:
 
