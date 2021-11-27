@@ -68,7 +68,17 @@ Auth::user()->inRole($role);
 Auth::user()->addRole($role);
 ```
 
+In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:
 
+```php
+User::byAccess('platform.systems.users')->get();
+
+// Or if the user has at least one of the passed permissions
+User::byAnyAccess([
+   'platform.systems.users'   
+   'non existent',
+])->get();
+```
 
 ## Roles
 
