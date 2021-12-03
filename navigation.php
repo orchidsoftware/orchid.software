@@ -52,6 +52,7 @@ return [
                     'Presenters'   => '/en/docs/presenters',
                     'Using JS'     => '/en/docs/javascript',
                     'Form builder' => '/en/docs/builder',
+                    'Testing'      => '/en/docs/testing',
                     //'Recipes'      => '/en/recipes',
                 ],
             ],
