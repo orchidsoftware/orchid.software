@@ -338,7 +338,7 @@ Relation::make('idea')
      ->title('Choose your idea');
 ```
 
-To set the amount of items that will be listed as a result of a search you can chain the method chunk, passing the number of search results as param:
+To set the number of items that will be listed as a result of a search, you can chain the method chunk, passing the number of search results as a param:
 
 ```php
 Relation::make('users.')
