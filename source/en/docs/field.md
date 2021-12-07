@@ -338,6 +338,13 @@ Relation::make('idea')
      ->title('Choose your idea');
 ```
 
+To set the amount of items that will be listed as a result of a search you can chain the method chunk, passing the number of search results as param:
+
+```php
+Relation::make('users.')
+    ->fromModel(User::class, 'name')
+    ->chunk(20);
+```
 
 Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the `displayAppend` method.
 
