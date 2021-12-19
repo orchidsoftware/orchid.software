@@ -1,484 +1,386 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
-        <meta name="author" content="Alexandr Chernyaev">
-
-        <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
-        <meta property="og:title" content="Orchid - Laravel Admin Panel"/>
-        <meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards."/>
-        <meta property="og:url" content="https://orchid.software/ru"/>
-        <meta property="og:image" content="/favicon.svg"/>
-        <meta property="og:type" content="website"/>
-
-        <meta name="yandex-verification" content="23bb1990414a4f0e" />
-        <meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc" />
-
-        <meta name="twitter:image:alt" content="Orchid - Laravel Admin Panel">
-        <meta name="twitter:card" content="summary_large_image">
-
-        <link rel="alternate" href="https://orchid.software/ru/" hreflang="ru"/>
-        <link rel="alternate" href="https://orchid.software/en/" hreflang="en"/>
-        <link rel="alternate" href="https://orchid.software/en/" hreflang="x-default"/>
-
-        <title>Orchid - Laravel Admin Panel</title>
-
-        <link rel="home" href="https://orchid.software">
-        <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
-        <link rel="stylesheet" href="/assets/build/css/app.css?id=f3ebc79906be5fda1398">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-
-            </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <body itemscope itemtype="http://schema.org/WebPage">
-
-    <div id="app">
-
-        <!-- header -->
-        <header id="header" class="bg-dark">
-            <div class="container">
-                <div class="d-flex flex-column flex-md-row align-items-center py-3">
-                    <h5 class="my-0 mr-md-auto font-weight-normal">
-                        <a href="https://orchid.software/ru" class="v-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="mr-3" height="30px" fill="currentColor">
-                                <g>
-                                    <path d="M86.55 30.73c-11.33 10.72-27.5 12.65-42.3 14.43-10.94 1.5-23.3 3.78-30.48 13.04-6.2 8.3-4.25 20.3 2.25 27.8 1.35 2.03 5.7 5.7 6.38 5.3-5.96-8.42-5.88-21.6 2.6-28.4 8.97-7.52 21.2-7.1 32.03-9.7 6.47-1.23 13.3-3.5 19.2-5.34-8.3 7.44-19.38 10.36-29.7 13.75-8.7 3.08-17.22 10.23-17.45 20.1-.17 6.8 3.1 14.9 10.06 17.07 18.56 4.34 39.14-3.16 50.56-18.4 12.7-16.12 13.75-40.2 2.43-57.33-1.33 2.9-3.28 5.5-5.58 7.7z"/>
-                                    <path d="M0 49.97c-.14 4.35 1.24 13.9 2.63 14.64 1.2-11.48 10.2-20.74 20.83-24.47 17.9-7.06 38.75-3.1 55.66-13.18 5.16-2.3 9.28-9.48 4.36-14.1-2.16-1.76-5.9-5.75-3.7-.72.83 6.22-5.47 10.06-10.63 11.65-10.9 3.34-22.46 3-33.62 4.93-1.9.32-5.9 1.2-2.07-.6 10.52-5.02 23.57-4.38 32.6-12.5 4.8-3.75 2.77-11.16-2.4-13.4C57.4-.35 50.3-.35 43.63.35c-19.85 2.3-37.3 17.7-42.05 37.1C.52 41.57 0 45.77 0 49.97z"/>
-                                </g>
-                            </svg>
-
-                            <span class="h3 font-thin text-uppercase">Orchid</span>
-                        </a>
-                    </h5>
-
-                    <nav class="my-2 mt-4 mt-md-0 my-md-0 mr-md-3 d-none d-md-block">
-
-                        <a class="p-3 m-sm-0" href="https://blog.orchid.software/">
-                            <i class="icon-cup m-r-xs text-xs"></i>
-                            Блог                        </a>
-                        
-                        <a class="p-3 m-sm-0 d-none d-sm-inline" href="https://github.com/orchidsoftware/platform/discussions" target="_blank" rel="noopener noreferrer">
-                            <i class="icon-bubbles m-r-xs text-xs"></i>
-                            Чат                        </a>
-
-                        <a class="p-3 m-sm-0" href="https://github.com/orchidsoftware">
-                            <i class="icon-docs m-r-xs text-xs"></i>
-                            GitHub
-                        </a>
-
-                    </nav>
+    <title>Orchid - Laravel Admin Panel</title>
 
 
-                    <div class="form-group mb-0 pl-sm-3 pr-sm-3 mb-3 mb-sm-0 d-none d-md-block">
-                        <div class="block w-100">
-                            <input type="search" class="form-control w-full"
-                                   id="docsearch"
-                                   placeholder="Поиск (нажмите &quot;/&quot;, для фокуса)"
-                            >
-                        </div>
-                    </div>
-
-                    <a href="/ru/docs" class="btn btn-sm btn-outline-primary btn-rounded mt-4 mt-sm-0 d-none d-md-block">
-                        <strong>
-                            <svg class="m-r-xs" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
-                                <path d="M24 0h-11c-1.104 0-2 0.895-2 2h11v8h8v16h-7v2h7c1.105 0 2-0.895 2-2v-18zM24 8v-5.172l5.171 5.172h-5.171zM2 4c-1.105 0-2 0.896-2 2v24c0 1.105 0.895 2 2 2h17c1.105 0 2-0.895 2-2v-18l-8-8.001h-11zM19 30h-17v-24h9v8h8v16zM13 12v-5.172l5.171 5.172h-5.171z"></path>
-                            </svg>
-
-                            Документация                        </strong>
-                    </a>
-                </div>
-            </div>
-        </header>
-        <!-- / header -->
-
-        <div id="content">
-            
+<meta name="title" content="Orchid - Laravel Admin Panel">
+<meta name="description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
 
 
-    <section class="pb-4 bg-dark position-relative overflow-hidden b-b">
-        <div class="container pt-md-2">
-            <div class="row my-4">
-                <div class="col-12 col-md-6">
-                    <div class="row pt-md-5 mb-md-2">
-                        <div class="col-md-12">
-                            <h1 class="text-white mb-4 mt-4 mr-md-4 text-center text-sm-left font-thin display-6">
-                                    Платформа для <span class="b-b b-2x b-primary font-bold">back-office приложений</span> на Laravel Framework
-                            </h1>
-                        </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p class="lead mb-5">
-                                Это пакет для создания административных приложений, который абстрагирует общие функции, необходимые для бизнес-приложений, CMS и систем электронной коммерции.
-                            </p>
-                        </div>
-                    </div>
 
-                    <div class="d-flex flex-column flex-md-row">
-                        <a href="/ru/docs" class="btn btn-lg btn-outline-primary btn-rounded mb-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="1em" height="1em"
-                                 fill="currentColor" viewBox="0 0 32 32">
-                                <path d="M6.553 27.602c-0.628 1.306-1.025 2.177-4.522 2.304 0.1-3.374 0.744-3.736 2.031-4.378 0.54-0.27 1.213-0.605 1.941-1.164l-1.218-1.555c-0.575 0.442-1.104 0.674-1.615 0.928-2.145 1.070-3.156 2.123-3.156 7.145l0.017 1.022 0.983-0.022c5.301 0 6.292-1.198 7.285-3.26 0.217-0.452 0.338-0.758 0.705-1.367l-1.483-1.347c-0.444 0.607-0.722 1.183-0.968 1.692zM22.030 5.896c-2.212 0-4.011 1.799-4.011 4.010s1.8 4.011 4.011 4.011 4.011-1.8 4.011-4.011c0-2.211-1.8-4.011-4.011-4.011zM22.030 11.909c-1.104 0-2.003-0.899-2.003-2.002s0.898-2.002 2.003-2.002 2.003 0.899 2.003 2.002c-0 1.104-0.898 2.002-2.003 2.002zM31.993 0.916c-0.030-0.499-0.426-0.899-0.925-0.936 0 0-5.596-0.408-10.98 1.603-1.967 0.735-3.586 1.898-5.097 3.661-1.26 1.47-2.512 4.126-3.617 6.332-0.427 0.851-0.835 1.666-1.181 2.288h-5.563c-0.286 0-0.558 0.123-0.748 0.336l-3.666 3.973c-0.234 0.265-0.312 0.633-0.204 0.969s0.385 0.592 0.729 0.67l5.967 1.364c0.407 0.502 1.084 1.253 2.168 2.456l2.261 2.506 1.217 5.148c0.080 0.339 0.331 0.613 0.663 0.72 0.101 0.032 0.206 0.049 0.309 0.049 0.236 0 0.467-0.083 0.651-0.241l3.705-3.686c0.221-0.189 0.349-0.467 0.349-0.759v-5.16c0.498-0.309 1.381-0.786 2.212-1.251 2.264-1.265 5.645-2.841 7.046-4.087 1.974-1.754 2.692-3.040 3.398-4.941 1.678-4.521 1.322-10.751 1.305-11.014zM28.813 11.233c-0.616 1.659-1.174 2.651-2.852 4.142-1.239 1.101-4.629 2.682-6.694 3.837-1.541 0.861-2.464 1.364-2.869 1.695-0.233 0.189-0.368 0.474-0.368 0.774v5.227l-2.11 2.319-0.899-3.8c-0.039-0.163-0.118-0.314-0.231-0.439-1.839-2.038-4.617-5.119-4.83-5.364-0.139-0.169-0.332-0.289-0.549-0.339l-4.581-1.048 2.247-2.375h5.689c0.348 0 0.671-0.181 0.852-0.476 0.44-0.716 0.95-1.736 1.542-2.915 1.002-1.998 2.248-4.642 3.348-5.926 1.3-1.516 2.619-2.469 4.278-3.089 3.691-1.379 7.499-1.524 9.24-1.511 0.032 1.844-0.037 6.119-1.214 9.289z"></path>
-                            </svg>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orchid.software/ru"/>
+<meta property="og:locale" content="ru"/>
+<meta property="og:title" content="Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
+<meta property="og:image" content="">
 
-                            Начать сейчас                        </a>
-                        <a href="https://demo.orchid.software/" class="btn btn-lg btn-bd-primary mb-3 mr-md-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" preserveAspectRatio="xMidYMid"
-                                 width="1em" height="1em" fill="currentColor" viewBox="0 0 32 26">
-                                <path d="M30.000,21.000 L17.000,21.000 L17.000,24.000 L22.047,24.000 C22.600,24.000 23.047,24.448 23.047,25.000 C23.047,25.552 22.600,26.000 22.047,26.000 L10.047,26.000 C9.494,26.000 9.047,25.552 9.047,25.000 C9.047,24.448 9.494,24.000 10.047,24.000 L15.000,24.000 L15.000,21.000 L2.000,21.000 C0.898,21.000 0.000,20.103 0.000,19.000 L0.000,2.000 C0.000,0.897 0.898,0.000 2.000,0.000 L30.000,0.000 C31.103,0.000 32.000,0.897 32.000,2.000 L32.000,19.000 C32.000,20.103 31.103,21.000 30.000,21.000 ZM2.000,2.000 L2.000,19.000 L29.997,19.000 L30.000,2.000 L2.000,2.000 Z"></path>
-                            </svg>
 
-                            Исследовать демо                        </a>
-                    </div>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://orchid.software/ru">
+<meta name="twitter:title" content="Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.">
+<meta name="twitter:image" content="">
 
-                </div>
+    <link rel="alternate" href="https://orchid.software/ru/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/" hreflang="x-default"/>
 
-                <div class="d-none d-md-block col position-relative">
-                    <img src="https://raw.githubusercontent.com/orchidsoftware/platform/master/.github/IMAGES/promo-full.png"
-                         class="main-screenshot">
-                </div>
-            </div>
+    <meta name="author" content="Alexandr Chernyaev">
+    <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
+    <meta name="yandex-verification" content="23bb1990414a4f0e"/>
+    <meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"/>
+</head>
+<body>
+
+    <div class="bg-dark bg-main position-relative">
+
+        <div class="d-none d-md-block position-absolute start-0 end-0 bottom-0 top-0 overflow-hidden pe-none">
+            <img src="/img/next/menu-tentacli.svg" class="position-absolute" style="right: 25vw;top: -3em;">
+            <img src="/img/next/main-tentacli-left.svg" class="position-absolute" style="left: 16vw;bottom: -1em;">
+            <img src="/img/next/main-tentacli-right.svg" class="position-absolute" style="right: 7vw;bottom: -7em;">
         </div>
-        </div>
-    </section>
 
-    <section class="bg-white">
-        <div class="container pt-5 pb-5">
-            <div class="row justify-content-center text-black mb-4">
-                <div class="col-12">
 
-                    <h2 class="center text-dark font-thin w-75 padder-v mb-3 pt-5 ml-0 display-6">
-                            <span class="font-bold">Разрабатывайте веб-приложения</span><br>
-    быстрее, чем когда-либо
-                    </h2>
+        <div class="container pt-md-4 pt-2 position-relative" style="z-index: 1">
+            <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 px-4 position-relative">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+    <img src="/img/next/logo-full.svg" class="logo">
+</a>
 
-                    <p class="lead px-lg-8">
-                            Хватит тратить время на создание админ-панели, сразу пишите логику!
+<ul class="nav nav-pills mx-auto">
+    <li class="nav-item"><a href="https://blog.orchid.software" class="nav-link">Blog</a></li>
+    <li class="nav-item"><a href="https://github.com/orchidsoftware/platform/discussions" class="nav-link">Discussion</a></li>
+    <li class="nav-item"><a href="https://github.com/orchidsoftware" class="nav-link">
+            <svg width="1.5em" height="1.5em" viewBox="0 0 30 29" fill="currentColor"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M10.1367 23.0703C10.1367 22.9531 10.0195 22.8359 9.84375 22.8359C9.66797 22.8359 9.55078 22.9531 9.55078 23.0703C9.55078 23.1875 9.66797 23.3047 9.84375 23.2461C10.0195 23.2461 10.1367 23.1875 10.1367 23.0703ZM8.32031 22.7773C8.32031 22.8945 8.4375 23.0703 8.61328 23.0703C8.73047 23.1289 8.90625 23.0703 8.96484 22.9531C8.96484 22.8359 8.90625 22.7188 8.73047 22.6602C8.55469 22.6016 8.37891 22.6602 8.32031 22.7773ZM10.957 22.7188C10.7812 22.7188 10.6641 22.8359 10.6641 23.0117C10.6641 23.1289 10.8398 23.1875 11.0156 23.1289C11.1914 23.0703 11.3086 23.0117 11.25 22.8945C11.25 22.7773 11.0742 22.6602 10.957 22.7188ZM14.7656 0.21875C6.67969 0.21875 0.46875 6.42969 0.46875 14.5156C0.46875 21.0195 4.51172 26.5859 10.3711 28.5781C11.1328 28.6953 11.3672 28.2266 11.3672 27.875C11.3672 27.4648 11.3672 25.4727 11.3672 24.2422C11.3672 24.2422 7.26562 25.1211 6.38672 22.4844C6.38672 22.4844 5.74219 20.7852 4.80469 20.375C4.80469 20.375 3.45703 19.4375 4.86328 19.4375C4.86328 19.4375 6.32812 19.5547 7.14844 20.9609C8.4375 23.2461 10.5469 22.6016 11.4258 22.1914C11.543 21.2539 11.8945 20.6094 12.3633 20.1992C9.08203 19.8477 5.74219 19.3789 5.74219 13.7539C5.74219 12.1133 6.21094 11.3516 7.14844 10.2969C6.97266 9.88672 6.50391 8.36328 7.32422 6.3125C8.49609 5.96094 11.3672 7.89453 11.3672 7.89453C12.5391 7.54297 13.7695 7.42578 15 7.42578C16.2891 7.42578 17.5195 7.54297 18.6914 7.89453C18.6914 7.89453 21.5039 5.90234 22.7344 6.3125C23.5547 8.36328 23.0273 9.88672 22.9102 10.2969C23.8477 11.3516 24.4336 12.1133 24.4336 13.7539C24.4336 19.3789 20.9766 19.8477 17.6953 20.1992C18.2227 20.668 18.6914 21.5469 18.6914 22.9531C18.6914 24.8867 18.6328 27.3477 18.6328 27.8164C18.6328 28.2266 18.9258 28.6953 19.6875 28.5195C25.5469 26.5859 29.5312 21.0195 29.5312 14.5156C29.5312 6.42969 22.9102 0.21875 14.7656 0.21875ZM6.15234 20.4336C6.03516 20.4922 6.09375 20.668 6.15234 20.7852C6.26953 20.8438 6.38672 20.9023 6.50391 20.8438C6.5625 20.7852 6.5625 20.6094 6.44531 20.4922C6.32812 20.4336 6.21094 20.375 6.15234 20.4336ZM5.50781 19.9648C5.44922 20.082 5.50781 20.1406 5.625 20.1992C5.74219 20.2578 5.85938 20.2578 5.91797 20.1406C5.91797 20.082 5.85938 20.0234 5.74219 19.9648C5.625 19.9062 5.56641 19.9062 5.50781 19.9648ZM7.38281 22.0742C7.32422 22.1328 7.32422 22.3086 7.5 22.4258C7.61719 22.543 7.79297 22.6016 7.85156 22.4844C7.91016 22.4258 7.91016 22.25 7.79297 22.1328C7.67578 22.0156 7.5 21.957 7.38281 22.0742ZM6.73828 21.1953C6.62109 21.2539 6.62109 21.4297 6.73828 21.5469C6.85547 21.6641 6.97266 21.7227 7.08984 21.6641C7.14844 21.6055 7.14844 21.4297 7.08984 21.3125C6.97266 21.1953 6.85547 21.1367 6.73828 21.1953Z"/>
+            </svg>
+        </a>
+    </li>
+
+
+    <li class="nav-item d-none d-md-flex align-items-center px-3">
+        <input class="form-control"
+               type="search"
+               name="search"
+               id="docsearch"
+               autocomplete="off"
+               size="32"
+               placeholder='Search the docs (Press "/" to focus)'
+        >
+    </li>
+
+    
+</ul>
+
+<ul class="nav nav-pills ms-auto me-auto me-md-0">
+    <li class="nav-item"><a href="https://orchid.software/en/docs" class="btn btn-outline-primary">Documentation</a></li>
+</ul>
+            </header>
+
+
+            <div class="px-4 py-md-5 my-md-5 text-center text-white">
+                <div class="col-lg-6 mx-auto mb-5 pb-5">
+                    <h1 class="display-5 fw-bold mb-md-5 mb-3">Build admin panels
+                        <span class="d-block">with Laravel Orchid</span>
+                    </h1>
+                    <p class="lead mb-md-5 pb-md-5 mb-3">
+                        A free Laravel package that abstracts standard business logic and allows code-driven rapid
+                        application development of back office applications like admin panels and dashboards.
                     </p>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="row padder-v mt-md-3 row-cols-1 row-cols-md-3">
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
 
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M23.845 8.125c-1.395-3.701-4.392-6.045-8.92-6.045-5.762 0-9.793 4.279-10.14 9.861-2.779 0.889-4.784 3.723-4.784 6.933 0 3.93 3.089 7.249 6.744 7.249h0.889c0.552 0 1-0.448 1-1s-0.448-1-1-1h-0.889c-2.572 0-4.776-2.404-4.776-5.249 0-2.515 1.763-4.783 3.974-5.163l0.907-0.156-0.081-0.917-0.008-0.011c0-4.871 3.206-8.545 8.162-8.545 3.972 0 6.204 1.957 7.236 5.295l0.213 0.688 0.721 0.015c3.715 0.078 6.971 3.092 6.971 6.837 0 3.408-2.259 7.206-5.679 7.206h-0.285c-0.552 0-1 0.448-1 1s0.448 1 1 1v-0.003c5-0.132 7.883-4.909 7.883-9.203-0.001-4.617-3.619-8.304-8.141-8.791zM20.198 24.233c-0.279-0.292-0.731-0.292-1.010-0l-2.2 2.427v-10.067c0-0.552-0.448-1-1-1s-1 0.448-1 1v10.076l-2.128-2.373c-0.28-0.292-0.732-0.355-1.011-0.063l-0.252 0.138c-0.28 0.293-0.28 0.765 0 1.057l3.61 3.992c0.005 0.005 0.006 0.012 0.011 0.017l0.253 0.265c0.14 0.146 0.324 0.219 0.509 0.218 0.183 0.001 0.368-0.072 0.507-0.218l0.253-0.265c0.005-0.005 0.008-0.011 0.012-0.017l3.701-4.055c0.279-0.292 0.279-0.639 0-0.932z"></path>
-                                </svg>
-                            </div>
+    <div class="container position-relative d-none d-md-block" style="margin-top: -13em; z-index: 3">
+        <div class="col-lg-10 mx-auto">
+            <img src="/img/next/screen.png"
+                 class="pe-none img-fluid rounded shadow">
+        </div>
+    </div>
 
-                            <span class="item-name h4 font-thin"> Легко начать</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Разработка ведётся на PHP, не обязательно использовать HTML, CSS или JavaScript.
-Всё чтобы приложения были просты в использовании.                        </div>
+
+    <div class="container">
+        <div class="row my-3 my-md-5">
+            <div class="col-lg-6 mx-auto text-center">
+                <h1 class="display-5 fw-bold">Develop <span class="text-primary">web applications</span>
+                    <small class="d-block">not admin panels</small>
+                </h1>
+
+                <p class="lead text-muted mb-md-5 mb-3">
+                    Stop reinventing the wheel and wasting your time in building an own admin panel from scratch.
+                    Focus on what really matters for you and start coding application logic right away!
+                </p>
+            </div>
+        </div>
+
+        <div class="row g-md-5">
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card shadow-sm h-100 position-relative card-feature">
+
+
+                    <img src="/img/next/feature1-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
+    top: -6em;
+    right: -3em;">
+
+                    <div class="card-body">
+
+                        
+
+                        <img src="/img/next/feature1.svg" class="pe-none img-fluid mx-auto d-block">
+
+                        <ul class="d-table mx-auto p-0">
+                            <li>Fast Loading Pages</li>
+                            <li>Filtering & Sorting</li>
+                            <li>Data Search</li>
+                            <li>User Notifications</li>
+                        </ul>
                     </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M16 0c-8.836 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 30.032c-7.72 0-14-6.312-14-14.032s6.28-14 14-14 14 6.28 14 14-6.28 14.032-14 14.032zM17 15.594v-9.594c0-0.552-0.448-1-1-1s-1 0.448-1 1v10c0 0.283 0.118 0.537 0.308 0.719 0.017 0.020 0.030 0.041 0.048 0.059l4.949 4.95c0.39 0.39 1.023 0.39 1.414 0s0.39-1.024 0-1.415z"></path>
-                                </svg>
-                            </div>
-
-                            <div class="item-name h4 font-thin">Быстрая загрузка страниц</div>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Производительность одностраничного приложения без дополнительной сложности, переходы без перезагрузки страницы или каких-либо ресурсов.
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M31.707 30.282l-9.717-9.776c1.811-2.169 2.902-4.96 2.902-8.007 0-6.904-5.596-12.5-12.5-12.5s-12.5 5.596-12.5 12.5 5.596 12.5 12.5 12.5c3.136 0 6.002-1.158 8.197-3.067l9.703 9.764c0.39 0.39 1.024 0.39 1.415 0s0.39-1.023 0-1.415zM12.393 23.016c-5.808 0-10.517-4.709-10.517-10.517s4.708-10.517 10.517-10.517c5.808 0 10.516 4.708 10.516 10.517s-4.709 10.517-10.517 10.517z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Поиск данных</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Находите необходимую информацию с любой страницы. Интегрированный Laravel Scout позаботится о результатах поиска.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M12,25l6.67,6.67a1,1,0,0,0,.7.29.91.91,0,0,0,.39-.08,1,1,0,0,0,.61-.92V13.08L31.71,1.71A1,1,0,0,0,31.92.62,1,1,0,0,0,31,0H1A1,1,0,0,0,.08.62,1,1,0,0,0,.29,1.71L11.67,13.08V24.33A1,1,0,0,0,12,25ZM3.41,2H28.59l-10,10a1,1,0,0,0-.3.71V28.59l-4.66-4.67V12.67a1,1,0,0,0-.3-.71Z"/>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Фильтрация и сортировка</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Создайте фильтры, чтобы пользователи могли быстро найти различные сегменты данных.
-Полностью контролируя SQL код.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M28.3 22.247c-1.167-1.419-2.765-3.429-2.765-5.48v-6.53c0-5.625-4.207-10.202-9.584-10.202-5.378 0-9.552 4.577-9.552 10.202v6.53c0 2.016-1.734 3.921-2.833 5.4-0.989 1.328-1.77 2.378-1.242 3.427 0.463 0.923 1.624 1.041 2.583 1.041h5.73c0.002 2.944 2.389 5.331 5.333 5.331s5.333-2.386 5.334-5.331h5.864c0.61 0 2.036 0 2.527-1.038 0.495-1.050-0.297-2.016-1.395-3.351zM15.969 29.871c-1.788 0-3.239-1.448-3.241-3.235h6.482c-0.003 1.787-1.452 3.235-3.241 3.235zM27.168 24.506h-22.262c-0.153 0-0.281-0.005-0.386-0.012 0.206-0.319 0.508-0.727 0.755-1.058 1.218-1.637 3.255-3.949 3.255-6.669v-6.53c0-4.452 3.22-8.073 7.423-8.073s7.455 3.622 7.455 8.073v6.53c0 2.813 1.878 5.164 3.249 6.832 0.231 0.281 0.507 0.617 0.722 0.905-0.064 0.002-0.134 0.003-0.209 0.003z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Уведомления пользователей</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Одноразовые и персональные уведомления будут отличным способом оповещать пользователей о том, что происходит в вашем приложении.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M15.992 2c3.396 0 6.998 2.86 6.998 4.995v4.997c0 1.924-0.8 5.604-2.945 7.293-0.547 0.43-0.831 1.115-0.749 1.807 0.082 0.692 0.518 1.291 1.151 1.582l8.703 4.127c0.068 0.031 0.834 0.16 0.834 1.23l0.001 1.952-27.984 0.002v-2.029c0-0.795 0.596-1.045 0.835-1.154l8.782-4.145c0.63-0.289 1.065-0.885 1.149-1.573s-0.193-1.37-0.733-1.803c-2.078-1.668-3.046-5.335-3.046-7.287v-4.997c0.001-2.089 3.638-4.995 7.004-4.995zM15.992-0c-4.416 0-9.004 3.686-9.004 6.996v4.997c0 2.184 0.997 6.601 3.793 8.847l-8.783 4.145s-1.998 0.89-1.998 1.999v3.001c0 1.105 0.895 1.999 1.998 1.999h27.986c1.105 0 1.999-0.895 1.999-1.999v-3.001c0-1.175-1.999-1.999-1.999-1.999l-8.703-4.127c2.77-2.18 3.708-6.464 3.708-8.865v-4.997c0-3.31-4.582-6.995-8.998-6.995v0z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Разрешения безопасности</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Используйте для включения или отключения целых экранов или поведения пользовательского интерфейса в зависимости от пользователя и соответствующей принадлежности к ролям.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M16.642 20.669c-0.391 0.39-0.391 1.023-0 1.414 0.195 0.195 0.451 0.293 0.707 0.293s0.512-0.098 0.707-0.293l5.907-6.063-5.907-6.063c-0.39-0.39-1.023-0.39-1.414 0s-0.391 1.024 0 1.414l3.617 3.617h-19.264c-0.552 0-1 0.448-1 1s0.448 1 1 1h19.326zM30.005 0h-18c-1.105 0-2.001 0.895-2.001 2v9h2.014v-7.78c0-0.668 0.542-1.21 1.21-1.21h15.522c0.669 0 1.21 0.542 1.21 1.21l0.032 25.572c0 0.668-0.541 1.21-1.21 1.21h-15.553c-0.668 0-1.21-0.542-1.21-1.21v-7.824l-2.014 0.003v9.030c0 1.105 0.896 2 2.001 2h18c1.105 0 2-0.895 2-2v-28c-0.001-1.105-0.896-2-2-2z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Представляйтесь другим</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            У вашего клиента проблема? Вы сможете легко повторить её, аутентифицировашись в системе как один из ваших пользователей.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
-                                     viewBox="0 0 32 32">
-                                    <path d="M5.397 31.488c-1.356 0-2.659-0.561-3.697-1.6-2.301-2.309-2.301-6.064-0.001-8.372l17.946-19.057c2.8-2.804 7.089-2.553 10.219 0.582 1.402 1.405 2.189 3.431 2.16 5.559-0.029 2.107-0.852 4.123-2.259 5.531l-13.563 14.439c-0.377 0.404-1.011 0.423-1.413 0.044s-0.421-1.014-0.043-1.417l13.584-14.461c1.063-1.065 1.672-2.575 1.695-4.164s-0.552-3.090-1.574-4.114c-1.92-1.924-5.046-2.932-7.37-0.602l-17.945 19.057c-1.543 1.547-1.542 4.032-0.020 5.558 0.714 0.715 1.562 1.063 2.464 1.008 0.893-0.055 1.811-0.512 2.585-1.288l14.279-15.198c0.517-0.518 1.558-1.79 0.499-2.851-0.599-0.601-1.020-0.563-1.159-0.552-0.395 0.035-0.858 0.309-1.337 0.79l-10.748 11.43c-0.38 0.404-1.013 0.423-1.414 0.043-0.402-0.379-0.421-1.014-0.042-1.416l10.767-11.452c0.846-0.851 1.712-1.312 2.593-1.391 0.688-0.061 1.71 0.085 2.753 1.131 1.548 1.551 1.355 3.826-0.477 5.663l-14.279 15.197c-1.14 1.144-2.517 1.808-3.898 1.893-0.101 0.007-0.203 0.010-0.304 0.010z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Attachments</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            When the file is loaded, a hash is generated and no duplicates are physically stored on
-                            disk. It can also be easily linked to an Eloquent record.
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col mb-5 py-2">
-
-
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1em" height="1em"
-                                     fill="currentColor">
-                                    <path d="M8.502 9.999h-7.002c-0.552 0-1 0.447-1 1v20.001c0 0.552 0.448 1 1 1h7.002c0.553 0 1-0.448 1-1v-20c0-0.553-0.447-1-1-1zM7.502 30h-5.002v-18h5.002v18zM19.492 15.945h-7.003c-0.553 0-1 0.448-1 1v14.055c0 0.552 0.447 1 1 1h7.003c0.552 0 1-0.448 1-1v-14.055c0-0.553-0.447-1-1-1zM18.492 30h-5.003v-12.055h5.003v12.055zM30.5 0h-6.992c-0.552 0-1 0.448-1 1v30c0 0.552 0.448 1 1 1h6.992c0.552 0 1-0.448 1-1v-30c0-0.552-0.448-1-1-1zM29.5 30h-4.992v-28h4.992v28z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Data Visulization</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Show the dynamics of changes using SVG graphs of different types:
-                            'bar', 'line', 'pie' or 'percentage', which can be exported.
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M32.032 16c0-8.501-6.677-15.472-15.072-15.969-0.173-0.019-0.346-0.032-0.523-0.032-0.052 0-0.104 0.005-0.156 0.007-0.093-0.002-0.186-0.007-0.281-0.007-8.84 0-16.032 7.178-16.032 16.001s7.192 16.001 16.032 16.001c0.094 0 0.188-0.006 0.281-0.008 0.052 0.002 0.104 0.008 0.156 0.008 0.176 0 0.349-0.012 0.523-0.032 8.395-0.497 15.072-7.468 15.072-15.969zM29.049 21.151c-0.551-0.16-1.935-0.507-4.377-0.794 0.202-1.381 0.313-2.84 0.313-4.357 0-1.196-0.069-2.354-0.197-3.469 3.094-0.37 4.45-0.835 4.54-0.867l-0.372-1.050c0.695 1.659 1.080 3.478 1.080 5.386 0 1.818-0.352 3.555-0.987 5.151zM8.921 16c0-1.119 0.074-2.212 0.21-3.263 1.621 0.127 3.561 0.222 5.839 0.243v6.939c-2.219 0.021-4.114 0.111-5.709 0.234-0.22-1.319-0.34-2.715-0.34-4.154zM16.967 2.132c2.452 0.711 4.552 4.115 5.492 8.628-1.512 0.12-3.332 0.209-5.492 0.229v-8.857zM14.971 2.156v8.832c-2.136-0.021-3.965-0.109-5.502-0.226 0.96-4.457 3.076-7.836 5.502-8.606zM14.971 21.913l0 7.929c-2.263-0.718-4.256-3.705-5.293-7.719 1.492-0.11 3.253-0.189 5.292-0.21zM16.967 29.868l-0-7.955c2.061 0.020 3.814 0.102 5.288 0.217-1.019 4.067-3 7.076-5.288 7.738zM16.967 19.92l0-6.939c2.291-0.021 4.218-0.118 5.818-0.25 0.131 1.053 0.203 2.147 0.203 3.268 0 1.442-0.116 2.84-0.329 4.16-1.575-0.128-3.462-0.219-5.692-0.24zM28.588 9.81c-0.302 0.094-1.564 0.453-4.094 0.751-0.564-2.998-1.584-5.561-2.91-7.412 3.048 1.325 5.535 3.697 7.005 6.661zM11.213 2.831c-1.632 1.873-2.963 4.568-3.691 7.754-2.265-0.245-3.623-0.534-4.166-0.665 1.585-3.27 4.407-5.836 7.856-7.088zM2.614 11.787c0.385 0.104 1.841 0.467 4.549 0.766-0.155 1.107-0.24 2.26-0.24 3.447 0 1.509 0.136 2.96 0.383 4.334-2.325 0.251-3.755 0.552-4.396 0.706-0.607-1.566-0.944-3.264-0.944-5.041 0-1.467 0.228-2.883 0.649-4.213zM3.784 22.886c0.727-0.154 2.029-0.39 3.956-0.591 0.759 2.803 1.993 5.175 3.473 6.874-3.16-1.148-5.79-3.398-7.429-6.282v0zM21.583 28.849c1.195-1.665 2.14-3.907 2.728-6.525 1.982 0.227 3.226 0.494 3.853 0.652-1.5 2.596-3.808 4.669-6.581 5.873z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Localization</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Users from different countries? You can translate into any language of your choice. All
-                            texts in the entire application can be translated.
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-
-
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1em" height="1em"
-                                     fill="currentColor">
-                                    <path d="M24.98 30.009h-23v-25h14.050l2.022-1.948-0.052-0.052h-16.020c-1.105 0-2 0.896-2 2v25c0 1.105 0.895 2 2 2h23c1.105 0 2-0.895 2-2v-14.646l-2 1.909v12.736zM30.445 1.295c-0.902-0.865-1.898-1.304-2.961-1.304-1.663 0-2.876 1.074-3.206 1.403-0.468 0.462-13.724 13.699-13.724 13.699-0.104 0.106-0.18 0.235-0.219 0.38-0.359 1.326-2.159 7.218-2.176 7.277-0.093 0.302-0.010 0.631 0.213 0.851 0.159 0.16 0.373 0.245 0.591 0.245 0.086 0 0.172-0.012 0.257-0.039 0.061-0.020 6.141-1.986 7.141-2.285 0.132-0.039 0.252-0.11 0.351-0.207 0.631-0.623 12.816-12.618 13.802-13.637 1.020-1.052 1.526-2.146 1.507-3.253-0.019-1.094-0.55-2.147-1.575-3.129zM29.076 6.285c-0.556 0.574-4.914 4.88-12.952 12.798l-0.615 0.607c-0.921 0.285-3.128 0.994-4.796 1.532 0.537-1.773 1.181-3.916 1.469-4.929 1.717-1.715 13.075-13.055 13.506-13.48 0.084-0.084 0.851-0.821 1.795-0.821 0.536 0 1.053 0.244 1.577 0.748 0.627 0.602 0.95 1.179 0.959 1.72 0.010 0.556-0.308 1.171-0.943 1.827z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Form builder</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            There is no need to describe forms of the same type in html. There are many custom fields
-                            prepared that are easy to use.
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col mb-5 py-2">
-
-
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1em" height="1em"
-                                     fill="currentColor">
-                                    <path d="M0.682 9.431l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.474-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892s-0.216-0.711-0.547-0.88l-14.848-7.54c-0.283-0.143-0.617-0.144-0.902-0.002l-15.002 7.54c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895zM16.161 2.134l12.692 6.446-12.843 6.921-12.693-6.912zM31.292 15.010l-2.968-1.507-2.142 1.155 2.5 1.27-12.842 6.921-12.694-6.912 2.666-1.34-2.136-1.164-3.135 1.575c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.474-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892s-0.215-0.711-0.546-0.88zM31.292 22.010l-2.811-1.382-2.142 1.155 2.344 1.145-12.843 6.921-12.694-6.912 2.478-1.121-2.136-1.164-2.947 1.357c-0.332 0.167-0.545 0.505-0.551 0.877s0.196 0.717 0.521 0.895l14.847 8.085c0.149 0.081 0.313 0.122 0.479 0.122 0.163 0 0.326-0.040 0.475-0.12l15.003-8.085c0.327-0.176 0.53-0.52 0.525-0.892-0.005-0.373-0.215-0.712-0.546-0.88z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Various Interface Elements</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Display information in the form of rows, tables, columns, tabs, modal windows.
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col mb-5 py-2">
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32"
-                                     fill="currentColor">
-                                    <path d="M25 12h-1v-3.816c0-4.589-3.32-8.184-8.037-8.184-4.736 0-7.963 3.671-7.963 8.184v3.816h-1c-2.206 0-4 1.794-4 4v12c0 2.206 1.794 4 4 4h18c2.206 0 4-1.794 4-4v-12c0-2.206-1.794-4-4-4zM10 8.184c0-3.409 2.33-6.184 5.963-6.184 3.596 0 6.037 2.716 6.037 6.184v3.816h-12v-3.816zM27 28c0 1.102-0.898 2-2 2h-18c-1.103 0-2-0.898-2-2v-12c0-1.102 0.897-2 2-2h18c1.102 0 2 0.898 2 2v12zM16 18c-1.104 0-2 0.895-2 2 0 0.738 0.405 1.376 1 1.723v3.277c0 0.552 0.448 1 1 1s1-0.448 1-1v-3.277c0.595-0.346 1-0.985 1-1.723 0-1.105-0.895-2-2-2z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">Two-Factor аутентификация</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            Защитите аккаунты клиентов с помощью двухфакторной аутентификации, использующей протокол TOTP, например, на мобильном устройстве.                        </div>
-                    </div>
-                </div>
-                <div class="col mb-5 py-2">
-
-
-                    <div class="item">
-                        <div class="h3 v-center text-black">
-
-                            <div class="hero-icon d-flex flex-justify-center p-2 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1em" height="1em"
-                                     fill="currentColor">
-                                    <path d="M22.005 0h-12.009c-1.657 0-3 1.343-3 3v26c0 1.657 1.343 3 3 3h12.009c1.657 0 3-1.343 3-3v-26c0-1.657-1.343-3-3-3zM23.005 29c0 0.552-0.448 1-1 1h-12.009c-0.552 0-1-0.448-1-1v-26c0-0.552 0.448-1 1-1h12.009c0.552 0 1 0.448 1 1v26zM16.002 25.006c-1.102 0-1.995 0.893-1.995 1.994s0.893 1.995 1.995 1.995c1.102 0 1.995-0.894 1.995-1.995s-0.892-1.994-1.995-1.994zM18.002 3h-4c-0.552 0-1 0.448-1 1s0.448 1 1 1h4c0.552 0 1-0.448 1-1s-0.448-1-1-1z"></path>
-                                </svg>
-                            </div>
-
-                            <span class="item-name h4 font-thin">In Motion</span>
-                        </div>
-                        <div class="linear-gradient h-1/2 bg-primary w-xs mt-3 mb-3" style="height: 2px;"></div>
-                        <div class="item-desc">
-                            There is no need to tie employees to the workplace. All of these cool things can be used
-                            from a mobile device, tablet, or desktop computer.
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card shadow-sm h-100 position-relative card-feature">
+                    <div class="card-body">
 
+                        
+
+                        <img src="/img/next/feature2.svg" class="pe-none img-fluid mx-auto d-block">
+
+                        <ul class="d-table mx-auto p-0">
+                            <li>Security Permissions</li>
+                            <li>Two-Factor Authentication</li>
+                            <li>User Impersonation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card shadow-sm h-100 position-relative card-feature">
+
+
+                    <img src="img/next/feature3-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
+    top: 6em;
+    left: -3.8em;">
+
+                    <div class="card-body">
+
+                        
+
+                        <img src="/img/next/feature3.svg" class="pe-none img-fluid mx-auto d-block">
+
+                        <ul class="d-table mx-auto p-0">
+                            <li>Various Interface Elements</li>
+                            <li>Form builder</li>
+                            <li>Localization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+
+    <div class="container">
 
 
+        <div class="row align-items-center my-5 py-5">
 
-    <section class="border-top">
-        <div class="container  my-5">
+            <div class="col-12 col-md-5">
+
+                <h2 class="display-5 fw-bold">Free and <span class="text-primary">Open Source</span>
+                    <span class="d-block">for any purposes.</span>
+                </h2>
+                <p class="lead px-lg-8 text-muted">
+                    Everything that we do is 100% composed of open and free code, jointly developed by people from all
+                    over the world.
+                </p>
+            </div>
+
+            <div class="d-none d-md-block col-md-7">
+                <div class="d-block text-decoration-none">
+            <img src="https://avatars.githubusercontent.com/u/5102591?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/33116358?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/29531264?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/3835337?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/349293?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/36058530?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/2122240?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/34600369?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/875086?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1443109?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/12692865?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/10923304?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/5114650?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/8014044?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/23292709?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/13166748?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/8939383?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/15719824?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/17746562?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/812976?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/22416775?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/451007?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/6253494?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1283779?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/17860942?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/953022?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1327332?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4540813?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/8565642?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/3649525?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/15300551?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/2639600?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/23408622?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1786317?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/9845317?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/2137593?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/13077787?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/16915783?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/8360167?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/2084398?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4679499?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/8665691?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/19505875?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/21333516?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4312018?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/6442411?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/14044588?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/21959069?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/12697366?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4408379?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/15715484?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/2024844?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/12530913?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/24649160?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1734394?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/404472?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/209757?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/16572481?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/11323261?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/930669?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/33295841?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/1549990?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/12788397?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/5102734?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/10059?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/10871999?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/27897550?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/5767807?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4083370?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+            <img src="https://avatars.githubusercontent.com/u/4902792?v=4" width="40px" height="40px"
+             class="rounded-circle m-1 border border-dark shadow" loading="lazy">
+    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white text-dark bottom-union">
 
 
-            <div class="row justify-content-center text-black mb-4">
-                <div class="col-12">
+        <div class="container pt-5">
 
-                    <h2 class="center text-dark font-thin w-75 padder-v mb-3 pt-5 ml-0 display-6">
-                        <span class="font-bold">Testimonials</span>
-                    </h2>
 
+            <div class="px-4 py-5 text-center text-dark">
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="display-5 fw-bold text-primary">Testimonials</h2>
                     <p class="lead px-lg-8">
-                        Over the years, the package has helped many developers to create high-quality applications<br>
+                        Over the years, the package has helped many developers to create high-quality applications
                         with a minimum of attention to administration panels.
                     </p>
                 </div>
             </div>
 
 
-            <div class="row mt-5 align-items-center justify-content-center">
+            <div class="row align-items-top justify-content-center">
 
                 <div class="col-md-8 col-lg-4">
-                    <div class="shadow-sm p-4 border-top b-primary">
+                    <div class="p-4 ">
                         <div class="row no-gutters align-items-center">
-                            <div class="col-4">
-                                <img alt="image" class="img-fluid rounded"
-                                     src="/assets/img/testimonials/Pavlov-Pavel.jpg">
+                            <div class="col-auto">
+                                <img alt="image" class="rounded-circle"
+                                     src="/img/testimonials/Pavlov-Pavel.jpg"
+                                     width="64px" height="64px">
                             </div>
                             <div class="col-auto mr-auto">
                                 <strong>Pavlov Pavel</strong><br>
@@ -504,11 +406,13 @@
                 </div>
 
                 <div class="col-md-8 col-lg-4 mt-4 mt-lg-0">
-                    <div class="shadow-sm p-4 border-top b-primary">
+                    <div class="p-4 ">
                         <div class="row no-gutters align-items-center">
-                            <div class="col-4">
-                                <img alt="image" class="img-fluid rounded"
-                                     src="/assets/img/testimonials/Lemys-Lopez.jpg">
+                            <div class="col-auto">
+                                <img alt="image" class="rounded-circle"
+                                     src="/img/testimonials/Lemys-Lopez.jpg"
+                                     width="64px" height="64px"
+                                >
                             </div>
                             <div class="col-auto mr-auto">
                                 <strong>Lemys López</strong><br>
@@ -539,11 +443,13 @@
                 </div>
 
                 <div class="col-md-8 col-lg-4 mt-4 mt-lg-0">
-                    <div class="shadow-sm p-4 border-top b-primary">
+                    <div class="p-4 ">
                         <div class="row no-gutters align-items-center">
-                            <div class="col-4">
-                                <img alt="image" class="img-fluid rounded"
-                                     src="/assets/img/testimonials/Vladislav-Ponomarev.jpg">
+                            <div class="col-auto">
+                                <img alt="image" class="rounded-circle"
+                                     src="/img/testimonials/Vladislav-Ponomarev.jpg"
+                                     width="64px" height="64px"
+                                >
                             </div>
                             <div class="col-auto mr-auto">
                                 <strong>Vladislav Ponomarev</strong><br>
@@ -570,309 +476,196 @@
 
 
         </div>
-    </section>
-
-
-            <section class="border-top bg-light border-bottom">
-            <div class="container">
-
-                <div class="row justify-content-center text-black my-5">
-                    <div class="col-12">
-                        <h2 class="center text-dark font-thin w-75 pt-5 ml-0 display-6">
-                            <span class="font-bold">Latest News</span>
-                        </h2>
-                    </div>
-                </div>
-
-
-                <div class="row my-5">
-
-                                            <div class="col-md-4 my-2">
-
-
-                            <a href="https://blog.orchid.software/video-tutorials-for-beginners" class="d-block">
-                                <img src="https://blog.orchid.software/assets/img/video-tutorials-for-beginners/img.png" class="img-blog mb-3 border">
-                            </a>
-
-                            <h5 class="l-h-1x h3 text-dark font-thin">
-                                <a href="https://blog.orchid.software/video-tutorials-for-beginners">Video tutorials for beginners</a>
-                            </h5>
-
-                            <time class="my-2 d-block text-muted">
-                                June 16, 2021
-                            </time>
-
-                            <p class="my-2 text-left">A regular member of our community has made a cool series of video tutorials for newcomers to Orchid. Where, without unnecessary idle talk, he will show the main features, as well as analyze the nuances.
-
-Each video is absolutely free and is located on...</p>
-
-                        </div>
-                                            <div class="col-md-4 my-2">
-
-
-                            <a href="https://blog.orchid.software/orchid-week-1" class="d-block">
-                                <img src="https://blog.orchid.software/assets/img/orchid-week-1/pexels-olya-kobruseva-5417678.jpg" class="img-blog mb-3 border">
-                            </a>
-
-                            <h5 class="l-h-1x h3 text-dark font-thin">
-                                <a href="https://blog.orchid.software/orchid-week-1">Orchid Annotated week 2021-01-18</a>
-                            </h5>
-
-                            <time class="my-2 d-block text-muted">
-                                January 18, 2021
-                            </time>
-
-                            <p class="my-2 text-left">This week, 3 authors have sent 15 commits to mastering and released 4 releases. Here's what we worked on:</p>
-
-                        </div>
-                                            <div class="col-md-4 my-2">
-
-
-                            <a href="https://blog.orchid.software/how-to-write-code" class="d-block">
-                                <img src="https://blog.orchid.software/assets/img/how-to-write-code/jordan-madrid-iDzKdNI7Qgc-unsplash.jpg" class="img-blog mb-3 border">
-                            </a>
-
-                            <h5 class="l-h-1x h3 text-dark font-thin">
-                                <a href="https://blog.orchid.software/how-to-write-code">How to write code: General Guidelines</a>
-                            </h5>
-
-                            <time class="my-2 d-block text-muted">
-                                January 13, 2021
-                            </time>
-
-                            <p class="my-2 text-left">Almost every Orchid application implements specific business logic algorithms. And the best place for these algorithms is in services, into which you need to transfer business logic from all other classes - screen methods, application listeners, etc....</p>
-
-                        </div>
-                    
-                </div>
-            </div>
-        </section>
-    
-    <section class="pos-rlt no-overflow hidden-xs">
-        <div class="container">
-            <div class="row my-5 align-items-end">
-                <div class="col-md-6 col-12 pt-md-5 mb-md-2">
-                    <a href="https://github.com/orchidsoftware">
-                        <img src="/assets/img/github_logo.png" alt="Github" class="m-b-lg">
-                    </a>
-                    <p class="l-h-1x text-dark font-thin m-b-lg display-6"> Бесплатно и с открытым исходным кодом для любых целей.</p>
-                    <p>Всё, что мы делаем, на 100% состоит из открытого и свободного кода, совместно разрабатываемого людьми со всего мира.</p>
-                </div>
-
-                <div class="col-md-6 col-12 pt-md-5 mb-md-2">
-                    <a href="https://opencollective.com/orchid#backers" target="_blank">
-                        <img src="https://opencollective.com/orchid/sponsors.svg?width=600&amp;button=false" class="img-fluid">
-                        <img src="https://opencollective.com/orchid/backers.svg?width=600" class="img-fluid">
-                    </a>
-
-                    <p class="text-muted mt-4">    Существование экосистемы с открытым исходным кодом создает реальную ценность, считают справедливым,
-    что сторонники могут получить <a href="https://www.paypal.me/tabuna/10usd"
-                                     target="_blank">компенсацию</a> за свою работу реальными деньгами.
-</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-        </div>
-
-        <!-- footer -->
-
-        <div class="shape-footer">
-            <svg viewBox="0 0 2880 48" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: -1px;width: 101%;fill:#212529; vertical-align: bottom;">
-                <path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z"></path>
-            </svg>
-        </div>
-
-        <footer id="footer" class="bg-dark">
-            
-            <div class="container">
-
-                <div class="row pt-3 pb-4">
-                    <div class="d-none d-sm-block col-sm-9">
-
-                        <div class="d-block my-3">
-
-                                                            <ul class="list-inline d-flex align-items-center">
-
-                                                                            <li class="hidden-xs mr-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" height="40px"
-                                                 fill="currentColor">
-                                                <g>
-                                                    <path d="M86.55 30.73c-11.33 10.72-27.5 12.65-42.3 14.43-10.94 1.5-23.3 3.78-30.48 13.04-6.2 8.3-4.25 20.3 2.25 27.8 1.35 2.03 5.7 5.7 6.38 5.3-5.96-8.42-5.88-21.6 2.6-28.4 8.97-7.52 21.2-7.1 32.03-9.7 6.47-1.23 13.3-3.5 19.2-5.34-8.3 7.44-19.38 10.36-29.7 13.75-8.7 3.08-17.22 10.23-17.45 20.1-.17 6.8 3.1 14.9 10.06 17.07 18.56 4.34 39.14-3.16 50.56-18.4 12.7-16.12 13.75-40.2 2.43-57.33-1.33 2.9-3.28 5.5-5.58 7.7z"></path>
-                                                    <path d="M0 49.97c-.14 4.35 1.24 13.9 2.63 14.64 1.2-11.48 10.2-20.74 20.83-24.47 17.9-7.06 38.75-3.1 55.66-13.18 5.16-2.3 9.28-9.48 4.36-14.1-2.16-1.76-5.9-5.75-3.7-.72.83 6.22-5.47 10.06-10.63 11.65-10.9 3.34-22.46 3-33.62 4.93-1.9.32-5.9 1.2-2.07-.6 10.52-5.02 23.57-4.38 32.6-12.5 4.8-3.75 2.77-11.16-2.4-13.4C57.4-.35 50.3-.35 43.63.35c-19.85 2.3-37.3 17.7-42.05 37.1C.52 41.57 0 45.77 0 49.97z"></path>
-                                                </g>
-                                            </svg>
-                                        </li>
-                                    
-
-                                                                                                                        <li>
-                                                <a href="/en/community/code-of-conduct">
-                                                    Code of conduct
-                                                </a>
-                                            </li>
-                                                                                    <li>
-                                                <a href="/en/community/contributors">
-                                                    Contribution
-                                                </a>
-                                            </li>
-                                                                                    <li>
-                                                <a href="/en/community/promote">
-                                                    Promote project
-                                                </a>
-                                            </li>
-                                                                                    <li>
-                                                <a href="/en/community/license">
-                                                    License
-                                                </a>
-                                            </li>
-                                                                                    <li>
-                                                <a href="https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md">
-                                                    Change log
-                                                </a>
-                                            </li>
-                                                                                                            </ul>
-                            
-
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-12 text-sm-right font-arial text-center">
-
-                        <ul class="list-inline">
-                            <li class="hidden-xs">
-                                <a href="https://github.com/orchidsoftware" target="_blank" title="GitHub">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1.2em" height="1.2em" role="img" fill="currentColor">
-                                        <path d="M4.956 16.331c-0.362 0-0.7-0.231-0.813-0.594-0.919-2.869-1.050-7.938 0.919-10.238-0.438-1.663-0.194-3.913 0.612-5.119 0.169-0.25 0.444-0.394 0.75-0.381 2.294 0.1 3.787 1.056 5.1 1.931 1.869-0.488 3.688-0.656 5.844-0.538 0.531 0.031 1.056 0.15 1.519 0.256 0.438 0.1 0.887 0.206 1.15 0.181 0.238-0.025 0.662-0.313 1.006-0.55 0.319-0.219 0.656-0.444 1.006-0.6 1-0.438 1.9-0.637 3.113-0.681 0.469-0.013 0.869 0.35 0.887 0.825s-0.35 0.869-0.825 0.881c-1.006 0.038-1.681 0.181-2.488 0.538-0.206 0.094-0.462 0.263-0.731 0.45-0.531 0.362-1.137 0.775-1.813 0.837-0.544 0.050-1.106-0.075-1.7-0.219-0.413-0.094-0.844-0.194-1.225-0.219-2.106-0.119-3.856 0.063-5.669 0.581-0.238 0.069-0.494 0.031-0.706-0.112l-0.213-0.144c-1.144-0.756-2.225-1.481-3.806-1.675-0.394 1.006-0.444 2.675-0.050 3.663 0.138 0.338 0.037 0.731-0.237 0.963-1.544 1.313-1.738 5.956-0.819 8.838 0.144 0.45-0.106 0.931-0.556 1.075-0.088 0.038-0.175 0.050-0.256 0.050zM11.456 24.769c-0.063 0-0.125-0.006-0.188-0.019-0.463-0.1-0.75-0.556-0.65-1.019l0.056-0.244c0.262-1.188 0.506-2.144 0.794-2.856-3.506-0.731-6.063-2.4-7.275-4.762-0.212-0.419-0.050-0.938 0.369-1.15s0.938-0.050 1.15 0.369c1.094 2.131 3.669 3.575 7.256 4.069 0.344 0.050 0.625 0.3 0.713 0.631 0.088 0.337-0.037 0.694-0.319 0.9-0.181 0.163-0.512 0.844-1.019 3.163l-0.056 0.25c-0.088 0.394-0.438 0.669-0.831 0.669zM9.881 31.025c-0.056 0-0.106-0.006-0.162-0.019-0.463-0.094-0.769-0.525-0.675-0.988 0.156-0.794 0.713-1.125 1.044-1.319 0.225-0.131 0.294-0.181 0.331-0.269 0.194-0.413 0.144-1.481 0.1-2.338-0.019-0.363-0.037-0.731-0.044-1.087-1.981 0.344-4.131 0.45-5.269-1.431-0.225-0.375-0.369-0.756-0.5-1.1-0.15-0.387-0.275-0.725-0.481-0.975-0.3-0.363-0.244-0.9 0.119-1.2s0.9-0.25 1.2 0.119c0.381 0.469 0.581 0.994 0.756 1.456 0.112 0.3 0.219 0.581 0.362 0.819 0.612 1.012 1.95 0.95 4.525 0.431 0.269-0.056 0.544 0.025 0.744 0.206 0.2 0.188 0.3 0.456 0.269 0.725-0.063 0.544-0.025 1.256 0.006 1.944 0.063 1.206 0.119 2.344-0.262 3.15-0.275 0.581-0.719 0.844-1.012 1.012-0.081 0.050-0.206 0.119-0.231 0.15-0.056 0.419-0.412 0.713-0.819 0.713zM22.306 30.862c-0.281 0-0.55-0.137-0.719-0.387-0.069-0.113-0.169-0.181-0.344-0.3-0.275-0.194-0.65-0.456-0.931-1-0.506-0.994-0.425-2.438-0.344-3.962 0.050-0.938 0.1-1.906-0-2.669-0.087-0.644-0.313-0.931-0.625-1.331-0.2-0.262-0.431-0.556-0.613-0.944-0.119-0.256-0.1-0.55 0.038-0.794 0.144-0.244 0.394-0.4 0.675-0.419 3.206-0.238 5.738-1.75 6.956-4.144 0.212-0.419 0.725-0.588 1.15-0.375 0.419 0.213 0.588 0.725 0.375 1.15-1.3 2.569-3.781 4.3-6.919 4.894 0.281 0.413 0.556 0.938 0.663 1.744 0.125 0.919 0.069 1.969 0.012 2.981-0.063 1.175-0.131 2.506 0.163 3.094 0.075 0.15 0.169 0.219 0.381 0.369 0.231 0.156 0.544 0.375 0.8 0.769s0.144 0.925-0.25 1.181c-0.144 0.1-0.306 0.144-0.469 0.144zM27.162 16.156c-0.075 0-0.156-0.012-0.231-0.031-0.456-0.131-0.719-0.6-0.587-1.056 0.944-3.319 0.3-7.631-1.35-9.037-0.269-0.231-0.369-0.6-0.25-0.931 0.4-1.144 0.131-2.862-0.325-3.9-0.188-0.431 0.006-0.938 0.438-1.125s0.938 0.006 1.125 0.438c0.525 1.188 0.869 3.056 0.525 4.613 2.038 2.25 2.438 7.050 1.481 10.412-0.113 0.375-0.45 0.619-0.825 0.619zM19.487 32.013c-0.156 0-0.319-0.044-0.462-0.137-0.156-0.1-0.625-0.4-1.494-1.75-0.394-0.613-0.681-3.662-0.856-9.075-0.012-0.469 0.356-0.869 0.825-0.881s0.869 0.356 0.881 0.825c0.113 3.544 0.375 7.563 0.613 8.25 0.637 0.988 0.938 1.188 0.95 1.194 0.394 0.256 0.512 0.781 0.256 1.181-0.156 0.256-0.431 0.394-0.712 0.394zM13.006 32.013c-0.281 0-0.556-0.137-0.719-0.394-0.256-0.394-0.137-0.925 0.256-1.181 0.012-0.006 0.313-0.206 0.95-1.194 0.238-0.681 0.494-4.706 0.613-8.25 0.012-0.469 0.412-0.844 0.881-0.825 0.469 0.012 0.844 0.413 0.825 0.881-0.175 5.413-0.463 8.469-0.856 9.075-0.869 1.344-1.338 1.65-1.494 1.75-0.137 0.094-0.3 0.137-0.456 0.137z"></path>
-                                    </svg>
-
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://twitter.com/orchid_platform" target="_blank" rel="noopener noreferrer" title="Twitter">
-
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1.2em" height="1.2em" role="img" fill="currentColor">
-                                        <path d="M21.387 4.959c1.652 0 3.144 0.676 4.195 1.762 1.308-0.253 2.54-0.714 3.648-1.352-0.428 1.301-1.34 2.393-2.525 3.083 1.16-0.136 2.27-0.434 3.301-0.88-0.773 1.117-1.745 2.1-2.868 2.886 0.011 0.239 0.017 0.479 0.017 0.719 0 7.366-5.782 15.863-16.354 15.863-3.245 0-6.268-0.926-8.809-2.507 0.449 0.052 0.906 0.079 1.37 0.079 2.692 0 5.172-0.89 7.139-2.387-2.517-0.043-4.641-1.657-5.369-3.87 0.351 0.066 0.711 0.101 1.082 0.101 0.522 0 1.032-0.067 1.512-0.195-2.629-0.511-4.611-2.764-4.611-5.467v-0.072c0.776 0.418 1.661 0.669 2.605 0.698-1.543-1.001-2.558-2.705-2.558-4.64 0-1.022 0.284-1.981 0.779-2.801 2.834 3.371 7.069 5.591 11.847 5.824-0.098-0.407-0.149-0.837-0.149-1.27 0-3.079 2.574-5.575 5.749-5.575zM30.006 7.572v0zM21.387 2.959c-3.927 0-7.18 2.869-7.681 6.576-3.213-0.646-6.135-2.346-8.235-4.842-0.381-0.454-0.942-0.713-1.531-0.713-0.052 0-0.104 0.002-0.157 0.006-0.643 0.052-1.223 0.41-1.556 0.962-0.698 1.157-1.066 2.482-1.066 3.833 0 0.902 0.162 1.779 0.469 2.601-0.327 0.364-0.515 0.839-0.515 1.341v0.072c0 1.959 0.774 3.777 2.061 5.139-0.074 0.343-0.058 0.702 0.055 1.046 0.444 1.349 1.251 2.512 2.298 3.398-0.703 0.157-1.428 0.235-2.169 0.235-0.392 0-0.773-0.021-1.133-0.066-0.080-0.010-0.159-0.014-0.238-0.014-0.84 0-1.603 0.529-1.885 1.337-0.31 0.885 0.034 1.866 0.83 2.361 2.954 1.838 6.366 2.808 9.866 2.808 11.376 0 18.219-8.905 18.352-17.605 0.931-0.771 1.754-1.662 2.451-2.661 0.254-0.334 0.405-0.751 0.405-1.203 0-0.681-0.34-1.282-0.859-1.644 0.224-0.769-0.032-1.603-0.657-2.111-0.365-0.297-0.813-0.448-1.262-0.448-0.344 0-0.689 0.088-0.999 0.268-0.661 0.381-1.368 0.683-2.113 0.9-1.347-1.014-3.017-1.578-4.732-1.578z"></path>
-                                    </svg>
-
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="https://t.me/orchid_russian_community" target="_blank" rel="noopener noreferrer" title="Telegram">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="navbar-nav-svg" width="1.2em" height="1.2em" role="img" fill="currentColor">
-                                        <path d="M28.784 3.226l-10.508 24.556-3.729-10.766-10.756-3.251zM31.389 0.024c-0.191 0-0.422 0.054-0.691 0.167l-29.833 12.659c-1.075 0.456-1.143 1.335-0.151 1.952l12.353 3.862 4.043 12.602c0.29 0.474 0.64 0.71 0.977 0.71 0.373 0 0.728-0.286 0.97-0.852l12.759-29.804c0.346-0.809 0.149-1.296-0.426-1.296z"></path>
-                                    </svg>
-                                </a>
-                            </li>
-                            
-                                 <li>
-                                <a href="https://discord.gg/aEVdGMyRt4" target="_blank" rel="noopener noreferrer" title="Discord">
-<svg width="1.2em" height="1.2em" viewBox="0 0 71 55" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0)">
-<path d="M60.1045 4.8978C55.5792 2.8214 50.7265 1.2916 45.6527 0.41542C45.5603 0.39851 45.468 0.440769 45.4204 0.525289C44.7963 1.6353 44.105 3.0834 43.6209 4.2216C38.1637 3.4046 32.7345 3.4046 27.3892 4.2216C26.905 3.0581 26.1886 1.6353 25.5617 0.525289C25.5141 0.443589 25.4218 0.40133 25.3294 0.41542C20.2584 1.2888 15.4057 2.8186 10.8776 4.8978C10.8384 4.9147 10.8048 4.9429 10.7825 4.9795C1.57795 18.7309 -0.943561 32.1443 0.293408 45.3914C0.299005 45.4562 0.335386 45.5182 0.385761 45.5576C6.45866 50.0174 12.3413 52.7249 18.1147 54.5195C18.2071 54.5477 18.305 54.5139 18.3638 54.4378C19.7295 52.5728 20.9469 50.6063 21.9907 48.5383C22.0523 48.4172 21.9935 48.2735 21.8676 48.2256C19.9366 47.4931 18.0979 46.6 16.3292 45.5858C16.1893 45.5041 16.1781 45.304 16.3068 45.2082C16.679 44.9293 17.0513 44.6391 17.4067 44.3461C17.471 44.2926 17.5606 44.2813 17.6362 44.3151C29.2558 49.6202 41.8354 49.6202 53.3179 44.3151C53.3935 44.2785 53.4831 44.2898 53.5502 44.3433C53.9057 44.6363 54.2779 44.9293 54.6529 45.2082C54.7816 45.304 54.7732 45.5041 54.6333 45.5858C52.8646 46.6197 51.0259 47.4931 49.0921 48.2228C48.9662 48.2707 48.9102 48.4172 48.9718 48.5383C50.038 50.6034 51.2554 52.5699 52.5959 54.435C52.6519 54.5139 52.7526 54.5477 52.845 54.5195C58.6464 52.7249 64.529 50.0174 70.6019 45.5576C70.6551 45.5182 70.6887 45.459 70.6943 45.3942C72.1747 30.0791 68.2147 16.7757 60.1968 4.9823C60.1772 4.9429 60.1437 4.9147 60.1045 4.8978ZM23.7259 37.3253C20.2276 37.3253 17.3451 34.1136 17.3451 30.1693C17.3451 26.225 20.1717 23.0133 23.7259 23.0133C27.308 23.0133 30.1626 26.2532 30.1066 30.1693C30.1066 34.1136 27.28 37.3253 23.7259 37.3253ZM47.3178 37.3253C43.8196 37.3253 40.9371 34.1136 40.9371 30.1693C40.9371 26.225 43.7636 23.0133 47.3178 23.0133C50.9 23.0133 53.7545 26.2532 53.6986 30.1693C53.6986 34.1136 50.9 37.3253 47.3178 37.3253Z"></path>
-</g>
-</svg>                                 
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="list-inline">
-                            <a href="/en">English</a>
-                            <span> / </span>
-                            <a href="/ru">Russian</a>
-                        </ul>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </footer>
-        <!-- / footer -->
-
 
     </div>
 
 
-            <!-- Insert analytics code here -->
 
-        <!-- Yandex.Metrika counter -->
-        <script type="text/javascript" async> (function (d, w, c) {
-                (w[c] = w[c] || []).push(function () {
-                    try {
-                        w.yaCounter42925369 = new Ya.Metrika2({
-                            id: 42925369,
-                            clickmap: true,
-                            trackLinks: true,
-                            accurateTrackBounce: true,
-                            webvisor: true,
-                            trackHash: true
-                        });
-                    } catch (e) {
-                    }
-                });
-                var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
-                    n.parentNode.insertBefore(s, n);
-                };
-                s.type = "text/javascript";
-                s.async = true;
-                s.src = "https://mc.yandex.ru/metrika/tag.js";
-                if (w.opera == "[object Opera]") {
-                    d.addEventListener("DOMContentLoaded", f, false);
-                } else {
-                    f();
+    <div class="bg-white text-dark top-union pb-5">
+
+        <div class="container py-5 mb-5">
+            <div class="row flex-lg-row-reverse align-items-center">
+                <div class="col-12 col-sm-8 col-lg-6">
+                    <img src="/img/next/unbox.svg" class="d-block mx-auto img-fluid" alt="Open Source" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3 text-center text-md-start">Explore Orchid <span class="text-primary">now!</span></h1>
+                    <p class="lead w-75 mx-auto ms-md-0">
+                        We are driven by enthusiasm and voluntary donations from the following users:
+                    </p>
+
+                    <div class="mx-auto mb-4 text-center text-md-start">
+            <img src="https://opencollective-production.s3.us-west-1.amazonaws.com/8301f740-0759-11eb-8ba4-a1f98e734dae.jpeg "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://opencollective-production.s3.us-west-1.amazonaws.com/97017710-a90f-11e9-b6fb-2bbe7128f780.png "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/fa1a54d9b3915e409784b543279ca355?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/b2468a37bc24e6eff500d47f65226f87?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://opencollective-production.s3.us-west-1.amazonaws.com/1dc48630-220d-11eb-bf10-e17264fdf7e1.jpg "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/078194551f43a33f5110051a3faf3643?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://logo.clearbit.com/5minphp.ru "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Alexandr Taldykin "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Inkognito "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Roli Graf "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Jose Valle "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/673f15bdd5ebd3c106e015c38e7aad18?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/cbc25b7d5d6c7bb5082fe0af1a7857e9?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://www.gravatar.com/avatar/52e8737b75e302fbc2b85b54a81f50c8?default=404 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Stad "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Hexbyte Inc. "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=thaolt "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Can Özdemir "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=JohanMa4 "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Urmat Tilekov "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://avatar.oxro.io/avatar.svg?name=Ermek Kulmamirov "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://opencollective-production.s3.us-west-1.amazonaws.com/d61d5d80-25c0-11ec-8782-b596fa235a5d.png "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+            <img src="https://logo.clearbit.com/seo25.com "
+             width="48px" height="48px" class="rounded-circle m-1 d-inline-block border" loading="lazy">
+    </div>
+
+                    <div class="d-grid gap-1 d-md-flex justify-content-md-start">
+                        <a href="/en/docs" class="btn btn-outline-dark btn-lg me-md-1">Read The Documentation</a>
+                        <a href="https://opencollective.com/orchid" class="btn btn-link btn-lg">Become a baker</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<div class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 footer-tentacles"></div>
+
+            <div class="col-12 col-md-7 text-center text-md-start">
+                <div class="px-md-4 py-md-5 my-md-5 py-5 px-3">
+                    <h1 class="display-4 fw-bold mb-5">
+                        And one more <span class="text-primary">thing.</span>
+                    </h1>
+                    <div class="col-lg-7 me-md-auto ms-md-0 mx-auto">
+                        <p class="mb-0">
+                            <a href="https://github.com/orchidsoftware/platform/discussions"
+                               class="btn btn-outline-primary mb-3">Discussion</a>
+                            <a href="https://blog.orchid.software" type="button" class="btn btn-outline-primary mb-3">Blog</a>
+                            <a href="https://opencollective.com/orchid"
+                               class="btn btn-outline-primary mb-3">Donation</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/orchidsoftware" class="btn btn-outline-primary mb-3">GitHub</a>
+                            <a href="https://t.me/orchid_community" class="btn btn-outline-primary mb-3">Telegram</a>
+                            <a href="https://twitter.com/orchid_platform"
+                               class="btn btn-outline-primary mb-3">Twitter</a>
+                            <a href="https://discord.gg/aEVdGMyRt4" class="btn btn-outline-primary mb-3">Discord</a>
+                        </p>
+                    </div>
+                    <small class="mt-5 mb-0">
+                        <a href="/en/docs" class="text-muted">English</a>  /
+                        <a href="/ru/docs" class="text-muted">Russian</a>
+                    </small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/app.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" async> (function (d, w, c) {
+            (w[c] = w[c] || []).push(function () {
+                try {
+                    w.yaCounter42925369 = new Ya.Metrika2({
+                        id: 42925369,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
+                    });
+                } catch (e) {
                 }
-            })(document, window, "yandex_metrika_callbacks2"); </script>
-        <noscript>
-            <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""/></div>
-        </noscript> <!-- /Yandex.Metrika counter -->
-
-
-        <script async>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', 'UA-39757298-4', 'auto');
-            ga('send', 'pageview');
-        </script>
-
-    
-    <script src="/assets/build/js/app.js?id=82b533203873e42dceea"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="text/javascript">
-        if (window.document.getElementById('docsearch')) {
-            docsearch({
-                apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
-                indexName: 'orchid_software',
-                inputSelector: '#docsearch',
-                algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
-                debug: true
             });
+            var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else {
+                f();
+            }
+        })(document, window, "yandex_metrika_callbacks2"); </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript> <!-- /Yandex.Metrika counter -->
 
-            document.addEventListener('keydown', (e) => {
-                if (e.keyCode == 191) {
-                    document.getElementById('docsearch').focus();
-                    e.preventDefault()
-                }
-                if (e.keyCode == 27) {
-                    document.getElementById('docsearch').blur();
-                    e.preventDefault()
-                }
-            })
-
-        }
+    <script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
     </script>
 
-    </body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+<script type="text/javascript">
+    if (window.document.getElementById('docsearch')) {
+        docsearch({
+            apiKey: 'afc2a7f7d4f201489dcd8c4f0f40bde2',
+            indexName: 'orchid_software',
+            inputSelector: '#docsearch',
+            algoliaOptions: {'facetFilters': ["lang:" + document.documentElement.lang]},
+            debug: true
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.keyCode == 191) {
+                document.getElementById('docsearch').focus();
+                e.preventDefault()
+            }
+            if (e.keyCode == 27) {
+                document.getElementById('docsearch').blur();
+                e.preventDefault()
+            }
+        })
+    }
+</script>
+
+</body>
 </html>
