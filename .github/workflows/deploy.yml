@@ -19,15 +19,27 @@ jobs:
       - name: Setup PHP 🔧
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
-          extensions: mbstring
+          php-version: 8.0
+          extensions: mbstring, xml
           coverage: none
           tools: composer:v2
 
       - name: Install and Build 🔧
+        env:
+          APP_NAME: Orchid
+          APP_ENV: production
+          APP_KEY: base64:8Jv9H6OMWkWui9VzMwjSiLPfMqRnZGN0PNVUmMc5Dyc=
+          APP_DEBUG: false
+          APP_URL: https://orchid.software
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          php artisan export
+          php artisan make:sitemap
+
+      - name: Generate
         run: |
           composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-          npm install --force
+          npm install
           npm run production
 
       - name: Deploy 🚀
@@ -35,4 +47,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: build_production
+          FOLDER: storage/app/public

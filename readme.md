@@ -12,16 +12,3 @@ The docs are auto-generated and each page has an edit button. So if you come acr
 
 If you spot any errors, typos or missing information, please submit a pull
 request.
-
-## Local Development
-
-If you want to work on this project on your local machine, you may follow the instructions below.
-
-```bash
-# build static files with Jigsaw
-./vendor/bin/jigsaw build
-
-# compile assets with Laravel Mix
-# options: dev, staging, production
-npm run dev
-```

@@ -1,0 +1,15 @@
+.preview {
+    padding: 1em 0;
+    position: relative;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+
+    svg{
+        width: 1.4em;
+        height: 1.4em;
+        fill: currentColor;
+        margin-right: 0.5em;
+    }
+}
