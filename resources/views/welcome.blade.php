@@ -97,7 +97,7 @@
                 <div class="card shadow-sm h-100 position-relative card-feature">
 
 
-                    <img src="img/next/feature3-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
+                    <img src="/img/next/feature3-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
     top: 6em;
     left: -3.8em;">
 
