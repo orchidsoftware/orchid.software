@@ -58,7 +58,7 @@ class Docs
      */
     protected function editLinkGitHub()
     {
-        return "https://github.com/orchidsoftware/orchid.software/edit/master/source$this->path";
+        return "https://github.com/orchidsoftware/orchid.software/edit/master/docs$this->path";
     }
 
     /**
