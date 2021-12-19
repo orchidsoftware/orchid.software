@@ -25,6 +25,10 @@ jobs:
           tools: composer:v2
 
       - name: Install and Build 🔧
+        run: |
+          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+
+      - name: Generate
         env:
           APP_NAME: Orchid
           APP_ENV: production
@@ -35,12 +39,6 @@ jobs:
         run: |
           php artisan export
           php artisan make:sitemap
-
-      - name: Generate
-        run: |
-          composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
-          npm install
-          npm run production
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
