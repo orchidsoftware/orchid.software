@@ -172,6 +172,13 @@ header {
 }
 
 
+@media only screen and (max-width: 480px) {
+    main, main div {
+        ul {
+            padding: 0 0 0 2rem!important;
+        }
+    }
+}
 
 main, main div {
     max-width: 750px;
@@ -190,11 +197,12 @@ main, main div {
         margin-bottom: 15px;
     }
 
-
     p {
         font-size: 1em;
         line-height: 1.6em;
         margin-bottom: 1.5rem;
+        @extend .text-wrap;
+        @extend .text-break;
 
         > a {
             text-decoration: underline;
@@ -269,6 +277,8 @@ main {
         padding: 1.5em;
         position: relative;
         margin: 2em 0;
+        @extend .text-wrap;
+        @extend .text-break;
 
         &:before{
             position: absolute;
