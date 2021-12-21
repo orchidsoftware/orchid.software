@@ -120,10 +120,10 @@ To change some templates, it is unnecessary to publish the entire package; you c
 
 
 ## Overriding Blade templates
-To override the core Orchid templates, create matching template names in /resources/views/vendor/platform/
+To override the core Orchid templates, create matching template names in `/resources/views/vendor/platform/`
 
-For example, to override /vendor/orchid/platform/resources/views/partials/search.blade.php , create a new template at
-/resources/views/vendor/platform/partials/search.blade.php
+For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
+`/resources/views/vendor/platform/partials/search.blade.php`
 
 ## Model classes
 
