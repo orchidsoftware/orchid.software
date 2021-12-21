@@ -357,6 +357,9 @@
                     <a href="#appearance-patterns">Appearance patterns</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#overriding-blade-templates">Overriding Blade templates</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#model-classes">Model classes</a>
                 </li>
                     </ul>
@@ -432,6 +435,10 @@ class AppServiceProvider extends ServiceProvider
     'footer' =&gt; null,
 ],
 </code></pre>
+<h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade templates</a></h2>
+<p>To override the core Orchid templates, create matching template names in /resources/views/vendor/platform/</p>
+<p>For example, to override /vendor/orchid/platform/resources/views/partials/search.blade.php , create a new template at
+/resources/views/vendor/platform/partials/search.blade.php</p>
 <h2><a href='#model-classes' id='model-classes'>Model classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">namespace App\Providers;
