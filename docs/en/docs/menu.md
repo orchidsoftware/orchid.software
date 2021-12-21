@@ -56,6 +56,7 @@ Specifying a link through the route:
 Menu::make('Example')->route('route.idea');
 ```
 
+## Active
 
 To determine the link activity, use the [dwightwatson/active](https://github.com/dwightwatson/active) package
 Link activity, when using `route` and `url` is set automatically,
