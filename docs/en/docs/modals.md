@@ -149,6 +149,19 @@ Layout::modal('exampleModals', [
     ->type(Modal::TYPE_RIGHT);
 ```
 
+## Opening
+
+Sometimes you may need to open a modal window right after the page is displayed. To do this, you can use the `->open` method:
+
+```php
+use Orchid\Screen\Layouts\Modal;
+
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->open();
+```
+
 ## Disabling AJAX Processing
 
 By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
