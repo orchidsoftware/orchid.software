@@ -360,6 +360,9 @@
                     <a href="#position">Position</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#opening">Opening</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#disabling-ajax-processing">Disabling AJAX Processing</a>
                 </li>
                             <li class="anchor-h2">
@@ -477,6 +480,15 @@ Layout::modal('exampleModals', [
     Layout::rows([]),
 ])
     -&gt;type(Modal::TYPE_RIGHT);
+</code></pre>
+<h2><a href='#opening' id='opening'>Opening</a></h2>
+<p>Sometimes you may need to open a modal window right after the page is displayed. To do this, you can use the <code>-&gt;open</code> method:</p>
+<pre><code class="language-php">use Orchid\Screen\Layouts\Modal;
+
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    -&gt;open();
 </code></pre>
 <h2><a href='#disabling-ajax-processing' id='disabling-ajax-processing'>Disabling AJAX Processing</a></h2>
 <p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
