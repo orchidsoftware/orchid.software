@@ -226,8 +226,7 @@ Route::middleware(['access:systems.history'])->group(function () {
 
 A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.
 
-By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait `Orchid\Access\UserSwitch`
-
+By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait `Orchid\Access\UserSwitch`.
 
 Impersonate another user:
 
