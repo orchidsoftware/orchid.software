@@ -122,7 +122,7 @@ To change some templates, it is unnecessary to publish the entire package; you c
 ## Overriding Blade templates
 
 
-Backend pages are created using Blade. You can change these using Laravel's template override mechanism (this is the same for all packages, not just Orchid);
+Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all packages, not just Orchid);
 
 Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
 
