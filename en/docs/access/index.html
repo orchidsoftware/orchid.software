@@ -356,6 +356,9 @@
                             <li class="anchor-h2">
                     <a href="#check-in-middleware">Check-in Middleware</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#user-impersonation">User Impersonation</a>
+                </li>
                     </ul>
     </div>
                         <p>Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.</p>
@@ -515,6 +518,20 @@ protected $routeMiddleware = [
         // ...
     });
 });
+</code></pre>
+<h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
+<p>A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.</p>
+<p>By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait <code>Orchid\Access\UserSwitch</code></p>
+<p>Impersonate another user:</p>
+<pre><code class="language-php">Auth::user()-&gt;loginAs($otherUser);
+</code></pre>
+<p>Stop impersonating another user:</p>
+<pre><code class="language-php">Auth::user()-&gt;logout();
+</code></pre>
+<p>In order to check whether the user is posing as someone else, use:</p>
+<pre><code class="language-php">if (Auth::user()-&gt;isSwitch()) {
+    // User impersonates someone else
+}
 </code></pre>
 
                     </main>
