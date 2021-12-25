@@ -127,8 +127,19 @@ Backend pages are created using [Blade](https://laravel.com/docs/blade). You can
 Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
 
 For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
-`/resources/views/vendor/platform/partials/search.blade.php`.
+`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example: 
 
+
+```php
+your-project/
+├─ ...
+└─ resources/
+   └─ views/
+      └─ vendor/
+         └─ platform/
+            └─ partials/
+                └─ search.blade.php          
+```
 
 > **Note.** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
 
