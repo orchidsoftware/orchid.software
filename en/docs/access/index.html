@@ -521,7 +521,7 @@ protected $routeMiddleware = [
 </code></pre>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
 <p>A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.</p>
-<p>By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait <code>Orchid\Access\UserSwitch</code></p>
+<p>By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait <code>Orchid\Access\UserSwitch</code>.</p>
 <p>Impersonate another user:</p>
 <pre><code class="language-php">Auth::user()-&gt;loginAs($otherUser);
 </code></pre>
