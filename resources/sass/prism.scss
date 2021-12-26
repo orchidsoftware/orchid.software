@@ -18,8 +18,11 @@ code[class*="language-"] {
     direction: ltr;
     text-align: left;
     white-space: pre;
+    text-align: left;
+    white-space: pre;
     word-spacing: normal;
     word-break: normal;
+    word-wrap: normal;
     line-height: 1.5;
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -28,6 +31,9 @@ code[class*="language-"] {
     -moz-hyphens: none;
     -ms-hyphens: none;
     hyphens: none;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
 }
 pre[class*="language-"]::selection,
 code[class*="language-"]::selection,
