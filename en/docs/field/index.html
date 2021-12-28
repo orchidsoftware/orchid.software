@@ -922,6 +922,11 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
     -&gt;storage('s3');
 </code></pre>
 <p>The default storage is <code>public</code>.</p>
+<p>Sometimes you already know that the file was loaded earlier, then you can use the library search:</p>
+<pre><code class="language-php">Upload::make('upload')
+    -&gt;media();
+</code></pre>
+<p>It will add a new button with a modal window to preview uploaded files.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
 <p>A group is used to combine several fields on one line.</p>
 <pre><code class="language-php">Group::make([
