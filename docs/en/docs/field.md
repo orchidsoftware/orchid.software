@@ -780,6 +780,15 @@ Upload::make('upload')
 The default storage is `public`.
 
 
+Sometimes you already know that the file was loaded earlier, then you can use the library search:
+
+```php
+Upload::make('upload')
+    ->media();
+```
+
+It will add a new button with a modal window to preview uploaded files.
+
 ## Group
 
 A group is used to combine several fields on one line.
