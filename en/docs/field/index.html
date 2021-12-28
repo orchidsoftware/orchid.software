@@ -837,6 +837,11 @@ DateTimeZone::PER_COUNTRY;
 <pre><code class="language-php">Picture::make('picture')
     -&gt;storage('s3');
 </code></pre>
+<p>Use the <code>acceptedFiles</code> method to define the types of files the field should accept, for example:</p>
+<pre><code class="language-php">Picture::make('picture')
+    -&gt;acceptedFiles('.jpg');
+</code></pre>
+<p>The string passed is a comma-separated list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
 <h2><a href='#cropper' id='cropper'>Cropper</a></h2>
 <p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
 <p><img src="/img/fields/cropper.png" alt="Cropper" /></p>
