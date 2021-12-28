@@ -102,6 +102,9 @@ An example of a record for a service provider
 
 ```php
 // app/Providers/AppServiceProvider.php
+
+use Orchid\Platform\Dashboard;
+
 class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
