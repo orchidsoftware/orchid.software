@@ -643,6 +643,17 @@ Picture::make('picture')
     ->storage('s3');
 ```
 
+Use the `acceptedFiles` method to define the types of files the field should accept, for example:
+
+```php
+Picture::make('picture')
+    ->acceptedFiles('.jpg');
+```
+
+The string passed is a comma-separated list of [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
+
+
+
 ## Cropper
 
 Extends Picture and allows you to upload an image and crop to the desired format.
