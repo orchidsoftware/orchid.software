@@ -410,6 +410,9 @@ mix.js('resources/js/dashboard.js', 'public/js')
 </blockquote>
 <p>An example of a record for a service provider</p>
 <pre><code class="language-php">// app/Providers/AppServiceProvider.php
+
+use Orchid\Platform\Dashboard;
+
 class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
