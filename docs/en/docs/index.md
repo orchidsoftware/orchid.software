@@ -23,25 +23,25 @@ Delivered as a Laravel package and interacted with other components. It can act 
 
 ## What Orchid is not
 
-Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you one out of the box.
+Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you with one out of the box.
 
 ## What is the difference between other packages?
 
 The Laravel ecosystem is rich in various admin panels.
-Maybe, You already solve your problems using Nova, Voyager, BackPack, QuickAdminPanel, or the like.
+Maybe, You have already solved your problems using Nova, Voyager, BackPack, QuickAdminPanel, or the like.
 Here you were led by a desire to find out if the platform will simplify and improve your work.
 We hope to answer this question.
 
 All previous packages are designed to simplify CRUD database operations, and they can be divided into several methods:
 
-- **Scaffolding** - scaffolding method consists of the generation of physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, after age, developers delete such packages, since they cannot update files with manual changes for updated criteria.
+**Scaffolding** - The scaffolding method consists of generating physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, developers delete such packages after age since they cannot update files with manual changes for updated criteria.
 
-- **Visual programming** - is a method in which the developer drags or selects pre-prepared objects, thus building the application, instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.
+- **Visual programming** - is a method in which the developer drags or selects pre-prepared objects, thus building the application instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.
 
-- **One file** - a method that invites the developer to describe all the necessary actions in one single class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that single class.
+- **One file** - a method that invites the developer to describe all the necessary actions in one class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that class.
 
-Unlike scaffolding, this package will be useful at any stage of development, and not just at the beginning, remaining fast for development due to a ready-made set of components.
-It does not provide visual programming, which means you need to write code on the keyboard, and not click with the mouse.
+Unlike scaffolding, this package will be helpful at any stage of development, and not just at the beginning, remaining fast for growth due to a ready-made set of components.
+It does not provide visual programming, so you need to write code on the keyboard and not click with the mouse.
 And instead of one, the main class provides many small components for encapsulation and reuse.
 
 ## What is rapid development?
@@ -50,14 +50,14 @@ A classic web application is a subsystem with a common three-tier architecture, 
 
 - **Presentation level** - a graphical interface presented to the user (browser), including scripts, styles, and other resources.
 
-- **The level of applied logic** - in our cases, this framework is the link where most business logic concentrated, work with the database (Eloquent), sending resources, and various processing.
+- **The level of applied logic** - in our cases, this framework is the link where most business logic is concentrated, works with the database (Eloquent), sending resources, and various processing.
 
-- **Level of resource management** - provides we implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
+- **Level of resource management** - We implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
 
  
 ![Architecture](/img/scheme/architecture.jpg)
 
-It is reducing development time directly related to the distribution of responsibilities between each of the levels. It is especially noticeable when it is necessary to create auxiliary code. At the same time, it takes most of the beneficial work over by the application layer.
+It reduces development time directly related to the distribution of responsibilities between each level. It is especially noticeable when it is necessary to create auxiliary code. At the same time, it takes most of the beneficial work over by the application layer.
 
 As various examples of opposing duties can be cited:
 - Generation of `HTML` with the `Blade` template engine or the `Vue` framework.
