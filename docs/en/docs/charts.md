@@ -292,4 +292,4 @@ User::countByDays($start, $end, 'updated_at')->toChart('Users')
 ```
 
 
-> Note. This function is currently available when using SQLite and MySQL with strict mode turned off.
+> **Note.** This function is currently available when using SQLite and MySQL with strict mode turned off.
