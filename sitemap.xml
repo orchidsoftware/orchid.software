@@ -145,6 +145,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/en/docs/packages/crud</loc>
+        <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/en/docs/presenters</loc>
         <lastmod>2022-01-01T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
@@ -211,6 +217,30 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/community/code-of-conduct</loc>
+        <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/community/contributors</loc>
+        <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/community/license</loc>
+        <lastmod>2022-01-01T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/community/promote</loc>
         <lastmod>2022-01-01T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
