@@ -23,7 +23,7 @@ class DocsMenu extends Component
     {
         $locale = $application->getLocale();
 
-        $this->menu = $config->get('site.navigation.'.$locale.'.docs');
+        $this->menu = $config->get('site.navigation.'.$locale);
     }
 
     /**

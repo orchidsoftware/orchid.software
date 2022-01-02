@@ -43,4 +43,5 @@ Route::get('/{locale}/{type}/icons', function (string $locale, string $type) {
 
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {
     return (new App\Docs($locale, "$type/$page"))->view('docs');
-})->where('locale', 'en|ru');
+})->where('locale', 'en|ru')
+    ->where('page', '(.*)');
