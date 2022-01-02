@@ -10,6 +10,7 @@
         "cagilo/cagilo": "^1.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "jolicode/jolitypo": "^1.2",
         "laravel/framework": "^8.65",
         "orchid/icons": "^2.2",
         "spatie/laravel-export": "dev-main",

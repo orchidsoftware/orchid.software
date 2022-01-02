@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
+use JoliTypo\Fixer;
 use Symfony\Component\DomCrawler\Crawler;
 
 class DocsContent extends Component implements Htmlable
@@ -60,6 +61,29 @@ class DocsContent extends Component implements Htmlable
                 $this->content = Str::of($this->content)
                     ->replace("<$tag>$content</$tag>", "<$tag><a href='#$id' id='$id'>$content</a></$tag>");
             });
+
+        $fixer = new Fixer([
+            'Ellipsis',
+            'Dimension',
+            'Unit',
+            'Dash',
+            'SmartQuotes',
+            'NoSpaceBeforeComma',
+            'CurlyQuote',
+            'Trademark',
+        ]);
+
+        $crawler
+            ->filter('p,li')
+            ->each(function (Crawler $elm) use ($fixer) {
+
+                $content = $elm->html();
+
+                $paragraph = $fixer->fix($content);
+
+                $this->content = Str::of($this->content)->replace($content, $paragraph);
+            });
+
 
         return $this->content;
     }
