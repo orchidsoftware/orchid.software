@@ -34,7 +34,7 @@ We hope to answer this question.
 
 All previous packages are designed to simplify CRUD database operations, and they can be divided into several methods:
 
-**Scaffolding** - The scaffolding method consists of generating physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, developers delete such packages after age since they cannot update files with manual changes for updated criteria.
+- **Scaffolding** - The scaffolding method consists of generating physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, developers delete such packages after age since they cannot update files with manual changes for updated criteria.
 
 - **Visual programming** - is a method in which the developer drags or selects pre-prepared objects, thus building the application instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.
 
