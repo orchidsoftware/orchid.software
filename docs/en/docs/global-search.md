@@ -116,7 +116,7 @@ class IdeaPresenter extends Presenter implements Searchable
      */
     public function url(): string
     {
-        return url('/')
+        return url('/');
     }
 
     /**
