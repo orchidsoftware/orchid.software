@@ -71,18 +71,6 @@ php artisan serve
 Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
 > **Note.** Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file `config/platform.php` or `.env` file. It allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`.
- 
- 
-## Publishing resources
-
-By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. **Please only use it if your web server is having problems**:
-
-
-```php
-php artisan orchid:link
-```
- 
-> **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
 
 
 ## Updating
@@ -94,6 +82,30 @@ composer update orchid/platform --with-dependencies
 ```
 
 > **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
+
+
+After updating to a new release, you should be sure to update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
+
+```bash
+php artisan orchid:publish
+php artisan view:clear
+```
+
+## Keeping assets updated
+
+To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project's `composer.json` file to automatically publish the latest assets:
+
+```json
+"scripts": {
+    "post-update-cmd": [
+      "@php artisan orchid:publish --ansi"
+  ]
+}
+```
+
+> **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
+
+
 
 ## What to do next?
 

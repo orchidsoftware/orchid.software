@@ -156,26 +156,35 @@ class History extends Screen
     /**
      * Display header name.
      *
-     * @var string
+     * @return string
      */
-    public $name = 'History';
-    
+    public function name(): ?string
+    {
+        return 'History';
+    }
+
     /**
      * Display header description.
      *
-     * @var string
+     * @return string
      */
-    public $description = 'History of changes to system objects';
-    
+    public function description(): ?string
+    {
+        return 'History of changes to system objects';
+    }
+
     /**
-     * Permissions for this screen
+     * Permission
      *
-     * @var array|string
+     * @return iterable|null
      */
-    public $permission = [
-        'systems.history'
-    ];
-    
+    public function permission(): ?iterable
+    {
+        return [
+            'systems.history'
+        ];
+    }
+        
     // ...
 }
 ```

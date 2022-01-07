@@ -210,12 +210,6 @@ But when the record is accessed again, the field will be empty. This is due to t
 ```php
 public function query(Post $post): array
 {
-    $this->exists = $post->exists;
-
-    if($this->exists){
-        $this->name = 'Edit post';
-    }
-
     $post->load('attachment');
 
     return [

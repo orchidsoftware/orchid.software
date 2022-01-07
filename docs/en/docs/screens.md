@@ -32,20 +32,6 @@ use Orchid\Platform\Screen\Screen;
 class Idea extends Screen
 {
     /**
-     * Display header name
-     *
-     * @var string
-     */
-    public $name = 'Idea Screen';
-
-    /**
-     * Display header description
-     *
-     * @var string
-     */
-    public $description = 'Idea Screen';
-
-    /**
      * Query data
      *
      * @return array
@@ -53,6 +39,22 @@ class Idea extends Screen
     public function query() : array
     {
         return [];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return "Idea Screen";
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Idea Screen";
     }
 
     /**
@@ -189,7 +191,31 @@ public function query() : array
 }
 ```
 
+## Autocomplete public properties
 
+The returned data from the `query` method will be automatically inserted into the declared public properties according to their name. For example:
+
+
+```php
+/**
+ * @var string
+ */
+public $message;
+
+public function query() : array
+{
+    return [
+        'message'  => 'Hello World!',
+    ];
+}
+
+public function name(): ?string
+{
+    return $this->message;
+}
+```
+
+When a `GET` request is made, the page title will contain the words "Hello world!".
 
 ## Actions
 

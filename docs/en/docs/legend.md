@@ -53,3 +53,5 @@ Layout::legend('user', [
     Sight::make('id')->component(IdInformation::class),
 ]),
 ```
+
+Components work just like a table. You can [see more examples here](/en/docs/table#components).

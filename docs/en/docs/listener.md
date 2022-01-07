@@ -19,20 +19,6 @@ use Orchid\Screen\Screen;
 class PlatformScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Dashboard';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Welcome';
-
-    /**
      * Query data.
      *
      * @return array
@@ -40,6 +26,16 @@ class PlatformScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * Display header name.
+     *
+     * @return string
+     */
+    public function name(): ?string
+    {
+        return 'Dashboard';
     }
 
     /**
@@ -161,20 +157,6 @@ use Orchid\Screen\Screen;
 class PlatformScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Dashboard';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Welcome';
-
-    /**
      * Query data.
      *
      * @return array
@@ -182,6 +164,16 @@ class PlatformScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * Display header name.
+     *
+     * @return string
+     */
+    public function name(): ?string
+    {
+        return 'Dashboard';
     }
 
     /**

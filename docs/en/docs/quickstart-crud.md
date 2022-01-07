@@ -145,23 +145,9 @@ use Orchid\Support\Facades\Alert;
 class PostEditScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
+     * @var Post
      */
-    public $name = 'Creating a new post';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Blog posts';
-
-    /**
-     * @var bool
-     */
-    public $exists = false;
+    public $post;
 
     /**
      * Query data.
@@ -172,15 +158,25 @@ class PostEditScreen extends Screen
      */
     public function query(Post $post): array
     {
-        $this->exists = $post->exists;
-
-        if($this->exists){
-            $this->name = 'Edit post';
-        }
-
         return [
             'post' => $post
         ];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return $this->post->exists ? 'Edit post' : 'Creating a new post';
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Blog posts";
     }
 
     /**
@@ -337,20 +333,6 @@ use Orchid\Screen\Screen;
 class PostListScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Blog post';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'All blog posts';
-
-    /**
      * Query data.
      *
      * @return array
@@ -360,6 +342,22 @@ class PostListScreen extends Screen
         return [
             'posts' => Post::paginate()
         ];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return 'Blog post';
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "All blog posts";
     }
 
     /**
