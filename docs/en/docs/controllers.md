@@ -6,7 +6,7 @@ description: Use of controllers in the application
 
 There is usually no need to create custom controllers to do anything outside the package's scope since you can place [your views on the screen](/en/docs/custom-template/#views), no matter how complex they are.
 
-But if, for example, you already have a realization of the admin panel and you already have a lot of your controllers, then it is not at all necessary to rewrite the finished code. By following the steps below, you will understand how the controllers in the package work. Ultimately, this will save transition time and allow you to upgrade in small steps.
+But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.
 
 
 To create a new controller, you must run the command `make:controller`:
