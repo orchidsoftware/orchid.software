@@ -48,6 +48,7 @@ return [
                 'Using JS'     => '/en/docs/javascript',
                 'Form builder' => '/en/docs/builder',
                 'Testing'      => '/en/docs/testing',
+                'Controllers'  => '/en/docs/controllers',                 
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
