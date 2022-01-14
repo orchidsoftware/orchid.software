@@ -343,12 +343,12 @@
                         <p>There is usually no need to create custom controllers to do anything outside the package&rsquo;s scope since you can place <a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
 <p>But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.</p>
 <p>To create a new controller, you must run the command <code>make:controller</code>:</p>
-<pre><code class="language-php">php artisan make:controller CustomOrchidController
+<pre><code class="language-php">php artisan make:controller OrchidController
 </code></pre>
 <p>In the <code>app/Http/Controllers</code> directory, a new class will be created, change it:</p>
 <pre><code class="language-php">namespace App\Http\Controllers;
 
-class CustomOrchidController extends Controller
+class OrchidController extends Controller
 {
     /**
      * @return \Illuminate\View\View
@@ -380,7 +380,7 @@ class CustomOrchidController extends Controller
 </code></pre>
 <p>The created controller must be declared in the route file, for example, in <code>routes/platform</code>,
 so that common rules apply to it, such as authorization.</p>
-<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
+<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
 </code></pre>
 
                     </main>
