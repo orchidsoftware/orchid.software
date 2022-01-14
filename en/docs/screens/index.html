@@ -500,11 +500,19 @@ public function query() : array
 <p>The screens include built-in commands that allow users to execute various user scripts.
 The <code>commandBar</code> method is responsible for this, which describes the required control buttons.</p>
 <p>For example:</p>
-<pre><code class="language-php">public function commandBar() : array
+<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+use Orchid\Support\Facades\Toast;
+
+public function commandBar() : array
 {
     return [
         Button::make('Go print')-&gt;method('print'),
     ];
+}
+
+public function print(): void
+{
+   Toast::warning('Hello, world! This is a toast message.');
 }
 </code></pre>
 <p>The <code>Button</code> class responds to what will happen when a button pressed, in the example above, when you click on the Print button, The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
