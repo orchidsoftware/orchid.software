@@ -199,11 +199,19 @@ The `commandBar` method is responsible for this, which describes the required co
 For example:
 
 ```php
+use Orchid\Screen\Actions\Button;
+use Orchid\Support\Facades\Toast;
+
 public function commandBar() : array
 {
     return [
         Button::make('Go print')->method('print'),
     ];
+}
+
+public function print(): void
+{
+   Toast::warning('Hello, world! This is a toast message.');
 }
 ```
 
