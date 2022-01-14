@@ -4,7 +4,9 @@ description: Use of controllers in the application
 ---
 
 
-During development, various situations may arise, including the need to build controllers into the package operation.
+There is usually no need to create custom controllers to do anything outside the package's scope since you can place [your views on the screen](/en/docs/custom-template/#views), no matter how complex they are.
+
+But if, for example, you already have a realization of the admin panel and you already have a lot of your controllers, then it is not at all necessary to rewrite the finished code. By following the steps below, you will understand how the controllers in the package work. Ultimately, this will save transition time and allow you to upgrade in small steps.
 
 
 To create a new controller, you must run the command `make:controller`:
