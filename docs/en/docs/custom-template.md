@@ -5,7 +5,7 @@ title: Custom template
 ## Views
 
 
-It is an expected situation when you need to display your own `blade` template**,
+It is an expected situation when you need to display your own `blade` template,
 to do this, call `Layout::view` by passing the parameter a name string:
 
 ```php
