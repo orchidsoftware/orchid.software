@@ -12,7 +12,7 @@ But if, for example, you already have an implementation of the admin panel and y
 To create a new controller, you must run the command `make:controller`:
 
 ```php
-php artisan make:controller CustomOrchidController
+php artisan make:controller OrchidController
 ```
 
 In the `app/Http/Controllers` directory, a new class will be created, change it:
@@ -20,7 +20,7 @@ In the `app/Http/Controllers` directory, a new class will be created, change it:
 ```php
 namespace App\Http\Controllers;
 
-class CustomOrchidController extends Controller
+class OrchidController extends Controller
 {
     /**
      * @return \Illuminate\View\View
@@ -58,5 +58,5 @@ The created controller must be declared in the route file, for example, in `rout
 so that common rules apply to it, such as authorization.
 
 ```php
-Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
+Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
 ```
