@@ -221,6 +221,48 @@ Route::middleware(['access:systems.history'])->group(function () {
 });
 ```
 
+## Check-in Blade
+
+For applications that rely on Blade templating to render, it will be convenient to add ["Custom If Statements"](https://laravel.com/docs/8.x/blade#custom-if-statements) as follows:
+
+```php
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Blade::if('hasAccess', function (string $value) {
+        $user = Auth::user();
+
+        if ($user === null) {
+            return false;
+        }
+
+        return $user->hasAccess($value);
+    });
+}
+```
+
+Once the custom conditional has been defined, you can use it within your templates:
+
+```php
+@hasAccess('platform.index')
+    <!-- User does not have permission 'platform.index' -->
+@elsehasAccess('platform.other')
+    <!-- User does not have permission 'platform.index', but has 'platform.other' -->
+@else
+    <!-- User does not have permission 'platform.index' and 'platform.other'  -->
+@endhasAccess
+
+@unlesshasAccess('platform.index')
+    <!-- User does not have permission 'platform.index' -->
+@endhasAccess
+```
 
 ## User Impersonation
 
