@@ -362,6 +362,9 @@
                     <a href="#check-in-middleware">Check-in Middleware</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#check-in-blade">Check-in Blade</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#user-impersonation">User Impersonation</a>
                 </li>
                     </ul>
@@ -519,6 +522,42 @@ protected $routeMiddleware = [
         // ...
     });
 });
+</code></pre>
+<h2><a href='#check-in-blade' id='check-in-blade'>Check-in Blade</a></h2>
+<p>For applications that rely on Blade templating to render, it will be convenient to add <a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&quot;Custom If Statements&quot;</a> as follows:</p>
+<pre><code class="language-php">use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Blade::if('hasAccess', function (string $value) {
+        $user = Auth::user();
+
+        if ($user === null) {
+            return false;
+        }
+
+        return $user-&gt;hasAccess($value);
+    });
+}
+</code></pre>
+<p>Once the custom conditional has been defined, you can use it within your templates:</p>
+<pre><code class="language-php">@hasAccess('platform.index')
+    &lt;!-- User does not have permission 'platform.index' --&gt;
+@elsehasAccess('platform.other')
+    &lt;!-- User does not have permission 'platform.index', but has 'platform.other' --&gt;
+@else
+    &lt;!-- User does not have permission 'platform.index' and 'platform.other'  --&gt;
+@endhasAccess
+
+@unlesshasAccess('platform.index')
+    &lt;!-- User does not have permission 'platform.index' --&gt;
+@endhasAccess
 </code></pre>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
 <p>A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.</p>
