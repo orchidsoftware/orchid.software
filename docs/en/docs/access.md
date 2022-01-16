@@ -207,7 +207,8 @@ After that, it can be used for any route definitions, by passing the parameter `
 
 
 ```php
-Route::screen('/stories', StoriesScreen::class)->middleware('access:systems.history');
+Route::screen('/stories', StoriesScreen::class)
+    ->middleware('access:systems.history');
 ```
 
 You can also group them into groups:
