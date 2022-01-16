@@ -548,7 +548,7 @@ public function boot()
 }
 </code></pre>
 <p>Once the custom conditional has been defined, you can use it within your templates:</p>
-<pre><code class="language-php">@hasAccess('platform.index')
+<pre><code class="language-html">@hasAccess('platform.index')
     &lt;!-- User does not have permission 'platform.index' --&gt;
 @elsehasAccess('platform.other')
     &lt;!-- User does not have permission 'platform.index', but has 'platform.other' --&gt;
