@@ -513,7 +513,8 @@ protected $routeMiddleware = [
 ];
 </code></pre>
 <p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');
+<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)
+    -&gt;middleware('access:systems.history');
 </code></pre>
 <p>You can also group them into groups:</p>
 <pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
