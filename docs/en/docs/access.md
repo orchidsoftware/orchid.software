@@ -253,7 +253,7 @@ Once the custom conditional has been defined, you can use it within your templat
 
 ```html
 @hasAccess('platform.index')
-    <!-- User does not have permission 'platform.index' -->
+    <!-- User has permission 'platform.index' -->
 @elsehasAccess('platform.other')
     <!-- User does not have permission 'platform.index', but has 'platform.other' -->
 @else
