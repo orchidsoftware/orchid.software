@@ -107,7 +107,7 @@ public function deleting(Post $post)
 ```php
 public function deleting(Post $post)
 {
-    $post->attachment()->each->delete();
+    $post->attachment()->delete();
 }
 ```
 
