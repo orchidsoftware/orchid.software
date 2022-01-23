@@ -225,7 +225,7 @@ class PlatformScreen extends Screen
 
 > **Please note**. Such a function is a substitute for the `query` for the required layouts, and the `async` prefix is required.
 
-And indicate it's name:
+And indicate its name:
 
 ```php
 /**
