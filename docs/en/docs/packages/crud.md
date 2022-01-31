@@ -502,7 +502,8 @@ If this option is active, the model will be checked for the last change if it wa
 
 ```php
 /**
- * Indicates whether should check for modifications between viewing and updating a resource.
+ * Indicates whether should check for modifications
+ * between viewing and updating a resource.
  *
  * @return  bool
 */
