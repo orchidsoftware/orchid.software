@@ -439,6 +439,18 @@ DateTimer::make('open')
     ->format('h:i K');
 ```
 
+## DateRange
+
+
+Allows you to select a range of date (and time).
+
+Example:
+```php
+DateRange::make('open')
+    ->title('Opening between');
+```           
+
+Default value / result is an array with keys of `start`, `end`.
 
 ## TimeZone
 
@@ -893,3 +905,19 @@ DropDown::make()
 ```
 
  
+## NumberRange
+
+You can create ranges of numbers. Especially usefull for filters.
+
+```php
+NumberRange::make()
+```
+
+Usage with filters:
+```php
+TD::make()->filter(NumberRange::make())
+//or
+TD::make()->filter(TD::FILTER_NUMBER_RANGE)
+```
+
+Result is an array with keys of `min`, `max`.  

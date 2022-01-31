@@ -110,7 +110,13 @@ To add a field, call the filter method and pass the instance of the class you wo
 TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 ```
 
-> **Note**: There is no need to specify the field name. It will be delivered automatically by the column name.
+> **Note**: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
+
+Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.
+
+```php
+TD::make('color')->filter(TD::FILTER_SELECT, ['red'=>'Red', 'green'=>'Green']);
+```
 
 
 ## Width
@@ -144,7 +150,7 @@ In some cases, you may need to display combined data, the `render` method is for
 ```php
 TD::make('full_name')
     ->render(function ($user) {
-        return $user->first_name . ' ' . $user->last_name;
+        return e($user->first_name) . ' ' . e($user->last_name);
     });
 ```
 
