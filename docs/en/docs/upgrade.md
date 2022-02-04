@@ -7,6 +7,84 @@ We like to keep things as modern as possible and have a "release early, release 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+## Upgrading to 11.0 from 10.x
+
+### Updating dependencies
+
+In your `composer.json` file, update the `orchid/platform` dependency to `^11.0`
+
+### Publish assets files
+
+Instead of creating a symbolic link to download resources, there is a new command to publish them:
+
+```bash
+php artisan orchid:publish
+```
+
+Which would place the `JS/CSS` files in the `public/vendor/orchid` directory. It will also be required to automate making changes to composer.json:
+
+```json
+{
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan orchid:publish --ansi"
+        ]
+    }
+}
+```
+
+### Screen
+
+Public screen properties are now auto-filled with values by key from the `query()` method. For instance:
+
+```php
+class IdeaScreen extends Screen
+{
+    public $name = 'Edit User';
+
+    public function query(): array
+    {
+        return [
+            'name' => 'Welcome',
+        ];
+    }
+}
+```
+
+The value of the `name` property will be overwritten.
+To avoid this, change the visibility of the property to `protected`
+
+```php
+class IdeaScreen extends Screen
+{
+    protected $name = 'Edit User';
+
+    public function query(): array
+    {
+        return [
+            'name' => 'Welcome',
+        ];
+    }
+}
+```
+
+
+### Component
+
+Specifying the expected argument name for components is no longer necessary:
+
+```php
+// before
+TD::make('index')->component(OrderShortInformation::class, 'order', [
+    'limit' => 100
+]);
+
+// after
+TD::make('index')->component(OrderShortInformation::class, [
+    'limit' => 100
+]);
+```
+
 ## Upgrading to 10.0 from 9.x
 
 ### Updating dependencies
