@@ -85,6 +85,36 @@ TD::make('index')->component(OrderShortInformation::class, [
 ]);
 ```
 
+
+### Metrics
+
+Instead of a separate class, the short syntax is now applied:
+
+```php
+use Orchid\Support\Facades\Layout;
+
+public function query(): array
+{
+    return [
+        'metrics' => [
+            'sales'    => ['value' => number_format(6851), 'diff' => 10.08],
+            'total'    => number_format(65661),
+        ],
+    ];
+}
+    
+public function layout(): iterable
+{
+    return [
+        Layout::metrics([
+            'Sales Today'    => 'metrics.sales',
+            'Total Earnings' => 'metrics.total',
+        ]),
+    ];
+}
+```
+
+
 ## Upgrading to 10.0 from 9.x
 
 ### Updating dependencies
