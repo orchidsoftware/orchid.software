@@ -355,6 +355,9 @@
                             <li class="anchor-h3">
                     <a href="#component">Component</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#metrics">Metrics</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#upgrading-to-100-from-9x">Upgrading to 10.0 from 9.x</a>
                 </li>
@@ -485,6 +488,30 @@ TD::make('index')-&gt;component(OrderShortInformation::class, 'order', [
 TD::make('index')-&gt;component(OrderShortInformation::class, [
     'limit' =&gt; 100
 ]);
+</code></pre>
+<h3><a href='#metrics' id='metrics'>Metrics</a></h3>
+<p>Instead of a separate class, the short syntax is now applied:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+public function query(): array
+{
+    return [
+        'metrics' =&gt; [
+            'sales'    =&gt; ['value' =&gt; number_format(6851), 'diff' =&gt; 10.08],
+            'total'    =&gt; number_format(65661),
+        ],
+    ];
+}
+    
+public function layout(): iterable
+{
+    return [
+        Layout::metrics([
+            'Sales Today'    =&gt; 'metrics.sales',
+            'Total Earnings' =&gt; 'metrics.total',
+        ]),
+    ];
+}
 </code></pre>
 <h2><a href='#upgrading-to-100-from-9x' id='upgrading-to-100-from-9x'>Upgrading to 10.0 from 9.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating dependencies</a></h3>
