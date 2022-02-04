@@ -13,7 +13,7 @@ community related, be it Telegram, GitHub, an Laravel Orchid community resource,
 
 ## Mutual respect
 
-Respect for others is paramount. Respect other people, their opinions, experience, personal life and ideas. The Laravel Orchid community is not a place for disrespectful or abusive language, regardless of the reason. Be constructive and respectful when criticizing. Personal attacks are not allowed. Constructive criticism should be perceived by you with prudence and respect, take note of it and thank the critic for his contribution, regardless of your position.
+Being involved in the community is a fantastic experience; you become part of something big, collaborate with people from all over the world, Help people make their computers unique. But along with this, there is an obligation to follow the rules, which provide the most comfortable environment for all participants. The following rules must be followed anytime, anywhere, community-related, Telegram, GitHub, a Laravel Orchid community resource, face-to-face chat, or something else.
 
 ## Content
 
