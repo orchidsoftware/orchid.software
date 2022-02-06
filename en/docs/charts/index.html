@@ -104,7 +104,7 @@
 
                 <div class="col-12 col-md-auto bg-grey py-md-3" style="background:#F9F9FE;z-index: 2">
                     <nav class="nav-docs px-md-5 py-2 px-3">
-            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get started</h4>
+            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get Started</h4>
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -133,22 +133,22 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart" class="text-decoration-none ">
-                        Quick start
+                        Quick Start
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-crud" class="text-decoration-none ">
-                        Data management
+                        Data Management
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-files" class="text-decoration-none ">
-                        Manage attachments
+                        Manage Attachments
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-sort-filter-table" class="text-decoration-none ">
-                        Sorting and filtering
+                        Sorting and Filtering
                     </a>
                 </li>
                     </ul>
@@ -162,7 +162,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/field" class="text-decoration-none ">
-                        Form elements
+                        Form Elements
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -231,7 +231,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/custom-template" class="text-decoration-none ">
-                        Custom template
+                        Custom Template
                     </a>
                 </li>
                     </ul>
@@ -250,7 +250,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/global-search" class="text-decoration-none ">
-                        Scout search
+                        Scout Search
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -265,7 +265,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form builder
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -298,7 +298,7 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/code-of-conduct" class="text-decoration-none ">
-                        Code of conduct
+                        Code of Conduct
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -308,7 +308,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/promote" class="text-decoration-none ">
-                        Promote project
+                        Promote Project
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -318,7 +318,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md" class="text-decoration-none ">
-                        Change log
+                        Change Log
                     </a>
                 </li>
                     </ul>
@@ -352,11 +352,26 @@
                             <li class="anchor-h2">
                     <a href="#model-charts">Model charts</a>
                 </li>
-                            <li class="anchor-h3">
+                            <li class="anchor-h2">
                     <a href="#grouped-data">Grouped data</a>
                 </li>
-                            <li class="anchor-h3">
+                            <li class="anchor-h2">
                     <a href="#a-period-of-time">A period of time</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#value-query-types">Value Query Types</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#average">Average</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#sum">Sum</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#min">Min</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#max">Max</a>
                 </li>
                     </ul>
     </div>
@@ -474,7 +489,7 @@ class User extends Authenticatable
 <li>Grouped data</li>
 <li>A period of time</li>
 </ul>
-<h3><a href='#grouped-data' id='grouped-data'>Grouped data</a></h3>
+<h2><a href='#grouped-data' id='grouped-data'>Grouped data</a></h2>
 <p>For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
@@ -529,7 +544,7 @@ public function layout(): array
     return $title ? 'Enabled' : 'Disabled';
 });
 </code></pre>
-<h3><a href='#a-period-of-time' id='a-period-of-time'>A period of time</a></h3>
+<h2><a href='#a-period-of-time' id='a-period-of-time'>A period of time</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
 <p>For example, let&rsquo;s display a graph of new users and roles:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
@@ -595,9 +610,24 @@ $end = Carbon::now()-&gt;subDay(1);
 
 User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
 </code></pre>
-<blockquote>
-<p><strong>Note.</strong> This function is currently available when using SQLite and MySQL with strict mode turned off.</p>
-</blockquote>
+<h2><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h2>
+<p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions when building your metric.</p>
+<h3><a href='#average' id='average'>Average</a></h3>
+<p>The <code>average</code> method may be used to calculate the average of a given column</p>
+<pre><code class="language-php">Order::averageByDays('price')-&gt;toChart('Order'),
+</code></pre>
+<h3><a href='#sum' id='sum'>Sum</a></h3>
+<p>The <code>sum</code> method may be used to calculate the sum of a given column:</p>
+<pre><code class="language-php">Order::sumByDays('price')-&gt;toChart('Order'),
+</code></pre>
+<h3><a href='#min' id='min'>Min</a></h3>
+<p>The <code>min</code> method may be used to calculate the min of a given column:</p>
+<pre><code class="language-php">Order::minByDays('price')-&gt;toChart('Order'),
+</code></pre>
+<h3><a href='#max' id='max'>Max</a></h3>
+<p>The <code>max</code> method may be used to calculate the max of a given column:</p>
+<pre><code class="language-php">Order::maxByDays('price')-&gt;toChart('Order'),
+</code></pre>
 
                     </main>
                 </div>

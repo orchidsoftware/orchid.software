@@ -104,7 +104,7 @@
 
                 <div class="col-12 col-md-auto bg-grey py-md-3" style="background:#F9F9FE;z-index: 2">
                     <nav class="nav-docs px-md-5 py-2 px-3">
-            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get started</h4>
+            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get Started</h4>
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -133,22 +133,22 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart" class="text-decoration-none ">
-                        Quick start
+                        Quick Start
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-crud" class="text-decoration-none ">
-                        Data management
+                        Data Management
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 border-primary">
                     <a href="/en/docs/quickstart-files" class="text-decoration-none text-primary">
-                        Manage attachments
+                        Manage Attachments
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-sort-filter-table" class="text-decoration-none ">
-                        Sorting and filtering
+                        Sorting and Filtering
                     </a>
                 </li>
                     </ul>
@@ -162,7 +162,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/field" class="text-decoration-none ">
-                        Form elements
+                        Form Elements
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -231,7 +231,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/custom-template" class="text-decoration-none ">
-                        Custom template
+                        Custom Template
                     </a>
                 </li>
                     </ul>
@@ -250,7 +250,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/global-search" class="text-decoration-none ">
-                        Scout search
+                        Scout Search
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -265,7 +265,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form builder
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -298,7 +298,7 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/code-of-conduct" class="text-decoration-none ">
-                        Code of conduct
+                        Code of Conduct
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -308,7 +308,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/promote" class="text-decoration-none ">
-                        Promote project
+                        Promote Project
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -318,7 +318,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md" class="text-decoration-none ">
-                        Change log
+                        Change Log
                     </a>
                 </li>
                     </ul>
@@ -512,12 +512,6 @@ class Post extends Model
 <p>But when the record is accessed again, the field will be empty. This is due to the fact that <code>query</code> does not know about additional records to our model. We will fix this by adding a download:</p>
 <pre><code class="language-php">public function query(Post $post): array
 {
-    $this-&gt;exists = $post-&gt;exists;
-
-    if($this-&gt;exists){
-        $this-&gt;name = 'Edit post';
-    }
-
     $post-&gt;load('attachment');
 
     return [

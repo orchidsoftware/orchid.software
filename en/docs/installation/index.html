@@ -104,7 +104,7 @@
 
                 <div class="col-12 col-md-auto bg-grey py-md-3" style="background:#F9F9FE;z-index: 2">
                     <nav class="nav-docs px-md-5 py-2 px-3">
-            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get started</h4>
+            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get Started</h4>
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -133,22 +133,22 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart" class="text-decoration-none ">
-                        Quick start
+                        Quick Start
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-crud" class="text-decoration-none ">
-                        Data management
+                        Data Management
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-files" class="text-decoration-none ">
-                        Manage attachments
+                        Manage Attachments
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-sort-filter-table" class="text-decoration-none ">
-                        Sorting and filtering
+                        Sorting and Filtering
                     </a>
                 </li>
                     </ul>
@@ -162,7 +162,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/field" class="text-decoration-none ">
-                        Form elements
+                        Form Elements
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -231,7 +231,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/custom-template" class="text-decoration-none ">
-                        Custom template
+                        Custom Template
                     </a>
                 </li>
                     </ul>
@@ -250,7 +250,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/global-search" class="text-decoration-none ">
-                        Scout search
+                        Scout Search
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -265,7 +265,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form builder
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -298,7 +298,7 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/code-of-conduct" class="text-decoration-none ">
-                        Code of conduct
+                        Code of Conduct
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -308,7 +308,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/promote" class="text-decoration-none ">
-                        Promote project
+                        Promote Project
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -318,7 +318,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md" class="text-decoration-none ">
-                        Change log
+                        Change Log
                     </a>
                 </li>
                     </ul>
@@ -356,10 +356,10 @@
                     <a href="#start-local-server">Start local server</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#publishing-resources">Publishing resources</a>
+                    <a href="#updating">Updating</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#updating">Updating</a>
+                    <a href="#keeping-assets-updated">Keeping assets updated</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#what-to-do-next">What to do next?</a>
@@ -414,19 +414,27 @@ In other words, install your new framework project.</p>
 <blockquote>
 <p><strong>Note.</strong> Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file <code>config/platform.php</code> or <code>.env</code> file. It allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>.</p>
 </blockquote>
-<h2><a href='#publishing-resources' id='publishing-resources'>Publishing resources</a></h2>
-<p>By default, static files (css / js) are delivered via app routes. It is the best balance between configuration and change tracking, but you can specify web servers for distribution. To do this, you need to run a command that creates a symbolic link in the public directory. <strong>Please only use it if your web server is having problems</strong>:</p>
-<pre><code class="language-php">php artisan orchid:link
-</code></pre>
-<blockquote>
-<p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
-</blockquote>
 <h2><a href='#updating' id='updating'>Updating</a></h2>
 <p>While in the project directory, use <code>Composer</code> to update the package:</p>
 <pre><code class="language-php">composer update orchid/platform --with-dependencies
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You can also update all your dependencies listed in the <code>composer.json</code> file by running <code>composer update</code>.</p>
+</blockquote>
+<p>After updating to a new release, you should be sure to update JavaScript and CSS assets using <code>orchid:publish</code> and clear any cached views with <code>view:clear</code>. It will ensure the newly-updated version is using the latest versions.</p>
+<pre><code class="language-bash">php artisan orchid:publish
+php artisan view:clear
+</code></pre>
+<h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping assets updated</a></h2>
+<p>To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project&rsquo;s <code>composer.json</code> file to automatically publish the latest assets:</p>
+<pre><code class="language-json">&quot;scripts&quot;: {
+    &quot;post-update-cmd&quot;: [
+      &quot;@php artisan orchid:publish --ansi&quot;
+  ]
+}
+</code></pre>
+<blockquote>
+<p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
 </blockquote>
 <h2><a href='#what-to-do-next' id='what-to-do-next'>What to do next?</a></h2>
 <p>Now you can try the step-by-step example of working with the package on the <a href="/en/docs/quickstart">&ldquo;Quick Start&rdquo; page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>

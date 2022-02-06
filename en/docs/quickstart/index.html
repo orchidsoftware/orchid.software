@@ -104,7 +104,7 @@
 
                 <div class="col-12 col-md-auto bg-grey py-md-3" style="background:#F9F9FE;z-index: 2">
                     <nav class="nav-docs px-md-5 py-2 px-3">
-            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get started</h4>
+            <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Get Started</h4>
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -133,22 +133,22 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 border-primary">
                     <a href="/en/docs/quickstart" class="text-decoration-none text-primary">
-                        Quick start
+                        Quick Start
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-crud" class="text-decoration-none ">
-                        Data management
+                        Data Management
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-files" class="text-decoration-none ">
-                        Manage attachments
+                        Manage Attachments
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/quickstart-sort-filter-table" class="text-decoration-none ">
-                        Sorting and filtering
+                        Sorting and Filtering
                     </a>
                 </li>
                     </ul>
@@ -162,7 +162,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/field" class="text-decoration-none ">
-                        Form elements
+                        Form Elements
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -231,7 +231,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/custom-template" class="text-decoration-none ">
-                        Custom template
+                        Custom Template
                     </a>
                 </li>
                     </ul>
@@ -250,7 +250,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/global-search" class="text-decoration-none ">
-                        Scout search
+                        Scout Search
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -265,7 +265,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form builder
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -298,7 +298,7 @@
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/code-of-conduct" class="text-decoration-none ">
-                        Code of conduct
+                        Code of Conduct
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -308,7 +308,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/en/community/promote" class="text-decoration-none ">
-                        Promote project
+                        Promote Project
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -318,7 +318,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md" class="text-decoration-none ">
-                        Change log
+                        Change Log
                     </a>
                 </li>
                     </ul>
@@ -357,39 +357,47 @@ use Orchid\Screen\Screen;
 class EmailSenderScreen extends Screen
 {
     /**
-     * Name and description properties are responsible for
-     * what name will be displayed
-     * on the user screen and in headlines.
+     * A method that defines all screen input data
+     * is in it that database queries should be called,
+     * api or any others (not necessarily explicit),
+     * the result of which should be an array,
+     * appeal to which his keys will be used.
      */
-    public $name = 'EmailSenderScreen';
-    public $description = 'EmailSenderScreen';
-
-    /**
-     * A method that defines all screen input data
-     * is in it that database queries should be called,
-     * api or any others (not necessarily explicit),
-     * the result of which should be an array,
-     * appeal to which his keys will be used.
-     */
     public function query(): array
     {
         return [];
     }
 
     /**
-     * Identifies control buttons and events.
-     * which will have to happen by pressing
-     */
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return &quot;EmailSenderScreen&quot;;
+    }
+
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return &quot;EmailSenderScreen&quot;;
+    }
+    
+    /**
+     * Identifies control buttons and events.
+     * which will have to happen by pressing
+     */
     public function commandBar(): array
     {
         return [];
     }
 
     /**
-     * Set of mappings
-     * rows, tables, graphs,
-     * modal windows, and their combinations
-     */
+     * Set of mappings
+     * rows, tables, graphs,
+     * modal windows, and their combinations
+     */
     public function layout(): array
     {
         return [];
@@ -407,18 +415,20 @@ Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');
 to look at the empty screen, fill it with the elements.</p>
 <p>Add a name and description:</p>
 <pre><code class="language-php">/**
- * Display header name.
- *
- * @var string
+ * The name is displayed on the user's screen and in the headers
  */
-public $name = 'Email sender';
+public function name(): ?string
+{
+    return &quot;Email sender&quot;;
+}
 
 /**
- * Display header description.
- *
- * @var string
+ * The description is displayed on the user's screen under the heading
  */
-public $description = 'Tool that sends ad-hoc email messages.';
+public function description(): ?string
+{
+    return &quot;Tool that sends ad-hoc email messages.&quot;;
+}
 </code></pre>
 <p>To display the input fields, we describe them in the <code>Layouts</code> method:</p>
 <pre><code class="language-php">use App\Models\User;
@@ -479,20 +489,6 @@ use Orchid\Support\Facades\Alert;
 class EmailSenderScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Email sender';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Tool that sends ad-hoc email messages.';
-
-    /**
      * Query data.
      *
      * @return array
@@ -500,6 +496,22 @@ class EmailSenderScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return &quot;Email sender&quot;;
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return &quot;Tool that sends ad-hoc email messages.&quot;;
     }
 
     /**
