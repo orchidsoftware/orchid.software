@@ -146,7 +146,7 @@ This will add several new methods specifically for charting:
 - A period of time
 
 
-### Grouped data
+## Grouped data
 
 For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.
 
@@ -211,7 +211,7 @@ User::countForGroup('uses_two_factor_auth')->toChart(static function (bool $titl
 });
 ```
 
-### A period of time
+## A period of time
 
 Receives data for a certain period of time, filling in the missing values.
 
@@ -292,4 +292,38 @@ User::countByDays($start, $end, 'updated_at')->toChart('Users')
 ```
 
 
-> **Note.** This function is currently available when using SQLite and MySQL with strict mode turned off.
+## Value Query Types
+
+Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when building your metric.
+
+### Average
+
+The `average` method may be used to calculate the average of a given column
+
+```php
+Order::averageByDays('price')->toChart('Order'),
+```
+
+### Sum
+
+The `sum` method may be used to calculate the sum of a given column:
+
+```php
+Order::sumByDays('price')->toChart('Order'),
+```
+
+### Min
+
+The `min` method may be used to calculate the min of a given column:
+
+```php
+Order::minByDays('price')->toChart('Order'),
+```
+
+### Max
+
+The `max` method may be used to calculate the max of a given column:
+
+```php
+Order::maxByDays('price')->toChart('Order'),
+```

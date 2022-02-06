@@ -97,7 +97,7 @@ class PostListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('title', 'Title')
+            TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
                     return Link::make($post->title)
@@ -135,7 +135,7 @@ And then call the new `filter` method with a text type for the header column:
 ```php
 use Orchid\Screen\Fields\Input;
 
-TD::make('title', 'Title')
+TD::make('title')
    ->sort()
    ->filter(Input::make())
    ->render(function (Post $post) {

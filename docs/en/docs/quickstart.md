@@ -27,39 +27,47 @@ use Orchid\Screen\Screen;
 class EmailSenderScreen extends Screen
 {
     /**
-     * Name and description properties are responsible for
-     * what name will be displayed
-     * on the user screen and in headlines.
+     * A method that defines all screen input data
+     * is in it that database queries should be called,
+     * api or any others (not necessarily explicit),
+     * the result of which should be an array,
+     * appeal to which his keys will be used.
      */
-    public $name = 'EmailSenderScreen';
-    public $description = 'EmailSenderScreen';
-
-    /**
-     * A method that defines all screen input data
-     * is in it that database queries should be called,
-     * api or any others (not necessarily explicit),
-     * the result of which should be an array,
-     * appeal to which his keys will be used.
-     */
     public function query(): array
     {
         return [];
     }
 
     /**
-     * Identifies control buttons and events.
-     * which will have to happen by pressing
-     */
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return "EmailSenderScreen";
+    }
+
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "EmailSenderScreen";
+    }
+    
+    /**
+     * Identifies control buttons and events.
+     * which will have to happen by pressing
+     */
     public function commandBar(): array
     {
         return [];
     }
 
     /**
-     * Set of mappings
-     * rows, tables, graphs,
-     * modal windows, and their combinations
-     */
+     * Set of mappings
+     * rows, tables, graphs,
+     * modal windows, and their combinations
+     */
     public function layout(): array
     {
         return [];
@@ -86,18 +94,20 @@ Add a name and description:
 
 ```php
 /**
- * Display header name.
- *
- * @var string
+ * The name is displayed on the user's screen and in the headers
  */
-public $name = 'Email sender';
+public function name(): ?string
+{
+    return "Email sender";
+}
 
 /**
- * Display header description.
- *
- * @var string
+ * The description is displayed on the user's screen under the heading
  */
-public $description = 'Tool that sends ad-hoc email messages.';
+public function description(): ?string
+{
+    return "Tool that sends ad-hoc email messages.";
+}
 ```
 
 To display the input fields, we describe them in the `Layouts` method:
@@ -164,20 +174,6 @@ use Orchid\Support\Facades\Alert;
 class EmailSenderScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Email sender';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Tool that sends ad-hoc email messages.';
-
-    /**
      * Query data.
      *
      * @return array
@@ -185,6 +181,22 @@ class EmailSenderScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return "Email sender";
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Tool that sends ad-hoc email messages.";
     }
 
     /**

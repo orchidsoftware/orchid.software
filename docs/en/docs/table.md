@@ -300,20 +300,80 @@ public function __construct(Application $application, Order $order, int $limit =
 }
 ```
 
-The name is specified in the second argument:
-
-```php
-use App\View\CompochangingOrderShortInformation;
-
-TD::make('status')->component(OrderShortInformation::class, 'order');
-```
-
 Other additional arguments, for example, limit. You can specify in the following way:
 
 ```php
-TD::make('status')->component(OrderShortInformation::class, 'order', [
+TD::make('status')->component(OrderShortInformation::class, [
     'limit' => 100
 ]);
+```
+
+## Components value
+
+This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.
+
+To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, I want to display values of a specific format:
+
+```php
+namespace App\View\Components;
+
+use Illuminate\View\Component;
+
+class Numeric extends Component
+{
+    /**
+     * @var float
+     */
+    public float $value;
+
+    /**
+     * Create a new component instance.
+     *
+     * @param  float        $value
+     * @param  int          $decimals
+     * @param  string|null  $decimal_separator
+     * @param  string|null  $thousands_separator
+     */
+    public function __construct(
+        float   $value,
+        int     $decimals = 0,
+        ?string $decimal_separator = ".",
+        ?string $thousands_separator = ","
+    ) {
+        $this->value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
+    }
+
+    /**
+     * Get the view/contents that represent the component.
+     *
+     * @return \Illuminate\Contracts\View\View|\Closure|string
+     */
+    public function render()
+    {
+        return <<<'blade'
+    {{ $value }}
+blade;
+    }
+}
+```
+
+Then the table call might look like this:
+
+```php
+TD::make('price')->asComponent(Numeric::class);
+// 1,235
+```
+
+Also with additional parameters:
+
+
+```php
+TD::make('price')->asComponent(Numeric::class, [
+    'decimals' => 2,
+    'decimal_separator' => ',',
+    'thousands_separator' => ' ',
+]);
+// 1 234,56
 ```
 
 ## Table options

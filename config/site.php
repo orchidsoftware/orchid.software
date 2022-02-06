@@ -8,21 +8,21 @@ return [
 
     'navigation' => [
         'en' => [
-            'Get started' => [
+            'Get Started' => [
                 'Introduction'  => '/en/docs',
                 'Installation'  => '/en/docs/installation',
                 'Configuration' => '/en/docs/configuration',
                 'Upgrade Guide' => '/en/docs/upgrade',
             ],
             'Tutorials'   => [
-                'Quick start'           => '/en/docs/quickstart',
-                'Data management'       => '/en/docs/quickstart-crud',
-                'Manage attachments'    => '/en/docs/quickstart-files',
-                'Sorting and filtering' => '/en/docs/quickstart-sort-filter-table',
+                'Quick Start'           => '/en/docs/quickstart',
+                'Data Management'       => '/en/docs/quickstart-crud',
+                'Manage Attachments'    => '/en/docs/quickstart-files',
+                'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
             ],
             'Concepts'    => [
                 'Screens'       => '/en/docs/screens',
-                'Form elements' => '/en/docs/field',
+                'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
                 'Permissions'   => '/en/docs/access',
                 'Filtration'    => '/en/docs/filters',
@@ -38,15 +38,15 @@ return [
                 'Listener'        => '/en/docs/listener',
                 'Grouping'        => '/en/docs/grouping',
                 //'Display elements' => '/en/docs/display-elements',
-                'Custom template' => '/en/docs/custom-template',
+                'Custom Template' => '/en/docs/custom-template',
             ],
             'Extra'       => [
                 'Branding'     => '/en/docs/brand',
                 'Icons'        => '/en/docs/icons',
-                'Scout search' => '/en/docs/global-search',
+                'Scout Search' => '/en/docs/global-search',
                 'Presenters'   => '/en/docs/presenters',
                 'Using JS'     => '/en/docs/javascript',
-                'Form builder' => '/en/docs/builder',
+                'Form Builder' => '/en/docs/builder',
                 'Testing'      => '/en/docs/testing',
                 'Controllers'  => '/en/docs/controllers',                 
                 //'Recipes'      => '/en/recipes',
@@ -56,11 +56,11 @@ return [
                 'Fortify' => 'https://github.com/orchidsoftware/fortify',
             ],
             'Community'   => [
-                'Code of conduct' => '/en/community/code-of-conduct',
+                'Code of Conduct' => '/en/community/code-of-conduct',
                 'Contribution'    => '/en/community/contributors',
-                'Promote project' => '/en/community/promote',
+                'Promote Project' => '/en/community/promote',
                 'License'         => '/en/community/license',
-                'Change log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
+                'Change Log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
             ],
         ],
         'ru' => [
