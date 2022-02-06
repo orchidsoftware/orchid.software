@@ -411,15 +411,26 @@ class Post extends Model
 <pre><code class="language-php">http://example.com/demo?filter[id]=1
 $model-&gt;where('id', '=', 1)
 
+http://example.com/demo?filter[name]=A
+$model-&gt;where('name', 'like', '%A%')
+
 
 http://example.com/demo?filter[id]=1,2,3,4,5
 $model-&gt;whereIn('id', [1,2,3,4,5]);
 
+http://example.com/demo?filter[id][min]=1&amp;filter[id][max]=5
+$model-&gt;whereBetween('id', [1,5]);
+
+http://example.com/demo?filter[id][]=1&amp;filter[id][]=2&amp;filter[id][]=3
+$model-&gt;whereIn('id', [1,2,3]);
+
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model-&gt;where('content-&gt;ru-&gt;name', 'like', 'dwqdwq');
-
 </code></pre>
+<blockquote>
+<p><strong>Note.</strong> Filter accomodates the <code>cast</code> of the model. This works with <code>bool</code>,<code>datetime</code> and <code>string</code> (and their aliases). To be able to filter for a number as substring (using <code>like</code> instead of exact match), make sure that it casts as a <code>string</code>.</p>
+</blockquote>
 <p>How sorting will respond:</p>
 <pre><code class="language-php">http://example.com/demo?sort=content.ru.name
 $model-&gt;orderBy('content-&gt;ru-&gt;name', 'asc');

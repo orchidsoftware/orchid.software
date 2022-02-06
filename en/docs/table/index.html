@@ -450,8 +450,11 @@ You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering
 <pre><code class="language-php">TD::make('SKU')-&gt;filter(Input::make()-&gt;mask('A-999999'));
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>: There is no need to specify the field name. It will be delivered automatically by the column name.</p>
+<p><strong>Note</strong>: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.</p>
 </blockquote>
+<p>Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.</p>
+<pre><code class="language-php">TD::make('color')-&gt;filter(TD::FILTER_SELECT, ['red'=&gt;'Red', 'green'=&gt;'Green']);
+</code></pre>
 <h2><a href='#width' id='width'>Width</a></h2>
 <p>You can control the width of the cell using the <code>width</code> method:</p>
 <pre><code class="language-php">TD::make('last_name')-&gt;width('100px');
@@ -468,7 +471,7 @@ prohibit doing this by specifying:</p>
 <p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
 <pre><code class="language-php">TD::make('full_name')
     -&gt;render(function ($user) {
-        return $user-&gt;first_name . ' ' . $user-&gt;last_name;
+        return e($user-&gt;first_name) . ' ' . e($user-&gt;last_name);
     });
 </code></pre>
 <blockquote>

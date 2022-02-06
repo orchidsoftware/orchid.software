@@ -374,6 +374,9 @@
                     <a href="#datetime">DateTime</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#daterange">DateRange</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#timezone">TimeZone</a>
                 </li>
                             <li class="anchor-h2">
@@ -414,6 +417,9 @@
                 </li>
                             <li class="anchor-h2">
                     <a href="#dropdown">Dropdown</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#numberrange">NumberRange</a>
                 </li>
                     </ul>
     </div>
@@ -700,6 +706,13 @@ class User extends Model
     -&gt;noCalendar()
     -&gt;format('h:i K');
 </code></pre>
+<h2><a href='#daterange' id='daterange'>DateRange</a></h2>
+<p>Allows you to select a range of date (and time).</p>
+<p>Example:</p>
+<pre><code class="language-php">DateRange::make('open')
+    -&gt;title('Opening between');
+</code></pre>
+<p>Default value / result is an array with keys of <code>start</code>, <code>end</code>.</p>
 <h2><a href='#timezone' id='timezone'>TimeZone</a></h2>
 <p>Field for convenient time zone selection:</p>
 <pre><code class="language-php">TimeZone::make('time');
@@ -995,6 +1008,16 @@ For example, you can create the typical three dots dropdown:</p>
             ]),
     ]);
 </code></pre>
+<h2><a href='#numberrange' id='numberrange'>NumberRange</a></h2>
+<p>You can create ranges of numbers. Especially usefull for filters.</p>
+<pre><code class="language-php">NumberRange::make()
+</code></pre>
+<p>Usage with filters:</p>
+<pre><code class="language-php">TD::make()-&gt;filter(NumberRange::make())
+//or
+TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE)
+</code></pre>
+<p>Result is an array with keys of <code>min</code>, <code>max</code>.</p>
 
                     </main>
                 </div>
