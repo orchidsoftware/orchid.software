@@ -6,8 +6,7 @@ title: Rows
 The line layout serves as the minimum set that is most often used.
 Its purpose is to combine all the necessary elements of forms.
 
-
-Strings support short writing without creating a separate class,
+The Rows support short writing without creating a separate class,
 for example, when you want to show one or two fields.
 
 ```php
