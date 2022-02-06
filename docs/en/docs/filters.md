@@ -73,15 +73,26 @@ How filtering will react:
 http://example.com/demo?filter[id]=1
 $model->where('id', '=', 1)
 
+http://example.com/demo?filter[name]=A
+$model->where('name', 'like', '%A%')
+
 
 http://example.com/demo?filter[id]=1,2,3,4,5
 $model->whereIn('id', [1,2,3,4,5]);
 
+http://example.com/demo?filter[id][min]=1&filter[id][max]=5
+$model->whereBetween('id', [1,5]);
+
+http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
+$model->whereIn('id', [1,2,3]);
+
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model->where('content->ru->name', 'like', 'dwqdwq');
-
 ```
+
+> **Note.** Filter accomodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
+
 
 How sorting will respond:
 
