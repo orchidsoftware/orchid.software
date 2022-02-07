@@ -350,6 +350,9 @@
                     <a href="#publish-assets-files">Publish assets files</a>
                 </li>
                             <li class="anchor-h3">
+                    <a href="#icons">Icons</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#screen">Screen</a>
                 </li>
                             <li class="anchor-h3">
@@ -448,6 +451,12 @@
         ]
     }
 }
+</code></pre>
+<h3><a href='#icons' id='icons'>Icons</a></h3>
+<p>Icons can now be completely replaced and are not forced to load. To continue using them, change the configuration file:</p>
+<pre><code class="language-php">'icons' =&gt; [
+    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
+],
 </code></pre>
 <h3><a href='#screen' id='screen'>Screen</a></h3>
 <p>Public screen properties are now auto-filled with values by key from the <code>query()</code> method. For instance:</p>
