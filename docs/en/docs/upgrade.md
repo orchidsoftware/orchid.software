@@ -33,6 +33,16 @@ Which would place the `JS/CSS` files in the `public/vendor/orchid` directory. It
 }
 ```
 
+### Icons
+
+Icons can now be completely replaced and are not forced to load. To continue using them, change the configuration file:
+
+```php
+'icons' => [
+    'orc' => \Orchid\IconPack\Path::getFolder(),
+],
+```
+
 ### Screen
 
 Public screen properties are now auto-filled with values by key from the `query()` method. For instance:
