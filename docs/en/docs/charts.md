@@ -43,9 +43,9 @@ php artisan orchid:chart ChartsLayout
 
 Layout example:
 ```php
-namespace App\Layouts\Clinic\Patient;
+namespace App\Orchid\Layouts;
 
-use Orchid\Platform\Layouts\Chart;
+use Orchid\Screen\Layouts\Chart;
 
 class ChartsLayout extends Chart
 {
