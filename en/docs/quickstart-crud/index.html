@@ -502,17 +502,17 @@ class PostEditScreen extends Screen
             Button::make('Create post')
                 -&gt;icon('pencil')
                 -&gt;method('createOrUpdate')
-                -&gt;canSee(!$this-&gt;exists),
+                -&gt;canSee(!$this-&gt;post-&gt;exists),
 
             Button::make('Update')
                 -&gt;icon('note')
                 -&gt;method('createOrUpdate')
-                -&gt;canSee($this-&gt;exists),
+                -&gt;canSee($this-&gt;post-&gt;exists),
 
             Button::make('Remove')
                 -&gt;icon('trash')
                 -&gt;method('remove')
-                -&gt;canSee($this-&gt;exists),
+                -&gt;canSee($this-&gt;post-&gt;exists),
         ];
     }
 
