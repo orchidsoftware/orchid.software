@@ -618,7 +618,10 @@ public static function perPage(): int
 </code></pre>
 <h2><a href='#resource-events' id='resource-events'>Resource Events</a></h2>
 <p>Each resource has two methods that do the processing, <code>onSave</code> and <code>onDelete</code>. Each of them is launched when the event is executed, and you can change or supplement the logic:</p>
-<pre><code class="language-php">/**
+<pre><code class="language-php">use Orchid\Crud\ResourceRequest;
+use Illuminate\Database\Eloquent\Model;
+
+/**
  * Action to create and update the model
  *
  * @param ResourceRequest $request
