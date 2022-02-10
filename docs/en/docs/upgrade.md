@@ -7,6 +7,16 @@ We like to keep things as modern as possible and have a "release early, release 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+## Upgrading to 12.0 from 11.x
+
+### Updating dependencies
+
+In your `composer.json` file, update the `orchid/platform` dependency to `^12.0`
+
+### Laravel 9.x
+
+Laravel 9 is now required to install or upgrade. Update descriptions for existing projects can be found in the [documentation](https://laravel.com/docs/9.x/upgrade).
+
 ## Upgrading to 11.0 from 10.x
 
 ### Updating dependencies
