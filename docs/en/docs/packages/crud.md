@@ -295,6 +295,9 @@ public static function perPage(): int
 Each resource has two methods that do the processing, `onSave` and `onDelete`. Each of them is launched when the event is executed, and you can change or supplement the logic:
 
 ``` php
+use Orchid\Crud\ResourceRequest;
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Action to create and update the model
  *
