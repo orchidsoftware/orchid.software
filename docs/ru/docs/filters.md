@@ -63,21 +63,36 @@ class Post extends Model
 Post::filters()->defaultSort('id')->paginate();
 ```
 
+> **Примечание.** Автоматические HTTP фильтры не будут работать с отношениями. 
+>Если вас это интересует, вы можете использовать классический фильтр, описанный ниже.
+
 Как будет реагировать фильтрация:
 
 ```php
 http://example.com/demo?filter[id]=1
 $model->where('id', '=', 1)
 
+http://example.com/demo?filter[name]=A
+$model->where('name', 'like', '%A%')
+
 
 http://example.com/demo?filter[id]=1,2,3,4,5
 $model->whereIn('id', [1,2,3,4,5]);
 
+http://example.com/demo?filter[id][min]=1&filter[id][max]=5
+$model->whereBetween('id', [1,5]);
+
+http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
+$model->whereIn('id', [1,2,3]);
+
 
 http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model->where('content->ru->name', 'like', 'dwqdwq');
-
 ```
+
+> **Примечание.** Фильтр соответствует модели `cast` . Он работает с типами `bool`,`datetime` и `string` (и их псевдонимами). 
+>Чтобы использовать в фильтре число в качестве подстроки (используя `like`  вместо точного совпадения), убедитесь, что оно приведено к `string`. 
+
 
 Как будет реагировать сортировка:
 
@@ -100,13 +115,15 @@ TD::make('name')->sort();
 
 ## Классический фильтр
 
-Для создания нового фильтра существует команда:
+Для создания более сложных запросов, вы можете использовать фильтры Eloquent, которые позволяют вам полностью управлять собой. 
+Существует команда для создания нового фильтра:
+
 
 ```php
 php artisan orchid:filter QueryFilter
 ```
 
-Это создаст класс фильтр в папке `app/Http/Filters`
+Это создаст класс фильтра в папке `app/Http/Filters`.
 
 
 Пример фильтра:
@@ -150,10 +167,10 @@ class QueryFilter extends Filter
 }
 ```
 
-Фильтр сработает, при условии наличия хотя бы одного параметра указанного в массиве `$parameters`. 
+Фильтр сработает при наличии хотя бы одного параметра, указанного в массиве `$parameters`. 
 Если массив будет пуст, то фильтр будет работать при каждом запросе.
 
-> **Примечание.** Вы можете использовать одни и те же фильтры для разных поведений.
+> **Примечание.** Вы можете использовать одни и те же фильтры для разных моделей.
 
 
 Для использования фильтров в собственных моделях, 
@@ -165,13 +182,56 @@ use App\Model;
 Model::filtersApply([Filter::class])->simplePaginate();
 ```
 
-Возможно использование целой группы фильтров объединённых в слой `Selection`:
+## Selection
+
+Когда вам нужно отобразить фильтры и применить их к модели, их удобнее сгруппировать, создав отдельный слой «Selection». 
+Для создания новогоо слоя выполните команду:
 
 ```php
-Model::filtersApplySelection(RoleSelection::class)->simplePaginate();
+php artisan orchid:selection MySelection
 ```
 
-Тогда все фильтры установленные в слое будут применены.
+В этом классе есть один-единственный метод, в котором необходимо перечислить все фильтры, которые должны отображаться и применяться, например:
 
-Для удобного отображения и объединения фильтров используйте слой "[Selection](https://orchid.software/ru/docs/grouping/#nabor-filtrov)".
+```php
+namespace App\Orchid\Layouts;
 
+use Orchid\Platform\Filters\Filter;
+use Orchid\Press\Http\Filters\CreatedFilter;
+use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Screen\Layouts\Selection;
+
+class MySelection extends Selection
+{
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+          SearchFilter::class,
+          CreatedFilter::class
+        ];
+    }
+}
+```
+
+
+После этого мы можем применить его к модели:
+
+```php
+Model::filtersApplySelection(MySelection::class)->simplePaginate();
+```
+
+Поскольку это слой, его также можно использовать для отображения полей на экране:
+
+```php
+use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        MySelection::class,
+    ];
+}
+```
