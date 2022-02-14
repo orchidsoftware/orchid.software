@@ -9,11 +9,16 @@ description: Это руководство по началу работы пом
 
 ## Создать проект
 
-Платформа является пакетом для фреймворка Laravel, необходимо сначала установить его. Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив в терминале команду:
+> **Note.** Если у вас уже установлен ​​Laravel, вы можете пропустить этот шаг..
+
+Платформа является пакетом для фреймворка Laravel, необходимо сначала установить его. 
+Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив в терминале команду `composer create-project`:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "8.*" --prefer-dist
+$ composer create-project laravel/laravel orchid-project "9.*" --prefer-dist
 ```
+
+Для получения дополнительной информации о том, как установить Laravel, используйте [Официальное руководство по установке laravel](https://laravel.com/docs/installation).
 
 > **У вас нет Composer?** Его легко установить, следуя инструкциям на странице [загрузки](https://getcomposer.org/download/).
 
@@ -88,7 +93,13 @@ php artisan orchid:link
 composer update orchid/platform --with-dependencies
 ```
 
-> **Примечание.** Вы так же можете обновить все ваши зависимости перечисленные в файле `composer.json` запустить `composer update`.
+> **Примечание.** Вы так же можете обновить все ваши зависимости, перечисленные в файле `composer.json`, выполнив команду `composer update`.
+
+После обновления до новой версии обязательно обновите ресурсы JavaScript и CSS, используя `orchid:publish` и очистите все кешированные представления с помощью `view:clear`.
+```bash
+php artisan orchid:publish
+php artisan view:clear
+```
 
 
 ## Что делать дальше?
