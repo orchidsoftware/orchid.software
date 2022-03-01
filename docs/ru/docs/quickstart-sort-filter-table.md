@@ -5,11 +5,11 @@ description: Laravel CRUD
 
 Это руководство продолжение учебника ["Управление данными"](/ru/docs/quickstart-crud), в котором мы будем помогать пользователю быстрее находить информацию в таблицах.
 
-Сортировка в таблице полностью основана на автоматическом распознавании `Http` запроса и применима к моделям `Eloquent`. Для того чтобы включить его, необходимо добавить трейт `Filterable` и определить разрешённые колонки:
+Сортировка в таблице полностью основана на автоматическом распознавании `Http` запроса и применяется к моделям `Eloquent`. Для того чтобы включить её, необходимо добавить трейт `Filterable` и определить разрешённые колонки:
 
 
 ```php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
@@ -77,7 +77,7 @@ public function query(): array
 ```php
 namespace App\Orchid\Layouts;
 
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
@@ -97,7 +97,7 @@ class PostListLayout extends Table
     public function columns(): array
     {
         return [
-            TD::make('title', 'Title')
+            TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
                     return Link::make($post->title)
@@ -118,7 +118,7 @@ class PostListLayout extends Table
 После этого заголовок колонки будет реагировать на нажатие и менять положение сортировки.
 
 
-Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию, для её установки вернёмся к модели и добавим новое свойство:
+Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию. Для её установки вернёмся к модели и добавим новое свойство:
  
 ```php
 /**
@@ -134,13 +134,14 @@ protected $allowedFilters = [
  А затем вызовем новый метод `filter` с текстовым типом для колонки с заголовком:
  
 ```php
- TD::make('title', 'Title')
-    ->sort()
-    ->filter(TD::FILTER_TEXT)
-    ->render(function (Post $post) {
-        return Link::make($post->title)
-            ->route('platform.post.edit', $post);
-    }),
+use Orchid\Screen\Fields\Input;
+
+TD::make('title')
+   ->sort()
+   ->filter(Input::make())
+   ->render(function (Post $post) {
+       return Link::make($post->title)->route('platform.post.edit', $post);
+   }),
 ```
  
  После этого рядом с именем колонки появится иконка открывающая текстовое поле, устанавливая значение которого можно фильтровать результаты.
