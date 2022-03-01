@@ -27,7 +27,7 @@ An `Idea` file will be created in the `app/Orchid/Screens` directory with the fo
 namespace App\Http\Controllers\Screens;
 
 use Illuminate\Http\Request;
-use Orchid\Platform\Screen\Screen;
+use Orchid\Screen\Screen;
 
 class Idea extends Screen
 {
