@@ -3,11 +3,14 @@ title: Права доступа
 description: Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнесе процессе.
 ---
 
-Обычно пользователям не назначаются разрешения в приложении (Хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. 
+Обычно пользователям не назначаются разрешения в приложении (хотя такая возможность имеется), а скорее роли.  Роль связана с набором разрешений, а не с отдельным пользователем. 
+
+> **Примечание.** Права доступа не являются заменой для `Gate` или `Policies` входящих в состав фреймворка.
+
 
 Как правило, вы управляете несколькими дюжинами разрешений в типичном бизнес-процессе. 
 Вы также можете иметь, скажем, от 10 до 100 пользователей.
-Хотя эти пользователи не полностью отличные друг от друга,
+Хотя эти пользователи не  сильно отличаю друг от друга,
 вы можете разделить их на логические группы в соответствии с тем, что они делают с программой.
 Эти группы называются ролями.
 
@@ -21,13 +24,39 @@ description: Как правило, вы управляете нескольки
 - Набор разрешений, которыми владеет пользователь, вычисляется как объединение разрешений от каждой роли пользователя.
 
 
+## Применение
+
+
+Метод `hasAccess` строго требует, чтобы переданное разрешение было действительным для предоставления доступа.
+
+```php
+// Check is carried out both for the user and for his role
+Auth::user()->hasAccess($string);
+```
+
+Метод `hasAnyAccess` предоставит доступ, если какое-либо разрешение пройдет проверку.
+
+```php
+$user = User::find(1);
+
+if ($user->hasAnyAccess(['user.admin', 'user.update'])) {
+    // Execute this code if the user has permission
+}
+```
+
+Разрешения можно проверить на основе подстановочных знаков, используя символ `*` , соответствующий любому набору разрешений.
+
+```php
+$user = User::find(1);
+
+if ($user->hasAccess('user.*')) {
+    // Execute this code if the user has permission
+}
+```
+
 У пользователя есть несколько вариантов управления ролями:
 
 ```php
-// Проверяем, имеет ли пользователь права
-// Проверка осуществляется как для пользователя, так и для его роли
-Auth::user()->hasAccess($string);
-
 // Получить все роли пользователя
 Auth::user()->getRoles();
 
@@ -38,7 +67,17 @@ Auth::user()->inRole($role);
 Auth::user()->addRole($role);
 ```
 
-> **Примечание.** Права доступа не являются заменой для `Gate` или `Policies` входящих в состав фреймворка.
+В редких случаях может потребоваться выбрать пользователей, у которых есть разрешение, напрямую или через роль. Для этого вы можете использовать:
+
+```php
+User::byAccess('platform.systems.users')->get();
+
+// Or if the user has at least one of the passed permissions
+User::byAnyAccess([
+   'platform.systems.users'   
+   'non existent',
+])->get();
+```
 
 ## Роли
 
@@ -57,6 +96,12 @@ $role->getUsers();
 
 ```php
 php artisan orchid:admin nickname email@email.com secretpassword
+```
+
+Чтобы дать существующему пользователю максимальные разрешения, запустите с параметром `--id` :
+
+```php
+php artisan orchid:admin --id=1
 ```
 
 
@@ -89,6 +134,18 @@ class PermissionServiceProvider extends ServiceProvider
 }
 ```
 
+
+
+## Roles vs Permissions
+
+Как правило, лучше всего разрабатывать приложение, ориентируяся только на разрешения.
+
+Роли по-прежнему можно использовать для группировки разрешений для простого назначения, и вы по-прежнему можете использовать 
+вспомогательные методы на основе ролей, если это действительно необходимо. Но большую часть логики, связанной с приложением, 
+обычно лучше всего контролировать с помощью методов can, что позволяет слою Laravel Gate выполнять всю тяжелую работу.
+
+Например: у `users` есть  `roles`, а у `roles` есть `permissions`, и ваше приложение всегда проверяет наличие `permissions`, а не `roles`.
+
 ## Проверка в Экранах
 
 Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью свойства 
@@ -104,26 +161,35 @@ class History extends Screen
     /**
      * Display header name.
      *
-     * @var string
+     * @return string
      */
-    public $name = 'History';
+    public function name(): ?string
+    {
+        return 'History';
+    }
 
     /**
      * Display header description.
      *
-     * @var string
+     * @return string
      */
-    public $description = 'History of changes to system objects';
+    public function description(): ?string
+    {
+        return 'History of changes to system objects';
+    }
 
     /**
-     * Permissions for this screen
+     * Permission
      *
-     * @var array|string
+     * @return iterable|null
      */
-    public $permission = [
-        'systems.history'
-    ];
-    
+    public function permission(): ?iterable
+    {
+        return [
+            'systems.history'
+        ];
+    }
+        
     // ...
 }
 ```
@@ -166,4 +232,73 @@ Route::middleware(['access:systems.history'])->group(function () {
         // ...
     });
 });
+```
+## Проверка в Blade
+
+Для приложений, которые полагаются на шаблоны Blade для рендеринга, будет удобно добавить ["Пользовательские операторы If"](https://laravel.com/docs/8.x/blade#custom-if-statements) следующим образом:
+
+```php
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Auth;
+
+/**
+ * Bootstrap any application services.
+ *
+ * @return void
+ */
+public function boot()
+{
+    Blade::if('hasAccess', function (string $value) {
+        $user = Auth::user();
+
+        if ($user === null) {
+            return false;
+        }
+
+        return $user->hasAccess($value);
+    });
+}
+```
+
+После определения пользовательского условия вы можете использовать его в своих шаблонах:
+
+```html
+@hasAccess('platform.index')
+    <!-- User has permission 'platform.index' -->
+@elsehasAccess('platform.other')
+    <!-- User does not have permission 'platform.index', but has 'platform.other' -->
+@else
+    <!-- User does not have permission 'platform.index' and 'platform.other'  -->
+@endhasAccess
+
+@unlesshasAccess('platform.index')
+    <!-- User does not have permission 'platform.index' -->
+@endhasAccess
+```
+
+## User Impersonation
+
+Отличительной особенностью является возможность выдавать себя за других пользователей. Как администратор, вы можете просматривать все экраны, как если бы вы вошли в систему как другой пользователь. Это позволяет вам обнаружить проблему, о которой сообщил ваш пользователь.
+
+
+По умолчанию в унаследованной пользовательской модели уже есть возможность «Войти как».  Но если вы хотите использовать это в другой модели, то для этого вам нужно добавить трейт Orchid\Access\UserSwitch. `Orchid\Access\UserSwitch`.
+
+Выдать себя за другого пользователя::
+
+```php
+Auth::user()->loginAs($otherUser);
+```
+
+Прекратите выдавать себя за другого пользователя:
+
+```php
+Auth::user()->logout();
+```
+
+Чтобы проверить, выдает ли себя пользователь за кого-то другого, используйте:
+
+```php
+if (Auth::user()->isSwitch()) {
+    // User impersonates someone else
+}
 ```
