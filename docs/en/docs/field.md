@@ -910,14 +910,14 @@ DropDown::make()
 You can create ranges of numbers. Especially usefull for filters.
 
 ```php
-NumberRange::make()
+NumberRange::make();
 ```
 
 Usage with filters:
 ```php
-TD::make()->filter(NumberRange::make())
+TD::make()->filter(NumberRange::make());
 //or
-TD::make()->filter(TD::FILTER_NUMBER_RANGE)
+TD::make()->filter(TD::FILTER_NUMBER_RANGE);
 ```
 
 Result is an array with keys of `min`, `max`.  
