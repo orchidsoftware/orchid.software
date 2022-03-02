@@ -54,7 +54,7 @@ Hello <strong>{{ $name }}</strong>
 - 'flash_notification.message' - Сообщение для отображения.
 - 'flash_notification.level' - Строка, представляющая тип уведомления.
 
-Отображение по умолчанию уже встроено в шаблон, но вы можете вызывать его явно в `blade` шаблонах, для этого необходимо указать:
+Отображение по умолчанию уже встроено в шаблон, но Вы можете вызывать его явно в `blade` шаблонах, для этого необходимо указать:
 
 ```php
 @include('platform::partials.alert')
@@ -94,7 +94,7 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 > **Примечание:** Перед использованием этой функции, прочитайте [Laravel notification documentation](https://laravel.com/docs/notifications).
 
 
-Чтобы создать уведомление, вы можете использовать следующую команду Artisan:
+Чтобы создать уведомление, Вы можете использовать следующую команду Artisan:
 
 ```php
 php artisan make:notification TaskCompleted
@@ -112,8 +112,8 @@ public function via($notifiable)
 }
 ```
 
-Перед использованием `DashboardChannel` необходимо определить `toDashboard` метод в классе уведомлений. 
-Этот метод получит `$notifiable` объект и должен вернуть объект `DashboardMessage`:
+Перед использованием `DashboardChannel` необходимо определить метод `toDashboard` в классе уведомлений. 
+Этот метод получит объект `$notifiable` и должен вернуть объект `DashboardMessage`:
 
 ```php
 use Orchid\Platform\Notifications\DashboardMessage;
