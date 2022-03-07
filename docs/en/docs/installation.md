@@ -16,6 +16,12 @@ Being a package for the framework, you must first install Laravel. This can be d
 $ composer create-project laravel/laravel orchid-project "9.*" --prefer-dist
 ```
 
+Or if you would prefer Laravel Installer:
+
+```php
+$ laravel new orchid-project
+```
+
 For more information on how to install Laravel, follow [Official Laravel Installation Guide](https://laravel.com/docs/installation).
 
 > **Don’t you have Composer?** It’s easy to install by following the instructions on the [download page](https://getcomposer.org/download/).
