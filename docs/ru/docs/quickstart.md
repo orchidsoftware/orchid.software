@@ -27,40 +27,48 @@ use Orchid\Screen\Screen;
 
 class EmailSenderScreen extends Screen
 {
-    /**
-     * Свойства имя и описание отвечают за то, 
-     * какое название будет отображаться 
-     * на экране пользователя и в заголовках.
-     */
-    public $name = 'EmailSenderScreen';
-    public $description = 'EmailSenderScreen';
-
-    /**
-     * Метод, определяющий все входные данные экрана. 
-     * Именно в нём должны вызываться запросы к базе данных,
-     * api или любые другие (не обязательно явно),
-     * результатом которого должен быть массив, 
-     * обращение к которым будут использоваться его ключи.
-     */
+     /**
+       * Метод, определяющий все входные данные экрана. 
+       * Именно в нём должны вызываться запросы к базе данных,
+       * api или любые другие (не обязательно явно),
+       * результатом которого должен быть массив, 
+       * обращение к которым будут использоваться его ключи.
+       */
     public function query(): array
     {
         return [];
     }
 
     /**
-     * Определяет управляющие кнопки и события,
-     * которые должны будут произойти по нажатию
+     * Имя отображается на экране пользователя и в заголовках
      */
+    public function name(): ?string
+    {
+        return "EmailSenderScreen";
+    }
+
+    /**
+     * Описание отображается на экране пользователя и в заголовках
+     */
+    public function description(): ?string
+    {
+        return "EmailSenderScreen";
+    }
+    
+     /**
+       * Определяет управляющие кнопки и события,
+       * которые должны будут произойти по нажатию
+       */
     public function commandBar(): array
     {
         return [];
     }
 
     /**
-     * Набор отображений, 
-     * строк, таблиц, графиков,
-     * модальных окон и их комбинации.
-     */
+      * Набор отображений 
+      * строк, таблиц, графиков,
+      * модальных окон и их комбинации.
+      */
     public function layout(): array
     {
         return [];
@@ -87,23 +95,26 @@ Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 
 ```php
 /**
- * Display header name.
- *
- * @var string
+ * The name is displayed on the user's screen and in the headers
  */
-public $name = 'Email sender';
+public function name(): ?string
+{
+    return "Email sender";
+}
 
 /**
- * Display header description.
- *
- * @var string
+ * The description is displayed on the user's screen under the heading
  */
-public $description = 'Tool that sends ad-hoc email messages.';
+public function description(): ?string
+{
+    return "Tool that sends ad-hoc email messages.";
+}
 ```
 
 Для того, чтобы отобразить поля для ввода, мы опишем их в методе `Layouts`:
 
 ```php
+use App\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Relation;
@@ -145,12 +156,13 @@ public function layout(): array
 ```
 
 Теперь наша страница имеет некоторые элементы, но не производит действий. 
-Чтобы определить их необходимо создать новый публичный метод и указать ссылку на него в `commandBar`:
+Чтобы определить их, необходимо создать новый публичный метод и указать ссылку на него в `commandBar`:
+
 
 ```php
 namespace App\Orchid\Screens;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
@@ -165,20 +177,6 @@ use Orchid\Support\Facades\Alert;
 class EmailSenderScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Email sender';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Tool that sends ad-hoc email messages.';
-
-    /**
      * Query data.
      *
      * @return array
@@ -186,6 +184,22 @@ class EmailSenderScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return "Email sender";
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Tool that sends ad-hoc email messages.";
     }
 
     /**
@@ -249,7 +263,7 @@ class EmailSenderScreen extends Screen
         ]);
 
         Mail::raw($request->get('content'), function (Message $message) use ($request) {
-
+            $message->from('sample@email.com');
             $message->subject($request->get('subject'));
 
             foreach ($request->get('users') as $email) {
@@ -310,7 +324,7 @@ public function registerMainMenu(): array
 
 Теперь наша утилита отображается в левом меню и активна при посещении. 
 Навигация может осуществляться не только посредством переходов из меню, но и через хлебные крошки. 
-Чтобы добавить их к нашему экрану, необходимо добавить новое объявление к маршруту:
+Чтобы добавить их к нашему экрану, нужно дописать свой маршрут с `->breadcrumbs(...)` в `routes/platform.php`:
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
@@ -326,4 +340,4 @@ Route::screen('email', EmailSenderScreen::class)
 ```
 
 
-Поздравляем! Теперь Вы должны понимать, как работает платформа! Это очень простой пример, но процесс разработки будет идентичен во многих аспектах. Теперь рекомендуем перейти к разделу ["Экраны"](/ru/docs/screens), чтобы узнать больше о возможностях которые находятся у Вас в руках.
+Поздравляем! Теперь Вы должны понимать, как работает платформа! Это очень простой пример, но процесс разработки будет идентичен во многих аспектах. Теперь рекомендуем перейти к разделу ["Экраны"](/ru/docs/screens), чтобы узнать больше о возможностях, которые находятся у Вас в руках.

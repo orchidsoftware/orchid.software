@@ -43,9 +43,9 @@ php artisan orchid:chart ChartsLayout
 
 Пример макета:
 ```php
-namespace App\Layouts\Clinic\Patient;
+namespace App\Orchid\Layouts;
 
-use Orchid\Platform\Layouts\Chart;
+use Orchid\Screen\Layouts\Chart;
 
 class ChartsLayout extends Chart
 {
@@ -89,7 +89,7 @@ protected $height = 250;
 
 
 ## Цвета
-Установите цвета, которые будут использоваться для каждого отдельного типа единиц, в зависимости от типа диаграммы с помощью указания свойства:
+Установите цвета, которые будут использоваться для каждого отдельного типа единиц измерения, в зависимости от типа диаграммы с помощью указания свойства:
 
 ```php
 /**
@@ -113,7 +113,7 @@ protected $colors = [
 
 ```php
 /**
- * Determines whether to display the export button.
+ * Определяет, следует ли отображать кнопку экспорта.
  *
  * @var bool
  */
@@ -146,7 +146,7 @@ class User extends Authenticatable
 
 ### Сгруппированные данные
 
-Например, нужно построить диаграмму, отображающую соотношение пользователей, которые включили двухфакторную аутентификацию.
+Например, нужно построить диаграмму, показывающую долю пользователей, которые включили двухфакторную аутентификацию.
 
 ```php
 namespace App\Orchid\Layouts;
@@ -277,14 +277,51 @@ public function layout(): array
 $start = Carbon::now()->subDay(7);
 $end = Carbon::now()->subDay(1);
 
-User::countByDays($start, $end)->toChart('Users')
+User::countByDays($start, $end)->toChart('Users');
 ```
 
-По умолчанию данные группируются по колонке `created_at`, для её изменения:
+По умолчанию данные группируются по колонке `created_at`. Для изменения группировки:
 
 ```php
 $start = Carbon::now()->subDay(7);
 $end = Carbon::now()->subDay(1);
 
-User::countByDays($start, $end, 'updated_at')->toChart('Users')
+User::countByDays($start, $end, 'updated_at')->toChart('Users');
+```
+
+
+## Типы запросов
+
+Метрики значений поставляются не только с методом  `countByDays`.Вы также можете использовать множество других агрегатных функций при построении метрики.
+
+### Среднее
+
+Метод  `average` может использоваться для вычисления среднего значения данного столбца.
+
+```php
+Order::averageByDays('price')->toChart('Order'),
+```
+
+### Сумма
+
+Метод `sum` может использоваться для вычисления суммы данного столбца:
+
+```php
+Order::sumByDays('price')->toChart('Order'),
+```
+
+### Минимум
+
+Метод `min` method may be used to calculate the min of a given column:
+
+```php
+Order::minByDays('price')->toChart('Order'),
+```
+
+### Максисум
+
+Метод `max` метод можно использовать для вычисления максимума заданного столбца:
+
+```php
+Order::maxByDays('price')->toChart('Order'),
 ```

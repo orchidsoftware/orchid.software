@@ -9,7 +9,7 @@ description: Laravel CRUD
 
 На этом этапе желательно, чтобы вы уже познакомились с основами концепции [экранов](https://orchid.software/ru/docs/screens) и просмотрели "[Быстрый старт для начинающих](https://orchid.software/ru/docs/quickstart)".
 
-Для начала нам необходимо создать новую таблицу для этого выполним команду:
+Для начала нам необходимо создать новую таблицу. Для этого выполним команду:
 
 ```php
 php artisan make:migration create_posts_table
@@ -97,7 +97,7 @@ class Post extends Model
 
 Теперь мы готовы к настоящему использованию платформы. 
 
-[В предыдущем пособии](https://orchid.software/ru/docs/quickstart) мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их, поэтому добавим два новых экрана на каждое действие, поочередно выполнив команды:
+[В предыдущем пособии](https://orchid.software/ru/docs/quickstart) мы уже создавали наш первый экран для отправки email сообщений, но теперь нам необходимо как отображать записи, так и редактировать их. Поэтому добавим два новых экрана на каждое действие, поочередно выполнив команды:
 
 ```php
 php artisan orchid:screen PostEditScreen
@@ -127,8 +127,8 @@ Route::screen('posts', PostListScreen::class)
 ```php
 namespace App\Orchid\Screens;
 
-use App\Post;
-use App\User;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
@@ -143,23 +143,9 @@ use Orchid\Support\Facades\Alert;
 class PostEditScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
+     * @var Post
      */
-    public $name = 'Creating a new post';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Blog posts';
-
-    /**
-     * @var bool
-     */
-    public $exists = false;
+    public $post;
 
     /**
      * Query data.
@@ -170,15 +156,25 @@ class PostEditScreen extends Screen
      */
     public function query(Post $post): array
     {
-        $this->exists = $post->exists;
-
-        if($this->exists){
-            $this->name = 'Edit post';
-        }
-
         return [
             'post' => $post
         ];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return $this->post->exists ? 'Edit post' : 'Creating a new post';
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Blog posts";
     }
 
     /**
@@ -192,17 +188,17 @@ class PostEditScreen extends Screen
             Button::make('Create post')
                 ->icon('pencil')
                 ->method('createOrUpdate')
-                ->canSee(!$this->exists),
+                ->canSee(!$this->post->exists),
 
             Button::make('Update')
                 ->icon('note')
                 ->method('createOrUpdate')
-                ->canSee($this->exists),
+                ->canSee($this->post->exists),
 
             Button::make('Remove')
                 ->icon('trash')
                 ->method('remove')
-                ->canSee($this->exists),
+                ->canSee($this->post->exists),
         ];
     }
 
@@ -327,26 +323,12 @@ class PostListLayout extends Table
 namespace App\Orchid\Screens;
 
 use App\Orchid\Layouts\PostListLayout;
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
 
 class PostListScreen extends Screen
 {
-    /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Blog post';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'All blog posts';
-
     /**
      * Query data.
      *
@@ -357,6 +339,22 @@ class PostListScreen extends Screen
         return [
             'posts' => Post::paginate()
         ];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return 'Blog post';
+    }
+    
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "All blog posts";
     }
 
     /**

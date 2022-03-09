@@ -8,7 +8,6 @@ title: Listener
 Например, у нас есть экран, на котором расположены два поля для ввода чисел.
 Нам требуется вывести третье поле, значение которого будет суммой двух других:
 
-
 ```php
 namespace App\Orchid\Screens;
 
@@ -20,20 +19,6 @@ use Orchid\Screen\Screen;
 class PlatformScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Dashboard';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Welcome';
-
-    /**
      * Query data.
      *
      * @return array
@@ -41,6 +26,16 @@ class PlatformScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * Display header name.
+     *
+     * @return string
+     */
+    public function name(): ?string
+    {
+        return 'Dashboard';
     }
 
     /**
@@ -144,6 +139,8 @@ protected $targets = [
 ];
 ```
 
+> **Примечание**. Для полей  с множественным выбором, таких как `<select name="users[]">` необходимость указать, что они являются массивом, заканчивая значение точкой, например `"users."`
+
 В свойстве `asyncMethod` должен быть указан метод, который будет вызван при изменении полей. Этот метод необходимо реализовать в экране.
 Добавим его с именем `asyncSum`:
 
@@ -159,20 +156,6 @@ use Orchid\Screen\Screen;
 class PlatformScreen extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @var string
-     */
-    public $name = 'Dashboard';
-
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
-    public $description = 'Welcome';
-
-    /**
      * Query data.
      *
      * @return array
@@ -180,6 +163,16 @@ class PlatformScreen extends Screen
     public function query(): array
     {
         return [];
+    }
+
+    /**
+     * Display header name.
+     *
+     * @return string
+     */
+    public function name(): ?string
+    {
+        return 'Dashboard';
     }
 
     /**
