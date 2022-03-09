@@ -1010,12 +1010,12 @@ For example, you can create the typical three dots dropdown:</p>
 </code></pre>
 <h2><a href='#numberrange' id='numberrange'>NumberRange</a></h2>
 <p>You can create ranges of numbers. Especially usefull for filters.</p>
-<pre><code class="language-php">NumberRange::make()
+<pre><code class="language-php">NumberRange::make();
 </code></pre>
 <p>Usage with filters:</p>
-<pre><code class="language-php">TD::make()-&gt;filter(NumberRange::make())
+<pre><code class="language-php">TD::make()-&gt;filter(NumberRange::make());
 //or
-TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE)
+TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE);
 </code></pre>
 <p>Result is an array with keys of <code>min</code>, <code>max</code>.</p>
 
