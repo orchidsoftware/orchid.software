@@ -5,7 +5,7 @@ description:
 
 ## Custom Icons
 
-Let's say we want to include an icon from the popular Font Awesome. To do this, select a suitable storage directory, for example, create a new `icons` directory and a `fontawesome` subdirectory:
+Допустим, мы хотим добавить иконку из популярного Font Awesome. TДля этого выберите подходящий каталог хранения, например, создайте новый каталог `icons` и подкаталог `fontawesome`:
 
 ```bash
 resources
@@ -17,7 +17,7 @@ resources
   - views
 ```
 
-Load the appropriate icons into the new directory, for example, this [notebook icon](https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg). Then we will indicate to the package the directory in which we need to search for our images, for this we will edit the configuration file `config/platform.php`:
+Загрузите в новый каталог соответствующие значки, например, этот [значок блокнота](https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg). Затем укажите каталог, в котором нам нужно искать наши изображения, для этого отредактируйте файл конфигурации `config/platform.php`:
 
 
 ```php
@@ -26,8 +26,8 @@ Load the appropriate icons into the new directory, for example, this [notebook i
 ],
 ```
 
-All we have done here is declare the prefix by which we will refer to fa and the directory where the files are located.
-To display in the components of the package, you only need to pass the prefix + name, for example, the definition of the icon in the menu will look like this:
+Все, что мы здесь сделали, это объявили префикс, по которому мы будем обращаться к fa и каталог, в котором расположены файлы.
+ Для отображения в компонентах пакета нужно передать только префикс + имя. Например, определение иконки в меню будет выглядеть так:
 
 ```php
 Menu::make('Example of custom icons')
@@ -35,4 +35,4 @@ Menu::make('Example of custom icons')
     ->url(#);
 ```
 
-You can also use the icons outside of the admin panel [using the Blade component](https://github.com/orchidsoftware/blade-icons).
+Вы также можете использовать иконки вне панели администратора [с помощью компонента Blade](https://github.com/orchidsoftware/blade-icons).
