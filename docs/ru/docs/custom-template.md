@@ -214,6 +214,40 @@ blade;
 }
 ```
 
+
+
+## Browsing
+
+Панель администратора — это место, где вы можете просматривать и выполнять все необходимые действия в проекте. Но иногда технология и графический вид не соответствуют друг другу и расположены по разным адресам (Например, если вы используете  [Telescope](https://laravel.com/docs/telescope) или [Horizon](https://laravel.com/docs/horizon)). Это приводит к тому, что вам нужно постоянно перемещаться между двумя вкладками браузера.
+
+Чтобы избежать этого, вы можете открыть iframe для просмотра другой страницы:
+
+```php
+use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::browsing('http://127.0.0.1:8000/telescope'),
+    ];
+}
+```
+
+Attributes are also available to the html definition:
+
+```php
+Layout::browsing('http://127.0.0.1:8000/telescope')
+    ->allow('...')
+    ->loading('...')
+    ->csp('...')
+    ->name('...')
+    ->referrerpolicy('...')
+    ->sandbox('...')
+    ->src('...')
+    ->srcdoc('...');
+```
+
+
 ## Расширение
 
 Класс `Layouts` является группирующим нескольких различных. Для того чтобы добавить в него новую возможность, достаточно указать её в сервис провайдере как:
