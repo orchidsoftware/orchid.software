@@ -50,7 +50,7 @@ public function layout(): array
 
 Ключи будут использованы в качестве заголовков.
 
-Обратите внимание, что Вы можете указывать в качестве значений и строчное имя класса:
+Обратите внимание, что Вы можете указывать в качестве значений и  имя класса в нижнем регистре:
 
 ```php
 public function layout(): array
@@ -179,6 +179,20 @@ public function layout(): array
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ]),
+    ];
+}
+```
+По умолчанию активной является либо первая, либо последняя активная вкладка.
+сли вам нужно явно определить активную вкладку, вы можете сделать это с помощью метода `->activeTab($key)`:
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::tabs([
+            'Personal Information' => PersonalInformationRow::class,
+            'Billing Address'      => BillingAddressRow::class,
+        ])->activeTab('Billing Address'),
     ];
 }
 ```

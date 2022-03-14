@@ -3,14 +3,6 @@ title: Community Guidelines
 description: Being involved in the Laravel Orchid community is an amazing experience
 ---
 
-Being involved in the Laravel Orchid community is an amazing experience;
-you become part of something big, collaborate with people from all over the world,
-Help people make their computers amazing.
-But along with this there is an obligation to follow the rules,
-which provide the most comfortable environment for all participants.
-The following rules must be followed anytime, anywhere
-community related, be it Telegram, GitHub, an Laravel Orchid community resource, face-to-face chat, or something else.
-
 ## Mutual respect
 
 Being involved in the community is a fantastic experience; you become part of something big, collaborate with people from all over the world, Help people make their computers unique. But along with this, there is an obligation to follow the rules, which provide the most comfortable environment for all participants. The following rules must be followed anytime, anywhere, community-related, Telegram, GitHub, a Laravel Orchid community resource, face-to-face chat, or something else.

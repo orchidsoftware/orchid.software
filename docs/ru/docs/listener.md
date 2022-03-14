@@ -1,5 +1,6 @@
 ---
 title: Listener
+extends: _layouts.documentation
 ---
 
 Слой слушателя используется, когда необходимо менять отображаемые данные,

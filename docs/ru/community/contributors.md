@@ -2,13 +2,16 @@
 title: Участие в разработке
 description: Я призываю всех внести свой вклад в проект ORCHID.
 ---
+[![Contributors](https://opencollective.com/orchid/contributors.svg?width=800&button=false)](https://github.com/orchidsoftware/platform)
 
 Я призываю всех внести свой вклад в проект. Вы можете найти последнюю версию кода на GitHub по адресу <https://github.com/orchidsoftware/platform>.
+Открытые обсуждения, вопросы, предложения ведутся в [обсуждениях на GitHub](https://github.com/orchidsoftware/platform/discussions)
 
+Если у вас есть определенные ошибки или запросы на определенные функции, взгляните на [issues](https://github.com/orchidsoftware/platform/issues)
 ## Отслеживание проблем
 
 Вы можете найти нерешенные вопросы на  [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
- Если вы намерены работать по конкретному вопросу, оставьте комментарий на соответствующий задачу для информирования других участников проекта.
+ Если вы намерены работать по конкретному вопросу, оставьте комментарий к соответствующей задаче для информирования других участников проекта.
  
 
 Для активного развития, настоятельно рекомендуется использовать только запросы на добавление изменений `(pull requests)`, а не просто сообщения об ошибках (bug reports).
@@ -25,6 +28,8 @@ description: Я призываю всех внести свой вклад в п
 Неформальное обсуждение по поводу ошибок/проблем и новых возможностей:
  1. [Telegram группа @orchid_community](https://t.me/orchid_community)
  1. [Telegram группа @orchid_russian_community](https://t.me/orchid_russian_community)
+  3. [Приглашение на дискорд форум](https://discord.gg/aEVdGMyRt4)
+  4. [Приглашение на дискорд форум(русскоязычный)](https://discord.gg/CNYwzWVnjX)
 
 ## Безопасность
 
