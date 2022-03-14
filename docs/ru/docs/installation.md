@@ -18,6 +18,13 @@ description: Это руководство по началу работы пом
 $ composer create-project laravel/laravel orchid-project "9.*" --prefer-dist
 ```
 
+Или, если вы предпочитаете установщик Laravel:
+
+```php
+$ laravel new orchid-project
+```
+
+
 Для получения дополнительной информации о том, как установить Laravel, используйте [Официальное руководство по установке laravel](https://laravel.com/docs/installation).
 
 > **У вас нет Composer?** Его легко установить, следуя инструкциям на странице [загрузки](https://getcomposer.org/download/).

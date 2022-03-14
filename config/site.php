@@ -48,7 +48,7 @@ return [
                 'Using JS'     => '/en/docs/javascript',
                 'Form Builder' => '/en/docs/builder',
                 'Testing'      => '/en/docs/testing',
-                'Controllers'  => '/en/docs/controllers',                 
+                'Controllers'  => '/en/docs/controllers',
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
@@ -88,6 +88,7 @@ return [
             'Макеты'             => [
                 'Строки'             => '/ru/docs/rows',
                 'Таблицы'            => '/ru/docs/table',
+                'Легенда'            => '/ru/docs/legend',
                 'Графики'            => '/ru/docs/charts',
                 'Модальные окна'     => '/ru/docs/modals',
                 'Слушатель'          => '/ru/docs/listener',
@@ -96,17 +97,19 @@ return [
                 'Универсальные'      => '/ru/docs/custom-template',
             ],
             'Дополнительно'      => [
-                'Представители'    => '/ru/docs/presenters',
-                'Scout поиск'      => '/ru/docs/global-search',
-                //'Настройки'        => '/ru/docs/settings', deprecation
+                'Брендирование'    => '/ru/docs/brand',
                 'Иконки'           => '/ru/docs/icons',
-                //'Контроллеры'      => '/ru/docs/controllers',
+                'Scout поиск'      => '/ru/docs/global-search',
+                'Presenters'       => '/ru/docs/presenters',
                 'Использование JS' => '/ru/docs/javascript',
                 'Строитель форм'   => '/ru/docs/builder',
-                'Брендирование'    => '/ru/docs/brand',
+                'Тестирование'     => '/ru/docs/testing',
+                'Контроллеры'      => '/ru/docs/controllers',
+                //'Настройки'        => '/ru/docs/settings', deprecation
+
             ],
             'Packages'           => [
-                'CRUD'    => '/en/docs/packages/crud',
+                'CRUD'    => '/ru/docs/packages/crud',
                 'Fortify' => 'https://github.com/orchidsoftware/fortify',
             ],
             'Сообщество'         => [
