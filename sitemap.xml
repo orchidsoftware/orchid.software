@@ -294,6 +294,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/ru/docs/controllers</loc>
+        <lastmod>2022-03-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/ru/docs/custom-template</loc>
         <lastmod>2022-03-13T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
@@ -348,6 +354,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/ru/docs/legend</loc>
+        <lastmod>2022-03-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/ru/docs/listener</loc>
         <lastmod>2022-03-13T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
@@ -361,6 +373,12 @@
     </url>
     <url>
         <loc>https://orchid.software/ru/docs/modals</loc>
+        <lastmod>2022-03-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/docs/packages/crud</loc>
         <lastmod>2022-03-13T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
@@ -409,6 +427,12 @@
     </url>
     <url>
         <loc>https://orchid.software/ru/docs/table</loc>
+        <lastmod>2022-03-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/docs/testing</loc>
         <lastmod>2022-03-13T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>

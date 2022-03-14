@@ -205,6 +205,11 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/ru/docs/legend" class="text-decoration-none ">
+                        Легенда
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
                     <a href="/ru/docs/charts" class="text-decoration-none ">
                         Графики
                     </a>
@@ -234,8 +239,13 @@
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/ru/docs/presenters" class="text-decoration-none ">
-                        Представители
+                    <a href="/ru/docs/brand" class="text-decoration-none ">
+                        Брендирование
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary">
+                    <a href="/ru/docs/icons" class="text-decoration-none text-primary">
+                        Иконки
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -243,9 +253,9 @@
                         Scout поиск
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary">
-                    <a href="/ru/docs/icons" class="text-decoration-none text-primary">
-                        Иконки
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/ru/docs/presenters" class="text-decoration-none ">
+                        Presenters
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
@@ -259,8 +269,13 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/ru/docs/brand" class="text-decoration-none ">
-                        Брендирование
+                    <a href="/ru/docs/testing" class="text-decoration-none ">
+                        Тестирование
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/ru/docs/controllers" class="text-decoration-none ">
+                        Контроллеры
                     </a>
                 </li>
                     </ul>
@@ -268,7 +283,7 @@
 
         <ul>
                             <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/en/docs/packages/crud" class="text-decoration-none ">
+                    <a href="/ru/docs/packages/crud" class="text-decoration-none ">
                         CRUD
                     </a>
                 </li>
@@ -2984,7 +2999,7 @@
                         <div class="anchors">
     </div>
                         <h2><a href='#custom-icons' id='custom-icons'>Custom Icons</a></h2>
-<p>Let&rsquo;s say we want to include an icon from the popular Font Awesome. To do this, select a suitable storage directory, for example, create a new <code>icons</code> directory and a <code>fontawesome</code> subdirectory:</p>
+<p>&#1044;&#1086;&#1087;&#1091;&#1089;&#1090;&#1080;&#1084;, &#1084;&#1099; &#1093;&#1086;&#1090;&#1080;&#1084; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1080;&#1082;&#1086;&#1085;&#1082;&#1091; &#1080;&#1079; &#1087;&#1086;&#1087;&#1091;&#1083;&#1103;&#1088;&#1085;&#1086;&#1075;&#1086; Font Awesome. T&#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1074;&#1099;&#1073;&#1077;&#1088;&#1080;&#1090;&#1077; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1103;&#1097;&#1080;&#1081; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; &#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1103;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1089;&#1086;&#1079;&#1076;&#1072;&#1081;&#1090;&#1077; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; <code>icons</code> &#1080; &#1087;&#1086;&#1076;&#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; <code>fontawesome</code>:</p>
 <pre><code class="language-bash">resources
   - css 
   - icons
@@ -2993,18 +3008,18 @@
   - lang
   - views
 </code></pre>
-<p>Load the appropriate icons into the new directory, for example, this <a href="https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg">notebook icon</a>. Then we will indicate to the package the directory in which we need to search for our images, for this we will edit the configuration file <code>config/platform.php</code>:</p>
+<p>&#1047;&#1072;&#1075;&#1088;&#1091;&#1079;&#1080;&#1090;&#1077; &#1074; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1079;&#1085;&#1072;&#1095;&#1082;&#1080;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1101;&#1090;&#1086;&#1090; <a href="https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg">&#1079;&#1085;&#1072;&#1095;&#1086;&#1082; &#1073;&#1083;&#1086;&#1082;&#1085;&#1086;&#1090;&#1072;</a>. &#1047;&#1072;&#1090;&#1077;&#1084; &#1091;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075;, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1085;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1080;&#1089;&#1082;&#1072;&#1090;&#1100; &#1085;&#1072;&#1096;&#1080; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1086;&#1090;&#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1091;&#1081;&#1090;&#1077; &#1092;&#1072;&#1081;&#1083; &#1082;&#1086;&#1085;&#1092;&#1080;&#1075;&#1091;&#1088;&#1072;&#1094;&#1080;&#1080; <code>config/platform.php</code>:</p>
 <pre><code class="language-php">'icons' =&gt; [
     'fa' =&gt; resource_path('icons/fontawesome')
 ],
 </code></pre>
-<p>All we have done here is declare the prefix by which we will refer to fa and the directory where the files are located.
-To display in the components of the package, you only need to pass the prefix + name, for example, the definition of the icon in the menu will look like this:</p>
+<p>&#1042;&#1089;&#1077;, &#1095;&#1090;&#1086; &#1084;&#1099; &#1079;&#1076;&#1077;&#1089;&#1100; &#1089;&#1076;&#1077;&#1083;&#1072;&#1083;&#1080;, &#1101;&#1090;&#1086; &#1086;&#1073;&#1098;&#1103;&#1074;&#1080;&#1083;&#1080; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;, &#1087;&#1086; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084;&#1091; &#1084;&#1099; &#1073;&#1091;&#1076;&#1077;&#1084; &#1086;&#1073;&#1088;&#1072;&#1097;&#1072;&#1090;&#1100;&#1089;&#1103; &#1082;&nbsp;fa &#1080; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075;, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1088;&#1072;&#1089;&#1087;&#1086;&#1083;&#1086;&#1078;&#1077;&#1085;&#1099; &#1092;&#1072;&#1081;&#1083;&#1099;.
+&#1044;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1074; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1072;&#1093; &#1087;&#1072;&#1082;&#1077;&#1090;&#1072; &#1085;&#1091;&#1078;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089; + &#1080;&#1084;&#1103;. &#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1077; &#1080;&#1082;&#1086;&#1085;&#1082;&#1080; &#1074; &#1084;&#1077;&#1085;&#1102; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1075;&#1083;&#1103;&#1076;&#1077;&#1090;&#1100; &#1090;&#1072;&#1082;:</p>
 <pre><code class="language-php">Menu::make('Example of custom icons')
     -&gt;icon('fa.address-book')
     -&gt;url(#);
 </code></pre>
-<p>You can also use the icons outside of the admin panel <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
+<p>&#1042;&#1099; &#1090;&#1072;&#1082;&#1078;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1080;&#1082;&#1086;&#1085;&#1082;&#1080; &#1074;&#1085;&#1077; &#1087;&#1072;&#1085;&#1077;&#1083;&#1080; &#1072;&#1076;&#1084;&#1080;&#1085;&#1080;&#1089;&#1090;&#1088;&#1072;&#1090;&#1086;&#1088;&#1072; <a href="https://github.com/orchidsoftware/blade-icons">&#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1072; Blade</a>.</p>
 
                     </main>
                 </div>
