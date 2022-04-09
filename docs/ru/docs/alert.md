@@ -37,7 +37,10 @@ Alert::warning('Message')
 Для вставки собственного шаблона с использованием переменных, тегов используется метод `view`:
 
 ```php
-Alert::view('alert', Alert::info, [
+use Orchid\Support\Facades\Alert;
+use Orchid\Support\Color;
+
+Alert::view('alert', Color::INFO(), [
     'name' => 'Alexandr'
 ]);
 ```
