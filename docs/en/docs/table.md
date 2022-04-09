@@ -499,11 +499,7 @@ Template example:
 ```php
 // bool.blade.php
 
-@if($bool)
-    <i class="icon-check text-success"></i>
-@else
-    <i class="icon-close text-danger"></i>
-@endif
+<span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>
 ```
 
 Usage example:
