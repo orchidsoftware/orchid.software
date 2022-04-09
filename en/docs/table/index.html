@@ -755,11 +755,7 @@ TD::macro('bool', function () {
 <p>Template example:</p>
 <pre><code class="language-php">// bool.blade.php
 
-@if($bool)
-    &lt;i class=&quot;icon-check text-success&quot;&gt;&lt;/i&gt;
-@else
-    &lt;i class=&quot;icon-close text-danger&quot;&gt;&lt;/i&gt;
-@endif
+&lt;span class=&quot;{{ $bool ? 'text-success' : 'text-danger' }}&quot;&gt;●&lt;/span&gt;
 </code></pre>
 <p>Usage example:</p>
 <pre><code class="language-php">public function grid(): array
