@@ -36,7 +36,10 @@ Alert::warning('Message')
 To insert your own template using variables tags use the `view` method:
 
 ```php
-Alert::view('alert', Alert::info, [
+use Orchid\Support\Facades\Alert;
+use Orchid\Support\Color;
+
+Alert::view('alert', Color::INFO(), [
     'name' => 'Alexandr'
 ]);
 ```
