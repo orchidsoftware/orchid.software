@@ -280,7 +280,7 @@ php artisan orchid:table PostListLayout
 ```php
 namespace App\Orchid\Layouts;
 
-use App\Post;
+use App\Models\Post;
 use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
