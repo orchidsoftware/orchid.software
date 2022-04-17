@@ -69,7 +69,7 @@ In the same way, we can change the bottom of the page, again create a new file `
 
 ```php
 <p class="small m-n">
-    © Copyright {{date('Y')}} <a href="//example.com" target="_blank">"Analytics Nest"</a>
+    © Copyright {{date('Y')}} <a href="//example.com" target="_blank">Analytics Nest</a>
 </p>
 ```
 
