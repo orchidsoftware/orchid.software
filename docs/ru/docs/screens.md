@@ -51,7 +51,7 @@ class Idea extends Screen
      *
      * @return array
      */
-    public function query() : array
+    public function query(): array
     {
         return [];
     }
@@ -61,7 +61,7 @@ class Idea extends Screen
      *
      * @return array
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }
@@ -71,7 +71,7 @@ class Idea extends Screen
      *
      * @return array
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [];
     }
@@ -131,7 +131,7 @@ dashboard/idea/edit/{method?} | platform.idea.edit
 Передача осуществляется в виде массива, ключи будут доступны в макетах, для их управления.
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'name'  => 'Alexandr Chernyaev',
@@ -156,7 +156,7 @@ class Order extends Model
 Пример, при котором в  Layouts будут доступны ключи `order` и `orders`:
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'order'  => Order::find(1),
@@ -172,7 +172,7 @@ public function query() : array
 use Orchid\Screen\Repository;    
 //...
 
-public function query() : array
+public function query(): array
 {
     return [
         'order'      => new Repository([
@@ -197,7 +197,7 @@ public function query() : array
  */
 public $message;
 
-public function query() : array
+public function query(): array
 {
     return [
         'message'  => 'Hello World!',
@@ -223,7 +223,7 @@ public function name(): ?string
 use Orchid\Screen\Actions\Button;
 use Orchid\Support\Facades\Toast;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         Button::make('Вывести на печать')->method('print'),
@@ -296,7 +296,7 @@ ModalToggle::make('Модальное окно')
 
 
 ```php
-public function layout() : array
+public function layout(): array
 {
     return [
         Layout::columns([
