@@ -157,7 +157,7 @@ use Orchid\Screen\AsSource;
 
 class Order extends Model
 {
-    use AsSource
+    use AsSource;
 }
 ```
 
