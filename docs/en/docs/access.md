@@ -73,7 +73,7 @@ User::byAccess('platform.systems.users')->get();
 
 // Or if the user has at least one of the passed permissions
 User::byAnyAccess([
-   'platform.systems.users'   
+   'platform.systems.users',
    'non existent',
 ])->get();
 ```
