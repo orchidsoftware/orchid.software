@@ -43,7 +43,7 @@ if ($user->hasAnyAccess(['user.admin', 'user.update'])) {
 }
 ```
 
-Permissions can be checked based on wildcards using the `*` character to match any set of permissions.
+> **Note.** Permissions can be checked based on wildcards using the `*` character to match any set of permissions.
 
 ```php
 $user = User::find(1);
