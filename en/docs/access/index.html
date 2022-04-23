@@ -396,7 +396,9 @@ if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])) {
     // Execute this code if the user has permission
 }
 </code></pre>
-<p>Permissions can be checked based on wildcards using the <code>*</code> character to match any set of permissions.</p>
+<blockquote>
+<p><strong>Note.</strong> Permissions can be checked based on wildcards using the <code>*</code> character to match any set of permissions.</p>
+</blockquote>
 <pre><code class="language-php">$user = User::find(1);
 
 if ($user-&gt;hasAccess('user.*')) {
