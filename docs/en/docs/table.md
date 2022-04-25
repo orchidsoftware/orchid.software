@@ -218,6 +218,19 @@ TD::make('price')
     });
 ```
 
+## The Loop Variable
+
+
+The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:
+
+```php
+TD::make()->render(function (Model $model, object $loop) {
+    return $loop->index;
+})
+```
+
+The $loop variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
+
 ## Components
 
 Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display logic, as well as reuse.
