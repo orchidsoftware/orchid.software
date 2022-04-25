@@ -362,6 +362,9 @@
                     <a href="#data-output">Data output</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#the-loop-variable">The Loop Variable</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#components">Components</a>
                 </li>
                             <li class="anchor-h2">
@@ -526,6 +529,13 @@ TD::make('price')
         return $product-&gt;price + $this-&gt;query-&gt;get('tax');
     });
 </code></pre>
+<h2><a href='#the-loop-variable' id='the-loop-variable'>The Loop Variable</a></h2>
+<p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
+<pre><code class="language-php">TD::make()-&gt;render(function (Model $model, object $loop) {
+    return $loop-&gt;index;
+})
+</code></pre>
+<p>The $loop variable contains a variety of other useful properties which you can find in the <a href="https://laravel.com/docs/9.x/blade#loops">Laravel documentation</a>.</p>
 <h2><a href='#components' id='components'>Components</a></h2>
 <p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
 <p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our components.
