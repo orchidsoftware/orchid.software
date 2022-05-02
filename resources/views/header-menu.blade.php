@@ -2,7 +2,7 @@
     <img src="/img/next/logo-full.svg" class="logo">
 </a>
 
-<ul class="nav nav-pills mx-auto">
+<ul class="nav nav-pills mx-auto align-items-center">
     <li class="nav-item"><a href="https://demo.orchid.software" class="nav-link">Demo</a></li>
     {{--<li class="nav-item"><a href="https://blog.orchid.software" class="nav-link">Blog</a></li>--}}
     <li class="nav-item"><a href="https://github.com/orchidsoftware/platform/discussions" class="nav-link">Discussion</a></li>
