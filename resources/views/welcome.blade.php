@@ -19,11 +19,11 @@
             <div class="px-4 py-md-5 my-md-5 text-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5">
                     <h1 class="display-5 fw-bold mb-md-5 mb-3">Build admin panels
-                        <span class="d-block">with Laravel Orchid</span>
+                        <span class="d-block">with Laravel Orchid</span> 
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3">
-                        A free Laravel package that abstracts standard business logic and allows code-driven rapid
-                        application development of back office applications like admin panels and dashboards.
+                        A free Laravel package that abstracts standard business logic and enables code-driven,
+                        rapid development of back-office applications like admin panels and dashboards.
                     </p>
                 </div>
             </div>
