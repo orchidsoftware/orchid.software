@@ -4,14 +4,14 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 ---
 
 
-This quick start guide provides a basic introduction to the infrastructure and includes information about screens and form elements.
-To select the basic set of functions, we will create a simple utility for sending emails.
+This Quick Start Guide provides a basic introduction to the infrastructure and includes information about screens and form elements.
+To select the basic functions, we'll create a simple utility to send e-mail.
 
-You should have already [installed the framework and package](/en/docs/installation) at this point and started the webserver.
+At this point you should have already installed [the framework and package](/en/docs/installation) and started the web server. 
 
-> Before we start, we strongly recommend that you do not use copy and paste. Entering each piece of code will help you practice and remember.
+> Before we begin, we strongly recommend that you don't copy and paste. Typing each piece of code will help you practice and remember it.
 
-First, you need to create a [screen](/en/docs/screens) to display the submission form, using the command:
+First you need to create a [screen](/en/docs/screens) to display the login form: to display the submission form, using the command:
 
 ```bash
 php artisan orchid:screen EmailSenderScreen
