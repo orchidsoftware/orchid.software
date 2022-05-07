@@ -16,7 +16,7 @@ Some features:
 - Menus, charts, notifications, etc.
 
 
-Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based applications, administration panels, or a content management system.
+Delivered as Laravel package and interacts with other components. It can serve as a base for back-office applications, administration panels or a content management system.
 
 > **Note!** The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the [Laravel documentation](https://laravel.com/docs/).
 
