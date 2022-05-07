@@ -38,7 +38,7 @@ All the previous packages were developed to simplify the work with the CRUD data
 
 - **Visual programming** - is a method where the developer drags or selects prepared objects and thus creates the application instead of writing program code. This view is based on the assumption that most programs are simple procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon trouble the inexperienced programmer.
 
-- **One Class** - a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let's assume that we're trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won't help us because we're not working with this class.
+- **One class** - a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let's assume that we're trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won't help us because we're not working with this class.
 
 Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can grow quickly thanks to the pre-built components.
 It doesn't offer visual programming, so you've to write the code with the keyboard and not click with the mouse.
