@@ -1,11 +1,11 @@
 ---
 title: Documentation
-description:
+description: Laravel Orchid is an open-source package for accelerating the development and creation of administration-style applications
 ---
 
 ## Introduction
 
-**Laravel Orchid** is an open-source package (MIT license) to speed up development and create applications in the style of administration. It abstracts typical business application templates so that developers can quickly implement beautiful and elegant interfaces with little effort.
+**Laravel Orchid** is an open-source package (MIT license) for accelerating the development and creation of administration-style applications. It abstracts typical business application templates so developers can quickly implement beautiful and elegant interfaces with little effort.
 
 Some features:
 
@@ -23,26 +23,26 @@ Delivered as a Laravel package and interacted with other components. It can act 
 
 ## What Orchid is not
 
-Laravel Orchid is not a "boxed turnkey solution". You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you with one out of the box.
+Laravel Orchid isn't a "turnkey boxed solution". You need good programming skills to use it. It's designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.
 
 ## What is the difference between other packages?
 
-The Laravel ecosystem is rich in various admin panels.
-Maybe, You have already solved your problems using Nova, Voyager, BackPack, QuickAdminPanel, or the like.
-Here you were led by a desire to find out if the platform will simplify and improve your work.
-We hope to answer this question.
+The Laravel ecosystem is rich with different admin panels.
+You may have already solved your problems with Nova, Voyager, BackPack, QuickAdminPanel or similar.
+In doing so, you were guided by the desire to find out if the platform can simplify and improve your work.
+We hope that we can answer this question.
 
-All previous packages are designed to simplify CRUD database operations, and they can be divided into several methods:
+All the previous packages were developed to simplify the work with the CRUD database, and they can be divided into several methods:
 
-- **Scaffolding** - The scaffolding method consists of generating physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, developers delete such packages after age since they cannot update files with manual changes for updated criteria.
+- **Scaffolding** - The scaffolding method consists in creating physical files according to certain specifications, and thus it's the fastest at the initial stage of application development. As a rule, developers delete such packages after they age, as they cannot update the files with manual changes for updated criteria.
 
-- **Visual programming** - is a method in which the developer drags or selects pre-prepared objects, thus building the application instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.
+- **Visual programming** - is a method where the developer drags or selects prepared objects and thus creates the application instead of writing program code. This view is based on the assumption that most programs are simple procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon trouble the inexperienced programmer.
 
-- **One file** - a method that invites the developer to describe all the necessary actions in one class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application's scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that class.
+- **One Class** - a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let's assume that we're trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won't help us because we're not working with this class.
 
-Unlike scaffolding, this package will be helpful at any stage of development, and not just at the beginning, remaining fast for growth due to a ready-made set of components.
-It does not provide visual programming, so you need to write code on the keyboard and not click with the mouse.
-And instead of one, the main class provides many small components for encapsulation and reuse.
+Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can grow quickly thanks to the pre-built components.
+It doesn't offer visual programming, so you've to write the code with the keyboard and not click with the mouse.
+And instead of one, the main class offers many small components for encapsulation and reuse.
 
 ## What is rapid development?
 
@@ -57,15 +57,15 @@ A classic web application is a subsystem with a common three-tier architecture, 
  
 ![Architecture](/img/scheme/architecture.jpg)
 
-It reduces development time directly related to the distribution of responsibilities between each level. It is especially noticeable when it is necessary to create auxiliary code. At the same time, it takes most of the beneficial work over by the application layer.
+It reduces development time, which is directly related to the distribution of responsibilities between levels. This is especially noticeable when it's necessary to create auxiliary code. At the same time, most of the useful work is done by the application layer.
 
-As various examples of opposing duties can be cited:
-- Generation of `HTML` with the `Blade` template engine or the `Vue` framework.
-- Using ORM or stored procedures.
+As various examples of conflicting tasks can be cited:
+- Generation of "HTML" using the "Blade" template engine or the "Vue" framework.
+- Use of ORM or stored procedures.
 
-Depending on the choice of decisions, responsibilities will be allocated, where each decision has both advantages and disadvantages.
+Depending on the choice of decisions, responsibilities are assigned, each decision having both advantages and disadvantages.
 
-Similarly, the platform endows the application layer with new responsibilities for managing the mapping and bridging of data.
+Similarly, the platform assigns new responsibilities to the application layer for managing the mapping and bridging of data.
 
 ```php
 Classic          |   Orchid
