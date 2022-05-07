@@ -42,13 +42,14 @@
     <div class="container">
         <div class="row my-3 my-md-5">
             <div class="col-12 col-lg-6 mx-auto text-center">
-                <h1 class="display-5 fw-bold">Develop <span class="d-block d-md-inline-block text-primary">web applications</span>
-                    <small class="d-block">not admin panels</small>
+                <h1 class="display-5 fw-bold">Develop <span class="d-block d-md-inline-block text-primary">web applications,</span>
+                    <small class="d-block">not admin panels.</small>
                 </h1>
 
+
                 <p class="lead text-muted mb-md-5 mb-3">
-                    Stop reinventing the wheel and wasting your time in building an own admin panel from scratch.
-                    Focus on what really matters for you and start coding application logic right away!
+                    Stop reinventing the wheel and wasting your time developing your own admin panel from scratch. 
+                    Focus on what really matters to you and start coding application logic right now!
                 </p>
             </div>
         </div>
@@ -151,7 +152,7 @@
                 <div class="col-lg-6 mx-auto">
                     <h2 class="display-5 fw-bold text-primary">Testimonials</h2>
                     <p class="lead px-lg-8">
-                        Over the years, the package has helped many developers to create high-quality applications
+                        Over the years, the package has helped many developers create high-quality applications
                         with a minimum of attention to administration panels.
                     </p>
                 </div>
