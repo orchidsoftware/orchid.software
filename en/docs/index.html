@@ -11,7 +11,7 @@
 
 
 <meta name="title" content="Documentation | Orchid - Laravel Admin Panel">
-<meta name="description" content="">
+<meta name="description" content="Laravel Orchid is an open-source package for accelerating the development and creation of administration-style applications">
 
 
 
@@ -21,14 +21,14 @@
 <meta property="og:url" content="https://orchid.software/en/docs"/>
 <meta property="og:locale" content="en"/>
 <meta property="og:title" content="Documentation | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="">
+<meta property="og:description" content="Laravel Orchid is an open-source package for accelerating the development and creation of administration-style applications">
 <meta property="og:image" content="">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://orchid.software/en/docs">
 <meta name="twitter:title" content="Documentation | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Laravel Orchid is an open-source package for accelerating the development and creation of administration-style applications">
 <meta name="twitter:image" content="">
 
     <link rel="alternate" href="https://orchid.software/ru/docs/" hreflang="ru"/>
@@ -359,7 +359,7 @@
                     </ul>
     </div>
                         <h2><a href='#introduction' id='introduction'>Introduction</a></h2>
-<p><strong>Laravel Orchid</strong> is an open-source package (MIT license) to speed up development and create applications in the style of administration. It abstracts typical business application templates so that developers can quickly implement beautiful and elegant interfaces with little effort.</p>
+<p><strong>Laravel Orchid</strong> is an open-source package (MIT license) for accelerating the development and creation of administration-style applications. It abstracts typical business application templates so developers can quickly implement beautiful and elegant interfaces with little effort.</p>
 <p>Some features:</p>
 <ul>
 <li><strong>Form builder</strong> &ndash; no need to describe HTML fields of the same type each time.</li>
@@ -373,21 +373,21 @@
 <p><strong>Note!</strong> The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
 </blockquote>
 <h2><a href='#what-orchid-is-not' id='what-orchid-is-not'>What Orchid is not</a></h2>
-<p>Laravel Orchid is not a &quot;boxed turnkey solution&quot;. You need proper coding skills to use it. It's designed to make developers' lives easier when building complex systems, not providing you with one out of the box.</p>
+<p>Laravel Orchid isn't a &quot;turnkey boxed solution&quot;. You need good programming skills to use it. It's designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.</p>
 <h2><a href='#what-is-the-difference-between-other-packages' id='what-is-the-difference-between-other-packages'>What is the difference between other packages?</a></h2>
-<p>The Laravel ecosystem is rich in various admin panels.
-Maybe, You have already solved your problems using Nova, Voyager, BackPack, QuickAdminPanel, or the like.
-Here you were led by a desire to find out if the platform will simplify and improve your work.
-We hope to answer this question.</p>
-<p>All previous packages are designed to simplify CRUD database operations, and they can be divided into several methods:</p>
+<p>The Laravel ecosystem is rich with different admin panels.
+You may have already solved your problems with Nova, Voyager, BackPack, QuickAdminPanel or similar.
+In doing so, you were guided by the desire to find out if the platform can simplify and improve your work.
+We hope that we can answer this question.</p>
+<p>All the previous packages were developed to simplify the work with the CRUD database, and they can be divided into several methods:</p>
 <ul>
-<li><p><strong>Scaffolding</strong> &ndash; The scaffolding method consists of generating physical files according to specified specifications, thereby being the fastest at the initial stage of application development. As a rule, developers delete such packages after age since they cannot update files with manual changes for updated criteria.</p></li>
-<li><p><strong>Visual programming</strong> &ndash; is a method in which the developer drags or selects pre-prepared objects, thus building the application instead of writing program code. This view is based on the assumption that most programs are simple procedural sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer.</p></li>
-<li><p><strong>One file</strong> &ndash; a method that invites the developer to describe all the necessary actions in one class, which binds to the Eloquent model. But suppose we try to go beyond a CRUD application&rsquo;s scope. In that case, libraries concentrated in such a paradigm will not help us because we do not work with that class.</p></li>
+<li><p><strong>Scaffolding</strong> &ndash; The scaffolding method consists in creating physical files according to certain specifications, and thus it&rsquo;s the fastest at the initial stage of application development. As a rule, developers delete such packages after they age, as they cannot update the files with manual changes for updated criteria.</p></li>
+<li><p><strong>Visual programming</strong> &ndash; is a method where the developer drags or selects prepared objects and thus creates the application instead of writing program code. This view is based on the assumption that most programs are simple procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon trouble the inexperienced programmer.</p></li>
+<li><p><strong>One Class</strong> &ndash; a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let&rsquo;s assume that we&rsquo;re trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won&rsquo;t help us because we&rsquo;re not working with this class.</p></li>
 </ul>
-<p>Unlike scaffolding, this package will be helpful at any stage of development, and not just at the beginning, remaining fast for growth due to a ready-made set of components.
-It does not provide visual programming, so you need to write code on the keyboard and not click with the mouse.
-And instead of one, the main class provides many small components for encapsulation and reuse.</p>
+<p>Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can grow quickly thanks to the pre-built components.
+It doesn&rsquo;t offer visual programming, so you&rsquo;ve to write the code with the keyboard and not click with the mouse.
+And instead of one, the main class offers many small components for encapsulation and reuse.</p>
 <h2><a href='#what-is-rapid-development' id='what-is-rapid-development'>What is rapid development?</a></h2>
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
 <ul>
@@ -396,14 +396,14 @@ And instead of one, the main class provides many small components for encapsulat
 <li><p><strong>Level of resource management</strong> &ndash; We implement data storage&nbsp;using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
 </ul>
 <p><img src="/img/scheme/architecture.jpg" alt="Architecture" /></p>
-<p>It reduces development time directly related to the distribution of responsibilities between each level. It is especially noticeable when it is necessary to create auxiliary code. At the same time, it takes most of the beneficial work over by the application layer.</p>
-<p>As various examples of opposing duties can be cited:</p>
+<p>It reduces development time, which is directly related to the distribution of responsibilities between levels. This is especially noticeable when it&rsquo;s necessary to create auxiliary code. At the same time, most of the useful work is done by the application layer.</p>
+<p>As various examples of conflicting tasks can be cited:</p>
 <ul>
-<li>Generation of <code>HTML</code> with the <code>Blade</code> template engine or the <code>Vue</code> framework.</li>
-<li>Using ORM or stored procedures.</li>
+<li>Generation of &quot;HTML&quot; using the &quot;Blade&quot; template engine or the &quot;Vue&quot; framework.</li>
+<li>Use of ORM or stored procedures.</li>
 </ul>
-<p>Depending on the choice of decisions, responsibilities will be allocated, where each decision has both advantages and disadvantages.</p>
-<p>Similarly, the platform endows the application layer with new responsibilities for managing the mapping and bridging of data.</p>
+<p>Depending on the choice of decisions, responsibilities are assigned, each decision having both advantages and disadvantages.</p>
+<p>Similarly, the platform assigns new responsibilities to the application layer for managing the mapping and bridging of data.</p>
 <pre><code class="language-php">Classic          |   Orchid
 ├── Route        |   ├── Route   
 ├── Model        |   ├── Model 
