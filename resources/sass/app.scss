@@ -90,6 +90,10 @@ $theme-colors: (
     "grey":       $grey,
 );
 
+html, body {
+    font-kerning: normal;
+}
+
 .bg-main {
     background-image: radial-gradient(100% 100% at 0% 0%, #CA72B7 0%, #914680 23.78%, #3F2660 100%);
     background-position: bottom;
