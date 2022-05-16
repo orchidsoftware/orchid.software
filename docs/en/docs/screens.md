@@ -6,9 +6,7 @@ description: The main components of the user interface
 ## Introduction
 
 
-The platform's main element is the screens described by the layout hierarchy. Each component has properties that affect its appearance and behavior.
-
-Simply put, what the user sees on the page and what actions he performs is described in one class called "Screen". He does not know where the data comes from. It can be a database, API, or any other external source. Building the appearance based on the provided `templates` (Layouts) and all you need to do is determine what data will be shown in a particular template.
+The screens on the platform are its main element, described by the layout hierarchy. Each component has properties that affect its appearance and behavior. In other words, what the user sees on the page and what actions they perform are described in one class called "screen". They don't need to know where the data comes from. It could be a database, api, or any other external source. Building the appearance is based on provided templates (layouts), and all you need to determine is what data will be shown in a particular template.
 
 
 ![Screens](/img/scheme/screens.jpg)
