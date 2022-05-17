@@ -25,6 +25,16 @@ Because it is delivered as a Laravel package, it interacts well with other compo
 
 Laravel Orchid is not a "turnkey boxed solution." You need good programming skills to use it. It is designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.
 
+## Looking for something simple?
+
+**Orchid CRUD** makes it easy to rapidly create crud applications with less code. Its straightforward syntax means you can quickly build CRUD applications with little effort. To get started, check out [the here section](https://orchid.software/en/docs/packages/crud/#introduction).
+
+
+## Do you want to migrate?
+
+If you already have your admin panel based on `Blade` templates, then it is not necessary to rewrite everything at once. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers).
+
+
 ## What is the difference between other packages?
 
 The Laravel ecosystem is rich with different admin panels.
@@ -77,6 +87,7 @@ Classic          |   Orchid
     ├── CSS      |
     └── JS       |
 ```
+
 
 ## How to get a platform?
 
