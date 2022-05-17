@@ -27,7 +27,7 @@ Laravel Orchid is not a "turnkey boxed solution." You need good programming skil
 
 ## Looking for something simple?
 
-**Orchid CRUD** makes it easy to rapidly create crud applications with less code. Its straightforward syntax means you can quickly build CRUD applications with little effort. To get started, check out [the here section](https://orchid.software/en/docs/packages/crud/#introduction).
+**Orchid CRUD** makes it easy to rapidly create crud applications with less code. Its straightforward syntax means you can quickly build simple applications with little effort. To get started, check out [the here section](https://orchid.software/en/docs/packages/crud/#introduction).
 
 
 ## How to migrate?
