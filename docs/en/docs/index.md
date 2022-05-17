@@ -30,7 +30,7 @@ Laravel Orchid is not a "turnkey boxed solution." You need good programming skil
 **Orchid CRUD** makes it easy to rapidly create crud applications with less code. Its straightforward syntax means you can quickly build CRUD applications with little effort. To get started, check out [the here section](https://orchid.software/en/docs/packages/crud/#introduction).
 
 
-## Do you want to migrate?
+## How to migrate?
 
 If you already have your admin panel based on `Blade` templates, then it is not necessary to rewrite everything at once. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers).
 
