@@ -23,7 +23,7 @@ Because it is delivered as a Laravel package, it interacts well with other compo
 
 ## What Orchid is not
 
-Laravel Orchid isn't a "turnkey boxed solution". You need good programming skills to use it. It's designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.
+Laravel Orchid is not a "turnkey boxed solution." You need good programming skills to use it. It is designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.
 
 ## What is the difference between other packages?
 
