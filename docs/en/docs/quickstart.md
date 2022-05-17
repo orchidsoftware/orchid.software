@@ -4,8 +4,7 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 ---
 
 
-This Quick Start Guide provides a basic introduction to the infrastructure and includes information about screens and form elements.
-To select the basic functions, we'll create a simple utility to send e-mail.
+Admin panels are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data. In this quick tutorial, we'll learn how to create screens and use form elements by creating a simple utility for sending emails.
 
 At this point you should have already installed [the framework and package](/en/docs/installation) and started the web server. 
 
