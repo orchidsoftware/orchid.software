@@ -301,3 +301,41 @@ public function layout(): array
     ];
 }
 ```
+
+
+## TabMenu
+
+Sometimes you want to display navigation visually similar to tabs, but instead of switching, a transition to another screen should be made. The `TabMenu` layer is perfect for this, to create it you need to run the `artisan` command:
+
+```bash
+php artisan orchid:tab-menu ExampleNavigation
+```
+
+In the directory `app/Orchid/Layouts`, a new class will be created where the navigation can be defined:
+
+```php
+<?php
+
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\TabMenu;
+
+class ExampleNavigation extends TabMenu
+{
+    /**
+     * Get the menu elements to be displayed.
+     *
+     * @return Menu[]
+     */
+    protected function navigations(): iterable
+    {
+        return [
+            Menu::make('Get Started')
+                ->route('platform.main'),
+        ];
+    }
+}
+```
+
+You can specify items in the same way as in the [menu section](/en/docs/menu).
