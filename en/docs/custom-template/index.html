@@ -356,6 +356,9 @@
                             <li class="anchor-h2">
                     <a href="#extension">Extension</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#tabmenu">TabMenu</a>
+                </li>
                     </ul>
     </div>
                         <h2><a href='#views' id='views'>Views</a></h2>
@@ -606,6 +609,35 @@ public function layout(): array
     ];
 }
 </code></pre>
+<h2><a href='#tabmenu' id='tabmenu'>TabMenu</a></h2>
+<p>Sometimes you want to display navigation visually similar to tabs, but instead of switching, a transition to another screen should be made. The <code>TabMenu</code> layer is perfect for this, to create it you need to run the <code>artisan</code> command:</p>
+<pre><code class="language-bash">php artisan orchid:tab-menu ExampleNavigation
+</code></pre>
+<p>In the directory <code>app/Orchid/Layouts</code>, a new class will be created where the navigation can be defined:</p>
+<pre><code class="language-php">&lt;?php
+
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\TabMenu;
+
+class ExampleNavigation extends TabMenu
+{
+    /**
+     * Get the menu elements to be displayed.
+     *
+     * @return Menu[]
+     */
+    protected function navigations(): iterable
+    {
+        return [
+            Menu::make('Get Started')
+                -&gt;route('platform.main'),
+        ];
+    }
+}
+</code></pre>
+<p>You can specify items in the same way as in the <a href="/en/docs/menu">menu section</a>.</p>
 
                     </main>
                 </div>
