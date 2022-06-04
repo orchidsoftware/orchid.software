@@ -115,7 +115,7 @@ To display the input fields, we describe them in the `Layouts` method:
 use App\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
 
 /**
@@ -133,7 +133,7 @@ public function layout(): array
                 ->placeholder('Message subject line')
                 ->help('Enter the subject line for your message'),
 
-            Relation::make('users.')
+            Select::make('users.')
                 ->title('Recipients')
                 ->multiple()
                 ->required()
@@ -164,7 +164,7 @@ use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -227,7 +227,7 @@ class EmailSenderScreen extends Screen
                     ->placeholder('Message subject line')
                     ->help('Enter the subject line for your message'),
 
-                Relation::make('users.')
+                Select::make('users.')
                     ->title('Recipients')
                     ->multiple()
                     ->required()
