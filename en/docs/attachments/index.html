@@ -348,7 +348,13 @@
                     <a href="#uploading-a-file-via-the-console">Uploading a file via the console</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#duplicate-uploaded-files">Duplicate uploaded  files</a>
+                    <a href="#duplicate-uploaded-files">Duplicate uploaded files</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#allow-duplicate-files">Allow duplicate files</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#upload-path">Upload path</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#remove">Remove</a>
@@ -408,8 +414,30 @@ $file = new UploadedFile($path, $originalName);
 
 $attachment = (new File($file))-&gt;load();
 </code></pre>
-<h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate uploaded  files</a></h2>
+<h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate uploaded files</a></h2>
 <p>Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file, allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
+<h3><a href='#allow-duplicate-files' id='allow-duplicate-files'>Allow duplicate files</a></h3>
+<p>In some situation you might want to keep the duplicate files ( files that has the same hash ), different links are generated to request different physical files . The file will be deleted when the link is destroyed .
+you can allow duplicate files using the <code>allowDuplicate()</code> method :</p>
+<pre><code class="language-php">use Orchid\Attachment\File;
+public function upload(Request $request)
+{
+    $file = new File($request-&gt;file('photo'));
+    $attachment = $file-&gt;allowDuplicates()-&gt;load();
+    return response()-&gt;json()
+}   
+</code></pre>
+<h2><a href='#upload-path' id='upload-path'>Upload path</a></h2>
+<p>Orchid Platform has a default upload path for all files which is the following <code>Y/m/d</code> example : <code>2022/06/11</code> , you can change the default path using the <code>path(string $path)</code> method:</p>
+<pre><code class="language-php">use Orchid\Attachment\File;
+public function upload(Request $request)
+{
+    $path = &quot;photos&quot;
+    $file = new File($request-&gt;file('photo'));
+    $attachment = $file-&gt;path($path)-&gt;load();
+    return response()-&gt;json()
+}
+</code></pre>
 <h2><a href='#remove' id='remove'>Remove</a></h2>
 <p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
 <p>Let's come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&quot;Manage file attachments&quot;</a></p>
