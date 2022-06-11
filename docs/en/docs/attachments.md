@@ -70,11 +70,38 @@ $file = new UploadedFile($path, $originalName);
 $attachment = (new File($file))->load();
 ```
 
-## Duplicate uploaded  files
+## Duplicate uploaded files
 
 Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file,
 allowing efficient use of resources. The file will be deleted only when all links are destroyed.
 
+### Allow duplicate files 
+
+In some situation you might want to keep the duplicate files ( files that has the same hash ) , different links are generated to request different physical files . The file will be deleted when the link is destroyed .
+you can allow duplicate files using the `allowDuplicate()` method :
+```php
+use Orchid\Attachment\File;
+public function upload(Request $request)
+{
+    $file = new File($request->file('photo'));
+    $attachment = $file->allowDuplicates()->load();
+    return response()->json()
+}   
+```
+
+## Upload path 
+Orchid Platform has a default upload path for all files which is the following `Y/m/d` example : `2022/06/11` , you can change the default path using the `path(string $path)` method:
+
+```php
+use Orchid\Attachment\File;
+public function upload(Request $request)
+{
+    $path = "photos"
+    $file = new File($request->file('photo'));
+    $attachment = $file->path($path)->load();
+    return response()->json()
+}
+```
 ## Remove
 
 Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model `deleting` events manually. If you delete a row from the `attachments` table, the file won't be deleted. To clear your attachments, you need to use `delete()` function on the `Attachment` model. In that case, an additional check will proceed. If there no link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
