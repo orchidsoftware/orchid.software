@@ -10,6 +10,7 @@
     <x-meta
         title="{{ View::getSection('title') ?  View::getSection('title') . ' | ' : '' }}{{ config('site.name') }}"
         description="{{ View::getSection('description', config('site.description')) }}"
+        image="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg"
     />
 
     <link rel="alternate" href="{{ \App\Docs::ahref('ru') }}" hreflang="ru"/>
