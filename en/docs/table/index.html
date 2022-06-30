@@ -886,11 +886,11 @@ TD::macro('bool', function () {
             debug: true
         });
         document.addEventListener('keydown', (e) => {
-            if (e.keyCode == 191) {
-                document.getElementById('docsearch').focus();
+            if (e.keyCode === 111) {
                 e.preventDefault()
+                document.getElementById('docsearch').focus();
             }
-            if (e.keyCode == 27) {
+            if (e.keyCode === 27) {
                 document.getElementById('docsearch').blur();
                 e.preventDefault()
             }
