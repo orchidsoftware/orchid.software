@@ -493,7 +493,7 @@ so that common rules apply to it, such as authorization.</p>
             debug: true
         });
         document.addEventListener('keydown', (e) => {
-            if (e.keyCode === 111) {
+            if (e.keyCode === 111 || e.keyCode === 191) {
                 e.preventDefault()
                 document.getElementById('docsearch').focus();
             }

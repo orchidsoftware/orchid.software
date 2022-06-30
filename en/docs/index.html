@@ -539,7 +539,7 @@ If you have questions or find a documentation error, please show the chapter and
             debug: true
         });
         document.addEventListener('keydown', (e) => {
-            if (e.keyCode === 111) {
+            if (e.keyCode === 111 || e.keyCode === 191) {
                 e.preventDefault()
                 document.getElementById('docsearch').focus();
             }
