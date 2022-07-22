@@ -342,6 +342,18 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#upgrading-to-130-from-12x">Upgrading to 13.0 from 12.x</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#updating-dependencies">Updating dependencies</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#jquery">jQuery</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#select2">Select2</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#upgrading-to-120-from-11x">Upgrading to 12.0 from 11.x</a>
                 </li>
                             <li class="anchor-h3">
@@ -446,6 +458,20 @@
 <blockquote>
 <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
+<h2><a href='#upgrading-to-130-from-12x' id='upgrading-to-130-from-12x'>Upgrading to 13.0 from 12.x</a></h2>
+<h3><a href='#updating-dependencies' id='updating-dependencies'>Updating dependencies</a></h3>
+<p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^13.0</code></p>
+<h3><a href='#jquery' id='jquery'>jQuery</a></h3>
+<p>There is no longer a default jQuery package in this release. If you need it, then you can install it separately, for example by adding a reference to it in the configuration file:</p>
+<pre><code class="language-php">'resource' =&gt; [
+    'stylesheets' =&gt; [],
+    'scripts'     =&gt; [
+        'https://code.jquery.com/jquery-3.6.0.min.js'
+    ],
+],
+</code></pre>
+<h3><a href='#select2' id='select2'>Select2</a></h3>
+<p>Since <code>select2</code> had a <code>jQuery</code> dependency, it was also replaced with the <code>tom-select</code> package. We tried to keep the behavior where possible. But <code>select2</code> special JS events are no longer available.</p>
 <h2><a href='#upgrading-to-120-from-11x' id='upgrading-to-120-from-11x'>Upgrading to 12.0 from 11.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^12.0</code></p>
