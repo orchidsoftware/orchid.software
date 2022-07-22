@@ -7,6 +7,31 @@ We like to keep things as modern as possible and have a "release early, release 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+## Upgrading to 13.0 from 12.x
+
+### Updating dependencies
+
+In your `composer.json` file, update the `orchid/platform` dependency to `^13.0`
+
+### jQuery
+
+There is no longer a default jQuery package in this release. If you need it, then you can install it separately, for example by adding a reference to it in the configuration file:
+
+```php
+'resource' => [
+    'stylesheets' => [],
+    'scripts'     => [
+        'https://code.jquery.com/jquery-3.6.0.min.js'
+    ],
+],
+```
+
+### Select2
+
+Since `select2` had a `jQuery` dependency, it was also replaced with the `tom-select` package. We tried to keep the behavior where possible. But `select2` special JS events are no longer available.
+
+
+
 ## Upgrading to 12.0 from 11.x
 
 ### Updating dependencies
