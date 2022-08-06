@@ -118,7 +118,7 @@ use App\Orchid\Screens\PostListScreen;
 
 Route::screen('post/{post?}', PostEditScreen::class)
     ->name('platform.post.edit');
-    
+
 Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
@@ -170,7 +170,7 @@ class PostEditScreen extends Screen
     {
         return $this->post->exists ? 'Edit post' : 'Creating a new post';
     }
-    
+
     /**
      * The description is displayed on the user's screen under the heading
      */
@@ -245,7 +245,7 @@ class PostEditScreen extends Screen
     {
         $post->fill($request->get('post'))->save();
 
-        Alert::info('You have successfully created an post.');
+        Alert::info('You have successfully created a post.');
 
         return redirect()->route('platform.post.list');
     }
@@ -351,7 +351,7 @@ class PostListScreen extends Screen
     {
         return 'Blog post';
     }
-    
+
     /**
      * The description is displayed on the user's screen under the heading
      */

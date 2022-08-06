@@ -186,12 +186,12 @@ But also describe the synchronization of dependent records by relations in our s
 public function createOrUpdate(Post $post, Request $request)
 {
     $post->fill($request->get('post'))->save();
-    
+
     $post->attachment()->syncWithoutDetaching(
         $request->input('post.attachment', [])
     );
 
-    Alert::info('You have successfully created an post.');
+    Alert::info('You have successfully created a post.');
 }
 ```
 
