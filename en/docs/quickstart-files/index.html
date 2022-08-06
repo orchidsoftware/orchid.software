@@ -495,12 +495,12 @@ class Post extends Model
 <pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
 {
     $post-&gt;fill($request-&gt;get('post'))-&gt;save();
-    
+
     $post-&gt;attachment()-&gt;syncWithoutDetaching(
         $request-&gt;input('post.attachment', [])
     );
 
-    Alert::info('You have successfully created an post.');
+    Alert::info('You have successfully created a post.');
 }
 </code></pre>
 <p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
