@@ -492,7 +492,7 @@ if the array is empty, then the filter will work on every request.</p>
 <p>To use filters in your own models, you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
 <pre><code class="language-php">use App\Model;
 
-Model::filtersApply([Filter::class])-&gt;simplePaginate();
+Model::filters([Filter::class])-&gt;simplePaginate();
 </code></pre>
 <h2><a href='#selection' id='selection'>Selection</a></h2>
 <p>When you need to display filters and apply them to a model, it is more convenient to group them by creating a separate layer, &quot;Selection&quot;.
@@ -522,7 +522,7 @@ class MySelection extends Selection
 }
 </code></pre>
 <p>After that, we can apply it to the model:</p>
-<pre><code class="language-php">Model::filtersApplySelection(MySelection::class)-&gt;simplePaginate();
+<pre><code class="language-php">Model::filters(MySelection::class)-&gt;simplePaginate();
 </code></pre>
 <p>Since this is a layer, it can also be used to display fields on the screen:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
