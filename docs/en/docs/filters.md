@@ -169,7 +169,7 @@ you need to connect the trait `Orchid\Filters\Filterable` and pass an array of c
 ```php
 use App\Model;
 
-Model::filtersApply([Filter::class])->simplePaginate();
+Model::filters([Filter::class])->simplePaginate();
 ```
 
 
@@ -211,7 +211,7 @@ class MySelection extends Selection
 After that, we can apply it to the model:
 
 ```php
-Model::filtersApplySelection(MySelection::class)->simplePaginate();
+Model::filters(MySelection::class)->simplePaginate();
 ```
 
 Since this is a layer, it can also be used to display fields on the screen:
