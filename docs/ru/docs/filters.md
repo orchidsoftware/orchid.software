@@ -179,7 +179,7 @@ class QueryFilter extends Filter
 ```php
 use App\Model;
 
-Model::filtersApply([Filter::class])->simplePaginate();
+Model::filters([Filter::class])->simplePaginate();
 ```
 
 ## Selection
@@ -220,7 +220,7 @@ class MySelection extends Selection
 После этого мы можем применить его к модели:
 
 ```php
-Model::filtersApplySelection(MySelection::class)->simplePaginate();
+Model::filters(MySelection::class)->simplePaginate();
 ```
 
 Поскольку это слой, его также можно использовать для отображения полей на экране:
