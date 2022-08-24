@@ -604,6 +604,8 @@ Matrix::make('users')
     ]),
 ```
 
+> Note. The matrix under the hood does the copying of the fields on the client side. This works fine for simple `input/select` fields, but may not work well for complex or compound fields.
+
 ## Code editor
 
 A field for writing program code with the ability to highlight.
