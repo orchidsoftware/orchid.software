@@ -189,8 +189,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     ->render(function ($user) {
         return Group::make([
-            Link::make('Show')->route('platform.user.show', $user);
-            Link::make('Edit')->route('platform.user.edit', $user);
+            Link::make('Show')->route('platform.user.show', $user),
+            Link::make('Edit')->route('platform.user.edit', $user),
         ]);
     });
 ```
