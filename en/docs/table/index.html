@@ -508,8 +508,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     -&gt;render(function ($user) {
         return Group::make([
-            Link::make('Show')-&gt;route('platform.user.show', $user);
-            Link::make('Edit')-&gt;route('platform.user.edit', $user);
+            Link::make('Show')-&gt;route('platform.user.show', $user),
+            Link::make('Edit')-&gt;route('platform.user.edit', $user),
         ]);
     });
 </code></pre>
