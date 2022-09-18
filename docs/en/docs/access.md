@@ -191,6 +191,20 @@ class History extends Screen
 
 If several keys are listed, access will be granted if the user has at least one permission.
 
+If there is no access, the static method `unaccessed` will be called, which by default will show a `403` error. You can override this response, e.g. to redirect a payment page or return a different response:
+
+```php
+use Illuminate\Http\RedirectResponse;
+
+/**
+ * @return \Illuminate\Http\RedirectResponse
+ */
+public static function unaccessed(): RedirectResponse
+{
+    return redirect('/other-screen');
+}
+```
+
 
 ## Check-in Middleware
 
