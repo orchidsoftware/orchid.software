@@ -509,6 +509,17 @@ class History extends Screen
 }
 </code></pre>
 <p>If several keys are listed, access will be granted if the user has at least one permission.</p>
+<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, e.g. to redirect a payment page or return a different response:</p>
+<pre><code class="language-php">use Illuminate\Http\RedirectResponse;
+
+/**
+ * @return \Illuminate\Http\RedirectResponse
+ */
+public static function unaccessed(): RedirectResponse
+{
+    return redirect('/other-screen');
+}
+</code></pre>
 <h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
 <p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their availability for routes.
 To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
