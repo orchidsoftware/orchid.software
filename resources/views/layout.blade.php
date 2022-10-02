@@ -10,9 +10,9 @@
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3c167d">
-    <meta name="msapplication-TileColor" content="#603cba">
-    <meta name="theme-color" content="#ffffff">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#272531">
+    <meta name="msapplication-TileColor" content="#272531">
+    <meta name="theme-color" content="#272531">
 
 
     <link rel="stylesheet" type="text/css" href="{{  mix('/css/app.css') }}">
