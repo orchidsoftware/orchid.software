@@ -141,6 +141,27 @@ Charts can be exported in the `SVG` format, in which they are displayed initiall
 protected $export = true;
 ```
 
+### Markers
+
+Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the `markers` method: 
+
+```php
+/**
+ * To highlight certain values on the Y axis, markers can be set.
+ * They will show as dashed lines on the graph.
+ */
+protected function markers(): ?array
+{
+    return [
+        [
+            'label'   => 'Medium',
+            'value'   => 40,
+        ],
+    ];
+}
+```
+
+
 
 ## Eloquent Model
 
