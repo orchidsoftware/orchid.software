@@ -537,8 +537,10 @@ class BasicPieChart extends Chart
 <p>Then the model query will serve as a data source <code>countForGroup()</code></p>
 <pre><code class="language-php">public function query(): array
 {
+    $userUsageTwoFactorAuth = User::countForGroup('uses_two_factor_auth')-&gt;toChart();
+
     return [
-        'userUsageTwoFactorAuth' =&gt; User::countForGroup('uses_two_factor_auth')-&gt;toChart(),
+        'userUsageTwoFactorAuth' =&gt; $userUsageTwoFactorAuth,
     ];
 }
 
@@ -550,9 +552,8 @@ public function layout(): array
 }
 </code></pre>
 <p>In order to change the text of headers, you can pass the closure function as the first argument:</p>
-<pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
-    return $title ? 'Enabled' : 'Disabled';
-});
+<pre><code class="language-php">User::countForGroup('uses_two_factor_auth')
+    -&gt;toChart(fn(bool $value) =&gt; $value ? 'Enabled' : 'Disabled'),
 </code></pre>
 <h2><a href='#a-period-of-time' id='a-period-of-time'>A Period of Time</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
