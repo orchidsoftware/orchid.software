@@ -7,12 +7,49 @@ Graph layout is a convenient way to graphically display the dynamics of values.
 
 ![Charts](/img/layouts/charts.png)
 
-Example data from `query`:
+
+## Generate
+
+
+Chart layout may be generated using the `orchid:chart` Artisan command. 
+By default, all new metrics will be placed in the `app/Orchid/Layouts` directory:
+
+```php
+php artisan orchid:chart ChartsLayout
+```
+
+Once your chart class has been generated, you're ready to customize it. Example:
+
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class ChartsLayout extends Chart
+{
+    /**
+     * Available options:
+     * 'bar', 'line', 
+     * 'pie', 'percentage'
+     *
+     * @var string
+     */
+    protected $type = 'bar';
+}
+```
+
+By creating and setting up a visual representation of the class, we can use it in the future.
+
+## Usage
+
+Before using chart, we need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
+
 
 ```php
 public function query() : array
 {
-    $charts = [
+    $dataset = [
         [
             'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'name'  => 'Some Data',
@@ -31,53 +68,45 @@ public function query() : array
     ];
     
     return [
-        'charts' => $charts,
+        'dataset' => $dataset,
     ];
 }
 ```
 
-To create, run the command:
+Now we can use the layout class by calling the static method `make` and specifying the target key for the data:
+
 ```php
-php artisan orchid:chart ChartsLayout
-```
+use App\Orchid\Layouts\ChartsLayout;
 
-Layout example:
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Layouts\Chart;
-
-class ChartsLayout extends Chart
+public function layout(): iterable
 {
-    /**
-     * Add a title to the Chart.
-     * 
-     * @var string
-     */
-    protected $title = 'DemoCharts';
-
-    /**
-     * Available options:
-     * 'bar', 'line', 
-     * 'pie', 'percentage'
-     *
-     * @var string
-     */
-    protected $type = 'bar';
-
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the charts.
-     *
-     * @var string
-     */
-    protected $target = 'charts';
+    return [
+        ChartsLayout::make('dataset', 'Header for our dataset'),
+    ];
 }
 ```
 
-## Height
+Often datasets need a little explanation, we can add a description for that:
+
+```php
+use App\Orchid\Layouts\ChartsLayout;
+
+public function layout(): iterable
+{
+    return [
+        ChartsLayout::make('dataset', 'Header for our dataset'),
+            ->description('Description of the chart')
+    ];
+}
+```
+
+
+
+## Basic Configuration
+
+The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.
+
+### Height
 
 Set the height of the chart in pixels by specifying the property:
 
@@ -89,7 +118,7 @@ protected $height = 250;
 ```
 
 
-## Colors
+### Colors
 
 Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:
 
@@ -109,7 +138,7 @@ protected $colors = [
 ```
 
 
-## Export Image
+### Export Image
 
 Charts can be exported in the `SVG` format, in which they are displayed initially. To do this, specify the property:
 
@@ -123,7 +152,7 @@ protected $export = true;
 ```
 
 
-## Model charts
+## Eloquent model
 
 In order to use the methods of obtaining data for charts from the model, you need to add the trait `Chartable`:
 
