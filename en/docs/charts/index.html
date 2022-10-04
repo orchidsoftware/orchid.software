@@ -22,7 +22,7 @@
 
 
 <meta name="title" content="Charts | Orchid - Laravel Admin Panel">
-<meta name="description" content="Creating various graphs in Laravel Orchid, using an eloquent model">
+<meta name="description" content="Creating various graphs in Laravel Orchid, using an Eloquent model">
 
 
 
@@ -32,14 +32,14 @@
 <meta property="og:url" content="https://orchid.software/en/docs/charts"/>
 <meta property="og:locale" content="en"/>
 <meta property="og:title" content="Charts | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Creating various graphs in Laravel Orchid, using an eloquent model">
+<meta property="og:description" content="Creating various graphs in Laravel Orchid, using an Eloquent model">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://orchid.software/en/docs/charts">
 <meta name="twitter:title" content="Charts | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Creating various graphs in Laravel Orchid, using an eloquent model">
+<meta name="twitter:description" content="Creating various graphs in Laravel Orchid, using an Eloquent model">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
     <link rel="alternate" href="https://orchid.software/ru/docs/charts/" hreflang="ru"/>
@@ -353,12 +353,6 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#generate">Generate</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#usage">Usage</a>
-                </li>
-                            <li class="anchor-h2">
                     <a href="#basic-configuration">Basic Configuration</a>
                 </li>
                             <li class="anchor-h3">
@@ -371,35 +365,20 @@
                     <a href="#export-image">Export Image</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#eloquent-model">Eloquent model</a>
+                    <a href="#eloquent-model">Eloquent Model</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#grouped-data">Grouped data</a>
+                    <a href="#grouped-data">Grouped Data</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#a-period-of-time">A period of time</a>
+                    <a href="#a-period-of-time">A Period of Time</a>
                 </li>
-                            <li class="anchor-h2">
+                            <li class="anchor-h3">
                     <a href="#value-query-types">Value Query Types</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#average">Average</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#sum">Sum</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#min">Min</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#max">Max</a>
                 </li>
                     </ul>
     </div>
-                        <p>Graph layout is a convenient way to graphically display the dynamics of values.</p>
-<p><img src="/img/layouts/charts.png" alt="Charts" /></p>
-<h2><a href='#generate' id='generate'>Generate</a></h2>
-<p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command.
+                        <p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command.
 By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code> directory:</p>
 <pre><code class="language-php">php artisan orchid:chart ChartsLayout
 </code></pre>
@@ -420,9 +399,7 @@ class ChartsLayout extends Chart
     protected $type = 'bar';
 }
 </code></pre>
-<p>By creating and setting up a visual representation of the class, we can use it in the future.</p>
-<h2><a href='#usage' id='usage'>Usage</a></h2>
-<p>Before using chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
+<p>By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
 <pre><code class="language-php">public function query() : array
 {
     $dataset = [
@@ -502,7 +479,7 @@ protected $colors = [
  */
 protected $export = true;
 </code></pre>
-<h2><a href='#eloquent-model' id='eloquent-model'>Eloquent model</a></h2>
+<h2><a href='#eloquent-model' id='eloquent-model'>Eloquent Model</a></h2>
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
 <pre><code class="language-php">namespace App;
 
@@ -520,21 +497,14 @@ class User extends Authenticatable
 <li>Grouped data</li>
 <li>A period of time</li>
 </ul>
-<h2><a href='#grouped-data' id='grouped-data'>Grouped data</a></h2>
+<h2><a href='#grouped-data' id='grouped-data'>Grouped Data</a></h2>
 <p>For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class UsageTwoFactorAuth extends Chart
+class BasicPieChart extends Chart
 {
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'Usage two-factor authentication';
-    
     /**
      * Available options:
      * 'bar', 'line',
@@ -543,16 +513,6 @@ class UsageTwoFactorAuth extends Chart
      * @var string
      */
     protected $type = 'pie';
-    
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'userUsageTwoFactorAuth';
 }
 </code></pre>
 <p>Then the model query will serve as a data source <code>countForGroup()</code></p>
@@ -566,7 +526,7 @@ class UsageTwoFactorAuth extends Chart
 public function layout(): array
 {
     return [
-        UsageTwoFactorAuth::class,
+        BasicPieChart::make('userUsageTwoFactorAuth', 'Usage two-factor authentication'),
     ];
 }
 </code></pre>
@@ -575,22 +535,15 @@ public function layout(): array
     return $title ? 'Enabled' : 'Disabled';
 });
 </code></pre>
-<h2><a href='#a-period-of-time' id='a-period-of-time'>A period of time</a></h2>
+<h2><a href='#a-period-of-time' id='a-period-of-time'>A Period of Time</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
 <p>For example, let&rsquo;s display a graph of new users and roles:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class Members extends Chart
-{
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'New members';
-    
+class BasicLineChart extends Chart
+{   
     /**
      * Available options:
      * 'bar', 'line',
@@ -599,16 +552,6 @@ class Members extends Chart
      * @var string
      */
     protected $type = 'line';
-    
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'members';
 }
 </code></pre>
 <p>Then the data source will be:</p>
@@ -625,7 +568,7 @@ class Members extends Chart
 public function layout(): array
 {
     return [
-        Members::class,
+        BasicLineChart::make('members', 'New members'),
     ];
 }
 </code></pre>
@@ -641,21 +584,17 @@ $end = Carbon::now()-&gt;subDay(1);
 
 User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
 </code></pre>
-<h2><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h2>
+<h3><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h3>
 <p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions when building your metric.</p>
-<h3><a href='#average' id='average'>Average</a></h3>
 <p>The <code>average</code> method may be used to calculate the average of a given column</p>
 <pre><code class="language-php">Order::averageByDays('price')-&gt;toChart('Order'),
 </code></pre>
-<h3><a href='#sum' id='sum'>Sum</a></h3>
 <p>The <code>sum</code> method may be used to calculate the sum of a given column:</p>
 <pre><code class="language-php">Order::sumByDays('price')-&gt;toChart('Order'),
 </code></pre>
-<h3><a href='#min' id='min'>Min</a></h3>
 <p>The <code>min</code> method may be used to calculate the min of a given column:</p>
 <pre><code class="language-php">Order::minByDays('price')-&gt;toChart('Order'),
 </code></pre>
-<h3><a href='#max' id='max'>Max</a></h3>
 <p>The <code>max</code> method may be used to calculate the max of a given column:</p>
 <pre><code class="language-php">Order::maxByDays('price')-&gt;toChart('Order'),
 </code></pre>
