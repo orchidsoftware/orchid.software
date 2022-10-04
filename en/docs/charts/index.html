@@ -364,6 +364,9 @@
                             <li class="anchor-h3">
                     <a href="#export-image">Export Image</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#markers">Markers</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#eloquent-model">Eloquent Model</a>
                 </li>
@@ -478,6 +481,22 @@ protected $colors = [
  * @var bool
  */
 protected $export = true;
+</code></pre>
+<h3><a href='#markers' id='markers'>Markers</a></h3>
+<p>Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the <code>markers</code> method:</p>
+<pre><code class="language-php">/**
+ * To highlight certain values on the Y axis, markers can be set.
+ * They will show as dashed lines on the graph.
+ */
+protected function markers(): ?array
+{
+    return [
+        [
+            'label'   =&gt; 'Medium',
+            'value'   =&gt; 40,
+        ],
+    ];
+}
 </code></pre>
 <h2><a href='#eloquent-model' id='eloquent-model'>Eloquent Model</a></h2>
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
