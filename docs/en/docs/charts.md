@@ -213,8 +213,10 @@ Then the model query will serve as a data source `countForGroup()`
 ```php
 public function query(): array
 {
+    $userUsageTwoFactorAuth = User::countForGroup('uses_two_factor_auth')->toChart();
+
     return [
-        'userUsageTwoFactorAuth' => User::countForGroup('uses_two_factor_auth')->toChart(),
+        'userUsageTwoFactorAuth' => $userUsageTwoFactorAuth,
     ];
 }
 
@@ -229,9 +231,8 @@ public function layout(): array
 In order to change the text of headers, you can pass the closure function as the first argument:
 
 ```php
-User::countForGroup('uses_two_factor_auth')->toChart(static function (bool $title) {
-    return $title ? 'Enabled' : 'Disabled';
-});
+User::countForGroup('uses_two_factor_auth')
+    ->toChart(fn(bool $value) => $value ? 'Enabled' : 'Disabled'),
 ```
 
 ## A Period of Time
