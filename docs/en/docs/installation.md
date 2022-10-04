@@ -1,6 +1,6 @@
 ---
-title: Platform installation
-description: This getting started guide will help you get started using ORCHID.
+title: Installation
+description: This getting started guide will help you get started using Laravel Orchid.
 ---
 
 
