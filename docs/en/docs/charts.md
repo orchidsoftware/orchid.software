@@ -1,14 +1,8 @@
 ---
 title: Charts
-description: Creating various graphs in Laravel Orchid, using an eloquent model
+description: Creating various graphs in Laravel Orchid, using an Eloquent model
 ---
 
-Graph layout is a convenient way to graphically display the dynamics of values.
-
-![Charts](/img/layouts/charts.png)
-
-
-## Generate
 
 
 Chart layout may be generated using the `orchid:chart` Artisan command. 
@@ -39,11 +33,7 @@ class ChartsLayout extends Chart
 }
 ```
 
-By creating and setting up a visual representation of the class, we can use it in the future.
-
-## Usage
-
-Before using chart, we need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
+By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
 
 
 ```php
@@ -152,7 +142,7 @@ protected $export = true;
 ```
 
 
-## Eloquent model
+## Eloquent Model
 
 In order to use the methods of obtaining data for charts from the model, you need to add the trait `Chartable`:
 
@@ -175,7 +165,7 @@ This will add several new methods specifically for charting:
 - A period of time
 
 
-## Grouped data
+## Grouped Data
 
 For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.
 
@@ -184,15 +174,8 @@ namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class UsageTwoFactorAuth extends Chart
+class BasicPieChart extends Chart
 {
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'Usage two-factor authentication';
-    
     /**
      * Available options:
      * 'bar', 'line',
@@ -201,16 +184,6 @@ class UsageTwoFactorAuth extends Chart
      * @var string
      */
     protected $type = 'pie';
-    
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'userUsageTwoFactorAuth';
 }
 ```
 
@@ -227,7 +200,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        UsageTwoFactorAuth::class,
+        BasicPieChart::make('userUsageTwoFactorAuth', 'Usage two-factor authentication'),
     ];
 }
 ```
@@ -240,7 +213,7 @@ User::countForGroup('uses_two_factor_auth')->toChart(static function (bool $titl
 });
 ```
 
-## A period of time
+## A Period of Time
 
 Receives data for a certain period of time, filling in the missing values.
 
@@ -251,15 +224,8 @@ namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class Members extends Chart
-{
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'New members';
-    
+class BasicLineChart extends Chart
+{   
     /**
      * Available options:
      * 'bar', 'line',
@@ -268,16 +234,6 @@ class Members extends Chart
      * @var string
      */
     protected $type = 'line';
-    
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'members';
 }
 ```
 
@@ -297,7 +253,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        Members::class,
+        BasicLineChart::make('members', 'New members'),
     ];
 }
 ```
@@ -321,11 +277,10 @@ User::countByDays($start, $end, 'updated_at')->toChart('Users')
 ```
 
 
-## Value Query Types
+### Value Query Types
 
 Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when building your metric.
 
-### Average
 
 The `average` method may be used to calculate the average of a given column
 
@@ -333,23 +288,17 @@ The `average` method may be used to calculate the average of a given column
 Order::averageByDays('price')->toChart('Order'),
 ```
 
-### Sum
-
 The `sum` method may be used to calculate the sum of a given column:
 
 ```php
 Order::sumByDays('price')->toChart('Order'),
 ```
 
-### Min
-
 The `min` method may be used to calculate the min of a given column:
 
 ```php
 Order::minByDays('price')->toChart('Order'),
 ```
-
-### Max
 
 The `max` method may be used to calculate the max of a given column:
 
