@@ -353,16 +353,25 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#generate">Generate</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#usage">Usage</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#basic-configuration">Basic Configuration</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#height">Height</a>
                 </li>
-                            <li class="anchor-h2">
+                            <li class="anchor-h3">
                     <a href="#colors">Colors</a>
                 </li>
-                            <li class="anchor-h2">
+                            <li class="anchor-h3">
                     <a href="#export-image">Export Image</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#model-charts">Model charts</a>
+                    <a href="#eloquent-model">Eloquent model</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#grouped-data">Grouped data</a>
@@ -389,10 +398,34 @@
     </div>
                         <p>Graph layout is a convenient way to graphically display the dynamics of values.</p>
 <p><img src="/img/layouts/charts.png" alt="Charts" /></p>
-<p>Example data from <code>query</code>:</p>
+<h2><a href='#generate' id='generate'>Generate</a></h2>
+<p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command.
+By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code> directory:</p>
+<pre><code class="language-php">php artisan orchid:chart ChartsLayout
+</code></pre>
+<p>Once your chart class has been generated, you&rsquo;re ready to customize it. Example:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Layouts\Chart;
+
+class ChartsLayout extends Chart
+{
+    /**
+     * Available options:
+     * 'bar', 'line', 
+     * 'pie', 'percentage'
+     *
+     * @var string
+     */
+    protected $type = 'bar';
+}
+</code></pre>
+<p>By creating and setting up a visual representation of the class, we can use it in the future.</p>
+<h2><a href='#usage' id='usage'>Usage</a></h2>
+<p>Before using chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
 <pre><code class="language-php">public function query() : array
 {
-    $charts = [
+    $dataset = [
         [
             'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
             'name'  =&gt; 'Some Data',
@@ -411,55 +444,41 @@
     ];
     
     return [
-        'charts' =&gt; $charts,
+        'dataset' =&gt; $dataset,
     ];
 }
 </code></pre>
-<p>To create, run the command:</p>
-<pre><code class="language-php">php artisan orchid:chart ChartsLayout
-</code></pre>
-<p>Layout example:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<p>Now we can use the layout class by calling the static method <code>make</code> and specifying the target key for the data:</p>
+<pre><code class="language-php">use App\Orchid\Layouts\ChartsLayout;
 
-use Orchid\Screen\Layouts\Chart;
-
-class ChartsLayout extends Chart
+public function layout(): iterable
 {
-    /**
-     * Add a title to the Chart.
-     * 
-     * @var string
-     */
-    protected $title = 'DemoCharts';
-
-    /**
-     * Available options:
-     * 'bar', 'line', 
-     * 'pie', 'percentage'
-     *
-     * @var string
-     */
-    protected $type = 'bar';
-
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the charts.
-     *
-     * @var string
-     */
-    protected $target = 'charts';
+    return [
+        ChartsLayout::make('dataset', 'Header for our dataset'),
+    ];
 }
 </code></pre>
-<h2><a href='#height' id='height'>Height</a></h2>
+<p>Often datasets need a little explanation, we can add a description for that:</p>
+<pre><code class="language-php">use App\Orchid\Layouts\ChartsLayout;
+
+public function layout(): iterable
+{
+    return [
+        ChartsLayout::make('dataset', 'Header for our dataset'),
+            -&gt;description('Description of the chart')
+    ];
+}
+</code></pre>
+<h2><a href='#basic-configuration' id='basic-configuration'>Basic Configuration</a></h2>
+<p>The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.</p>
+<h3><a href='#height' id='height'>Height</a></h3>
 <p>Set the height of the chart in pixels by specifying the property:</p>
 <pre><code class="language-php">/**
  * @var int
  */
 protected $height = 250;
 </code></pre>
-<h2><a href='#colors' id='colors'>Colors</a></h2>
+<h3><a href='#colors' id='colors'>Colors</a></h3>
 <p>Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:</p>
 <pre><code class="language-php">/**
  * Colors used.
@@ -474,7 +493,7 @@ protected $colors = [
     '#00CC66',
 ];
 </code></pre>
-<h2><a href='#export-image' id='export-image'>Export Image</a></h2>
+<h3><a href='#export-image' id='export-image'>Export Image</a></h3>
 <p>Charts can be exported in the <code>SVG</code> format, in which they are displayed initially. To do this, specify the property:</p>
 <pre><code class="language-php">/**
  * Determines whether to display the export button.
@@ -483,7 +502,7 @@ protected $colors = [
  */
 protected $export = true;
 </code></pre>
-<h2><a href='#model-charts' id='model-charts'>Model charts</a></h2>
+<h2><a href='#eloquent-model' id='eloquent-model'>Eloquent model</a></h2>
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
 <pre><code class="language-php">namespace App;
 
