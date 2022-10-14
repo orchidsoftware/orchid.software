@@ -49,6 +49,7 @@ return [
                 'Form Builder' => '/en/docs/builder',
                 'Testing'      => '/en/docs/testing',
                 'Controllers'  => '/en/docs/controllers',
+                'Authentication' => 'en/docs/authentication',
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
