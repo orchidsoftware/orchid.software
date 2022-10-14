@@ -43,6 +43,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/en/docs/authentication</loc>
+        <lastmod>2022-10-13T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/en/docs/brand</loc>
         <lastmod>2022-10-13T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
