@@ -258,7 +258,7 @@ class EmailSenderScreen extends Screen
             'content' => 'required|min:10'
         ]);
 
-        Mail::raw($request->get('content'), function (Message $message) use ($request) {
+        Mail::html($request->get('content'), function (Message $message) use ($request) {
             $message->from('sample@email.com');
             $message->subject($request->get('subject'));
 
