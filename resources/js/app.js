@@ -14,6 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     }
 
+    let nav = document.querySelector('.nav-docs')
+
+    if (nav.scrollWidth <= nav.clientWidth) {
+        return false;
+    }
+
     document.querySelector('.active-doc-menu').scrollIntoView({
         behavior: "auto",
         block: "end",
