@@ -7,3 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
         Prism.highlightElement(el);
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (window.location.href.includes('#')) {
+        return false;
+    }
+
+    document.querySelector('.active-doc-menu').scrollIntoView({
+        behavior: "auto",
+        block: "end",
+        inline: "center"
+    })
+});
