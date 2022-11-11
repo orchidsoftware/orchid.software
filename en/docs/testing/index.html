@@ -404,6 +404,33 @@ $user = User::factory()-&gt;create();
 
 $screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
 </code></pre>
+<p>You may get a <code>403 error</code> when prompted &ndash; which means that the user does not have enough rights.
+One option is to get all available permissions through the <code>Dashboard</code> facade.</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+
+// Create a single App\Models\User instance...
+$user = User::factory()-&gt;create([
+  'permissions' =&gt; Dashboard::getAllowAllPermission(),
+]);
+
+$screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
+</code></pre>
+<p>A more elegant solution is to define a method in the factory:</p>
+<pre><code class="language-php">class UserFactory extends Factory {
+// ...
+   /**
+     * Indicate that the model's email address should be unverified.
+     *
+     * @return static
+     */
+    public function admin()
+    {
+        return $this-&gt;state(fn (array $attributes) =&gt; [
+            'permissions' =&gt; Dashboard::getAllowAllPermission(),
+        ]);
+    }
+}
+</code></pre>
 
                     </main>
                 </div>
