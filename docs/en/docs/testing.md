@@ -67,7 +67,6 @@ One option is to get all available permissions through the `Dashboard` facade.
 ```php
 use Orchid\Support\Facades\Dashboard;
 
-// Create a single App\Models\User instance...
 $user = User::factory()->create([
   'permissions' => Dashboard::getAllowAllPermission(),
 ]);
