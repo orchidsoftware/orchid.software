@@ -61,7 +61,7 @@ $user = User::factory()->create();
 $screen = $this->screen('platform.example')->actingAs($user);
 ```
 
-You may get a `403 error` when prompted - which means that the user does not have enough rights.
+You may get a `403 Error` when prompted - which means that the user does not have enough rights.
 One option is to get all available permissions through the `Dashboard` facade.
 
 ```php
@@ -79,9 +79,9 @@ A more elegant solution is to define a method in the factory:
 ```php
 class UserFactory extends Factory {
 
-   // ...
+    // ...
    
-   /**
+    /**
      * Indicate that the model's email address should be unverified.
      *
      * @return static
