@@ -408,7 +408,6 @@ $screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
 One option is to get all available permissions through the <code>Dashboard</code> facade.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
 
-// Create a single App\Models\User instance...
 $user = User::factory()-&gt;create([
   'permissions' =&gt; Dashboard::getAllowAllPermission(),
 ]);
