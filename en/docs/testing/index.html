@@ -417,7 +417,9 @@ $screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
 </code></pre>
 <p>A more elegant solution is to define a method in the factory:</p>
 <pre><code class="language-php">class UserFactory extends Factory {
-// ...
+
+   // ...
+   
    /**
      * Indicate that the model's email address should be unverified.
      *
