@@ -73,12 +73,14 @@ $user = User::factory()->create([
 
 $screen = $this->screen('platform.example')->actingAs($user);
 ```
-Более элегатным решением будет определить метод в самой фабрике.
+Более элегантным решением будет определить метод в самой фабрике:
 
-```
+```php
 class UserFactory extends Factory {
-// ...
- /**
+
+   // ...
+   
+   /**
      * Indicate that the model's email address should be unverified.
      *
      * @return static
