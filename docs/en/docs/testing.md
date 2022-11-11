@@ -79,7 +79,9 @@ A more elegant solution is to define a method in the factory:
 
 ```php
 class UserFactory extends Factory {
-// ...
+
+   // ...
+   
    /**
      * Indicate that the model's email address should be unverified.
      *
