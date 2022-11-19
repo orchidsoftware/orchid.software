@@ -52,6 +52,9 @@ $screen = $this->screen('platform.systems.users.edit')
     ]);
 ```
 
+> Note. If your action relies on GET parameters, for example for action `/admin/orders/approve?order=1`, then this value must also be set, using method `parameters`. 
+
+
 Most likely, your routes are closed from guests and are available only for users. You need to call the `actingAs` method passing the user to log in.
 
 ```php
