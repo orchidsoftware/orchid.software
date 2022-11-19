@@ -398,6 +398,9 @@ class ExampleTest extends TestCase
         'user' =&gt; 1,
     ]);
 </code></pre>
+<blockquote>
+<p>Note. If your action relies on GET parameters, for example for action <code>/admin/orders/approve?order=1</code>, then this value must also be set, using method <code>parameters</code>.</p>
+</blockquote>
 <p>Most likely, your routes are closed from guests and are available only for users. You need to call the <code>actingAs</code> method passing the user to log in.</p>
 <pre><code class="language-php">// Create a single App\Models\User instance...
 $user = User::factory()-&gt;create();
