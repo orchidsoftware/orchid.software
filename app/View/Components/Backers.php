@@ -21,7 +21,7 @@ class Backers extends Component
         });
 
         return view('components.backers', [
-            'backers' => $backers
+            'backers' => $backers,
         ]);
     }
 }

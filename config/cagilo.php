@@ -16,12 +16,12 @@ return [
     */
 
     'components' => [
-        'alert'  => Components\Alert::class,
+        'alert' => Components\Alert::class,
         'device' => Components\Device::class,
-        'error'  => Components\Error::class,
-        'icon'   => Components\Icon::class,
+        'error' => Components\Error::class,
+        'icon' => Components\Icon::class,
         'logout' => Components\Logout::class,
-        'meta'   => Components\Meta::class,
+        'meta' => Components\Meta::class,
         'submit' => Components\Submit::class,
     ],
 

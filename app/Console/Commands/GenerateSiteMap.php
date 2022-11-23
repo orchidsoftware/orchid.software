@@ -2,9 +2,9 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use Carbon\Carbon;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 
@@ -47,7 +47,6 @@ class GenerateSiteMap extends Command
         })->each(function (Url $url) use ($sitemap) {
             $sitemap->add($url);
         });
-
 
         $sitemap->writeToDisk($disk, 'sitemap.xml');
 

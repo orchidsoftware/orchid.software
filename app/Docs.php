@@ -20,8 +20,8 @@ class Docs
     protected $path;
 
     /**
-     * @param string $locale
-     * @param string $path
+     * @param  string  $locale
+     * @param  string  $path
      */
     public function __construct(string $locale, string $path)
     {
@@ -32,9 +32,9 @@ class Docs
     }
 
     /**
-     * @param string $view
-     *
+     * @param  string  $view
      * @return \Illuminate\Contracts\View\View
+     *
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function view(string $view)
@@ -47,7 +47,7 @@ class Docs
 
         $all = collect()->merge($variables)->merge([
             'content' => Str::of($page)->after('---')->after('---')->markdown(),
-            'edit'    => $this->editLinkGitHub(),
+            'edit' => $this->editLinkGitHub(),
         ]);
 
         return view($view, $all);
@@ -62,8 +62,7 @@ class Docs
     }
 
     /**
-     * @param string $locale
-     *
+     * @param  string  $locale
      * @return string
      */
     public static function ahref(string $locale)
@@ -71,15 +70,15 @@ class Docs
         $pattern = "/$locale/";
 
         $url = str_ireplace([
-            config('app.url') . '/ru',
-            config('app.url') . '/en',
+            config('app.url').'/ru',
+            config('app.url').'/en',
         ], $pattern, URL::current());
 
-        if (!Str::contains($url, $pattern)) {
+        if (! Str::contains($url, $pattern)) {
             $url .= $pattern;
         }
 
-        $url = config('app.url') . str_replace('//', '/', parse_url($url, PHP_URL_PATH));
+        $url = config('app.url').str_replace('//', '/', parse_url($url, PHP_URL_PATH));
 
         return Str::finish($url, '/');
     }
