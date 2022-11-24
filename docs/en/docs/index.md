@@ -96,3 +96,8 @@ The platform is freely distributed via the Internet, [source codes](https://gith
 > To suggest improvements to this tutorial, [create a new issue](https://github.com/orchidsoftware/orchid.software/issues).
 If you have questions or find a documentation error, please show the chapter and accompanying the text to indicate an error.
 
+
+## Is something wrong?
+
+If our documentation is missing something, please feel free to contribute!
+You can click on the **Suggest Edits** link on the top right side of any documentation page.
