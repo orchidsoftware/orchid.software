@@ -421,7 +421,7 @@ mix.js('resources/js/dashboard.js', 'public/js')
 'resource' =&gt; [
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [
-        'dashboard.js'
+        '/js/dashboard.js'
     ],
 ],
 </code></pre>
@@ -437,21 +437,21 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
     {
-        $dashboard-&gt;registerResource('scripts','dashboard.js');
-        //$dashboard-&gt;registerResource('stylesheets','dashboard.css');
+        $dashboard-&gt;registerResource('scripts','/js/dashboard.js');
+        //$dashboard-&gt;registerResource('stylesheets','/css/dashboard.css');
     }
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1074;&#1086;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1084;&#1089;&#1103; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1086;&#1084;, &#1076;&#1083;&#1103; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1087;&#1088;&#1077;&#1076;&#1074;&#1072;&#1088;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1085;&#1091;&#1078;&#1085;&#1086; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; <code>Controller</code> &#1080; <code>Route</code> &#1074; &#1074;&#1072;&#1096;&#1077;&#1084; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077;:</p>
 <pre><code class="language-php">// hello.blade.php
 &lt;div data-controller=&quot;hello&quot;&gt;
-  &lt;input data-target=&quot;hello.name&quot; type=&quot;text&quot;&gt;
+  &lt;input data-hello-target=&quot;name&quot; type=&quot;text&quot;&gt;
 
   &lt;button data-action=&quot;click-&gt;hello#greet&quot;&gt;
     Greet
   &lt;/button&gt;
 
-  &lt;span data-target=&quot;hello.output&quot;&gt;
+  &lt;span data-hello-target=&quot;output&quot;&gt;
   &lt;/span&gt;
 &lt;/div&gt;
 </code></pre>
