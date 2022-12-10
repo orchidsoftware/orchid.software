@@ -91,7 +91,7 @@ It remains only to connect the received script to the panel in the configuration
 'resource' => [
     'stylesheets' => [],
     'scripts'     => [
-        'dashboard.js'
+        '/js/dashboard.js'
     ],
 ],
 ```
@@ -109,8 +109,8 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
     {
-        $dashboard->registerResource('scripts','dashboard.js');
-        //$dashboard->registerResource('stylesheets','dashboard.css');
+        $dashboard->registerResource('scripts','/js/dashboard.js');
+        //$dashboard->registerResource('stylesheets','/css/dashboard.css');
     }
 }
 ```
@@ -120,13 +120,13 @@ To display, we will use a template for which you first need to define the `Contr
 ```php
 // hello.blade.php
 <div data-controller="hello">
-  <input data-target="hello.name" type="text">
+  <input data-hello-target="name" type="text">
 
   <button data-action="click->hello#greet">
     Greet
   </button>
 
-  <span data-target="hello.output">
+  <span data-hello-target="output">
   </span>
 </div>
 ```
