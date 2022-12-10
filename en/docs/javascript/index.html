@@ -426,7 +426,7 @@ mix.js('resources/js/dashboard.js', 'public/js')
 'resource' =&gt; [
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [
-        'dashboard.js'
+        '/js/dashboard.js'
     ],
 ],
 </code></pre>
@@ -442,21 +442,21 @@ class AppServiceProvider extends ServiceProvider
 {
     public function boot(Dashboard $dashboard)
     {
-        $dashboard-&gt;registerResource('scripts','dashboard.js');
-        //$dashboard-&gt;registerResource('stylesheets','dashboard.css');
+        $dashboard-&gt;registerResource('scripts','/js/dashboard.js');
+        //$dashboard-&gt;registerResource('stylesheets','/css/dashboard.css');
     }
 }
 </code></pre>
 <p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
 <pre><code class="language-php">// hello.blade.php
 &lt;div data-controller=&quot;hello&quot;&gt;
-  &lt;input data-target=&quot;hello.name&quot; type=&quot;text&quot;&gt;
+  &lt;input data-hello-target=&quot;name&quot; type=&quot;text&quot;&gt;
 
   &lt;button data-action=&quot;click-&gt;hello#greet&quot;&gt;
     Greet
   &lt;/button&gt;
 
-  &lt;span data-target=&quot;hello.output&quot;&gt;
+  &lt;span data-hello-target=&quot;output&quot;&gt;
   &lt;/span&gt;
 &lt;/div&gt;
 </code></pre>
