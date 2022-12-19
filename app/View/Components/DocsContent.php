@@ -29,6 +29,7 @@ class DocsContent extends Component implements Htmlable
      * Get the view / contents that represent the component.
      *
      * @return \App\View\Components\DocsContent
+     *
      * @throws \DOMException
      */
     public function render()
@@ -38,8 +39,8 @@ class DocsContent extends Component implements Htmlable
 
     /**
      * @param $contents
-     *
      * @return string
+     *
      * @throws \DOMException
      */
     private function detectAnchors()
@@ -76,7 +77,6 @@ class DocsContent extends Component implements Htmlable
         $crawler
             ->filter('p,li')
             ->each(function (Crawler $elm) use ($fixer) {
-
                 $content = $elm->html();
 
                 $paragraph = $fixer->fix($content);
@@ -84,13 +84,12 @@ class DocsContent extends Component implements Htmlable
                 $this->content = Str::of($this->content)->replace($content, $paragraph);
             });
 
-
         return $this->content;
     }
 
-
     /**
      * @return string
+     *
      * @throws \DOMException
      */
     public function toHtml(): string

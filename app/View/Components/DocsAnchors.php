@@ -27,6 +27,7 @@ class DocsAnchors extends Component
      * Get the view / contents that represent the component.
      *
      * @return \Illuminate\Contracts\View\View|\Closure|string
+     *
      * @throws \DOMException
      */
     public function render()
@@ -36,11 +37,10 @@ class DocsAnchors extends Component
         ]);
     }
 
-
     /**
      * @param $contents
-     *
      * @return array
+     *
      * @throws \DOMException
      */
     private function findAnchors()
@@ -59,20 +59,18 @@ class DocsAnchors extends Component
                 $text = $node->textContent;
                 $id = Str::slug($text);
                 $anchors[] = [
-                    'text'  => $text,
+                    'text' => $text,
                     'level' => $node->tagName,
-                    'id'    => $id,
+                    'id' => $id,
                 ];
                 while ($node->hasChildNodes()) {
                     $node->removeChild($node->firstChild);
                 }
                 $node->appendChild(new \DOMElement('a', $text));
-                $node->firstChild->setAttribute('href', '#' . $id);
+                $node->firstChild->setAttribute('href', '#'.$id);
                 $node->firstChild->setAttribute('name', $id);
             });
 
-
         return $anchors;
     }
-
 }

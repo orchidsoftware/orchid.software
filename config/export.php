@@ -16,7 +16,7 @@ return [
      */
     'paths' => [
         '/en',
-        '/ru'
+        '/ru',
     ],
 
     /*
@@ -69,7 +69,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-         'sitemap' => 'php artisan make:sitemap',
+        'sitemap' => 'php artisan make:sitemap',
     ],
 
 ];
