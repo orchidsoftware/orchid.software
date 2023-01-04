@@ -5,7 +5,7 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 
 ## Introduction
 
-Admin panels and line applications are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data.
+Admin panels and line of business application are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data.
 
 To sample a basic selection of Orchid features, we will build a simple task list we can use to track all the tasks we want to accomplish (the typical “to-do list” example).
 
@@ -218,7 +218,7 @@ public function registerMainMenu(): array
         // Other items...
     
         Menu::make('Tasks')
-            ->icon('envelope-letter')
+            ->icon('bag')
             ->route('platform.task')
             ->title('Tools')
     ];
@@ -247,7 +247,7 @@ Route::screen('email', EmailSenderScreen::class)
 
 ## Adding Tasks
 
-### Creating The Task
+### Adding Window Modal
 
 The displayed elements of the workspace are declared in the method `layouts` let's
 add a modal window that would contain a string with an input field for the name of the task:
@@ -276,6 +276,8 @@ public function layout(): iterable
     ];
 }
 ```
+
+### Launch Modal
 
 Let's check the browser, nothing has changed, right? Sure, because the modal window is hidden and must be called,
 let's add a button to call it, to do this lets add it to the `commandBar` method which defines the basic actions on the screen:
@@ -306,6 +308,7 @@ To do this, let's add a button `ModalToggle`. In which we will define:
 — Name of the modal window that should open when you click on it
 — Method of the screen, which will be called when sending.
 
+### Creating The Task
 
 Now, when we return to the browser, we see that there is a new button in the right corner named "Create Task". 
 Let's define the method that should be executed when we send it:
@@ -337,12 +340,52 @@ Great! We can now successfully create tasks. Next, let's continue adding to our 
 
 ### Displaying Existing Tasks
 
+...
+
+```php
+
+```
+
+Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
+
 
 ## Deleting Tasks
 
 ### Adding The Delete Button
+
+So, let's add a delete button to each row of our task listing...
+
+```php
+Layout::table('active', [
+    TD::make('name')
+        ->cantHide(),
+
+    TD::make('Actions')
+        ->cantHide()
+        ->alignRight()
+        ->render(function (Task $task) {
+            Button::make('Delete Task')
+                ->confirm("Are you sure you want to delete {$task->name}?")
+                ->method('delete', ['task' => $task->id]);
+        }),
+]),
+```
+
 ### Deleting The Task
 
+Finally, let's add method to our screen to actually delete the given task. 
+
+```php
+/**
+ * @param \Illuminate\Http\Request $request
+ *
+ * @return void
+ */
+public function delete(Task $task)
+{
+    $task->delete();
+}
+```
 
 Congratulations, you should now understand how the platform works!
 It is an elementary example, but the development process will be identical in many aspects.
