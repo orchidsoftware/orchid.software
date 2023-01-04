@@ -304,9 +304,9 @@ public function commandBar(): iterable
 
 To do this, let's add a button `ModalToggle`. In which we will define:
 
-— Button's text, 
-— Name of the modal window that should open when you click on it
-— Method of the screen, which will be called when sending.
+- Button's text, 
+- Name of the modal window that should open when you click on it
+- Method of the screen, which will be called when sending.
 
 ### Creating The Task
 
