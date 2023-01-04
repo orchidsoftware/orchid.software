@@ -15,7 +15,7 @@ In this way, screens provide a separation of concerns between the data and the p
 
 ![Screens](/img/scheme/screens.jpg)
 
-## Creating Screen
+## Creating Screens
 
 You can create a new screen by running the command:
 
@@ -92,7 +92,7 @@ The screen class includes several methods that you can use to define the behavio
 To use the new screen in your application, you will need to register it in the route file.
 
 
-## Registering routes
+## Routing Screens
 
 
 Before a screen can be accessed at a direct URL, it must be registered in the routes/platform.php routes file. Routes registered in this file will be passed through the middleware specified in the [configuration](/en/docs/configuration).
@@ -151,7 +151,7 @@ The result will be a redirect to "dashboard/idea/". To avoid this, make sure to 
 
 
 
-## Data Acquisition
+## Querying Data
 
 The `query` method of a screen is used to load data from the database or other sources. 
 This data is then passed to the screen's layouts and views as an array
@@ -222,7 +222,7 @@ In this example, the `order` key will contain an array of ideas with the given d
 The `query` method is an important part of a screen, as it is used to load the data that will be displayed to the user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.
 
 
-## Autocomplete public properties
+## Autocompleting Public Properties
 
 
 You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the `query` method will be automatically assigned to public properties of the same name.
@@ -254,7 +254,7 @@ Then, in the `name` method, we return the value of the $message property. This m
 
 Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.
 
-## Actions
+## Screen Actions
 
 Screens include built-in commands that allow users to execute various actions. The `commandBar` method is responsible for defining these controls.
 
@@ -319,7 +319,7 @@ public function commandBar() : array
 ```
 
 
-## Layouts
+## Screen Layouts
 
 
 Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.
