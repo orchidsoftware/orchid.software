@@ -1,5 +1,5 @@
 ---
-title: Screen
+title: Screens
 description: The main components of the user interface
 ---
 
