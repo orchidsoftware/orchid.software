@@ -364,19 +364,19 @@
                     <a href="#introduction">Introduction</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#creating-screen">Creating Screen</a>
+                    <a href="#creating-screens">Creating Screens</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#registering-routes">Registering routes</a>
+                    <a href="#routing-screens">Routing Screens</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#data-acquisition">Data Acquisition</a>
+                    <a href="#querying-data">Querying Data</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#autocomplete-public-properties">Autocomplete public properties</a>
+                    <a href="#autocompleting-public-properties">Autocompleting Public Properties</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#actions">Actions</a>
+                    <a href="#screen-actions">Screen Actions</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#button">Button</a>
@@ -388,7 +388,7 @@
                     <a href="#modaltoggle">ModalToggle</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#layouts">Layouts</a>
+                    <a href="#screen-layouts">Screen Layouts</a>
                 </li>
                     </ul>
     </div>
@@ -397,7 +397,7 @@
 <p>Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called &quot;layouts&quot;), and specifying which data should be displayed in each layout.</p>
 <p>In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.</p>
 <p><img src="/img/scheme/screens.jpg" alt="Screens" /></p>
-<h2><a href='#creating-screen' id='creating-screen'>Creating Screen</a></h2>
+<h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
 <p>You can create a new screen by running the command:</p>
 <pre><code class="language-php">php artisan orchid:screen Idea
 </code></pre>
@@ -463,7 +463,7 @@ class Idea extends Screen
 <li><p><em>layout</em>: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.</p></li>
 </ul>
 <p>To use the new screen in your application, you will need to register it in the route file.</p>
-<h2><a href='#registering-routes' id='registering-routes'>Registering routes</a></h2>
+<h2><a href='#routing-screens' id='routing-screens'>Routing Screens</a></h2>
 <p>Before a screen can be accessed at a direct URL, it must be registered in the routes/platform.php routes file. Routes registered in this file will be passed through the middleware specified in the <a href="/en/docs/configuration">configuration</a>.</p>
 <p>To register a screen, you can use the screen method of the <code>Route</code> class. For example:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
@@ -499,7 +499,7 @@ dashboard/idea/edit/{method?} | platform.idea.edit
 <p><code>{method?}</code> - means an optional argument that may go further.
 Correspondingly, the name &quot;edit&quot; in the address falls under it.
 The result will be a redirect to &quot;dashboard/idea/&quot;. To avoid this, make sure to order your routes correctly.</p>
-<h2><a href='#data-acquisition' id='data-acquisition'>Data Acquisition</a></h2>
+<h2><a href='#querying-data' id='querying-data'>Querying Data</a></h2>
 <p>The <code>query</code> method of a screen is used to load data from the database or other sources.
 This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 <p>For example, you might use the <code>query</code> method to response simple string:</p>
@@ -549,7 +549,7 @@ public function query() : array
 </code></pre>
 <p>In this example, the <code>order</code> key will contain an array of ideas with the given data.</p>
 <p>The <code>query</code> method is an important part of a screen, as it is used to load the data that will be displayed to the user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.</p>
-<h2><a href='#autocomplete-public-properties' id='autocomplete-public-properties'>Autocomplete public properties</a></h2>
+<h2><a href='#autocompleting-public-properties' id='autocompleting-public-properties'>Autocompleting Public Properties</a></h2>
 <p>You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the <code>query</code> method will be automatically assigned to public properties of the same name.</p>
 <p>For example, consider the following code:</p>
 <pre><code class="language-php">/**
@@ -572,7 +572,7 @@ public function name(): ?string
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
 <p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &quot;Hello World!&quot;</p>
 <p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.</p>
-<h2><a href='#actions' id='actions'>Actions</a></h2>
+<h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
 <p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible for defining these controls.</p>
 <p>There are several types of actions available:</p>
 <h3><a href='#button' id='button'>Button</a></h3>
@@ -618,7 +618,7 @@ public function commandBar() : array
     ];
 }
 </code></pre>
-<h2><a href='#layouts' id='layouts'>Layouts</a></h2>
+<h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
 <p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
 One of the elements of the presentation are &quot;Layouts&quot; (layouts), which can be displayed in various variations.
