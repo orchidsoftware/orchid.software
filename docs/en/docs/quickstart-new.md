@@ -7,7 +7,7 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 
 Admin panels and line of business application are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data.
 
-To sample a basic selection of Orchid features, we will build a simple task list we can use to track all the tasks we want to accomplish (the typical “to-do list” example).
+To sample a small part selection of Orchid features, we will build a simple task list we can use to track all the tasks we want to accomplish (the typical “to-do list” example).
 
 At this point you should have already installed [the framework and package](/en/docs/installation) and started the web server. 
 
