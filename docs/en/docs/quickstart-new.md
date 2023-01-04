@@ -356,7 +356,7 @@ Our task application is almost complete. But, we have no way to delete our exist
 So, let's add a delete button to each row of our task listing...
 
 ```php
-Layout::table('active', [
+Layout::table('tasks', [
     TD::make('name')
         ->cantHide(),
 
@@ -364,8 +364,8 @@ Layout::table('active', [
         ->cantHide()
         ->alignRight()
         ->render(function (Task $task) {
-            Button::make('Delete Task')
-                ->confirm("Are you sure you want to delete {$task->name}?")
+            return Button::make('Delete Task')
+                ->confirm('After deleting, the task will be gone forever.')
                 ->method('delete', ['task' => $task->id]);
         }),
 ]),
