@@ -340,7 +340,10 @@ Great! We can now successfully create tasks. Next, let's continue adding to our 
 
 ### Displaying Existing Tasks
 
-...
+The query method specifies what data should be shown on the screen. 
+This data can be collected or generated within the method. The data is returned in an array,
+
+Let's return a simple sample with the key `tasks`:
 
 ```php
 use App\Models\Task;
@@ -357,6 +360,8 @@ public function query(): iterable
     ];
 }
 ```
+
+Once the data is passed, we can spin through the tasks in our layouts and display them in a table:
 
 ...
 
@@ -388,9 +393,6 @@ public function layout(): iterable
 The first argument points to the `tasks` key that we specified in the `query` method. It is this set that will be passed to the table.
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.
 
-
-
-
 Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
 
 
@@ -402,11 +404,9 @@ So, let's add a delete button to each row of our task listing...
 
 ```php
 Layout::table('tasks', [
-    TD::make('name')
-        ->cantHide(),
+    TD::make('name'),
 
     TD::make('Actions')
-        ->cantHide()
         ->alignRight()
         ->render(function (Task $task) {
             return Button::make('Delete Task')
