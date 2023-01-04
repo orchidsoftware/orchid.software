@@ -378,6 +378,15 @@
                             <li class="anchor-h2">
                     <a href="#actions">Actions</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#button">Button</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#link">Link</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#modaltoggle">ModalToggle</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#layouts">Layouts</a>
                 </li>
@@ -455,17 +464,19 @@ class Idea extends Screen
 </ul>
 <p>To use the new screen in your application, you will need to register it in the route file.</p>
 <h2><a href='#registering-routes' id='registering-routes'>Registering routes</a></h2>
-<p>Before being available at the direct URL, screens, like controllers, must be registered in the routes file <code>/routes/platform.php</code>. The routes recorded in it will go through the middleware specified in the <a href="/en/docs/configuration">configuration</a>. Each screen can be written using the <code>screen</code> method of <code>Route</code>:</p>
+<p>Before a screen can be accessed at a direct URL, it must be registered in the routes/platform.php routes file. Routes registered in this file will be passed through the middleware specified in the <a href="/en/docs/configuration">configuration</a>.</p>
+<p>To register a screen, you can use the screen method of the <code>Route</code> class. For example:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
 </code></pre>
+<p>This will register a new route for the Idea screen, accessible at the URL <code>/idea</code>.</p>
 <p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
 <pre><code class="language-php">Method   | URI                      | Name
 ---------+--------------------------+--------------
 GET|POST | dashboard/idea/{method?} | platform.idea
 </code></pre>
-<p>If you register multiple routes</p>
+<p>If you have multiple screens, you can register them in the same way. For example:</p>
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
@@ -473,7 +484,7 @@ Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
 Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
 </code></pre>
 <blockquote>
-<p><strong>Please note</strong>, Routing Laravel chooses the first suitable route.</p>
+<p>It&rsquo;s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
 </blockquote>
 <p>By writing the following routes:</p>
 <pre><code class="language-php">Route::screen('/idea', ...
@@ -487,10 +498,11 @@ dashboard/idea/edit/{method?} | platform.idea.edit
 </code></pre>
 <p><code>{method?}</code> - means an optional argument that may go further.
 Correspondingly, the name &quot;edit&quot; in the address falls under it.
-The result will be a redirect to &quot;dashboard/idea/&quot;.</p>
+The result will be a redirect to &quot;dashboard/idea/&quot;. To avoid this, make sure to order your routes correctly.</p>
 <h2><a href='#data-acquisition' id='data-acquisition'>Data Acquisition</a></h2>
-<p>The data to be displayed on the screen defined in the <code>query</code> method, where sampling or generation of information should occur.
-The transfer is carried out in the form of an array, the keys will be available in layouts, for their control.</p>
+<p>The <code>query</code> method of a screen is used to load data from the database or other sources.
+This data is then passed to the screen&rsquo;s layouts and views as an array</p>
+<p>For example, you might use the <code>query</code> method to response simple string:</p>
 <pre><code class="language-php">public function query() : array
 {
     return [
@@ -498,7 +510,8 @@ The transfer is carried out in the form of an array, the keys will be available 
     ];
 }
 </code></pre>
-<p>The source can be the <code>Eloquent</code> model. For this, you need to add the trait <code>AsSource</code>:</p>
+<p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows you to easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
+<p>To use the <code>AsSource</code> trait, you need to include it in your model class:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -509,7 +522,7 @@ class Order extends Model
     use AsSource;
 }
 </code></pre>
-<p>An example where the <code>order</code> and <code>orders</code> keys will be available in Layouts:</p>
+<p>Then, in your screen&rsquo;s <code>query</code> method, you can access the model&rsquo;s data like this:</p>
 <pre><code class="language-php">public function query() : array
 {
     return [
@@ -518,7 +531,8 @@ class Order extends Model
     ];
 }
 </code></pre>
-<p>The use of the <code>Eloquent</code> models is not necessary, it is possible to use arrays using the<code> Repository</code> wrapper:</p>
+<p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain a paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and views to display the data to the user.</p>
+<p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen&rsquo;s layouts and views. For example:</p>
 <pre><code class="language-php">use Orchid\Screen\Repository;    
 
 public function query() : array
@@ -533,8 +547,11 @@ public function query() : array
     ];
 }
 </code></pre>
+<p>In this example, the <code>order</code> key will contain an array of ideas with the given data.</p>
+<p>The <code>query</code> method is an important part of a screen, as it is used to load the data that will be displayed to the user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.</p>
 <h2><a href='#autocomplete-public-properties' id='autocomplete-public-properties'>Autocomplete public properties</a></h2>
-<p>The returned data from the <code>query</code> method will be automatically inserted into the declared public properties according to their name. For example:</p>
+<p>You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the <code>query</code> method will be automatically assigned to public properties of the same name.</p>
+<p>For example, consider the following code:</p>
 <pre><code class="language-php">/**
  * @var string
  */
@@ -552,11 +569,14 @@ public function name(): ?string
     return $this-&gt;message;
 }
 </code></pre>
-<p>When a <code>GET</code> request is made, the page title will contain the words &quot;Hello world!&quot;.</p>
+<p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
+<p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &quot;Hello World!&quot;</p>
+<p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#actions' id='actions'>Actions</a></h2>
-<p>The screens include built-in commands that allow users to execute various user scripts.
-The <code>commandBar</code> method is responsible for this, which describes the required control buttons.</p>
-<p>For example:</p>
+<p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible for defining these controls.</p>
+<p>There are several types of actions available:</p>
+<h3><a href='#button' id='button'>Button</a></h3>
+<p>Button actions allow users to trigger a method on the screen when clicked. For example:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Button;
 use Orchid\Support\Facades\Toast;
 
@@ -572,31 +592,34 @@ public function print(): void
    Toast::warning('Hello, world! This is a toast message.');
 }
 </code></pre>
-<p>The <code>Button</code> class responds to what will happen when a button pressed, in the example above, when you click on the Print button, The screen method <code>print</code> will be called, all the data that the user has seen on the screen will be available in Request.</p>
-<pre><code class="language-php">// By pressing, the 'create' method will be called
-use Orchid\Screen\Actions\Button;
+<p>In this example, when the Print button is clicked, the <code>print</code> method of the screen will be called.
+All of the data that the user has seen on the screen will be available in the request.</p>
+<h3><a href='#link' id='link'>Link</a></h3>
+<p>Link actions allow users to navigate to a different URL when clicked. For example:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Link;
 
-Button::make('New function')
-    -&gt;method('create');
+public function commandBar() : array
+{
+    return [
+        Link::make('External reference')-&gt;href('http://orchid.software'),
+    ];
+}
+</code></pre>
+<h3><a href='#modaltoggle' id='modaltoggle'>ModalToggle</a></h3>
+<p>Modal toggle actions allow users to open a modal window when clicked. For example:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
-// By clicking, you will be redirected to the specified address
-use Orchid\Screen\Actions\Link;
-
-Link::make('External reference')
-    -&gt;href('http://orchid.software');
-
-// By pressing, a modal window will be shown (CreateUserModal),
-// in which you can execute the &quot;save&quot; method
-use Orchid\Screen\Actions\ModalToggle;
-
-ModalToggle::make('Modal window')
-    -&gt;modal('CreateUserModal')
-    -&gt;method('save');
+public function commandBar() : array
+{
+    return [
+        ModalToggle::make('Modal window')
+            -&gt;modal('CreateUserModal')
+            -&gt;method('save'),
+    ];
+}
 </code></pre>
 <h2><a href='#layouts' id='layouts'>Layouts</a></h2>
 <p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
-<p>Displaying the appearance of user interface elements in the application is of great importance, makes the application
-easier to use and helps users to intuitively display screen elements to perform their tasks.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
 One of the elements of the presentation are &quot;Layouts&quot; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
@@ -611,7 +634,7 @@ If you try to explain briefly, it turns out that this is a <code>view</code> on 
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time, so various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in <code>Blade</code> and in <code>React/Vue/Angular</code>.</p>
+<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in <code>React/Vue/Angular</code>.</p>
 <p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
 <p>Each layout may include a different layout, that is, nesting.
 For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
