@@ -366,6 +366,9 @@
                             <li class="anchor-h2">
                     <a href="#stimulus">Stimulus</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#vuejs-wrapped-in-a-stimulus">Vue.js wrapped in a Stimulus</a>
+                </li>
                     </ul>
     </div>
                         <p>The core of the platform in terms of styling is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser runs <a href="https://hotwired.dev">Hotwired</a> code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.</p>
@@ -460,6 +463,36 @@ class AppServiceProvider extends ServiceProvider
   &lt;/span&gt;
 &lt;/div&gt;
 </code></pre>
+<h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js wrapped in a Stimulus</a></h2>
+<p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
+<p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
+<pre><code class="language-js">import Vue from 'vue'
+
+export default class extends window.Controller {
+  connect() {
+    const app = new Vue({
+      el: this.element,
+      data: {
+        message: 'Hello, Vue.js!'
+      }
+    })
+
+    // Save the Vue instance to a property for later use
+    this.app = app
+  }
+
+  disconnect() {
+    // Destroy the Vue instance when the controller is disconnected
+    this.app.$destroy()
+  }
+}
+</code></pre>
+<p>Register the controller in your blade file:</p>
+<pre><code class="language-html">&lt;div data-controller=&quot;hello&quot;&gt;
+  @{{ message }}
+&lt;/div&gt;
+</code></pre>
+<p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
 
                     </main>
                 </div>
