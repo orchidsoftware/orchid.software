@@ -353,7 +353,7 @@ use App\Models\Task;
 public function query(): iterable
 {
     return [
-        'tasks' => Task::orderBy('updated_at', 'asc')->get(),
+        'tasks' => Task::latest()->get(),
     ];
 }
 ```
@@ -370,7 +370,7 @@ public function layout(): iterable
 {
     return [
         Layout::table('tasks', [
-            TD::make('name')->cantHide(),
+            TD::make('name'),
         ]),
 
         Layout::modal('create', Layout::rows([
@@ -384,6 +384,12 @@ public function layout(): iterable
     ];
 }
 ```
+
+The first argument points to the `tasks` key that we specified in the `query` method. It is this set that will be passed to the table.
+And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.
+
+
+
 
 Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
 
