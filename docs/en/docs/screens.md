@@ -6,7 +6,11 @@ description: The main components of the user interface
 ## Introduction
 
 
-The screens on the platform are its main element, described by the layout hierarchy. Each component has properties that affect its appearance and behavior. In other words, what the user sees on the page and what actions they perform are described in one class called "screen". They don't need to know where the data comes from. It could be a database, api, or any other external source. Building the appearance is based on provided templates (layouts), and all you need to determine is what data will be shown in a particular template.
+Screens on the Orchid platform are the main element that defines the layout and behavior of a page. Each screen is described by a class that specifies the components that should be displayed, as well as their properties and interactions.
+
+Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called "layouts"), and specifying which data should be displayed in each layout.
+
+In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.
 
 
 ![Screens](/img/scheme/screens.jpg)
@@ -75,8 +79,18 @@ class Idea extends Screen
         return [];
     }
 }
-
 ```
+
+The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:
+
+- *query*: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
+
+- *commandBar*: This method is used to define buttons and other actions that will be displayed on the screen.
+
+- *layout*: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.
+
+To use the new screen in your application, you will need to register it in the route file.
+
 
 ## Registering routes
 
