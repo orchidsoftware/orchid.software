@@ -234,13 +234,13 @@ to add them to our screen, you need to append your route with `->breadcrumbs(...
 ```php
 use App\Orchid\Screens\TaskScreen;
 use Tabuna\Breadcrumbs\Trail;
-
+    
 Route::screen('task', TaskScreen::class)
     ->name('platform.task')
     ->breadcrumbs(function (Trail $trail){
         return $trail
-                ->parent('platform.index')
-                ->push('Task list');
+            ->parent('platform.index')
+            ->push('Task');
     });
 ```
 
@@ -269,7 +269,7 @@ public function layout(): iterable
             Input::make('task.name')
                 ->title('Name')
                 ->placeholder('Enter task name')
-                ->help('Enter task name'),
+                ->help('The name of the task to be created.'),
         ]))
             ->title('Create Task')
             ->applyButton('Add Task'),
@@ -343,7 +343,46 @@ Great! We can now successfully create tasks. Next, let's continue adding to our 
 ...
 
 ```php
+use App\Models\Task;
 
+/**
+ * Fetch data to be displayed on the screen.
+ *
+ * @return array
+ */
+public function query(): iterable
+{
+    return [
+        'tasks' => Task::orderBy('updated_at', 'asc')->get(),
+    ];
+}
+```
+
+...
+
+```php
+/**
+ * The screen's layout elements.
+ *
+ * @return \Orchid\Screen\Layout[]|string[]
+ */
+public function layout(): iterable
+{
+    return [
+        Layout::table('tasks', [
+            TD::make('name')->cantHide(),
+        ]),
+
+        Layout::modal('create', Layout::rows([
+            Input::make('task.name')
+                ->title('Name')
+                ->placeholder('Enter task name')
+                ->help('The name of the task to be created.'),
+        ]))
+            ->title('Create Task')
+            ->applyButton('Add Task'),
+    ];
+}
 ```
 
 Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
