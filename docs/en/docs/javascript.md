@@ -130,3 +130,46 @@ To display, we will use a template for which you first need to define the `Contr
   </span>
 </div>
 ```
+
+
+
+## Vue.js wrapped in a Stimulus 
+
+
+Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we'll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.
+
+
+Create a Stimulus controller file, for example `hello_controller.js`:
+
+```js
+import Vue from 'vue'
+
+export default class extends window.Controller {
+  connect() {
+    const app = new Vue({
+      el: this.element,
+      data: {
+        message: 'Hello, Vue.js!'
+      }
+    })
+
+    // Save the Vue instance to a property for later use
+    this.app = app
+  }
+
+  disconnect() {
+    // Destroy the Vue instance when the controller is disconnected
+    this.app.$destroy()
+  }
+}
+```
+
+Register the controller in your blade file:
+
+```html
+<div data-controller="hello">
+  @{{ message }}
+</div>
+```
+
+Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.
