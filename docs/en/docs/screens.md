@@ -1,6 +1,6 @@
 ---
 title: Screens
-description: The main components of the user interface
+description: Laravel Orchid provides screens for building and maintaining complex web applications, allowing for separation of concerns between data and presentation through the use of layouts and data retrieval from various sources.
 ---
 
 ## Introduction
