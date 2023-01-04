@@ -17,7 +17,7 @@ return [
             'Tutorials'   => [
                 'Quick Start'           => '/en/docs/quickstart',
                 'Data Management'       => '/en/docs/quickstart-crud',
-                'Manage Attachments'    => '/en/docs/quickstart-files',
+                'Managing Attachments'    => '/en/docs/quickstart-files',
                 'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
             ],
             'Concepts'    => [
@@ -25,7 +25,7 @@ return [
                 'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
                 'Permissions'   => '/en/docs/access',
-                'Filtration'    => '/en/docs/filters',
+                'Filtering'    => '/en/docs/filters',
                 'Attachments'   => '/en/docs/attachments',
                 'Notifications' => '/en/docs/alert',
             ],
@@ -35,7 +35,7 @@ return [
                 'Legend'          => '/en/docs/legend',
                 'Charts'          => '/en/docs/charts',
                 'Modals'          => '/en/docs/modals',
-                'Listener'        => '/en/docs/listener',
+                'Listeners'        => '/en/docs/listener',
                 'Grouping'        => '/en/docs/grouping',
                 //'Display elements' => '/en/docs/display-elements',
                 'Custom Template' => '/en/docs/custom-template',
@@ -59,7 +59,7 @@ return [
             'Community'   => [
                 'Code of Conduct' => '/en/community/code-of-conduct',
                 'Contribution'    => '/en/community/contributors',
-                'Promote Project' => '/en/community/promote',
+                'Project Promotion' => '/en/community/promote',
                 'License'         => '/en/community/license',
                 'Change Log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
             ],
