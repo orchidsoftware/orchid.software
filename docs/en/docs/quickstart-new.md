@@ -232,15 +232,15 @@ Navigation is carried out not only through transitions from the menu but also th
 to add them to our screen, you need to append your route with `->breadcrumbs(...)` in `routes/platform.php`.
 
 ```php
-use App\Orchid\Screens\EmailSenderScreen;
+use App\Orchid\Screens\TaskScreen;
 use Tabuna\Breadcrumbs\Trail;
 
-Route::screen('email', EmailSenderScreen::class)
-    ->name('platform.email')
+Route::screen('task', TaskScreen::class)
+    ->name('platform.task')
     ->breadcrumbs(function (Trail $trail){
         return $trail
                 ->parent('platform.index')
-                ->push('Email sender');
+                ->push('Task list');
     });
 ```
 
