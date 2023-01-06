@@ -1,6 +1,6 @@
 ---
 title: Modal windows
-description: Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
+description: Learn how to use modal windows in your Laravel Orchid projects with our comprehensive documentation. Get tips on creating dynamic modals, passing data to modals, and customizing modal behavior.
 ---
 
 Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
