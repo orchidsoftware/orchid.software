@@ -1,6 +1,6 @@
 ---
 title: Controllers
-description: Use of controllers in the application
+description: Learn how to use Laravel Orchid to create custom controllers for your administration-style applications. Explore best practices for organizing and managing your controllers for optimal performance and scalability.
 ---
 
 
