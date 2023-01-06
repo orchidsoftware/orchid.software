@@ -1,5 +1,6 @@
 ---
 title: Layers for grouping
+description: Learn how to use Laravel Orchid's layer functionality to group and organize your administration application's pages and functionality for improved navigation and usability. Explore the benefits of using layers in your Orchid project.
 ---
 
 ## Accordion
