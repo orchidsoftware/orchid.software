@@ -1,5 +1,6 @@
 ---
 title: Listener
+description: Learn how to use Laravel Orchid's Listener feature to create dynamic pages with real-time data. Explore the various options available to customize your listener and keep your application up-to-date with the latest information.
 extends: _layouts.documentation
 ---
 
