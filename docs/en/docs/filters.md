@@ -1,6 +1,6 @@
 ---
 title: Eloquent Filters
-description: Filters used to simplify the search for records using a typical filter.
+description: Learn how to use the Eloquent Filters feature in Laravel Orchid to easily filter and search your database records. Improve the user experience of your administration-style app with powerful and customizable filters.
 ---
 
 Filters used to simplify the search for records using a typical filter.
