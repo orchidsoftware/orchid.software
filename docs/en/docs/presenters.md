@@ -1,6 +1,6 @@
 ---
 title: Presenters
-description: The presenter is a class that wraps an object in order to add functionality to it.
+description: Learn how to use Laravel Orchid's Presenters to format your data for display on your application's views. With Presenters, you can easily customize the appearance of your data, making your application's user interface more consistent and user-friendly.
 ---
 
 The presenter is a class that wraps an object in order to add functionality to it. In Laravel Orchid, presenters are used to format and present data in a consistent and organized way for display in a view. This helps to keep your views clean and organized, as you can move all of the formatting and presentation logic into the presenter class.
