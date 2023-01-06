@@ -1,6 +1,6 @@
 ---
 title: Form elements
-description: Fields are used to generate the output form template and edit
+description: Learn how to use Orchid's form elements to create custom forms and user inputs in your Laravel administration application. Improve the user experience and streamline data collection with Orchid's intuitive form builder.
 ---
 
 Fields are used to generate the output of the fill and edit form template.
