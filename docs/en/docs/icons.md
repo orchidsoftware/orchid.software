@@ -1,6 +1,6 @@
 ---
 title: Icons
-description:
+description: Learn how to use and implement SVG icons in your Laravel Orchid projects with the detailed documentation on the "SVG Icons" page. Discover best practices and troubleshooting tips for adding custom SVG icons to your application.
 ---
 
 ## Custom Icons
