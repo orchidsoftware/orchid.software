@@ -1,5 +1,6 @@
 ---
 title: Table
+description: Learn how to use the Laravel Orchid Table to display and organize data in your application. Discover various customization options and integrations with other Orchid features.
 ---
 
 
