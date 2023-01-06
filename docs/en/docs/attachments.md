@@ -1,6 +1,6 @@
 ---
 title: Attachments
-description: Attachments are files related to the record.
+description: Learn how to use Laravel Orchid's Attachments feature to manage and attach files to your application's database. Improve your app's user experience and organization with this powerful tool.
 ---
 
 Files of various formats and extensions related to the recording are attachments. Them can be attached to any model via links. For this, you need to add a trait:
