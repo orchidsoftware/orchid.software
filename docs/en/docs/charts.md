@@ -1,6 +1,6 @@
 ---
 title: Charts
-description: Creating various graphs in Laravel Orchid, using an Eloquent model
+description: Learn how to easily create and customize charts in your Laravel Orchid project with our comprehensive documentation on Charts. Explore options for pie charts, line graphs, bar charts and more, all within the powerful Orchid platform.
 ---
 
 
