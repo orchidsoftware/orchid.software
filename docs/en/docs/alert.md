@@ -1,6 +1,6 @@
 ---
 title: Notifications
-description:  A simple way to notify the user about the status of your application.
+description: The Laravel Orchid Notifications documentation page is the ultimate resource for learning how to use the Orchid Notifications system to send real-time notifications to your users. Discover how to easily create and manage notification channels, customize notification templates, and send notifications through a variety of methods. Whether you're a beginner or an advanced developer, this page has everything you need to get started with Orchid Notifications.
 ---
 
 Notifications are a great way to let your users know what's going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we'll show you how to use them in your app.
