@@ -1,5 +1,6 @@
 ---
 title: Upgrade Guide
+description: Learn how to upgrade your Laravel Orchid application with the Upgrade Guide. Find tips and best practices for smoothly transitioning to the latest version.
 ---
 
 
