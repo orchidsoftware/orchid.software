@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Laravel Orchid is an open-source package that helps developers build admin panels and dashboards quickly and efficiently.
+description: Learn about Laravel Orchid, the open-source package for accelerating the development of administration-style applications. Explore the documentation for features like permission management, notifications, attachments, form builder, charts, configuration, controllers, custom templates, display elements, form elements, Eloquent filters, global search with Scout, layers for grouping, and using icons and SVG icons in your project.
 ---
 
 ## Introduction
