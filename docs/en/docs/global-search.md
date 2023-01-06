@@ -1,5 +1,6 @@
 ---
 title: Global search
+description: Learn how to use Laravel Orchid's global search feature powered by Laravel Scout to easily search and filter through large amounts of data in your administration-style applications.
 ---
 
 ## Using Full-Text Search
