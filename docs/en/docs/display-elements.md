@@ -1,5 +1,6 @@
 ---
 title: Display elements
+description: Learn how to use Laravel Orchid's display elements to enhance the appearance and functionality of your application's frontend. With customizable templates, card, and more, you can take your app to the next level.
 ---
 
 ## Cards
