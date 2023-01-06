@@ -1,6 +1,6 @@
 ---
 title: Testing
-description: Orchid screen testing
+description: Learn how to test your Laravel Orchid applications with our comprehensive documentation on testing. From unit tests to browser tests, we cover it all.
 ---
 
 Nowadays, the development of high-quality software is intertwined with automated testing. Therefore, the package contains testing tools to help you make it easy.
