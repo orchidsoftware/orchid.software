@@ -1,6 +1,6 @@
 ---
 title: Navigation
-description: An important element of the graphical user interface, because with the help of it is based on the navigation project.
+description: Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and functions you need to effectively navigate your application.
 ---
 
 The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.
