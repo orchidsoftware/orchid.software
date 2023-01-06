@@ -1,6 +1,6 @@
 ---
 title: Permissions
-description: Typically, you manage several dozen permits in a typical business process.
+description: Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with our open-source package for rapid development of admin panels and dashboards.
 ---
 
 Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.
