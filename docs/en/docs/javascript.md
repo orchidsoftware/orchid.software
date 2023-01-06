@@ -1,6 +1,6 @@
 ---
 title: Use JavaScript
-description: Stimulus JS usage example with Laravel Orchid package
+description: Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.
 ---
 
 The core of the platform in terms of styling is [Bootstrap](http://getbootstrap.com/), and the browser runs [Hotwired](https://hotwired.dev) code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.
