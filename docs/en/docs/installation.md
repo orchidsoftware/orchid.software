@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: This getting started guide will help you get started using Laravel Orchid.
+description: Learn how to install and set up Laravel Orchid in your project with our comprehensive installation guide. Step-by-step instructions and helpful tips make it easy to get started with Orchid.
 ---
 
 
