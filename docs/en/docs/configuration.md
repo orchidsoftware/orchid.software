@@ -1,6 +1,6 @@
 ---
 title: Platform configuration
-description: ORCHID uses the standard configuration system for Laravel.
+description: Learn how to configure Laravel Orchid's powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.
 ---
 
 The platform uses the standard configuration system for Laravel.
