@@ -1,6 +1,6 @@
 ---
 title: Branding
-description: Customize the look to match your brand
+description: Learn how to customize the look and feel of your Laravel Orchid application with the Branding documentation page. Discover how to set your own logo, choose custom colors, and more to make your application truly your own.
 ---
 
 There are times when you want the visual style of the platform to match your brand.
