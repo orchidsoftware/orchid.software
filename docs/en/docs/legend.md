@@ -1,5 +1,6 @@
 ---
 title: Legend
+description: Learn how to use the Legend and Summary features in Laravel Orchid to organize and display important information in your administration-style applications. Improve the clarity and usability of your project with these easy to use tools.
 extends: _layouts.documentation
 ---
 
