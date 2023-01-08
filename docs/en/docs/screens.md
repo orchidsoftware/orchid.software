@@ -83,11 +83,11 @@ class Idea extends Screen
 
 The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:
 
-- *query*: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
+- **query**: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
 
-- *commandBar*: This method is used to define buttons and other actions that will be displayed on the screen.
+- **commandBar**: This method is used to define buttons and other actions that will be displayed on the screen.
 
-- *layout*: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.
+- **layout**: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.
 
 To use the new screen in your application, you will need to register it in the route file.
 
