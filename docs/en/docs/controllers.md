@@ -8,14 +8,13 @@ There is usually no need to create custom controllers to do anything outside the
 
 But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.
 
-
-To create a new controller, you must run the command `make:controller`:
+To create a new controller, use the `make:controller` Artisan command:
 
 ```php
 php artisan make:controller OrchidController
 ```
 
-In the `app/Http/Controllers` directory, a new class will be created, change it:
+This will generate a new class in the `app/Http/Controllers` directory. You can then modify the class as needed:
 
 ```php
 namespace App\Http\Controllers;
@@ -33,7 +32,7 @@ class OrchidController extends Controller
 
 ```
 
-The `index` method returns the application template, in which we will visualize the entire package style:
+The `index` method of your controller should return a view template, which will be rendered using the Orchid package's style. Here is an example of a view template:
 
 ```php
 @extends('platform::dashboard')
@@ -54,9 +53,12 @@ The `index` method returns the application template, in which we will visualize 
 @stop
 ```
 
-The created controller must be declared in the route file, for example, in `routes/platform`,
-so that common rules apply to it, such as authorization.
+To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file (e.g. `routes/platform`). This will ensure that common rules such as authorization apply to the controller.
+
+Here is an example of how to declare a route for the `OrchidController`:
 
 ```php
 Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
 ```
+
+You can now access your custom controller by visiting the custom route in your Orchid app.
