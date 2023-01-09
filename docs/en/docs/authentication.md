@@ -7,32 +7,27 @@ description: Changing the Laravel Orchid login form.
 ## Guard
 
 
-When your application needs to provide different types of users, e.g. customers and sellers who have their authentication portals,
-then the package will support you. You can use a configuration file to configure Orchid to work with a specific type. 
-To do this, change the value of `guard` in the file `config/platform.php`:
+Orchid provides support for different types of users (e.g. customers and sellers) who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the `guard` option in the `config/platform.php` configuration file:
 
 ```php
 'guard' => 'sellers',
 ```
 
-Note that `sellers` must already be available in Laravel's [authentication guards list](https://github.com/laravel/laravel/blob/9.x/config/auth.php).
+Keep in mind that the value of `guard` must be one of the authentication guards listed in Laravel's [authentication configuration](https://github.com/laravel/laravel/blob/9.x/config/auth.php).
 
 
-## Personalization
+## Customizing the Authentication Process
 
-User authorization issues are outside the scope of the package. Because the needs can be completely different, from using email or the user's phone.
-Using one-time passwords and sending them by email, etc.
+The package does not provide any specific implementation of user authentication. The needs of different applications can vary significantly, from using email or phone numbers for authentication to sending one-time passwords by email.
 
-You can write your authorization controllers following the [Laravel documentation](https://laravel.com/docs/authentication), but before you do that,
-it's highly advisable to disable the orchid login page. To do this, go to the `config/platform.php` configuration file and set the value for `auth`:
+To customize the authentication process, you can write your own controllers following the guidelines in the [Laravel documentation](https://laravel.com/docs/authentication). Before doing so, it is recommended to disable the built-in login page provided by Orchid. To do this, set the auth option in the config/platform.php configuration file to `false`:
+
 
 ```php
 'auth' => false,
 ```
 
-This will completely remove the availability of the built-in authorization routes and you can write your own.    
+This will remove the availability of the built-in authorization routes and allow you to write your own
 
 
-> **Note.**  By default, the package has only the simplest login form with only email and password fields. 
-If you need features like recovery, registration, and 2FA with a one-time password algorithm based on time, consider using the [Fortify theme](https://github.com/orchidsoftware/fortify),
- which relies entirely on [Laravel Fortify](https://laravel.com/docs/fortify).
+> **Note:** The built-in login page provided by Orchid has only the most basic functionality, with email and password fields. If you need more advanced features such as password recovery, registration, and 2FA with time-based one-time password algorithms, consider using the [Fortify theme](https://github.com/orchidsoftware/fortify), which is based on [Laravel Fortify](https://laravel.com/docs/fortify).
