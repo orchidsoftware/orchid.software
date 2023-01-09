@@ -475,6 +475,6 @@ public function delete(Task $task)
 
 Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.
 
-To learn more about the capabilities of Orchid screens, we recommend visiting the [Screens](/en/docs/screens)section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.
+To learn more about the capabilities of Orchid screens, we recommend visiting the [Screens](/en/docs/screens) section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.
 
 We hope you find this tutorial useful and recommends that you also explore the [following lessons available at the link](/en/docs/quickstart-crud).
