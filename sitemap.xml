@@ -181,6 +181,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/en/docs/quickstart-old</loc>
+        <lastmod>2023-01-08T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/en/docs/quickstart-sort-filter-table</loc>
         <lastmod>2023-01-08T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
