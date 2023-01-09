@@ -4,7 +4,8 @@ description: Learn how to use Laravel Orchid's Listener feature to create dynami
 extends: _layouts.documentation
 ---
 
-The listener layout is used when it is necessary to change the displayed data, in accordance with the selected user settings.
+
+The `Listener` layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.
 
 For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:
 
