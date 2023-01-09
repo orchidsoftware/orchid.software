@@ -359,21 +359,139 @@
 
                         
                         <div class="anchors">
+            <ul>
+                            <li class="anchor-h2">
+                    <a href="#introduction">Introduction</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#prepping-the-database">Prepping The Database</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#database-migrations">Database Migrations</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#eloquent-models">Eloquent Models</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#screen">Screen</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#routing">Routing</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#navigation">Navigation</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#menu">Menu</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#breadcrumbs">Breadcrumbs</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#adding-tasks">Adding Tasks</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#adding-window-modal">Adding Window Modal</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#launch-modal">Launch Modal</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#creating-the-task">Creating The Task</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#displaying-existing-tasks">Displaying Existing Tasks</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#deleting-tasks">Deleting Tasks</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#adding-the-delete-button">Adding The Delete Button</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#deleting-the-task">Deleting The Task</a>
+                </li>
+                    </ul>
     </div>
-                        <p>Admin panels are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data. In this quick tutorial, we&rsquo;ll learn how to create screens and use form elements by creating a simple utility for sending emails.</p>
-<p>At this point you should have already installed <a href="/en/docs/installation">the framework and package</a> and started the web server.</p>
+                        <h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+<p>Welcome to this tutorial on building an admin panel with Orchid! Admin panels and line of business applications are important for many web applications as they allow administrators to manage content, users, and other data.</p>
+<p>In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional &ldquo;to-do list&rdquo;.</p>
+<p>Before beginning this tutorial, make sure that you have already installed <a href="/en/docs/installation">the framework and package</a>, and started the web server. Let&rsquo;s get started!</p>
 <blockquote>
 <p>Before we begin, we strongly recommend that you don&rsquo;t copy and paste. Typing each piece of code will help you practice and remember it.</p>
 </blockquote>
-<p>First you need to create a <a href="/en/docs/screens">screen</a> to display the login form: to display the submission form, using the command:</p>
-<pre><code class="language-bash">php artisan orchid:screen EmailSenderScreen
+<h2><a href='#prepping-the-database' id='prepping-the-database'>Prepping The Database</a></h2>
+<h3><a href='#database-migrations' id='database-migrations'>Database Migrations</a></h3>
+<p>First, let&rsquo;s use a migration to define a database table to hold all of our tasks.</p>
+<pre><code class="language-php">php artisan make:migration create_tasks_table --create=tasks
 </code></pre>
-<p>A new file <code>EmailSenderScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
+<p>Let&rsquo;s edit this file and add an additional string column for the <code>name</code> and boolean column for the <code>active</code> of our tasks:</p>
+<pre><code class="language-php">use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tasks', function (Blueprint $table) {
+            $table-&gt;id();
+            $table-&gt;string('name');
+            $table-&gt;boolean('active')-&gt;default(1);
+            $table-&gt;timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('tasks');
+    }
+};
+</code></pre>
+<p>To run our migration, we will use the <code>migrate</code> Artisan command.</p>
+<pre><code class="language-bash">php artisan migrate
+</code></pre>
+<h3><a href='#eloquent-models' id='eloquent-models'>Eloquent Models</a></h3>
+<p>So, let&rsquo;s define a <code>Task</code> model that corresponds to our <code>tasks</code> database table we just created.</p>
+<pre><code class="language-bash">php artisan make:model Task
+</code></pre>
+<p>In the <code>app/Models</code> directory, a new file <code>Task.php</code> will be created, we will describe the fields as available for filling:</p>
+<pre><code class="language-php">
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\AsSource;
+
+class Task extends Model
+{
+    use HasFactory, AsSource;
+}
+</code></pre>
+<blockquote>
+<p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
+</blockquote>
+<h2><a href='#screen' id='screen'>Screen</a></h2>
+<p>Now that we have the basic setup out of the way, it&rsquo;s time to add our first <a href="/en/docs/screens">screen</a> to the application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to define data and events for a single page. The structure of a screen allows us to easily define the layout and behavior of the page, and helps to keep our code organized and maintainable.</p>
+<p>To create a new screen, we will use the orchid generate screen command, which will generate a new screen class for us. This class will contain all of the necessary code for defining the data and events for our page. We can then use this class to render the page and handle user interactions.</p>
+<pre><code class="language-bash">php artisan orchid:screen TaskScreen
+</code></pre>
+<p>A new file <code>TaskScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
 
-class EmailSenderScreen extends Screen
+class TaskScreen extends Screen
 {
     /**
      * A method that defines all screen input data
@@ -392,7 +510,7 @@ class EmailSenderScreen extends Screen
      */
     public function name(): ?string
     {
-        return &quot;EmailSenderScreen&quot;;
+        return &quot;TaskScreen&quot;;
     }
 
     /**
@@ -400,7 +518,7 @@ class EmailSenderScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;EmailSenderScreen&quot;;
+        return &quot;TaskScreen&quot;;
     }
     
     /**
@@ -423,22 +541,31 @@ class EmailSenderScreen extends Screen
     }
 }
 </code></pre>
-<p>The screen&rsquo;s main difference from the controller is the structure defined in advance, which serves only one-page defining data and events.</p>
+<h3><a href='#routing' id='routing'>Routing</a></h3>
+<p>Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically <code>routes/platform.php</code>) and define a new route for the screen.</p>
+<p>To define a new route for a screen, we can use the Screen method provided by Orchid.
+This method takes two arguments: the url of the screen, and the class name of the screen.</p>
+<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
+
+Route::screen('task', TaskScreen::class)-&gt;name('platform.task');
+</code></pre>
+<p>This will create a new route for the <code>task</code> screen, using the <code>TaskScreen</code> class as the handler for the route.
+Once the route is defined, the screen will be accessible to the user via the specified route.</p>
 <p>Like the controller, the screen needs to register in the route file.
 Define it in the file for the admin panel <code>routes/platform.php</code>:</p>
-<pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
+<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
 
-Route::screen('email', EmailSenderScreen::class)-&gt;name('platform.email');
+Route::screen('task', TaskScreen::class)-&gt;name('platform.task');
 </code></pre>
-<p>After we have registered a new route, you can go to the browser at <code>/admin/email</code>,
-to look at the empty screen, fill it with the elements.</p>
-<p>Add a name and description:</p>
+<p>Now that we have registered a new route for our screen, we can visit the screen in the browser by navigating to the corresponding URL. In this case, since we registered the route as <code>/admin/task</code>, we can visit the screen by going to <code>http://your-app.test/admin/task</code> in the browser.</p>
+<p>When you visit the screen for the first time, it will likely be empty, as we have not yet defined any content or layout for the page. To fill the screen with elements, we will need to define the data and events for the screen, and use them to render the content of the page.</p>
+<p>To add a name and description to our screen, we will need to update the <code>name</code> and <code>description</code> methods as follows:</p>
 <pre><code class="language-php">/**
  * The name is displayed on the user's screen and in the headers
  */
 public function name(): ?string
 {
-    return &quot;Email sender&quot;;
+    return 'Simple To-Do List';
 }
 
 /**
@@ -446,187 +573,13 @@ public function name(): ?string
  */
 public function description(): ?string
 {
-    return &quot;Tool that sends ad-hoc email messages.&quot;;
+    return 'Orchid Quickstart';
 }
 </code></pre>
-<p>To display the input fields, we describe them in the <code>Layouts</code> method:</p>
-<pre><code class="language-php">use App\Models\User;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Support\Facades\Layout;
-
-/**
- * Views.
- *
- * @return Layout[]
- */
-public function layout(): array
-{
-    return [
-        Layout::rows([
-            Input::make('subject')
-                -&gt;title('Subject')
-                -&gt;required()
-                -&gt;placeholder('Message subject line')
-                -&gt;help('Enter the subject line for your message'),
-
-            Relation::make('users.')
-                -&gt;title('Recipients')
-                -&gt;multiple()
-                -&gt;required()
-                -&gt;placeholder('Email addresses')
-                -&gt;help('Enter the users that you would like to send this message to.')
-                -&gt;fromModel(User::class,'name','email'),
-
-            Quill::make('content')
-                -&gt;title('Content')
-                -&gt;required()
-                -&gt;placeholder('Insert text here ...')
-                -&gt;help('Add the content for the message that you would like to send.')
-
-        ])
-    ];
-}
-</code></pre>
-<p>Now our page has some elements but does not produce any action.
-To define them, you need to create a new public method and specify a link to it in <code>commandBar</code>:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
-
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Mail;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Screen;
-use Orchid\Support\Facades\Alert;
-
-class EmailSenderScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * The name is displayed on the user's screen and in the headers
-     */
-    public function name(): ?string
-    {
-        return &quot;Email sender&quot;;
-    }
-    
-    /**
-     * The description is displayed on the user's screen under the heading
-     */
-    public function description(): ?string
-    {
-        return &quot;Tool that sends ad-hoc email messages.&quot;;
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Link[]
-     */
-    public function commandBar(): array
-    {
-        return [
-            Button::make('Send Message')
-                -&gt;icon('paper-plane')
-                -&gt;method('sendMessage')
-        ];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::rows([
-                Input::make('subject')
-                    -&gt;title('Subject')
-                    -&gt;required()
-                    -&gt;placeholder('Message subject line')
-                    -&gt;help('Enter the subject line for your message'),
-
-                Relation::make('users.')
-                    -&gt;title('Recipients')
-                    -&gt;multiple()
-                    -&gt;required()
-                    -&gt;placeholder('Email addresses')
-                    -&gt;help('Enter the users that you would like to send this message to.')
-                    -&gt;fromModel(User::class,'name','email'),
-
-                Quill::make('content')
-                    -&gt;title('Content')
-                    -&gt;required()
-                    -&gt;placeholder('Insert text here ...')
-                    -&gt;help('Add the content for the message that you would like to send.')
-
-            ])
-        ];
-    }
-
-    /**
-     * @param Request $request
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function sendMessage(Request $request)
-    {
-        $request-&gt;validate([
-            'subject' =&gt; 'required|min:6|max:50',
-            'users'   =&gt; 'required',
-            'content' =&gt; 'required|min:10'
-        ]);
-
-        Mail::html($request-&gt;get('content'), function (Message $message) use ($request) {
-            $message-&gt;from('sample@email.com');
-            $message-&gt;subject($request-&gt;get('subject'));
-
-            foreach ($request-&gt;get('users') as $email) {
-                $message-&gt;to($email);
-            }
-        });
-
-
-        Alert::info('Your email message has been sent successfully.');
-    }
-}
-</code></pre>
-<p>After that, can to send email messages to addresses.</p>
-<blockquote>
-<p><strong>Note</strong> that by default, the <code>SMTP</code> driver enabled for sending mail, You can change it in the <code>.env</code> file to <code>log</code> for verification.</p>
-</blockquote>
-<p>We can dream up and imagine that our boss asked us to put our messages like &ldquo;Campaign news for July&rdquo; but change it. To do this, add the key to the <code>query</code> method with the name of our element:</p>
-<pre><code class="language-php">/**
- * Query data.
- *
- * @return array
- */
-public function query(): array
-{
-    return [
-        'subject' =&gt; date('F').' Campaign News',
-    ];
-}
-</code></pre>
-<p>Now the field with the name <code>subject</code> automatically fits the value from the result.</p>
-<p>All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the menu, for this
-in the file at <code>app/Orchid/PlatformProvider.php</code> we add the declaration:</p>
+<h2><a href='#navigation' id='navigation'>Navigation</a></h2>
+<h3><a href='#menu' id='menu'>Menu</a></h3>
+<p>To make it easier for users to access our screen, we can add a new menu item to the admin panel&rsquo;s navigation menu. This will allow users to click on a link in the menu to access the screen, rather than having to manually type the URL into the browser.</p>
+<p>To add a new menu item to the navigation menu, we will need to open the <code>app/Orchid/PlatformProvider.php</code> file and add a new declaration to the <code>registerMainMenu()</code> method. This declaration will use the <code>Menu</code> method provided by Orchid to define a new menu item for our screen.</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Menu;
 
 /**
@@ -637,29 +590,182 @@ public function registerMainMenu(): array
     return [
         // Other items...
     
-        Menu::make('Email sender')
-            -&gt;icon('envelope-letter')
-            -&gt;route('platform.email')
+        Menu::make('Tasks')
+            -&gt;icon('bag')
+            -&gt;route('platform.task')
             -&gt;title('Tools')
     ];
 }
 </code></pre>
-<p>Now our utility is displayed on the left menu and is active when visiting.
-Navigation is carried out not only through transitions from the menu but also through breadcrumbs, to add them to our screen, you need to append your route with <code>-&gt;breadcrumbs(...)</code> in <code>routes/platform.php</code>.</p>
-<pre><code class="language-php">use App\Orchid\Screens\EmailSenderScreen;
+<h3><a href='#breadcrumbs' id='breadcrumbs'>Breadcrumbs</a></h3>
+<p>Now that we have added a menu item for our screen, it will be displayed in the navigation menu and users will be able to access it by clicking on the menu item. In addition to navigating to the screen via the menu, users can also navigate to the screen using breadcrumbs.</p>
+<p>Breadcrumbs are a navigation aid that allows users to see their current location within the application and easily return to previous screens. They are typically displayed as a series of links at the top of the page, with the current screen being the last link in the series.</p>
+<p>To add breadcrumbs to our screen, we will need to update the route definition for the screen in the <code>routes/platform.php</code> file. Specifically, we will need to append the route with the <code>-&gt;breadcrumbs()</code> method:</p>
+<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
 use Tabuna\Breadcrumbs\Trail;
-
-Route::screen('email', EmailSenderScreen::class)
-    -&gt;name('platform.email')
+    
+Route::screen('task', TaskScreen::class)
+    -&gt;name('platform.task')
     -&gt;breadcrumbs(function (Trail $trail){
         return $trail
-                -&gt;parent('platform.index')
-                -&gt;push('Email sender');
+            -&gt;parent('platform.index')
+            -&gt;push('Task');
     });
 </code></pre>
-<p>Congratulations, you should now understand how the platform works!
-It is an elementary example, but the development process will be identical in many aspects.
-We recommend going to the <a href="/en/docs/screens">Screens</a> section to learn more about the possibilities in your hands.</p>
+<h2><a href='#adding-tasks' id='adding-tasks'>Adding Tasks</a></h2>
+<h3><a href='#adding-window-modal' id='adding-window-modal'>Adding Window Modal</a></h3>
+<p>To display elements on the workspace, we will need to define them in the <code>layouts</code> method of the screen class.
+The <code>layouts</code> method is responsible for returning an array of layout definitions, which define the structure and content of the page.</p>
+<p>To add a modal window with an input field for the task name, we can update the <code>layouts</code> method as follows:</p>
+<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+use Orchid\Support\Facades\Layout;
+
+/**
+ * The screen's layout elements.
+ *
+ * @return \Orchid\Screen\Layout[]|string[]
+ */
+public function layout(): iterable
+{
+    return [
+        Layout::modal('taskModal', Layout::rows([
+            Input::make('task.name')
+                -&gt;title('Name')
+                -&gt;placeholder('Enter task name')
+                -&gt;help('The name of the task to be created.'),
+        ]))
+            -&gt;title('Create Task')
+            -&gt;applyButton('Add Task'),
+    ];
+}
+</code></pre>
+<p>This will create a modal window with the title &quot;Create Task&quot;. The modal will contain an input field for the task name, with the label &quot;Name&quot;.</p>
+<h3><a href='#launch-modal' id='launch-modal'>Launch Modal</a></h3>
+<p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the layouts method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
+<p>To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the <code>commandBar</code> method of the screen class, which defines the basic actions that are available on the screen.</p>
+<p>To add a button that calls the modal window, we can update the <code>commandBar</code> method as follows:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
+
+/**
+ * The screen's action buttons.
+ *
+ * @return \Orchid\Screen\Action[]
+ */
+public function commandBar(): iterable
+{
+    return [
+        ModalToggle::make('Add Task')
+            -&gt;modal('taskModal')
+            -&gt;method('create')
+            -&gt;icon('plus'),
+    ];
+}
+</code></pre>
+<p>This will create a button with the label &quot;Add Task&quot; and an icon of a plus sign.
+When the button is clicked, it will open the <code>taskModal</code> modal window, and when clicked again, it will close the modal.</p>
+<p>In the following sections, we will go over the details of how to define the <code>create</code> method and control the behavior of the button.</p>
+<h3><a href='#creating-the-task' id='creating-the-task'>Creating The Task</a></h3>
+<p>To handle the submission of the modal window form, we will need to define a method that will be called when the form is sent to the server. This method can be used to validate the form data, save the new task to the database, and perform any other necessary actions.</p>
+<p>To define the method that will be called when the form is submitted, we can update the screen class as follows:</p>
+<pre><code class="language-php">use App\Models\Task;
+use Illuminate\Http\Request;
+
+/**
+ * @param \Illuminate\Http\Request $request
+ *
+ * @return void
+ */
+public function create(Request $request)
+{
+    // Validate form data, save task to database, etc.
+
+    $request-&gt;validate([
+        'task.name' =&gt; 'required|max:255',
+    ]);
+
+    $task = new Task();
+    $task-&gt;name = $request-&gt;input('task.name');
+    $task-&gt;save();
+}
+</code></pre>
+<p>Great! We can now successfully create tasks. Next, let&rsquo;s continue adding to our screen by building a list of all existing tasks.</p>
+<h3><a href='#displaying-existing-tasks' id='displaying-existing-tasks'>Displaying Existing Tasks</a></h3>
+<p>The query method specifies what data should be shown on the screen.
+This data can be collected or generated within the method. The data is returned in an array,</p>
+<p>Let&rsquo;s return a simple sample with the key <code>tasks</code>:</p>
+<pre><code class="language-php">use App\Models\Task;
+
+/**
+ * Fetch data to be displayed on the screen.
+ *
+ * @return array
+ */
+public function query(): iterable
+{
+    return [
+        'tasks' =&gt; Task::latest()-&gt;get(),
+    ];
+}
+</code></pre>
+<p>Once the data is passed, we can spin through the tasks in our layouts and display them in a table.</p>
+<p>To create the task list, we will need to define a new layout for the screen. This layout will use a table component to display the list of tasks, and will include columns for the task name and actions.</p>
+<p>To define the task list layout, we can update the layouts method of the screen class as follows:</p>
+<pre><code class="language-php">/**
+ * The screen's layout elements.
+ *
+ * @return \Orchid\Screen\Layout[]|string[]
+ */
+public function layout(): iterable
+{
+    return [
+        Layout::table('tasks', [
+            TD::make('name'),
+        ]),
+
+        Layout::modal('taskModal', Layout::rows([
+            Input::make('task.name')
+                -&gt;title('Name')
+                -&gt;placeholder('Enter task name')
+                -&gt;help('The name of the task to be created.'),
+        ]))
+            -&gt;title('Create Task')
+            -&gt;applyButton('Add Task'),
+    ];
+}
+</code></pre>
+<p>The first argument points to the <code>tasks</code> key that we specified in the <code>query</code> method. It is this set that will be passed to the table.
+And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.</p>
+<p>Our task application is almost complete. But, we have no way to delete our existing tasks when they&rsquo;re done. Let&rsquo;s add that next!</p>
+<h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
+<h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding The Delete Button</a></h3>
+<p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
+<pre><code class="language-php">Layout::table('tasks', [
+    TD::make('name'),
+
+    TD::make('Actions')
+        -&gt;alignRight()
+        -&gt;render(function (Task $task) {
+            return Button::make('Delete Task')
+                -&gt;confirm('After deleting, the task will be gone forever.')
+                -&gt;method('delete', ['task' =&gt; $task-&gt;id]);
+        }),
+]),
+</code></pre>
+<h3><a href='#deleting-the-task' id='deleting-the-task'>Deleting The Task</a></h3>
+<p>To delete a task, we will need to add a method to the screen class that handles the deletion of the task. This method can be called when the delete button is clicked, and can be used to delete the task from the database:</p>
+<pre><code class="language-php">/**
+ * @param \Illuminate\Http\Request $request
+ *
+ * @return void
+ */
+public function delete(Task $task)
+{
+    $task-&gt;delete();
+}
+</code></pre>
+<p>Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.</p>
+<p>To learn more about the capabilities of Orchid screens, we recommend visiting the <a href="/en/docs/screens">Screens</a>section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.</p>
+<p>We hope you find this tutorial useful and wish you the best of luck with your Orchid projects!</p>
 
                     </main>
                 </div>
