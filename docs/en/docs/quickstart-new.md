@@ -399,11 +399,10 @@ public function query(): iterable
 
 Once the data is passed, we can spin through the tasks in our layouts and display them in a table.
 
-To create the task list, we will need to define a new layout for the screen. This layout will use a table component to display the list of tasks, and will include columns for the task name, status, and actions.
+To create the task list, we will need to define a new layout for the screen. This layout will use a table component to display the list of tasks, and will include columns for the task name and actions.
 
 To define the task list layout, we can update the layouts method of the screen class as follows:
 
-...
 
 ```php
 /**
