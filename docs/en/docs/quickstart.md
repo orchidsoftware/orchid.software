@@ -477,4 +477,4 @@ Congratulations on completing the tutorial! You should now have a good understan
 
 To learn more about the capabilities of Orchid screens, we recommend visiting the [Screens](/en/docs/screens)section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.
 
-We hope you find this tutorial useful and wish you the best of luck with your Orchid projects!
+We hope you find this tutorial useful and recommends that you also explore the [following lessons available at the link](/en/docs/quickstart-crud).
