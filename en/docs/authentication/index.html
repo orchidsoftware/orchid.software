@@ -364,27 +364,23 @@
                     <a href="#guard">Guard</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#personalization">Personalization</a>
+                    <a href="#customizing-the-authentication-process">Customizing the Authentication Process</a>
                 </li>
                     </ul>
     </div>
                         <h2><a href='#guard' id='guard'>Guard</a></h2>
-<p>When your application needs to provide different types of users, e.g. customers and sellers who have their authentication portals, then the package will support you. You can use a configuration file to configure Orchid to work with a specific type.
-To do this, change the value of <code>guard</code> in the file <code>config/platform.php</code>:</p>
+<p>Orchid provides support for different types of users (e.g. customers and sellers) who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the <code>guard</code> option in the <code>config/platform.php</code> configuration file:</p>
 <pre><code class="language-php">'guard' =&gt; 'sellers',
 </code></pre>
-<p>Note that <code>sellers</code> must already be available in Laravel&rsquo;s <a href="https://github.com/laravel/laravel/blob/9.x/config/auth.php">authentication guards list</a>.</p>
-<h2><a href='#personalization' id='personalization'>Personalization</a></h2>
-<p>User authorization issues are outside the scope of the package. Because the needs can be completely different, from using email or the user&rsquo;s phone.
-Using one-time passwords and sending them by email, etc.</p>
-<p>You can write your authorization controllers following the <a href="https://laravel.com/docs/authentication">Laravel documentation</a>, but before you do that, it&rsquo;s highly advisable to disable the orchid login page. To do this, go to the <code>config/platform.php</code> configuration file and set the value for <code>auth</code>:</p>
+<p>Keep in mind that the value of <code>guard</code> must be one of the authentication guards listed in Laravel&rsquo;s <a href="https://github.com/laravel/laravel/blob/9.x/config/auth.php">authentication configuration</a>.</p>
+<h2><a href='#customizing-the-authentication-process' id='customizing-the-authentication-process'>Customizing the Authentication Process</a></h2>
+<p>The package does not provide any specific implementation of user authentication. The needs of different applications can vary significantly, from using email or phone numbers for authentication to sending one-time passwords by email.</p>
+<p>To customize the authentication process, you can write your own controllers following the guidelines in the <a href="https://laravel.com/docs/authentication">Laravel documentation</a>. Before doing so, it is recommended to disable the built-in login page provided by Orchid. To do this, set the auth option in the config/platform.php configuration file to <code>false</code>:</p>
 <pre><code class="language-php">'auth' =&gt; false,
 </code></pre>
-<p>This will completely remove the availability of the built-in authorization routes and you can write your own.</p>
+<p>This will remove the availability of the built-in authorization routes and allow you to write your own</p>
 <blockquote>
-<p><strong>Note.</strong>  By default, the package has only the simplest login form with only email and password fields.
-If you need features like recovery, registration, and 2FA with a one-time password algorithm based on time, consider using the <a href="https://github.com/orchidsoftware/fortify">Fortify theme</a>,
-which relies entirely on <a href="https://laravel.com/docs/fortify">Laravel Fortify</a>.</p>
+<p><strong>Note:</strong> The built-in login page provided by Orchid has only the most basic functionality, with email and password fields. If you need more advanced features such as password recovery, registration, and 2FA with time-based one-time password algorithms, consider using the <a href="https://github.com/orchidsoftware/fortify">Fortify theme</a>, which is based on <a href="https://laravel.com/docs/fortify">Laravel Fortify</a>.</p>
 </blockquote>
 
                     </main>
