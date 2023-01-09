@@ -264,10 +264,10 @@ Route::screen('task', TaskScreen::class)
 
 ### Adding Window Modal
 
-To display elements on the workspace, we will need to define them in the `layouts` method of the screen class. 
-The `layouts` method is responsible for returning an array of layout definitions, which define the structure and content of the page.
+To display elements on the workspace, we will need to define them in the `layout` method of the screen class. 
+The `layout` method is responsible for returning an array of layout definitions, which define the structure and content of the page.
 
-To add a modal window with an input field for the task name, we can update the `layouts` method as follows:
+To add a modal window with an input field for the task name, we can update the `layout` method as follows:
 
 
 ```php
@@ -298,7 +298,7 @@ This will create a modal window with the title "Create Task". The modal will con
 
 ### Launch Modal
 
-If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the layouts method. This is because the modal is hidden by default, and must be called in order to be displayed.
+If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the `layout` method. This is because the modal is hidden by default, and must be called in order to be displayed.
 
 To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the `commandBar` method of the screen class, which defines the basic actions that are available on the screen.
 
