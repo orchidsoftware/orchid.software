@@ -1,7 +1,9 @@
 ---
-title: Quick Start (Early version)
+title: Quick Start
 description: The Quick Start Guide is a basic introduction to the Orchid infrastructure.
 ---
+
+> **You're reading a version that was in the past.** It is still up-to-date, [but we have created a newer version that is even better for beginners](/en/docs/quickstart). 
 
 
 Admin panels are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data. In this quick tutorial, we'll learn how to create screens and use form elements by creating a simple utility for sending emails.
