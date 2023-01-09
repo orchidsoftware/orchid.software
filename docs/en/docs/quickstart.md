@@ -84,7 +84,6 @@ php artisan make:model Task
 In the `app/Models` directory, a new file `Task.php` will be created, we will describe the fields as available for filling:
 
 ```php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
