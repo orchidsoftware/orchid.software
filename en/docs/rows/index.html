@@ -364,13 +364,12 @@
                     <a href="#accessing-screen-data">Accessing screen data</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#reuse-layers">Reuse Layers</a>
+                    <a href="#reusing-layouts">Reusing Layouts</a>
                 </li>
                     </ul>
     </div>
-                        <p>The line layout serves as the minimum set that is most often used.
-Its purpose is to combine all the necessary elements of forms.</p>
-<p>The Rows support short writing without creating a separate class, for example, when you want to show one or two fields.</p>
+                        <p>The <code>Row</code> layout serves as a basic layout that combines all the necessary elements of a form. It is useful for creating short and concise forms, such as when you want to show one or two fields.</p>
+<p>Here is an example of how to use the <code>Row</code> layout:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Fields\Input;
 
@@ -385,10 +384,10 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>For reuse, you can create a class by running the command:</p>
+<p>To make the <code>Row</code> layout more reusable, you can create a custom class by running the following command:</p>
 <pre><code class="language-php">php artisan orchid:rows Appointment
 </code></pre>
-<p>In the directory <code>app/Orchid/Layouts</code>, a new class will be created where the fields can be defined:</p>
+<p>This will create a new class in the <code>app/Orchid/Layouts</code> directory where you can define your fields:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -420,7 +419,7 @@ class Appointment extends Rows
     }
 }
 </code></pre>
-<p>To use such a class in the screen, pass its name in the <code>layouts</code> method:</p>
+<p>To use the custom <code>Row</code> class in a screen, pass the class name in the <code>layout</code> method:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -428,8 +427,12 @@ class Appointment extends Rows
     ];
 }
 </code></pre>
+<blockquote>
+<p><strong>Note</strong> that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may want to consider using other layout types such as <code>Tabs</code> or <code>Accordion</code>.</p>
+</blockquote>
 <h2><a href='#accessing-screen-data' id='accessing-screen-data'>Accessing screen data</a></h2>
-<p>Every time a layer is displayed, it is passed data from the screen to use its data through the <code>query</code> property. For example:</p>
+<p>The <code>Row</code> layout has access to data from the screen through the <code>query</code> property. This allows you to use data from the screen in the fields of the Row layout.</p>
+<p>For example, you can use the <code>query</code> property to conditionally show or hide a field based on the presence of a specific key:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Field;
@@ -453,7 +456,7 @@ class Appointment extends Rows
     }
 }
 </code></pre>
-<p>If the screen&rsquo;s <code>query</code> method returns the specified key, then the field will be displayed:</p>
+<p>In this example, the <code>appointment_time</code> field will only be displayed if the screen&rsquo;s <code>query</code> method returns <code>true</code> for the <code>available</code> key:</p>
 <pre><code class="language-php">/**
  * Query data
  *
@@ -466,15 +469,15 @@ public function query() : array
     ];
 }
 </code></pre>
-<p>In addition to a simple check, you can also get a value:</p>
+<p>You can also use the <code>query</code> method to retrieve a specific value from the screen data:</p>
 <pre><code class="language-php">$this-&gt;query-&gt;get('available');
 </code></pre>
-<p>Access is also available through dot-notation:</p>
+<p>The <code>query</code> method also supports dot notation for accessing nested data:</p>
 <pre><code class="language-php">$this-&gt;query-&gt;get('user.name');
 </code></pre>
-<h2><a href='#reuse-layers' id='reuse-layers'>Reuse Layers</a></h2>
-<p>Layouts are easy to reuse when fields are related to the relations of different models. During installation, we have a layer for defining permissions, which is used immediately at the user and roles editing screen. But sometimes you want to apply the same set of fields with different values. Let&rsquo;s consider an example when you need to specify an address.</p>
-<p>Such a set will be both for the client, the customer, and it will appear twice on the same form (for example, in order, delivery and invoice). To solve this situation, you do not need to create and describe almost identical layouts. Instead, let&rsquo;s add logic to one single layer.</p>
+<h2><a href='#reusing-layouts' id='reusing-layouts'>Reusing Layouts</a></h2>
+<p>Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.</p>
+<p>Here is an example of a reusable <code>AddressLayout</code> class that takes a prefix and title as arguments:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Illuminate\Support\Str;
@@ -485,14 +488,14 @@ use Orchid\Screen\Layouts\Rows;
 class AddressLayout extends Rows
 {
     /**
-     * Used to create the title of a group of form elements.
+     * The title of the group of form elements.
      *
      * @var string|null
      */
     protected $title;
 
     /**
-     * Prefix for a field name
+     * Prefix for a field name.
      *
      * @var string
      */
@@ -511,7 +514,7 @@ class AddressLayout extends Rows
     }
 
     /**
-     * Get the fields elements to be displayed.
+     * Get the fields to be displayed.
      *
      * @return Field[]
      */
@@ -526,6 +529,8 @@ class AddressLayout extends Rows
     }
 
     /**
+     * Add the prefix to each field name.
+     *
      * @param Field[] $fields
      *
      * @return array
@@ -540,7 +545,7 @@ class AddressLayout extends Rows
     }
 }
 </code></pre>
-<p>Now, when used, we will pass the prefix and header values:</p>
+<p>To use the <code>AddressLayout</code> class, pass the prefix and title values as arguments:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -551,6 +556,7 @@ class AddressLayout extends Rows
     ];
 }
 </code></pre>
+<p>This allows you to reuse the same layout with different prefixes and titles, saving time and effort in the process.</p>
 
                     </main>
                 </div>
