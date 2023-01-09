@@ -3,14 +3,16 @@ title: Form elements
 description: Learn how to use Orchid's form elements to create custom forms and user inputs in your Laravel administration application. Improve the user experience and streamline data collection with Orchid's intuitive form builder.
 ---
 
-Fields are used to generate the output of the fill and edit form template.
+
+Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.
+
 
 > Feel free to add your fields, for example, to use the convenient editor for you or any components.
 
 
 ## Input
 
-It is one of the versatile form elements and allows you to create different parts of the interface and provide interaction with the user. Mainly designed to create text fields.
+Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:
 
 ![Input](/img/fields/input.png)
  
@@ -24,35 +26,34 @@ Input::make('name');
 
 ### Design
 
-Empty and expressionless input fields can confuse the user,
-but you can help by specifying a title.
+Empty and expressionless input fields can confuse the user, but you can help by specifying a title. The title should be a short and descriptive label that clearly communicates the purpose of the field. Here is an example of how to add a title to an input field:
 
 ```php
 Input::make('name')
     ->title('First name');
 ```
 
-When you need to describe the purpose of the field in more detail,
-then you can use the hint:
+If you need to provide additional context or instructions for the field, you can use the `help` method to add a hint or brief description. The hint should be a short and concise message that helps the user understand the purpose or format of the field. Here is an example of how to add a hint to an input field:
 
 ```php
 Input::make('name')
     ->help('What is your name?');
 ```
 
-If the field description is very specific and a large description is required,
-You can use the tooltip that will be shown as a popup:
+If the field requires a more detailed explanation or guidance, you can use the `popover` method to add a tooltip that will be displayed as a pop-up when the user hovers over the field. The tooltip should provide additional information or instructions that help the user complete the field correctly. Here is an example of how to add a tooltip to an input field:
 
 ```php
 Input::make('name')
     ->popover('Tooltip - hint that user opens himself.');
 ```
 
-Horizontal or vertical view:
+By default, form elements are displayed in a horizontal layout, with the label and input field side by side. However, you can change the layout to a vertical arrangement by using the `vertical()` method:
 
 ```php
 Input::make('name')->vertical();
 ```
+
+If you prefer the horizontal layout, you can use the `horizontal()` method to restore it:
 
 ```php
 Input::make('name')->horizontal();
@@ -60,8 +61,7 @@ Input::make('name')->horizontal();
 
 ### Required
 
-Sometimes you may need to specify a required field,
-to do this, call the `required` method:
+Sometimes you may need to specify that a field is required, meaning that the user must enter a value in the field before they can submit the form. To mark a field as required, you can use the `required()` method:
 
 ```php
 Input::make('name')
@@ -69,23 +69,32 @@ Input::make('name')
     ->required();
 ```
 
+You can also use the `required()` method on other types of form elements, such as select, radio buttons, and checkboxes.
+
 
 ### Hiding
 
+There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the `canSee()` method and pass a value of false:
+
 ```php
 Input::make('name')->canSee(true);
+```
+
+If you want to show a previously hidden form element, you can use the canSee() method and pass a value of true:
+
+```php
 Input::make('name')->canSee(false);
 ```
+
 
 > Note that many methods, such as `canSee`, `required`, `title`, `help`, `vertical`, `horizontal` and many others, are available in almost every `field` of the system.
 
 ### Types
  
-One of the most universal fields, by specifying a type, all `html` values are supported:
 
-> **Please note**. Support for the new HTML5 attributes is completely dependent on the browser used.
+One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
 
-Text field. Designed to enter characters using the keyboard.
+
 ```php
 Input::make('name')->type('text');
 ```
@@ -125,22 +134,22 @@ To specify web addresses.
 Input::make('name')->type('url');
 ```
 
-You can learn more about attribute types at [Mozilla's website](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
+> **Please note**. Please note that support for new HTML5 attributes such as `color` and `range` is dependent on the browser being used. You can learn more about attribute types at [Mozilla's website](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
 
 
-
-### Mask for entering values
+### Mask for Entering Values
  
-Great if the values should be written in a standard form, such as TIN or phone number
+A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number of decimal places.
 
-Example:
+To use a mask with an input field, you can use the `mask()` method and pass a string that defines the format of the input. The string should contain placeholders for the allowed characters and any fixed characters that should be included. Here is an example of using a mask to enforce a standard phone number format:
+
 ```php
 Input::make('phone')
     ->mask('(999) 999-9999')
     ->title('Phone number');
 ```   
 
-An array with parameters can be passed to the mask, for example:
+You can also pass an array of options to the `mask()` method to customize the behavior of the mask. For example, you can use the `numericInput` option to specify that only numeric characters should be accepted:
 
 ```php
 Input::make('price')
@@ -150,6 +159,8 @@ Input::make('price')
      'numericInput' => true
     ]);
 ```   
+
+You can also use the `alias` option to use a predefined mask, such as `currency`, which automatically formats the input as a currency value:
 
 ```php
 Input::make('price')
@@ -162,34 +173,39 @@ Input::make('price')
     ]);
 ```   
 
-All available *Inputmask* options can be viewed [here](https://github.com/RobinHerbots/Inputmask#options).
+You can view all of the available options for the Inputmask library [here](https://github.com/RobinHerbots/Inputmask#options).
 
 
        
 ## TextArea
 
-The `textarea` field is a form element for creating an area into which multiple lines of text can be entered.
-In contrast to the `input` tag, it is permissible to do line breaks in the text field, they are saved when sending data to the server.
+The `textarea` field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.
 
-Example:
+To create a `textarea` field, you can use the `TextArea` class:
+
 ```php
 TextArea::make('description');
 ```    
 
-You can set the required number of rows using the `rows` method:
+By default, the `textarea` field will expand to fit the amount of text that is entered. However, you can use the `rows` method to specify a minimum number of rows:
 
 ```php
 TextArea::make('description')
     ->rows(5);
 ```
 
+This can be useful for providing a clear visual indication of the amount of text that is expected.
+
+As with other form elements, you can use methods such as `title()`, `help()`, and `popover()` to add additional context and guidance for the user. You can also use the `required()` method to mark the textarea field as `required` and the `canSee()` method to show or hide the field.
+
  
 ## CheckBox
 
-A graphical user interface element that allows the user to control a parameter with two states - ☑ on and ☐ off.
+A checkbox is a graphical user interface element that allows the user to control a parameter with two states - checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.
+
+To create a checkbox field, you can use the `CheckBox` class:
 
 
-Example:
 ```php
 CheckBox::make('free')
     ->value(1)
@@ -198,16 +214,24 @@ CheckBox::make('free')
     ->help('Event for free');
 ```    
 
-By default, browsers do not send the value of an unselected field. This complicates the installation of simple Boolean types. To solve this, there is a separate method in which the value `false` will be sent:
+
+The `value` attribute determines the value that will be sent to the server when the checkbox is checked. The `title` attribute provides a label for the checkbox, and the `placeholder` attribute can be used to provide a default value or a short description. The `help` attribute can be used to provide additional context or instructions for the user.
+
+By default, browsers do not send the value of an unchecked checkbox when the form is submitted. This can make it difficult to use checkboxes with simple Boolean values. To solve this problem, you can use the `sendTrueOrFalse()` method, which will send the value `false` to the server when the checkbox is unchecked:
+
 
 ```php
 CheckBox::make('enabled')
     ->sendTrueOrFalse();
 ```
 
+This can be useful for ensuring that the server receives a clear indication of the state of the checkbox.
+
 ## Select
 
-Simple selection from an array list:
+The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for presenting a limited set of options and allowing the user to make a selection.
+
+To create a select field, you can use the `Select` class:
 
 ```php
 Select::make('select')
@@ -219,26 +243,37 @@ Select::make('select')
     ->help('Allow search bots to index');
 ```
 
-Work with a source model:
+The `options` attribute is an array that defines the options that will be presented in the dropdown list. The keys of the array are the values that will be sent to the server, and the values are the labels that will be displayed to the user.
+
+In addition to using an array of options, you can also use a data source to populate the options of a select field. For example, you can use a model to retrieve the options:
 
 ```php
 Select::make('user')
     ->fromModel(User::class, 'email');
 ```
 
-Source with the condition:
+This will retrieve all records from the `User` model and use the email field as the label for each option. You can also use a custom query to retrieve the options:
+
 ```php
 Select::make('user')
     ->fromQuery(User::where('balance', '!=', '0'), 'email');
 ```
 
-Key change:
+This will retrieve all records from the `User` model where the `balance` field is not equal to `0`, and use the `email` field as the label for each option.
+
+You can also specify a different field to use as the key for each option using the `fromModel()` and `fromQuery()` methods:
+
+
 ```php
 Select::make('user')
     ->fromModel(User::class, 'email', 'uuid');
 ```
 
-There may be situations when you need to add some value, which means that the field is not selected. To do this, you can use the `empty` method:
+
+This will use the `uuid` field as the key for each option, rather than the default primary key.
+
+If you want to provide an option that represents an unselected state, you can use the `empty()` method:
+
 ```php
 // For array
 Select::make('user')
@@ -454,14 +489,14 @@ Default value / result is an array with keys of `start`, `end`.
 
 ## TimeZone
 
+The `TimeZone` field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.
 
-Field for convenient time zone selection:
 
 ```php
 TimeZone::make('time');
 ```
 
-Specification of specific time zones is possible using:
+This will create a dropdown list of all available time zones. You can also specify a specific set of time zones to include in the list using the `listIdentifiers()` method:
 
 ```php
 use DateTimeZone;
@@ -470,7 +505,7 @@ TimeZone::make('time')
     ->listIdentifiers(DateTimeZone::ALL); 
 ```
 
-The default value is `DateTimeZone::ALL`, but others are possible:
+The `listIdentifiers()` method takes a constant from the DateTimeZone class as an argument. The default value is `DateTimeZone::ALL`, which includes all available time zones. Other possible values are:
 
 ```php
 DateTimeZone::AFRICA;
@@ -550,13 +585,15 @@ document.addEventListener('orchid:quill', (event) => {
 
 ## Markdown Editor
    
-Editor for the lightweight markup language. Created with the goal of writing the most readable and easy to edit text.  But suitable for converting into languages for advanced publications.
- 
+
+The Markdown Editor field is a form element that allows the user to write and edit text using the lightweight markup language Markdown. It is designed to be easy to read and write, making it ideal for writing content that will be published on the web. The Markdown Editor field also has the ability to convert text into advanced languages for more advanced publications.
 
 ![Markdown](/img/ui/markdown.png)
 ![Markdown2](/img/ui/markdown2.png)
 
-Example:
+To create a Markdown Editor field, you can use the `SimpleMDE` class:
+
+
 ```php
 SimpleMDE::make('markdown');
 ```  
