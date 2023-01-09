@@ -361,32 +361,33 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#uploading-a-file-via-the-http">Uploading a file via the HTTP</a>
+                    <a href="#uploading-a-file-via-http">Uploading a File via HTTP</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#uploading-a-file-via-the-console">Uploading a file via the console</a>
+                    <a href="#uploading-a-file-via-the-console">Uploading a File via the Console</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#duplicate-uploaded-files">Duplicate uploaded files</a>
+                    <a href="#duplicate-uploaded-files">Duplicate Uploaded Files</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#allow-duplicate-files">Allow duplicate files</a>
+                    <a href="#allowing-duplicate-files">Allowing Duplicate Files</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#upload-path">Upload path</a>
+                    <a href="#customizing-the-upload-path">Customizing the Upload Path</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#remove">Remove</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#default-configuration">Default configuration</a>
+                    <a href="#default-configuration">Default Configuration</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#event-subscription">Event subscription</a>
                 </li>
                     </ul>
     </div>
-                        <p>Files of various formats and extensions related to the recording are attachments. Them can be attached to any model via links. For this, you need to add a trait:</p>
+                        <p>Attachments are files of various formats and extensions related to a recording. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachment()</code> relationship.</p>
+<p>For example, to attach files to a <code>Hostel</code> model:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -398,13 +399,12 @@ class Hostel extends Model
     //
 }
 </code></pre>
-<p>After that we can add and receive its attachments, for example:</p>
+<p>To retrieve the attachments for a particular hostel, you can use the <code>attachment()</code> relationship:</p>
 <pre><code class="language-php">$item = Hostel::find(42);
 $item-&gt;attachment()-&gt;get();
 </code></pre>
-<h2><a href='#uploading-a-file-via-the-http' id='uploading-a-file-via-the-http'>Uploading a file via the HTTP</a></h2>
-<p>You already have a route for downloading files (unless, of course, access to it is allowed)</p>
-<p>An example of a controller method:</p>
+<h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
+<p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller method that handles file uploads:</p>
 <pre><code class="language-php">use Orchid\Attachment\File;
 
 public function upload(Request $request)
@@ -415,7 +415,8 @@ public function upload(Request $request)
     return response()-&gt;json()
 }
 </code></pre>
-<p>It will automatically upload your file to the default repository (<code>public</code>) and create an entry in the database.</p>
+<p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the database.</p>
+<p>To retrieve the URL of an attachment, you can use the <code>url()</code> method:</p>
 <pre><code class="language-php">$image = $item-&gt;attachment()-&gt;first();
 
 // Get the URL of the file
@@ -424,8 +425,8 @@ $image-&gt;url();
 <blockquote>
 <p><strong>Note.</strong> The <code>url()</code> method will first check for the path existence, and then get the URL. When using external storage like <code>s3</code>, this will make two calls. To improve performance you can use the <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve performance. You can also simply override this method and adjust to your needs.</p>
 </blockquote>
-<h2><a href='#uploading-a-file-via-the-console' id='uploading-a-file-via-the-console'>Uploading a file via the console</a></h2>
-<p>Sometimes the necessary files are already on the server, then you can use the following to upload to the desired storage:</p>
+<h2><a href='#uploading-a-file-via-the-console' id='uploading-a-file-via-the-console'>Uploading a File via the Console</a></h2>
+<p>Sometimes the necessary files are already on the server, and you can use the following code to upload them to the desired storage:</p>
 <pre><code class="language-php">use Illuminate\Http\UploadedFile;
 use Orchid\Attachment\File;
 
@@ -433,12 +434,12 @@ $file = new UploadedFile($path, $originalName);
 
 $attachment = (new File($file))-&gt;load();
 </code></pre>
-<h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate uploaded files</a></h2>
-<p>Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file, allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
-<h3><a href='#allow-duplicate-files' id='allow-duplicate-files'>Allow duplicate files</a></h3>
-<p>In some situation you might want to keep the duplicate files ( files that has the same hash ), different links are generated to request different physical files . The file will be deleted when the link is destroyed .
-you can allow duplicate files using the <code>allowDuplicate()</code> method :</p>
+<h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate Uploaded Files</a></h2>
+<p>Thanks to the use of hashes, attachments are not uploaded again if they already exist in the storage. Instead, a link is created in the database to the existing physical file, allowing for efficient use of resources. The file will only be deleted when all links to it are destroyed.</p>
+<h3><a href='#allowing-duplicate-files' id='allowing-duplicate-files'>Allowing Duplicate Files</a></h3>
+<p>In some situations, you might want to keep duplicate files (files that have the same hash) and generate different links to request different physical files. The file will be deleted when the link is destroyed. To allow duplicate files, you can use the <code>allowDuplicates()</code> method:</p>
 <pre><code class="language-php">use Orchid\Attachment\File;
+
 public function upload(Request $request)
 {
     $file = new File($request-&gt;file('photo'));
@@ -446,9 +447,10 @@ public function upload(Request $request)
     return response()-&gt;json()
 }   
 </code></pre>
-<h2><a href='#upload-path' id='upload-path'>Upload path</a></h2>
-<p>Orchid Platform has a default upload path for all files which is the following <code>Y/m/d</code> example : <code>2022/06/11</code> , you can change the default path using the <code>path(string $path)</code> method:</p>
+<h2><a href='#customizing-the-upload-path' id='customizing-the-upload-path'>Customizing the Upload Path</a></h2>
+<p>By default, Orchid has a default upload path for all files of <code>Y/m/d</code>, for example: <code>2022/06/11</code>. You can change the default path using the <code>path(string $path)</code> method:</p>
 <pre><code class="language-php">use Orchid\Attachment\File;
+
 public function upload(Request $request)
 {
     $path = &quot;photos&quot;
@@ -502,7 +504,7 @@ public function hero()
     Post::observe(PostObserver::class);
 }
 </code></pre>
-<h2><a href='#default-configuration' id='default-configuration'>Default configuration</a></h2>
+<h2><a href='#default-configuration' id='default-configuration'>Default Configuration</a></h2>
 <p>By default, each file uploaded follows the strategy described in <code>config/platform.php</code>:</p>
 <pre><code class="language-php">/*
 |--------------------------------------------------------------------------
@@ -519,8 +521,8 @@ public function hero()
 ],
 </code></pre>
 <ul>
-<li><p><strong>disk</strong> &ndash; storage name used to store files. The entire settings of which should be defined in <code>/config/filesystems.php</code>.</p></li>
-<li><p><strong>generator</strong> &ndash; a class that defines how the uploaded files will be named and in which directories they will be located and how to avoid duplicating them.</p></li>
+<li><p><strong>disk</strong> &ndash; The name of the storage used to store files. The entire settings for the storage should be defined in <code>/config/filesystems.php</code>.</p></li>
+<li><p><strong>generator</strong> &ndash; A class that defines how the uploaded files will be named, in which directories they will be located, and how to avoid duplicating them.</p></li>
 </ul>
 <h2><a href='#event-subscription' id='event-subscription'>Event subscription</a></h2>
 <p>Different file processing options may require additional processing, such as video compression, This is possible thanks to an event that you can subscribe to using standard tools and perform a task in the background:</p>
