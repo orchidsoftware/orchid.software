@@ -58,4 +58,4 @@ Layout::legend('user', [
 ]),
 ```
 
-Blade components work in a similar way to those used in the [Table](/en/docs/table) layout. You can find more examples and information about using Blade components [here]((https://laravel.com/docs/blade#components)).
+Blade components work in a similar way to those used in the [Table](/en/docs/table) layout. You can find more examples and information about using Blade components [here](https://laravel.com/docs/blade#components).
