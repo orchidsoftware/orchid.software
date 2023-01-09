@@ -609,9 +609,9 @@ Route::screen('task', TaskScreen::class)
 </code></pre>
 <h2><a href='#adding-tasks' id='adding-tasks'>Adding Tasks</a></h2>
 <h3><a href='#adding-window-modal' id='adding-window-modal'>Adding Window Modal</a></h3>
-<p>To display elements on the workspace, we will need to define them in the <code>layouts</code> method of the screen class.
-The <code>layouts</code> method is responsible for returning an array of layout definitions, which define the structure and content of the page.</p>
-<p>To add a modal window with an input field for the task name, we can update the <code>layouts</code> method as follows:</p>
+<p>To display elements on the workspace, we will need to define them in the <code>layout</code> method of the screen class.
+The <code>layout</code> method is responsible for returning an array of layout definitions, which define the structure and content of the page.</p>
+<p>To add a modal window with an input field for the task name, we can update the <code>layout</code> method as follows:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Layout;
 
@@ -636,7 +636,7 @@ public function layout(): iterable
 </code></pre>
 <p>This will create a modal window with the title &quot;Create Task&quot;. The modal will contain an input field for the task name, with the label &quot;Name&quot;.</p>
 <h3><a href='#launch-modal' id='launch-modal'>Launch Modal</a></h3>
-<p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the layouts method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
+<p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the <code>layout</code> method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
 <p>To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the <code>commandBar</code> method of the screen class, which defines the basic actions that are available on the screen.</p>
 <p>To add a button that calls the modal window, we can update the <code>commandBar</code> method as follows:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
