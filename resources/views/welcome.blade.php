@@ -111,7 +111,7 @@
                         <ul class="d-table mx-auto p-0">
                             <li>Various Interface Elements</li>
                             <li>Support for right-to-left text</li>
-                            <li>Form builder</li>
+                            <li>Form Builder</li>
                             <li>Localization</li>
                         </ul>
                     </div>
