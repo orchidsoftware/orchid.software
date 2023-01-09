@@ -5,12 +5,18 @@ description: Learn how to use Laravel Orchid's layer functionality to group and 
 
 ## Accordion
 
-Accordions are useful when you want to switch between hiding and displaying a lot of content:
+
+Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.
+
+Here is an example of an accordion:
 
 ![Accordion](/img/layouts/accordion.png)
 
-Accordions support short syntax by calling a static method,
-which does not require creating a separate class:
+To create an accordion in Orchid, you can use the `Layout::accordion()` method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.
+
+Here is an example of how to create an accordion using the short syntax:
+
+
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -46,9 +52,9 @@ public function layout(): array
 }
 ```
 
-Keys will be used as headers.
+In the example above, the accordion has two panels: "Personal Information" and "Billing Address". The content of each panel is specified as an array of rows created using the `Layout::rows()` method.
 
-Please note that you can specify the lowercase name of the class as values:
+You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:
 
 ```php
 public function layout(): array
@@ -64,12 +70,15 @@ public function layout(): array
 
 ## Columns
 
-Columns are useful when you need to group content.
+Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.
+
+Here is an example of columns:
 
 ![Columns](/img/layouts/columns.png)
 
-Columns support short syntax by calling a static method,
-which does not require creating a separate class:
+To create columns in Orchid, you can use the `Layout::columns()` method. This method accepts an array of content, which will be displayed in the columns.
+
+Here is an example of how to create columns using the short syntax:
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -84,6 +93,8 @@ public function layout(): array
     ];
 }
 ```
+
+In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.
 
 ## Tabs
 
