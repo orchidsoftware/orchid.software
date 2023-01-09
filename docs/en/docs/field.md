@@ -687,21 +687,21 @@ Example:
 Picture::make('picture');
 ```  
 
-Laravel filesystems are supported:
+You can specify the storage backend for the uploaded image using the `storage` method:
 
 ```php
 Picture::make('picture')
     ->storage('s3');
 ```
 
-Use the `acceptedFiles` method to define the types of files the field should accept, for example:
+Use the `acceptedFiles` method to define the types of files that the field should accept. This is done using unique [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
+
+For example, to only allow JPEG images, you can use the following code:
 
 ```php
 Picture::make('picture')
     ->acceptedFiles('.jpg');
 ```
-
-The string passed is a comma-separated list of [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
 
 
 
@@ -853,7 +853,7 @@ It will add a new button with a modal window to preview uploaded files.
 
 ## Group
 
-A group is used to combine several fields on one line.
+The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the `Group::make` method and pass an array of fields as the argument:
 
 ```php
 Group::make([
@@ -862,20 +862,19 @@ Group::make([
 ]),
 ```
 
-In order to determine the width of the fields, you must use one of the proposed methods.
+By default, fields within a Group field will occupy the entire available screen width. You can specify the width of the fields using the `fullWidth` or `autoWidth` methods:
 
-Fields will occupy the entire available screen width.
 ```php
+// Fields will occupy the entire available screen width
 Group::make([
     // ...
 ])->fullWidth();
-```
 
-Fields will take up as much space as necessary.
-```php
+// Fields will take up as much space as necessary
 Group::make([
     // ...
 ])->autoWidth();
+
 ```
 
 
