@@ -552,14 +552,6 @@ This method takes two arguments: the url of the screen, and the class name of th
 
 Route::screen('task', TaskScreen::class)-&gt;name('platform.task');
 </code></pre>
-<p>This will create a new route for the <code>task</code> screen, using the <code>TaskScreen</code> class as the handler for the route.
-Once the route is defined, the screen will be accessible to the user via the specified route.</p>
-<p>Like the controller, the screen needs to register in the route file.
-Define it in the file for the admin panel <code>routes/platform.php</code>:</p>
-<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
-
-Route::screen('task', TaskScreen::class)-&gt;name('platform.task');
-</code></pre>
 <p>Now that we have registered a new route for our screen, we can visit the screen in the browser by navigating to the corresponding URL. In this case, since we registered the route as <code>/admin/task</code>, we can visit the screen by going to <code>http://your-app.test/admin/task</code> in the browser.</p>
 <p>When you visit the screen for the first time, it will likely be empty, as we have not yet defined any content or layout for the page. To fill the screen with elements, we will need to define the data and events for the screen, and use them to render the content of the page.</p>
 <p>To add a name and description to our screen, we will need to update the <code>name</code> and <code>description</code> methods as follows:</p>
