@@ -876,15 +876,15 @@ DateTimeZone::PER_COUNTRY;
 <p>Example:</p>
 <pre><code class="language-php">Picture::make('picture');
 </code></pre>
-<p>Laravel filesystems are supported:</p>
+<p>You can specify the storage backend for the uploaded image using the <code>storage</code> method:</p>
 <pre><code class="language-php">Picture::make('picture')
     -&gt;storage('s3');
 </code></pre>
-<p>Use the <code>acceptedFiles</code> method to define the types of files the field should accept, for example:</p>
+<p>Use the <code>acceptedFiles</code> method to define the types of files that the field should accept. This is done using unique <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
+<p>For example, to only allow JPEG images, you can use the following code:</p>
 <pre><code class="language-php">Picture::make('picture')
     -&gt;acceptedFiles('.jpg');
 </code></pre>
-<p>The string passed is a comma-separated list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
 <h2><a href='#cropper' id='cropper'>Cropper</a></h2>
 <p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
 <p><img src="/img/fields/cropper.png" alt="Cropper" /></p>
@@ -976,22 +976,23 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 </code></pre>
 <p>It will add a new button with a modal window to preview uploaded files.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
-<p>A group is used to combine several fields on one line.</p>
+<p>The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the <code>Group::make</code> method and pass an array of fields as the argument:</p>
 <pre><code class="language-php">Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
 ]),
 </code></pre>
-<p>In order to determine the width of the fields, you must use one of the proposed methods.</p>
-<p>Fields will occupy the entire available screen width.</p>
-<pre><code class="language-php">Group::make([
+<p>By default, fields within a Group field will occupy the entire available screen width. You can specify the width of the fields using the <code>fullWidth</code> or <code>autoWidth</code> methods:</p>
+<pre><code class="language-php">// Fields will occupy the entire available screen width
+Group::make([
     // ...
 ])-&gt;fullWidth();
-</code></pre>
-<p>Fields will take up as much space as necessary.</p>
-<pre><code class="language-php">Group::make([
+
+// Fields will take up as much space as necessary
+Group::make([
     // ...
 ])-&gt;autoWidth();
+
 </code></pre>
 <h2><a href='#buttonlink' id='buttonlink'>Button/Link</a></h2>
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
