@@ -3,7 +3,11 @@ title: Attachments
 description: Learn how to use Laravel Orchid's Attachments feature to manage and attach files to your application's database. Improve your app's user experience and organization with this powerful tool.
 ---
 
-Files of various formats and extensions related to the recording are attachments. Them can be attached to any model via links. For this, you need to add a trait:
+
+Attachments are files of various formats and extensions related to a recording. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachment()` relationship.
+
+For example, to attach files to a `Hostel` model:
+
 
 ```php
 namespace App;
@@ -18,7 +22,7 @@ class Hostel extends Model
 }
 ```
 
-After that we can add and receive its attachments, for example:
+To retrieve the attachments for a particular hostel, you can use the `attachment()` relationship:
 
 ```php
 $item = Hostel::find(42);
@@ -26,11 +30,9 @@ $item->attachment()->get();
 ```
 
 
-## Uploading a file via the HTTP 
+## Uploading a File via HTTP
 
-You already have a route for downloading files (unless, of course, access to it is allowed)
-
-An example of a controller method:
+To upload a file via HTTP, you can use the `File` class and the `load()` method. Here's an example of a controller method that handles file uploads:
 
 
 ```php
@@ -45,7 +47,9 @@ public function upload(Request $request)
 }
 ```
 
-It will automatically upload your file to the default repository (`public`) and create an entry in the database.
+This will automatically upload the file to the default repository (usually `public`) and create an entry in the database.
+
+To retrieve the URL of an attachment, you can use the `url()` method:
 
 ```php
 $image = $item->attachment()->first();
@@ -57,9 +61,9 @@ $image->url();
 > **Note.** The `url()` method will first check for the path existence, and then get the URL. When using external storage like `s3`, this will make two calls. To improve performance you can use the [caching adapter](https://laravel.com/docs/filesystem#driver-prerequisites) recommended by `Laravel` to improve performance. You can also simply override this method and adjust to your needs.
 
 
-## Uploading a file via the console
+## Uploading a File via the Console
 
-Sometimes the necessary files are already on the server, then you can use the following to upload to the desired storage:
+Sometimes the necessary files are already on the server, and you can use the following code to upload them to the desired storage:
 
 ```php
 use Illuminate\Http\UploadedFile;
@@ -70,17 +74,18 @@ $file = new UploadedFile($path, $originalName);
 $attachment = (new File($file))->load();
 ```
 
-## Duplicate uploaded files
+## Duplicate Uploaded Files
 
-Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required physical file,
-allowing efficient use of resources. The file will be deleted only when all links are destroyed.
+Thanks to the use of hashes, attachments are not uploaded again if they already exist in the storage. Instead, a link is created in the database to the existing physical file, allowing for efficient use of resources. The file will only be deleted when all links to it are destroyed.
 
-### Allow duplicate files 
 
-In some situation you might want to keep the duplicate files ( files that has the same hash ) , different links are generated to request different physical files . The file will be deleted when the link is destroyed .
-you can allow duplicate files using the `allowDuplicate()` method :
+### Allowing Duplicate Files
+
+In some situations, you might want to keep duplicate files (files that have the same hash) and generate different links to request different physical files. The file will be deleted when the link is destroyed. To allow duplicate files, you can use the `allowDuplicates()` method:
+
 ```php
 use Orchid\Attachment\File;
+
 public function upload(Request $request)
 {
     $file = new File($request->file('photo'));
@@ -89,11 +94,14 @@ public function upload(Request $request)
 }   
 ```
 
-## Upload path 
-Orchid Platform has a default upload path for all files which is the following `Y/m/d` example : `2022/06/11` , you can change the default path using the `path(string $path)` method:
+## Customizing the Upload Path
+
+
+By default, Orchid has a default upload path for all files of `Y/m/d`, for example: `2022/06/11`. You can change the default path using the `path(string $path)` method:
 
 ```php
 use Orchid\Attachment\File;
+
 public function upload(Request $request)
 {
     $path = "photos"
@@ -102,6 +110,7 @@ public function upload(Request $request)
     return response()->json()
 }
 ```
+
 ## Remove
 
 Attachments won't be removed after model removal automatically. In case when your attachments can't exist without a model, you should remove them on model `deleting` events manually. If you delete a row from the `attachments` table, the file won't be deleted. To clear your attachments, you need to use `delete()` function on the `Attachment` model. In that case, an additional check will proceed. If there no link to the file - it will be deleted. You can do it using [relationships](https://laravel.com/docs/master/eloquent-relationships) and [observers](https://laravel.com/docs/master/eloquent#observers).
@@ -167,7 +176,7 @@ public function boot()
 ```
 
 
-## Default configuration
+## Default Configuration
 
 
 By default, each file uploaded follows the strategy described in `config/platform.php`:
@@ -188,9 +197,9 @@ By default, each file uploaded follows the strategy described in `config/platfor
 ],
 ```
 
-- **disk** - storage name used to store files. The entire settings of which should be defined in `/config/filesystems.php`.
+- **disk** - The name of the storage used to store files. The entire settings for the storage should be defined in `/config/filesystems.php`.
 
-- **generator** - a class that defines how the uploaded files will be named and in which directories they will be located and how to avoid duplicating them.
+- **generator** - A class that defines how the uploaded files will be named, in which directories they will be located, and how to avoid duplicating them.
 
 
 ## Event subscription
