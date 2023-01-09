@@ -381,7 +381,7 @@
                     </ul>
     </div>
                         <h2><a href='#views' id='views'>Views</a></h2>
-<p>It is an expected situation when you need to display your own <code>blade</code> template, to do this, call <code>Layout::view</code> by passing the parameter a name string:</p>
+<p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the <code>Layout::view</code> method and pass it a string containing the name of your template.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -391,7 +391,7 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>All data from the <code>query</code> method will be passed to your template.</p>
+<p>Any data returned by the <code>query</code> method will be passed to your template and can be accessed using Blade syntax. For example:</p>
 <pre><code class="language-php">// ... Screen
 
 public function query(): array
@@ -408,14 +408,24 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>You can display the contents of <code>name</code> like this:</p>
+<p>In the <code>hello.blade.php</code> template, you can display the contents of the <code>name</code> variable like this:</p>
 <pre><code class="language-php">// ... /views/hello.blade.php
 
 Hello {{ $name }}!
 </code></pre>
+<p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::view('template1'),
+        Layout::view('template2'),
+        Layout::view('template3'),
+    ];
+}
+</code></pre>
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
-<p>An intermediate link between the &quot;Custom Template&quot; and the standard layers can serve as a &quot;Wrapper&quot;, with which
-it is available to specify where other layers should be displayed.</p>
+<p>A &quot;Wrapper&quot; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
+<p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
@@ -429,7 +439,7 @@ it is available to specify where other layers should be displayed.</p>
     ];
 }
 </code></pre>
-<p>The variables <code>foo</code> and <code>bar</code> will be passed to the <code>myTemplate</code> template, containing the already collected <code>View</code>, which can be displayed:</p>
+<p>In the <code>myTemplate.blade.ph</code>p template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
 <pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
     &lt;div class=&quot;col-7 border-right&quot;&gt;
         @foreach($foo as $row)
@@ -441,16 +451,22 @@ it is available to specify where other layers should be displayed.</p>
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<p>The variables from query are also available in the template.</p>
+<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ];
+}
+</code></pre>
+<p>You can display the contents of the name variable in your template like this:</p>
+<pre><code class="language-php">Hello {{ $name }}!
+</code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
-<p>One way to reuse templates is to create
-<code>Blade</code> of components. Such components can also be used in the platform. In order to create a new component, use the <code>artisan</code> command:</p>
+<p>Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the <code>artisan</code> command:</p>
 <pre><code class="language-php">php artisan make:component Hello --inline
 </code></pre>
-<blockquote>
-<p><strong>Note.</strong> You can learn more about the components in <a href="https://laravel.com/docs/blade#components">framework documentation</a></p>
-</blockquote>
-<p>As a result, there will be a new class <code>Hello</code>, we bring it into the following form:</p>
+<p>This will create a new class called <code>Hello</code> in the <code>App\View\Components</code> namespace. The class should look something like this:</p>
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\View\Component;
@@ -487,7 +503,7 @@ blade;
     }
 }
 </code></pre>
-<p>To use it in screens, you must pass its lowercase representation:</p>
+<p>To use the component in your screens, you can pass its lowercase representation to the <code>Layout::component</code> method:</p>
 <pre><code class="language-php">/**
  * Query data.
  *
@@ -512,7 +528,10 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>The values from <code>query</code> will be substituted into the component by name. In this case, missing values can be added from the container, for example:</p>
+<p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using blade syntax. For example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
+<pre><code class="language-php">Hello {{ $name }}!
+</code></pre>
+<p>If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as arguments. For example:</p>
 <pre><code class="language-php">namespace App\View\Components;
 
 use Illuminate\Contracts\Foundation\Application;
@@ -558,9 +577,10 @@ blade;
     }
 }
 </code></pre>
+<p>You can learn more about blade components in the <a href="https://laravel.com/docs/blade#components">Laravel documentation</a>.</p>
 <h2><a href='#browsing' id='browsing'>Browsing</a></h2>
-<p>The admin panel is where you can view and perform all the necessary actions in the project. But sometimes, the technology and graphical appearance are not consistent and are located at different addresses (For example, if you use <a href="https://laravel.com/docs/telescope">Telescope</a> or <a href="https://laravel.com/docs/horizon">Horizon</a>). This leads to the fact that you need to move between two browser tabs constantly.</p>
-<p>To avoid this, you can open an iframe to view a different page:</p>
+<p>Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this, you can use the <code>Layout::browsing</code> method to display the contents of a different web page within an iframe in your application.</p>
+<p>For example:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
 public function layout(): array
@@ -570,7 +590,7 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>Attributes are also available to the html definition:</p>
+<p>You can also specify various attributes for the iframe element by chaining method calls onto the <code>Layout::browsing</code> method. For example:</p>
 <pre><code class="language-php">Layout::browsing('http://127.0.0.1:8000/telescope')
     -&gt;allow('...')
     -&gt;loading('...')
@@ -581,6 +601,7 @@ public function layout(): array
     -&gt;src('...')
     -&gt;srcdoc('...');
 </code></pre>
+<p>Refer to the <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">HTML specification</a> for a complete list of available attributes.</p>
 <h2><a href='#extension' id='extension'>Extension</a></h2>
 <p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
 <pre><code class="language-php">use Orchid\Screen\Layout;
@@ -629,13 +650,12 @@ public function layout(): array
 }
 </code></pre>
 <h2><a href='#tabmenu' id='tabmenu'>TabMenu</a></h2>
-<p>Sometimes you want to display navigation visually similar to tabs, but instead of switching, a transition to another screen should be made. The <code>TabMenu</code> layer is perfect for this, to create it you need to run the <code>artisan</code> command:</p>
+<p>The <code>TabMenu</code> layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.</p>
+<p>To create a <code>TabMenu</code> layout, you can use the <code>artisan</code> command:</p>
 <pre><code class="language-bash">php artisan orchid:tab-menu ExampleNavigation
 </code></pre>
-<p>In the directory <code>app/Orchid/Layouts</code>, a new class will be created where the navigation can be defined:</p>
-<pre><code class="language-php">&lt;?php
-
-namespace App\Orchid\Layouts;
+<p>This will create a new class called <code>ExampleNavigation</code> in the <code>app/Orchid/Layouts</code> directory. You can define the navigation items in this class by implementing the <code>navigations</code> method:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Actions\Menu;
 use Orchid\Screen\Layouts\TabMenu;
@@ -656,7 +676,7 @@ class ExampleNavigation extends TabMenu
     }
 }
 </code></pre>
-<p>You can specify items in the same way as in the <a href="/en/docs/menu">menu section</a>.</p>
+<p>You can specify the items in the same way as in the <a href="/en/docs/menu">Menu section</a></p>
 
                     </main>
                 </div>
