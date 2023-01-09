@@ -4,11 +4,11 @@ description: Learn how to use the Legend and Summary features in Laravel Orchid 
 extends: _layouts.documentation
 ---
 
-Legend layout is used to view one model:
+The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.
 
 ![Legend](/img/layouts/legend.png)
 
-Legend supports short writing without creating a separate class, for example:
+Here is an example of how to use the Legend layout:
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -26,10 +26,11 @@ public function layout(): array
 }
 ```
 
-The first argument is expected to receive a key specified in the query method of the screen, which should be arrays or models. And the second is which columns you want to display.
 
+In the example above, the first argument passed to the `Layout::legend()` method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen's `query` method. The second argument is an array of `Sight` objects, each representing a data point to be displayed.
 
-Many methods for the `Sight` class are in common with `TD` (used in the [table](/en/docs/table/)). For example, you can also add an explanation:
+Many methods of the `Sight` class are similar to those of the `TD` class used in the [Table](/en/docs/table) layout. For example, you can add a popover to provide additional information about a data point:
+
 
 ```php
 Layout::legend('user', [
@@ -37,7 +38,8 @@ Layout::legend('user', [
 ]),
 ```
 
-In order to render your own template or additional processing, you can use the closure function passed to the `render` method:
+If you need to perform additional processing or rendering for a particular data point, you can use the `render` method and pass in a closure function:
+
 
 ```php
 Layout::legend('user', [
@@ -47,7 +49,8 @@ Layout::legend('user', [
 ]),
 ```
 
-If such processing is needed often, then a more appropriate solution would be to create a `Blade component` ([More details](https://laravel.com/docs/blade#components)) and specify it:
+If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a Blade component and specify it using the `component` method:
+
 
 ```php
 Layout::legend('user', [
@@ -55,4 +58,4 @@ Layout::legend('user', [
 ]),
 ```
 
-Components work just like a table. You can [see more examples here](/en/docs/table#components).
+Blade components work in a similar way to those used in the [Table](/en/docs/table) layout. You can find more examples and information about using Blade components [here]((https://laravel.com/docs/blade#components)).
