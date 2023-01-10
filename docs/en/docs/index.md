@@ -3,7 +3,7 @@ title: Documentation
 description: Learn about Laravel Orchid, the open-source package for accelerating the development of administration-style applications. Explore the documentation for features like permission management, notifications, attachments, form builder, charts, configuration, controllers, custom templates, display elements, form elements, Eloquent filters, global search with Scout, layers for grouping, and using icons and SVG icons in your project.
 ---
 
-## Introduction
+## Introduction to Laravel Orchid
 
 **Laravel Orchid** is an open-source package (MIT license) for accelerating the development and creation of administration-style applications. It abstracts typical business application templates so developers can quickly implement beautiful and elegant interfaces with little effort.
 
@@ -16,23 +16,26 @@ Some features:
 - Menus, charts, notifications, etc.
 
 
-Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for applications like a content management system
+Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for applications like a content management system.
 
-> **Note!** The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the [Laravel documentation](https://laravel.com/docs/).
+
+> Note: This documentation covers the use of the Laravel Orchid package, but does not provide an introduction to the Laravel framework. If you are new to Laravel, it is recommended that you first read through the [Laravel documentation](https://laravel.com/docs/).
 
 
 ## What Orchid is not
 
-Laravel Orchid is not a "turnkey boxed solution." You need good programming skills to use it. It is designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.
+However, it is important to note that Laravel Orchid is not a "turnkey" solution. It is not intended to be a simple, plug-and-play platform that can be used by anyone with little or no programming experience. Instead, it is designed for developers who have a strong understanding of programming concepts and are comfortable working with complex systems.
 
-## Looking for something simple?
-
-**Orchid CRUD** makes it easy to create applications with less code. Its straightforward syntax means you can quickly build simple applications with little effort. To get started, check out [the here section](https://orchid.software/en/docs/packages/crud/#introduction).
+## Looking for something simpler?
 
 
-## How to migrate?
+If you're looking for an easy way to create simple applications with minimal code, Laravel Orchid's **CRUD** feature may be right for you. It provides a straightforward syntax that allows you to build basic applications with little effort. To get started, check out the [CRUD section](https://orchid.software/en/docs/packages/crud/#introduction).
 
-If you already have your admin panel based on `Blade` templates, then it is not necessary to rewrite everything at once. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers).
+
+## Migrating to Laravel Orchid
+
+
+If you already have an admin panel based on `Blade` templates, you don't have to rewrite everything at once to use Laravel Orchid. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and incorporating Orchid's features into your existing application.
 
 
 ## What is the difference between other packages?
@@ -50,9 +53,8 @@ All the previous packages were developed to simplify the work with the CRUD data
 
 - **One class** - a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let's assume that we're trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won't help us because we're not working with this class.
 
-Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can grow quickly thanks to the pre-built components.
-It doesn't offer visual programming, so you've to write the code with the keyboard and not click with the mouse.
-And instead of one, the main class offers many small components for encapsulation and reuse.
+Laravel Orchid takes a different approach. It is designed to be helpful at any stage of development, not just at the beginning, and it can grow with your application as it becomes more complex. It doesn't rely on visual programming, so you'll need to write code with a keyboard rather than drag and drop objects. And instead of a single class, it provides a range of small, reusable components that can be combined in various ways to build a wide range of applications.
+
 
 ## What is rapid development?
 
