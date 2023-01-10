@@ -361,16 +361,16 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#introduction">Introduction</a>
+                    <a href="#introduction-to-laravel-orchid">Introduction to Laravel Orchid</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#what-orchid-is-not">What Orchid is not</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#looking-for-something-simple">Looking for something simple?</a>
+                    <a href="#looking-for-something-simpler">Looking for something simpler?</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#how-to-migrate">How to migrate?</a>
+                    <a href="#migrating-to-laravel-orchid">Migrating to Laravel Orchid</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#what-is-the-difference-between-other-packages">What is the difference between other packages?</a>
@@ -386,7 +386,7 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                        <h2><a href='#introduction-to-laravel-orchid' id='introduction-to-laravel-orchid'>Introduction to Laravel Orchid</a></h2>
 <p><strong>Laravel Orchid</strong> is an open-source package (MIT license) for accelerating the development and creation of administration-style applications. It abstracts typical business application templates so developers can quickly implement beautiful and elegant interfaces with little effort.</p>
 <p>Some features:</p>
 <ul>
@@ -396,16 +396,16 @@
 <li><strong>Permissions</strong> &ndash; offers convenient management in development and support.</li>
 <li>Menus, charts, notifications, etc.</li>
 </ul>
-<p>Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for applications like a content management system</p>
+<p>Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for applications like a content management system.</p>
 <blockquote>
-<p><strong>Note!</strong> The manual contains information on using the package but does not explain the use of the framework. It is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
+<p>Note: This documentation covers the use of the Laravel Orchid package, but does not provide an introduction to the Laravel framework. If you are new to Laravel, it is recommended that you first read through the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
 </blockquote>
 <h2><a href='#what-orchid-is-not' id='what-orchid-is-not'>What Orchid is not</a></h2>
-<p>Laravel Orchid is not a &quot;turnkey boxed solution.&quot; You need good programming skills to use it. It is designed to make developers' lives easier when building complex systems, not to give you a ready-made solution.</p>
-<h2><a href='#looking-for-something-simple' id='looking-for-something-simple'>Looking for something simple?</a></h2>
-<p><strong>Orchid CRUD</strong> makes it easy to create applications with less code. Its straightforward syntax means you can quickly build simple applications with little effort. To get started, check out <a href="https://orchid.software/en/docs/packages/crud/#introduction">the here section</a>.</p>
-<h2><a href='#how-to-migrate' id='how-to-migrate'>How to migrate?</a></h2>
-<p>If you already have your admin panel based on <code>Blade</code> templates, then it is not necessary to rewrite everything at once. You can gradually transition to using Orchid by <a href="https://orchid.software/en/docs/controllers">connecting old controllers</a>.</p>
+<p>However, it is important to note that Laravel Orchid is not a &quot;turnkey&quot; solution. It is not intended to be a simple, plug-and-play platform that can be used by anyone with little or no programming experience. Instead, it is designed for developers who have a strong understanding of programming concepts and are comfortable working with complex systems.</p>
+<h2><a href='#looking-for-something-simpler' id='looking-for-something-simpler'>Looking for something simpler?</a></h2>
+<p>If you&rsquo;re looking for an easy way to create simple applications with minimal code, Laravel Orchid&rsquo;s <strong>CRUD</strong> feature may be right for you. It provides a straightforward syntax that allows you to build basic applications with little effort. To get started, check out the <a href="https://orchid.software/en/docs/packages/crud/#introduction">CRUD section</a>.</p>
+<h2><a href='#migrating-to-laravel-orchid' id='migrating-to-laravel-orchid'>Migrating to Laravel Orchid</a></h2>
+<p>If you already have an admin panel based on <code>Blade</code> templates, you don&rsquo;t have to rewrite everything at once to use Laravel Orchid. You can gradually transition to using Orchid by <a href="https://orchid.software/en/docs/controllers">connecting old controllers</a> and incorporating Orchid&rsquo;s features into your existing application.</p>
 <h2><a href='#what-is-the-difference-between-other-packages' id='what-is-the-difference-between-other-packages'>What is the difference between other packages?</a></h2>
 <p>The Laravel ecosystem is rich with different admin panels.
 You may have already solved your problems with Nova, Voyager, BackPack, QuickAdminPanel or similar.
@@ -417,9 +417,7 @@ We hope that we can answer this question.</p>
 <li><p><strong>Visual programming</strong> &ndash; is a method where the developer drags or selects prepared objects and thus creates the application instead of writing program code. This view is based on the assumption that most programs are simple procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon trouble the inexperienced programmer.</p></li>
 <li><p><strong>One class</strong> &ndash; a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let&rsquo;s assume that we&rsquo;re trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won&rsquo;t help us because we&rsquo;re not working with this class.</p></li>
 </ul>
-<p>Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can grow quickly thanks to the pre-built components.
-It doesn&rsquo;t offer visual programming, so you&rsquo;ve to write the code with the keyboard and not click with the mouse.
-And instead of one, the main class offers many small components for encapsulation and reuse.</p>
+<p>Laravel Orchid takes a different approach. It is designed to be helpful at any stage of development, not just at the beginning, and it can grow with your application as it becomes more complex. It doesn&rsquo;t rely on visual programming, so you&rsquo;ll need to write code with a keyboard rather than drag and drop objects. And instead of a single class, it provides a range of small, reusable components that can be combined in various ways to build a wide range of applications.</p>
 <h2><a href='#what-is-rapid-development' id='what-is-rapid-development'>What is rapid development?</a></h2>
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
 <ul>
