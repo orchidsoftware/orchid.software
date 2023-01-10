@@ -38,7 +38,7 @@ If you're looking for an easy way to create simple applications with minimal cod
 If you already have an admin panel based on `Blade` templates, you don't have to rewrite everything at once to use Laravel Orchid. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and incorporating Orchid's features into your existing application.
 
 
-## What is the difference between other packages?
+## What sets Laravel Orchid apart from other packages?
 
 The Laravel ecosystem is rich with different admin panels.
 You may have already solved your problems with Nova, Voyager, BackPack, QuickAdminPanel or similar.
