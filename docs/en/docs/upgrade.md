@@ -6,15 +6,15 @@ description: Learn how to upgrade your Laravel Orchid application with the Upgra
 
 ## Support Policy
 
-At Laravel Orchid, we strive to provide our users with the positive possible support for our package. However, to ensure that we can provide the most efficient, we will only provide support for the latest major release of our package. This includes bug fixes and security updates.
+At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can provide efficient support, we will only provide support for the latest major release of our package. This includes bug fixes and security updates.
 
 We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest features, bug fixes, and security updates.
 
-If you have any questions or concerns about our support policy, please do not hesitate to contact us. 
+If you have any questions or concerns about our support policy, please do not hesitate to contact us.
 
-## Release early, release often
+## Release Strategy
 
-We like to keep things as modern as possible and have a "release early, release often" approach to major releases. Meaning, we won't wait an arbitrary number of months to accumulate big changes and release the next major version. By releasing major versions often, new features will be out earlier, and upgrading between versions will be much easier.
+We believe in keeping our package up-to-date and modern, and therefore follow a "release early, release often" approach for major releases. This means that we won't wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
