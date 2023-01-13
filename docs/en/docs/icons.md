@@ -5,7 +5,7 @@ description: Learn how to use and implement SVG icons in your Laravel Orchid pro
 
 ## Custom Icons
 
-Let's say we want to include an icon from the popular Font Awesome. To do this, select a suitable storage directory, for example, create a new `icons` directory and a `fontawesome` subdirectory:
+In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new `icons` directory and a `fontawesome` subdirectory in your `resources` folder:
 
 ```bash
 resources
@@ -17,7 +17,10 @@ resources
   - views
 ```
 
-Load the appropriate icons into the new directory, for example, this [notebook icon](https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg). Then we will indicate to the package the directory in which we need to search for our images, for this we will edit the configuration file `config/platform.php`:
+Once you have created the new directory, you can download the appropriate icons and place them in the new directory. For example, you can download the [notebook icon](https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg) and place it in the `fontawesome` subdirectory.
+
+
+Next, you need to configure the package to search for icons in the new directory. You can do this by editing the `config/platform.php` configuration file:
 
 
 ```php
@@ -26,8 +29,9 @@ Load the appropriate icons into the new directory, for example, this [notebook i
 ],
 ```
 
-All we have done here is declare the prefix by which we will refer to fa and the directory where the files are located.
-To display in the components of the package, you only need to pass the prefix + name, for example, the definition of the icon in the menu will look like this:
+In the example above, we have declared the prefix "fa" and the directory where the icons are located.
+
+In order to display the icons in the package's components, you only need to pass the prefix and the icon's name. For example, the icon definition in a menu would look like this:
 
 ```php
 Menu::make('Example of custom icons')
@@ -35,4 +39,4 @@ Menu::make('Example of custom icons')
     ->url(#);
 ```
 
-You can also use the icons outside of the admin panel [using the Blade component](https://github.com/orchidsoftware/blade-icons).
+You can also use the icons outside of the admin panel by [using the Blade component](https://github.com/orchidsoftware/blade-icons).
