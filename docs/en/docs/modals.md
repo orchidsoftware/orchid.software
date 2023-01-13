@@ -3,26 +3,23 @@ title: Modal windows
 description: Learn how to use modal windows in your Laravel Orchid projects with our comprehensive documentation. Get tips on creating dynamic modals, passing data to modals, and customizing modal behavior.
 ---
 
+
 Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
 
 ![Modals](/img/layouts/modals.png)
 
 ## Description of work
 
-A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context.
-
-
-> **Note:** Do not use modal windows for large forms.
+A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context. It is important to note that modal windows should not be used for large forms.
 
 
 ## When to use
 
-In the modal window you need to make the secondary content of the pages, which is required only in some cases. As a rule, these are settings, creating new documents, filling out small forms, a step-by-step wizard. For example, to enter an address, a click on a link opens a modal window.
-
+Modal windows are best used for secondary content that is only needed in certain situations. This content may include settings, creating new documents, filling out small forms. For example, clicking on a link may open a modal window to enter an address.
 
 ## Using
 
-Modal windows support short syntax by calling a static method, which does not require creating a separate class:
+Modal windows can be implemented using a short syntax by calling a static method, which eliminates the need to create a separate class. The following example demonstrates how to create a modal window:
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -68,22 +65,13 @@ public function action(): void
 }
 ```
 
-> **Please note**, adding a modal window must be done at the top level of the array returned by the `layout()` method. For example, you should not do like this:
 
-```php
-public function layouts(): array
-{
-    return [
-        Layout::tabs([
-            'Name' => Layout::modal('exampleModal', [Layout::rows([])]),
-        ]),
-    ];
-}
-```
+It is important to note that when adding a modal window, it should be added at the top level of the array returned by the `layout()` method. It should not be added inside of another layout such as `Tabs`.
+
 
 ## Title
 
-To set the title, use the `title` method:
+To set the title of the modal window, the `title` method can be used:
 
 ```php
 Layout::modal('exampleModals', [
@@ -94,7 +82,8 @@ Layout::modal('exampleModals', [
 
 ## Window size
 
-Depending on the contents of the window, you may need to resize it, this can be done by specifying the `size` method:
+Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the `size` method:
+
 
 ```php
 use Orchid\Screen\Layouts\Modal;
