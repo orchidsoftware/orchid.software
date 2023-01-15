@@ -10,7 +10,7 @@ The package uses the standard configuration system for Laravel. It stores the ma
 
 In this section, we will delve into the configuration file and provide a detailed description of each parameter.
 
-## Orchid Domain
+## Domain
 
 ```php
 'domain' => env('DASHBOARD_DOMAIN', null),
@@ -27,7 +27,7 @@ To specify the address you would like to use for the platform, you can set the `
 It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.
 
 
-## Orchid Prefix
+## Prefix
 
 
 ```php
