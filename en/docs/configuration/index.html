@@ -21,10 +21,10 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <title>Platform configuration | Orchid - Laravel Admin Panel</title>
+    <title>Configuration | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Platform configuration | Orchid - Laravel Admin Panel">
+<meta name="title" content="Configuration | Orchid - Laravel Admin Panel">
 <meta name="description" content="Learn how to configure Laravel Orchid&amp;amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
 
 
@@ -34,14 +34,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://orchid.software/en/docs/configuration"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Platform configuration | Orchid - Laravel Admin Panel"/>
+<meta property="og:title" content="Configuration | Orchid - Laravel Admin Panel"/>
 <meta property="og:description" content="Learn how to configure Laravel Orchid&amp;amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://orchid.software/en/docs/configuration">
-<meta name="twitter:title" content="Platform configuration | Orchid - Laravel Admin Panel">
+<meta name="twitter:title" content="Configuration | Orchid - Laravel Admin Panel">
 <meta name="twitter:description" content="Learn how to configure Laravel Orchid&amp;amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
@@ -347,7 +347,7 @@
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-4 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">Platform configuration</h1>
+                            <h1 class="me-3">Configuration</h1>
 
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/configuration.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap">
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -361,22 +361,22 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#platform-domain">Platform domain</a>
+                    <a href="#orchid-domain">Orchid Domain</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#platform-prefix">Platform prefix</a>
+                    <a href="#orchid-prefix">Orchid Prefix</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#middleware">Middleware</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#login-page">Login page</a>
+                    <a href="#login-page">Login Page</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#home-page">Home page</a>
+                    <a href="#home-page">Home Page</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#dashboard-resources">Dashboard resources</a>
+                    <a href="#dashboard-resources">Dashboard Resources</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#appearance-patterns">Appearance patterns</a>
@@ -389,56 +389,70 @@
                 </li>
                     </ul>
     </div>
-                        <p>The platform uses the standard configuration system for Laravel.
-It locates the main parameters&nbsp;in the <code>config</code> directory, and the main file for the platform is
-file <code>platform.php</code>. Each set comes with a commentary explaining the main point.</p>
+                        <p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
 <blockquote>
-<p><strong>Note.</strong> If you cache your configuration files, do not forget to clear them after the change. Using the command <code>php artisan config:clear</code></p>
+<p><strong>Note.</strong> If you cache your configuration files, do not forget to clear them after making changes. You can use the command <code>php artisan config:clear</code> to do this.</p>
 </blockquote>
-<p>Below we dive into the configuration file and give a detailed description of each parameter.</p>
-<h2><a href='#platform-domain' id='platform-domain'>Platform domain</a></h2>
+<p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
+<h2><a href='#orchid-domain' id='orchid-domain'>Orchid Domain</a></h2>
 <pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),
 </code></pre>
-<p>For many projects, the address of the location of the administration panel plays an important role.
-For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
-<p>For this you need to specify the address you would like to open.</p>
+<p>For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
+<p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration file:</p>
 <pre><code class="language-php">'domain' =&gt; 'admin.example.com',
 </code></pre>
-<p>Remember that your web server settings must be configured correctly.</p>
-<h2><a href='#platform-prefix' id='platform-prefix'>Platform prefix</a></h2>
-<pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'dashboard'),
+<p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
+<h2><a href='#orchid-prefix' id='orchid-prefix'>Orchid Prefix</a></h2>
+<pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'admin'),
 </code></pre>
-<p>It provides the ability to change the <code>dashboard</code> prefix to any other name, such as <code>admin</code> or <code>administrator</code>.</p>
+<p>The <code>prefix</code> parameter allows you to change the default <code>admin</code> prefix to any other name, such as <code>admin</code> or <code>administrator</code>. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.</p>
+<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code> instead of <code>https://example.com/admin/login</code>.</p>
+<p>To change the prefix, you can update the prefix parameter in the configuration file:</p>
+<pre><code class="language-php">'prefix' =&gt; 'dashboard',
+</code></pre>
+<p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.</p>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
 <pre><code class="language-php">'middleware' =&gt; [
     'public'  =&gt; ['web'],
     'private' =&gt; ['web', 'platform'],
 ],
 </code></pre>
-<p>You can add/change intermediate layers (middleware) for the graphical interface.
-Currently, two groups of <code>public</code> can be seen by an unauthorized user,
-for example, the &quot;Login&quot; page and <code>private</code> which, on the contrary, only authorized users to see.</p>
-<p>You can add as many new intermediate layers as you like.
-For example, the filtering layer requests only from the white list of IP addresses.</p>
-<h2><a href='#login-page' id='login-page'>Login page</a></h2>
+<p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
+<p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The <code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.</p>
+<p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.</p>
+<h2><a href='#login-page' id='login-page'>Login Page</a></h2>
 <pre><code class="language-php">'auth' =&gt; true,
 </code></pre>
-<p>By default, Orchid uses its own simple login interface when <code>auth</code> is <code>true</code>. If you require more advanced functions
-such as password recovery or 2FA, set <code>auth</code> to <code>false</code> and use the package <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a>
-or roll your own.</p>
-<h2><a href='#home-page' id='home-page'>Home page</a></h2>
-<p>The main page of the application is recorded in the <strong>name route</strong> that the user will see when entering or clicking on logos and links.</p>
+<p>The <code>auth</code> parameter controls whether the package uses its own simple login interface or not. By default, it is set to <code>true</code>, which means the platform will use its own login interface.</p>
+<p>If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a> or roll your own login interface.</p>
+<p>To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you roll your own login interface, you will need to create the necessary controllers, views, and routes for the login process.</p>
+<pre><code class="language-php">'auth' =&gt; false,
+</code></pre>
+<h2><a href='#home-page' id='home-page'>Home Page</a></h2>
+<p>The <code>index</code> parameter controls the main page of the admin panel that the user will see when they first log in or click on the logo or links in the navigation bar.</p>
 <pre><code class="language-php">'index' =&gt; 'platform.main',
 </code></pre>
-<h2><a href='#dashboard-resources' id='dashboard-resources'>Dashboard resources</a></h2>
+<p>The default value for this parameter is <code>platform.main</code>, which corresponds to the main dashboard page of the platform.</p>
+<p>You can change this to any other route you have defined in your application. For example, if you want to redirect users to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
+<pre><code class="language-php">'index' =&gt; 'custom.dashboard',
+</code></pre>
+<p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
+<h2><a href='#dashboard-resources' id='dashboard-resources'>Dashboard Resources</a></h2>
 <pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [],
     'scripts'     =&gt; [],
 ],
 </code></pre>
-<p>As you work, you may need to add your style sheets or javascript scripts.
-Globally, on each page, it is necessary to add paths for them to the corresponding arrays.</p>
-<p>It is also possible to specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
+<p>The <code>resource</code> parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
+<p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
+<pre><code class="language-php">'resource' =&gt; [
+    'stylesheets' =&gt; [
+        'path/to/custom.css'
+    ],
+    'scripts'     =&gt; [],
+],
+</code></pre>
+<p>You can also specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
@@ -453,6 +467,7 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 </code></pre>
+<p>It&rsquo;s worth noting that the resource file must be present in the public directory to be able to access it.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance patterns</a></h2>
 <p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code class="language-php">'template' =&gt; [
