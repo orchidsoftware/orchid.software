@@ -361,35 +361,34 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#flash-messages">Flash messages</a>
+                    <a href="#flash-messages">Flash Messages</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#toast-messages">Toast messages</a>
+                    <a href="#toast-messages">Toast Messages</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#notifications-in-the-admin-panel">Notifications in the admin panel</a>
+                    <a href="#notifications-in-the-admin-panel">Notifications in the Admin Panel</a>
                 </li>
                     </ul>
     </div>
-                        <p>Notifications are a great way to let your users know what&rsquo;s going on in your app. For example, they can alert the user when a long process is complete or a new message arrives. In this section, we&rsquo;ll show you how to use them in your app.</p>
-<h2><a href='#flash-messages' id='flash-messages'>Flash messages</a></h2>
-<p>Flash notification is a one-time message that will be deleted upon the next access.
-Notifications are designed to inform about the event that occurred directly, for example, a message about saving data.</p>
-<p>ORCHID has a convenient call and display notifications over one-time flash-data.</p>
+                        <p>Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
+<h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
+<p>A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.</p>
+<p>Laravel Orchid provides a simple and convenient way to create and display flash notifications through the use of flash data. To create a flash notification, you can use the following code:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Alert;
 
 Alert::message('Welcome Aboard!');
 </code></pre>
-<p>or use a shorter entry:</p>
+<p>You can also use a shorter version of this code:</p>
 <pre><code class="language-php">alert('Message');
 </code></pre>
-<p>Messages can visually display the status using the color gamut, for this purpose are the methods:</p>
+<p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:</p>
 <pre><code class="language-php">Alert::info('Message')
 Alert::success('Message')
 Alert::error('Message')
 Alert::warning('Message')
 </code></pre>
-<p>To insert your own template using variables tags use the <code>view</code> method:</p>
+<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Alert;
 use Orchid\Support\Color;
 
@@ -397,45 +396,46 @@ Alert::view('alert', Color::INFO(), [
     'name' =&gt; 'Alexandr'
 ]);
 </code></pre>
-<p>The first argument of the method is the path/name of the <code>Blade</code> template:</p>
+<p>The <code>Blade</code> template would look something like this:</p>
 <pre><code class="language-php">// resources/views/alert.blade.php
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
-<p>When used, several keys will be set per session:</p>
+<p>When a notification is displayed, package sets several keys in the session:</p>
 <ul>
-<li>'flash_notification.message&rsquo; &ndash; Message to display</li>
-<li>'flash_notification.level&rsquo; &ndash; A string representing the type of notification</li>
+<li>'flash_notification.message&rsquo; &ndash; the message to be displayed</li>
+<li>'flash_notification.level' - a string representing the type of notification (e.g. &quot;info&quot;, &quot;success&quot;, &quot;error&quot;, &quot;warning&quot;)</li>
 </ul>
-<p>The default display is already built into the template. Still, you can call it explicitly in the <code>blade</code> templates for this, you must specify:</p>
+<p>Package also includes a default display for notifications, which can be included in your blade templates by specifying:</p>
 <pre><code class="language-php">@include('platform::partials.alert')
 </code></pre>
-<h2><a href='#toast-messages' id='toast-messages'>Toast messages</a></h2>
-<p>It is a small pop-up message in the upper right corner of the screen, to briefly notify the user of the result.
-It is entirely consistent with the one-time <code>Alert</code> messages, but has a different appearance and several additional methods:</p>
+<p>It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.</p>
+<p>That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.</p>
+<h2><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h2>
+<p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
+<p>To create a toast message, you can use the following code:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Toast;
 
 Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
 </code></pre>
-<p>You can specify the need for automatic hiding and time before</p>
+<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>autoHide</code> method:</p>
 <pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
     -&gt;autoHide(false);
-
-Toast::warning('Lorem ipsum dolor sit amet.')
+</code></pre>
+<p>You can also specify the delay time before the toast message appears by using the <code>delay</code> method. This method takes one argument, which is the number of milliseconds to wait before showing the message:</p>
+<pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
     -&gt;delay(2000);
 </code></pre>
-<h2><a href='#notifications-in-the-admin-panel' id='notifications-in-the-admin-panel'>Notifications in the admin panel</a></h2>
-<p>The notification in the administration panel differs from flash-messages. They are not deleted after viewing and
-can be added to any users even when they are offline. It is another excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
+<p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
+<h2><a href='#notifications-in-the-admin-panel' id='notifications-in-the-admin-panel'>Notifications in the Admin Panel</a></h2>
+<p>Notifications in the admin panel are different from flash messages. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
 <p>You can view these notifications by clicking the &quot;Notification Bell icon&quot; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
-<blockquote>
-<p><strong>Note:</strong> Before using this feature, check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
-</blockquote>
-<p>To create a notification, you can use the following Artisan command:</p>
+<p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
+<p>To create a notification, you can use the following <code>Artisan</code> command:</p>
 <pre><code class="language-php">php artisan make:notification TaskCompleted
 </code></pre>
-<p>This command will create a new class in your <code>app/Notifications</code> directory.
-You must add channel <code>DashboardChannel</code> to the <code>via</code> notification method:</p>
+<p>This command will create a new class in your <code>app/Notifications</code> directory.</p>
+<p>To send the notification, you must add the <code>DashboardChannel</code> to the <code>via</code> notification method:</p>
 <pre><code class="language-php">use Orchid\Platform\Notifications\DashboardChannel;
 
 public function via($notifiable)
@@ -443,7 +443,7 @@ public function via($notifiable)
     return [DashboardChannel::class];
 }
 </code></pre>
-<p>Before using <code>DashboardChannel</code>, you must define a <code>toDashboard</code> method in the notification class.
+<p>Before sending the notification, you must also define a <code>toDashboard</code> method in the notification class.
 This method will receive a <code>$notifiable</code> object and must return a <code>DashboardMessage</code> object:</p>
 <pre><code class="language-php">use Orchid\Platform\Notifications\DashboardMessage;
 
@@ -455,7 +455,8 @@ public function toDashboard($notifiable)
         -&gt;action(url('/'));
 }
 </code></pre>
-<p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the <code>Notification</code> facade. You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about these two approaches to sending notifications.</p>
+<p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the <code>Notification</code> facade.
+You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about these two approaches to sending notifications.</p>
 <p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
 <pre><code class="language-php">$user = User::find(1);
 
