@@ -1,42 +1,50 @@
 ---
-title: Platform configuration
+title: Configuration
 description: Learn how to configure Laravel Orchid's powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.
 ---
 
-The platform uses the standard configuration system for Laravel.
-It locates the main parameters in the `config` directory, and the main file for the platform is
-file `platform.php`. Each set comes with a commentary explaining the main point.
 
-> **Note.** If you cache your configuration files, do not forget to clear them after the change. Using the command `php artisan config:clear`
+The package uses the standard configuration system for Laravel. It stores the main parameters in the `config` directory, and the main file for the platform is the file `platform.php`. Each setting comes with a comment explaining its purpose.
 
-Below we dive into the configuration file and give a detailed description of each parameter.
+> **Note.** If you cache your configuration files, do not forget to clear them after making changes. You can use the command `php artisan config:clear` to do this.
 
-## Platform domain
+In this section, we will delve into the configuration file and provide a detailed description of each parameter.
+
+## Orchid Domain
 
 ```php
 'domain' => env('DASHBOARD_DOMAIN', null),
 ```
 
-For many projects, the address of the location of the administration panel plays an important role.
-For example, the application is located at `example.com`, and the platform is at `admin.example.com` or on a third-party domain.
+For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at `example.com`, and the platform is at `admin.example.com` or on a third-party domain.
 
-For this you need to specify the address you would like to open.
+To specify the address you would like to use for the platform, you can set the `domain` parameter in the configuration file:
 
 ```php
 'domain' => 'admin.example.com',
 ```
  
-Remember that your web server settings must be configured correctly.
+It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.
 
 
-## Platform prefix
+## Orchid Prefix
 
 
 ```php
-'prefix' => env('DASHBOARD_PREFIX', 'dashboard'),
+'prefix' => env('DASHBOARD_PREFIX', 'admin'),
 ```
  
-It provides the ability to change the `dashboard` prefix to any other name, such as `admin` or `administrator`.
+The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `admin` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
+ 
+For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login` instead of `https://example.com/admin/login`. 
+ 
+ To change the prefix, you can update the prefix parameter in the configuration file:
+ 
+ ```php
+ 'prefix' => 'dashboard',
+ ```
+ 
+ It's worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.
 
 
 ## Middleware
@@ -48,33 +56,51 @@ It provides the ability to change the `dashboard` prefix to any other name, such
 ],
 ```
 
-You can add/change intermediate layers (middleware) for the graphical interface.
-Currently, two groups of `public` can be seen by an unauthorized user,
-for example, the "Login" page and `private` which, on the contrary, only authorized users to see.
+The `middleware` parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: `public` and `private`.
+
+The `public` middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The `private` middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.
+
+You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.
 
 
-You can add as many new intermediate layers as you like.
-For example, the filtering layer requests only from the white list of IP addresses.
 
-
-## Login page
+## Login Page
 
 ```php
 'auth' => true,
 ```
 
-By default, Orchid uses its own simple login interface when `auth` is `true`. If you require more advanced functions
-such as password recovery or 2FA, set `auth` to `false` and use the package [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart)
-or roll your own.
+The `auth` parameter controls whether the package uses its own simple login interface or not. By default, it is set to `true`, which means the platform will use its own login interface.
 
-## Home page
 
-The main page of the application is recorded in the **name route** that the user will see when entering or clicking on logos and links.
+If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart) or roll your own login interface.
+
+To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you roll your own login interface, you will need to create the necessary controllers, views, and routes for the login process.
+
+```php
+'auth' => false,
+```
+
+## Home Page
+
+The `index` parameter controls the main page of the admin panel that the user will see when they first log in or click on the logo or links in the navigation bar.
+
 ```php
 'index' => 'platform.main',
 ```
 
-## Dashboard resources
+The default value for this parameter is `platform.main`, which corresponds to the main dashboard page of the platform.
+
+You can change this to any other route you have defined in your application. For example, if you want to redirect users to a custom dashboard page, you can update the `index` parameter to point to that route:
+
+```php
+'index' => 'custom.dashboard',
+```
+
+It's worth noting that you will need to create the corresponding route and controller for the new home page.
+
+
+## Dashboard Resources
 
 
 ```php
@@ -84,11 +110,20 @@ The main page of the application is recorded in the **name route** that the user
 ],
 ```
 
-As you work, you may need to add your style sheets or javascript scripts.
-Globally, on each page, it is necessary to add paths for them to the corresponding arrays.
+The `resource` parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.
 
-It is also possible to specify resources through the `Dashboard` object, for example, in a service provider:
+For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the `stylesheets` array:
 
+```php
+'resource' => [
+    'stylesheets' => [
+        'path/to/custom.css'
+    ],
+    'scripts'     => [],
+],
+```
+
+You can also specify resources through the `Dashboard` object, for example, in a service provider:
 
 ```php
 namespace App\Providers;
@@ -106,6 +141,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
+It's worth noting that the resource file must be present in the public directory to be able to access it.
 
 ## Appearance patterns
 
