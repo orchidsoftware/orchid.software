@@ -40,20 +40,11 @@ If you currently have an admin panel based on `Blade` templates, you do not need
 
 ## What sets Laravel Orchid apart from other packages?
 
-The Laravel ecosystem is rich with different admin panels.
-You may have already solved your problems with Nova, Voyager, BackPack, QuickAdminPanel or similar.
-In doing so, you were guided by the desire to find out if the platform can simplify and improve your work.
-We hope that we can answer this question.
+The Laravel ecosystem offers a variety of admin panels, such as Nova, Voyager, BackPack, and QuickAdminPanel, that aim to simplify the process of working with CRUD applications. However, Laravel Orchid stands out by offering a different approach to streamlining the development process.
 
-All the previous packages were developed to simplify the work with the CRUD database, and they can be divided into several methods:
+Unlike other packages that rely on scaffolding or visual programming, Laravel Orchid is designed to be helpful at any stage of development and can grow with your application as it becomes more complex. Instead of generating physical stubs files or dragging and dropping objects, Orchid requires developers to write code using a keyboard. And instead of providing a single god class, it offers a range of small, reusable components that can be combined in various ways to build a wide range of applications.
 
-- **Scaffolding** - The scaffolding method consists in creating physical files according to certain specifications, and thus it's the fastest at the initial stage of application development. As a rule, developers delete such packages after they age, as they cannot update the files with manual changes for updated criteria.
-
-- **Visual programming** - is a method where the developer drags or selects prepared objects and thus creates the application instead of writing program code. This view is based on the assumption that most programs are simple procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon trouble the inexperienced programmer.
-
-- **One class** - a method that invites the developer to describe all necessary actions in a class bound to the Eloquent model. But let's assume that we're trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won't help us because we're not working with this class.
-
-Laravel Orchid takes a different approach. It is designed to be helpful at any stage of development, not just at the beginning, and it can grow with your application as it becomes more complex. It doesn't rely on visual programming, so you'll need to write code with a keyboard rather than drag and drop objects. And instead of a single class, it provides a range of small, reusable components that can be combined in various ways to build a wide range of applications.
+Orchid's approach is designed to be flexible, allowing developers to adapt it to their specific needs and workflows. It can be used for simple CRUD applications, but it also has the capability to handle more complex tasks. 
 
 
 ## What is rapid development?
