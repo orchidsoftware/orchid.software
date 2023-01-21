@@ -3,8 +3,10 @@ title: Attachments
 description: Learn how to use Laravel Orchid's Attachments feature to manage and attach files to your application's database. Improve your app's user experience and organization with this powerful tool.
 ---
 
+## Attachments
 
-Attachments are files of various formats and extensions related to a recording. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachment()` relationship.
+
+Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachment()` relationship.
 
 For example, to attach files to a `Hostel` model:
 
@@ -76,12 +78,17 @@ $attachment = (new File($file))->load();
 
 ## Duplicate Uploaded Files
 
-Thanks to the use of hashes, attachments are not uploaded again if they already exist in the storage. Instead, a link is created in the database to the existing physical file, allowing for efficient use of resources. The file will only be deleted when all links to it are destroyed.
+To prevent unnecessary duplication and save resources, Laravel Orchid uses a hashing algorithm to check for existing files before uploading a new attachment. If a file with the same hash already exists in storage, a link to the existing file is created in the database instead of uploading a duplicate copy. This allows for efficient storage and management of attachments.
+
+The file will only be deleted from storage when all links to it are destroyed. This means that if multiple records are associated with the same attachment, the file will not be deleted until all records are deleted or the attachment is removed from all of them.
+
+This feature not only improves the performance and reduces the storage space, but also eliminates the chance of having multiple copies of the same file in the storage.
 
 
 ### Allowing Duplicate Files
 
-In some situations, you might want to keep duplicate files (files that have the same hash) and generate different links to request different physical files. The file will be deleted when the link is destroyed. To allow duplicate files, you can use the `allowDuplicates()` method:
+
+While the hashing algorithm in Laravel Orchid is designed to prevent the duplication of files, in some cases, you may want to keep duplicate files and generate different links to request different physical files. To do this, you can use the `allowDuplicates()` method.
 
 ```php
 use Orchid\Attachment\File;
@@ -94,10 +101,14 @@ public function upload(Request $request)
 }   
 ```
 
+Keep in mind that allowing duplicate files may increase storage usage and affect your application's performance. Therefore, it should be used with caution and only when necessary.
+
 ## Customizing the Upload Path
 
 
-By default, Orchid has a default upload path for all files of `Y/m/d`, for example: `2022/06/11`. You can change the default path using the `path(string $path)` method:
+By default, Laravel Orchid uses a default upload path for all files of `Y/m/d`, for example: `2022/06/11`. This path is used to organize and structure the uploaded files in the storage. However, you may want to customize the path to suit your specific needs.
+
+You can change the default path by using the `path(string $path)` method:
 
 ```php
 use Orchid\Attachment\File;
@@ -110,6 +121,11 @@ public function upload(Request $request)
     return response()->json()
 }
 ```
+
+In this example, the `path()` method is used to set the path to `photos` before loading the file. This will change the default path and all files will be uploaded to the `photos` folder.
+
+You can also use dynamic parameters like `path('photos/'.$user->id)` or `path('photos/'.$file->name)` to create specific folders for each user or file type.
+
 
 ## Remove
 
