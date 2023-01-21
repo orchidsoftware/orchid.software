@@ -5,37 +5,37 @@ description: Learn about Laravel Orchid, the open-source package for acceleratin
 
 ## Introduction to Laravel Orchid
 
-**Laravel Orchid** is an open-source package (MIT license) for accelerating the development and creation of administration-style applications. It abstracts typical business application templates so developers can quickly implement beautiful and elegant interfaces with little effort.
-
-Some features:
-
-- **Form builder** - no need to describe HTML fields of the same type each time.
-- **Screen** - a comfortable balance between CRUD generation and tedious coding.
-- **Fields** - over 40 varieties.
-- **Permissions** - offers convenient management in development and support.
-- Menus, charts, notifications, etc.
+**Laravel Orchid** is a powerful open-source package that simplifies the development and creation of administration-style applications. With its elegant and intuitive interface, developers can quickly implement beautiful and functional interfaces with minimal effort.
 
 
-Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for applications like a content management system.
+Some of the key features of Laravel Orchid include:
+
+- A form builder that eliminates the need to manually describe HTML fields of the same type.
+- Screens that provide a comfortable balance between CRUD generation and tedious coding.
+- Over 40 different field types to choose from.
+- Permissions management that makes it easy to manage user access in development and support.
+- Additional features such as menus, charts, notifications, and more.
 
 
-> Note: This documentation covers the use of the Laravel Orchid package, but does not provide an introduction to the Laravel framework. If you are new to Laravel, it is recommended that you first read through the [Laravel documentation](https://laravel.com/docs/).
+As a Laravel package, Laravel Orchid seamlessly integrates with other components and can serve as the foundation for applications such as content management systems.
+
+
+> Note: This documentation is intended for users familiar with the Laravel framework. If you are new to Laravel, it is recommended that you first read through the [Laravel documentation](https://laravel.com/docs/) to gain a better understanding of the framework before using Laravel Orchid.
 
 
 ## What Orchid is not
 
-However, it is important to note that Laravel Orchid is not a "turnkey" solution. It is not intended to be a simple, plug-and-play platform that can be used by anyone with little or no programming experience. Instead, it is designed for developers who have a strong understanding of programming concepts and are comfortable working with complex systems.
+It is important to note that while Laravel Orchid is a powerful tool for developers, it is not a "turnkey" solution. It is not intended for those with little or no programming experience, as it requires a strong understanding of programming concepts and the ability to work comfortably with complex systems.
 
 ## Looking for something simpler?
 
 
-If you're looking for an easy way to create simple applications with minimal code, Laravel Orchid's **CRUD** feature may be right for you. It provides a straightforward syntax that allows you to build basic applications with little effort. To get started, check out the [CRUD section](https://orchid.software/en/docs/packages/crud/#introduction).
+If you're searching for a more straightforward solution for creating simple applications with minimal coding, Laravel Orchid's **CRUD** feature may be a good fit for you. It offers a straightforward syntax that allows for easy creation of basic applications. To get started, take a look at the[CRUD section](https://orchid.software/en/docs/packages/crud/#introduction) of the documentation.
 
 
 ## Migrating to Laravel Orchid
 
-
-If you already have an admin panel based on `Blade` templates, you don't have to rewrite everything at once to use Laravel Orchid. You can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and incorporating Orchid's features into your existing application.
+If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use Laravel Orchid. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
 
 
 ## What sets Laravel Orchid apart from other packages?
@@ -91,13 +91,8 @@ Classic          |   Orchid
 ```
 
 
-## How to get a Orchid?
-
-Laravel Orchid is freely distributed via the Internet, [source codes](https://github.com/orchidsoftware/platform), and [release information](https://github.com/orchidsoftware/platform/releases) published on GitHub. The [installation guide](/en/docs/installation/) contains detailed instructions.
-
-> Alternatively, you can [create a new issue](https://github.com/orchidsoftware/orchid.software/issues) to suggest improvements to this tutorial. If you have questions or find a documentation error, please show the chapter and accompanying text to indicate the error.
 
 ## Is something wrong?
 
-If our documentation is missing something, please feel free to contribute!
-You can click on the **Suggest Edits** link on the top right side of any documentation page.
+If you find that something is missing or unclear in our documentation, we welcome contributions to improve it. You can click on the **Suggest Edits** link on the top right side of any documentation page to suggest changes.
+
