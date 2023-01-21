@@ -95,9 +95,7 @@ Classic          |   Orchid
 
 Laravel Orchid is freely distributed via the Internet, [source codes](https://github.com/orchidsoftware/platform), and [release information](https://github.com/orchidsoftware/platform/releases) published on GitHub. The [installation guide](/en/docs/installation/) contains detailed instructions.
 
-> To suggest improvements to this tutorial, [create a new issue](https://github.com/orchidsoftware/orchid.software/issues).
-If you have questions or find a documentation error, please show the chapter and accompanying the text to indicate an error.
-
+> Alternatively, you can [create a new issue](https://github.com/orchidsoftware/orchid.software/issues) to suggest improvements to this tutorial. If you have questions or find a documentation error, please show the chapter and accompanying text to indicate the error.
 
 ## Is something wrong?
 
