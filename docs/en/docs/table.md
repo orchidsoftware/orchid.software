@@ -61,7 +61,7 @@ Layout::table('clients', [
 ]);
 ```
 
-## Cells
+## Basics Cells
 
 A table is only a general wrapper for which you need to specify TD classes. Designed to create a single cell.
 
@@ -148,7 +148,7 @@ TD::make('last_name')->defaultHidden();
 ```
 
 
-## Data output
+## Data Output
 
 In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
  
@@ -326,7 +326,7 @@ TD::make('status')->component(OrderShortInformation::class, [
 ]);
 ```
 
-## Components value
+## Components Value
 
 This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.
 
@@ -394,7 +394,7 @@ TD::make('price')->asComponent(Numeric::class, [
 // 1 234,56
 ```
 
-## Table options
+## Table Options
 
 You can specify the text to be displayed if the table is empty
 specifying methods:
@@ -452,7 +452,7 @@ protected function onEachSide(): int
 }
 ```
 
-## Total row
+## Total Row
 
 Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required cells. For example:
 
