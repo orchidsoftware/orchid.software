@@ -385,6 +385,9 @@
                     <a href="#default-configuration">Default Configuration</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#optimizing-images">Optimizing Images</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#event-subscription">Event subscription</a>
                 </li>
                     </ul>
@@ -534,6 +537,9 @@ public function hero()
 <li><p><strong>disk</strong> &ndash; The name of the storage used to store files. The entire settings for the storage should be defined in <code>/config/filesystems.php</code>.</p></li>
 <li><p><strong>generator</strong> &ndash; A class that defines how the uploaded files will be named, in which directories they will be located, and how to avoid duplicating them.</p></li>
 </ul>
+<h2><a href='#optimizing-images' id='optimizing-images'>Optimizing Images</a></h2>
+<p>Optimizing images can be an important step in improving the performance and user experience of your application. However, it is important to be mindful of how and when images are optimized. Modifying the original images can lead to a loss of quality, especially if the images are modified multiple times with different resolutions or quality settings.</p>
+<p>One way to optimize images on demand is to use a third-party package such as <a href="https://github.com/Intervention/imagecache">https://github.com/Intervention/imagecache</a> or its alternatives. This approach allows you to optimize images only when necessary and keep the original images in their original quality, which can be useful in situations where the image requirements change over time or if you want to keep the original image for other purposes.</p>
 <h2><a href='#event-subscription' id='event-subscription'>Event subscription</a></h2>
 <p>Different file processing options may require additional processing, such as video compression, This is possible thanks to an event that you can subscribe to using standard tools and perform a task in the background:</p>
 <pre><code class="language-php">namespace App\Providers;
