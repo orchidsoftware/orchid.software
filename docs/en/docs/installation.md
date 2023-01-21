@@ -4,7 +4,7 @@ description: Learn how to install and set up Laravel Orchid in your project with
 ---
 
 
-Before you can use the platform, you need to install it. This guide should help you perform a simple installation to start the project.
+Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.
 
 ## Create a project
 
