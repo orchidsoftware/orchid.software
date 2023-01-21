@@ -218,6 +218,13 @@ By default, each file uploaded follows the strategy described in `config/platfor
 - **generator** - A class that defines how the uploaded files will be named, in which directories they will be located, and how to avoid duplicating them.
 
 
+## Optimizing Images
+
+Optimizing images can be an important step in improving the performance and user experience of your application. However, it is important to be mindful of how and when images are optimized. Modifying the original images can lead to a loss of quality, especially if the images are modified multiple times with different resolutions or quality settings.
+
+One way to optimize images on demand is to use a third-party package such as [https://github.com/Intervention/imagecache](https://github.com/Intervention/imagecache) or its alternatives. This approach allows you to optimize images only when necessary and keep the original images in their original quality, which can be useful in situations where the image requirements change over time or if you want to keep the original image for other purposes.
+
+
 ## Event subscription
 
 Different file processing options may require additional processing, such as video compression,
