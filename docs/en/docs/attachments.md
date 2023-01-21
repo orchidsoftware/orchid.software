@@ -194,8 +194,8 @@ public function boot()
 
 ## Default Configuration
 
+When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the `config/platform.php` file. This configuration specifies the disk and generator that will be used to handle the files.
 
-By default, each file uploaded follows the strategy described in `config/platform.php`:
 
 ```php
 /*
@@ -213,10 +213,11 @@ By default, each file uploaded follows the strategy described in `config/platfor
 ],
 ```
 
-- **disk** - The name of the storage used to store files. The entire settings for the storage should be defined in `/config/filesystems.php`.
+- **disk** -  The name of the storage disk that will be used to store the files. The disk should be defined in the `/config/filesystems.php` file.
 
-- **generator** - A class that defines how the uploaded files will be named, in which directories they will be located, and how to avoid duplicating them.
+- **generator** - The generator class that defines how the files will be named, where they will be located in the storage, and how to avoid duplicating them. By default, Orchid uses the `\Orchid\Attachment\Engines\Generator` class, which uses a hash of the file's contents to avoid duplicating files.
 
+You can modify these settings to suit your needs, for example, you can change the disk and generator to customize the way files are handled and stored.
 
 ## Optimizing Images
 
@@ -225,10 +226,12 @@ Optimizing images can be an important step in improving the performance and user
 One way to optimize images on demand is to use a third-party package such as [https://github.com/Intervention/imagecache](https://github.com/Intervention/imagecache) or its alternatives. This approach allows you to optimize images only when necessary and keep the original images in their original quality, which can be useful in situations where the image requirements change over time or if you want to keep the original image for other purposes.
 
 
-## Event subscription
+## Event Subscription
 
-Different file processing options may require additional processing, such as video compression,
-This is possible thanks to an event that you can subscribe to using standard tools and perform a task in the background:
+
+Laravel Orchid allows you to subscribe to events that are triggered when a file is uploaded. This allows you to perform additional tasks such as video compression, image optimization, or other types of file processing.
+
+To subscribe to an event, you can use the standard event subscription tools provided by Laravel. In the example below, a listener class `UploadListener` is registered to listen for the `UploadFileEvent`:
 
 ```php
 namespace App\Providers;
@@ -259,7 +262,7 @@ class EventServiceProvider extends ServiceProvider
 }
 ```
 
-Each subscription will receive an object `UploadFileEvent`:
+When the `UploadFileEvent` is triggered, the `handle` method of the `UploadListener` class will be called. The method will receive an object of the `UploadFileEvent` class, which contains information about the attachment and the time of the upload.
 
 ```php
 namespace App\Listeners;
