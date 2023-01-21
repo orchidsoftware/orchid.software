@@ -361,7 +361,7 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#cells">Cells</a>
+                    <a href="#basics-cells">Basics Cells</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#alignment">Alignment</a>
@@ -379,7 +379,7 @@
                     <a href="#showhide">Show/Hide</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#data-output">Data output</a>
+                    <a href="#data-output">Data Output</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#the-loop-variable">The Loop Variable</a>
@@ -388,13 +388,13 @@
                     <a href="#components">Components</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#components-value">Components value</a>
+                    <a href="#components-value">Components Value</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#table-options">Table options</a>
+                    <a href="#table-options">Table Options</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#total-row">Total row</a>
+                    <a href="#total-row">Total Row</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#column-expansion">Column Expansion</a>
@@ -445,7 +445,7 @@ Layout::table('clients', [
     TD::make('created_at')-&gt;sort(),
 ]);
 </code></pre>
-<h2><a href='#cells' id='cells'>Cells</a></h2>
+<h2><a href='#basics-cells' id='basics-cells'>Basics Cells</a></h2>
 <p>A table is only a general wrapper for which you need to specify TD classes. Designed to create a single cell.</p>
 <pre><code class="language-php">use Orchid\Screen\TD;
 
@@ -493,7 +493,7 @@ prohibit doing this by specifying:</p>
 <p>And also hide by default, but can be shown at the request of the user.</p>
 <pre><code class="language-php">TD::make('last_name')-&gt;defaultHidden();
 </code></pre>
-<h2><a href='#data-output' id='data-output'>Data output</a></h2>
+<h2><a href='#data-output' id='data-output'>Data Output</a></h2>
 <p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
 <pre><code class="language-php">TD::make('full_name')
     -&gt;render(function ($user) {
@@ -631,7 +631,7 @@ TD::make('status')-&gt;component(OrderShortInformation::class);
     'limit' =&gt; 100
 ]);
 </code></pre>
-<h2><a href='#components-value' id='components-value'>Components value</a></h2>
+<h2><a href='#components-value' id='components-value'>Components Value</a></h2>
 <p>This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.</p>
 <p>To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, I want to display values of a specific format:</p>
 <pre><code class="language-php">namespace App\View\Components;
@@ -687,7 +687,7 @@ blade;
 ]);
 // 1 234,56
 </code></pre>
-<h2><a href='#table-options' id='table-options'>Table options</a></h2>
+<h2><a href='#table-options' id='table-options'>Table Options</a></h2>
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
 <pre><code class="language-php">/**
@@ -735,7 +735,7 @@ protected function onEachSide(): int
     return 3;
 }
 </code></pre>
-<h2><a href='#total-row' id='total-row'>Total row</a></h2>
+<h2><a href='#total-row' id='total-row'>Total Row</a></h2>
 <p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
 <pre><code class="language-php">public function total():array
 {
