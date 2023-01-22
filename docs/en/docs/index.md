@@ -30,7 +30,7 @@ It is important to note that while Laravel Orchid is a powerful tool for develop
 ## Looking for something simpler?
 
 
-If you're searching for a more straightforward solution for creating simple applications with minimal coding, Laravel Orchid's **CRUD** feature may be a good fit for you. It offers a straightforward syntax that allows for easy creation of basic applications. To get started, take a look at the[CRUD section](https://orchid.software/en/docs/packages/crud/#introduction) of the documentation.
+If you're searching for a more straightforward solution for creating simple applications with minimal coding, Laravel Orchid's **CRUD** feature may be a good fit for you. It offers a straightforward syntax that allows for easy creation of basic applications. To get started, take a look at the [CRUD section](https://orchid.software/en/docs/packages/crud/#introduction) of the documentation.
 
 
 ## Migrating to Laravel Orchid
