@@ -392,6 +392,9 @@
                             <li class="anchor-h3">
                     <a href="#duplicate-actions">Duplicate Actions</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#calling-a-screen-method">Calling a Screen Method</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#screen-layouts">Screen Layouts</a>
                 </li>
@@ -626,6 +629,20 @@ public function commandBar() : array
 <h3><a href='#duplicate-actions' id='duplicate-actions'>Duplicate Actions</a></h3>
 <p>In software development, it is common for similar actions to be performed across multiple screens or classes. For example, an action such as deleting an object may be needed on both a pagination screen and a details screen. Instead of duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.</p>
 <p>PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for redundant code. This not only improves the efficiency of the development process but also makes the code more maintainable and easier to understand.</p>
+<h3><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h3>
+<p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
+<p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
+<pre><code class="language-php">&lt;form method=&quot;POST&quot; action=&quot;{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}&quot;&gt;
+    @csrf
+    &lt;button type=&quot;submit&quot;&gt;Say &quot;Hello, World!&quot;&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+<p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
+<p>You can also use this with the UI buttons:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+
+Button::make('Say &quot;Hello, World!&quot;')-&gt;action(route('platform.screens.users', ['method' =&gt; 'hello']),
+</code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
 <p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
