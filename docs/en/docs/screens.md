@@ -333,7 +333,9 @@ When working within a screen in Laravel Orchid, all UI actions have a correspond
 For example, to call the `hello` method on the `platform.screens.users` screen, the following code can be used:
 
 ```php
-<form method="POST" action="{{ route('platform.screens.users', ['method' => 'hello']) }}">
+<form action="{{ route('platform.screens.users', ['method' => 'hello']) }}"
+      method="POST"
+>
     @csrf
     <button type="submit">Say "Hello, World!"</button>
 </form>
@@ -348,7 +350,10 @@ You can also use this with the UI buttons:
 ```php
 use Orchid\Screen\Actions\Button;
 
-Button::make('Say "Hello, World!"')->action(route('platform.screens.users', ['method' => 'hello']),
+Button::make('Say "Hello, World!"')
+    ->action(route('platform.screens.users', [
+        'method' => 'hello',
+    ]));
 ```
 
 ## Screen Layouts
