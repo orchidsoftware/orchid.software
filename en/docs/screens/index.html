@@ -404,7 +404,6 @@
 <p>Screens on the Orchid platform are the main element that defines the layout and behavior of a page. Each screen is described by a class that specifies the components that should be displayed, as well as their properties and interactions.</p>
 <p>Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called &quot;layouts&quot;), and specifying which data should be displayed in each layout.</p>
 <p>In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.</p>
-<p><img src="/img/scheme/screens.jpg" alt="Screens" /></p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
 <p>You can create a new screen by running the command:</p>
 <pre><code class="language-php">php artisan orchid:screen Idea
@@ -465,6 +464,7 @@ class Idea extends Screen
 }
 </code></pre>
 <p>The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:</p>
+<p><img src="/img/scheme/screens.jpg" alt="Screens" /></p>
 <ul>
 <li><p><strong>query</strong>: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen&rsquo;s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
