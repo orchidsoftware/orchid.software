@@ -13,7 +13,6 @@ Screens do not need to be concerned with where the data comes from, as it can be
 In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.
 
 
-![Screens](/img/scheme/screens.jpg)
 
 ## Creating Screens
 
@@ -82,6 +81,8 @@ class Idea extends Screen
 ```
 
 The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:
+
+![Screens](/img/scheme/screens.jpg)
 
 - **query**: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
 
