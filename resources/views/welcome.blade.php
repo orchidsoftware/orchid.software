@@ -42,14 +42,14 @@
     <div class="container">
         <div class="row my-3 my-md-5">
             <div class="col-12 col-lg-6 mx-auto text-center">
-                <h1 class="display-5 fw-bold">Develop <span class="d-block d-md-inline-block text-primary">web applications,</span>
-                    <small class="d-block">not admin panels.</small>
+                <h1 class="display-5 fw-bold">Say <span class="d-block d-md-inline-block text-primary">goodbye</span> to
+                    <small class="d-block">tedious admin panel development</small>
                 </h1>
 
-
                 <p class="lead text-muted mb-md-5 mb-3">
-                    Stop reinventing the wheel and wasting your time developing your own admin panel from scratch. 
-                    Focus on what really matters to you and start coding application logic right now!
+                    Stop wasting time and effort on developing admin panels from scratch. 
+                    Laravel Orchid streamlines the process, allowing you to focus on what truly matters - creating your application's logic.
+                    Start building your web application today and see the difference for yourself.
                 </p>
             </div>
         </div>
