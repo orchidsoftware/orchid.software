@@ -22,8 +22,8 @@
                         <span class="d-block">with Laravel Orchid</span> 
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3">
-                        A free Laravel package that abstracts standard business logic and enables code-driven,
-                        rapid development of back-office applications like admin panels and dashboards.
+                        Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications. 
+                        With its code-driven approach, you can quickly and easily create efficient applications.
                     </p>
                 </div>
             </div>
