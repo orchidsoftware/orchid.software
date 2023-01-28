@@ -94,6 +94,14 @@ composer require orchid/platform:@dev
 Composer adds the package from the repository that you specified.
 The remaining actions correspond to the section `Installations`.
 
+
+In order to collect js/css resources and apply them immediately, you can use the command:
+
+```bash
+npm run dev --prefix platform && php artisan orchid:publish
+```
+
+
 ### Submit change request
     
 Create a new branch like this:
