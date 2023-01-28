@@ -439,6 +439,9 @@ All appeals will be immediately considered.</p>
 </code></pre>
 <p>Composer adds the package from the repository that you specified.
 The remaining actions correspond to the section <code>Installations</code>.</p>
+<p>In order to collect js/css resources and apply them immediately, you can use the command:</p>
+<pre><code class="language-bash">npm run dev --prefix platform &amp;&amp; php artisan orchid:publish
+</code></pre>
 <h3><a href='#submit-change-request' id='submit-change-request'>Submit change request</a></h3>
 <p>Create a new branch like this:</p>
 <pre><code class="language-bash">git checkout -b feature/issue_001
