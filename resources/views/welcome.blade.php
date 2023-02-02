@@ -18,8 +18,8 @@
 
             <div class="px-4 py-md-5 my-md-5 text-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5">
-                    <h1 class="display-5 fw-bold mb-md-5 mb-3">Elevate your app
-                        <span class="d-block">with Laravel Orchid</span> 
+                    <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
+                        <span class="d-block">Laravel with Orchid</span> 
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3">
                         Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications. 
