@@ -37,3 +37,8 @@ Menu items should have names that are either actions or locations, never descrip
 
 "Settings" is acceptable as it clearly describes the action that will be performed when the item is clicked.
 "Software Up to Date" is not acceptable. What happens if I click this item? Where will it take me? What will it do? The outcome is uncertain.
+
+
+## Terms
+
+Use the same words for objects and actions on them. If the user reads "certificate" in one window, "electronic signature" in another, and "key" in a third, he will not make the connection between these words, he will not understand that they are the same thing.
