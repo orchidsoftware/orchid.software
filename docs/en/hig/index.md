@@ -19,7 +19,7 @@ Adhering to the suggestions contained here provides many benefits:
 
 
 
-> Note. Keep in mind that this is a set of guidelines, not a rule book. 
+> Keep in mind that this is a set of guidelines, not a rule book. 
 New, amazing interaction paradigms appear every day and more are waiting to be discovered.
 This is a living document that can and will be changed.
 
