@@ -55,3 +55,14 @@ In app development, strive to leverage existing resources and components from Or
 This will not only save time and effort, but also ensure a seamless migration to newer versions.
 However, don't compromise the integrity and functionality of the application in the process of reusing resources. 
 Do not force it though. If it doesn’t fit, it doesn’t fit.
+
+
+## Adopt a Modular Approach
+
+Keep in mind that Orchid is a package for Laravel, and therefore it's advisable to create smaller packages that complement each other. 
+This helps to eliminate duplication of functionality and makes these features accessible to other applications.
+
+For instance, a popular use case is to implement backups, and many users prefer to utilize 
+the package [spatie/laravel-backup](https://github.com/spatie/laravel-backup). However, you can take it a step further by building 
+a package that includes a preconfigured route and a backup screen.
+
