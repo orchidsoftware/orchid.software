@@ -21,20 +21,8 @@ Orchid prioritizes simplicity by limiting the addition of extraneous features. I
 
 By focusing on a streamlined, intuitive user experience, Orchid helps you work more efficiently and effectively.
 
+Orchid is mindful of avoiding feature bloat and excessive customizations, as they can lead to several drawbacks such as slower performance, cluttered interface, increased implementation time, increased potential for bugs, and additional documentation and translation work.
 
-## Build for the "Out of the box" experience
-
-
-Providing settings can be a way to make sure an app is accessible to a wider set of people with unique needs,
-but it can also be an easy way out of making design decisions about an app's behavior. 
-Just like with problems of feature bloat, settings mean more code, more bugs, more testing,
-more documentation, and more complexity. Before adding a new setting, ask if this setting is about
-passing off a decision or if it's necessary to make your app more accessible to different types of people.
-Don't ask the people using your app to make engineering or design decisions. Settings should cater to competing needs.
-
-> Before adding a new setting, ask if this setting is about passing off a decision or if it's necessary 
-to make your app more accessible to different types of people.
-
-Build for the "Out of the box" experience. Most people will not change your app's settings from the defaults.
+Therefore, before introducing any new customization, Orchid assesses its necessity in accommodating the needs of diverse user groups. This approach helps streamline the design and maintain simplicity, resulting in a more efficient and user-friendly application.
 
 
