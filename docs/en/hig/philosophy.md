@@ -21,14 +21,6 @@ However, it is important to recognize that every new feature has a price. Specif
 * More code can often mean a greater possibility for bugs.
 * More features means more work on translations, etc.
 
-## Adopt a Modular Approach
-Keep in mind that Orchid is a package for Laravel, and therefore it's advisable to create smaller packages that complement each other. 
-This helps to eliminate duplication of functionality and makes these features accessible to other applications.
-
-For instance, a popular use case is to implement backups, and many users prefer to utilize 
-the package [spatie/laravel-backup](https://github.com/spatie/laravel-backup). However, you can take it a step further by building 
-a package that includes a preconfigured route and a backup screen.
-
 
 ## Build for the "Out of the box" experience
 
