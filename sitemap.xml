@@ -229,6 +229,30 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/en/hig</loc>
+        <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/en/hig/performance</loc>
+        <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/en/hig/philosophy</loc>
+        <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/en/hig/workflow</loc>
+        <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/en</loc>
         <lastmod>2023-02-06T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
