@@ -10,7 +10,7 @@ Orchid prioritizes simplicity and user experience, ensuring key functions of the
 Designed for adaptability, Orchid can be used effectively on both mobile devices and desktop computers. The app provides complete information without any clipping, ensuring a seamless transition between devices and a consistent user experience.
 
 
-Orchid prioritizes simplicity by limiting the addition of extraneous features. It's crucial to recognize that each new feature carries a cost, including:
+Orchid places a strong emphasis on simplicity by being selective about adding new features. It is essential to understand that each new feature brings with it consequences, such as:
 
 * Slower app performance and increased resource consumption
 * A cluttered interface that becomes more difficult to use
