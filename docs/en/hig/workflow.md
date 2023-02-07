@@ -38,7 +38,7 @@ Confirmation prompts help to avoid frustration and dissatisfaction caused by uni
 Incorporating confirmation prompts into a design helps to create a more secure and user-friendly experience.
 
 
-## Saving information
+## Data Saving
 
 When you use your mobile phone, you expect all the information you enter to be immediately saved and applied. 
 
