@@ -132,11 +132,11 @@ return [
             ],
 
             'Guidelines' => [
-                'Quick Response Time' => '/en/hig/performance',
-                'Naming'      => '/en/hig/naming',
-                'Navigation'         => '#',
-                'Presentation Table' => '#',
-                'Providing Feedback' => '/en/hig/providing-feedback',
+                'Quick Response Time'   => '/en/hig/performance',
+                'Text in the Interface' => '/en/hig/naming',
+                'Navigation'            => '#',
+                'Presentation Table'    => '#',
+                'Providing Feedback'    => '/en/hig/providing-feedback',
             ],
 
             'Reference' => [
