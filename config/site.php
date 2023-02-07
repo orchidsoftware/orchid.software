@@ -133,7 +133,7 @@ return [
 
             'Guidelines' => [
                 'Quick Response Time' => '/en/hig/performance',
-                'Screen Naming'      => '#',
+                'Naming'      => '/en/hig/naming',
                 'Navigation'         => '#',
                 'Presentation Table' => '#',
                 'Providing Feedback' => '/en/hig/providing-feedback',
