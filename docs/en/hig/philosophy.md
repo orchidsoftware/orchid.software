@@ -7,9 +7,7 @@ section: site.hig.
 
 ## Concision
 
-Always work to make your web app instantly understandable. The main function of your app should be immediately apparent.
-You can do this in a number of ways, but one of the best ways is by sticking to a principle of concision.
-
+Orchid prioritizes simplicity, ensuring key features of your app are easily accessible through a streamlined, dockable navigation and workspace.
 
 ## Consistent User Experience
 
