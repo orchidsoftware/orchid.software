@@ -1,6 +1,6 @@
 ---
 title: User Workflow
-description:
+description: Bringing a line of business application in line with modern expectations.
 section: site.hig.
 ---
 
