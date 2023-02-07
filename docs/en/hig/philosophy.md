@@ -4,7 +4,6 @@ description:
 section: site.hig.
 ---
 
-# Design Philosophy
 
 # Concision
 
