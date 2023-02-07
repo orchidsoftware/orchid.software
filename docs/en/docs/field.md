@@ -300,6 +300,17 @@ Select::make('user')
     ]);
 ```
 
+Allow custom values with the `allowAdd` method:
+
+```php
+Select::make('user')
+    ->allowAdd()
+    ->options([
+        1  => 'Option 1',
+        2  => 'Option 2',
+    ]);
+```
+
 ## Relation
 
 
