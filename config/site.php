@@ -136,7 +136,7 @@ return [
                 'Screen Naming'      => '#',
                 'Navigation'         => '#',
                 'Presentation Table' => '#',
-                'Providing Feedback' => '#',
+                'Providing Feedback' => '/en/hig/providing-feedback',
             ],
 
             'Reference' => [
