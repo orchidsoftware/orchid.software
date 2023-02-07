@@ -4,7 +4,7 @@ description:
 section: site.hig.
 ---
 
-The aim of these guidelines is to assist interface designers and software developers in creating their app using Orchid.
+The aim of these guidelines is to assist software developers and interface designers in creating their app using Orchid.
 They outline specific design elements and principles, while also fostering a design philosophy that guides you
 in making informed decisions when deviating from the guidelines.
 
