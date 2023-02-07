@@ -5,7 +5,7 @@ section: site.hig.
 ---
 
 
-# Concision
+## Concision
 
 Always work to make your web app instantly understandable. The main function of your app should be immediately apparent.
 You can do this in a number of ways, but one of the best ways is by sticking to a principle of concision.
@@ -38,11 +38,11 @@ to make your app more accessible to different types of people.
 Build for the "Out of the box" experience. Most people will not change your app's settings from the defaults.
 
 
-# Consistent User Experience
+## Consistent User Experience
 
 Orchid provides a consistent interaction language and visual design, whether you are completing a sales order, reviewing your KPIs, or managing vacation requests. The web application ensures an intuitive and consistent experience throughout.
 
-# Adaptive Design
+## Adaptive Design
 
 Orchid is designed to be adaptable, enabling you to work efficiently on both mobile devices and office desktops. The application provides full information without any clipping, allowing for seamless transitions between devices.
 
