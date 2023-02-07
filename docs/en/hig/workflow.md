@@ -47,3 +47,11 @@ you were to switch the date of the press release, that would be terrible, becaus
 The situation is especially aggravated when the same object is opened for editing by multiple users at once.
 
 So we expect that saving information on demand requires an explicit acknowledgement, such as clicking on a button.
+
+
+## Leveraging Existing Resources
+
+In app development, strive to leverage existing resources and components from Orchid.
+This will not only save time and effort, but also ensure a seamless migration to newer versions.
+However, don't compromise the integrity and functionality of the application in the process of reusing resources. 
+Do not force it though. If it doesn’t fit, it doesn’t fit.
