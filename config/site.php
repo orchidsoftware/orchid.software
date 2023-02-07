@@ -129,10 +129,10 @@ return [
                 'Introduction'        => '/en/hig',
                 'Design Philosophy'   => '/en/hig/philosophy',
                 'User Workflow'       => '/en/hig/workflow',
-                'Quick Response Time' => '/en/hig/performance',
             ],
 
             'Guidelines' => [
+                'Quick Response Time' => '/en/hig/performance',
                 'Screen Naming'      => '#',
                 'Navigation'         => '#',
                 'Table'              => '#',
