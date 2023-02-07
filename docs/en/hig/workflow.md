@@ -9,7 +9,7 @@ Visible design is a large part of the user experience, but so is the user's work
 In this section, we cover a few important steps of a typical workflow:
 
 
-## Confirm Action
+## Confirmation of Action
 
 When you use your mobile phone, you expect all the information you enter to be immediately saved and applied. 
 
@@ -19,7 +19,7 @@ The situation is especially aggravated when the same object is opened for editin
 
 So we expect that saving information on demand requires an explicit acknowledgement, such as clicking on a button.
 
-## Destruction
+## Destructive of Action
 
 Asking for user confirmation before executing a destructive action, such as deleting data, is a crucial aspect of user-centered design.
 This practice helps to:
@@ -36,13 +36,13 @@ Confirmation prompts help to avoid frustration and dissatisfaction caused by uni
 Incorporating confirmation prompts into a design helps to create a more secure and user-friendly experience.
 
 
-## Welcome User
+## Welcoming the User
 
 If there is no content to show the user, provide actions they can act upon. 
 Let them create a document, import a CSV, or whatever makes sense in the context of the app.
 
 
-## Utilize Existing Resources
+## Leveraging Existing Resources
 
 In app development, strive to leverage existing resources and components from Orchid.
 This will not only save time and effort, but also ensure a seamless migration to newer versions.
@@ -50,7 +50,7 @@ However, don't compromise the integrity and functionality of the application in 
 Do not force it though. If it doesn’t fit, it doesn’t fit.
 
 
-## Use Modular Approach
+## Adopt a Modular Approach
 
 Keep in mind that Orchid is a package for Laravel, and therefore it's advisable to create smaller packages that complement each other. 
 This helps to eliminate duplication of functionality and makes these features accessible to other applications.
