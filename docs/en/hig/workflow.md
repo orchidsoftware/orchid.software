@@ -4,7 +4,7 @@ Visible design is a large part of the user experience, but so is the user's work
 In this section, we cover a few important steps of a typical workflow:
 
 
-# Speed
+## Speed
 
 
 ... //
