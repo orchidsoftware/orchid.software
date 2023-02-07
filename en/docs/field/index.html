@@ -621,6 +621,14 @@ Select::make('user')
         2  =&gt; 'Option 2',
     ]);
 </code></pre>
+<p>Allow custom values with the <code>allowAdd</code> method:</p>
+<pre><code class="language-php">Select::make('user')
+    -&gt;allowAdd()
+    -&gt;options([
+        1  =&gt; 'Option 1',
+        2  =&gt; 'Option 2',
+    ]);
+</code></pre>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
 <p>Relations fields can load dynamic data, this is a good solution if you need connections.</p>
 <pre><code class="language-php">Relation::make('idea')
