@@ -135,7 +135,7 @@ return [
                 'Quick Response Time' => '/en/hig/performance',
                 'Screen Naming'      => '#',
                 'Navigation'         => '#',
-                'Table'              => '#',
+                'Presentation Table' => '#',
                 'Providing Feedback' => '#',
             ],
 
