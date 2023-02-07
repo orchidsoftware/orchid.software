@@ -4,7 +4,6 @@ description:
 section: site.hig.
 ---
 
-# User Workflow
 
 Visible design is a large part of the user experience, but so is the user's workflow, or how they interact with an app.
 In this section, we cover a few important steps of a typical workflow:
