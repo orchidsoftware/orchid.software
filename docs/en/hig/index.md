@@ -46,4 +46,15 @@ Because we understand that design is about solving specific problems, we must al
 can objectively compare the effectiveness of two designs at solving those problems.
 
 
-This guide was influenced by the GNOME Human Interface Guidelines.
+
+## Reference
+
+This guide has been influenced by the following documents: 
+
+- [GNOME Human Interface Guidelines](https://developer.gnome.org/hig/index.html)
+- [Human Interface Guidelines for elementary OS](https://docs.elementary.io/hig/)
+- [Photon Design System](https://design.firefox.com/photon/)
+- [Apple HIG](https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/)
+- [Kontur Guides](https://guides.kontur.ru/)
+- [Fiori Design Guidelines](https://experience.sap.com/fiori-design-web/)
+
