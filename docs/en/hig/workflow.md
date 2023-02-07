@@ -1,6 +1,7 @@
 ---
 title: User Workflow
-description: 
+description:
+section: site.hig.
 ---
 
 # User Workflow

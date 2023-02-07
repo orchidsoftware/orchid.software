@@ -19,11 +19,11 @@ class DocsMenu extends Component
      *
      * @return void
      */
-    public function __construct(Application $application, Repository $config)
+    public function __construct(Application $application, Repository $config, string $section = 'site.navigation.')
     {
         $locale = $application->getLocale();
 
-        $this->menu = $config->get('site.navigation.'.$locale);
+        $this->menu = $config->get($section.$locale);
     }
 
     /**

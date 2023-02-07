@@ -1,6 +1,7 @@
 ---
 title: Introduction 
-description: 
+description:
+section: site.hig.
 ---
 
 The aim of these guidelines is to assist interface designers and software developers in creating their app using Orchid.

@@ -1,6 +1,7 @@
 ---
 title: Design Philosophy
-description: 
+description:
+section: site.hig.
 ---
 
 # Design Philosophy

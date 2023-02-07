@@ -33,7 +33,7 @@
 
 
                 <div class="col-12 col-md-auto bg-grey py-md-3" style="background:#F9F9FE;z-index: 2">
-                    <x-docs-menu/>
+                    <x-docs-menu :section="$section ?? 'site.navigation.'"/>
                 </div>
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-4 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">

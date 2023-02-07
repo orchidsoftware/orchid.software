@@ -1,6 +1,7 @@
 ---
 title: Quick Response Time 
-description: 
+description:
+section: site.hig.
 ---
 
 

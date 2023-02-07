@@ -122,4 +122,27 @@ return [
             ],
         ],
     ],
+
+    'hig' => [
+        'en' => [
+            'Get Started' => [
+                'Introduction'        => '/en/hig',
+                'Design Philosophy'   => '/en/hig/philosophy',
+                'User Workflow'       => '/en/hig/workflow',
+                'Quick Response Time' => '/en/hig/performance',
+            ],
+
+            'Guidelines' => [
+                'Screen Naming'      => '#',
+                'Navigation'         => '#',
+                'Table'              => '#',
+                'Providing Feedback' => '#',
+            ],
+
+            'Reference' => [
+                'Writing Style'      => '#',
+                'Iconography' => '#',
+            ],
+        ],
+    ],
 ];

@@ -66,6 +66,7 @@
                             <a href="https://twitter.com/orchid_platform"
                                class="btn btn-outline-primary mb-3">Twitter</a>
                             <a href="https://discord.gg/aEVdGMyRt4" class="btn btn-outline-primary mb-3">Discord</a>
+                            <a href="/en/hig" class="btn btn-outline-primary mb-3">HIG</a>
                         </p>
                     </div>
                     <small class="mt-5 mb-0">
