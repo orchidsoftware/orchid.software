@@ -5,6 +5,11 @@ section: site.hig.
 ---
 
 
+Text is an interface element, like a button or an input box. It helps solve an interface problem: it explains what you don't understand and convinces you to perform the desired action.
+
+The user has no time, he is in the flow of solving his task. So he skips long and complex chunks of text. For the user to read the text, use the necessary minimum of words.
+
+
 ## Naming Screen
 
 Screen names are a vital and essential part of the user experience. 
