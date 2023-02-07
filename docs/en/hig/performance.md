@@ -21,8 +21,8 @@ The speed of a desktop application depends solely on the power of your computer,
 
 - **Optimize Database Queries**: Minimize the use of complex database queries and ensure the use of proper indexes.
 - **Caching**: Use caching techniques such as opcode caching and data caching to store frequently used data and reduce the number of database queries.
-- **Preloading Cheat**: Load only the portion of the content needed for the first display of the page and the most likely user actions at once. For example, if there is a lot of information on the screen, consider splitting it into several screens with a common TabMenu. This allows for a more optimized experience and can improve the overall speed of your web application.
-- **Caching on the Browser Side**: Cache data and re-download it only if there are changes. This allows for instant switching between downloaded pages. For example, use the Http header Etag.
+- **Preloading Cheat**: Load only the portion of the content needed for the first display of the page and the most likely user actions at once. For example, if there is a lot of information on the screen, consider splitting it into several screens with a common `TabMenu`. This allows for a more optimized experience and can improve the overall speed of your web application.
+- **Caching on the Browser Side**: Cache data and re-download it only if there are changes. This allows for instant switching between downloaded pages. For example, use the HTTP response header `Etag`.
 - **Data Preparation**: Generate responses to "heavy" requests on the server in advance. For example, update the aggregate tables of the database on schedule.
 - **Background Processing**: If a long response is unavoidable, do not block the user. Instead, run the operation in the background and notify the user that they will be notified on the system and by email when the operation is complete.
 
