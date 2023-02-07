@@ -17,7 +17,8 @@ Orchid prioritizes simplicity by limiting the addition of extraneous features. I
 * Diversion of time and effort away from refining existing features
 * Increased code complexity, leading to a higher risk of bugs
 * Additional translation and localization work
-* 
+
+
 By focusing on a streamlined, intuitive user experience, Orchid helps you work more efficiently and effectively.
 
 
