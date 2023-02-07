@@ -5,18 +5,9 @@ section: site.hig.
 ---
 
 
-## Concision
+Orchid prioritizes simplicity and user experience, ensuring key functions of the application are easily accessible through consistent and intuitive navigation and workspace. The platform offers a consistent interaction language and visual design, providing a seamless experience for tasks such as fulfilling sales orders, reviewing KPIs, or managing vacation requests.
 
-Orchid prioritizes simplicity, ensuring key features of your app are easily accessible through a streamlined, dockable navigation and workspace.
-
-## Consistent User Experience
-
-Orchid provides a consistent interaction language and visual design, whether you are completing a sales order, reviewing your KPIs, or managing vacation requests. The web application ensures an intuitive and consistent experience throughout.
-
-## Adaptive Design
-
-Orchid is designed to be adaptable, enabling you to work efficiently on both mobile devices and office desktops. The application provides full information without any clipping, allowing for seamless transitions between devices.
-
+Designed for adaptability, Orchid can be used effectively on both mobile devices and desktop computers. The app provides complete information without any clipping, ensuring a seamless transition between devices and a consistent user experience.
 
 ## Avoid Feature Bloat
 
