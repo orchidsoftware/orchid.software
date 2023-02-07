@@ -1,3 +1,9 @@
+---
+title: Quick Response Time 
+description: 
+---
+
+
 # Quick Response Time
 
 A speedy interface promotes a sense of control and ease of use. Slow performance is frustrating, leads to errors, and increases the likelihood that users will seek technical support rather than attempting to solve the issue themselves.
