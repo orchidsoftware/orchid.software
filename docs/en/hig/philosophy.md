@@ -1,3 +1,8 @@
+---
+title: Design Philosophy
+description: 
+---
+
 # Design Philosophy
 
 # Concision
