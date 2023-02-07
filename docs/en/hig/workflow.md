@@ -1,3 +1,8 @@
+---
+title: User Workflow
+description: 
+---
+
 # User Workflow
 
 Visible design is a large part of the user experience, but so is the user's workflow, or how they interact with an app.
