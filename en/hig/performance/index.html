@@ -222,8 +222,8 @@
 <ul>
 <li><strong>Optimize Database Queries</strong>: Minimize the use of complex database queries and ensure the use of proper indexes.</li>
 <li><strong>Caching</strong>: Use caching techniques such as opcode caching and data caching to store frequently used data and reduce the number of database queries.</li>
-<li><strong>Preloading Cheat</strong>: Load only the portion of the content needed for the first display of the page and the most likely user actions at once. For example, if there is a lot of information on the screen, consider splitting it into several screens with a common TabMenu. This allows for a more optimized experience and can improve the overall speed of your web application.</li>
-<li><strong>Caching on the Browser Side</strong>: Cache data and re-download it only if there are changes. This allows for instant switching between downloaded pages. For example, use the Http header Etag.</li>
+<li><strong>Preloading Cheat</strong>: Load only the portion of the content needed for the first display of the page and the most likely user actions at once. For example, if there is a lot of information on the screen, consider splitting it into several screens with a common <code>TabMenu</code>. This allows for a more optimized experience and can improve the overall speed of your web application.</li>
+<li><strong>Caching on the Browser Side</strong>: Cache data and re-download it only if there are changes. This allows for instant switching between downloaded pages. For example, use the HTTP response header <code>Etag</code>.</li>
 <li>
 <strong>Data Preparation</strong>: Generate responses to &quot;heavy&quot; requests on the server in advance. For example, update the aggregate tables of the database on schedule.</li>
 <li><strong>Background Processing</strong>: If a long response is unavoidable, do not block the user. Instead, run the operation in the background and notify the user that they will be notified on the system and by email when the operation is complete.</li>
