@@ -421,7 +421,7 @@ public function upload(Request $request)
     $file = new File($request-&gt;file('photo'));
     $attachment = $file-&gt;load();
 
-    return response()-&gt;json()
+    return response()-&gt;json($attachment);
 }
 </code></pre>
 <p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the database.</p>
