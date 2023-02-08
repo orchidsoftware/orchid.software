@@ -45,7 +45,7 @@ public function upload(Request $request)
     $file = new File($request->file('photo'));
     $attachment = $file->load();
 
-    return response()->json()
+    return response()->json($attachment);
 }
 ```
 
