@@ -352,6 +352,12 @@ main {
     }
 }
 
+@include media-breakpoint-up(md) {
+    .nav-docs{
+        max-width: 320px;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     .nav-docs {
         display: inline-block;
