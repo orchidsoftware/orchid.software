@@ -19,7 +19,7 @@ A good screen name should:
 
 - Consist of one or two simple nouns.
 - Be related to the app’s domain (for example: Source for a links news)
-- Be short (less than 15 characters).
+- Be short (less than 15-50 characters).
 - Be easy to pronounce.
 - Be easily paired with a good app icon, such as by referencing a physical object.
 - Use header capitalization (for example: Icon Preview instead of Icon preview).
