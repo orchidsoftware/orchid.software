@@ -36,7 +36,7 @@ Likewise, a good name should avoid:
 
 For a practical example, consider the product preview screen of an online store:
 
-![scrnli_08-02-2023_22-20-35](https://user-images.githubusercontent.com/5102591/217631432-e50f2aa4-53f1-4f22-bba8-09e13c7bc044.png)
+![screen-name-bad.png](https://orchid.software/img/hig/screen-name-bad.png)
 
 
 Initially, the product name is set by the user, which can often contain many words for marketing purposes or to improve search engine optimization. This can result in an untidy and cluttered display.
@@ -45,7 +45,8 @@ To address this issue, we can look at the context in which the product name is u
 
 By replacing the marketing name with the SKU, we can simplify the display and provide a clearer understanding of the context. For instance, we could use a truncated version of the SKU in the description:
 
-![scrnli_08-02-2023_22-19-34](https://user-images.githubusercontent.com/5102591/217633386-6fc580b1-a740-4624-b924-c5cc21a4c672.png)
+![screen-name-good.png](https://orchid.software/img/hig/screen-name-good.png)
+
 
 This approach enhances the overall readability and usability of the product preview screen, making it more efficient and effective for the intended audience.
 
