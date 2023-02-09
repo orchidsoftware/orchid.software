@@ -303,11 +303,11 @@ Select::make('user')
 Allow custom values with the `allowAdd` method:
 
 ```php
-Select::make('user')
+Select::make('type')
     ->allowAdd()
     ->options([
-        1  => 'Option 1',
-        2  => 'Option 2',
+        'Option 1',
+        'Option 2',
     ]);
 ```
 
