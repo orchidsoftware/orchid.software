@@ -622,11 +622,11 @@ Select::make('user')
     ]);
 </code></pre>
 <p>Allow custom values with the <code>allowAdd</code> method:</p>
-<pre><code class="language-php">Select::make('user')
+<pre><code class="language-php">Select::make('type')
     -&gt;allowAdd()
     -&gt;options([
-        1  =&gt; 'Option 1',
-        2  =&gt; 'Option 2',
+        'Option 1',
+        'Option 2',
     ]);
 </code></pre>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
