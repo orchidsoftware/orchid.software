@@ -369,6 +369,21 @@
                     <a href="#release-strategy">Release Strategy</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#upgrading-to-140-from-13x-coming-soon">Upgrading to 14.0 from 13.x (Coming Soon)</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#updating-dependencies">Updating dependencies</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#icons">Icons</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#navigation">Navigation</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#logout-and-quit-impersonation">Logout and Quit Impersonation</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#upgrading-to-130-from-12x">Upgrading to 13.0 from 12.x</a>
                 </li>
                             <li class="anchor-h3">
@@ -490,6 +505,71 @@
 <blockquote>
 <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
+<h2><a href='#upgrading-to-140-from-13x-coming-soon' id='upgrading-to-140-from-13x-coming-soon'>Upgrading to 14.0 from 13.x (Coming Soon)</a></h2>
+<p>Upgrading Laravel Orchid from version <code>13.x</code> to <code>14.0</code> can be a straightforward process if done correctly.</p>
+<p>Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.</p>
+<h3><a href='#updating-dependencies' id='updating-dependencies'>Updating dependencies</a></h3>
+<p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^14.0</code></p>
+<h3><a href='#icons' id='icons'>Icons</a></h3>
+<p>In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
+<p>To do this, simply add the following line to your composer.json file:</p>
+<pre><code class="language-bash">&quot;orchid/icons&quot;: &quot;^2.0&quot;,
+</code></pre>
+<p>And then specify in your configuration file:</p>
+<pre><code class="language-php">'icons' =&gt; [
+    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
+],
+</code></pre>
+<p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
+<h3><a href='#navigation' id='navigation'>Navigation</a></h3>
+<p>In version 14.0, the profile drop-down menu has been removed. Instead, it is suggested to specify the profile information in the main menu or in the screens. Make sure to remove any references to the <code>Dashboard::MENU_PROFILE</code> constant and <code>registerProfileMenu</code> method for service provider in your code.</p>
+<p>For example, the following item will no longer work correctly:</p>
+<pre><code class="language-php">public function registerProfileMenu(): array
+{
+    return [
+        Menu::make('Documentation')
+            -&gt;title('Docs')
+            -&gt;icon('docs')
+            -&gt;url('https://orchid.software/en/docs'),
+    ];
+}
+</code></pre>
+<p>Instead, pen your menu items using the <code>registerMenu</code> or <code>registerMainMenu</code> (Not recommended) method:</p>
+<pre><code class="language-php">public function registerMenu(): array
+{
+    return [
+        Menu::make('Documentation')
+            -&gt;title('Docs')
+            -&gt;icon('docs')
+            -&gt;url('https://orchid.software/en/docs'),
+    ];
+}
+</code></pre>
+<h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
+<p>the behavior of the &quot;Logout&quot; and &quot;Quit Impersonation&quot; actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
+<p>Here is an example of how you can define these buttons:</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+use Orchid\Access\Impersonation;
+
+public function commandBar(): iterable
+{
+    return [
+        Button::make('Back to my account')
+            -&gt;canSee(Impersonation::isSwitch())
+            -&gt;icon('bs.people')
+            -&gt;route('platform.switch.logout'),
+
+        Button::make('Sign out')
+            -&gt;icon('bs.box-arrow-left')
+            -&gt;route('platform.logout'),
+    ];
+}
+</code></pre>
+<ul>
+<li>The first button, &quot;Back to my account&quot;, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
+<li>The second button, &quot;Sign out&quot;, is used to log out of the platform.</li>
+</ul>
+<p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.</p>
 <h2><a href='#upgrading-to-130-from-12x' id='upgrading-to-130-from-12x'>Upgrading to 13.0 from 12.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^13.0</code></p>
