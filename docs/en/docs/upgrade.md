@@ -18,6 +18,99 @@ We believe in keeping our package up-to-date and modern, and therefore follow a 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+
+## Upgrading to 14.0 from 13.x (Coming Soon)
+
+Upgrading Laravel Orchid from version `13.x` to `14.0` can be a straightforward process if done correctly.
+
+Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.
+
+### Updating dependencies
+
+In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
+
+### Icons
+
+In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.
+
+To do this, simply add the following line to your composer.json file:
+
+```bash
+"orchid/icons": "^2.0",
+```
+
+And then specify in your configuration file:
+
+```php
+'icons' => [
+    'orc' => \Orchid\IconPack\Path::getFolder(),
+],
+```
+
+By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.
+
+### Navigation
+
+In version 14.0, the profile drop-down menu has been removed. Instead, it is suggested to specify the profile information in the main menu or in the screens. Make sure to remove any references to the `Dashboard::MENU_PROFILE` constant and `registerProfileMenu` method for service provider in your code.
+
+For example, the following item will no longer work correctly:
+
+```php
+public function registerProfileMenu(): array
+{
+    return [
+        Menu::make('Documentation')
+            ->title('Docs')
+            ->icon('docs')
+            ->url('https://orchid.software/en/docs'),
+    ];
+}
+```
+
+Instead, pen your menu items using the `registerMenu` or `registerMainMenu` (Not recommended) method:
+
+```php
+public function registerMenu(): array
+{
+    return [
+        Menu::make('Documentation')
+            ->title('Docs')
+            ->icon('docs')
+            ->url('https://orchid.software/en/docs'),
+    ];
+}
+```
+
+### Logout and Quit Impersonation
+
+the behavior of the "Logout" and "Quit Impersonation" actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.
+
+Here is an example of how you can define these buttons:
+
+```php
+use Orchid\Screen\Actions\Button;
+use Orchid\Access\Impersonation;
+
+public function commandBar(): iterable
+{
+    return [
+        Button::make('Back to my account')
+            ->canSee(Impersonation::isSwitch())
+            ->icon('bs.people')
+            ->route('platform.switch.logout'),
+
+        Button::make('Sign out')
+            ->icon('bs.box-arrow-left')
+            ->route('platform.logout'),
+    ];
+}
+```
+
+- The first button, "Back to my account", is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account. 
+- The second button, "Sign out", is used to log out of the platform.
+
+By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.
+
 ## Upgrading to 13.0 from 12.x
 
 ### Updating dependencies
