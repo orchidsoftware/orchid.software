@@ -141,7 +141,7 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-It's worth noting that the resource file must be present in the public directory to be able to access it.
+It's worth noting that the resource file must be present in the `public` directory to be able to access it.
 
 ## Appearance patterns
 
