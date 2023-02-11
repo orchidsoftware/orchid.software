@@ -44,3 +44,8 @@ While there may be situations that warrant deviating from this rule, it is best 
 Unlike an Excel (And other) spreadsheet, a web-based table allows for seamless filtering and organization of information, so adding as much information to each cell as possible is not a problem. Additionally, the information can be divided into several columns at any time if needed, making it easy to adjust the layout to meet the user's needs.
 
 Maximizing the information in each cell can greatly enhance the overall functionality and user experience of a table.
+
+
+## Row Limitations
+
+It is recommended to limit the number of rows displayed in a table to a single screen view. Exceeding this limit can negatively impact the performance of the table and hinder the user's ability to understand the data being presented. This is because long tables often result in the loss of the table headers, which provide crucial context and information about the data being displayed. To ensure an optimal user experience, aim to keep the number of rows in a table within a single screen view.
