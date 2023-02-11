@@ -93,3 +93,10 @@ In Orchid, the recommended approach is to display the record in a modal window. 
 ## Row Limitations
 
 It is recommended to limit the number of rows displayed in a table to a single screen view. Exceeding this limit can negatively impact the performance of the table and hinder the user's ability to understand the data being presented. This is because long tables often result in the loss of the table headers, which provide crucial context and information about the data being displayed. To ensure an optimal user experience, aim to keep the number of rows in a table within a single screen view.
+
+
+## Define Perfect Width
+
+```
+// TODO: (For mobile)
+```
