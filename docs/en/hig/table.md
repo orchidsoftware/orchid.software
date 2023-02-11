@@ -37,3 +37,10 @@ Creating hierarchy is essential when designing a table. It helps to provide a cl
 It is recommended to follow a consistent alignment strategy throughout your interface to create a visually harmonious and easy-to-read design. In general, text should be left-aligned and numbers should be right-aligned. This standard alignment approach helps guide the reader's eye and enhances readability.
 
 While there may be situations that warrant deviating from this rule, it is best to reserve center-aligned text for specific design elements, such as headlines and subheadings. The irregular left and right margins created by center-aligned text can be disruptive to the reader's eye and make it difficult to scan through information efficiently.
+
+
+## Maximizing Cell Content
+
+Unlike an Excel (And other) spreadsheet, a web-based table allows for seamless filtering and organization of information, so adding as much information to each cell as possible is not a problem. Additionally, the information can be divided into several columns at any time if needed, making it easy to adjust the layout to meet the user's needs.
+
+Maximizing the information in each cell can greatly enhance the overall functionality and user experience of a table.
