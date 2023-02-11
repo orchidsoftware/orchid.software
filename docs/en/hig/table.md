@@ -34,14 +34,6 @@ Tables are not usually winners of a UI beauty contest — they are a utilitarian
 To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page.
 
 
-To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page. But first let's determine which tasks are the most frequent and can be considered basic:
-
-- Find Record(s) that Fit Specific Criteria
-- Compare Data
-- Accessing and Modifying Single Record Data
-- Take action(s) on records (???)
-
-
 ## Find Record(s) that Fit Specific Criteria & Text Hierarchy
 
 When searching for records that meet specific criteria, users may be looking for a specific item with known details or multiple items that fit certain criteria. They may filter, sort, use a search feature, or scan the table visually to find what they need. The method chosen will depend on the specifics of the data table and the user's expectations of what will be the easiest way to find what they're looking for.
