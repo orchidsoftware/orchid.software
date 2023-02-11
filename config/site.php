@@ -135,7 +135,7 @@ return [
                 'Quick Response Time'   => '/en/hig/performance',
                 'Text in the Interface' => '/en/hig/naming',
                 'Navigation'            => '#',
-                'Presentation Table'    => '#',
+                'Presentation Table'    => '/en/hig/table',
                 'Providing Feedback'    => '/en/hig/providing-feedback',
             ],
 
