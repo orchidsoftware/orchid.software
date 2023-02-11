@@ -26,6 +26,12 @@ Designing an effective table can be challenging, especially when dealing with a 
 By following these steps, a cluttered table with cramped elements can be transformed into a clear and visually appealing display.
 
 
+## Text Hierarchy
+
+
+Creating hierarchy is essential when designing a table. It helps to provide a clear and organized way for users to understand the data presented in the cells. In a table, the size and weight of the text in each cell should correspond to its level of importance. The largest and boldest text should grab the user's attention first and be considered the most significant, while the smallest and lightest text should be considered least important. This hierarchy helps to guide the user's eye through the table and understand the data presented in a clear and organized manner.
+
+
 ## Alignment Principles
 
 It is recommended to follow a consistent alignment strategy throughout your interface to create a visually harmonious and easy-to-read design. In general, text should be left-aligned and numbers should be right-aligned. This standard alignment approach helps guide the reader's eye and enhances readability.
