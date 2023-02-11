@@ -29,10 +29,19 @@ By following these steps, a cluttered table with cramped elements can be transfo
 
 
 
-
-
 Tables are not usually winners of a UI beauty contest — they are a utilitarian part of our designs.
 To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page.
+
+
+## Maintain Consistency Throughout
+
+Consistency is key to delivering an optimal user experience in any project. To ensure consistency, you should apply the same table format to repeating elements across different tables. Inconsistencies in date formats, for instance, can cause confusion for users. For example, using `YYYY-MM-DD` in one table and `DD-MM-YYYY` in another is not ideal.
+
+In addition to formatting, consistency should also be maintained in terms of the location of elements within tables. If a date appears as the last column in one table, it should be in the same position in other tables.
+
+Consistency in user interactions is also important. If a user expects a click to open a modal window in one table, they should expect the same action in another table with similar elements.
+
+In short, establish a standard and stick to it for consistent and seamless user experience.
 
 
 ## Text Hierarchy (Find Records)
