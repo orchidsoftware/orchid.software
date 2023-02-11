@@ -57,11 +57,12 @@ return [
                 'Fortify' => 'https://github.com/orchidsoftware/fortify',
             ],
             'Community'   => [
-                'Code of Conduct' => '/en/community/code-of-conduct',
-                'Contribution'    => '/en/community/contributors',
+                'Code of Conduct'   => '/en/community/code-of-conduct',
+                'Reporting Bugs'    => '/en/community/bug-report',
+                'Contribution'      => '/en/community/contributors',
                 'Project Promotion' => '/en/community/promote',
-                'License'         => '/en/community/license',
-                'Change Log'      => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
+                'License'           => '/en/community/license',
+                'Change Log'        => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
             ],
         ],
         'ru' => [
