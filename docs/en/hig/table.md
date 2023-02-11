@@ -60,7 +60,11 @@ However, there are two common challenges that users face when comparing data in 
 - Understanding which cell belongs to which record due to the overwhelming volume of data on the screen.
 - Comparing columns that are far away from each other, requiring tedious scrolling and memorization of data.
 
+
+![table-compare.png](https://orchid.software/img/hig/table-compare.png)
+
 To enhance the process of data comparison, Orchid offers the option to dynamically enable or disable the display of columns. This makes it easier to focus on the most important data and avoid being overwhelmed by irrelevant information. When using this feature, it's advisable to exercise caution and only hide columns that are less crucial to your comparison goals.
+
 
 
 ## Accessing Single Record
@@ -79,6 +83,9 @@ While there may be situations that warrant deviating from this rule, it is best 
 ## Maximizing Cell Content
 
 Unlike an Excel (And other) spreadsheet, a web-based table allows for seamless filtering and organization of information, so adding as much information to each cell as possible is not a problem. Additionally, the information can be divided into several columns at any time if needed, making it easy to adjust the layout to meet the user's needs.
+
+
+![table-maximizing.png](https://orchid.software/img/hig/table-maximizing.png)
 
 Maximizing the information in each cell can greatly enhance the overall functionality and user experience of a table.
 
