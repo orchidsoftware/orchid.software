@@ -21,10 +21,10 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <title>Quick Response Time | Orchid - Laravel Admin Panel</title>
+    <title>Presentation Table | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Quick Response Time | Orchid - Laravel Admin Panel">
+<meta name="title" content="Presentation Table | Orchid - Laravel Admin Panel">
 <meta name="description" content="">
 
 
@@ -32,22 +32,22 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/hig/performance"/>
+<meta property="og:url" content="https://orchid.software/en/hig/table"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Quick Response Time | Orchid - Laravel Admin Panel"/>
+<meta property="og:title" content="Presentation Table | Orchid - Laravel Admin Panel"/>
 <meta property="og:description" content="">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/hig/performance">
-<meta name="twitter:title" content="Quick Response Time | Orchid - Laravel Admin Panel">
+<meta name="twitter:url" content="https://orchid.software/en/hig/table">
+<meta name="twitter:title" content="Presentation Table | Orchid - Laravel Admin Panel">
 <meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
-    <link rel="alternate" href="https://orchid.software/ru/hig/performance/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/hig/performance/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/hig/performance/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/hig/table/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/hig/table/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/hig/table/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -141,8 +141,8 @@
             <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0" style="color: #22184D8C">Guidelines</h4>
 
         <ul>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/hig/performance" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/en/hig/performance" class="text-decoration-none ">
                         Quick Response Time
                     </a>
                 </li>
@@ -156,8 +156,8 @@
                         Navigation
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/en/hig/table" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/hig/table" class="text-decoration-none text-primary">
                         Presentation Table
                     </a>
                 </li>
@@ -186,9 +186,9 @@
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-4 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">Quick Response Time</h1>
+                            <h1 class="me-3">Presentation Table</h1>
 
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/hig/performance.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/hig/table.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                title="View and edit this file on GitHub" target="_blank" rel="noopener"
                             >
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -202,33 +202,77 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#defining-fast-and-slow">Defining &quot;Fast&quot; and &quot;Slow&quot;</a>
+                    <a href="#text-hierarchy-find-records">Text Hierarchy (Find Records)</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#avoiding-a-long-response">Avoiding a Long Response</a>
+                    <a href="#compare-data">Compare Data</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#accessing-single-record">Accessing Single Record</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#alignment-principles">Alignment Principles</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#maximizing-cell-content">Maximizing Cell Content</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#row-limitations">Row Limitations</a>
                 </li>
                     </ul>
     </div>
-                        <p>A speedy interface promotes a sense of control and ease of use. Slow performance is frustrating, leads to errors, and increases the likelihood that users will seek technical support rather than attempting to solve the issue themselves.</p>
-<h2>Defining &quot;Fast&quot; and &quot;Slow&quot;</h2>
-<p>The definition of &quot;fast&quot; and &quot;slow&quot; is context-dependent. In urgent situations, seconds may seem longer than normal. However, here is a general guideline:</p>
+                        <!--
+Designing an effective table can be challenging, especially when dealing with a large number of columns or limited space. Let's take a list of products as an example and explore some best practices for table design.
+
+![image](https://user-images.githubusercontent.com/5102591/217396116-b9e87ea5-aaf7-4d3f-8b11-35aba770afc5.png)
+
+
+
+- Simplify the columns: Before attempting to resize the table, consider merging columns that are not necessary. For instance, the image and unique identifier columns can be combined to create more space.
+- Merge similar information: In the same example, the name and description columns can be merged to provide more information in a smaller space.
+- Use filters for complex information: The category column can show the final value, but the whole chain of categories can be specified in filters instead.
+- Emphasize important information: The status of the product is important information that should be easily noticeable. Adding an icon that accurately represents the status and highlighting it in gray if the item is missing will improve the visual component of the table.
+- Format prices: Proper formatting of prices will improve the overall readability of the table.
+- Determine optimal column width: Determine the optimal width for each column to create a visually balanced table.
+
+
+
+![image](https://user-images.githubusercontent.com/5102591/217396151-b3983087-24cf-4de4-9f8d-1788721d2cb7.png)
+
+
+By following these steps, a cluttered table with cramped elements can be transformed into a clear and visually appealing display.
+-->
+<p>Tables are not usually winners of a UI beauty contest &mdash; they are a utilitarian part of our designs.
+To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page.</p>
+<h2><a href='#text-hierarchy-find-records' id='text-hierarchy-find-records'>Text Hierarchy (Find Records)</a></h2>
+<p>When searching for records that meet specific criteria, users may be looking for a specific item with known details or multiple items that fit certain criteria. They may filter, sort, use a search feature, or scan the table visually to find what they need. The method chosen will depend on the specifics of the data table and the user&rsquo;s expectations of what will be the easiest way to find what they&rsquo;re looking for.</p>
+<p>To design for this task, keep a few things in mind:</p>
 <ul>
-<li>A response time of 100&nbsp;milliseconds is perceived as immediate, and is the expected response for interface elements such as hover, mouse movement, or clicks.</li>
-<li>A delay of 1&nbsp;second is noticeable, but it does not interrupt the user&rsquo;s flow. A page or list loading in 1&nbsp;second is acceptable, but a 1-second lag between a click and a menu opening is considered slow.</li>
-<li>Processes lasting longer than 1&nbsp;second must be optimized.</li>
+<li><p>Make the first column a human-readable record identifier rather than an automatically generated ID. This makes it easier for users to find the record they&rsquo;re interested in.</p></li>
+<li><p>Order the columns based on their importance to the user, with related columns next to each other. This prevents the need to move back and forth between distant columns to view relevant data.</p></li>
+<li><p>Place the filter as close to the table as possible.</p></li>
 </ul>
-<h2><a href='#avoiding-a-long-response' id='avoiding-a-long-response'>Avoiding a Long Response</a></h2>
-<p>The speed of a desktop application depends solely on the power of your computer, but the responsiveness of web applications is also affected by server performance and the quality of your Internet connection. Here are some tips to help improve the speed and performance of your web application:</p>
+<p>Creating text hierarchy is important in table design to ensure a clear and organized presentation of data. The size and weight of the text in each cell should reflect its level of importance, with the largest and boldest text being the most significant and the smallest and lightest text being the least important. This hierarchy guides the user&rsquo;s eye through the table and helps them understand the data in an organized manner.</p>
+<h2><a href='#compare-data' id='compare-data'>Compare Data</a></h2>
+<p>Tables are most effective when they allow easy comparison of data, whether between records or columns.
+This comparison helps detect relationships between variables or simply understand typical values.</p>
+<p>However, there are two common challenges that users face when comparing data in complex, large tables:</p>
 <ul>
-<li><strong>Optimize Database Queries</strong>: Minimize the use of complex database queries and ensure the use of proper indexes.</li>
-<li><strong>Caching</strong>: Use caching techniques such as opcode caching and data caching to store frequently used data and reduce the number of database queries.</li>
-<li><strong>Preloading Cheat</strong>: Load only the portion of the content needed for the first display of the page and the most likely user actions at once. For example, if there is a lot of information on the screen, consider splitting it into several screens with a common <code>TabMenu</code>. This allows for a more optimized experience and can improve the overall speed of your web application.</li>
-<li><strong>Caching on the Browser Side</strong>: Cache data and re-download it only if there are changes. This allows for instant switching between downloaded pages. For example, use the HTTP response header <code>Etag</code>.</li>
-<li>
-<strong>Data Preparation</strong>: Generate responses to &quot;heavy&quot; requests on the server in advance. For example, update the aggregate tables of the database on schedule.</li>
-<li><strong>Background Processing</strong>: If a long response is unavoidable, do not block the user. Instead, run the operation in the background and notify the user that they will be notified on the system and by email when the operation is complete.</li>
+<li>Understanding which cell belongs to which record due to the overwhelming volume of data on the screen.</li>
+<li>Comparing columns that are far away from each other, requiring tedious scrolling and memorization of data.</li>
 </ul>
-<p>By following these tips, you can help ensure a faster and more optimized experience for your users.</p>
+<p>To enhance the process of data comparison, Orchid offers the option to dynamically enable or disable the display of columns. This makes it easier to focus on the most important data and avoid being overwhelmed by irrelevant information. When using this feature, it&rsquo;s advisable to exercise caution and only hide columns that are less crucial to your comparison goals.</p>
+<h2><a href='#accessing-single-record' id='accessing-single-record'>Accessing Single Record</a></h2>
+<p>A frequent task in tables is accessing or modifying the data in a single record. To make this task more efficient, it&rsquo;s important to present the single record in a way that is easy to read and edit.</p>
+<p>In Orchid, the recommended approach is to display the record in a modal window. This approach provides a clear and organized display of the record&rsquo;s data, making it easier to view or edit.</p>
+<h2><a href='#alignment-principles' id='alignment-principles'>Alignment Principles</a></h2>
+<p>It is recommended to follow a consistent alignment strategy throughout your interface to create a visually harmonious and easy-to-read design. In general, text should be left-aligned and numbers should be right-aligned. This standard alignment approach helps guide the reader&rsquo;s eye and enhances readability.</p>
+<p>While there may be situations that warrant deviating from this rule, it is best to reserve center-aligned text for specific design elements, such as headlines and subheadings. The irregular left and right margins created by center-aligned text can be disruptive to the reader&rsquo;s eye and make it difficult to scan through information efficiently.</p>
+<h2><a href='#maximizing-cell-content' id='maximizing-cell-content'>Maximizing Cell Content</a></h2>
+<p>Unlike an Excel (And other) spreadsheet, a web-based table allows for seamless filtering and organization of information, so adding as much information to each cell as possible is not a problem. Additionally, the information can be divided into several columns at any time if needed, making it easy to adjust the layout to meet the user&rsquo;s needs.</p>
+<p>Maximizing the information in each cell can greatly enhance the overall functionality and user experience of a table.</p>
+<h2><a href='#row-limitations' id='row-limitations'>Row Limitations</a></h2>
+<p>It is recommended to limit the number of rows displayed in a table to a single screen view. Exceeding this limit can negatively impact the performance of the table and hinder the user&rsquo;s ability to understand the data being presented. This is because long tables often result in the loss of the table headers, which provide crucial context and information about the data being displayed. To ensure an optimal user experience, aim to keep the number of rows in a table within a single screen view.</p>
 
                     </main>
                 </div>
