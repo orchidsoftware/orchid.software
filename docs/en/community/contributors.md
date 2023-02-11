@@ -19,7 +19,13 @@ You can find unresolved issues on [GitHub Issues Tracker](https://github.com/orc
 
 For active development, it is strongly recommended that you use only `pull request` requests, not just bug reports.
 
-If you created a bug report, then it should contain a title and a clear description of the problem. You should also include as complete information and sample code as possible to help reproduce the problem. The main goal of the bug report is to simplify the localization, reproduction of the problem and search for its solution.
+
+## Be Concise, But Explain The Issue
+
+First of all, it's important to mention that bug reports should be written in English and you should, if possible, watch out for your language and grammar.
+
+The most important thing for a report is that the developer must be able to reproduce the issue. If necessary, include exact numbered steps to reproduce the issue.
+
 
 Also remember that error reports are created in the hope that other users with the same problems will be able to participate in solving them together with you. But do not expect others to quit and start fixing your problem. The bug report is designed to help you and others start working together to resolve a problem.
 
