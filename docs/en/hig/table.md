@@ -24,3 +24,10 @@ Designing an effective table can be challenging, especially when dealing with a 
 
 
 By following these steps, a cluttered table with cramped elements can be transformed into a clear and visually appealing display.
+
+
+## Alignment Principles
+
+It is recommended to follow a consistent alignment strategy throughout your interface to create a visually harmonious and easy-to-read design. In general, text should be left-aligned and numbers should be right-aligned. This standard alignment approach helps guide the reader's eye and enhances readability.
+
+While there may be situations that warrant deviating from this rule, it is best to reserve center-aligned text for specific design elements, such as headlines and subheadings. The irregular left and right margins created by center-aligned text can be disruptive to the reader's eye and make it difficult to scan through information efficiently.
