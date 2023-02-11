@@ -75,6 +75,7 @@ It is recommended to follow a consistent alignment strategy throughout your inte
 
 While there may be situations that warrant deviating from this rule, it is best to reserve center-aligned text for specific design elements, such as headlines and subheadings. The irregular left and right margins created by center-aligned text can be disruptive to the reader's eye and make it difficult to scan through information efficiently.
 
+When dealing with cells that contain multiple rows, aim to use the same number of rows across all cells. If this is not possible, arrange the cells with the greatest height at the start of the row.
 
 ## Compare Data
 
