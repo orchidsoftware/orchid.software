@@ -1,10 +1,11 @@
 ---
 title: Presentation Table 
-description:
+description: 
 section: site.hig.
 ---
 
 
+<!--
 Designing an effective table can be challenging, especially when dealing with a large number of columns or limited space. Let's take a list of products as an example and explore some best practices for table design.
 
 ![image](https://user-images.githubusercontent.com/5102591/217396116-b9e87ea5-aaf7-4d3f-8b11-35aba770afc5.png)
@@ -24,10 +25,10 @@ Designing an effective table can be challenging, especially when dealing with a 
 
 
 By following these steps, a cluttered table with cramped elements can be transformed into a clear and visually appealing display.
+-->
 
 
 
------------
 
 
 Tables are not usually winners of a UI beauty contest — they are a utilitarian part of our designs.
