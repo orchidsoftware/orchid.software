@@ -26,11 +26,55 @@ Designing an effective table can be challenging, especially when dealing with a 
 By following these steps, a cluttered table with cramped elements can be transformed into a clear and visually appealing display.
 
 
-## Text Hierarchy
+
+-----------
 
 
-Creating hierarchy is essential when designing a table. It helps to provide a clear and organized way for users to understand the data presented in the cells. In a table, the size and weight of the text in each cell should correspond to its level of importance. The largest and boldest text should grab the user's attention first and be considered the most significant, while the smallest and lightest text should be considered least important. This hierarchy helps to guide the user's eye through the table and understand the data presented in a clear and organized manner.
+Tables are not usually winners of a UI beauty contest — they are a utilitarian part of our designs.
+To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page.
 
+
+To take advantage of their functionality and maintain their aesthetic appearance, follow the recommendations described on this page. But first let's determine which tasks are the most frequent and can be considered basic:
+
+- Find Record(s) that Fit Specific Criteria
+- Compare Data
+- Accessing and Modifying Single Record Data
+- Take action(s) on records (???)
+
+
+## Find Record(s) that Fit Specific Criteria & Text Hierarchy
+
+When searching for records that meet specific criteria, users may be looking for a specific item with known details or multiple items that fit certain criteria. They may filter, sort, use a search feature, or scan the table visually to find what they need. The method chosen will depend on the specifics of the data table and the user's expectations of what will be the easiest way to find what they're looking for.
+
+To design for this task, keep a few things in mind:
+
+- Make the first column a human-readable record identifier rather than an automatically generated ID. This makes it easier for users to find the record they're interested in.
+
+- Order the columns based on their importance to the user, with related columns next to each other. This prevents the need to move back and forth between distant columns to view relevant data.
+
+- Place the filter as close to the table as possible.
+
+Creating text hierarchy is important in table design to ensure a clear and organized presentation of data. The size and weight of the text in each cell should reflect its level of importance, with the largest and boldest text being the most significant and the smallest and lightest text being the least important. This hierarchy guides the user's eye through the table and helps them understand the data in an organized manner.
+
+
+## Compare Data
+
+Tables are most effective when they allow easy comparison of data, whether between records or columns. 
+This comparison helps detect relationships between variables or simply understand typical values.
+
+However, there are two common challenges that users face when comparing data in complex, large tables:
+
+- Understanding which cell belongs to which record due to the overwhelming volume of data on the screen.
+- Comparing columns that are far away from each other, requiring tedious scrolling and memorization of data.
+
+To enhance the process of data comparison, Orchid offers the option to dynamically enable or disable the display of columns. This makes it easier to focus on the most important data and avoid being overwhelmed by irrelevant information. When using this feature, it's advisable to exercise caution and only hide columns that are less crucial to your comparison goals.
+
+
+## Accessing and Modifying Single Record Data
+
+A frequent task in tables is accessing or modifying the data in a single record. To make this task more efficient, it's important to present the single record in a way that is easy to read and edit.
+
+In Orchid, the recommended approach is to display the record in a modal window. This approach provides a clear and organized display of the record's data, making it easier to view or edit.
 
 ## Alignment Principles
 
