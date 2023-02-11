@@ -55,5 +55,6 @@ This guide has been influenced by the following documents:
 - [Apple HIG](https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/)
 - [Kontur Guides](https://guides.kontur.ru/)
 - [Fiori Design Guidelines](https://experience.sap.com/fiori-design-web/)
+- [Nielsen Norman Group](https://www.nngroup.com/)
 
 These documents provide valuable insights and best practices for designing user-centered interfaces. By taking into consideration the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design for Orchid apps.
