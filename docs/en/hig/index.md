@@ -56,4 +56,4 @@ This guide has been influenced by the following documents:
 - [Kontur Guides](https://guides.kontur.ru/)
 - [Fiori Design Guidelines](https://experience.sap.com/fiori-design-web/)
 
-These documents provide valuable insights and best practices for designing user-centered interfaces. By taking into consideration the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design.
+These documents provide valuable insights and best practices for designing user-centered interfaces. By taking into consideration the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design for Orchid apps.
