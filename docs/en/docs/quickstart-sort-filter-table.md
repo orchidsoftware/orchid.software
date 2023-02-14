@@ -1,5 +1,5 @@
 ---
-title: Sorting and filtering in a table
+title: Sorting and Filtering In a Table
 description: Laravel CRUD
 ---
 
