@@ -97,6 +97,7 @@ public function upload(Request $request)
 {
     $file = new File($request->file('photo'));
     $attachment = $file->allowDuplicates()->load();
+
     return response()->json()
 }   
 ```
@@ -118,6 +119,7 @@ public function upload(Request $request)
     $path = "photos"
     $file = new File($request->file('photo'));
     $attachment = $file->path($path)->load();
+
     return response()->json()
 }
 ```
