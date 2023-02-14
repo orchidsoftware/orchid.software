@@ -19,10 +19,10 @@
             <div class="px-4 py-md-5 my-md-5 text-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5">
                     <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
-                        <span class="d-block">Laravel with Orchid</span> 
+                        <span class="d-block">Laravel with Orchid</span>
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3">
-                        Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications. 
+                        Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications.
                         With its code-driven approach, you can quickly and easily create efficient applications.
                     </p>
                 </div>
@@ -46,8 +46,8 @@
                     <small class="d-block">tedious admin panel development</small>
                 </h1>
 
-                <p class="lead text-muted mb-md-5 mb-3">
-                    Stop wasting time and effort on developing admin panels from scratch. 
+                <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection">
+                    Stop wasting time and effort on developing admin panels from scratch.
                     Laravel Orchid streamlines the process, allowing you to focus on what truly matters - creating your application's logic.
                     Start building your web application today and see the difference for yourself.
                 </p>
@@ -130,7 +130,7 @@
                 <h2 class="display-5 fw-bold">Free and <span class="text-primary">Open Source</span>
                     <span class="d-block">for any purposes.</span>
                 </h2>
-                <p class="lead px-lg-8 text-muted">
+                <p class="lead px-lg-8 text-muted opacity-slow intersection">
                     Everything that we do is 100% composed of open and free code, jointly developed by people from all
                     over the world.
                 </p>
@@ -151,7 +151,7 @@
             <div class="px-md-4 py-5 text-md-center text-dark">
                 <div class="col-lg-6 mx-auto">
                     <h2 class="display-5 fw-bold">Hear from <span class="text-primary">satisfied</span> users</h2>
-                    <p class="lead px-lg-8">
+                    <p class="lead px-lg-8 opacity-slow intersection">
                         See how Orchid has helped developers like you create top-quality applications with minimal effort.
                     </p>
                 </div>
@@ -326,7 +326,7 @@
                 </div>
                 <div class="col-lg-6">
                     <h1 class="display-5 fw-bold lh-1 mb-3 text-center text-md-start">Explore Orchid <span class="text-primary">Now!</span></h1>
-                    <p class="lead mx-auto ms-md-0">
+                    <p class="lead mx-auto ms-md-0 opacity-slow intersection">
                         Join our community-driven journey and support Laravel Orchid's innovation. Your passion and generosity fuel our progress.
                     </p>
 

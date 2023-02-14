@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let nav = document.querySelector('.nav-docs')
 
+    if (!nav) {
+        return;
+    }
+
     if (nav.scrollWidth <= nav.clientWidth) {
         return false;
     }
@@ -26,3 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
         inline: "center"
     })
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    let intersectionObserver = new IntersectionObserver((entries) => processIntersectionEntries(entries));
+
+
+    [...document.querySelectorAll('.intersection')].forEach(element => {
+        intersectionObserver.observe(element);
+    });
+
+});
+
+// Private
+function processIntersectionEntries(entries) {
+    entries.forEach((entry) => {
+        entry.target.classList.toggle('show', entry.isIntersecting);
+    });
+}
