@@ -1,5 +1,5 @@
 ---
-title: Custom template
+title: Custom Template
 description: Learn how to create custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom Templates.
 ---
 
