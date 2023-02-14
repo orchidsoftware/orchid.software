@@ -1,5 +1,5 @@
 ---
-title: Modal windows
+title: Modal Windows
 description: Learn how to use modal windows in your Laravel Orchid projects with our comprehensive documentation. Get tips on creating dynamic modals, passing data to modals, and customizing modal behavior.
 ---
 
