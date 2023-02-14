@@ -1,5 +1,5 @@
 ---
-title: Form builder
+title: Form Builder
 description: Learn how to use the Laravel Orchid form builder to easily create and customize forms for your administration-style application. Improve the user experience and streamline data entry with this powerful tool.
 ---
 
