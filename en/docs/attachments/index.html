@@ -460,6 +460,7 @@ public function upload(Request $request)
 {
     $file = new File($request-&gt;file('photo'));
     $attachment = $file-&gt;allowDuplicates()-&gt;load();
+
     return response()-&gt;json()
 }   
 </code></pre>
@@ -474,6 +475,7 @@ public function upload(Request $request)
     $path = &quot;photos&quot;
     $file = new File($request-&gt;file('photo'));
     $attachment = $file-&gt;path($path)-&gt;load();
+
     return response()-&gt;json()
 }
 </code></pre>
