@@ -1,5 +1,5 @@
 ---
-title: Manage to file attachments
+title: Manage to File Attachments
 description: Laravel File Manager
 ---
 
