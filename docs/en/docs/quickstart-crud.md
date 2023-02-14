@@ -1,5 +1,5 @@
 ---
-title: Data management
+title: Data Management
 description: Laravel CRUD
 ---
 
