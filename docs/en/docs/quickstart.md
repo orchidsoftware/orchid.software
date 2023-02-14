@@ -1,5 +1,5 @@
 ---
-title: Quick Start for beginners
+title: Quick Start for Beginners
 description: The Quick Start Guide is a basic introduction to the Orchid infrastructure.
 ---
 
