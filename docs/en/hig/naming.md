@@ -22,7 +22,7 @@ A good screen name should:
 - Be short (less than 15-50 characters).
 - Be easy to pronounce.
 - Be easily paired with a good app icon, such as by referencing a physical object.
-- Use header capitalization (for example: Icon Preview instead of Icon preview).
+- Use header capitalization (for example: "Icon Preview" instead of "Icon preview").
 
 Likewise, a good name should avoid:
 
@@ -31,6 +31,8 @@ Likewise, a good name should avoid:
 - Non-standard punctuation or whitespace (for example: SuperWriter).
 - Made-up words or word combinations.
 
+
+> As we work on various documents and collaborate in teams, we may encounter some uncertainties regarding the proper use of Title Case or the formatting of arguments. To help with these issues, try the service [titlecaseconverter.com](https://titlecaseconverter.com).
 
 
 
@@ -49,8 +51,6 @@ By replacing the marketing name with the SKU, we can simplify the display and pr
 
 
 This approach enhances the overall readability and usability of the product preview screen, making it more efficient and effective for the intended audience.
-
-
 
 ## Naming Menu Items
 
