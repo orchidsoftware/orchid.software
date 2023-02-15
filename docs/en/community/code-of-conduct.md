@@ -1,6 +1,7 @@
 ---
 title: Community Guidelines
 description: Being involved in the Laravel Orchid community is an amazing experience
+section: site.community.
 ---
 
 ## Mutual respect

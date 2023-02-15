@@ -1,6 +1,7 @@
 ---
 title: Promote
 description: There are many ways to contribute to the Laravel Orchid community
+section: site.community.
 ---
 
 There are many ways to contribute to the Laravel Orchid community,

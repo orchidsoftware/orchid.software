@@ -1,6 +1,7 @@
 ---
 title: Reporting Bugs
 description: I urge everyone to contribute to the project.
+section: site.community.
 ---
 
 One of the big advantages of being an openly developed project is being able to take part in public bug tracking.

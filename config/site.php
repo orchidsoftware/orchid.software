@@ -17,7 +17,7 @@ return [
             'Tutorials'   => [
                 'Quick Start'           => '/en/docs/quickstart',
                 'Data Management'       => '/en/docs/quickstart-crud',
-                'Managing Attachments'    => '/en/docs/quickstart-files',
+                'Managing Attachments'  => '/en/docs/quickstart-files',
                 'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
             ],
             'Concepts'    => [
@@ -25,7 +25,7 @@ return [
                 'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
                 'Permissions'   => '/en/docs/access',
-                'Filtering'    => '/en/docs/filters',
+                'Filtering'     => '/en/docs/filters',
                 'Attachments'   => '/en/docs/attachments',
                 'Notifications' => '/en/docs/alert',
             ],
@@ -35,34 +35,26 @@ return [
                 'Legend'          => '/en/docs/legend',
                 'Charts'          => '/en/docs/charts',
                 'Modals'          => '/en/docs/modals',
-                'Listeners'        => '/en/docs/listener',
+                'Listeners'       => '/en/docs/listener',
                 'Grouping'        => '/en/docs/grouping',
                 //'Display elements' => '/en/docs/display-elements',
                 'Custom Template' => '/en/docs/custom-template',
             ],
             'Extra'       => [
-                'Branding'     => '/en/docs/brand',
-                'Icons'        => '/en/docs/icons',
-                'Scout Search' => '/en/docs/global-search',
-                'Presenters'   => '/en/docs/presenters',
-                'Using JS'     => '/en/docs/javascript',
-                'Form Builder' => '/en/docs/builder',
-                'Testing'      => '/en/docs/testing',
-                'Controllers'  => '/en/docs/controllers',
+                'Branding'       => '/en/docs/brand',
+                'Icons'          => '/en/docs/icons',
+                'Scout Search'   => '/en/docs/global-search',
+                'Presenters'     => '/en/docs/presenters',
+                'Using JS'       => '/en/docs/javascript',
+                'Form Builder'   => '/en/docs/builder',
+                'Testing'        => '/en/docs/testing',
+                'Controllers'    => '/en/docs/controllers',
                 'Authentication' => '/en/docs/authentication',
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
                 'CRUD'    => '/en/docs/packages/crud',
                 'Fortify' => 'https://github.com/orchidsoftware/fortify',
-            ],
-            'Community'   => [
-                'Code of Conduct'   => '/en/community/code-of-conduct',
-                'Reporting Bugs'    => '/en/community/bug-report',
-                'Contribution'      => '/en/community/contributors',
-                'Project Promotion' => '/en/community/promote',
-                'License'           => '/en/community/license',
-                'Change Log'        => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
             ],
         ],
         'ru' => [
@@ -127,9 +119,9 @@ return [
     'hig' => [
         'en' => [
             'Get Started' => [
-                'Introduction'        => '/en/hig',
-                'Design Philosophy'   => '/en/hig/philosophy',
-                'User Workflow'       => '/en/hig/workflow',
+                'Introduction'      => '/en/hig',
+                'Design Philosophy' => '/en/hig/philosophy',
+                'User Workflow'     => '/en/hig/workflow',
             ],
 
             'Guidelines' => [
@@ -141,9 +133,35 @@ return [
             ],
 
             'Reference' => [
-                'Writing Style'      => '#',
-                'Iconography'        => '#',
+                'Writing Style' => '#',
+                'Iconography'   => '#',
             ],
         ],
     ],
+
+
+    'community' => [
+        'en' => [
+            'Community' => [
+                'Code of Conduct'   => '/en/community/code-of-conduct',
+                'Reporting Bugs'    => '/en/community/bug-report',
+                'Contribution'      => '/en/community/contributors',
+                'Project Promotion' => '/en/community/promote',
+                'License'           => '/en/community/license',
+            ],
+
+            'Discussions' => [
+                'GitHub'   => 'https://github.com/orchidsoftware/discussions',
+                'Telegram' => 'https://t.me/orchid_community',
+                'Twitter'  => 'https://twitter.com/orchid_platform',
+                'Discord'  => 'https://discord.gg/aEVdGMyRt4',
+            ],
+
+            'Other' => [
+                'Donation'   => 'https://opencollective.com/orchid',
+                'Change Log' => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
+            ],
+        ],
+    ],
+
 ];

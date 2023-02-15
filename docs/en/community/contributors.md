@@ -1,6 +1,7 @@
 ---
 title: Contributors
 description: I urge everyone to contribute to the project.
+section: site.community.
 ---
 
 

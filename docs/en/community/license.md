@@ -1,6 +1,7 @@
 ---
 title: The MIT License (MIT)
 description: MIT License
+section: site.community.
 ---
 
 ## MIT License
