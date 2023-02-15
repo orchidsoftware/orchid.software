@@ -16,7 +16,7 @@ After installation, two settings are provided that are located in `config/platfo
 To change the page header or footer, you must specify your own `blade` templates.
 
 
-## Change logo and name
+## Change Logo and Name
 
 Create a new directory in the `brand` template section and the` header.blade.php` file.
 Then the full path will look like `/resources/views/brand/header.blade.php`.
