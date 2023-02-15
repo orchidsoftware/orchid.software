@@ -143,7 +143,7 @@ class AppServiceProvider extends ServiceProvider
 
 It's worth noting that the resource file must be present in the `public` directory to be able to access it.
 
-## Appearance patterns
+## Appearance Patterns
 
 To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
 
