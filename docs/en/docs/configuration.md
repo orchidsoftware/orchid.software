@@ -189,7 +189,7 @@ The desire to change the behavior of some classes from the standard delivery is 
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Platform\Dashboard;
 
 class AppServiceProvider extends ServiceProvider
 {
