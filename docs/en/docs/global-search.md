@@ -10,34 +10,17 @@ Since **`Scout` does not contain the search driver itself**, you need to supply 
 
 > This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
 
-In order for the application to have information about which models should participate in the search, it is necessary to register them with the service provider:
+In order for the application to have information about which models should participate in the search, it is necessary to register them in the [configuration file](/en/docs/configuration):
 
 
 ```php
-namespace App\Providers;
-
-use App\Idea;
-use Orchid\Platform\Dashboard;
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Boot the application events.
-     *
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerSearch([
-          Idea::class,
-          //...Models
-        ]);
-    }
-}
+'search' => [
+    \App\Models\Idea::class,
+],
 ```
 
-The results are displayed using the `presenter()` call on the object.
+The [Presenter](en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the model:
+
 
 ```php
 namespace App;
