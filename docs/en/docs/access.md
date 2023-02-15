@@ -103,7 +103,7 @@ php artisan orchid:admin --id=1
 ```
 
 
-## Add your own permissions
+## Add Your Own Permissions
 
 
 You can define your own permissions in applications.
