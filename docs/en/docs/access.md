@@ -5,7 +5,7 @@ description: Learn how to manage user permissions in your Laravel Orchid applica
 
 Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.
 
-> **Note.** Permissions are not a substitute for `Gate` or `Policies` included in the framework frame.
+> Permissions are not a substitute for `Gate` or `Policies` included in the framework.
 
 Typically, you manage several dozen permits in a typical business process.
 You can also have, say, 10 to 100 users.
