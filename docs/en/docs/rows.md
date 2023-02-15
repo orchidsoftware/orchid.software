@@ -78,7 +78,7 @@ public function layout(): array
 > **Note** that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may want to consider using other layout types such as `Tabs` or `Accordion`.
 
 
-## Accessing screen data
+## Accessing Screen Data
 
 
 
