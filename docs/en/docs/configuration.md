@@ -181,7 +181,7 @@ your-project/
 
 
 
-## Model classes
+## Model Classes
 
 The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
 
