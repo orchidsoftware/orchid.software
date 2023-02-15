@@ -392,7 +392,7 @@
                     <a href="#overriding-blade-templates">Overriding Blade templates</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#model-classes">Model classes</a>
+                    <a href="#model-classes">Model Classes</a>
                 </li>
                     </ul>
     </div>
@@ -499,12 +499,12 @@ class AppServiceProvider extends ServiceProvider
 <blockquote>
 <p><strong>Note.</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
 </blockquote>
-<h2><a href='#model-classes' id='model-classes'>Model classes</a></h2>
+<h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Platform\Dashboard;
 
 class AppServiceProvider extends ServiceProvider
 {
