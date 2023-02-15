@@ -19,7 +19,7 @@ In order for the application to have information about which models should parti
 ],
 ```
 
-The [Presenter](en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the model:
+The [Presenter](/en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the model:
 
 
 ```php
