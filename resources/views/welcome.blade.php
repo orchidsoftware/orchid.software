@@ -326,7 +326,7 @@
                     <img src="/img/next/unbox.svg" class="d-block mx-auto img-fluid" alt="Open Source" loading="lazy">
                 </div>
                 <div class="col-lg-6">
-                    <h1 class="display-5 fw-bold lh-1 mb-3 text-center text-md-start">Explore Orchid <span class="text-primary">Now!</span></h1>
+                    <h1 class="display-5 fw-bold lh-1 mb-3 text-md-start">Explore Orchid <span class="text-primary">Now!</span></h1>
                     <p class="lead mx-auto ms-md-0 opacity-slow intersection">
                         Join our community-driven journey and support Laravel Orchid's innovation. Your passion and generosity fuel our progress.
                     </p>
