@@ -16,7 +16,7 @@
             </header>
 
 
-            <div class="px-4 py-md-5 my-md-5 text-center text-white">
+            <div class="px-3 py-md-5 my-md-5 text-md-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5">
                     <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
                         <span class="d-block">Laravel with Orchid</span>
@@ -41,9 +41,10 @@
 
     <div class="container">
         <div class="row my-3 my-md-5">
-            <div class="col-12 col-lg-6 mx-auto text-center">
-                <h1 class="display-5 fw-bold">Say <span class="d-block d-md-inline-block text-primary">goodbye</span> to
-                    <small class="d-block">tedious admin panel development</small>
+            <div class="col-12 col-lg-6 mx-auto text-md-center">
+                <h1 class="display-5 fw-bold">
+                    <span class="d-block d-md-inline-block ">Say <span class="text-primary">goodbye</span></span>
+                    <small class="d-block">to tedious development</small>
                 </h1>
 
                 <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection">
