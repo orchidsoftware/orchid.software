@@ -5,7 +5,7 @@ description: Learn how to use Laravel Orchid to create powerful and dynamic navi
 
 The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.
 
-## Usage example
+## Usage
 
 The default menu registration takes place in the `app/Orchid/PlatformProvider.php`:
 
