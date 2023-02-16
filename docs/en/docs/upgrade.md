@@ -25,7 +25,7 @@ Upgrading Laravel Orchid from version `13.x` to `14.0` can be a straightforward 
 
 Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
@@ -113,7 +113,7 @@ By specifying the behavior of these buttons yourself, you have more control over
 
 ## Upgrading to 13.0 from 12.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^13.0`
 
@@ -138,7 +138,7 @@ Since `select2` had a `jQuery` dependency, it was also replaced with the `tom-se
 
 ## Upgrading to 12.0 from 11.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^12.0`
 
@@ -148,11 +148,11 @@ Laravel 9 is now required to install or upgrade. Update descriptions for existin
 
 ## Upgrading to 11.0 from 10.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^11.0`
 
-### Publish assets files
+### Publish Assets Files
 
 Instead of creating a symbolic link to download resources, there is a new command to publish them:
 
@@ -266,7 +266,7 @@ public function layout(): iterable
 
 ## Upgrading to 10.0 from 9.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^10.0`
 
@@ -448,7 +448,7 @@ The `Collapse` class has been removed.
 
 ## Upgrading to 9.0 from 8.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^9.0`
 
@@ -478,15 +478,15 @@ If you copied migration `2020_06_07_184338_added_columns_for_2fa` in project - d
 
 ## Upgrading to 8.0 from 7.x
 
-### Updating dependencies
+### Updating Dependencies
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^8.0`
 
-### TinyMCE editor
+### TinyMCE Editor
 
 The `HTML` editor has been removed from the standard distribution. The code has been moved to a separate [repository](https://github.com/orchidcommunity/TinyMCE).
 
-### Settings model
+### Settings Model
 
 The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following `SQL` code:
@@ -502,7 +502,7 @@ WHERE migration = '2015_12_02_181214_create_table_settings';
 
 The source code is available for installation as a separate [package](https://github.com/tabuna/settings).
 
-### Bread crumbs
+### Bread Crumbs
 
 Package `davejamesmiller/laravel-breadcrumbs` is replaced with `tabuna/breadcrumbs`
 and should be installed automatically when the dependencies are updated.
@@ -549,7 +549,7 @@ use Tabuna\Breadcrumbs\Breadcrumbs;
 use Tabuna\Breadcrumbs\Trail;
 ```
 
-### Screen changes
+### Screen Changes
 
 #### Constructor
 
@@ -590,7 +590,7 @@ GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
 
 Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers. [More](https://github.com/orchidsoftware/platform/issues/1150).
 
-#### Data spoofing (Async)
+#### Data Spoofing (Async)
 
 The `{argument?}` Expectation has been removed from the address bar.
 Now a separate route is used for the call:
@@ -625,7 +625,7 @@ Layout::row([
 ]);
 ```
 
-### Release message
+### Release Message
 
 A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
 This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the `blade` template. Screen call example:
