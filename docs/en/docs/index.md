@@ -23,11 +23,11 @@ As a Laravel package, Laravel Orchid seamlessly integrates with other components
 > This documentation is intended for users familiar with the Laravel framework. If you are new to Laravel, it is recommended that you first read through the [Laravel documentation](https://laravel.com/docs/) to gain a better understanding of the framework before using Laravel Orchid.
 
 
-## What Orchid is not
+## What Orchid Is Not
 
 It is important to note that while Laravel Orchid is a powerful tool for developers, it is not a "turnkey" solution. It is not intended for those with little or no programming experience, as it requires a strong understanding of programming concepts and the ability to work comfortably with complex systems.
 
-## Looking for something simpler?
+## Looking for Something Simpler?
 
 
 If you're searching for a more straightforward solution for creating simple applications with minimal coding, Laravel Orchid's **CRUD** feature may be a good fit for you. It offers a straightforward syntax that allows for easy creation of basic applications. To get started, take a look at the [CRUD section](https://orchid.software/en/docs/packages/crud/#introduction) of the documentation.
@@ -38,7 +38,7 @@ If you're searching for a more straightforward solution for creating simple appl
 If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use Laravel Orchid. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
 
 
-## What sets Laravel Orchid apart from other packages?
+## What Sets Laravel Orchid Apart from Other Packages?
 
 The Laravel ecosystem offers a variety of admin panels, such as Nova, Voyager, BackPack, and QuickAdminPanel, that aim to simplify the process of working with CRUD applications. However, Laravel Orchid stands out by offering a different approach to streamlining the development process.
 
@@ -47,7 +47,7 @@ Unlike other packages that rely on scaffolding or visual programming, Laravel Or
 Orchid's approach is designed to be flexible, allowing developers to adapt it to their specific needs and workflows. It can be used for simple CRUD applications, but it also has the capability to handle more complex tasks. 
 
 
-## What is rapid development?
+## What Is Rapid Development?
 
 A classic web application is a subsystem with a common three-tier architecture, which comprises:
 
@@ -83,7 +83,7 @@ Classic          |   Orchid
 
 
 
-## Is something wrong?
+## Is Something Wrong?
 
 If you find that something is missing or unclear in our documentation, we welcome contributions to improve it. You can click on the **Suggest Edits** link on the top right side of any documentation page to suggest changes.
 
