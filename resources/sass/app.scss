@@ -173,6 +173,7 @@ header {
     background: -webkit-linear-gradient(#CA72B7 25%, #914680 70%, #3F2660 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 0.2em rgb(0 0 0 / 5%);
 }
 
 
@@ -404,4 +405,18 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .opacity-slow.show {
     opacity: 1;
+}
+
+.btn {
+    border: $btn-border-width dashed rgba(255, 255, 255, 0.20);
+}
+
+.form-control {
+    border: $input-border-width dashed rgba(255, 255, 255, 0.20);
+}
+
+#docs {
+    .btn {
+        border: $btn-border-width dashed rgba(0, 0, 0, 0.45);
+    }
 }
