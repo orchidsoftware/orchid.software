@@ -72,7 +72,7 @@
                         <ul class="d-table mx-auto p-0">
                             <li>Fast Loading Pages</li>
                             <li>Filtering & Sorting</li>
-                            <li>Data Search</li>
+                            <li>Scout Search</li>
                             <li>User Notifications</li>
                         </ul>
                     </div>
