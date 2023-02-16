@@ -47,9 +47,9 @@
 
             <div class="col-md-5 footer-tentacles"></div>
 
-            <div class="col-12 col-md-7 text-center text-md-start">
-                <div class="px-md-4 py-md-5 my-md-5 py-5 px-3">
-                    <h1 class="display-4 fw-bold mb-5">
+            <div class="col-12 col-md-7">
+                <div class="px-md-4 py-md-5 my-md-5 pb-5 px-3">
+                    <h1 class="display-4 fw-bold mb-4 mb-md-5">
                         And one more <span class="text-primary">thing.</span>
                     </h1>
                     <div class="col-lg-7 me-md-auto ms-md-0 mx-auto">

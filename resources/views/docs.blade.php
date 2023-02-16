@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <div class="documentation position-relative mb-md-5 mt-md-4 overflow-hidden">
+    <div class="documentation position-relative mb-5 mt-md-4 overflow-hidden">
 
         <div class="container position-relative" id="docs">
             <div class="row g-0 m-0 px-0 rounded-3 overflow-hidden">

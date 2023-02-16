@@ -17,7 +17,7 @@
 
 
             <div class="px-3 py-md-5 my-md-5 text-md-center text-white">
-                <div class="col-lg-6 mx-auto mb-5 pb-5">
+                <div class="col-lg-6 mx-auto mb-5 pb-5 pt-3 pt-md-0">
                     <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
                         <span class="d-block">Laravel with Orchid</span>
                     </h1>
@@ -123,7 +123,7 @@
     <div class="container">
 
 
-        <div class="row align-items-center my-5 py-5">
+        <div class="row align-items-center my-3 py-3 my-md-5 py-md-5">
 
             <div class="col-12 col-md-5">
 
@@ -142,6 +142,7 @@
         </div>
     </div>
 
+    {{--
     <div class="bg-white text-dark bottom-union">
 
 
@@ -314,9 +315,9 @@
         </div>
 
     </div>
+--}}
 
-
-
+{{--
     <div class="bg-white text-dark top-union pb-5 pt-5">
 
         <div class="container py-5 mb-5">
@@ -340,7 +341,7 @@
             </div>
         </div>
     </div>
-
+--}}
 
 
 @endsection
