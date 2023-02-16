@@ -68,3 +68,11 @@ Use the same words for objects and actions on them. If the user reads "certifica
 Although a term may be commonly used within your business circle, it's important to recognize that not everyone may be familiar with it. As such, it's recommended to include a small footnote alongside the term to provide an explanation:
 
 ![term.png](https://orchid.software/img/hig/term.png)
+
+
+## Lorem Ipsum in Prototypes
+
+When writing text for prototypes or web services, it's important to keep it realistic. Avoid using names and addresses that are too short or that only just fit in the available fields. Use real messages and errors, rather than just placeholder text like "Here is the error text".
+
+It's also important to avoid using "cool" or rude names, especially in prototypes that will be used for testing. Making factual or logical errors can also be problematic, as an expert in the field (such as an accountant) will immediately notice any inconsistencies. These kinds of errors can lead to discussions with the usability specialist and may interfere with the overall user experience.
+
