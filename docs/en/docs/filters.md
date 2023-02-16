@@ -107,7 +107,7 @@ $model->orderBy('content->ru->name', 'desc');
 HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
 
 
-## Eloquent filter
+## Eloquent Filter
 
 When you need to create more complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
 There is an artisan command to create a new filter:
