@@ -82,7 +82,7 @@ Menu::make('Example')
 ## Permission
 
 Quite an expected situation when some links should be missing
-depending on the availability of rights or other circumstances, for this:
+depending on the [availability of rights](/en/docs/access) or other circumstances, for this:
 
 ```php
 Menu::make('Example')->permission('platform.idea');
