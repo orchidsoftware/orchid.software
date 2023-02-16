@@ -108,13 +108,6 @@ It is also possible to integrate into a visual group by setting the title for th
 Menu::make('Example')->title('Analytics');
 ```
 
-## Display order
-
-Sorting set by setting the sequence number:
-```php
-Menu::make('Second')->sort(5);
-Menu::make('First')->sort(4);
-```
 
 ## Badge notifications
 
@@ -127,6 +120,14 @@ Menu::make('Comments')
     ->badge(function () {
         return 10;
     });
+```
+
+## Sort
+
+Sorting set by setting the sequence number:
+```php
+Menu::make('Second')->sort(5);
+Menu::make('First')->sort(4);
 ```
 
 ## Nested menu
