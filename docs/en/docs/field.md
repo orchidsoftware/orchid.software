@@ -747,7 +747,7 @@ Cropper::make('picture')
 ```
 
 
-### File size limit
+### File Size Limit
     
 To limit the size of the downloaded file, you must set the maximum value in `MB`.
 
