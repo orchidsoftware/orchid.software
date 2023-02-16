@@ -60,4 +60,5 @@ This guide has been influenced by the following documents:
 - [Fiori Design Guidelines](https://experience.sap.com/fiori-design-web/)
 - [Nielsen Norman Group](https://www.nngroup.com/)
 
-These documents provide valuable insights and best practices for designing user-centered interfaces. By taking into consideration the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design for Orchid apps.
+These documents offer valuable insights and best practices for designing interfaces that prioritize the user experience.
+By following the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design specifically for Orchid apps.
