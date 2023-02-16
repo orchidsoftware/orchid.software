@@ -4,14 +4,14 @@ description:
 section: site.hig.
 ---
 
-> This is a very early showing of the design guide. The sections here are still under progress!
+> **This is a very early showing of the design guide.** The sections here are still under progress!
 
 
 The aim of these guidelines is to assist software developers and interface designers in creating their app using Orchid.
 They outline specific design elements and principles, while also fostering a design philosophy that guides you
 in making informed decisions when deviating from the guidelines.
 
-
+<!--
 Adhering to the suggestions contained here provides many benefits:
 
 
@@ -19,7 +19,7 @@ Adhering to the suggestions contained here provides many benefits:
 - ...
 - ...
 - ...
-
+-->
 
 
 > Keep in mind that this is a set of guidelines, not a rule book. 
