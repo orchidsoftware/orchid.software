@@ -30,7 +30,7 @@ Because they are transient, they are best suited to communicating individual eve
 
 ## Notifications
 
-//...
+Notifications in the admin panel are different from others. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
 ## Badges
 
