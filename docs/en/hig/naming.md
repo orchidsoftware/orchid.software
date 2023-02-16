@@ -70,7 +70,7 @@ Although a term may be commonly used within your business circle, it's important
 ![term.png](https://orchid.software/img/hig/term.png)
 
 
-## Lorem Ipsum in Prototypes
+## Lorem Ipsum
 
 When writing text for prototypes, it's important to keep it realistic. Avoid using names and addresses that are too short or that only just fit in the available fields. Use real messages and errors, rather than just placeholder text like "Here is the error text".
 
