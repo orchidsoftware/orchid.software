@@ -6,7 +6,7 @@ description: Learn how to install and set up Laravel Orchid in your project with
 
 Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.
 
-## Create a project
+## Create a Project
 
 > **Note.** If you already have Laravel installation, you can skip this step.
 
@@ -37,7 +37,7 @@ In other words, install your new framework project.
 
 > **Note.** If you just installed Laravel, you may need to generate a key with command `php artisan key:generate`
 
-## Add dependency
+## Add Dependency
 
 Go to the created project directory and run the command:
 ```php
@@ -47,7 +47,7 @@ $ composer require orchid/platform
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
 
 
-## Platform installation
+## Platform Installation
 
 > **Note.** The installation will overwrite the `app/Models/User` model. 
 
@@ -57,7 +57,7 @@ Run the installation process by running the command:
 php artisan orchid:install
 ```
 
-## Create user
+## Create User
 
 To create a user with maximum permissions, you can run the following command with a username, email, and password:
 
@@ -66,7 +66,7 @@ php artisan orchid:admin admin admin@admin.com password
 ```
 
 
-## Start local server
+## Start Local Server
 
 If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:
 
@@ -97,7 +97,7 @@ php artisan orchid:publish
 php artisan view:clear
 ```
 
-## Keeping assets updated
+## Keeping Assets Updated
 
 To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project's `composer.json` file to automatically publish the latest assets:
 
@@ -113,6 +113,6 @@ To ensure assets are updated when a new version is downloaded, you may add a Com
 
 
 
-## What to do next?
+## What to Do Next?
 
 A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step by step examples of working with the package on the [“Quick Start” page](/en/docs/quickstart) or read the [documentation](/en/docs/screens).
