@@ -17,7 +17,7 @@ Before beginning this tutorial, make sure that you have already installed [the f
 > Before we begin, we strongly recommend that you don't copy and paste. Typing each piece of code will help you practice and remember it.
 
 
-## Prepping The Database
+## Prepping the Database
 
 ### Database Migrations
 
@@ -329,7 +329,7 @@ When the button is clicked, it will open the `taskModal` modal window, and when 
 In the following sections, we will go over the details of how to define the `create` method and control the behavior of the button.
 
 
-### Creating The Task
+### Creating the Task
 
 To handle the submission of the modal window form, we will need to define a method that will be called when the form is sent to the server. This method can be used to validate the form data, save the new task to the database, and perform any other necessary actions.
 
@@ -424,7 +424,7 @@ Our task application is almost complete. But, we have no way to delete our exist
 
 ## Deleting Tasks
 
-### Adding The Delete Button
+### Adding the Delete Button
 
 So, let's add a delete button to each row of our task listing...
 
@@ -442,7 +442,7 @@ Layout::table('tasks', [
 ]),
 ```
 
-### Deleting The Task
+### Deleting the Task
 
 To delete a task, we will need to add a method to the screen class that handles the deletion of the task. This method can be called when the delete button is clicked, and can be used to delete the task from the database:
 
