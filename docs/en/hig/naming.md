@@ -72,7 +72,7 @@ Although a term may be commonly used within your business circle, it's important
 
 ## Lorem Ipsum in Prototypes
 
-When writing text for prototypes or web services, it's important to keep it realistic. Avoid using names and addresses that are too short or that only just fit in the available fields. Use real messages and errors, rather than just placeholder text like "Here is the error text".
+When writing text for prototypes, it's important to keep it realistic. Avoid using names and addresses that are too short or that only just fit in the available fields. Use real messages and errors, rather than just placeholder text like "Here is the error text".
 
 It's also important to avoid using "cool" or rude names, especially in prototypes that will be used for testing. Making factual or logical errors can also be problematic, as an expert in the field (such as an accountant) will immediately notice any inconsistencies. These kinds of errors can lead to discussions with the usability specialist and may interfere with the overall user experience.
 
