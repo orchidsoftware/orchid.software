@@ -337,7 +337,7 @@
                     <a href="#introduction">Introduction</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#prepping-the-database">Prepping The Database</a>
+                    <a href="#prepping-the-database">Prepping the Database</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#database-migrations">Database Migrations</a>
@@ -370,7 +370,7 @@
                     <a href="#launch-modal">Launch Modal</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#creating-the-task">Creating The Task</a>
+                    <a href="#creating-the-task">Creating the Task</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#displaying-existing-tasks">Displaying Existing Tasks</a>
@@ -379,10 +379,10 @@
                     <a href="#deleting-tasks">Deleting Tasks</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#adding-the-delete-button">Adding The Delete Button</a>
+                    <a href="#adding-the-delete-button">Adding the Delete Button</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#deleting-the-task">Deleting The Task</a>
+                    <a href="#deleting-the-task">Deleting the Task</a>
                 </li>
                     </ul>
     </div>
@@ -396,7 +396,7 @@
 <blockquote>
 <p>Before we begin, we strongly recommend that you don&rsquo;t copy and paste. Typing each piece of code will help you practice and remember it.</p>
 </blockquote>
-<h2><a href='#prepping-the-database' id='prepping-the-database'>Prepping The Database</a></h2>
+<h2><a href='#prepping-the-database' id='prepping-the-database'>Prepping the Database</a></h2>
 <h3><a href='#database-migrations' id='database-migrations'>Database Migrations</a></h3>
 <p>First, let&rsquo;s use a migration to define a database table to hold all of our tasks.</p>
 <pre><code class="language-php">php artisan make:migration create_tasks_table --create=tasks
@@ -631,7 +631,7 @@ public function commandBar(): iterable
 <p>This will create a button with the label &quot;Add Task&quot; and an icon of a plus sign.
 When the button is clicked, it will open the <code>taskModal</code> modal window, and when clicked again, it will close the modal.</p>
 <p>In the following sections, we will go over the details of how to define the <code>create</code> method and control the behavior of the button.</p>
-<h3><a href='#creating-the-task' id='creating-the-task'>Creating The Task</a></h3>
+<h3><a href='#creating-the-task' id='creating-the-task'>Creating the Task</a></h3>
 <p>To handle the submission of the modal window form, we will need to define a method that will be called when the form is sent to the server. This method can be used to validate the form data, save the new task to the database, and perform any other necessary actions.</p>
 <p>To define the method that will be called when the form is submitted, we can update the screen class as follows:</p>
 <pre><code class="language-php">use App\Models\Task;
@@ -704,7 +704,7 @@ public function layout(): iterable
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.</p>
 <p>Our task application is almost complete. But, we have no way to delete our existing tasks when they&rsquo;re done. Let&rsquo;s add that next!</p>
 <h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
-<h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding The Delete Button</a></h3>
+<h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding the Delete Button</a></h3>
 <p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
 <pre><code class="language-php">Layout::table('tasks', [
     TD::make('name'),
@@ -718,7 +718,7 @@ And the second one, we pass the set of columns we want to display. The values in
         }),
 ]),
 </code></pre>
-<h3><a href='#deleting-the-task' id='deleting-the-task'>Deleting The Task</a></h3>
+<h3><a href='#deleting-the-task' id='deleting-the-task'>Deleting the Task</a></h3>
 <p>To delete a task, we will need to add a method to the screen class that handles the deletion of the task. This method can be called when the delete button is clicked, and can be used to delete the task from the database:</p>
 <pre><code class="language-php">/**
  * @param \Illuminate\Http\Request $request
