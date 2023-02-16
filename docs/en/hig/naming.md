@@ -63,3 +63,6 @@ Menu items should have names that are either actions or locations, never descrip
 ## Terms
 
 Use the same words for objects and actions on them. If the user reads "certificate" in one window, "electronic signature" in another, and "key" in a third, he will not make the connection between these words, he will not understand that they are the same thing.
+
+
+![term.png](https://orchid.software/img/hig/term.png)
