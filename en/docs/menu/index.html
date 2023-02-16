@@ -352,10 +352,10 @@
                     <a href="#appearance">Appearance</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#display-order">Display order</a>
+                    <a href="#badge-notifications">Badge notifications</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#badge-notifications">Badge notifications</a>
+                    <a href="#sort">Sort</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#nested-menu">Nested menu</a>
@@ -435,11 +435,6 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
 </code></pre>
-<h2><a href='#display-order' id='display-order'>Display order</a></h2>
-<p>Sorting set by setting the sequence number:</p>
-<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
-Menu::make('First')-&gt;sort(4);
-</code></pre>
 <h2><a href='#badge-notifications' id='badge-notifications'>Badge notifications</a></h2>
 <p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
 <pre><code class="language-php">Menu::make('Comments')
@@ -448,6 +443,11 @@ Menu::make('First')-&gt;sort(4);
     -&gt;badge(function () {
         return 10;
     });
+</code></pre>
+<h2><a href='#sort' id='sort'>Sort</a></h2>
+<p>Sorting set by setting the sequence number:</p>
+<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
+Menu::make('First')-&gt;sort(4);
 </code></pre>
 <h2><a href='#nested-menu' id='nested-menu'>Nested menu</a></h2>
 <p>You can specify a single-level submenu as follows:</p>
