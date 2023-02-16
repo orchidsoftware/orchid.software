@@ -334,33 +334,33 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#create-a-project">Create a project</a>
+                    <a href="#create-a-project">Create a Project</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#add-dependency">Add dependency</a>
+                    <a href="#add-dependency">Add Dependency</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#platform-installation">Platform installation</a>
+                    <a href="#platform-installation">Platform Installation</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#create-user">Create user</a>
+                    <a href="#create-user">Create User</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#start-local-server">Start local server</a>
+                    <a href="#start-local-server">Start Local Server</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#updating">Updating</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#keeping-assets-updated">Keeping assets updated</a>
+                    <a href="#keeping-assets-updated">Keeping Assets Updated</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#what-to-do-next">What to do next?</a>
+                    <a href="#what-to-do-next">What to Do Next?</a>
                 </li>
                     </ul>
     </div>
                         <p>Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.</p>
-<h2><a href='#create-a-project' id='create-a-project'>Create a project</a></h2>
+<h2><a href='#create-a-project' id='create-a-project'>Create a Project</a></h2>
 <blockquote>
 <p><strong>Note.</strong> If you already have Laravel installation, you can skip this step.</p>
 </blockquote>
@@ -384,25 +384,25 @@ In other words, install your new framework project.</p>
 <blockquote>
 <p><strong>Note.</strong> If you just installed Laravel, you may need to generate a key with command <code>php artisan key:generate</code></p>
 </blockquote>
-<h2><a href='#add-dependency' id='add-dependency'>Add dependency</a></h2>
+<h2><a href='#add-dependency' id='add-dependency'>Add Dependency</a></h2>
 <p>Go to the created project directory and run the command:</p>
 <pre><code class="language-php">$ composer require orchid/platform
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application&rsquo;s URL to the variable <code>APP_URL</code>.</p>
 </blockquote>
-<h2><a href='#platform-installation' id='platform-installation'>Platform installation</a></h2>
+<h2><a href='#platform-installation' id='platform-installation'>Platform Installation</a></h2>
 <blockquote>
 <p><strong>Note.</strong> The installation will overwrite the <code>app/Models/User</code> model.</p>
 </blockquote>
 <p>Run the installation process by running the command:</p>
 <pre><code class="language-php">php artisan orchid:install
 </code></pre>
-<h2><a href='#create-user' id='create-user'>Create user</a></h2>
+<h2><a href='#create-user' id='create-user'>Create User</a></h2>
 <p>To create a user with maximum permissions, you can run the following command with a username, email, and password:</p>
 <pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password
 </code></pre>
-<h2><a href='#start-local-server' id='start-local-server'>Start local server</a></h2>
+<h2><a href='#start-local-server' id='start-local-server'>Start Local Server</a></h2>
 <p>If you haven&rsquo;t installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:</p>
 <pre><code class="language-php">php artisan serve
 </code></pre>
@@ -421,7 +421,7 @@ In other words, install your new framework project.</p>
 <pre><code class="language-bash">php artisan orchid:publish
 php artisan view:clear
 </code></pre>
-<h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping assets updated</a></h2>
+<h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping Assets Updated</a></h2>
 <p>To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project&rsquo;s <code>composer.json</code> file to automatically publish the latest assets:</p>
 <pre><code class="language-json">&quot;scripts&quot;: {
     &quot;post-update-cmd&quot;: [
@@ -432,7 +432,7 @@ php artisan view:clear
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
 </blockquote>
-<h2><a href='#what-to-do-next' id='what-to-do-next'>What to do next?</a></h2>
+<h2><a href='#what-to-do-next' id='what-to-do-next'>What to Do Next?</a></h2>
 <p>A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step by step examples of working with the package on the <a href="/en/docs/quickstart">&ldquo;Quick Start&rdquo; page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>
 
                     </main>
