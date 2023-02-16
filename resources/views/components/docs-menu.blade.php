@@ -6,7 +6,7 @@
             @foreach($values as $title => $link)
                 <li class="border-start border-3 px-2 px-md-3 py-1 {{ active('*'.$link, 'border-primary active-doc-menu') }}">
                     <a href="{{$link}}" class="text-decoration-none {{ active('*'.$link, 'text-primary') }}">
-                        {{ $title }}
+                        {!! $title !!}
                     </a>
                 </li>
             @endforeach
