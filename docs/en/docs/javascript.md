@@ -133,7 +133,7 @@ To display, we will use a template for which you first need to define the `Contr
 
 
 
-## Vue.js wrapped in a Stimulus 
+## Vue.js Wrapped in a Stimulus
 
 
 Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we'll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.
