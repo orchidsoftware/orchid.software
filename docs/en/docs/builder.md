@@ -6,7 +6,7 @@ description: Learn how to use the Laravel Orchid form builder to easily create a
 
 Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique `Orchid\Screen\Builder` builder whose task is to generate an `HTML` code.
 
-## Main use
+## Main Use
 
 The form feature set and data source must be passed to build:
 
@@ -22,7 +22,7 @@ $html = $builder->generateForm();
 ```
 
 
-## Data binding
+## Data Binding
 
 To specify the value of an element, you must specify the data in the source.
 The specified key will automatically replace the data.
@@ -87,7 +87,7 @@ $html = $builder->generateForm();
 ```
 
 
-## Representation of elements of a form
+## Representation of Elements of a Form
 
 Any input field is only a setting above the view that passes data to the template.
 
