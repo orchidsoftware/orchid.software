@@ -126,14 +126,14 @@ return [
 
             'Guidelines' => [
                 'Naming Elements'       => '/en/hig/naming',
-                'Navigation'            => '#',
+                'Navigation (Soon)'            => '#',
                 'Presentation Table'    => '/en/hig/table',
                 'Providing Feedback'    => '/en/hig/providing-feedback',
                 'Quick Response Time'   => '/en/hig/performance',
             ],
 
             'Reference' => [
-                'Writing Style' => '#',
+                'Writing Style (Soon)' => '#',
                 'Iconography'   => '/en/hig/icon',
             ],
         ],
