@@ -109,7 +109,7 @@ Menu::make('Example')->title('Analytics');
 ```
 
 
-## Badge notifications
+## Badge Notifications
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
 
@@ -130,7 +130,7 @@ Menu::make('Second')->sort(5);
 Menu::make('First')->sort(4);
 ```
 
-## Nested menu
+## Nested Menu
 
 You can specify a single-level submenu as follows:
 
