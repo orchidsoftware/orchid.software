@@ -90,6 +90,10 @@ $theme-colors: (
     "grey":       $grey,
 );
 
+*:focus {
+    outline: 0 !important;
+}
+
 html, body {
     font-kerning: normal;
 }
