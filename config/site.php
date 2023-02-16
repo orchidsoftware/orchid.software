@@ -125,7 +125,7 @@ return [
             ],
 
             'Guidelines' => [
-                'Text in the Interface' => '/en/hig/naming',
+                'Naming Elements'       => '/en/hig/naming',
                 'Navigation'            => '#',
                 'Presentation Table'    => '/en/hig/table',
                 'Providing Feedback'    => '/en/hig/providing-feedback',
@@ -134,7 +134,7 @@ return [
 
             'Reference' => [
                 'Writing Style' => '#',
-                'Iconography'   => '#',
+                'Iconography'   => '/en/hig/icon',
             ],
         ],
     ],
