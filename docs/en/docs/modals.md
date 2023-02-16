@@ -8,12 +8,12 @@ Emulation of a modal dialog box that appears on top of the main page content in 
 
 ![Modals](/img/layouts/modals.png)
 
-## Description of work
+## Description of Work
 
 A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context. It is important to note that modal windows should not be used for large forms.
 
 
-## When to use
+## When to Use
 
 Modal windows are best used for secondary content that is only needed in certain situations. This content may include settings, creating new documents, filling out small forms. For example, clicking on a link may open a modal window to enter an address.
 
@@ -80,7 +80,7 @@ Layout::modal('exampleModals', [
     ->title('Window title');
 ```
 
-## Window size
+## Window Size
 
 Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the `size` method:
 
@@ -163,7 +163,7 @@ Layout::modal('exampleModals', [
     ->rawClick();
 ```
 
-## Asynchronous data loading
+## Asynchronous Data Loading
 
 When working with a dataset, there is no need to create a modal window for each value. Instead, you can use asynchronous loading.
 This will replace the `query` screen data when opening the window and display
