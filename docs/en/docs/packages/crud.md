@@ -4,7 +4,7 @@ title: Orchid CRUD for Laravel
 
 ## Introduction
 
-Orchid for Laravel has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when it might seem overkill.
+Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when it might seem overkill.
 Therefore, we have created a new package aimed at developers who want to quickly create a user interface for eloquent models with functions such as creating,
 reading, updating, and deleting.
 
