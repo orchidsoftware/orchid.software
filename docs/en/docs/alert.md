@@ -20,16 +20,16 @@ Alert::message('Welcome Aboard!');
 You can also use a shorter version of this code:
 
 ```php
-alert('Message');
+alert('Your action has been completed.');
 ```
 
 In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:
 
 ```php
-Alert::info('Message')
-Alert::success('Message')
-Alert::error('Message')
-Alert::warning('Message')
+Alert::info('Welcome to our website!')
+Alert::success('Your message has been sent.')
+Alert::error('Please fill in all required fields.')
+Alert::warning('Your account will be permanently deleted.')
 ```
 
 If you want to use a custom template for your notifications, you can use the `view` method. This method takes three arguments: the path/name of the `Blade` template, the color of the notification, and an array of variables to be passed to the template.
@@ -76,20 +76,20 @@ To create a toast message, you can use the following code:
 ```php
 use Orchid\Support\Facades\Toast;
 
-Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+Toast::warning('Invalid input. Please check your form.')
 ```
 
 One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the `autoHide` method:
 
 ```php
-Toast::warning('Lorem ipsum dolor sit amet.')
+Toast::warning('Invalid input. Please check your form.')
     ->autoHide(false);
 ```
 
 You can also specify the delay time before the toast message appears by using the `delay` method. This method takes one argument, which is the number of milliseconds to wait before showing the message:
 
 ```php
-Toast::warning('Lorem ipsum dolor sit amet.')
+Toast::warning('Invalid input. Please check your form.')
     ->delay(2000);
 ```
 
@@ -109,7 +109,6 @@ To create a notification, you can use the following `Artisan` command:
 ```php
 php artisan make:notification TaskCompleted
 ```
-
 
 
 This command will create a new class in your `app/Notifications` directory.
@@ -135,8 +134,8 @@ use Orchid\Platform\Notifications\DashboardMessage;
 public function toDashboard($notifiable)
 {
     return (new DashboardMessage)
-        ->title('Hello Word')
-        ->message('New post!')
+        ->title('New Task: January Report')
+        ->message('Please review the task details and deadline.')
         ->action(url('/'));
 }
 ```
