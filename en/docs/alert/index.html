@@ -353,13 +353,13 @@
 Alert::message('Welcome Aboard!');
 </code></pre>
 <p>You can also use a shorter version of this code:</p>
-<pre><code class="language-php">alert('Message');
+<pre><code class="language-php">alert('Your action has been completed.');
 </code></pre>
 <p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:</p>
-<pre><code class="language-php">Alert::info('Message')
-Alert::success('Message')
-Alert::error('Message')
-Alert::warning('Message')
+<pre><code class="language-php">Alert::info('Welcome to our website!')
+Alert::success('Your message has been sent.')
+Alert::error('Please fill in all required fields.')
+Alert::warning('Your account will be permanently deleted.')
 </code></pre>
 <p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Alert;
@@ -389,14 +389,14 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 <p>To create a toast message, you can use the following code:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Toast;
 
-Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+Toast::warning('Invalid input. Please check your form.')
 </code></pre>
 <p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>autoHide</code> method:</p>
-<pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
+<pre><code class="language-php">Toast::warning('Invalid input. Please check your form.')
     -&gt;autoHide(false);
 </code></pre>
 <p>You can also specify the delay time before the toast message appears by using the <code>delay</code> method. This method takes one argument, which is the number of milliseconds to wait before showing the message:</p>
-<pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
+<pre><code class="language-php">Toast::warning('Invalid input. Please check your form.')
     -&gt;delay(2000);
 </code></pre>
 <p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
@@ -423,8 +423,8 @@ This method will receive a <code>$notifiable</code> object and must return a <co
 public function toDashboard($notifiable)
 {
     return (new DashboardMessage)
-        -&gt;title('Hello Word')
-        -&gt;message('New post!')
+        -&gt;title('New Task: January Report')
+        -&gt;message('Please review the task details and deadline.')
         -&gt;action(url('/'));
 }
 </code></pre>
