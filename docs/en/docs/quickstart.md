@@ -448,7 +448,7 @@ To delete a task, we will need to add a method to the screen class that handles 
 
 ```php
 /**
- * @param \Illuminate\Http\Request $request
+ * @param Task $task
  *
  * @return void
  */
