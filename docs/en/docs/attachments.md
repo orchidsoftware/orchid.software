@@ -194,6 +194,46 @@ public function boot()
 ```
 
 
+
+Occasionally, users may upload image files without properly establishing a relationship with them. These models and files may end up remaining in the system indefinitely, taking up valuable storage space. To address this issue, you can create a console command that clears out any unassociated image files on a set schedule. For example, you might schedule the command to run once a week or once a month, depending on the frequency of uploads and the amount of storage space available.
+
+```php
+namespace App\Console\Commands;
+
+use Illuminate\Console\Command;
+use Orchid\Attachment\Models\Attachment;
+
+class AttachmentClear extends Command
+{
+    /**
+     * The name and signature of the console command.
+     */
+    protected $signature = 'attachment:clear';
+
+    /**
+     * The console command description.
+     */
+    protected $description = 'Remove dont relation attachment';
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+        $unrelatedAttachments = Attachment::doesntHave('relationships')
+            ->whereDate('created_at', '<', now()->subDays(2))
+            ->get();
+
+        $unrelatedAttachments->each->delete();
+
+        return Command::SUCCESS;
+    }
+}
+```
+
+
 ## Default Configuration
 
 When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the `config/platform.php` file. This configuration specifies the disk and generator that will be used to handle the files.
