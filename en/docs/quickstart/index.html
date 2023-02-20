@@ -721,7 +721,7 @@ And the second one, we pass the set of columns we want to display. The values in
 <h3><a href='#deleting-the-task' id='deleting-the-task'>Deleting the Task</a></h3>
 <p>To delete a task, we will need to add a method to the screen class that handles the deletion of the task. This method can be called when the delete button is clicked, and can be used to delete the task from the database:</p>
 <pre><code class="language-php">/**
- * @param \Illuminate\Http\Request $request
+ * @param Task $task
  *
  * @return void
  */
