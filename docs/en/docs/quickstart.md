@@ -348,7 +348,6 @@ use Illuminate\Http\Request;
 public function create(Request $request)
 {
     // Validate form data, save task to database, etc.
-
     $request->validate([
         'task.name' => 'required|max:255',
     ]);
