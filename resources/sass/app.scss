@@ -234,6 +234,17 @@ main {
         margin: 0 auto;
     }
 
+    picture {
+        &:after {
+            content: attr(alt);
+            text-align: center;
+            display: block;
+            @extend .text-muted;
+            @extend .small;
+            margin: 1em;
+        }
+    }
+
     h1, h2, h3, h4, h5, h6 {
         a {
             color: $black;

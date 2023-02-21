@@ -47,6 +47,8 @@ class DocsContent extends Component implements Htmlable
         $crawler = new Crawler();
         $crawler->addContent($this->content);
 
+        $this->content = $crawler->html();
+
         $crawler
             ->filter('h2,h3,h4,h5,h6')
             ->each(function (Crawler $elm) use (&$anchors) {
@@ -60,6 +62,17 @@ class DocsContent extends Component implements Htmlable
 
                 $this->content = Str::of($this->content)
                     ->replace("<$tag>$content</$tag>", "<$tag><a href='#$id' id='$id'>$content</a></$tag>");
+            });
+
+        $crawler
+            ->filter('img')
+            ->each(function (Crawler $elm) use (&$anchors) {
+
+                $imgTag = $elm->outerHtml();
+                $alt = $elm->attr('alt');
+
+                $this->content = Str::of($this->content)
+                    ->replace($imgTag, "<picture alt='$alt'>$imgTag</picture>");
             });
 
         $fixer = new Fixer([
