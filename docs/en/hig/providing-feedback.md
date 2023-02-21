@@ -22,6 +22,10 @@ Because they are transient, they are best suited to communicating individual eve
 
 ## Alerts
 
+Alerts can be a useful tool for communicating persistent states that users should not miss, such as indicating that the application is in debug mode or that the user's account is being moderated and is not yet fully accessible. Additionally, in some cases, alerts can provide supplementary information about important locations or content items. By drawing attention to these critical pieces of information, alerts can help ensure that users are aware of important updates and changes.
+
+However, it's important to keep in mind that alerts can take up valuable space and can be distracting. If the state you want to communicate is not critical or can be conveyed through a less disruptive Toast, you may want to consider alternative ways to communicate the information in question.
+
 //...
 
 ## Message Dialogs
