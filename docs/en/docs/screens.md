@@ -82,7 +82,7 @@ class Idea extends Screen
 
 The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:
 
-![Screens](/img/scheme/screens.jpg)
+![This schematic illustrates how screens work in Orchid.](/img/scheme/screens.jpg)
 
 - **query**: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
 
