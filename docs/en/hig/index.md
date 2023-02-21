@@ -28,7 +28,7 @@ This is a living document that can and will be changed.
 Before diving into the fundamentals, it's crucial to grasp a clear definition of design. 
 However, more importantly, we must dispel two prevalent misconceptions.
 
-## Design is not something you add on after you've completed a product.
+## Design Is Not Something You Add On After You’ve Completed a Product.
 
 Whether you realize it or not, you are constantly designing anything you build. It is an intrinsic part of creating something.
 Design is not just what something looks like. It's not just the colors and fonts. Design is how it works.
@@ -37,7 +37,7 @@ an icon or a label and where that button went and the size and color of that but
 Decisions are designs.
 
 
-## Design is not just, like, your opinion, man
+## Design Is Not Just, Like, Your Opinion, Man
 
 Consider different types of bicycles. A folding bicycle has a different set of design goals than a mountain bicycle.
 Things like weight, size, and tire tread are important and competing factors in helping the intended audience reach their goals.
