@@ -36,4 +36,6 @@ Notifications in the admin panel are different from others. They are not deleted
 
 ## Badges
 
-//...
+Badges are small graphical elements that can display important information, such as the number of items in a user's cart, the number of unread messages, or the number of new updates available. They can also be used to draw attention to a new feature that has been added to the app.
+
+It's important to use badges sparingly since they cannot be hidden by the user. Avoid using more than two badges at a time, as too many badges can be distracting and overwhelming for the user. Be selective and only use badges to highlight the most important information or features that the user needs to be aware of.
