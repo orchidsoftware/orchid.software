@@ -38,7 +38,7 @@ Likewise, a good name should avoid:
 
 For a practical example, consider the product preview screen of an online store:
 
-![This image shows an illustrative example of a bad name and description for a screen.](https://orchid.software/img/hig/screen-name-bad.png)
+![❌ This image shows an illustrative example of a bad name and description for a screen.](https://orchid.software/img/hig/screen-name-bad.png)
 
 
 Initially, the product name is set by the user, which can often contain many words for marketing purposes or to improve search engine optimization. This can result in an untidy and cluttered display.
@@ -47,7 +47,7 @@ To address this issue, we can look at the context in which the product name is u
 
 By replacing the marketing name with the SKU, we can simplify the display and provide a clearer understanding of the context. For instance, we could use a truncated version of the SKU in the description:
 
-![This image shows an illustrative example of a short and clear name and description for a screen.](https://orchid.software/img/hig/screen-name-good.png)
+![✅ This image shows an illustrative example of a short and clear name and description for a screen.](https://orchid.software/img/hig/screen-name-good.png)
 
 
 This approach enhances the overall readability and usability of the product preview screen, making it more efficient and effective for the intended audience.
@@ -74,7 +74,7 @@ Use the same words for objects and actions on them. If the user reads "certifica
 
 Although a term may be commonly used within your business circle, it's important to recognize that not everyone may be familiar with it. As such, it's recommended to include a small footnote alongside the term to provide an explanation:
 
-![This image shows an illustrative example of an auxiliary hint for abbreviations.](https://orchid.software/img/hig/term.png)
+![✅ This image shows an illustrative example of an auxiliary hint for abbreviations.](https://orchid.software/img/hig/term.png)
 
 
 
