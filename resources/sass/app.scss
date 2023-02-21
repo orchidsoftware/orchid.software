@@ -241,7 +241,7 @@ main {
             display: block;
             @extend .text-muted;
             font-size: 0.775em;
-            max-width: calc(50% + 100px);
+            max-width: 50%;
             margin: 1em auto;
         }
     }
@@ -333,6 +333,16 @@ main {
 
 }
 
+
+@include media-breakpoint-down(md) {
+    main {
+        picture {
+            &:after {
+                max-width: 80% !important;
+            }
+        }
+    }
+}
 
 .anchors {
     ul{
