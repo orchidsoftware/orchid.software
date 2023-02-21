@@ -14,7 +14,7 @@ Fields are used to generate the output of the fill and edit form template. Form 
 
 Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:
 
-![Input](/img/fields/input.png)
+![This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. ](/img/fields/input.png)
  
 Example:
 ```php
