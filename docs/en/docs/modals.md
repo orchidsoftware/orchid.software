@@ -6,7 +6,7 @@ description: Learn how to use modal windows in your Laravel Orchid projects with
 
 Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
 
-![Modals](/img/layouts/modals.png)
+![This image shows an illustrative modal window.](/img/layouts/modals.png)
 
 ## Description of Work
 
