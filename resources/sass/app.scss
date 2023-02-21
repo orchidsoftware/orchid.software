@@ -241,7 +241,7 @@ main {
             display: block;
             @extend .text-muted;
             font-size: 0.775em;
-            max-width: 50%;
+            max-width: calc(66% - 48px);
             margin: 1em auto;
         }
     }
