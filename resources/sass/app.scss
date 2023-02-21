@@ -241,7 +241,8 @@ main {
             display: block;
             @extend .text-muted;
             @extend .small;
-            margin: 1em;
+            max-width: calc(50% + 100px);
+            margin: 1em auto;
         }
     }
 
