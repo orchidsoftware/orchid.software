@@ -6,7 +6,7 @@ extends: _layouts.documentation
 
 The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.
 
-![Legend](/img/layouts/legend.png)
+![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
 
 Here is an example of how to use the Legend layout:
 
