@@ -334,11 +334,11 @@
                         
                         <div class="anchors">
     </div>
-                        <p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.</p>
+                        <body><p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.</p>
 <blockquote>
 <p><strong>Note.</strong> This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider <a href="https://github.com/orchidsoftware/crud">using a dedicated package for this</a>.</p>
 </blockquote>
-<p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch &quot;<a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a> &quot;.</p>
+<p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch &ldquo;<a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a> &rdquo;.</p>
 <p>First, we need to create a new table. To do this, execute the command:</p>
 <pre><code class="language-php">php artisan make:migration create_posts_table
 </code></pre>
@@ -482,7 +482,7 @@ class PostEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;Blog posts&quot;;
+        return "Blog posts";
     }
 
     /**
@@ -651,7 +651,7 @@ class PostListScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;All blog posts&quot;;
+        return "All blog posts";
     }
 
     /**
@@ -682,7 +682,7 @@ class PostListScreen extends Screen
 }
 </code></pre>
 <p>Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>
-
+</body>
                     </main>
                 </div>
             </div>

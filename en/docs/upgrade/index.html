@@ -468,12 +468,12 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#support-policy' id='support-policy'>Support Policy</a></h2>
+                        <body><h2><a href='#support-policy' id='support-policy'>Support Policy</a></h2>
 <p>At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can provide efficient support, we will only provide support for the latest major release of our package. This includes bug fixes and security updates.</p>
 <p>We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest features, bug fixes, and security updates.</p>
 <p>If you have any questions or concerns about our support policy, please do not hesitate to contact us.</p>
 <h2><a href='#release-strategy' id='release-strategy'>Release Strategy</a></h2>
-<p>We believe in keeping our package up-to-date and modern, and therefore follow a &quot;release early, release often&quot; approach for major releases. This means that we won't wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.</p>
+<p>We believe in keeping our package up-to-date and modern, and therefore follow a &ldquo;release early, release often&rdquo; approach for major releases. This means that we won&rsquo;t wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.</p>
 <blockquote>
 <p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
 </blockquote>
@@ -485,7 +485,7 @@
 <h3><a href='#icons' id='icons'>Icons</a></h3>
 <p>In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
 <p>To do this, simply add the following line to your composer.json file:</p>
-<pre><code class="language-bash">&quot;orchid/icons&quot;: &quot;^2.0&quot;,
+<pre><code class="language-bash">"orchid/icons": "^2.0",
 </code></pre>
 <p>And then specify in your configuration file:</p>
 <pre><code class="language-php">'icons' =&gt; [
@@ -518,7 +518,7 @@
 }
 </code></pre>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
-<p>the behavior of the &quot;Logout&quot; and &quot;Quit Impersonation&quot; actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
+<p>the behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
 <p>Here is an example of how you can define these buttons:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Button;
 use Orchid\Access\Impersonation;
@@ -538,8 +538,8 @@ public function commandBar(): iterable
 }
 </code></pre>
 <ul>
-<li>The first button, &quot;Back to my account&quot;, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
-<li>The second button, &quot;Sign out&quot;, is used to log out of the platform.</li>
+<li>The first button, &ldquo;Back to my account&rdquo;, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
+<li>The second button, &ldquo;Sign out&rdquo;, is used to log out of the platform.</li>
 </ul>
 <p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.</p>
 <h2><a href='#upgrading-to-130-from-12x' id='upgrading-to-130-from-12x'>Upgrading to 13.0 from 12.x</a></h2>
@@ -570,9 +570,9 @@ public function commandBar(): iterable
 </code></pre>
 <p>Which would place the <code>JS/CSS</code> files in the <code>public/vendor/orchid</code> directory. It will also be required to automate making changes to composer.json:</p>
 <pre><code class="language-json">{
-    &quot;scripts&quot;: {
-        &quot;post-update-cmd&quot;: [
-            &quot;@php artisan orchid:publish --ansi&quot;
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan orchid:publish --ansi"
         ]
     }
 }
@@ -755,21 +755,21 @@ public function isSee(): bool
 <h3><a href='#stimulus' id='stimulus'>Stimulus</a></h3>
 <p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
 <pre><code class="language-js">&lt;!--  before: --&gt;
-&lt;div data-controller=&quot;fields--checkbox&quot;&gt;
+&lt;div data-controller="fields--checkbox"&gt;
 
 &lt;!--  after: --&gt;
-&lt;div data-controller=&quot;checkbox&quot;&gt;
+&lt;div data-controller="checkbox"&gt;
 </code></pre>
 <h3><a href='#turbo' id='turbo'>Turbo</a></h3>
 <p>The Turbolinks library has been updated to Turbo for more details here: <a href="https://turbo.hotwire.dev/">https://turbo.hotwire.dev/</a></p>
 <p>If you used your own js scripts, then it is recommended to read their changes. For example:</p>
 <pre><code class="language-js">// before
-document.addEventListener(&quot;turbolinks:load&quot;, function() {
+document.addEventListener("turbolinks:load", function() {
     // ...
 })
 
 // after
-document.addEventListener(&quot;turbo:load&quot;, function() {
+document.addEventListener("turbo:load", function() {
   // ...
 })
 </code></pre>
@@ -784,18 +784,18 @@ document.addEventListener(&quot;turbo:load&quot;, function() {
 <p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">laravel/ui</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui ha</code>s been removed. And with it, the ability to recover your password.</p>
 <p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.</p>
 <p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following <code>SQL</code> code:</p>
-<pre><code class="language-php">ALTER TABLE &quot;users&quot;
-    DROP COLUMN &quot;last_login&quot;
-    DROP COLUMN &quot;uses_two_factor_auth&quot;
-    DROP COLUMN &quot;two_factor_secret_code&quot;
-    DROP COLUMN &quot;two_factor_recovery_code&quot;;
+<pre><code class="language-php">ALTER TABLE "users"
+    DROP COLUMN "last_login"
+    DROP COLUMN "uses_two_factor_auth"
+    DROP COLUMN "two_factor_secret_code"
+    DROP COLUMN "two_factor_recovery_code";
 
 DELETE FROM migrations
 WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
 </code></pre>
 <p>After that, you need to remove the column data from your user model.
 If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in project &ndash; don&rsquo;t forget delete it.</p>
-<hr />
+<hr>
 <h2><a href='#upgrading-to-80-from-7x' id='upgrading-to-80-from-7x'>Upgrading to 8.0 from 7.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^8.0</code></p>
@@ -913,7 +913,7 @@ This was more annoying than keeping the software up to date. Therefore, it was r
 <p>The icon display has been changed from <code>font</code> to <code>SVG</code> format.
 Now the <code>-&gt;icon</code> methods do not accept the <code>css</code> value to be set, but the file name.
 In most cases, you only need to remove the <code>icon-</code> prefix.</p>
-
+</body>
                     </main>
                 </div>
             </div>

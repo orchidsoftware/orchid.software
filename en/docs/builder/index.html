@@ -345,7 +345,7 @@
                 </li>
                     </ul>
     </div>
-                        <p>Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>HTML</code> code.</p>
+                        <body><p>Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>HTML</code> code.</p>
 <h2><a href='#main-use' id='main-use'>Main Use</a></h2>
 <p>The form feature set and data source must be passed to build:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
@@ -445,7 +445,7 @@ class CustomField extends Field
 <p>The <code>view</code> property is determined by the blade.
 <code>attributes</code> lists default values, and <code>inlineAttributes</code>
 define keys in html format, for example:</p>
-<pre><code class="language-html">First name: &lt;input type=&quot;text&quot; name=&quot;name&quot;&gt;&lt;br&gt;
+<pre><code class="language-html">First name: &lt;input type="text" name="name"&gt;&lt;br&gt;
 </code></pre>
 <p>In this example, the inline attribute is type and name specified directly in the tag.
 And the <code>make()</code> method is only for quick and convenient initialization, since any form that should add or modify data must possess it.</p>
@@ -480,7 +480,7 @@ protected $inlineAttributes = [
 ];
 </code></pre>
 <p>After that, each attribute will be drawn in our template.</p>
-
+</body>
                     </main>
                 </div>
             </div>

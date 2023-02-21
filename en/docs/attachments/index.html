@@ -366,7 +366,7 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#attachments' id='attachments'>Attachments</a></h2>
+                        <body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
 <p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachment()</code> relationship.</p>
 <p>For example, to attach files to a <code>Hostel</code> model:</p>
 <pre><code class="language-php">namespace App;
@@ -439,7 +439,7 @@ public function upload(Request $request)
 
 public function upload(Request $request)
 {
-    $path = &quot;photos&quot;
+    $path = "photos"
     $file = new File($request-&gt;file('photo'));
     $attachment = $file-&gt;path($path)-&gt;load();
 
@@ -450,7 +450,7 @@ public function upload(Request $request)
 <p>You can also use dynamic parameters like <code>path('photos/'.$user-&gt;id)</code> or <code>path('photos/'.$file-&gt;name)</code> to create specific folders for each user or file type.</p>
 <h2><a href='#remove' id='remove'>Remove</a></h2>
 <p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
-<p>Let's come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&quot;Manage file attachments&quot;</a></p>
+<p>Let&rsquo;s come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&ldquo;Manage file attachments&rdquo;</a></p>
 <pre><code class="language-php">// app/Post.php
 
 use Orchid\Attachment\Models\Attachment;
@@ -606,7 +606,7 @@ class UploadListener extends ShouldQueue
     }
 }
 </code></pre>
-
+</body>
                     </main>
                 </div>
             </div>

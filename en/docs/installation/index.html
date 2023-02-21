@@ -360,13 +360,13 @@
                 </li>
                     </ul>
     </div>
-                        <p>Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.</p>
+                        <body><p>Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.</p>
 <h2><a href='#create-a-project' id='create-a-project'>Create a Project</a></h2>
 <blockquote>
 <p><strong>Note.</strong> If you already have Laravel installation, you can skip this step.</p>
 </blockquote>
 <p>Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the <code>composer create-project</code> command in your terminal:</p>
-<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project &quot;9.*&quot; --prefer-dist
+<pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "9.*" --prefer-dist
 </code></pre>
 <p>Or if you would prefer Laravel Installer:</p>
 <pre><code class="language-php">$ laravel new orchid-project
@@ -424,9 +424,9 @@ php artisan view:clear
 </code></pre>
 <h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping Assets Updated</a></h2>
 <p>To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project&rsquo;s <code>composer.json</code> file to automatically publish the latest assets:</p>
-<pre><code class="language-json">&quot;scripts&quot;: {
-    &quot;post-update-cmd&quot;: [
-      &quot;@php artisan orchid:publish --ansi&quot;
+<pre><code class="language-json">"scripts": {
+    "post-update-cmd": [
+      "@php artisan orchid:publish --ansi"
   ]
 }
 </code></pre>
@@ -435,7 +435,7 @@ php artisan view:clear
 </blockquote>
 <h2><a href='#what-to-do-next' id='what-to-do-next'>What to Do Next?</a></h2>
 <p>A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step by step examples of working with the package on the <a href="/en/docs/quickstart">&ldquo;Quick Start&rdquo; page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>
-
+</body>
                     </main>
                 </div>
             </div>

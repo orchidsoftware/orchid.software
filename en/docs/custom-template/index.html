@@ -354,7 +354,7 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#views' id='views'>Views</a></h2>
+                        <body><h2><a href='#views' id='views'>Views</a></h2>
 <p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the <code>Layout::view</code> method and pass it a string containing the name of your template.</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
@@ -398,7 +398,7 @@ Hello {{ $name }}!
 }
 </code></pre>
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
-<p>A &quot;Wrapper&quot; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
+<p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
 <p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
 <pre><code class="language-php">public function layout(): array
 {
@@ -414,13 +414,13 @@ Hello {{ $name }}!
 }
 </code></pre>
 <p>In the <code>myTemplate.blade.ph</code>p template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
-<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col-7 border-right&quot;&gt;
+<pre><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-7 border-right"&gt;
         @foreach($foo as $row)
             {!! $row !!}
         @endforeach
     &lt;/div&gt;
-    &lt;div class=&quot;col-5 no-gutter&quot;&gt;
+    &lt;div class="col-5 no-gutter"&gt;
         {!! $bar !!}
     &lt;/div&gt;
 &lt;/div&gt;
@@ -651,7 +651,7 @@ class ExampleNavigation extends TabMenu
 }
 </code></pre>
 <p>You can specify the items in the same way as in the <a href="/en/docs/menu">Menu section</a></p>
-
+</body>
                     </main>
                 </div>
             </div>

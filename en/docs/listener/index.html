@@ -334,7 +334,7 @@
                         
                         <div class="anchors">
     </div>
-                        <p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.</p>
+                        <body><p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.</p>
 <p>For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
@@ -420,7 +420,7 @@ class AmountListener extends Listener
      * as a source for an asynchronous request.
      *
      * The name of the method must
-     * begin with the prefix &quot;async&quot;
+     * begin with the prefix "async"
      *
      * @var string
      */
@@ -457,7 +457,7 @@ protected $targets = [
 ];
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name=&quot;users[]&quot;&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>&quot;users.&quot;</code></p>
+<p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>"users."</code></p>
 </blockquote>
 <p>The <code>asyncMethod</code> property must specify the method that will be called when the fields are changed. This method must be implemented on the screen.
 Add it with the name <code>asyncSum</code>:</p>
@@ -538,7 +538,7 @@ class PlatformScreen extends Screen
  * as a source for an asynchronous request.
  *
  * The name of the method must
- * begin with the prefix &quot;async&quot;
+ * begin with the prefix "async"
  *
  * @var string
  */
@@ -569,7 +569,7 @@ class AmountListener extends Listener
      * as a source for an asynchronous request.
      *
      * The name of the method must
-     * begin with the prefix &quot;async&quot;
+     * begin with the prefix "async"
      *
      * @var string
      */
@@ -599,7 +599,7 @@ class AmountListener extends Listener
 }
 </code></pre>
 <p>Now, when changing the values of the input fields, the sum field will change automatically.</p>
-
+</body>
                     </main>
                 </div>
             </div>

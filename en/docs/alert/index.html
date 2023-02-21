@@ -345,7 +345,7 @@
                 </li>
                     </ul>
     </div>
-                        <p>Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
+                        <body><p>Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
 <p>A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.</p>
 <p>Laravel Orchid provides a simple and convenient way to create and display flash notifications through the use of flash data. To create a flash notification, you can use the following code:</p>
@@ -378,7 +378,7 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 <p>When a notification is displayed, package sets several keys in the session:</p>
 <ul>
 <li>'flash_notification.message&rsquo; &ndash; the message to be displayed</li>
-<li>'flash_notification.level' - a string representing the type of notification (e.g. &quot;info&quot;, &quot;success&quot;, &quot;error&quot;, &quot;warning&quot;)</li>
+<li>'flash_notification.level&rsquo; &ndash; a string representing the type of notification (e.g. &ldquo;info&rdquo;, &ldquo;success&rdquo;, &ldquo;error&rdquo;, &ldquo;warning&rdquo;)</li>
 </ul>
 <p>Package also includes a default display for notifications, which can be included in your blade templates by specifying:</p>
 <pre><code class="language-php">@include('platform::partials.alert')
@@ -403,7 +403,7 @@ Toast::warning('Invalid input. Please check your form.')
 <p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
 <h2><a href='#notifications-in-the-admin-panel' id='notifications-in-the-admin-panel'>Notifications in the Admin Panel</a></h2>
 <p>Notifications in the admin panel are different from flash messages. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
-<p>You can view these notifications by clicking the &quot;Notification Bell icon&quot; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
+<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
 <p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
 <p>To create a notification, you can use the following <code>Artisan</code> command:</p>
 <pre><code class="language-php">php artisan make:notification TaskCompleted
@@ -436,7 +436,7 @@ You can take a look at <a href="https://laravel.com/docs/notifications#sending-n
 
 $user-&gt;notify(new TaskCompleted);
 </code></pre>
-
+</body>
                     </main>
                 </div>
             </div>

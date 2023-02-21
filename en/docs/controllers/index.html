@@ -334,7 +334,7 @@
                         
                         <div class="anchors">
     </div>
-                        <p>There is usually no need to create custom controllers to do anything outside the package&rsquo;s scope since you can place <a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
+                        <body><p>There is usually no need to create custom controllers to do anything outside the package&rsquo;s scope since you can place <a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
 <p>But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.</p>
 <p>To create a new controller, use the <code>make:controller</code> Artisan command:</p>
 <pre><code class="language-php">php artisan make:controller OrchidController
@@ -361,13 +361,13 @@ class OrchidController extends Controller
 @section('description', 'description')
 
 @section('navbar')
-    &lt;div class=&quot;text-center&quot;&gt;
+    &lt;div class="text-center"&gt;
         Navbar
     &lt;/div&gt;
 @stop
 
 @section('content')
-    &lt;div class=&quot;text-center mt-5 mb-5&quot;&gt;
+    &lt;div class="text-center mt-5 mb-5"&gt;
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
 @stop
@@ -377,7 +377,7 @@ class OrchidController extends Controller
 <pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
 </code></pre>
 <p>You can now access your custom controller by visiting the custom route in your Orchid app.</p>
-
+</body>
                     </main>
                 </div>
             </div>

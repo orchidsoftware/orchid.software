@@ -417,13 +417,13 @@
                 </li>
                     </ul>
     </div>
-                        <p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.</p>
+                        <body><p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.</p>
 <blockquote>
 <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
 <h2><a href='#input' id='input'>Input</a></h2>
 <p>Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:</p>
-<p><img src="/img/fields/input.png" alt="Input" /></p>
+<p><picture alt='Input'><img src="/img/fields/input.png" alt="Input"></picture></p>
 <p>Example:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Input;
 
@@ -682,7 +682,7 @@ class User extends Model
 </code></pre>
 <h2><a href='#datetime' id='datetime'>DateTime</a></h2>
 <p>Allows you to select the date and time.</p>
-<p><img src="/img/ui/datatime.png" alt="Datatime" /></p>
+<p><picture alt='Datatime'><img src="/img/ui/datatime.png" alt="Datatime"></picture></p>
 <p>Example:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date');
@@ -759,7 +759,7 @@ DateTimeZone::PER_COUNTRY;
 </code></pre>
 <p>There are 6&nbsp;groups of controls available:</p>
 <pre><code class="language-php">Quill::make('html')
-    -&gt;toolbar([&quot;text&quot;, &quot;color&quot;, &quot;header&quot;, &quot;list&quot;, &quot;format&quot;, &quot;media&quot;]);
+    -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
 </code></pre>
 <p>It&rsquo;s possible to install additional plugins with a simple Javascript file</p>
 <pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
@@ -773,13 +773,13 @@ DateTimeZone::PER_COUNTRY;
 <p><strong>Note</strong>: You can add custom scripts and stylesheets through the <code>platform.php</code> config file</p>
 <p>Example for <a href="https://github.com/benwinding/quill-image-compress">quill-image-compress</a>:</p>
 <p>Add the following in <code>config/platform.php</code> into the <code>resource.scripts</code> array</p>
-<pre><code>&quot;https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js&quot;,
-&quot;/js/admin/quill.imagecropper.js&quot;,
+<pre><code>"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
+"/js/admin/quill.imagecropper.js",
 </code></pre>
 <p>create a <code>quill.imagecropper.js</code> in <code>public/js/admin</code> with the following content</p>
 <pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
     // Object for registering plugins
-    event.detail.quill.register(&quot;modules/imageCompressor&quot;, imageCompressor);
+    event.detail.quill.register("modules/imageCompressor", imageCompressor);
 
     // Parameter object for initialization
     event.detail.options.modules = {
@@ -794,8 +794,8 @@ DateTimeZone::PER_COUNTRY;
 </code></pre>
 <h2><a href='#markdown-editor' id='markdown-editor'>Markdown Editor</a></h2>
 <p>The Markdown Editor field is a form element that allows the user to write and edit text using the lightweight markup language Markdown. It is designed to be easy to read and write, making it ideal for writing content that will be published on the web. The Markdown Editor field also has the ability to convert text into advanced languages for more advanced publications.</p>
-<p><img src="/img/ui/markdown.png" alt="Markdown" />
-<img src="/img/ui/markdown2.png" alt="Markdown2" /></p>
+<p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture>
+<picture alt='Markdown2'><img src="/img/ui/markdown2.png" alt="Markdown2"></picture></p>
 <p>To create a Markdown Editor field, you can use the <code>SimpleMDE</code> class:</p>
 <pre><code class="language-php">SimpleMDE::make('markdown');
 </code></pre>
@@ -834,7 +834,7 @@ DateTimeZone::PER_COUNTRY;
 </blockquote>
 <h2><a href='#code-editor' id='code-editor'>Code editor</a></h2>
 <p>A field for writing program code with the ability to highlight.</p>
-<p><img src="/img/ui/code.png" alt="Code" /></p>
+<p><picture alt='Code'><img src="/img/ui/code.png" alt="Code"></picture></p>
 <p>Example:</p>
 <pre><code class="language-php">Code::make('code');
 </code></pre>
@@ -869,7 +869,7 @@ DateTimeZone::PER_COUNTRY;
 </code></pre>
 <h2><a href='#cropper' id='cropper'>Cropper</a></h2>
 <p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
-<p><img src="/img/fields/cropper.png" alt="Cropper" /></p>
+<p><picture alt='Cropper'><img src="/img/fields/cropper.png" alt="Cropper"></picture></p>
 <p>Example:</p>
 <pre><code class="language-php">Cropper::make('picture');
 </code></pre>
@@ -1035,7 +1035,7 @@ For example, you can create the typical three dots dropdown:</p>
 TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE);
 </code></pre>
 <p>Result is an array with keys of <code>min</code>, <code>max</code>.</p>
-
+</body>
                     </main>
                 </div>
             </div>

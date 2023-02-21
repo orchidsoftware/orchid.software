@@ -387,7 +387,7 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                        <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <blockquote>
 <p><strong>This is an updated manual.</strong> If you need an earlier manual, it is available at <a href="/en/docs/quickstart-old">this link</a>.</p>
 </blockquote>
@@ -486,7 +486,7 @@ class TaskScreen extends Screen
      */
     public function name(): ?string
     {
-        return &quot;TaskScreen&quot;;
+        return "TaskScreen";
     }
 
     /**
@@ -494,7 +494,7 @@ class TaskScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;TaskScreen&quot;;
+        return "TaskScreen";
     }
     
     /**
@@ -607,7 +607,7 @@ public function layout(): iterable
     ];
 }
 </code></pre>
-<p>This will create a modal window with the title &quot;Create Task&quot;. The modal will contain an input field for the task name, with the label &quot;Name&quot;.</p>
+<p>This will create a modal window with the title &ldquo;Create Task&rdquo;. The modal will contain an input field for the task name, with the label &ldquo;Name&rdquo;.</p>
 <h3><a href='#launch-modal' id='launch-modal'>Launch Modal</a></h3>
 <p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the <code>layout</code> method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
 <p>To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the <code>commandBar</code> method of the screen class, which defines the basic actions that are available on the screen.</p>
@@ -629,7 +629,7 @@ public function commandBar(): iterable
     ];
 }
 </code></pre>
-<p>This will create a button with the label &quot;Add Task&quot; and an icon of a plus sign.
+<p>This will create a button with the label &ldquo;Add Task&rdquo; and an icon of a plus sign.
 When the button is clicked, it will open the <code>taskModal</code> modal window, and when clicked again, it will close the modal.</p>
 <p>In the following sections, we will go over the details of how to define the <code>create</code> method and control the behavior of the button.</p>
 <h3><a href='#creating-the-task' id='creating-the-task'>Creating the Task</a></h3>
@@ -733,7 +733,7 @@ public function delete(Task $task)
 <p>Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.</p>
 <p>To learn more about the capabilities of Orchid screens, we recommend visiting the <a href="/en/docs/screens">Screens</a> section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.</p>
 <p>We hope you find this tutorial useful and recommends that you also explore the <a href="/en/docs/quickstart-crud">following lessons available at the link</a>.</p>
-
+</body>
                     </main>
                 </div>
             </div>

@@ -372,9 +372,9 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                        <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>Screens on the Orchid platform are the main element that defines the layout and behavior of a page. Each screen is described by a class that specifies the components that should be displayed, as well as their properties and interactions.</p>
-<p>Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called &quot;layouts&quot;), and specifying which data should be displayed in each layout.</p>
+<p>Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called &ldquo;layouts&rdquo;), and specifying which data should be displayed in each layout.</p>
 <p>In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.</p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
 <p>You can create a new screen by running the command:</p>
@@ -403,7 +403,7 @@ class Idea extends Screen
      */
     public function name(): ?string
     {
-        return &quot;Idea Screen&quot;;
+        return "Idea Screen";
     }
     
     /**
@@ -411,7 +411,7 @@ class Idea extends Screen
      */
     public function description(): ?string
     {
-        return &quot;Idea Screen&quot;;
+        return "Idea Screen";
     }
 
     /**
@@ -436,7 +436,7 @@ class Idea extends Screen
 }
 </code></pre>
 <p>The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:</p>
-<p><img src="/img/scheme/screens.jpg" alt="Screens" /></p>
+<p><picture alt='Screens'><img src="/img/scheme/screens.jpg" alt="Screens"></picture></p>
 <ul>
 <li><p><strong>query</strong>: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen&rsquo;s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
@@ -476,9 +476,9 @@ Route::screen('/idea/edit',...
 dashboard/idea/{method?}      | platform.idea
 dashboard/idea/edit/{method?} | platform.idea.edit
 </code></pre>
-<p><code>{method?}</code> - means an optional argument that may go further.
-Correspondingly, the name &quot;edit&quot; in the address falls under it.
-The result will be a redirect to &quot;dashboard/idea/&quot;. To avoid this, make sure to order your routes correctly.</p>
+<p><code>{method?}</code> &ndash; means an optional argument that may go further.
+Correspondingly, the name &ldquo;edit&rdquo; in the address falls under it.
+The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, make sure to order your routes correctly.</p>
 <h2><a href='#querying-data' id='querying-data'>Querying Data</a></h2>
 <p>The <code>query</code> method of a screen is used to load data from the database or other sources.
 This data is then passed to the screen&rsquo;s layouts and views as an array</p>
@@ -550,7 +550,7 @@ public function name(): ?string
 }
 </code></pre>
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
-<p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &quot;Hello World!&quot;</p>
+<p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &ldquo;Hello World!&rdquo;</p>
 <p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
 <p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible for defining these controls.</p>
@@ -604,18 +604,18 @@ public function commandBar() : array
 <h3><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h3>
 <p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
-<pre><code class="language-php">&lt;form action=&quot;{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}&quot;
-      method=&quot;POST&quot;
+<pre><code class="language-php">&lt;form action="{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}"
+      method="POST"
 &gt;
     @csrf
-    &lt;button type=&quot;submit&quot;&gt;Say &quot;Hello, World!&quot;&lt;/button&gt;
+    &lt;button type="submit"&gt;Say "Hello, World!"&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
 <p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Button;
 
-Button::make('Say &quot;Hello, World!&quot;')
+Button::make('Say "Hello, World!"')
     -&gt;action(route('platform.screens.users', [
         'method' =&gt; 'hello',
     ]));
@@ -623,16 +623,16 @@ Button::make('Say &quot;Hello, World!&quot;')
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
 <p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
-One of the elements of the presentation are &quot;Layouts&quot; (layouts), which can be displayed in various variations.
+One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
-<pre><code class="language-php">&lt;div class=&quot;d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center&quot;&gt;
-	&lt;span class=&quot;thumb-sm avatar m-r-xs&quot;&gt;
-        &lt;img src=&quot;/avatar/maria.jpg&quot; class=&quot;bg-light&quot; alt=&quot;Maria&quot;&gt;
+<pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
+	&lt;span class="thumb-sm avatar m-r-xs"&gt;
+        &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
     &lt;/span&gt;
-    &lt;div class=&quot;ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0&quot;&gt;
-        &lt;h6 class=&quot;mb-0&quot;&gt;Maria&lt;/h6&gt;
-        &lt;p class=&quot;text-muted mb-1&quot;&gt;maria@exaple.com&lt;/p&gt;
+    &lt;div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"&gt;
+        &lt;h6 class="mb-0"&gt;Maria&lt;/h6&gt;
+        &lt;p class="text-muted mb-1"&gt;maria@exaple.com&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -724,7 +724,7 @@ class ReusableEditLayout extends Rows
 }
 </code></pre>
 <p>More details can be found in the <code>Layouts</code> section.</p>
-
+</body>
                     </main>
                 </div>
             </div>

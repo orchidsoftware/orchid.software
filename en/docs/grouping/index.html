@@ -345,10 +345,10 @@
                 </li>
                     </ul>
     </div>
-                        <h2><a href='#accordion' id='accordion'>Accordion</a></h2>
+                        <body><h2><a href='#accordion' id='accordion'>Accordion</a></h2>
 <p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.</p>
 <p>Here is an example of an accordion:</p>
-<p><img src="/img/layouts/accordion.png" alt="Accordion" /></p>
+<p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
 <p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.</p>
 <p>Here is an example of how to create an accordion using the short syntax:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
@@ -383,7 +383,7 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p>In the example above, the accordion has two panels: &quot;Personal Information&quot; and &quot;Billing Address&quot;. The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
+<p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address&rdquo;. The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
 <p>You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:</p>
 <pre><code class="language-php">public function layout(): array
 {
@@ -398,7 +398,7 @@ public function layout(): array
 <h2><a href='#columns' id='columns'>Columns</a></h2>
 <p>Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.</p>
 <p>Here is an example of columns:</p>
-<p><img src="/img/layouts/columns.png" alt="Columns" /></p>
+<p><picture alt='Columns'><img src="/img/layouts/columns.png" alt="Columns"></picture></p>
 <p>To create columns in Orchid, you can use the <code>Layout::columns()</code> method. This method accepts an array of content, which will be displayed in the columns.</p>
 <p>Here is an example of how to create columns using the short syntax:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
@@ -416,7 +416,7 @@ public function layout(): array
 <p>In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.</p>
 <h2><a href='#tabs' id='tabs'>Tabs</a></h2>
 <p>Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a lot of content:</p>
-<p><img src="/img/layouts/tabs.png" alt="Tabs" /></p>
+<p><picture alt='Tabs'><img src="/img/layouts/tabs.png" alt="Tabs"></picture></p>
 <p>Tabs support short syntax by calling a static method, which does not require creating a separate class:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 
@@ -474,7 +474,7 @@ If you need to define the active tab explicitly, you can do this using the <code
     ];
 }
 </code></pre>
-
+</body>
                     </main>
                 </div>
             </div>

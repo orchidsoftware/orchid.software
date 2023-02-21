@@ -334,7 +334,7 @@
                         
                         <div class="anchors">
     </div>
-                        <p>There are times when you want the visual style of the platform to match your brand.
+                        <body><p>There are times when you want the visual style of the platform to match your brand.
 After installation, two settings are provided that are located in <code>config/platform.php</code>:</p>
 <pre><code class="language-php">'template' =&gt; [
     'header' =&gt; null,
@@ -353,18 +353,18 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
 <p>Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:</p>
 <pre><code class="language-php">@push('head')
     &lt;link
-        href=&quot;/favicon.ico&quot;
-        id=&quot;favicon&quot;
-        rel=&quot;icon&quot;
+        href="/favicon.ico"
+        id="favicon"
+        rel="icon"
     &gt;
 @endpush
 
-&lt;p class=&quot;h2 n-m font-thin v-center&quot;&gt;
-    &lt;x-orchid-icon path=&quot;database&quot;/&gt;
+&lt;p class="h2 n-m font-thin v-center"&gt;
+    &lt;x-orchid-icon path="database"/&gt;
 
-    &lt;span class=&quot;m-l d-none d-sm-block&quot;&gt;
+    &lt;span class="m-l d-none d-sm-block"&gt;
         Analytics
-        &lt;small class=&quot;v-top opacity&quot;&gt;Nest&lt;/small&gt;
+        &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
     &lt;/span&gt;
 &lt;/p&gt;
 </code></pre>
@@ -378,9 +378,9 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
 <p><strong>Note.</strong> The configuration file may be cached, and the changes will not take effect until the <code>php artisan config:clear</code> command is executed</p>
 </blockquote>
 <p>In the same way, we can change the bottom of the page, again create a new file <code>/resources/views/brand/footer.blade.php</code> with the following contents:</p>
-<pre><code class="language-php">&lt;p class=&quot;small m-n&quot;&gt;
+<pre><code class="language-php">&lt;p class="small m-n"&gt;
     © Copyright {{date('Y')}} 
-    &lt;a href=&quot;//example.com&quot; target=&quot;_blank&quot;&gt;Analytics Nest&lt;/a&gt;
+    &lt;a href="//example.com" target="_blank"&gt;Analytics Nest&lt;/a&gt;
 &lt;/p&gt;
 </code></pre>
 <p>Also making changes to the configuration file:</p>
@@ -392,7 +392,7 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
 <blockquote>
 <p><strong>Note</strong>. If you want the text or images to be different for the login and panel pages, you can use <a href="https://laravel.com/docs/blade#authentication-directives">Authentication Directives</a>.</p>
 </blockquote>
-
+</body>
                     </main>
                 </div>
             </div>

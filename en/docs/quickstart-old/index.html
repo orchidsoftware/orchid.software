@@ -334,7 +334,7 @@
                         
                         <div class="anchors">
     </div>
-                        <blockquote>
+                        <body><blockquote>
 <p><strong>You&rsquo;re reading a version that was in the past.</strong> It is still up-to-date, <a href="/en/docs/quickstart">but we have created a newer version that is even better for beginners</a>.</p>
 </blockquote>
 <p>Admin panels are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data. In this quick tutorial, we&rsquo;ll learn how to create screens and use form elements by creating a simple utility for sending emails.</p>
@@ -369,7 +369,7 @@ class EmailSenderScreen extends Screen
      */
     public function name(): ?string
     {
-        return &quot;EmailSenderScreen&quot;;
+        return "EmailSenderScreen";
     }
 
     /**
@@ -377,7 +377,7 @@ class EmailSenderScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;EmailSenderScreen&quot;;
+        return "EmailSenderScreen";
     }
     
     /**
@@ -415,7 +415,7 @@ to look at the empty screen, fill it with the elements.</p>
  */
 public function name(): ?string
 {
-    return &quot;Email sender&quot;;
+    return "Email sender";
 }
 
 /**
@@ -423,7 +423,7 @@ public function name(): ?string
  */
 public function description(): ?string
 {
-    return &quot;Tool that sends ad-hoc email messages.&quot;;
+    return "Tool that sends ad-hoc email messages.";
 }
 </code></pre>
 <p>To display the input fields, we describe them in the <code>Layouts</code> method:</p>
@@ -499,7 +499,7 @@ class EmailSenderScreen extends Screen
      */
     public function name(): ?string
     {
-        return &quot;Email sender&quot;;
+        return "Email sender";
     }
     
     /**
@@ -507,7 +507,7 @@ class EmailSenderScreen extends Screen
      */
     public function description(): ?string
     {
-        return &quot;Tool that sends ad-hoc email messages.&quot;;
+        return "Tool that sends ad-hoc email messages.";
     }
 
     /**
@@ -637,7 +637,7 @@ Route::screen('email', EmailSenderScreen::class)
 <p>Congratulations, you should now understand how the platform works!
 It is an elementary example, but the development process will be identical in many aspects.
 We recommend going to the <a href="/en/docs/screens">Screens</a> section to learn more about the possibilities in your hands.</p>
-
+</body>
                     </main>
                 </div>
             </div>

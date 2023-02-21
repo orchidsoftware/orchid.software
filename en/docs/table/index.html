@@ -375,8 +375,8 @@
                 </li>
                     </ul>
     </div>
-                        <p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
-<p><img src="/img/layouts/table.png" alt="Table" /></p>
+                        <body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
+<p><picture alt='Table'><img src="/img/layouts/table.png" alt="Table"></picture></p>
 <p>To create a new table layout, you can use the following Artisan command:</p>
 <pre><code class="language-php">php artisan orchid:table PatientListLayout
 </code></pre>
@@ -444,8 +444,8 @@ you must specify the <code>sort</code> method:</p>
 <h2><a href='#filtration' id='filtration'>Filtration</a></h2>
 <p>When building simple tables, the use of separate filters may seem overkill.
 Therefore, you can display the field for filtering right above the column heading.</p>
-<p>It will only define the visible part. You can specify the filtering logic yourself or rely on &quot;Automatic HTTP Filtering&quot;.
-You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&quot;Eloquent Filters&quot; page</a>.</p>
+<p>It will only define the visible part. You can specify the filtering logic yourself or rely on &ldquo;Automatic HTTP Filtering&rdquo;.
+You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&ldquo;Eloquent Filters&rdquo; page</a>.</p>
 <p>To add a field, call the filter method and pass the instance of the class you would like to display:</p>
 <pre><code class="language-php">TD::make('SKU')-&gt;filter(Input::make()-&gt;mask('A-999999'));
 </code></pre>
@@ -630,8 +630,8 @@ class Numeric extends Component
     public function __construct(
         float   $value,
         int     $decimals = 0,
-        ?string $decimal_separator = &quot;.&quot;,
-        ?string $thousands_separator = &quot;,&quot;
+        ?string $decimal_separator = ".",
+        ?string $thousands_separator = ","
     ) {
         $this-&gt;value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
     }
@@ -759,7 +759,7 @@ TD::macro('bool', function () {
 <p>Template example:</p>
 <pre><code class="language-php">// bool.blade.php
 
-&lt;span class=&quot;{{ $bool ? 'text-success' : 'text-danger' }}&quot;&gt;●&lt;/span&gt;
+&lt;span class="{{ $bool ? 'text-success' : 'text-danger' }}"&gt;●&lt;/span&gt;
 </code></pre>
 <p>Usage example:</p>
 <pre><code class="language-php">public function grid(): array
@@ -769,7 +769,7 @@ TD::macro('bool', function () {
     ];
 }
 </code></pre>
-
+</body>
                     </main>
                 </div>
             </div>
