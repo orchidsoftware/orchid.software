@@ -26,8 +26,6 @@ Alerts can be a useful tool for communicating persistent states that users shoul
 
 However, it's important to keep in mind that alerts can take up valuable space and can be distracting. If the state you want to communicate is not critical usage, a less disruptive Toast.
 
-//...
-
 ## Message Dialogs
 
 //...
