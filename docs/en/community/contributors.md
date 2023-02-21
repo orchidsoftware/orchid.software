@@ -13,7 +13,7 @@ Open discussions, questions, proposals are being held in [GitHub discussions](ht
 
 If you are having specific bugs or specific feature requests, take a look at [issues](https://github.com/orchidsoftware/platform/issues)
 
-## Problem tracking
+## Problem Tracking
 
 You can find unresolved issues on [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
  If you intend to work on a specific issue, leave a comment on the relevant task to inform other project participants.
@@ -30,7 +30,7 @@ The most important thing for a report is that the developer must be able to repr
 
 Also remember that error reports are created in the hope that other users with the same problems will be able to participate in solving them together with you. But do not expect others to quit and start fixing your problem. The bug report is designed to help you and others start working together to resolve a problem.
 
-## Participate in discussions
+## Participate in Discussions
 
 You can offer new features and enhancements to your existing Laravel Orchid behavior. If you are proposing a new function, please be prepared to execute at least the code examples that will be needed to call / use this function.
 
@@ -48,7 +48,7 @@ If you find a security vulnerability inside the platform, please send an e-mail 
 All appeals will be immediately considered.
 
 
-## Coding style
+## Coding Style
 
 Laravel Orchid follows [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md) and [PSR-4](Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) standards.
 
@@ -61,7 +61,7 @@ php-cs-fixer fix
 ````
 
 
-## Debug and submit change request
+## Debug and Submit Change Request
 
 
 At the stage of helping the project, questions may arise related to debugging and installation,
@@ -109,7 +109,7 @@ npm run dev --prefix platform && php artisan orchid:publish
 ```
 
 
-### Submit change request
+### Submit Change Request
     
 Create a new branch like this:
 
@@ -130,7 +130,7 @@ To send your branch you need to do:
 git push origin feature/issue_001
 ```
 
-## Help translate Orchid in different languages!
+## Help Translate Orchid in Different Languages!
 
 Take a look at the conversation [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) on the Discussion-tab.
 Translation files can be found in https://github.com/orchidsoftware/platform/tree/master/resources/lang
