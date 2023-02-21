@@ -240,7 +240,7 @@ main {
             text-align: center;
             display: block;
             @extend .text-muted;
-            @extend .small;
+            font-size: 0.775em;
             max-width: calc(50% + 100px);
             margin: 1em auto;
         }
