@@ -9,7 +9,7 @@ A speedy interface promotes a sense of control and ease of use. Slow performance
 
 ## Defining "Fast" and "Slow"
 
-The definition of "fast" and "slow" is context-dependent. In urgent situations, seconds may seem longer than normal. However, here is a general guideline:
+The definition of "Fast" and "Slow" is context-dependent. In urgent situations, seconds may seem longer than normal. However, here is a general guideline:
 
 - A response time of 100 milliseconds is perceived as immediate, and is the expected response for interface elements such as hover, mouse movement, or clicks.
 - A delay of 1 second is noticeable, but it does not interrupt the user's flow. A page or list loading in 1 second is acceptable, but a 1-second lag between a click and a menu opening is considered slow.
