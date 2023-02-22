@@ -40,5 +40,5 @@ Badges are small graphical elements that can display important information, such
 
 It's important to use badges sparingly since they cannot be hidden by the user. Avoid using more than two badges at a time, as too many badges can be distracting and overwhelming for the user. Be selective and only use badges to highlight the most important information or features that the user needs to be aware of.
 
-![Badges are an excellent method of communicating the existence of ongoing tasks, and can also be used for a variety of other purposes.](https://orchid.software/img/hig/badges-example.png)
+![Badges are an excellent method of communicating the existence of ongoing tasks, and can also be used for a variety of other purposes.](https://orchid.software/img/hig/badge-example.png)
 
