@@ -55,7 +55,7 @@ A classic web application is a subsystem with a common three-tier architecture, 
 
 - **The level of applied logic** - in our cases, this framework is the link where most business logic is concentrated, works with the database (Eloquent), sending resources, and various processing.
 
-- **Level of resource management** - We implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
+- **Level of resource management** - data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).
 
  
 ![This schematic diagram illustrates the three-level architecture commonly used in web applications.](/img/scheme/architecture.jpg)
