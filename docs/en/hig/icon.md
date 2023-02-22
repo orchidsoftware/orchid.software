@@ -31,4 +31,4 @@ To make new icons easy to recognize and remember, follow these guidelines:
 - Test the icons for recognizability by asking people what they expect the icons to represent.
 - Test the icons for memorability by asking a group of users to remember the icon's meaning a few weeks after being told what it represented.
 
-Always include a visible text label to accompany the icon! As Bruce Tognazzini famously said, "a word is worth a thousand pictures."
+> Always include a visible text label to accompany the icon! As Bruce Tognazzini famously said, "a word is worth a thousand pictures."
