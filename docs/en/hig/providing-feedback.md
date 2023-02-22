@@ -17,7 +17,7 @@ They are best used for providing context-specific messages in response to a user
 Because they are transient, they are most effective for communicating individual events rather than ongoing states.
 
 
-![Toast Example](https://orchid.software/img/hig/toast-example.png)
+![A toast that responds to a trivial user action.](https://orchid.software/img/hig/toast-example.png)
 
 
 
@@ -27,7 +27,7 @@ Alerts can be a useful tool for communicating persistent states that users shoul
 
 However, it's important to keep in mind that alerts can take up valuable space and can be distracting. If the state you want to communicate is not critical, consider using a less disruptive Toast.
 
-![Alert Example](https://orchid.software/img/hig/alert-example.png)
+![An important message that the user should not miss.](https://orchid.software/img/hig/alert-example.png)
 
 ## Notifications
 
