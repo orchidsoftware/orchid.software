@@ -34,6 +34,9 @@ However, it's important to keep in mind that alerts can take up valuable space a
 Notifications in app are different from other types of feedback. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
 
+![Individual messages for employees to reaction to.](https://orchid.software/img/hig/notification-example.png)
+
+
 ## Badges
 
 Badges are small graphical elements that can display important information, such as the number of items in a user's cart, the number of unread messages, or the number of new updates available. They can also be used to draw attention to a new feature that has been added to the app.
