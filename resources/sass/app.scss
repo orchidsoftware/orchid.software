@@ -156,8 +156,11 @@ header {
     border-radius: 1.7em;
 }
 
+
+
 .card-feature {
-    max-width: 380px;
+    //max-width: 380px;
+    min-height: 550px;
     @extend .mx-auto;
 }
 
@@ -445,5 +448,21 @@ input[type="search"]::-webkit-search-results-decoration {
 #docs {
     .btn {
         border: $btn-border-width dashed rgba(0, 0, 0, 0.45);
+    }
+}
+
+
+.link-more {
+    svg {
+        transition: 340ms all;
+        padding-right: 0.1em;
+    }
+
+    &:hover {
+        text-decoration: underline;
+
+        svg {
+            padding-right: 0!important;
+        }
     }
 }

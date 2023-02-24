@@ -54,7 +54,304 @@
             </div>
         </div>
 
-        <div class="row g-md-5">
+        <div class="row g-5 g-xxl-5 g-lg-4 g-md-3">
+
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/rocket.svg);
+    background-position: -20% 120%;
+    background-repeat: no-repeat;">
+
+                    <div class="card-body d-flex flex-column p-5">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Quick Start</p>
+
+                            <p>
+                                Orchid ship with the necessary technical documentation and examples for a quick and
+                                successful implementation
+                            </p>
+                        </div>
+
+
+                        <div class="mt-auto">
+                            <a href="/en/docs" class="link-secondary text-end d-block stretched-link text-decoration-none link-more">
+                                Documentation
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
+
+
+                    <div class="row">
+
+                        <div class="col-12 col-md-5">
+                        <div class="card-body d-flex flex-column p-5 h-100">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Screens</p>
+
+                            <p>
+                                Build modern apps that are 99% in PHP, and spend less time fiddling with tools and updating incompatible libraries.
+                                Focus on what matters most: creating exceptional features for your users.
+                            </p>
+                        </div>
+
+
+                        <div class="mt-auto">
+
+                            <a href="/en/docs/screens" class="link-secondary d-block stretched-link text-decoration-none link-more">
+                                Learn about Screens
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+                        </div>
+
+                        <div class="col-12 col-md-7" style="background: #2C2939">
+                            <pre class="overflow-hidden user-select-none" style="background: #2C2939"><code class="language-php">
+
+use Orchid\Screen\Screen;
+
+class Task extends Screen
+{
+    public function query(Task $task): iterable
+    {
+        return [
+            'task' => $task
+        ];
+    }
+
+    public function layout(): iterable
+    {
+        return [
+            Layout::rows([
+                Input::make('task.name')
+                    ->title('Name')
+                    ->placeholder('Enter task name')
+                    ->help('The name of the task to be created.'),
+            ]),
+        ];
+    }
+}
+
+</code></pre>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-8">
+                <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
+
+
+                    <div class="row h-100">
+
+                        <div class="col-12 col-md-6">
+                            <div class="card-body d-flex flex-column p-5 h-100">
+
+                                <div class="mb-auto">
+                                    <p class="h2 mb-3">UI components</p>
+
+                                    <p>
+                                        Orchid offers a vast selection of stunning UI components, including form inputs, dialogs, data grids, and visualizations.
+                                        These components can be easily extended, and you can even create compositions directly in your code.
+                                    </p>
+                                </div>
+
+
+                                <div class="mt-auto">
+
+                                    <p class="text-muted mb-2">Browse components:</p>
+
+
+
+                                    <a href="/en/docs/field" class="link-secondary d-inline-flex align-items-center mb-1 text-decoration-none link-more">
+                                        Form Elements
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                        </svg>
+                                    </a>
+
+
+                                    <a href="/en/docs/table" class="link-secondary d-inline-flex align-items-center mb-1 text-decoration-none link-more">
+                                        Tables
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                        </svg>
+                                    </a>
+
+
+                                    <a href="/en/docs/legend" class="link-secondary d-inline-flex align-items-center mb-1 text-decoration-none link-more">
+                                        Legend
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                        </svg>
+                                    </a>
+
+
+                                    <a href="/en/docs/charts" class="link-secondary d-inline-flex align-items-center mb-1 text-decoration-none link-more">
+                                        Charts
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                        </svg>
+                                    </a>
+
+
+                                    <a href="/en/docs/modals" class="link-secondary d-inline-flex align-items-center mb-1 text-decoration-none link-more">
+                                        Modals
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                        </svg>
+                                    </a>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-md-block col-md-6">
+                            <div class="pt-5 pe-5">
+                                <img src="/img/next/table.svg" class="img-fluid">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/shield.svg);
+    background-position: -10% 101%;
+    background-repeat: no-repeat;">
+
+                    <div class="card-body d-flex flex-column p-5">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Permissions</p>
+
+                            <p>
+                                Manage user permissions and ensure application security effortlessly.
+                                Backed by an intuitive interface, it's easy to set up and manage roles, without complex coding or external plugins.
+                            </p>
+                        </div>
+
+
+                        <div class="mt-auto">
+                            <a href="/en/docs/access" class="link-secondary text-end d-block stretched-link text-decoration-none link-more">
+                                Learn about Permissions
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/attachments.svg);
+    background-position: 50% 70%;
+    background-repeat: no-repeat;">
+
+                    <div class="card-body d-flex flex-column p-5">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Attachments</p>
+
+                            <p>
+                                Easily attach any file format or extension to a specific record with our flexible attachment feature.
+                                Keep your important data organized and streamline your workflow by attaching files to any model in your application.
+                            </p>
+                        </div>
+
+
+                        <div class="mt-auto">
+                            <a href="/en/docs/attachments" class="link-secondary text-end d-block stretched-link text-decoration-none link-more">
+                                Learn about Attachment
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/draw.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: contain;">
+
+                    <div class="card-body d-flex flex-column p-5">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Design Guidelines</p>
+
+                            <p>
+                                Investing in a good user experience not only increases employee engagement, but also prevents expensive mistakes.
+                                That's why we place a high priority on providing detailed documentation to assist you in creating exceptional apps.
+                            </p>
+                        </div>
+
+
+                        <div class="mt-auto">
+                            <a href="/en/hig" class="link-secondary text-end d-block stretched-link text-decoration-none link-more">
+                                Read documentation
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4">
+                <div class="card shadow-sm h-100 position-relative card-feature">
+
+                    <img src="/img/next/feature3-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
+    top: 16em;
+    left: -1.8em;
+    height: 10em;">
+
+                    <div class="card-body d-flex flex-column p-5">
+
+                        <div class="mb-auto">
+                            <p class="h2 mb-3">Never limited by the framework abstraction</p>
+
+                            <p>
+                                Relies entirely on browser and W3C standards, providing customization options to bring your vision to life.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+<!--
             <div class="col-12 col-md-4 mb-3">
                 <div class="card shadow-sm h-100 position-relative card-feature">
 
@@ -117,6 +414,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </div>
 
