@@ -56,7 +56,7 @@
 
         <div class="row g-4 g-xxl-5 g-lg-4 g-md-3">
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/rocket.svg);
     background-position: -20% 120%;
     background-repeat: no-repeat;">
@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-xl-8">
                 <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
 
 
@@ -153,7 +153,7 @@ class Task extends Screen
                 </div>
             </div>
 
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-xl-8">
                 <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
 
 
@@ -238,7 +238,7 @@ class Task extends Screen
 
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-6 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/shield.svg);
     background-position: -10% 101%;
     background-repeat: no-repeat;">
@@ -270,7 +270,7 @@ class Task extends Screen
 
 
 
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-6 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/attachments.svg);
     background-position: 50% 70%;
     background-repeat: no-repeat;">
@@ -299,7 +299,7 @@ class Task extends Screen
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-6 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/draw.svg);
     background-position: bottom;
     background-repeat: no-repeat;
@@ -329,7 +329,7 @@ class Task extends Screen
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-4">
+            <div class="col-12 col-lg-6 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature">
 
                     <img src="/img/next/feature3-tentacli.svg" class="d-none d-md-block pe-none position-absolute" style="
@@ -429,7 +429,7 @@ class Task extends Screen
                     <span class="d-block">for any purposes</span>
                 </h2>
                 <p class="lead px-lg-8 text-muted opacity-slow intersection px-3">
-                    Everything that we do is 100% composed of open and free code, jointly developed by people from all
+                    Everything that we do is 100% composed of <a href="/en/community/license" class="text-white">open and free code</a>, jointly developed by people from all
                     over the world.
                 </p>
             </div>
