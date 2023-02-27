@@ -1,0 +1,130 @@
+{
+    "chart": [
+        {
+            "name": "Acme Inc.",
+            "values": [
+                25,
+                40,
+                30,
+                35,
+                8,
+                52,
+                17
+            ],
+            "labels": [
+                "12am-3am",
+                "3am-6am",
+                "6am-9am",
+                "9am-12pm",
+                "12pm-3pm",
+                "3pm-6pm",
+                "6pm-9pm"
+            ]
+        },
+        {
+            "name": "TechWave",
+            "values": [
+                25,
+                50,
+                -10,
+                15,
+                18,
+                32,
+                27
+            ],
+            "labels": [
+                "12am-3am",
+                "3am-6am",
+                "6am-9am",
+                "9am-12pm",
+                "12pm-3pm",
+                "3pm-6pm",
+                "6pm-9pm"
+            ]
+        },
+        {
+            "name": "FutureTech",
+            "values": [
+                15,
+                20,
+                -3,
+                -15,
+                58,
+                12,
+                -17
+            ],
+            "labels": [
+                "12am-3am",
+                "3am-6am",
+                "6am-9am",
+                "9am-12pm",
+                "12pm-3pm",
+                "3pm-6pm",
+                "6pm-9pm"
+            ]
+        },
+        {
+            "name": "NextGen",
+            "values": [
+                10,
+                33,
+                -8,
+                -3,
+                70,
+                20,
+                -34
+            ],
+            "labels": [
+                "12am-3am",
+                "3am-6am",
+                "6am-9am",
+                "9am-12pm",
+                "12pm-3pm",
+                "3pm-6pm",
+                "6pm-9pm"
+            ]
+        }
+    ],
+    "table": [
+        {
+            "name": "Acme Inc.",
+            "price": 34534234,
+            "date": "2022-01-01",
+            "story": "Acme Inc. is a leading provider of innovative technology solutions. With a focus on customer satisfaction and cutting-edge technology, Acme Inc. has established itself as a trusted name in the industry.",
+            "id": 54354345,
+            "employees": 123456
+        },
+        {
+            "name": "Bright Minds",
+            "price": 12423432,
+            "date": "2022-01-02",
+            "story": "Bright Minds is a cutting-edge technology company that specializes in developing next-generation AI solutions. With a team of highly skilled engineers and scientists, Bright Minds is at the forefront of the AI revolution.",
+            "id": 12432423,
+            "employees": 654321
+        },
+        {
+            "name": "FutureTech",
+            "price": 35435654,
+            "date": "2022-01-03",
+            "story": "FutureTech is a leading provider of advanced technology solutions for businesses of all sizes. With a focus on innovation and a commitment to delivering the latest technology to their customers, FutureTech is shaping the future of business.",
+            "id": 65756786,
+            "employees": 111111
+        },
+        {
+            "name": "NextGen Solutions",
+            "price": 5353454,
+            "date": "2022-01-04",
+            "story": "NextGen Solutions is a dynamic technology company that specializes in developing cutting-edge solutions for businesses and individuals. With a focus on innovation and a commitment to excellence, NextGen Solutions is poised to revolutionize the technology industry.",
+            "id": 34565432,
+            "employees": 222222
+        },
+        {
+            "name": "TechWave",
+            "price": 5675675,
+            "date": "2022-01-05",
+            "story": "TechWave is a rapidly growing technology company that is dedicated to delivering the latest and greatest technology solutions to its customers. With a focus on innovation and a commitment to customer satisfaction, TechWave is poised to be a major player in the technology industry.",
+            "id": 23456789,
+            "employees": 333333
+        }
+    ]
+}
