@@ -28,3 +28,6 @@ Orchid is mindful of avoiding feature bloat and excessive customizations, as the
 Therefore, before introducing any new customization, Orchid assesses its necessity in accommodating the needs of diverse user groups. This approach helps streamline the design and maintain simplicity, resulting in a more efficient and user-friendly application.
 
 
+## Useful
+
+We strive to meet the real needs of the people visiting our app. At the same time we must meet our own needs as app creators. Any section in this documentation should prove useful, or it doesn’t belong here.
