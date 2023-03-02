@@ -21,33 +21,33 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <title>User Workflow | Orchid - Laravel Admin Panel</title>
+    <title>Navigation | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="User Workflow | Orchid - Laravel Admin Panel">
-<meta name="description" content="Bringing a line of business application in line with modern expectations.">
+<meta name="title" content="Navigation | Orchid - Laravel Admin Panel">
+<meta name="description" content="">
 
 
 
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/hig/workflow"/>
+<meta property="og:url" content="https://orchid.software/en/hig/navigation"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="User Workflow | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Bringing a line of business application in line with modern expectations.">
+<meta property="og:title" content="Navigation | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/hig/workflow">
-<meta name="twitter:title" content="User Workflow | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Bringing a line of business application in line with modern expectations.">
+<meta name="twitter:url" content="https://orchid.software/en/hig/navigation">
+<meta name="twitter:title" content="Navigation | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
-    <link rel="alternate" href="https://orchid.software/ru/hig/workflow/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/hig/workflow/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/hig/workflow/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/hig/navigation/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/hig/navigation/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/hig/navigation/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -133,8 +133,8 @@
                         Design Philosophy
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/hig/workflow" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/en/hig/workflow" class="text-decoration-none ">
                         User Workflow
                     </a>
                 </li>
@@ -147,8 +147,8 @@
                         Naming Elements
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/en/hig/navigation" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/hig/navigation" class="text-decoration-none text-primary">
                         Navigation <small class="text-muted">(Soon)</small>
                     </a>
                 </li>
@@ -187,9 +187,9 @@
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-4 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">User Workflow</h1>
+                            <h1 class="me-3">Navigation</h1>
 
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/hig/workflow.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/hig/navigation.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                title="View and edit this file on GitHub" target="_blank" rel="noopener"
                             >
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -203,55 +203,45 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#confirmation-of-action">Confirmation of Action</a>
+                    <a href="#navigation">Navigation</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#destructive-of-action">Destructive of Action</a>
+                    <a href="#breadcrumb">Breadcrumb</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#welcoming-the-user">Welcoming the User</a>
+                    <a href="#command-bar">Command Bar</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#leveraging-existing-resources">Leveraging Existing Resources</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#adopt-a-modular-approach">Adopt a Modular Approach</a>
+                    <a href="#hidden-vs-disabled">Hidden vs Disabled</a>
                 </li>
                     </ul>
     </div>
-                        <body><p>Visible design is a large part of the user experience, but so is the user&rsquo;s workflow, or how they interact with an app.
-In this section, we cover a few important steps of a typical workflow:</p>
-<h2><a href='#confirmation-of-action' id='confirmation-of-action'>Confirmation of Action</a></h2>
-<p>When you use your mobile phone, you expect all the information you enter to be immediately saved and applied.</p>
-<p>This approach works great with individual things that only affect you. But if instead of setting the time, you were to switch the date of the press release, that would be terrible, because you could make a mistake.
-The situation is especially aggravated when the same object is opened for editing by multiple users at once.</p>
-<p>So we expect that saving information on demand requires an explicit acknowledgement, such as clicking on a button.</p>
-<h2><a href='#destructive-of-action' id='destructive-of-action'>Destructive of Action</a></h2>
-<p>Asking for user confirmation before executing a destructive action, such as deleting data, is a crucial aspect of user-centered design.
-This practice helps to:</p>
+                        <body><h2><a href='#navigation' id='navigation'>Navigation</a></h2>
+<pre><code class="language-php">TODO: 
+
+1. Talk about the vertical menu
+2. Give an example about not putting too many items in there.
+</code></pre>
+<h2><a href='#breadcrumb' id='breadcrumb'>Breadcrumb</a></h2>
+<pre><code class="language-php">TODO: 
+
+To tell you that bread crumbs are always needed. The exception is the home page
+</code></pre>
+<h2><a href='#command-bar' id='command-bar'>Command Bar</a></h2>
+<p>Command Bar is a horizontal button bar with hierarchical drop-down menus. Menu items can either trigger an action or open a dropdown menu.</p>
+<p>Usage recommendations:</p>
 <ul>
-<li><p>Prevent accidental data loss: By requiring confirmation, users are given an opportunity to review their action and prevent
-loss of data due to mis-clicks or accidental triggers.</p></li>
-<li><p>Increase user control: Asking for confirmation empowers users by giving them the final say in the deletion process.
-This increases their sense of control over their data and enhances the overall user experience.</p></li>
-<li><p>Build trust: Systems that incorporate confirmation prompts are viewed as more trustworthy and reliable by users.
-Confirmation prompts help to avoid frustration and dissatisfaction caused by unintended actions.</p></li>
+<li>Use icons sparingly. Most actions are difficult to reliably represent with icons, and the benefit of icons in addition to text should be weighed against the additional visual noise this creates.</li>
+<li>Menu items in dropdown menus should always have text labels.</li>
+<li>Icon-only menu buttons should be primarily used for extremely common recurring actions with highly standardized, universally understood icons (for example, a cross for close).</li>
+<li>Command Bar is not an input field!</li>
 </ul>
-<p>Incorporating confirmation prompts into a design helps to create a more secure and user-friendly experience.</p>
-<h2><a href='#welcoming-the-user' id='welcoming-the-user'>Welcoming the User</a></h2>
-<p>If there is no content to show the user, provide actions they can act upon.
-Let them create a document, import a CSV, or whatever makes sense in the context of the app.</p>
-<h2><a href='#leveraging-existing-resources' id='leveraging-existing-resources'>Leveraging Existing Resources</a></h2>
-<p>In app development, strive to leverage existing resources and components from Orchid.
-This will not only save time and effort, but also ensure a seamless migration to newer versions.
-However, don&rsquo;t compromise the integrity and functionality of the application in the process of reusing resources.
-Do not force it though. If it doesn&rsquo;t fit, it doesn&rsquo;t fit.</p>
-<h2><a href='#adopt-a-modular-approach' id='adopt-a-modular-approach'>Adopt a Modular Approach</a></h2>
-<p>Keep in mind that Orchid is a package for Laravel, and therefore it&rsquo;s advisable to create smaller packages that complement each other.
-This helps to eliminate duplication of functionality and makes these features accessible to other applications.</p>
-<p>For instance, a popular use case is to implement backups, and many users prefer to utilize
-the package <a href="https://github.com/spatie/laravel-backup">spatie/laravel-backup</a>. However, you can take it a step further by building
-a package that includes a preconfigured route and a backup screen.</p>
+<h2><a href='#hidden-vs-disabled' id='hidden-vs-disabled'>Hidden vs Disabled</a></h2>
+<p>Hiding an unavailable action entirely is often preferable to a disabled button, as this reduces UI clutter. However, in certain situations this can be problematic:</p>
+<ul>
+<li>If the user expects a button to be present, such as at the end of a form, hiding the button can cause confusion, even if the form clearly indicates the presence of one or more invalid fields.</li>
+<li>As a hidden button doesn&rsquo;t occupy any space in the UI, toggling its visibility can cause unwanted changes in the layout of other elements.</li>
+</ul>
 </body>
                     </main>
                 </div>
