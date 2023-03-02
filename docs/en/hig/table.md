@@ -109,4 +109,6 @@ It is recommended to limit the number of rows displayed in a table to a single s
 
 ```
 // TODO: (For mobile)
+
+Columns should have a width, in order to support adaptive scaling.
 ```
