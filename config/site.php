@@ -4,7 +4,7 @@ return [
 
     'name' => 'Orchid - Laravel Admin Panel',
 
-    'description' => 'A free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.',
+    'description' => 'Free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.',
 
     'navigation' => [
         'en' => [
