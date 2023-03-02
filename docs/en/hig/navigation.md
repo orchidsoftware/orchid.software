@@ -7,10 +7,20 @@ section: site.hig.
 
 ## Navigation
 
+```php
 TODO: 
 
 1. Talk about the vertical menu
 2. Give an example about not putting too many items in there.
+```
+
+## Breadcrumb
+
+```php
+TODO: 
+
+To tell you that bread crumbs are always needed. The exception is the home page
+```
 
 
 ## Command Bar
