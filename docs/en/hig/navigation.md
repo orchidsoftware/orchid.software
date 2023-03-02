@@ -7,7 +7,7 @@ section: site.hig.
 
 ## Command Bar
 
-Command Bar is a horizontal button bar with hierarchical drop-down menus. Menu items can either trigger an action, open a menu, or work as a toggle.
+Command Bar is a horizontal button bar with hierarchical drop-down menus. Menu items can either trigger an action or open a dropdown menu.
 
 Usage recommendations:
 
