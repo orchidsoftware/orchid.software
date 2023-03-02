@@ -14,6 +14,10 @@ TODO:
 2. Give an example about not putting too many items in there.
 ```
 
+Usage recommendations:
+
+- Order the list according to what is most useful for the users of your app. Sidebars which contain a large number of dynamic items will often need to be ordered so that recently updated items are at the top of the list.
+
 ## Breadcrumb
 
 ```php
