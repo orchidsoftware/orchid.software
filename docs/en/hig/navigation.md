@@ -5,6 +5,14 @@ section: site.hig.
 ---
 
 
+## Navigation
+
+TODO: 
+
+1. Talk about the vertical menu
+2. Give an example about not putting too many items in there.
+
+
 ## Command Bar
 
 Command Bar is a horizontal button bar with hierarchical drop-down menus. Menu items can either trigger an action or open a dropdown menu.
