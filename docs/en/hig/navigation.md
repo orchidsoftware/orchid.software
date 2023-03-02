@@ -5,7 +5,7 @@ section: site.hig.
 ---
 
 
-## Navigation
+## Menu
 
 ```php
 TODO: 
