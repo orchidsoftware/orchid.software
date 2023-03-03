@@ -88,7 +88,7 @@ However, there are two common challenges that users face when comparing data in 
 - Comparing columns that are far away from each other, requiring tedious scrolling and memorization of data.
 
 
-![table-compare.png](https://orchid.software/img/hig/table-compare.png)
+![✅ The table already has zebra-striping and hidden columns.](https://orchid.software/img/hig/table-compare.png)
 
 To enhance the process of data comparison, Orchid offers the option to dynamically enable or disable the display of columns. This makes it easier to focus on the most important data and avoid being overwhelmed by irrelevant information. When using this feature, it's advisable to exercise caution and only hide columns that are less crucial to your comparison goals.
 
