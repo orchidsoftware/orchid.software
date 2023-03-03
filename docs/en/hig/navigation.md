@@ -10,7 +10,7 @@ section: site.hig.
 Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for the project. They provide users with a clear understanding of their current location and enable them to explore other areas of the app. Menus also indicate the user's current profile. To ensure maximum usability, the menu should always be open and not collapsible since few icons are universally recognized by users.
 
 
-![✅ Experience the difference in menu execution with and without subheadings and separators. Intuitive design allows for easy organization and navigation, ensuring a smooth user experience.](https://orchid.software/img/hig/navigation-menu.png)
+![✅ Experience the difference in menu execution with and without subheadings and separators.](https://orchid.software/img/hig/navigation-menu.png)
 
 
 
