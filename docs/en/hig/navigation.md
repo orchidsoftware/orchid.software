@@ -7,7 +7,7 @@ section: site.hig.
 
 ## Sidebar Menu
 
-Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for the project. They provide users with a clear understanding of their current location and enable them to explore other areas of the app. 
+Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for app. They provide users with a clear understanding of their current location and enable them to explore other areas of the app. 
 
 Menus also indicate the user's current profile. To ensure maximum usability, the menu should always be open and not collapsible, since few icons are universally recognized by users.
 
