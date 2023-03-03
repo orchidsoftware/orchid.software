@@ -126,7 +126,7 @@ return [
 
             'Guidelines' => [
                 'Naming Elements'       => '/en/hig/naming',
-                'Navigation <small class="text-muted">(Soon)</small>'            => '/en/hig/navigation',
+                'Navigation'            => '/en/hig/navigation',
                 'Presentation Table'    => '/en/hig/table',
                 'Providing Feedback'    => '/en/hig/providing-feedback',
                 'Quick Response Time'   => '/en/hig/performance',
