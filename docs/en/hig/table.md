@@ -85,6 +85,10 @@ It is recommended to limit the number of rows displayed in a table to a single s
 
 ## Define Perfect Width
 
+
+![TODO: ...](https://orchid.software/img/hig/table-width.png)
+
+
 ```
 // TODO: (For mobile)
 
