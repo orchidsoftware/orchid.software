@@ -7,16 +7,19 @@ section: site.hig.
 
 ## Sidebar Menu
 
-```php
-TODO: 
+Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for the project. They provide users with a clear understanding of their current location and enable them to explore other areas of the app. Menus also indicate the user's current profile. To ensure maximum usability, the menu should always be open and not collapsible since few icons are universally recognized by users.
 
-1. Talk about the vertical menu
-2. Give an example about not putting too many items in there.
-```
 
-Usage recommendations:
+![✅ This image shows an illustrative example of ...](https://orchid.software/img/hig/navigation-menu.png)
 
-- Order the list according to what is most useful for the users of your app. Menu which contain a large number of dynamic items will often need to be ordered so that recently updated items are at the top of the list.
+
+
+Here are some recommendations for using menus effectively:
+
+- Arrange the list in a way that is most useful for your app's users. The most relevant items should be placed as high as possible.
+- While vertical menus can accommodate an unlimited number of items, it's best to keep them to a minimum for ease of navigation. For instance, aim for no more than 16 items.
+- The active menu item should remain highlighted when a user navigates to a child screen. For example, if a user goes to edit their profile, the "User Management" item should still be active.
+
 
 ## Breadcrumb
 
