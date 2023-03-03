@@ -16,12 +16,13 @@ Menus also indicate the user's current profile. To ensure maximum usability, the
 
 
 
-Here are some recommendations for using menus effectively:
+To ensure that your menus are as effective and user-friendly as possible, here are some key recommendations to keep in mind:
 
-- Arrange the list in a way that is most useful for your app's users. The most relevant items should be placed as high as possible.
-- While vertical menus can accommodate an unlimited number of items, it's best to keep them to a minimum for ease of navigation. For instance, aim for no more than 16 items.
-- The active menu item should remain highlighted when a user navigates to a child screen. For example, if a user goes to edit their profile, the "User Management" item should still be active.
-- Group related items together in the menu. Users will find it easier to navigate if items are logically grouped according to their purpose or function. For instance, if you have an e-commerce app, you might group all product-related functions together in a "Products" or "Shop" menu.
+- **Put your users first:** Arrange your menu items in a way that makes the most sense for your app's users. This means placing the most frequently used or relevant items at the top of the list, so that users can quickly find what they need.
+- **Keep it simple:** While vertical menus can accommodate a large number of items, it's best to keep your menu list as short as possible. Aim for no more than 16 items, to ensure that users can easily scan and navigate the menu.
+- **Highlight the active item:** When a user navigates to a child screen, the active menu item should remain highlighted so that users can easily keep track of where they are in the app. This simple touch can greatly enhance the user experience and prevent confusion. If a user goes to edit their profile, the "User Management" item should still be active.
+- **Group items logically:** Grouping related items together in the menu can help users quickly find what they need. For instance, if you have an e-commerce app, consider grouping all product-related functions together in a "Products" or "Shop" menu. This logical grouping can greatly enhance the user experience and make your app more intuitive to use.
+
 
 ## Breadcrumb
 
