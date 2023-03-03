@@ -28,7 +28,7 @@ To ensure that your menus are as effective and user-friendly as possible, here a
 - **Group items logically:** Grouping related items together in the menu can help users quickly find what they need. For instance, if you have an e-commerce app, consider grouping all product-related functions together in a "Products" or "Shop" menu. This logical grouping can greatly enhance the user experience and make your app more intuitive to use.
 
 
-## Breadcrumb
+## Breadcrumbs
 
 Breadcrumbs are an important element of app design that help users navigate through nested menus and content with ease. These navigational aids appear at the top of the screen and show users their current location within the app, along with a clear path to their current page or content.
 
