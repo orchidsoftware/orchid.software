@@ -32,6 +32,9 @@ To ensure that your menus are as effective and user-friendly as possible, here a
 
 Breadcrumbs are an important element of app design that help users navigate through nested menus and content with ease. These navigational aids appear at the top of the screen and show users their current location within the app, along with a clear path to their current page or content.
 
+![✅ Example of when breadcrumbs are appropriate.](https://orchid.software/img/hig/breadcrumbs.png)
+
+
 In most cases, including breadcrumbs in your app design is highly recommended, as they enable users to quickly and easily navigate back to previous pages or content, without relying on the back button or other navigation tools. The only exception to this rule is the home page, where breadcrumbs aren't necessary, as there are no previous pages or content to navigate back to.
 
 That being said, there may be some instances where breadcrumbs aren't needed. For example, if your app follows a linear flow with no nested menus or pages, breadcrumbs may not add much value to the user experience. In such cases, it's important to evaluate whether breadcrumbs are truly necessary for your app's specific design and navigation patterns.
