@@ -19,7 +19,7 @@ Here are some recommendations for using menus effectively:
 - Arrange the list in a way that is most useful for your app's users. The most relevant items should be placed as high as possible.
 - While vertical menus can accommodate an unlimited number of items, it's best to keep them to a minimum for ease of navigation. For instance, aim for no more than 16 items.
 - The active menu item should remain highlighted when a user navigates to a child screen. For example, if a user goes to edit their profile, the "User Management" item should still be active.
-
+- Group related items together in the menu. Users will find it easier to navigate if items are logically grouped according to their purpose or function. For instance, if you have an e-commerce app, you might group all product-related functions together in a "Products" or "Shop" menu.
 
 ## Breadcrumb
 
