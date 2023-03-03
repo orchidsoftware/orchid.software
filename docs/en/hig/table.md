@@ -88,7 +88,7 @@ It is recommended to limit the number of rows displayed in a table to a single s
 
 When designing tables for your app, it's important to consider the size of the columns to ensure that the content is displayed effectively. While some tables may have columns that can be automatically sized, this isn't always the best option. Instead, it's important to determine the appropriate dimensions based on the content being displayed, particularly on mobile devices where screen real estate is limited.
 
-![Auto Size vs Fixed Size](https://orchid.software/img/hig/table-width.png)
+![Auto Width vs Fixed Width](https://orchid.software/img/hig/table-width.png)
 
 Take the time to analyze your table content and consider which columns are most important and how much space they require. For example, if you have a table that displays product information, you may want to give more space to the product name and description columns, while reducing the width of columns that contain less critical information such as date or time.
 
