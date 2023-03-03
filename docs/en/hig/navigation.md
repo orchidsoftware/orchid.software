@@ -19,8 +19,11 @@ Menus also indicate the user's current profile. To ensure maximum usability, the
 To ensure that your menus are as effective and user-friendly as possible, here are some key recommendations to keep in mind:
 
 - **Put your users first:** Arrange your menu items in a way that makes the most sense for your app's users. This means placing the most frequently used or relevant items at the top of the list, so that users can quickly find what they need.
+
 - **Keep it simple:** While vertical menus can accommodate a large number of items, it's best to keep your menu list as short as possible. Aim for no more than 16 items, to ensure that users can easily scan and navigate the menu.
+
 - **Highlight the active item:** When a user navigates to a child screen, the active menu item should remain highlighted so that users can easily keep track of where they are in the app. This simple touch can greatly enhance the user experience and prevent confusion. If a user goes to edit their profile, the "User Management" item should still be active.
+
 - **Group items logically:** Grouping related items together in the menu can help users quickly find what they need. For instance, if you have an e-commerce app, consider grouping all product-related functions together in a "Products" or "Shop" menu. This logical grouping can greatly enhance the user experience and make your app more intuitive to use.
 
 
