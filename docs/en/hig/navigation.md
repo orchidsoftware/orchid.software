@@ -15,8 +15,9 @@ Menus also indicate the user's current profile. To ensure maximum usability, the
 ![✅ Subheadings and separators allow you to structure navigation and improve the user experience.](https://orchid.software/img/hig/navigation-menu.png)
 
 
-
 To ensure that your menus are as effective and user-friendly as possible, here are some key recommendations to keep in mind:
+
+- **Keep the menu focused on navigation:** A menu is primarily meant to provide users with a quick and easy way to navigate your app. As such, it's important to avoid cluttering your menu with items that don't serve this purpose, such as buttons to action forms or modal dialogs. Instead, focus on providing users with clear, easy-to-understand links that help them move seamlessly through your app.
 
 - **Put your users first:** Arrange your menu items in a way that makes the most sense for your app's users. This means placing the most frequently used or relevant items at the top of the list, so that users can quickly find what they need.
 
