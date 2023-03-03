@@ -63,7 +63,7 @@ Creating text hierarchy is important in table design to ensure a clear and organ
 
 Unlike an Excel (And other) spreadsheet, a web-based table allows for seamless filtering and organization of information, so adding as much information to each cell as possible is not a problem. Additionally, the information can be divided into several columns at any time if needed, making it easy to adjust the layout to meet the user's needs.
 
-[table-maximizing-bad.png](https://orchid.software/img/hig/table-maximizing-bad.png)
+![table-maximizing-bad.png](https://orchid.software/img/hig/table-maximizing-bad.png)
 
 ![table-maximizing.png](https://orchid.software/img/hig/table-maximizing.png)
 
