@@ -46,7 +46,7 @@ Usage recommendations:
 - Use icons sparingly. Most actions are difficult to reliably represent with icons, and the benefit of icons in addition to text should be weighed against the additional visual noise this creates.
 - Menu items in dropdown menus should always have text labels.
 - Icon-only menu buttons should be primarily used for extremely common recurring actions with highly standardized, universally understood icons (for example, a cross for close).
-- Command Bar is not an input field!
+- Command Bar is not an input field! While it may resemble one in some cases, it should always be used for navigation and triggering actions, rather than accepting user input.
 
 ## Hidden vs Disabled
 
