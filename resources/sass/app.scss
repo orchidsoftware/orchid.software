@@ -261,6 +261,12 @@ main {
     h2 {
         margin-bottom: 1em !important;
 
+        a:target {
+            &:before {
+                transform: rotate(200deg);
+            }
+        }
+
         a {
             padding-left: 1em;
             transition: all 340ms;
@@ -467,3 +473,6 @@ input[type="search"]::-webkit-search-results-decoration {
         }
     }
 }
+
+
+
