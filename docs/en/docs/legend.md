@@ -6,8 +6,6 @@ extends: _layouts.documentation
 
 The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.
 
-![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
-
 Here is an example of how to use the Legend layout:
 
 ```php
@@ -25,6 +23,8 @@ public function layout(): array
     ];
 }
 ```
+
+![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
 
 
 In the example above, the first argument passed to the `Layout::legend()` method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen's `query` method. The second argument is an array of `Sight` objects, each representing a data point to be displayed.
