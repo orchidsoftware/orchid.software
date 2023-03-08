@@ -716,10 +716,8 @@ class ReusableEditLayout extends Rows
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::columns([
-            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
-        ]),
+        new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+        new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 </code></pre>
