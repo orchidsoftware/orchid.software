@@ -523,10 +523,8 @@ class AddressLayout extends Rows
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::columns([
-            new AddressLayout('order.shipping_address', 'Shipping Address'),
-            new AddressLayout('order.invoice_address', 'Invoice Address'),
-        ]),
+        new AddressLayout('order.shipping_address', 'Shipping Address'),
+        new AddressLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 </code></pre>
