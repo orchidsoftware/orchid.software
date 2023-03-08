@@ -472,10 +472,8 @@ Instances can be used in the same way, but they can accept parameters
 public function layout(): array
 {
     return [
-        Layout::columns([
-            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
-        ]),
+        new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+        new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 ```
