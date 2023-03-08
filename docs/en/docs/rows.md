@@ -222,10 +222,8 @@ To use the `AddressLayout` class, pass the prefix and title values as arguments:
 public function layout(): array
 {
     return [
-        Layout::columns([
-            new AddressLayout('order.shipping_address', 'Shipping Address'),
-            new AddressLayout('order.invoice_address', 'Invoice Address'),
-        ]),
+        new AddressLayout('order.shipping_address', 'Shipping Address'),
+        new AddressLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 ```
