@@ -24,13 +24,13 @@ So we expect that saving information on demand requires an explicit acknowledgem
 Asking for user confirmation before executing a destructive action, such as deleting data, is a crucial aspect of user-centered design.
 This practice helps to:
 
-- Prevent accidental data loss: By requiring confirmation, users are given an opportunity to review their action and prevent
+- **Prevent accidental data loss**: By requiring confirmation, users are given an opportunity to review their action and prevent
 loss of data due to mis-clicks or accidental triggers.
 
-- Increase user control: Asking for confirmation empowers users by giving them the final say in the deletion process.
+- **Increase user control**: Asking for confirmation empowers users by giving them the final say in the deletion process.
 This increases their sense of control over their data and enhances the overall user experience.
 
-- Build trust: Systems that incorporate confirmation prompts are viewed as more trustworthy and reliable by users. 
+- **Build trust**: Systems that incorporate confirmation prompts are viewed as more trustworthy and reliable by users. 
 Confirmation prompts help to avoid frustration and dissatisfaction caused by unintended actions.
 
 Incorporating confirmation prompts into a design helps to create a more secure and user-friendly experience.
