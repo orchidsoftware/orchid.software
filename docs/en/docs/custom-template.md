@@ -379,3 +379,14 @@ class ExampleNavigation extends TabMenu
 ```
 
 You can specify the items in the same way as in the [Menu section](/en/docs/menu)
+
+```php
+use App\Orchid\Layouts\ExampleNavigation;
+
+public function layout(): array
+{
+    return [
+        ExampleNavigation::class
+    ];
+}
+```
