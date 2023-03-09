@@ -62,6 +62,7 @@ return [
                 'Введение в проект'         => '/ru/docs',
                 'Установка платформы'       => '/ru/docs/installation',
                 'Обзор параметров'          => '/ru/docs/configuration',
+                'Брендирование'             => '/ru/docs/brand',
                 'Руководство по обновлению' => '/ru/docs/upgrade',
             ],
             'Учебные пособия'    => [
@@ -91,7 +92,6 @@ return [
                 'Универсальные'      => '/ru/docs/custom-template',
             ],
             'Дополнительно'      => [
-                'Брендирование'    => '/ru/docs/brand',
                 'Иконки'           => '/ru/docs/icons',
                 'Scout поиск'      => '/ru/docs/global-search',
                 'Presenters'       => '/ru/docs/presenters',
