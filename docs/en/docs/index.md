@@ -23,22 +23,23 @@ As a Laravel package, Orchid seamlessly integrates with other components and can
 > This documentation is intended for users familiar with the Laravel. If you are new to Laravel, it is recommended that you first read through the [framework documentation](https://laravel.com/docs/) before starting using Orchid.
 
 
-## What Orchid Is Not
-
-It is important to note that while Laravel Orchid is a powerful tool for developers, it is not a "turnkey" solution. It is not intended for those with little or no programming experience, as it requires a strong understanding of programming concepts and the ability to work comfortably with complex systems.
-
 ## Looking for Something Simpler?
-
 
 If you're searching for a more straightforward solution for creating simple applications with minimal coding, Laravel Orchid's **CRUD** feature may be a good fit for you. It offers a straightforward syntax that allows for easy creation of basic applications. To get started, take a look at the [CRUD section](https://orchid.software/en/docs/packages/crud/#introduction) of the documentation.
 
 
-## Migrating to Laravel Orchid
+## Migrating to Orchid
 
 If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use Laravel Orchid. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
 
 
-## What Sets Laravel Orchid Apart from Other Packages?
+## What Orchid Is Not
+
+It's crucial to understand that Orchid is a powerful tool for developers but not a "turnkey" solution. This means that it's not suitable for individuals with little or no programming experience and demands a strong grasp of programming concepts to work comfortably with complex systems.
+
+Furthermore, it's important to recognize that not all developers may be open to using a new platform, and forcing it could lead to resistance or even sabotage. If you face resistance from your development team, it's essential to have an open and honest conversation to address their concerns as best as possible. Seeking advice from an experienced professional could also be helpful in finding a mutually agreeable solution that works for everyone involved.
+
+## What Sets Orchid Apart from Other Packages?
 
 The Laravel ecosystem offers a variety of admin panels, such as Nova, Voyager, BackPack, and QuickAdminPanel, that aim to simplify the process of working with CRUD applications. However, Laravel Orchid stands out by offering a different approach to streamlining the development process.
 
