@@ -17,7 +17,7 @@ Some of the key features of Laravel Orchid include:
 - Additional features such as menus, charts, notifications, and more.
 
 
-As a Laravel package, Laravel Orchid seamlessly integrates with other components and can serve as the foundation for applications such as content management systems.
+As a Laravel package, Orchid seamlessly integrates with other components and can serve as the foundation for applications such as content management systems.
 
 
 > This documentation is intended for users familiar with the Laravel framework. If you are new to Laravel, it is recommended that you first read through the [Laravel documentation](https://laravel.com/docs/) to gain a better understanding of the framework before using Laravel Orchid.
