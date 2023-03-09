@@ -12,6 +12,7 @@ return [
                 'Introduction'  => '/en/docs',
                 'Installation'  => '/en/docs/installation',
                 'Configuration' => '/en/docs/configuration',
+                'Branding'      => '/en/docs/brand',
                 'Upgrade Guide' => '/en/docs/upgrade',
             ],
             'Tutorials'   => [
@@ -41,7 +42,6 @@ return [
                 'Custom Template' => '/en/docs/custom-template',
             ],
             'Extra'       => [
-                'Branding'       => '/en/docs/brand',
                 'Icons'          => '/en/docs/icons',
                 'Scout Search'   => '/en/docs/global-search',
                 'Presenters'     => '/en/docs/presenters',
