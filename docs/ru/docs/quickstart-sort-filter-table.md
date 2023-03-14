@@ -127,7 +127,7 @@ class PostListLayout extends Table
  * @var array
  */
 protected $allowedFilters = [
-    'title',
+    'title'  => Like::class,
 ];
 ```
  
