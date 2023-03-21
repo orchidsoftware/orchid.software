@@ -428,6 +428,8 @@ Our task application is almost complete. But, we have no way to delete our exist
 So, let's add a delete button to each row of our task listing...
 
 ```php
+use Orchid\Screen\Actions\Button;
+
 Layout::table('tasks', [
     TD::make('name'),
 
