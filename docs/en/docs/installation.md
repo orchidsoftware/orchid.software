@@ -19,6 +19,8 @@ $ composer create-project laravel/laravel orchid-project "9.*" --prefer-dist
 Or if you would prefer Laravel Installer:
 
 ```php
+$ composer global require laravel/installer
+
 $ laravel new orchid-project
 ```
 
