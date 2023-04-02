@@ -51,10 +51,13 @@ use Orchid\Screen\Actions\Menu;
 Menu::make('Example')->url('https://orchid.software/');
 ```
  
-Specifying a link through the route:
+To create a link with a route, use the `route` method and provide the name of the route:
+
 ```php
 Menu::make('Example')->route('route.idea');
 ```
+
+Make sure the route is defined in your app's routes file.
 
 ## Active State
 
