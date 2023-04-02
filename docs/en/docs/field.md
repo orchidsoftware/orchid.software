@@ -970,3 +970,8 @@ TD::make()->filter(TD::FILTER_NUMBER_RANGE);
 ```
 
 Result is an array with keys of `min`, `max`.  
+
+
+## Creating Custom Fields
+
+To create your own custom fields, check out the page "[Builder](/en/docs/builder)".
