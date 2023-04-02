@@ -61,9 +61,8 @@ Make sure the route is defined in your app's routes file.
 
 ## Active State
 
-To determine the link activity, use the [dwightwatson/active](https://github.com/dwightwatson/active) package
-Link activity, when using `route` and `url` is set automatically,
-but it is acceptable to change with the help of explicit instructions:
+To determine the link activity, use the [dwightwatson/active](https://github.com/dwightwatson/active) package,
+when using `route` and `url` is set automatically, but it is acceptable to change with the help of explicit instructions:
 
 ```php
 Menu::make('Example')
