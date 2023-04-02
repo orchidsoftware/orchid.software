@@ -706,7 +706,9 @@ And the second one, we pass the set of columns we want to display. The values in
 <h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
 <h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding the Delete Button</a></h3>
 <p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
-<pre><code class="language-php">Layout::table('tasks', [
+<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+
+Layout::table('tasks', [
     TD::make('name'),
 
     TD::make('Actions')
