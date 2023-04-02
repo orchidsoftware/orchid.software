@@ -335,22 +335,22 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#input">Input</a>
+                    <a href="#introduction-to-input">Introduction to Input</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#design">Design</a>
+                    <a href="#designing-input-interfaces">Designing Input Interfaces</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#required">Required</a>
+                    <a href="#required-fields">Required Fields</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#hiding">Hiding</a>
+                    <a href="#hiding-input-fields">Hiding Input Fields</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#types">Types</a>
+                    <a href="#types-of-input">Types of Input</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#mask-for-entering-values">Mask for Entering Values</a>
+                    <a href="#masking-input-values">Masking Input Values</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#textarea">TextArea</a>
@@ -421,7 +421,7 @@
 <blockquote>
 <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
-<h2><a href='#input' id='input'>Input</a></h2>
+<h2><a href='#introduction-to-input' id='introduction-to-input'>Introduction to Input</a></h2>
 <p>Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:</p>
 <p><picture alt='This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. '><img src="/img/fields/input.png" alt="This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. "></picture></p>
 <p>Example:</p>
@@ -429,7 +429,7 @@
 
 Input::make('name');
 </code></pre>
-<h3><a href='#design' id='design'>Design</a></h3>
+<h3><a href='#designing-input-interfaces' id='designing-input-interfaces'>Designing Input Interfaces</a></h3>
 <p>Empty and expressionless input fields can confuse the user, but you can help by specifying a title. The title should be a short and descriptive label that clearly communicates the purpose of the field. Here is an example of how to add a title to an input field:</p>
 <pre><code class="language-php">Input::make('name')
     -&gt;title('First name');
@@ -448,14 +448,14 @@ Input::make('name');
 <p>If you prefer the horizontal layout, you can use the <code>horizontal()</code> method to restore it:</p>
 <pre><code class="language-php">Input::make('name')-&gt;horizontal();
 </code></pre>
-<h3><a href='#required' id='required'>Required</a></h3>
+<h3><a href='#required-fields' id='required-fields'>Required Fields</a></h3>
 <p>Sometimes you may need to specify that a field is required, meaning that the user must enter a value in the field before they can submit the form. To mark a field as required, you can use the <code>required()</code> method:</p>
 <pre><code class="language-php">Input::make('name')
     -&gt;type('text')
     -&gt;required();
 </code></pre>
 <p>You can also use the <code>required()</code> method on other types of form elements, such as select, radio buttons, and checkboxes.</p>
-<h3><a href='#hiding' id='hiding'>Hiding</a></h3>
+<h3><a href='#hiding-input-fields' id='hiding-input-fields'>Hiding Input Fields</a></h3>
 <p>There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the <code>canSee()</code> method and pass a value of false:</p>
 <pre><code class="language-php">Input::make('name')-&gt;canSee(true);
 </code></pre>
@@ -465,7 +465,7 @@ Input::make('name');
 <blockquote>
 <p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
 </blockquote>
-<h3><a href='#types' id='types'>Types</a></h3>
+<h3><a href='#types-of-input' id='types-of-input'>Types of Input</a></h3>
 <p>One of the most universal fields is the <code>input</code> field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the <code>type</code> method:</p>
 <pre><code class="language-php">Input::make('name')-&gt;type('text');
 </code></pre>
@@ -493,7 +493,7 @@ Input::make('name');
 <blockquote>
 <p><strong>Please note</strong>. Please note that support for new HTML5&nbsp;attributes such as <code>color</code> and <code>range</code> is dependent on the browser being used. You can learn more about attribute types at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla&rsquo;s website</a>.</p>
 </blockquote>
-<h3><a href='#mask-for-entering-values' id='mask-for-entering-values'>Mask for Entering Values</a></h3>
+<h3><a href='#masking-input-values' id='masking-input-values'>Masking Input Values</a></h3>
 <p>A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number of decimal places.</p>
 <p>To use a mask with an input field, you can use the <code>mask()</code> method and pass a string that defines the format of the input. The string should contain placeholders for the allowed characters and any fixed characters that should be included. Here is an example of using a mask to enforce a standard phone number format:</p>
 <pre><code class="language-php">Input::make('phone')
