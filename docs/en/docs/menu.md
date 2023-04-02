@@ -30,7 +30,7 @@ class PlatformProvider extends OrchidServiceProvider
 
 The methods `registerMainMenu` and `registerProfileMenu` must return the menu items that are required to be displayed.
 
-## Location
+## Location Selection
 
 Let's look at an example. Initially we create an `Menu` object, setting various parameters, and then add the item to a specific place.
 There are several such places:
@@ -43,7 +43,7 @@ There are several such places:
 
 ## Links
 
-Reference Reference:
+Reference:
 
 ```php
 use Orchid\Screen\Actions\Menu;
@@ -56,7 +56,7 @@ Specifying a link through the route:
 Menu::make('Example')->route('route.idea');
 ```
 
-## Active
+## Active State
 
 To determine the link activity, use the [dwightwatson/active](https://github.com/dwightwatson/active) package
 Link activity, when using `route` and `url` is set automatically,
@@ -79,7 +79,7 @@ Menu::make('Example')
     ->active('not:pages/contact');
 ```
 
-## Permission
+## Permission-Based
 
 Quite an expected situation when some links should be missing
 depending on the [availability of rights](/en/docs/access) or other circumstances, for this:
@@ -109,7 +109,7 @@ Menu::make('Example')->title('Analytics');
 ```
 
 
-## Badge Notifications
+## Badge Notification
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
 
@@ -122,7 +122,7 @@ Menu::make('Comments')
     });
 ```
 
-## Sort
+## Sorting Items
 
 Sorting set by setting the sequence number:
 ```php
@@ -130,7 +130,7 @@ Menu::make('Second')->sort(5);
 Menu::make('First')->sort(4);
 ```
 
-## Nested Menu
+## Creating Nested Menus
 
 You can specify a single-level submenu as follows:
 
