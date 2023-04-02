@@ -338,28 +338,28 @@
                     <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#location">Location</a>
+                    <a href="#location-selection">Location Selection</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#links">Links</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#active">Active</a>
+                    <a href="#active-state">Active State</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#permission">Permission</a>
+                    <a href="#permission-based">Permission-Based</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#appearance">Appearance</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#badge-notifications">Badge Notifications</a>
+                    <a href="#badge-notification">Badge Notification</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#sort">Sort</a>
+                    <a href="#sorting-items">Sorting Items</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#nested-menu">Nested Menu</a>
+                    <a href="#creating-nested-menus">Creating Nested Menus</a>
                 </li>
                     </ul>
     </div>
@@ -384,7 +384,7 @@ class PlatformProvider extends OrchidServiceProvider
 }
 </code></pre>
 <p>The methods <code>registerMainMenu</code> and <code>registerProfileMenu</code> must return the menu items that are required to be displayed.</p>
-<h2><a href='#location' id='location'>Location</a></h2>
+<h2><a href='#location-selection' id='location-selection'>Location Selection</a></h2>
 <p>Let&rsquo;s look at an example. Initially we create an <code>Menu</code> object, setting various parameters, and then add the item to a specific place.
 There are several such places:</p>
 <ul>
@@ -395,7 +395,7 @@ There are several such places:</p>
 <p><strong>Note.</strong> for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the <code>slug</code> method.</p>
 </blockquote>
 <h2><a href='#links' id='links'>Links</a></h2>
-<p>Reference Reference:</p>
+<p>Reference:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Menu;
 
 Menu::make('Example')-&gt;url('https://orchid.software/');
@@ -403,7 +403,7 @@ Menu::make('Example')-&gt;url('https://orchid.software/');
 <p>Specifying a link through the route:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
 </code></pre>
-<h2><a href='#active' id='active'>Active</a></h2>
+<h2><a href='#active-state' id='active-state'>Active State</a></h2>
 <p>To determine the link activity, use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package
 Link activity, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
 <pre><code class="language-php">Menu::make('Example')
@@ -421,7 +421,7 @@ Menu::make('Example')
     -&gt;url('/pages/contact')
     -&gt;active('not:pages/contact');
 </code></pre>
-<h2><a href='#permission' id='permission'>Permission</a></h2>
+<h2><a href='#permission-based' id='permission-based'>Permission-Based</a></h2>
 <p>Quite an expected situation when some links should be missing
 depending on the <a href="/en/docs/access">availability of rights</a> or other circumstances, for this:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;permission('platform.idea');
@@ -436,7 +436,7 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
 </code></pre>
-<h2><a href='#badge-notifications' id='badge-notifications'>Badge Notifications</a></h2>
+<h2><a href='#badge-notification' id='badge-notification'>Badge Notification</a></h2>
 <p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
 <pre><code class="language-php">Menu::make('Comments')
     -&gt;icon('bubbles')
@@ -445,12 +445,12 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
         return 10;
     });
 </code></pre>
-<h2><a href='#sort' id='sort'>Sort</a></h2>
+<h2><a href='#sorting-items' id='sorting-items'>Sorting Items</a></h2>
 <p>Sorting set by setting the sequence number:</p>
 <pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
 Menu::make('First')-&gt;sort(4);
 </code></pre>
-<h2><a href='#nested-menu' id='nested-menu'>Nested Menu</a></h2>
+<h2><a href='#creating-nested-menus' id='creating-nested-menus'>Creating Nested Menus</a></h2>
 <p>You can specify a single-level submenu as follows:</p>
 <pre><code class="language-php">Menu::make('Dropdown menu')
     -&gt;icon('code')
