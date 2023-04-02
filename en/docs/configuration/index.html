@@ -421,9 +421,11 @@
 <p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
 <pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [
-        'path/to/custom.css'
+        '/path/to/custom.css'
     ],
-    'scripts'     =&gt; [],
+    'scripts'     =&gt; [
+        'https://example.com/js/app.js',
+    ],
 ],
 </code></pre>
 <p>You can also specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
