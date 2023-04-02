@@ -10,7 +10,7 @@ Fields are used to generate the output of the fill and edit form template. Form 
 > Feel free to add your fields, for example, to use the convenient editor for you or any components.
 
 
-## Input
+## Introduction to Input
 
 Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:
 
@@ -24,7 +24,7 @@ Input::make('name');
 ``` 
 
 
-### Design
+### Designing Input Interfaces
 
 Empty and expressionless input fields can confuse the user, but you can help by specifying a title. The title should be a short and descriptive label that clearly communicates the purpose of the field. Here is an example of how to add a title to an input field:
 
@@ -59,7 +59,7 @@ If you prefer the horizontal layout, you can use the `horizontal()` method to re
 Input::make('name')->horizontal();
 ```
 
-### Required
+### Required Fields
 
 Sometimes you may need to specify that a field is required, meaning that the user must enter a value in the field before they can submit the form. To mark a field as required, you can use the `required()` method:
 
@@ -72,7 +72,7 @@ Input::make('name')
 You can also use the `required()` method on other types of form elements, such as select, radio buttons, and checkboxes.
 
 
-### Hiding
+### Hiding Input Fields
 
 There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the `canSee()` method and pass a value of false:
 
@@ -89,7 +89,7 @@ Input::make('name')->canSee(false);
 
 > Note that many methods, such as `canSee`, `required`, `title`, `help`, `vertical`, `horizontal` and many others, are available in almost every `field` of the system.
 
-### Types
+### Types of Input
  
 
 One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
@@ -137,7 +137,7 @@ Input::make('name')->type('url');
 > **Please note**. Please note that support for new HTML5 attributes such as `color` and `range` is dependent on the browser being used. You can learn more about attribute types at [Mozilla's website](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
 
 
-### Mask for Entering Values
+### Masking Input Values
  
 A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number of decimal places.
 
