@@ -405,8 +405,7 @@ Menu::make('Example')-&gt;url('https://orchid.software/');
 </code></pre>
 <p>Make sure the route is defined in your app&rsquo;s routes file.</p>
 <h2><a href='#active-state' id='active-state'>Active State</a></h2>
-<p>To determine the link activity, use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package
-Link activity, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
+<p>To determine the link activity, use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
 <pre><code class="language-php">Menu::make('Example')
     -&gt;route('route.idea')
     -&gt;active('route.idea*');
