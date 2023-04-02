@@ -400,9 +400,10 @@ There are several such places:</p>
 
 Menu::make('Example')-&gt;url('https://orchid.software/');
 </code></pre>
-<p>Specifying a link through the route:</p>
+<p>To create a link with a route, use the <code>route</code> method and provide the name of the route:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
 </code></pre>
+<p>Make sure the route is defined in your app&rsquo;s routes file.</p>
 <h2><a href='#active-state' id='active-state'>Active State</a></h2>
 <p>To determine the link activity, use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package
 Link activity, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
