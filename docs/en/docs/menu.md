@@ -43,7 +43,7 @@ There are several such places:
 
 ## Links
 
-Reference:
+Create links with the `Menu` class using a URL or route. To create a link with a URL, use the `url` method:
 
 ```php
 use Orchid\Screen\Actions\Menu;
