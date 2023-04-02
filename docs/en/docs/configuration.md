@@ -117,9 +117,11 @@ For example, if you want to include a custom stylesheet on every page of the adm
 ```php
 'resource' => [
     'stylesheets' => [
-        'path/to/custom.css'
+        '/path/to/custom.css'
     ],
-    'scripts'     => [],
+    'scripts'     => [
+        'https://example.com/js/app.js',
+    ],
 ],
 ```
 
