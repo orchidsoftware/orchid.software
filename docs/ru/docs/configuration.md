@@ -127,7 +127,7 @@ class AppServiceProvider extends ServiceProvider
 Бэкенд-страницы создаются с помощью [Blade](https://laravel.com/docs/blade). Вы можете изменить их, используя механизм переопределения шаблонов Laravel (он одинаков для всех пакетов, а не только для Orchid);
 
 Для переопределения шаблонов из пакета создайте директорию `/resources/views/vendor/platform/` в вашем приложении и 
-и создайте новые шпблоны по тому же пути, что и исходные. 
+и создайте новые шаблоны по тому же пути, что и исходные. 
 
 Например, чтобы переопределить `/vendor/orchid/platform/resources/views/partials/search.blade.php`, создайте новый шаблон по адресу
 `/resources/views/vendor/platform/partials/search.blade.php`. Наглядный пример:
