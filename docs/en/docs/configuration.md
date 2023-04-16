@@ -203,8 +203,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Dashboard::useModel(
-            \Orchid\Platform\Models\User::class, 
-            \App\User::class
+            "\Orchid\Platform\Models\User::class", 
+            "\App\User::class"
         );
     }
 }
