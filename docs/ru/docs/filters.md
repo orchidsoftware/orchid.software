@@ -185,7 +185,7 @@ Model::filters([Filter::class])->simplePaginate();
 ## Selection
 
 Когда вам нужно отобразить фильтры и применить их к модели, их удобнее сгруппировать, создав отдельный слой «Selection». 
-Для создания новогоо слоя выполните команду:
+Для создания нового слоя выполните команду:
 
 ```php
 php artisan orchid:selection MySelection
