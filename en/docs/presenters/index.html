@@ -335,12 +335,12 @@
                         <div class="anchors">
     </div>
                         <body><p>The presenter is a class that wraps an object in order to add functionality to it. In Laravel Orchid, presenters are used to format and present data in a consistent and organized way for display in a view. This helps to keep your views clean and organized, as you can move all of the formatting and presentation logic into the presenter class.</p>
-<p>Let&rsquo;s say we have a &ldquo;Client&rdquo; model:</p>
+<p>Let&rsquo;s say we have a &ldquo;Customer&rdquo; model:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Customer extends Model
 {
     protected $fillable = [
         'firstName',
@@ -353,7 +353,7 @@ class Client extends Model
 
 use Orchid\Support\Presenter;
 
-class ClientPresenter extends Presenter
+class CustomerPresenter extends Presenter
 {
     public function fullName(): string
     {
@@ -362,15 +362,15 @@ class ClientPresenter extends Presenter
 }
 </code></pre>
 <p>After that, we can use it as follows:</p>
-<pre><code class="language-php">use App\Client;
-use App\Presenters\ClientPresenter;
+<pre><code class="language-php">use App\Customer;
+use App\Presenters\CustomerPresenter;
 
-$client = new Client([
+$customer = new Customer([
         'fistName' =&gt; 'Alexandr',
         'lastName' =&gt; 'Chernyaev'
     ]);
     
-$presenter = new ClientPresenter($client);
+$presenter = new CustomerPresenter($customer);
 
 $presenter-&gt;fullName();
 </code></pre>
@@ -381,18 +381,18 @@ $presenter-&gt;fullName();
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Presenters\ClientPresenter;
+use App\Presenters\CustomerPresenter;
 
-class Client extends Model
+class Customer extends Model
 {
     protected $fillable = [
         'firstName',
         'lastName'
     ];
     
-    public function presenter(): ClientPresenter
+    public function presenter(): CustomerPresenter
     {
-        return new ClientPresenter($this);
+        return new CustomerPresenter($this);
     }
 }
 </code></pre>
@@ -400,18 +400,18 @@ class Client extends Model
 <p><strong>Note.</strong> Many platform functions expect a representative in the <code>presenter</code> method.</p>
 </blockquote>
 <p>Now its use is becoming easier:</p>
-<pre><code class="language-php">use App\Client;
+<pre><code class="language-php">use App\Customer;
 
-$client = Client::findOrFail(1)-&gt;presenter()-&gt;fullName();
+$customer = Customer::findOrFail(1)-&gt;presenter()-&gt;fullName();
 </code></pre>
 <p>If you need to get a list of representatives, the best option would be to use collection methods, for example:</p>
-<pre><code class="language-php">use App\Client;
+<pre><code class="language-php">use App\Customer;
 
-$clients = Client::limit(10)-&gt;get()-&gt;map-&gt;presenter();
+$customer = Customer::limit(10)-&gt;get()-&gt;map-&gt;presenter();
 
-foreach($clients as $client)
+foreach($customer as $customer)
 {
-    $client-&gt;fullName();
+    $customer-&gt;fullName();
 }
 </code></pre>
 <p>Using representatives for models is a common practice of automatically displaying data for <code>Layouts</code>.</p>
