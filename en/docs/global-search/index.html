@@ -338,21 +338,23 @@
                     <a href="#using-full-text-search">Using Full-Text Search</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#modifying-results">Modifying Results</a>
+                    <a href="#customizing-search-queries">Customizing Search Queries</a>
                 </li>
                     </ul>
     </div>
                         <body><h2><a href='#using-full-text-search' id='using-full-text-search'>Using Full-Text Search</a></h2>
-<p>The platform comes with a package <a href="https://github.com/laravel/scout">Laravel Scout</a>, which is an abstraction for full-text search in your <code>Eloquent</code> models.
-Since <strong><code>Scout</code> does not contain the search driver itself</strong>, you need to supply and specify the required solution. These can be elasticsearch, algolia, sphinx, or other solutions.</p>
-<blockquote>
-<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
-</blockquote>
-<p>In order for the application to have information about which models should participate in the search, it is necessary to register them in the <a href="/en/docs/configuration">configuration file</a>:</p>
+<p>Orchid provides full-text search capabilities through the <a href="https://github.com/laravel/scout">Laravel Scout</a> package.
+This package offers an abstraction for searching through your <code>Eloquent</code> models and requires that you specify the search driver that you will use for your application.
+These can be elasticsearch, algolia, sphinx, or other solutions.</p>
+<p>To make your models searchable within the application, you must register them in the Orchid <a href="/en/docs/configuration">configuration file</a>.
+You can do this by adding a new entry to the 'search&rsquo; array for each model you want to make searchable. For example:</p>
 <pre><code class="language-php">'search' =&gt; [
     \App\Models\Idea::class,
 ],
 </code></pre>
+<blockquote>
+<p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
+</blockquote>
 <p>The <a href="/en/docs/presenters">Presenter</a> is used to display the search results, which calls the <code>presenter()</code> method of the model:</p>
 <pre><code class="language-php">namespace App;
 
@@ -457,13 +459,15 @@ class IdeaPresenter extends Presenter implements Searchable
     }
 }
 </code></pre>
-<h2><a href='#modifying-results' id='modifying-results'>Modifying Results</a></h2>
-<p>To modify queries, for example, to display only relevant data in the results, you can modify the query by overriding the method:</p>
+<h2><a href='#customizing-search-queries' id='customizing-search-queries'>Customizing Search Queries</a></h2>
+<p>To customize search queries, you can override the default <code>searchQuery()</code> method.
+This method returns a <code>Builder</code> instance representing the query used to index the model.</p>
 <pre><code class="language-php">public function searchQuery(string $query = null): Builder
 {
     return $this-&gt;entity-&gt;search($query)-&gt;where('active', true);
 }
 </code></pre>
+<p>Here, in the <code>searchQuery()</code> method, the <code>where()</code> method was used to limit the search to only active models</p>
 </body>
                     </main>
                 </div>
