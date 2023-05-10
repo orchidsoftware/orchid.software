@@ -910,7 +910,6 @@ Linking example:
 Link::make('Google It!')
     ->href('http://google.com');
 
-
 Link::make('Idea')
     ->route('platform.idea');
 ```
