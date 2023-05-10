@@ -95,9 +95,10 @@ Toast::warning('Invalid input. Please check your form.')
 
 Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.
 
-## Notifications in the Admin Panel
+## Persistent Notification
 
-Notifications in the admin panel are different from flash messages. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
+Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline. 
+They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
 You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.
 
