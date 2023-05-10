@@ -87,7 +87,7 @@ $html = $builder->generateForm();
 ```
 
 
-## Representation of Elements of a Form
+## Creating a Field
 
 Any input field is only a setting above the view that passes data to the template.
 
