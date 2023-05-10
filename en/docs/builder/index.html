@@ -345,7 +345,7 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique <code>Orchid\Screen\Builder</code> builder whose task is to generate an <code>HTML</code> code.</p>
+                        <body><p>Describing form fields can be a challenging task, but with <code>Orchid\Screen\Builder</code>, you can easily modify and reuse form fields using a single builder that generates <code>HTML</code> code.</p>
 <h2><a href='#main-use' id='main-use'>Main Use</a></h2>
 <p>The form feature set and data source must be passed to build:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
@@ -358,8 +358,9 @@ $builder = new Builder([
 $html = $builder-&gt;generateForm();
 </code></pre>
 <h2><a href='#data-binding' id='data-binding'>Data Binding</a></h2>
-<p>To specify the value of an element, you must specify the data in the source.
-The specified key will automatically replace the data.</p>
+<p>To specify the value of an element, you must specify the data source.
+By providing the specified key, the data will automatically replace the corresponding field.</p>
+<p>For example:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Repository;
@@ -376,7 +377,7 @@ $builder = new Builder($fields, $repository);
 
 $html = $builder-&gt;generateForm();
 </code></pre>
-<p>It is also possible to enter deep into the object using <code>dot</code>-notation.</p>
+<p>It is also possible to access nested objects using <code>dot</code>-notation.</p>
 <pre><code class="language-php">$fields = [
     Input::make('name.ru'),
 ];
@@ -392,7 +393,7 @@ $builder = new Builder($fields, $repository);
 
 $html = $builder-&gt;generateForm();
 </code></pre>
-<p>You can also specify the desired language and prefix, for example:</p>
+<p>You can also set the desired language and prefix using the <code>setLanguage</code> method:</p>
 <pre><code class="language-php">$fields = [
     Input::make('name'),
 ];
