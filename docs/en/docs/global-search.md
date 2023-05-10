@@ -5,19 +5,21 @@ description: Learn how to use Laravel Orchid's global search feature powered by 
 
 ## Using Full-Text Search
 
-The platform comes with a package [Laravel Scout](https://github.com/laravel/scout), which is an abstraction for full-text search in your `Eloquent` models. 
-Since **`Scout` does not contain the search driver itself**, you need to supply and specify the required solution. These can be elasticsearch, algolia, sphinx, or other solutions.
+Orchid provides full-text search capabilities through the [Laravel Scout](https://github.com/laravel/scout) package.
+This package offers an abstraction for searching through your `Eloquent` models and requires that you specify the search driver that you will use for your application. 
+These can be elasticsearch, algolia, sphinx, or other solutions.
 
-> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
-
-In order for the application to have information about which models should participate in the search, it is necessary to register them in the [configuration file](/en/docs/configuration):
-
+To make your models searchable within the application, you must register them in the Orchid [configuration file](/en/docs/configuration). 
+You can do this by adding a new entry to the 'search' array for each model you want to make searchable. For example:
 
 ```php
 'search' => [
     \App\Models\Idea::class,
 ],
 ```
+
+> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
+
 
 The [Presenter](/en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the model:
 
@@ -132,9 +134,10 @@ class IdeaPresenter extends Presenter implements Searchable
 ```
 
 
-## Modifying Results
+## Customizing Search Queries
 
-To modify queries, for example, to display only relevant data in the results, you can modify the query by overriding the method:
+To customize search queries, you can override the default `searchQuery()` method. 
+This method returns a `Builder` instance representing the query used to index the model.
 
 
 ```php
@@ -143,3 +146,5 @@ public function searchQuery(string $query = null): Builder
     return $this->entity->search($query)->where('active', true);
 }
 ```
+
+Here, in the `searchQuery()` method, the `where()` method was used to limit the search to only active models
