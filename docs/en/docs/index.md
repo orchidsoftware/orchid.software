@@ -30,7 +30,7 @@ If you're searching for a more straightforward solution for creating simple appl
 
 ## Migrating to Orchid
 
-If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use Laravel Orchid. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
+If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use package. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
 
 
 ## What Orchid Is Not
