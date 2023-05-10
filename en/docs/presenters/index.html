@@ -333,9 +333,20 @@
 
                         
                         <div class="anchors">
+            <ul>
+                            <li class="anchor-h2">
+                    <a href="#creating-a-presenter">Creating A Presenter</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#using-presenters-with-collections">Using Presenters with Collections</a>
+                </li>
+                    </ul>
     </div>
-                        <body><p>The presenter is a class that wraps an object in order to add functionality to it. In Laravel Orchid, presenters are used to format and present data in a consistent and organized way for display in a view. This helps to keep your views clean and organized, as you can move all of the formatting and presentation logic into the presenter class.</p>
-<p>Let&rsquo;s say we have a &ldquo;Customer&rdquo; model:</p>
+                        <body><p>Presenters are classes that wrap objects and provide additional functionality to them.
+In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized.
+You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.</p>
+<h2><a href='#creating-a-presenter' id='creating-a-presenter'>Creating A Presenter</a></h2>
+<p>In this example, let&rsquo;s say we have a &ldquo;Customer&rdquo; model:</p>
 <pre><code class="language-php">namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -404,7 +415,8 @@ class Customer extends Model
 
 $customer = Customer::findOrFail(1)-&gt;presenter()-&gt;fullName();
 </code></pre>
-<p>If you need to get a list of representatives, the best option would be to use collection methods, for example:</p>
+<h2><a href='#using-presenters-with-collections' id='using-presenters-with-collections'>Using Presenters with Collections</a></h2>
+<p>If you want to get a list of presenters, use collection methods, for example:</p>
 <pre><code class="language-php">use App\Customer;
 
 $customer = Customer::limit(10)-&gt;get()-&gt;map-&gt;presenter();
