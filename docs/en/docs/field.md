@@ -155,8 +155,8 @@ You can also pass an array of options to the `mask()` method to customize the be
 Input::make('price')
     ->title('Price')
     ->mask([
-     'mask' => '999 999 999.99',
-     'numericInput' => true
+        'mask' => '999 999 999.99',
+        'numericInput' => true
     ]);
 ```   
 
