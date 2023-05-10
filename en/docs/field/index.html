@@ -507,8 +507,8 @@ Input::make('name');
 <pre><code class="language-php">Input::make('price')
     -&gt;title('Price')
     -&gt;mask([
-     'mask' =&gt; '999 999 999.99',
-     'numericInput' =&gt; true
+        'mask' =&gt; '999 999 999.99',
+        'numericInput' =&gt; true
     ]);
 </code></pre>
 <p>You can also use the <code>alias</code> option to use a predefined mask, such as <code>currency</code>, which automatically formats the input as a currency value:</p>
@@ -977,7 +977,6 @@ Group::make([
 Group::make([
     // ...
 ])-&gt;autoWidth();
-
 </code></pre>
 <h2><a href='#buttonlink' id='buttonlink'>Button/Link</a></h2>
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
@@ -993,7 +992,6 @@ And to add a simple link in the form.</p>
 <p>Linking example:</p>
 <pre><code class="language-php">Link::make('Google It!')
     -&gt;href('http://google.com');
-
 
 Link::make('Idea')
     -&gt;route('platform.idea');
