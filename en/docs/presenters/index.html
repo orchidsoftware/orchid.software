@@ -419,9 +419,9 @@ $customer = Customer::findOrFail(1)-&gt;presenter()-&gt;fullName();
 <p>If you want to get a list of presenters, use collection methods, for example:</p>
 <pre><code class="language-php">use App\Customer;
 
-$customer = Customer::limit(10)-&gt;get()-&gt;map-&gt;presenter();
+$customers = Customer::limit(10)-&gt;get()-&gt;map-&gt;presenter();
 
-foreach($customer as $customer)
+foreach($customers as $customer)
 {
     $customer-&gt;fullName();
 }
