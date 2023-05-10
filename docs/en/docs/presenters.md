@@ -99,9 +99,9 @@ If you want to get a list of presenters, use collection methods, for example:
 ```php
 use App\Customer;
 
-$customer = Customer::limit(10)->get()->map->presenter();
+$customers = Customer::limit(10)->get()->map->presenter();
 
-foreach($customer as $customer)
+foreach($customers as $customer)
 {
     $customer->fullName();
 }
