@@ -91,9 +91,9 @@ $html = $builder->generateForm();
 
 ## Creating a Field
 
-Any input field is only a setting above the view that passes data to the template.
+Every field is just a setting above the view that passes data to the template.
+Here is an example of how to create custom input fields by using the `Field` class.
 
-Create a new class to see what it consists of:
 
 ```php
 namespace App\Orchid\Fields;
