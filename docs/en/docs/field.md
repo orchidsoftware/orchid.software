@@ -885,7 +885,6 @@ Group::make([
 Group::make([
     // ...
 ])->autoWidth();
-
 ```
 
 
