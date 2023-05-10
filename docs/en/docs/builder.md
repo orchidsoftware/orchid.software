@@ -4,7 +4,7 @@ description: Learn how to use the Laravel Orchid form builder to easily create a
 ---
 
 
-Describing form fields can be a naughty and challenging exercise to easily modify and reuse, using a unique `Orchid\Screen\Builder` builder whose task is to generate an `HTML` code.
+Describing form fields can be a challenging task, but with `Orchid\Screen\Builder`, you can easily modify and reuse form fields using a single builder that generates `HTML` code.
 
 ## Main Use
 
@@ -24,8 +24,10 @@ $html = $builder->generateForm();
 
 ## Data Binding
 
-To specify the value of an element, you must specify the data in the source.
-The specified key will automatically replace the data.
+To specify the value of an element, you must specify the data source. 
+By providing the specified key, the data will automatically replace the corresponding field.
+
+For example:
 
 ```php
 use Orchid\Screen\Builder;
@@ -45,7 +47,7 @@ $builder = new Builder($fields, $repository);
 $html = $builder->generateForm();
 ```
 
-It is also possible to enter deep into the object using `dot`-notation.
+It is also possible to access nested objects using `dot`-notation.
 
 ```php
 $fields = [
@@ -64,7 +66,7 @@ $builder = new Builder($fields, $repository);
 $html = $builder->generateForm();
 ```
 
-You can also specify the desired language and prefix, for example:
+You can also set the desired language and prefix using the `setLanguage` method:
 
 ```php
 $fields = [
