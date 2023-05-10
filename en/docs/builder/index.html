@@ -413,8 +413,8 @@ $builder-&gt;setLanguage('en');
 $html = $builder-&gt;generateForm();
 </code></pre>
 <h2><a href='#creating-a-field' id='creating-a-field'>Creating a Field</a></h2>
-<p>Any input field is only a setting above the view that passes data to the template.</p>
-<p>Create a new class to see what it consists of:</p>
+<p>Every field is just a setting above the view that passes data to the template.
+Here is an example of how to create custom input fields by using the <code>Field</code> class.</p>
 <pre><code class="language-php">namespace App\Orchid\Fields;
 
 use Orchid\Screen\Field;
