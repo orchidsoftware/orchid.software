@@ -341,7 +341,7 @@
                     <a href="#toast-messages">Toast Messages</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#notifications-in-the-admin-panel">Notifications in the Admin Panel</a>
+                    <a href="#persistent-notification">Persistent Notification</a>
                 </li>
                     </ul>
     </div>
@@ -401,8 +401,9 @@ Toast::warning('Invalid input. Please check your form.')
     -&gt;delay(2000);
 </code></pre>
 <p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
-<h2><a href='#notifications-in-the-admin-panel' id='notifications-in-the-admin-panel'>Notifications in the Admin Panel</a></h2>
-<p>Notifications in the admin panel are different from flash messages. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
+<h2><a href='#persistent-notification' id='persistent-notification'>Persistent Notification</a></h2>
+<p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline.
+They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
 <p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
 <p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
 <p>To create a notification, you can use the following <code>Artisan</code> command:</p>
