@@ -29,6 +29,24 @@ Before starting the upgrade process, it is important to backup your existing app
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
+
+### Route Binding
+
+For a long time Orchid used its own solution for defining route arguments, but now for the vast majority of methods (query/method) the same is used as with Controller.
+
+This makes it possible to define:
+
+```php
+Route::screen('/posts/{post:slug}', ExampleScreen::class);
+
+Route::screen('/task', ExampleScreen::class)->withTrashed();
+```
+
+And other opportunities not explicitly tied to which you are used to.
+
+> Be careful, in the past our tutorials in which we sometimes specified the default model, and it came up empty.
+> Now it will cause a 404 error.
+
 ### Icons
 
 In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.
@@ -67,7 +85,7 @@ public function registerProfileMenu(): array
 }
 ```
 
-Instead, pen your menu items using the `registerMenu` or `registerMainMenu` (Not recommended) method:
+Instead, pen your menu items using the `registerMenu` method:
 
 ```php
 public function registerMenu(): array
@@ -80,6 +98,43 @@ public function registerMenu(): array
     ];
 }
 ```
+
+All methods that depend on `location` no longer need this argument. For example, the `addMenuSubElements` method now points directly to the target slug:
+
+```php
+use Orchid\Support\Facades\Dashboard;
+
+Dashboard::addMenuSubElements('sub-menu', [
+    Menu::make('Sub element item 3')->icon('badge')
+]);
+```
+
+### Automatic HTTP Filtering and Sorting
+
+The automatic filters were based on the type of data entered by the user, which often led to errors. For example, when the user used a comma to search for text, and the filter thought it was an array. For this reason, filters now need to specify behavior:
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+
+class Post extends Model
+{
+    use Filterable;
+
+    protected $allowedFilters = [
+        'id' => Where::class,
+        'content' => Like::class,
+    ];
+}
+```
+
+Another important change is to get the column name as is. That is, you can no longer specify dot notation for JSON fields.
+We are working on this and will try to implement an efficient and safe way in the future.
+
 
 ### Logout and Quit Impersonation
 
