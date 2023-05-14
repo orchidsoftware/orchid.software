@@ -32,9 +32,9 @@ In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
 ### Route Binding
 
-For a long time Orchid used its own solution for defining route arguments, but now for the vast majority of methods (query/method) the same is used as with Controller.
-
-This makes it possible to define:
+For a long time, Orchid has been using its own solution for defining route arguments.
+However, for the vast majority of methods (query/method), the same solution as with Controller is used.
+This allows you to define:
 
 ```php
 Route::screen('/posts/{post:slug}', ExampleScreen::class);
@@ -42,16 +42,18 @@ Route::screen('/posts/{post:slug}', ExampleScreen::class);
 Route::screen('/task', ExampleScreen::class)->withTrashed();
 ```
 
-And other opportunities not explicitly tied to which you are used to.
+It also provides other opportunities that were not explicitly tied to what you're used to.
 
-> Be careful, in the past our tutorials in which we sometimes specified the default model, and it came up empty.
-> Now it will cause a 404 error.
+> Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an empty parameter.
+> However, this now triggers a 404 error.
 
 ### Icons
 
-In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.
+In the new version, the icons have been updated to a set from Bootstrap. 
+While replacing all the icons in existing applications can be a challenge, 
+you have the option to continue using the icons from Orchid.
 
-To do this, simply add the following line to your composer.json file:
+To do this, simply add the following line to your `composer.json` file:
 
 ```bash
 "orchid/icons": "^2.0",
@@ -69,7 +71,9 @@ By doing this, you will continue to use the set of icons from Orchid, which has 
 
 ### Navigation
 
-In version 14.0, the profile drop-down menu has been removed. Instead, it is suggested to specify the profile information in the main menu or in the screens. Make sure to remove any references to the `Dashboard::MENU_PROFILE` constant and `registerProfileMenu` method for service provider in your code.
+In version 14.0, the profile drop-down menu has been removed. 
+Instead, it is suggested to specify the profile information in the main menu or on the screens. 
+Please make sure to remove any references to the `Dashboard::MENU_PROFILE` constant and the `registerProfileMenu` method for the service provider from your code.
 
 For example, the following item will no longer work correctly:
 
@@ -111,7 +115,9 @@ Dashboard::addMenuSubElements('sub-menu', [
 
 ### Automatic HTTP Filtering and Sorting
 
-The automatic filters were based on the type of data entered by the user, which often led to errors. For example, when the user used a comma to search for text, and the filter thought it was an array. For this reason, filters now need to specify behavior:
+The automatic filters were previously based on the type of data entered by the user, which often led to errors. 
+For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array. 
+Therefore, filters now need to specify their behavior explicitly:
 
 ```php
 namespace App;
@@ -132,15 +138,16 @@ class Post extends Model
 }
 ```
 
-Another important change is to get the column name as is. That is, you can no longer specify dot notation for JSON fields.
-We are working on this and will try to implement an efficient and safe way in the future.
+Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields. 
+We are working on finding a more efficient and safer way to handle JSON fields in the future.
 
 
 ### Logout and Quit Impersonation
 
-the behavior of the "Logout" and "Quit Impersonation" actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.
+The behavior of the "Logout" and "Quit Impersonation" actions must be explicitly defined by the developer. 
+To do this, you can add button definitions to your profile screen.
 
-Here is an example of how you can define these buttons:
+Here's an example of how you can define these buttons:
 
 ```php
 use Orchid\Screen\Actions\Button;
