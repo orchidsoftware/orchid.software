@@ -347,10 +347,16 @@
                     <a href="#updating-dependencies">Updating Dependencies</a>
                 </li>
                             <li class="anchor-h3">
+                    <a href="#route-binding">Route Binding</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#icons">Icons</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#navigation">Navigation</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#logout-and-quit-impersonation">Logout and Quit Impersonation</a>
@@ -482,6 +488,18 @@
 <p>Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.</p>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^14.0</code></p>
+<h3><a href='#route-binding' id='route-binding'>Route Binding</a></h3>
+<p>For a long time Orchid used its own solution for defining route arguments, but now for the vast majority of methods (query/method) the same is used as with Controller.</p>
+<p>This makes it possible to define:</p>
+<pre><code class="language-php">Route::screen('/posts/{post:slug}', ExampleScreen::class);
+
+Route::screen('/task', ExampleScreen::class)-&gt;withTrashed();
+</code></pre>
+<p>And other opportunities not explicitly tied to which you are used to.</p>
+<blockquote>
+<p>Be careful, in the past our tutorials in which we sometimes specified the default model, and it came up empty.
+Now it will cause a 404&nbsp;error.</p>
+</blockquote>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
 <p>In new version icons have been updated to a set from Bootstrap. While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
 <p>To do this, simply add the following line to your composer.json file:</p>
@@ -506,7 +524,7 @@
     ];
 }
 </code></pre>
-<p>Instead, pen your menu items using the <code>registerMenu</code> or <code>registerMainMenu</code> (Not recommended) method:</p>
+<p>Instead, pen your menu items using the <code>registerMenu</code> method:</p>
 <pre><code class="language-php">public function registerMenu(): array
 {
     return [
@@ -517,6 +535,34 @@
     ];
 }
 </code></pre>
+<p>All methods that depend on <code>location</code> no longer need this argument. For example, the <code>addMenuSubElements</code> method now points directly to the target slug:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+
+Dashboard::addMenuSubElements('sub-menu', [
+    Menu::make('Sub element item 3')-&gt;icon('badge')
+]);
+</code></pre>
+<h3><a href='#automatic-http-filtering-and-sorting' id='automatic-http-filtering-and-sorting'>Automatic HTTP Filtering and Sorting</a></h3>
+<p>The automatic filters were based on the type of data entered by the user, which often led to errors. For example, when the user used a comma to search for text, and the filter thought it was an array. For this reason, filters now need to specify behavior:</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+
+class Post extends Model
+{
+    use Filterable;
+
+    protected $allowedFilters = [
+        'id' =&gt; Where::class,
+        'content' =&gt; Like::class,
+    ];
+}
+</code></pre>
+<p>Another important change is to get the column name as is. That is, you can no longer specify dot notation for JSON fields.
+We are working on this and will try to implement an efficient and safe way in the future.</p>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
 <p>the behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
 <p>Here is an example of how you can define these buttons:</p>
