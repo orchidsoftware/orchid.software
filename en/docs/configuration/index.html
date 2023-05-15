@@ -387,8 +387,15 @@
 <p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.</p>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
 <pre><code class="language-php">'middleware' =&gt; [
-    'public'  =&gt; ['web', 'cache.headers:private;must_revalidate;etag'],
-    'private' =&gt; ['web', 'platform', 'cache.headers:private;must_revalidate;etag'],
+    'public'  =&gt; [
+        'web', 
+        'cache.headers:private;must_revalidate;etag'
+    ],
+    'private' =&gt; [
+        'web',
+        'platform',
+        'cache.headers:private;must_revalidate;etag'
+    ],
 ],
 </code></pre>
 <p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
