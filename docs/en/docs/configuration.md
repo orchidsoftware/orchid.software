@@ -51,8 +51,15 @@ For example, if you set the prefix to `dashboard`, the URL for the admin login p
 
 ```php
 'middleware' => [
-    'public'  => ['web', 'cache.headers:private;must_revalidate;etag'],
-    'private' => ['web', 'platform', 'cache.headers:private;must_revalidate;etag'],
+    'public'  => [
+        'web', 
+        'cache.headers:private;must_revalidate;etag'
+    ],
+    'private' => [
+        'web',
+        'platform',
+        'cache.headers:private;must_revalidate;etag'
+    ],
 ],
 ```
 
