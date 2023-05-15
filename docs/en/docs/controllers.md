@@ -58,7 +58,9 @@ To make the controller accessible through the Orchid interface, you need to decl
 Here is an example of how to declare a route for the `OrchidController`:
 
 ```php
-Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
+use App\Http\Controllers\OrchidController;
+
+Route::get('custom', [OrchidController::class, 'index']);
 ```
 
 You can now access your custom controller by visiting the custom route in your Orchid app.
