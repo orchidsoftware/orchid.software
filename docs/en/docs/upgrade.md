@@ -214,6 +214,15 @@ And then specify in your configuration file:
 
 By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.
 
+For the new icons to be displayed as well, add:
+
+```php
+'icons' => [
+    // ...
+    'bs' => \Orchid\Support\BootstrapIconsPath::getFolder(),
+],
+```
+
 ### Logout and Quit Impersonation
 
 The behavior of the "Logout" and "Quit Impersonation" actions must be explicitly defined by the developer. 
