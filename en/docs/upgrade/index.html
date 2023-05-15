@@ -347,16 +347,22 @@
                     <a href="#updating-dependencies">Updating Dependencies</a>
                 </li>
                             <li class="anchor-h3">
+                    <a href="#preserving-state">Preserving State</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#route-binding">Route Binding</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#icons">Icons</a>
+                    <a href="#listener">Listener</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#navigation">Navigation</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
+                    <a href="#icons">Icons</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#logout-and-quit-impersonation">Logout and Quit Impersonation</a>
@@ -488,6 +494,8 @@
 <p>Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.</p>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^14.0</code></p>
+<h3><a href='#preserving-state' id='preserving-state'>Preserving State</a></h3>
+<p>One of the main new features of the release is the ability to save the states of public properties between actions on the screen.</p>
 <h3><a href='#route-binding' id='route-binding'>Route Binding</a></h3>
 <p>For a long time, Orchid has been using its own solution for defining route arguments.
 However, for the vast majority of methods (query/method), the same solution as with Controller is used.
@@ -501,18 +509,93 @@ Route::screen('/task', ExampleScreen::class)-&gt;withTrashed();
 <p>Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an empty parameter.
 However, this now triggers a 404&nbsp;error.</p>
 </blockquote>
-<h3><a href='#icons' id='icons'>Icons</a></h3>
-<p>In the new version, the icons have been updated to a set from Bootstrap.
-While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
-<p>To do this, simply add the following line to your <code>composer.json</code> file:</p>
-<pre><code class="language-bash">"orchid/icons": "^2.0",
+<h3><a href='#listener' id='listener'>Listener</a></h3>
+<p>Previously, working with Listeners could sometimes confuse users.
+Therefore, Listeners no longer have a property that specifies the screen method.
+Instead, there is a mandatory default method called <code>handler</code>.
+The current state of the screen is passed as the first argument to this method, and the <code>request</code> object is passed as the second argument.</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Illuminate\Http\Request;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
+
+class SubtractListener extends Listener
+{
+    /**
+     * List of field names for which values will be listened.
+     *
+     * @var string[]
+     */
+    protected $targets = [
+        'minuend',
+        'subtrahend',
+    ];
+
+    /**
+     * @return Layout[]
+     */
+    protected function layouts(): iterable
+    {
+        return [
+            Layout::rows([
+                Input::make('minuend')
+                    -&gt;title('First argument')
+                    -&gt;type('number'),
+
+                Input::make('subtrahend')
+                    -&gt;title('Second argument')
+                    -&gt;type('number'),
+
+                Input::make('result')
+                    -&gt;readonly()
+                    -&gt;canSee($this-&gt;query-&gt;has('result')),
+            ]),
+        ];
+    }
+
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        [$minuend, $subtrahend] = $request-&gt;all();
+
+        return $repository
+            -&gt;set('minuend', $minuend)
+            -&gt;set('subtrahend', $subtrahend)
+            -&gt;set('result', $minuend - $subtrahend);
+    }
+}
 </code></pre>
-<p>And then specify in your configuration file:</p>
-<pre><code class="language-php">'icons' =&gt; [
-    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
-],
+<h3><a href='#automatic-http-filtering-and-sorting' id='automatic-http-filtering-and-sorting'>Automatic HTTP Filtering and Sorting</a></h3>
+<p>The automatic filters were previously based on the type of data entered by the user, which often led to errors.
+For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array.
+Therefore, filters now need to specify their behavior explicitly:</p>
+<pre><code class="language-php">namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+
+class Post extends Model
+{
+    use Filterable;
+
+    protected $allowedFilters = [
+        'id' =&gt; Where::class,
+        'content' =&gt; Like::class,
+    ];
+}
 </code></pre>
-<p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
+<p>Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields.
+We are working on finding a more efficient and safer way to handle JSON fields in the future.</p>
 <h3><a href='#navigation' id='navigation'>Navigation</a></h3>
 <p>In version 14.0, the profile drop-down menu has been removed.
 Instead, it is suggested to specify the profile information in the main menu or on the screens.
@@ -546,29 +629,18 @@ Dashboard::addMenuSubElements('sub-menu', [
     Menu::make('Sub element item 3')-&gt;icon('badge')
 ]);
 </code></pre>
-<h3><a href='#automatic-http-filtering-and-sorting' id='automatic-http-filtering-and-sorting'>Automatic HTTP Filtering and Sorting</a></h3>
-<p>The automatic filters were previously based on the type of data entered by the user, which often led to errors.
-For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array.
-Therefore, filters now need to specify their behavior explicitly:</p>
-<pre><code class="language-php">namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filters\Filterable;
-use Orchid\Filters\Types\Like;
-use Orchid\Filters\Types\Where;
-
-class Post extends Model
-{
-    use Filterable;
-
-    protected $allowedFilters = [
-        'id' =&gt; Where::class,
-        'content' =&gt; Like::class,
-    ];
-}
+<h3><a href='#icons' id='icons'>Icons</a></h3>
+<p>In the new version, the icons have been updated to a set from Bootstrap.
+While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
+<p>To do this, simply add the following line to your <code>composer.json</code> file:</p>
+<pre><code class="language-bash">"orchid/icons": "^2.0",
 </code></pre>
-<p>Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields.
-We are working on finding a more efficient and safer way to handle JSON fields in the future.</p>
+<p>And then specify in your configuration file:</p>
+<pre><code class="language-php">'icons' =&gt; [
+    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
+],
+</code></pre>
+<p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
 <p>The behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must be explicitly defined by the developer.
 To do this, you can add button definitions to your profile screen.</p>
