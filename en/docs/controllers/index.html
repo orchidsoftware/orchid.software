@@ -374,7 +374,9 @@ class OrchidController extends Controller
 </code></pre>
 <p>To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file (e.g. <code>routes/platform</code>). This will ensure that common rules such as authorization apply to the controller.</p>
 <p>Here is an example of how to declare a route for the <code>OrchidController</code>:</p>
-<pre><code class="language-php">Route::get('custom', [\App\Http\Controllers\OrchidController::class, 'index']);
+<pre><code class="language-php">use App\Http\Controllers\OrchidController;
+
+Route::get('custom', [OrchidController::class, 'index']);
 </code></pre>
 <p>You can now access your custom controller by visiting the custom route in your Orchid app.</p>
 </body>
