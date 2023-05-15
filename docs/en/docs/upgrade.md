@@ -29,6 +29,9 @@ Before starting the upgrade process, it is important to backup your existing app
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
+### Preserving State
+
+One of the main new features of the release is the ability to save the states of public properties between actions on the screen.
 
 ### Route Binding
 
@@ -47,27 +50,102 @@ It also provides other opportunities that were not explicitly tied to what you'r
 > Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an empty parameter.
 > However, this now triggers a 404 error.
 
-### Icons
+### Listener
 
-In the new version, the icons have been updated to a set from Bootstrap. 
-While replacing all the icons in existing applications can be a challenge, 
-you have the option to continue using the icons from Orchid.
-
-To do this, simply add the following line to your `composer.json` file:
-
-```bash
-"orchid/icons": "^2.0",
-```
-
-And then specify in your configuration file:
+Previously, working with Listeners could sometimes confuse users. 
+Therefore, Listeners no longer have a property that specifies the screen method.
+Instead, there is a mandatory default method called `handler`.
+The current state of the screen is passed as the first argument to this method, and the `request` object is passed as the second argument.
 
 ```php
-'icons' => [
-    'orc' => \Orchid\IconPack\Path::getFolder(),
-],
+namespace App\Orchid\Layouts;
+
+use Illuminate\Http\Request;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
+
+class SubtractListener extends Listener
+{
+    /**
+     * List of field names for which values will be listened.
+     *
+     * @var string[]
+     */
+    protected $targets = [
+        'minuend',
+        'subtrahend',
+    ];
+
+    /**
+     * @return Layout[]
+     */
+    protected function layouts(): iterable
+    {
+        return [
+            Layout::rows([
+                Input::make('minuend')
+                    ->title('First argument')
+                    ->type('number'),
+
+                Input::make('subtrahend')
+                    ->title('Second argument')
+                    ->type('number'),
+
+                Input::make('result')
+                    ->readonly()
+                    ->canSee($this->query->has('result')),
+            ]),
+        ];
+    }
+
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        [$minuend, $subtrahend] = $request->all();
+
+        return $repository
+            ->set('minuend', $minuend)
+            ->set('subtrahend', $subtrahend)
+            ->set('result', $minuend - $subtrahend);
+    }
+}
 ```
 
-By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.
+
+### Automatic HTTP Filtering and Sorting
+
+The automatic filters were previously based on the type of data entered by the user, which often led to errors.
+For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array.
+Therefore, filters now need to specify their behavior explicitly:
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+
+class Post extends Model
+{
+    use Filterable;
+
+    protected $allowedFilters = [
+        'id' => Where::class,
+        'content' => Like::class,
+    ];
+}
+```
+
+Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields.
+We are working on finding a more efficient and safer way to handle JSON fields in the future.
 
 ### Navigation
 
@@ -113,34 +191,28 @@ Dashboard::addMenuSubElements('sub-menu', [
 ]);
 ```
 
-### Automatic HTTP Filtering and Sorting
 
-The automatic filters were previously based on the type of data entered by the user, which often led to errors. 
-For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array. 
-Therefore, filters now need to specify their behavior explicitly:
+### Icons
 
-```php
-namespace App;
+In the new version, the icons have been updated to a set from Bootstrap.
+While replacing all the icons in existing applications can be a challenge,
+you have the option to continue using the icons from Orchid.
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filters\Filterable;
-use Orchid\Filters\Types\Like;
-use Orchid\Filters\Types\Where;
+To do this, simply add the following line to your `composer.json` file:
 
-class Post extends Model
-{
-    use Filterable;
-
-    protected $allowedFilters = [
-        'id' => Where::class,
-        'content' => Like::class,
-    ];
-}
+```bash
+"orchid/icons": "^2.0",
 ```
 
-Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields. 
-We are working on finding a more efficient and safer way to handle JSON fields in the future.
+And then specify in your configuration file:
 
+```php
+'icons' => [
+    'orc' => \Orchid\IconPack\Path::getFolder(),
+],
+```
+
+By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.
 
 ### Logout and Quit Impersonation
 
