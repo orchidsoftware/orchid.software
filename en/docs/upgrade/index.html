@@ -641,6 +641,12 @@ While replacing all the icons in existing applications can be a challenge, you h
 ],
 </code></pre>
 <p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
+<p>For the new icons to be displayed as well, add:</p>
+<pre><code class="language-php">'icons' =&gt; [
+    // ...
+    'bs' =&gt; \Orchid\Support\BootstrapIconsPath::getFolder(),
+],
+</code></pre>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
 <p>The behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must be explicitly defined by the developer.
 To do this, you can add button definitions to your profile screen.</p>
