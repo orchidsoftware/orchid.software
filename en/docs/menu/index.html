@@ -338,9 +338,6 @@
                     <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#location-selection">Location Selection</a>
-                </li>
-                            <li class="anchor-h2">
                     <a href="#links">Links</a>
                 </li>
                             <li class="anchor-h2">
@@ -375,7 +372,7 @@ class PlatformProvider extends OrchidServiceProvider
 {
     // ...
     
-    public function registerMainMenu(): array
+    public function registerMenu(): array
     {
         return [
             Menu::make('Example')-&gt;url('https://orchid.software/'),
@@ -383,14 +380,6 @@ class PlatformProvider extends OrchidServiceProvider
     }
 }
 </code></pre>
-<p>The methods <code>registerMainMenu</code> and <code>registerProfileMenu</code> must return the menu items that are required to be displayed.</p>
-<h2><a href='#location-selection' id='location-selection'>Location Selection</a></h2>
-<p>Let&rsquo;s look at an example. Initially we create an <code>Menu</code> object, setting various parameters, and then add the item to a specific place.
-There are several such places:</p>
-<ul>
-<li><strong>registerMainMenu</strong> &ndash; The menu is displayed on each page on the left side.</li>
-<li><strong>registerProfileMenu</strong> &ndash; The menu displayed when you click on the profile.</li>
-</ul>
 <blockquote>
 <p><strong>Note.</strong> for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the <code>slug</code> method.</p>
 </blockquote>
