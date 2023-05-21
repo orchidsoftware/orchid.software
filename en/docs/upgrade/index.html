@@ -496,6 +496,22 @@
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^14.0</code></p>
 <h3><a href='#preserving-state' id='preserving-state'>Preserving State</a></h3>
 <p>One of the main new features of the release is the ability to save the states of public properties between actions on the screen.</p>
+<p>Let&rsquo;s take an example. While viewing the screen in the <code>query</code> method, we can set public properties that will be accessible in the <code>name/layouts</code> methods and others.</p>
+<p>Now, these public properties will be saved and available for the execution methods.</p>
+<pre><code class="language-php">public $idea;
+
+public function query() : array
+{
+    return [
+        'idea' =&gt; Idea::first()
+    ];
+}
+
+public function yourMethod()
+{
+    $this-&gt;idea; // The property is not empty and contains the value that was set at the beginning.
+}
+</code></pre>
 <h3><a href='#route-binding' id='route-binding'>Route Binding</a></h3>
 <p>For a long time, Orchid has been using its own solution for defining route arguments.
 However, for the vast majority of methods (query/method), the same solution as with Controller is used.
