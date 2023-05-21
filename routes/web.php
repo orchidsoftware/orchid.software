@@ -21,6 +21,7 @@ Route::get('/{locale?}', function (string $locale = 'en') {
 })->where('locale', 'en|ru');
 
 
+/*
 Route::get('/{locale}/{type}/icons', function (string $locale, string $type) {
 
     $icons = collect(scandir(\Orchid\IconPack\Path::getFolder()))
@@ -39,6 +40,7 @@ Route::get('/{locale}/{type}/icons', function (string $locale, string $type) {
         ->with('icons', $icons);
 
 })->where('locale', 'en|ru');
+*/
 
 
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {

@@ -3,6 +3,10 @@ title: Icons
 description: Learn how to use and implement SVG icons in your Laravel Orchid projects with the detailed documentation on the "SVG Icons" page. Discover best practices and troubleshooting tips for adding custom SVG icons to your application.
 ---
 
+The package comes with a set of icons that can be found on the [Bootstrap Icons](https://icons.getbootstrap.com/). 
+These icons are prefixed with `bs.*` which is used as a prefix to identify the icons in your code.
+
+
 ## Custom Icons
 
 In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new `icons` directory and a `fontawesome` subdirectory in your `resources` folder:
