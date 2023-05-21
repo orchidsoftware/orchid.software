@@ -340,6 +340,9 @@
                             <li class="anchor-h2">
                     <a href="#selection">Selection</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
+                </li>
                     </ul>
     </div>
                         <body><p>Filters used to simplify the search for records using a typical filter.
@@ -443,7 +446,7 @@ public function layout(): array
     ];
 }
 </code></pre>
-<h1>Automatic HTTP Filtering and Sorting</h1>
+<h2><a href='#automatic-http-filtering-and-sorting' id='automatic-http-filtering-and-sorting'>Automatic HTTP Filtering and Sorting</a></h2>
 <p>To automatically filter and sort your application&rsquo;s data based on user-supplied HTTP parameters, package provides a powerful and flexible set of tools.
 The key to using these tools effectively is to ensure that your model includes the <code>Filterable</code> trait, and implements a whitelist of acceptable filter and sort parameters.</p>
 <p>For example, here&rsquo;s how you might set up an <code>App\Models\Post</code> model to be filterable:</p>
@@ -513,7 +516,8 @@ $model-&gt;whereIn('id', [1,2,3]);
 </code></pre>
 <p>This query will apply a <code>whereIn</code> clause to the <code>id</code> column of your model, filtering for records where the ID is one of the specified values.</p>
 <pre><code class="language-php">http://example.com/demo?filter[rating][min]=1&amp;filter[rating][max]=5
-$model-&gt;where('rating', '&gt;=', 1)-&gt;where('rating', '&lt;=', 5);
+$model-&gt;where('rating', '&gt;=', 1)
+    -&gt;where('rating', '&lt;=', 5);
 </code></pre>
 <p>This query will apply two separate <code>where</code> clauses to the <code>rating</code> column of your model, filtering for records where the rating is between 1&nbsp;and 5.</p>
 <pre><code class="language-php">http://example.com/demo?filter[rating][min]=1
@@ -525,7 +529,8 @@ $model-&gt;where('publish_at', '2023-02-02')
 </code></pre>
 <p>This query will apply a single <code>where</code> clause to the <code>publish_at</code> column of your model, filtering for records where the <code>publish_at</code> date is exactly equal to February 2, 2023.</p>
 <pre><code class="language-php">http://example.com/demo?filter[created_at][start]=2023-01-01&amp;filter[created_at][end]=2023-02-02
-$model-&gt;whereDate('created_at', '&gt;=', '2023-01-01')-&gt;whereDate('created_at', '&lt;=', '2023-02-02');
+$model-&gt;whereDate('created_at', '&gt;=', '2023-01-01')
+    -&gt;whereDate('created_at', '&lt;=', '2023-02-02');
 </code></pre>
 <p>This query will apply two separate <code>whereDate</code> clauses to the <code>created_at</code> column of your model, filtering for records where the <code>created_at</code> date falls within the specified range.</p>
 <pre><code class="language-php">http://example.com/demo?filter[created_at][start]=2023-01-01
