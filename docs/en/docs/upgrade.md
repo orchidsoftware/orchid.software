@@ -33,6 +33,26 @@ In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
 One of the main new features of the release is the ability to save the states of public properties between actions on the screen.
 
+Let's take an example. While viewing the screen in the `query` method, we can set public properties that will be accessible in the `name/layouts` methods and others.
+
+Now, these public properties will be saved and available for the execution methods.
+
+```php
+public $idea;
+
+public function query() : array
+{
+    return [
+        'idea' => Idea::first()
+    ];
+}
+
+public function yourMethod()
+{
+    $this->idea; // The property is not empty and contains the value that was set at the beginning.
+}
+```
+
 ### Route Binding
 
 For a long time, Orchid has been using its own solution for defining route arguments.
