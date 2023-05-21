@@ -13,7 +13,7 @@ You must expand the structure for your specific applications.
 
 ## Eloquent Filter
 
-When you need to create more complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
+When you need to create complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
 There is an artisan command to create a new filter:
 
 ```php
@@ -279,6 +279,6 @@ $model->orderBy('content->ru->name', 'desc');
 ```
 -->
 
-HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
+> HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
 
 
