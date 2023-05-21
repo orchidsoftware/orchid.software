@@ -21,6 +21,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereDate;
+use Orchid\Filters\Types\WhereMaxMin;
+use Orchid\Filters\Types\WhereDateStartEnd;
 
 class Post extends Model
 {
@@ -30,16 +35,13 @@ class Post extends Model
      * @var array
      */
     protected $allowedFilters = [
-        'id',
-        'user_id',
-        'type',
-        'status',
-        'content',
-        'options',
-        'slug',
-        'publish_at',
-        'created_at',
-        'deleted_at',
+        'id'            => Where::class,
+        'user_id'       => WhereIn::class,
+        'rating'        => WhereMaxMin::class,
+        'content'       => Like::class,
+        'publish_at'    => WhereDate::class,
+        'created_at'    => WhereDateStartEnd::class,
+        'deleted_at'    => WhereDateStartEnd::class,
     ];
 
     /**
@@ -48,9 +50,7 @@ class Post extends Model
     protected $allowedSorts = [
         'id',
         'user_id',
-        'type',
-        'status',
-        'slug',
+        'rating',
         'publish_at',
         'created_at',
         'deleted_at',
@@ -76,7 +76,6 @@ $model->where('id', '=', 1)
 http://example.com/demo?filter[name]=A
 $model->where('name', 'like', '%A%')
 
-
 http://example.com/demo?filter[id]=1,2,3,4,5
 $model->whereIn('id', [1,2,3,4,5]);
 
@@ -86,10 +85,27 @@ $model->whereBetween('id', [1,5]);
 http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
 $model->whereIn('id', [1,2,3]);
 
+http://example.com/demo?filter[rating][min]=1&filter[rating][max]=5
+$model->where('rating', '>=', 1)->where('rating', '<=', 5);
 
+http://example.com/demo?filter[rating][min]=1
+$model->where('rating', '>=', 1);
+
+http://example.com/demo?filter[publish_at]=2023-02-02
+$model->where('publish_at', '2023-02-02')
+
+http://example.com/demo?filter[created_at][start]=2023-01-01&filter[created_at][end]=2023-02-02
+$model->whereDate('created_at', '>=', '2023-01-01')->whereDate('created_at', '<=', '2023-02-02');
+
+http://example.com/demo?filter[created_at][start]=2023-01-01
+$model->whereDate('created_at', '>=', '2023-01-01')
+
+```
+
+<!--
 http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model->where('content->ru->name', 'like', 'dwqdwq');
-```
+
 
 > **Note.** Filter accomodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
 
@@ -103,6 +119,7 @@ $model->orderBy('content->ru->name', 'asc');
 http://example.com/demo?sort=-content.ru.name
 $model->orderBy('content->ru->name', 'desc');
 ```
+-->
 
 HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
 
