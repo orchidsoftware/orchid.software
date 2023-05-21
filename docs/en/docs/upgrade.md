@@ -49,8 +49,9 @@ public function query() : array
 
 public function yourMethod()
 {
-    // The property is not empty and contains the value that was set at the beginning.
     $this->idea; 
+    // The property is not empty and contains
+    // the value that was set at the beginning.
 }
 ```
 
