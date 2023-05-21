@@ -48,7 +48,7 @@ class Post extends Model
 ```
 
 Now, when calling the `filters` method, the database query will be modified.
-In the data source method of the `PostListScreen` screen, it will look like this:
+In the data source method of the `PostListScreen` screen, it will look like this: 
 
 ```php
 /**
@@ -120,13 +120,15 @@ After that, the column heading will respond to clicking and change the sorting p
 The trait `Filterable`, allows you to set not only sorting. But also simple `Http` filtering, to set it back to the model and add a new property:
  
 ```php
+use Orchid\Filters\Types\Like;
+
 /**
  * Name of columns to which http filter can be applied
  *
  * @var array
  */
 protected $allowedFilters = [
-    'title',
+    'title' => Like::class,
 ];
 ```
  
