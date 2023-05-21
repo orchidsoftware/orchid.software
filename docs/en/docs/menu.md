@@ -19,7 +19,7 @@ class PlatformProvider extends OrchidServiceProvider
 {
     // ...
     
-    public function registerMainMenu(): array
+    public function registerMenu(): array
     {
         return [
             Menu::make('Example')->url('https://orchid.software/'),
@@ -27,17 +27,6 @@ class PlatformProvider extends OrchidServiceProvider
     }
 }
 ```
-
-The methods `registerMainMenu` and `registerProfileMenu` must return the menu items that are required to be displayed.
-
-## Location Selection
-
-Let's look at an example. Initially we create an `Menu` object, setting various parameters, and then add the item to a specific place.
-There are several such places:
-
-- **registerMainMenu** - The menu is displayed on each page on the left side.
-- **registerProfileMenu** - The menu displayed when you click on the profile.
-
 
 > **Note.** for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the `slug` method.
 
