@@ -353,7 +353,7 @@ The sample values based on the Http request parameters.</p>
 You must expand the structure for your specific applications.</p>
 </blockquote>
 <h2><a href='#eloquent-filter' id='eloquent-filter'>Eloquent Filter</a></h2>
-<p>When you need to create more complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
+<p>When you need to create complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
 There is an artisan command to create a new filter:</p>
 <pre><code class="language-php">php artisan orchid:filter QueryFilter
 </code></pre>
@@ -555,7 +555,9 @@ http://example.com/demo?sort=-content.ru.name
 $model->orderBy('content->ru->name', 'desc');
 ```
 -->
+<blockquote>
 <p>HTTP filters or sorting do not have separate display templates. You can see an example of this <a href="/en/docs/table/#sorting">use in the table headers</a>.</p>
+</blockquote>
 </body>
                     </main>
                 </div>
