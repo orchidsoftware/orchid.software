@@ -41,7 +41,7 @@ In order to display the icons in the package's components, you only need to pass
 ```php
 Menu::make('Example of custom icons')
     ->icon('fa.address-book')
-    ->url(#);
+    ->url('https://orchid.software');
 ```
 
 You can also use the icons outside of the admin panel by [using the Blade component](https://github.com/orchidsoftware/blade-icons).
