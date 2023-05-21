@@ -29,6 +29,7 @@ Next, you need to configure the package to search for icons in the new directory
 
 ```php
 'icons' => [
+    // ...
     'fa' => resource_path('icons/fontawesome')
 ],
 ```
