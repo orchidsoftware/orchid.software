@@ -349,6 +349,7 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
 <p>Once you have created the new directory, you can download the appropriate icons and place them in the new directory. For example, you can download the <a href="https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg">notebook icon</a> and place it in the <code>fontawesome</code> subdirectory.</p>
 <p>Next, you need to configure the package to search for icons in the new directory. You can do this by editing the <code>config/platform.php</code> configuration file:</p>
 <pre><code class="language-php">'icons' =&gt; [
+    // ...
     'fa' =&gt; resource_path('icons/fontawesome')
 ],
 </code></pre>
