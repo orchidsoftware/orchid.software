@@ -133,7 +133,7 @@ public function layout(): array
 
 
 
-# Automatic HTTP Filtering and Sorting
+## Automatic HTTP Filtering and Sorting
 
 To automatically filter and sort your application's data based on user-supplied HTTP parameters, package provides a powerful and flexible set of tools.
 The key to using these tools effectively is to ensure that your model includes the `Filterable` trait, and implements a whitelist of acceptable filter and sort parameters.
@@ -224,7 +224,8 @@ This query will apply a `whereIn` clause to the `id` column of your model, filte
 
 ```php
 http://example.com/demo?filter[rating][min]=1&filter[rating][max]=5
-$model->where('rating', '>=', 1)->where('rating', '<=', 5);
+$model->where('rating', '>=', 1)
+    ->where('rating', '<=', 5);
 ```
 
 This query will apply two separate `where` clauses to the `rating` column of your model, filtering for records where the rating is between 1 and 5.
@@ -245,7 +246,8 @@ This query will apply a single `where` clause to the `publish_at` column of your
 
 ```php
 http://example.com/demo?filter[created_at][start]=2023-01-01&filter[created_at][end]=2023-02-02
-$model->whereDate('created_at', '>=', '2023-01-01')->whereDate('created_at', '<=', '2023-02-02');
+$model->whereDate('created_at', '>=', '2023-01-01')
+    ->whereDate('created_at', '<=', '2023-02-02');
 ```
 
 This query will apply two separate `whereDate` clauses to the `created_at` column of your model, filtering for records where the `created_at` date falls within the specified range.
