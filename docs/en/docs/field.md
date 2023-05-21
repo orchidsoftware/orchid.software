@@ -972,4 +972,4 @@ Result is an array with keys of `min`, `max`.
 
 ## Creating Custom Fields
 
-To create your own custom fields, check out the page "[Builder](/en/docs/builder)".
+To create your own custom fields, check out the page "[Builder](/en/docs/builder)" in the documentation. 
