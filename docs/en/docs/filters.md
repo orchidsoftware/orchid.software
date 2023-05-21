@@ -11,119 +11,6 @@ The sample values based on the Http request parameters.
 You must expand the structure for your specific applications.
 
 
-## Automatic HTTP Filtering and Sorting
-
-To respond to HTTP parameters, the model must include `Filterable`, as well as the definition of available
-attributes:
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filters\Filterable;
-use Orchid\Filters\Types\Like;
-use Orchid\Filters\Types\Where;
-use Orchid\Filters\Types\WhereDate;
-use Orchid\Filters\Types\WhereMaxMin;
-use Orchid\Filters\Types\WhereDateStartEnd;
-
-class Post extends Model
-{
-    use Filterable;
-
-    /**
-     * @var array
-     */
-    protected $allowedFilters = [
-        'id'            => Where::class,
-        'user_id'       => WhereIn::class,
-        'rating'        => WhereMaxMin::class,
-        'content'       => Like::class,
-        'publish_at'    => WhereDate::class,
-        'created_at'    => WhereDateStartEnd::class,
-        'deleted_at'    => WhereDateStartEnd::class,
-    ];
-
-    /**
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'user_id',
-        'rating',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
-}
-```
-
-Usage is a method call `filters`:
-
-```php
-Post::filters()->defaultSort('id')->paginate();
-```
-
-> **Note.** Automatic HTTP filters will not work with relationships. If you are interested in these, you can use the Eloquent filter discussed below.
-
-
-How filtering will react:
-
-```php
-http://example.com/demo?filter[id]=1
-$model->where('id', '=', 1)
-
-http://example.com/demo?filter[name]=A
-$model->where('name', 'like', '%A%')
-
-http://example.com/demo?filter[id]=1,2,3,4,5
-$model->whereIn('id', [1,2,3,4,5]);
-
-http://example.com/demo?filter[id][min]=1&filter[id][max]=5
-$model->whereBetween('id', [1,5]);
-
-http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
-$model->whereIn('id', [1,2,3]);
-
-http://example.com/demo?filter[rating][min]=1&filter[rating][max]=5
-$model->where('rating', '>=', 1)->where('rating', '<=', 5);
-
-http://example.com/demo?filter[rating][min]=1
-$model->where('rating', '>=', 1);
-
-http://example.com/demo?filter[publish_at]=2023-02-02
-$model->where('publish_at', '2023-02-02')
-
-http://example.com/demo?filter[created_at][start]=2023-01-01&filter[created_at][end]=2023-02-02
-$model->whereDate('created_at', '>=', '2023-01-01')->whereDate('created_at', '<=', '2023-02-02');
-
-http://example.com/demo?filter[created_at][start]=2023-01-01
-$model->whereDate('created_at', '>=', '2023-01-01')
-
-```
-
-<!--
-http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name', 'like', 'dwqdwq');
-
-
-> **Note.** Filter accomodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
-
-
-How sorting will respond:
-
-```php
-http://example.com/demo?sort=content.ru.name
-$model->orderBy('content->ru->name', 'asc');
-
-http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content->ru->name', 'desc');
-```
--->
-
-HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
-
-
 ## Eloquent Filter
 
 When you need to create more complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
@@ -244,5 +131,152 @@ public function layout(): array
 }
 ```
 
+
+
+# Automatic HTTP Filtering and Sorting
+
+To automatically filter and sort your application's data based on user-supplied HTTP parameters, package provides a powerful and flexible set of tools.
+The key to using these tools effectively is to ensure that your model includes the `Filterable` trait, and implements a whitelist of acceptable filter and sort parameters.
+
+For example, here's how you might set up an `App\Models\Post` model to be filterable:
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereDate;
+use Orchid\Filters\Types\WhereMaxMin;
+use Orchid\Filters\Types\WhereDateStartEnd;
+
+class Post extends Model
+{
+    use Filterable;
+
+    /**
+     * @var array
+     */
+    protected $allowedFilters = [
+        'id'            => Where::class,
+        'user_id'       => WhereIn::class,
+        'rating'        => WhereMaxMin::class,
+        'content'       => Like::class,
+        'publish_at'    => WhereDate::class,
+        'created_at'    => WhereDateStartEnd::class,
+        'deleted_at'    => WhereDateStartEnd::class,
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'user_id',
+        'rating',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+}
+```
+Once your model is properly configured, using the filter and sort functionality is as simple as a method call to `filters()`, like so:
+
+```php
+Post::filters()->defaultSort('id')->paginate();
+```
+This code will automatically apply any filters or sorting rules that were included in the user's HTTP request.
+
+In order to use this feature effectively, it's important to have a solid understanding of how the HTTP parameters are translated into database queries. For example:
+
+```php
+http://example.com/demo?filter[id]=1
+$model->where('id', '=', 1)
+```
+This query will apply a `where` clause to the `id` column of your model, filtering out any records that don't match the value provided by the user.
+
+```php
+http://example.com/demo?filter[name]=A
+$model->where('name', 'like', '%A%')
+```
+This query will apply a `like` clause to the `name` column of your model, searching for any records that contain the letter "A" in their name.
+
+```php
+http://example.com/demo?filter[id]=1,2,3,4,5
+$model->whereIn('id', [1,2,3,4,5]);
+```
+
+This query will apply a `wherein` clause to the `id` column of your model, filtering for any records that match one of the specified IDs.
+
+```php
+http://example.com/demo?filter[id][min]=1&filter[id][max]=5
+$model->whereBetween('id', [1,5]);
+```
+
+This query will apply a `wherebetween` clause to the `id` column of your model, filtering for records where the ID is between 1 and 5.
+
+```php
+http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
+$model->whereIn('id', [1,2,3]);
+```
+
+This query will apply a `whereIn` clause to the `id` column of your model, filtering for records where the ID is one of the specified values.
+
+```php
+http://example.com/demo?filter[rating][min]=1&filter[rating][max]=5
+$model->where('rating', '>=', 1)->where('rating', '<=', 5);
+```
+
+This query will apply two separate `where` clauses to the `rating` column of your model, filtering for records where the rating is between 1 and 5.
+
+```php
+http://example.com/demo?filter[rating][min]=1
+$model->where('rating', '>=', 1);
+```
+
+This query will apply a single `where` clause to the `rating` column of your model, filtering for records where the rating is greater than or equal to 1.
+
+```php
+http://example.com/demo?filter[publish_at]=2023-02-02
+$model->where('publish_at', '2023-02-02')
+```
+
+This query will apply a single `where` clause to the `publish_at` column of your model, filtering for records where the `publish_at` date is exactly equal to February 2, 2023.
+
+```php
+http://example.com/demo?filter[created_at][start]=2023-01-01&filter[created_at][end]=2023-02-02
+$model->whereDate('created_at', '>=', '2023-01-01')->whereDate('created_at', '<=', '2023-02-02');
+```
+
+This query will apply two separate `whereDate` clauses to the `created_at` column of your model, filtering for records where the `created_at` date falls within the specified range.
+
+```php
+http://example.com/demo?filter[created_at][start]=2023-01-01
+$model->whereDate('created_at', '>=', '2023-01-01')
+```
+
+This query will apply a single `whereDate` clause to the `created_at` column of your model, filtering for records where the `created_at` date is greater than or equal to January 1, 2023.
+
+
+<!--
+http://example.com/demo?filter[content.ru.name]=dwqdwq
+$model->where('content->ru->name', 'like', 'dwqdwq');
+
+
+> **Note.** Filter accomodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
+
+
+How sorting will respond:
+
+```php
+http://example.com/demo?sort=content.ru.name
+$model->orderBy('content->ru->name', 'asc');
+
+http://example.com/demo?sort=-content.ru.name
+$model->orderBy('content->ru->name', 'desc');
+```
+-->
+
+HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
 
 
