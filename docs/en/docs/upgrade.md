@@ -19,7 +19,7 @@ We believe in keeping our package up-to-date and modern, and therefore follow a 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
 
-## Upgrading to 14.0 from 13.x (Coming Soon)
+## Upgrading to 14.0 from 13.x
 
 Upgrading Laravel Orchid from version `13.x` to `14.0` can be a straightforward process if done correctly.
 
