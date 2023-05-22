@@ -90,7 +90,7 @@ Menu::make('Example')->canSee(true);
 For a menu item, you can specify a graphic icon with:
 
 ```php
-Menu::make('Example')->icon('heart');
+Menu::make('Example')->icon('bs.heart');
 ```
 
 It is also possible to integrate into a visual group by setting the title for the first element:
@@ -127,8 +127,8 @@ You can specify a single-level submenu as follows:
 Menu::make('Dropdown menu')
     ->icon('code')
     ->list([
-        Menu::make('Sub element item 1')->icon('bag')->sort(2),
-        Menu::make('Sub element item 2')->icon('heart')->sort(0),
+        Menu::make('Sub element item 1')->icon('bs.bag')->sort(2),
+        Menu::make('Sub element item 2')->icon('bs.heart')->sort(0),
     ]),
 ```
 
@@ -139,8 +139,8 @@ Menu::make('Dropdown menu')
     ->slug('sub-menu')
     ->icon('code')
     ->list([
-        Menu::make('Sub element item 1')->icon('bag'),
-        Menu::make('Sub element item 2')->icon('heart'),
+        Menu::make('Sub element item 1')->icon('bs.bag'),
+        Menu::make('Sub element item 2')->icon('bs.heart'),
     ]),
 ```
 
