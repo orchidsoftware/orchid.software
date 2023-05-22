@@ -344,13 +344,13 @@
                     <a href="#reversing-the-order-on-mobile">Reversing the Order on Mobile</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#accordion">Accordion</a>
-                </li>
-                            <li class="anchor-h2">
                     <a href="#columns">Columns</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#tabs">Tabs</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#accordion">Accordion</a>
                 </li>
                     </ul>
     </div>
@@ -399,56 +399,6 @@ Layout::split([
 ])-&gt;ratio('40/60')-&gt;reverseOnPhone(),
 </code></pre>
 <p>This will create a <code>Split</code> layout with a <code>40/60</code> ratio, and the order of the sections will be reversed on mobile devices.</p>
-<h2><a href='#accordion' id='accordion'>Accordion</a></h2>
-<p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.</p>
-<p>Here is an example of an accordion:</p>
-<p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
-<p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.</p>
-<p>Here is an example of how to create an accordion using the short syntax:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-
-public function layout(): array
-{
-    return [
-        Layout::accordion([
-            'Personal Information' =&gt; [
-                Layout::rows([
-                    Input::make('user.name')
-                        -&gt;type('text')
-                        -&gt;required()
-                        -&gt;title('Name')
-                        -&gt;placeholder('Name'),
-
-                    Input::make('user.email')
-                        -&gt;type('email')
-                        -&gt;required()
-                        -&gt;title('Email')
-                        -&gt;placeholder('Email'),
-                ]),
-            ],
-            'Billing Address'      =&gt; [
-                Layout::rows([
-                    Input::make('address')
-                        -&gt;type('text')
-                        -&gt;required(),
-                ]),
-            ],
-        ]),
-    ];
-}
-</code></pre>
-<p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address&rdquo;. The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
-<p>You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:</p>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::accordion([
-            'Personal Information' =&gt; PersonalInformationRow::class,
-            'Billing Address'      =&gt; BillingAddressRow::class,
-        ]),
-    ];
-}
-</code></pre>
 <h2><a href='#columns' id='columns'>Columns</a></h2>
 <p>Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.</p>
 <blockquote>
@@ -528,6 +478,56 @@ If you need to define the active tab explicitly, you can do this using the <code
             'Personal Information' =&gt; PersonalInformationRow::class,
             'Billing Address'      =&gt; BillingAddressRow::class,
         ])-&gt;activeTab('Billing Address'),
+    ];
+}
+</code></pre>
+<h2><a href='#accordion' id='accordion'>Accordion</a></h2>
+<p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.</p>
+<p>Here is an example of an accordion:</p>
+<p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
+<p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.</p>
+<p>Here is an example of how to create an accordion using the short syntax:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' =&gt; [
+                Layout::rows([
+                    Input::make('user.name')
+                        -&gt;type('text')
+                        -&gt;required()
+                        -&gt;title('Name')
+                        -&gt;placeholder('Name'),
+
+                    Input::make('user.email')
+                        -&gt;type('email')
+                        -&gt;required()
+                        -&gt;title('Email')
+                        -&gt;placeholder('Email'),
+                ]),
+            ],
+            'Billing Address'      =&gt; [
+                Layout::rows([
+                    Input::make('address')
+                        -&gt;type('text')
+                        -&gt;required(),
+                ]),
+            ],
+        ]),
+    ];
+}
+</code></pre>
+<p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address&rdquo;. The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
+<p>You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::accordion([
+            'Personal Information' =&gt; PersonalInformationRow::class,
+            'Billing Address'      =&gt; BillingAddressRow::class,
+        ]),
     ];
 }
 </code></pre>
