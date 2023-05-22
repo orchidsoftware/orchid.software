@@ -430,9 +430,7 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
 <pre><code class="language-php">Menu::make('Comments')
     -&gt;icon('bubbles')
     -&gt;route('platform.comments')
-    -&gt;badge(function () {
-        return 10;
-    });
+    -&gt;badge(fn () =&gt; 10);
 </code></pre>
 <h2><a href='#sorting-items' id='sorting-items'>Sorting Items</a></h2>
 <p>Sorting set by setting the sequence number:</p>
