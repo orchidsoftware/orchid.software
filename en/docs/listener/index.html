@@ -384,11 +384,11 @@ class PlatformScreen extends Screen
     {
         return [
             Layout::rows([
-                Input::make('a')
+                Input::make('minuend')
                     -&gt;title('First argument')
                     -&gt;type('number'),
 
-                Input::make('b')
+                Input::make('subtrahend')
                     -&gt;title('Second argument')
                     -&gt;type('number'),
             ]),
@@ -397,16 +397,16 @@ class PlatformScreen extends Screen
 }
 </code></pre>
 <p>To create a listener layout, run the <code>artisan</code> command:</p>
-<pre><code class="language-php">php artisan orchid:listener AmountListener
+<pre><code class="language-php">php artisan orchid:listener SubtractListener
 </code></pre>
-<p>In the directory <code>app/Orchid/Layouts</code> a new class will be created with the name<code> AmountListener</code>:</p>
+<p>In the directory <code>app/Orchid/Layouts</code> a new class will be created with the name <code>SubtractListener</code>:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
 
-class AmountListener extends Listener
+class SubtractListener extends Listener
 {
     /**
      * List of field names for which values will be listened.
@@ -416,143 +416,49 @@ class AmountListener extends Listener
     protected $targets = [];
 
     /**
-     * What screen method should be called
-     * as a source for an asynchronous request.
-     *
-     * The name of the method must
-     * begin with the prefix "async"
-     *
-     * @var string
-     */
-    protected $asyncMethod = '';
-
-    /**
      * @return Layout[]
      */
     protected function layouts(): array
     {
-        return [
-            Layout::rows([
-                Input::make('a')
-                    -&gt;title('First argument')
-                    -&gt;type('number'),
-
-                Input::make('b')
-                    -&gt;title('Second argument')
-                    -&gt;type('number'),
-            ]),
-        ];
+        return [];
+    }
+    
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        return $repository;
     }
 }
 </code></pre>
-<p>The <code>targets</code> property specifies the names of the fields, when changed, the required action will be performed. For our example, these are the fields with the names <code>a</code> and <code>b</code>:</p>
+<p>The <code>targets</code> property specifies the names of the fields, when changed, the required action will be performed. For our example, these are the fields with the names <code>minuend</code> and <code>subtrahend</code>:</p>
 <pre><code class="language-php">/**
  * List of field names for which values will be listened.
  *
  * @var string[]
  */
 protected $targets = [
-    'a',
-    'b',
+    'minuend',
+    'subtrahend',
 ];
 </code></pre>
 <blockquote>
 <p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>"users."</code></p>
 </blockquote>
-<p>The <code>asyncMethod</code> property must specify the method that will be called when the fields are changed. This method must be implemented on the screen.
-Add it with the name <code>asyncSum</code>:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
-
-use App\Orchid\Layouts\AmountListener;
-use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Screen;
-
-class PlatformScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'Dashboard';
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Action[]
-     */
-    public function commandBar(): array
-    {
-        return [];
-    }
-
-    /**
-     * @param int|null $a
-     * @param int|null $b
-     *
-     * @return string[]
-     */
-    public function asyncSum(int $a = null, int $b = null)
-    {
-        return [
-            'a' =&gt; $a,
-            'b' =&gt; $b,
-            'sum' =&gt; $a + $b,
-        ];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            AmountListener::class,
-        ];
-    }
-}
-</code></pre>
-<blockquote>
-<p><strong>Please note</strong>. Such a function is a substitute for the <code>query</code> for the required layouts, and the <code>async</code> prefix is required.</p>
-</blockquote>
-<p>And indicate its name:</p>
-<pre><code class="language-php">/**
- * What screen method should be called
- * as a source for an asynchronous request.
- *
- * The name of the method must
- * begin with the prefix "async"
- *
- * @var string
- */
-protected $asyncMethod = 'asyncSum';
-</code></pre>
-<p>It remains only to determine what will be shown in this layer.
-The full class will look like this:</p>
+<p>The <code>handle</code> method that will be called when the fields are changed.</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
+use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
 
-class AmountListener extends Listener
+class SubtractListener extends Listener
 {
     /**
      * List of field names for which values will be listened.
@@ -560,45 +466,49 @@ class AmountListener extends Listener
      * @var string[]
      */
     protected $targets = [
-        'a',
-        'b',
+        'minuend',
+        'subtrahend',
     ];
-
-    /**
-     * What screen method should be called
-     * as a source for an asynchronous request.
-     *
-     * The name of the method must
-     * begin with the prefix "async"
-     *
-     * @var string
-     */
-    protected $asyncMethod = 'asyncSum';
 
     /**
      * @return Layout[]
      */
-    protected function layouts(): array
+    protected function layouts(): iterable
     {
         return [
             Layout::rows([
-                Input::make('a')
+                Input::make('minuend')
                     -&gt;title('First argument')
                     -&gt;type('number'),
 
-                Input::make('b')
+                Input::make('subtrahend')
                     -&gt;title('Second argument')
                     -&gt;type('number'),
 
-                Input::make('sum')
+                Input::make('result')
                     -&gt;readonly()
-                    -&gt;canSee($this-&gt;query-&gt;has('sum')),
+                    -&gt;canSee($this-&gt;query-&gt;has('result')),
             ]),
         ];
     }
+
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        [$minuend, $subtrahend] = $request-&gt;all();
+
+        return $repository
+            -&gt;set('minuend', $minuend)
+            -&gt;set('subtrahend', $subtrahend)
+            -&gt;set('result', $minuend - $subtrahend);
+    }
 }
 </code></pre>
-<p>Now, when changing the values of the input fields, the sum field will change automatically.</p>
 </body>
                     </main>
                 </div>
