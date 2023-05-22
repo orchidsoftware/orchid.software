@@ -4,7 +4,7 @@ description: Learn how to use Laravel Orchid's layer functionality to group and 
 ---
 
 
-# Split Layout
+# Split 
 
 The Split layout is a type of layout that allows you to divide the screen into two customizable sections. 
 This layout is particularly useful when you want to display two separate pieces of information side-by-side.
