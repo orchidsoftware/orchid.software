@@ -119,7 +119,7 @@ And if you ever want to verify that the assets are indeed current, you can simpl
 php artisan about
 ```
 
-This command will provide you with a wealth of information, including some of the details about the package itself.
+This command will provide you with an importance of information, including some of the details about the package itself.
 It's  ensuring that your environment is correctly configured and running as expected.
 
 
