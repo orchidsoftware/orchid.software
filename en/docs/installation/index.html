@@ -425,13 +425,20 @@ In other words, install your new framework project.</p>
 php artisan view:clear
 </code></pre>
 <h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping Assets Updated</a></h2>
-<p>To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project&rsquo;s <code>composer.json</code> file to automatically publish the latest assets:</p>
+<p>To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer hook to your project&rsquo;s <code>composer.json</code> file.
+This will automatically publish the latest assets for you:</p>
 <pre><code class="language-json">"scripts": {
     "post-update-cmd": [
       "@php artisan orchid:publish --ansi"
   ]
 }
 </code></pre>
+<p>Once you have added this hook, you can rest assured that your assets will always be up-to-date and functioning properly.
+And if you ever want to verify that the assets are indeed current, you can simply use the <code>artisan</code> console command to check:</p>
+<pre><code class="language-php">php artisan about
+</code></pre>
+<p>This command will provide you with a wealth of information, including some of the details about the package itself.
+It&rsquo;s  ensuring that your environment is correctly configured and running as expected.</p>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
 </blockquote>
