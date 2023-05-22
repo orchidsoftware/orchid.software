@@ -335,71 +335,11 @@
                         <div class="anchors">
     </div>
                         <body><p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.</p>
-<p>For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
-
-use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Screen;
-
-class PlatformScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'Dashboard';
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Action[]
-     */
-    public function commandBar(): array
-    {
-        return [];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    -&gt;title('First argument')
-                    -&gt;type('number'),
-
-                Input::make('subtrahend')
-                    -&gt;title('Second argument')
-                    -&gt;type('number'),
-            ]),
-        ];
-    }
-}
-</code></pre>
-<p>To create a listener layout, run the <code>artisan</code> command:</p>
+<p>In this example, we have a screen with two input fields for numbers that must be subtracted from each other. We can do this by using a listener layout.</p>
+<p>To create a listener layout, you need to run the following <code>artisan</code> command in your terminal:</p>
 <pre><code class="language-php">php artisan orchid:listener SubtractListener
 </code></pre>
-<p>In the directory <code>app/Orchid/Layouts</code> a new class will be created with the name <code>SubtractListener</code>:</p>
+<p>This command will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Fields\Input;
@@ -449,7 +389,8 @@ protected $targets = [
 <blockquote>
 <p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>"users."</code></p>
 </blockquote>
-<p>The <code>handle</code> method that will be called when the fields are changed.</p>
+<p>The <code>handle</code> method is called whenever the values of our target fields are changed, and it takes two arguments.
+<code>$repository</code> represents the current state of all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Illuminate\Http\Request;
