@@ -437,13 +437,15 @@ class PostListLayout extends Table
 </code></pre>
 <p>After that, the column heading will respond to clicking and change the sorting position.</p>
 <p>The trait <code>Filterable</code>, allows you to set not only sorting. But also simple <code>Http</code> filtering, to set it back to the model and add a new property:</p>
-<pre><code class="language-php">/**
+<pre><code class="language-php">use Orchid\Filters\Types\Like;
+
+/**
  * Name of columns to which http filter can be applied
  *
  * @var array
  */
 protected $allowedFilters = [
-    'title',
+    'title' =&gt; Like::class,
 ];
 </code></pre>
 <p>And then call the new <code>filter</code> method with a text type for the header column:</p>
