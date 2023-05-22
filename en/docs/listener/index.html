@@ -339,12 +339,16 @@
 <p>To create a listener layout, you need to run the following <code>artisan</code> command in your terminal:</p>
 <pre><code class="language-php">php artisan orchid:listener SubtractListener
 </code></pre>
-<p>This command will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory:</p>
+<p>This command will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory.</p>
+<p>Running the command above will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory.
+Once created, you can now add the required fields in the <code>layouts</code> method as shown below:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
+use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
 
 class SubtractListener extends Listener
 {
@@ -360,7 +364,17 @@ class SubtractListener extends Listener
      */
     protected function layouts(): array
     {
-        return [];
+        return [
+            Layout::rows([
+                Input::make('minuend')
+                    -&gt;title('First argument')
+                    -&gt;type('number'),
+
+                Input::make('subtrahend')
+                    -&gt;title('Second argument')
+                    -&gt;type('number'),
+            ]),
+        ];
     }
     
     /**
@@ -375,7 +389,8 @@ class SubtractListener extends Listener
     }
 }
 </code></pre>
-<p>The <code>targets</code> property specifies the names of the fields, when changed, the required action will be performed. For our example, these are the fields with the names <code>minuend</code> and <code>subtrahend</code>:</p>
+<p>Here, the <code>targets</code> property takes the names of the fields that require action whenever they are changed.
+In our example, the fields with the names <code>minuend</code> and <code>subtrahend</code> are considered targets:</p>
 <pre><code class="language-php">/**
  * List of field names for which values will be listened.
  *
@@ -389,8 +404,8 @@ protected $targets = [
 <blockquote>
 <p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>"users."</code></p>
 </blockquote>
-<p>The <code>handle</code> method is called whenever the values of our target fields are changed, and it takes two arguments.
-<code>$repository</code> represents the current state of all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
+<p>Now comes the <code>handle</code> method, which is responsible for handling the target fields. The method is automatically called when the values in the target fields change.
+It takes in two arguments &ndash; <code>$repository</code> represents the current state of all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Illuminate\Http\Request;
@@ -450,6 +465,7 @@ class SubtractListener extends Listener
     }
 }
 </code></pre>
+<p>The codes above show an updated version of the <code>SubtractListener</code> class. To handle the values in the target fields, we destructured the <code>$request</code> object, assigning the values in the fields <code>minuend</code> and <code>subtrahend</code> to variables with same names. We then updated the <code>$repository</code> object with these values as well as with the result of the subtraction of the two values which is reflected in the <code>result</code> field.</p>
 </body>
                     </main>
                 </div>
