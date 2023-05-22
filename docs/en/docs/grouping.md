@@ -98,7 +98,7 @@ In the example above, the layout is divided into two columns, and the content of
 
 ## Tabs
 
-Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a lot of content:
+Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of content:
 
 ![Tabs](/img/layouts/tabs.png)
 
