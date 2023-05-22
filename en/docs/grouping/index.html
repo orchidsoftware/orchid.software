@@ -335,9 +335,12 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#split">Split</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#customizing-the-ratio">Customizing the Ratio</a>
                 </li>
-                            <li class="anchor-h2">
+                            <li class="anchor-h3">
                     <a href="#reversing-the-order-on-mobile">Reversing the Order on Mobile</a>
                 </li>
                             <li class="anchor-h2">
@@ -351,7 +354,7 @@
                 </li>
                     </ul>
     </div>
-                        <body><h1>Split</h1>
+                        <body><h2><a href='#split' id='split'>Split</a></h2>
 <p>The Split layout is a type of layout that allows you to divide the screen into two customizable sections.
 This layout is particularly useful when you want to display two separate pieces of information side-by-side.</p>
 <p>Orchid provides a shortcut method for creating a Split layout with two views using the <code>Layout::split()</code> method.
@@ -365,7 +368,7 @@ Layout::split([
     Layout::view('second-view'),
 ]);
 </code></pre>
-<h2><a href='#customizing-the-ratio' id='customizing-the-ratio'>Customizing the Ratio</a></h2>
+<h3><a href='#customizing-the-ratio' id='customizing-the-ratio'>Customizing the Ratio</a></h3>
 <p>By default, the Split layout divides the screen with a <code>50/50</code> ratio. However, you can easily customize this ratio using the <code>ratio()</code> method.
 This method takes a string argument that specifies the desired ratio. Here are the valid ratios:</p>
 <ul>
@@ -385,7 +388,7 @@ Layout::split([
     Layout::view('second-view'),
 ])-&gt;ratio('40/60'),
 </code></pre>
-<h2><a href='#reversing-the-order-on-mobile' id='reversing-the-order-on-mobile'>Reversing the Order on Mobile</a></h2>
+<h3><a href='#reversing-the-order-on-mobile' id='reversing-the-order-on-mobile'>Reversing the Order on Mobile</a></h3>
 <p>By default, the order of the two sections in a <code>Split</code> layout is fixed.
 However, you can reverse the order of the sections on mobile devices by calling the <code>reverseOnPhone()</code> method. Here&rsquo;s an example:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
