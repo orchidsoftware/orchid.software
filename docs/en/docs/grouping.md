@@ -4,7 +4,7 @@ description: Learn how to use Laravel Orchid's layer functionality to group and 
 ---
 
 
-# Split 
+## Split 
 
 The Split layout is a type of layout that allows you to divide the screen into two customizable sections. 
 This layout is particularly useful when you want to display two separate pieces of information side-by-side.
@@ -24,7 +24,7 @@ Layout::split([
 ]);
 ```
 
-## Customizing the Ratio
+### Customizing the Ratio
 
 By default, the Split layout divides the screen with a `50/50` ratio. However, you can easily customize this ratio using the `ratio()` method. 
 This method takes a string argument that specifies the desired ratio. Here are the valid ratios:
@@ -49,7 +49,7 @@ Layout::split([
 ```
 
 
-## Reversing the Order on Mobile
+### Reversing the Order on Mobile
 
 By default, the order of the two sections in a `Split` layout is fixed. 
 However, you can reverse the order of the sections on mobile devices by calling the `reverseOnPhone()` method. Here's an example:
