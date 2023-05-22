@@ -335,6 +335,12 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#customizing-the-ratio">Customizing the Ratio</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#reversing-the-order-on-mobile">Reversing the Order on Mobile</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#accordion">Accordion</a>
                 </li>
                             <li class="anchor-h2">
@@ -345,7 +351,52 @@
                 </li>
                     </ul>
     </div>
-                        <body><h2><a href='#accordion' id='accordion'>Accordion</a></h2>
+                        <body><h1>Split Layout</h1>
+<p>The Split layout is a type of layout that allows you to divide the screen into two customizable sections.
+This layout is particularly useful when you want to display two separate pieces of information side-by-side.</p>
+<p>Orchid provides a shortcut method for creating a Split layout with two views using the <code>Layout::split()</code> method.
+To create a Split layout, simply pass an array of two Layout objects as the first parameter to the <code>split()</code> method.
+You can also set the ratio of the two sections using the optional <code>ratio()</code> method as the second parameter.</p>
+<p>Here&rsquo;s an example of how to create a Split layout:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+Layout::split([
+    Layout::view('first-view'),
+    Layout::view('second-view'),
+]);
+</code></pre>
+<h2><a href='#customizing-the-ratio' id='customizing-the-ratio'>Customizing the Ratio</a></h2>
+<p>By default, the Split layout divides the screen with a <code>50/50</code> ratio. However, you can easily customize this ratio using the <code>ratio()</code> method.
+This method takes a string argument that specifies the desired ratio. Here are the valid ratios:</p>
+<ul>
+<li>20/80</li>
+<li>30/70</li>
+<li>40/60</li>
+<li>50/50</li>
+<li>60/40</li>
+<li>70/30</li>
+<li>80/20</li>
+</ul>
+<p>For example, to create a <code>Split</code> layout with a <code>40/60</code> ratio:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+Layout::split([
+    Layout::view('first-view'),
+    Layout::view('second-view'),
+])-&gt;ratio('40/60'),
+</code></pre>
+<h2><a href='#reversing-the-order-on-mobile' id='reversing-the-order-on-mobile'>Reversing the Order on Mobile</a></h2>
+<p>By default, the order of the two sections in a <code>Split</code> layout is fixed.
+However, you can reverse the order of the sections on mobile devices by calling the <code>reverseOnPhone()</code> method. Here&rsquo;s an example:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+Layout::split([
+    Layout::view('first-view'),
+    Layout::view('second-view'),
+])-&gt;ratio('40/60')-&gt;reverseOnPhone(),
+</code></pre>
+<p>This will create a <code>Split</code> layout with a <code>40/60</code> ratio, and the order of the sections will be reversed on mobile devices.</p>
+<h2><a href='#accordion' id='accordion'>Accordion</a></h2>
 <p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.</p>
 <p>Here is an example of an accordion:</p>
 <p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
