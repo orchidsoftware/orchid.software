@@ -101,7 +101,8 @@ php artisan view:clear
 
 ## Keeping Assets Updated
 
-To ensure assets are updated when a new version is downloaded, you may add a Composer hook inside your project's `composer.json` file to automatically publish the latest assets:
+To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer hook to your project's `composer.json` file.
+This will automatically publish the latest assets for you:
 
 ```json
 "scripts": {
@@ -110,6 +111,17 @@ To ensure assets are updated when a new version is downloaded, you may add a Com
   ]
 }
 ```
+
+Once you have added this hook, you can rest assured that your assets will always be up-to-date and functioning properly.
+And if you ever want to verify that the assets are indeed current, you can simply use the `artisan` console command to check:
+
+```php
+php artisan about
+```
+
+This command will provide you with a wealth of information, including some of the details about the package itself.
+It's  ensuring that your environment is correctly configured and running as expected.
+
 
 > **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
 
