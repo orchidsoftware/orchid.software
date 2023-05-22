@@ -15,9 +15,9 @@ public function layout(): array
 {
     return [
         Layout::rows([
-           Input::make('example')
+           Input::make('name')
                 ->type('text')
-                ->title('Example')
+                ->title('First name:')
         ]),
     ];
 }
