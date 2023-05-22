@@ -5,9 +5,9 @@ section: site.community.
 ---
 
 
-[![Contributors](https://opencollective.com/orchid/contributors.svg?width=800&button=false)](https://github.com/orchidsoftware/platform)
-
 I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <https://github.com/orchidsoftware/platform>.
+
+[![Users who have made significant contributions to Orchid. Alone we can do so little, together we can do so much.](https://opencollective.com/orchid/contributors.svg?width=800&button=false)](https://github.com/orchidsoftware/platform)
 
 Open discussions, questions, proposals are being held in [GitHub discussions](https://github.com/orchidsoftware/platform/discussions)
 
