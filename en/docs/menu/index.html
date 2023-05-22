@@ -420,7 +420,7 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
 </code></pre>
 <h2><a href='#appearance' id='appearance'>Appearance</a></h2>
 <p>For a menu item, you can specify a graphic icon with:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;icon('heart');
+<pre><code class="language-php">Menu::make('Example')-&gt;icon('bs.heart');
 </code></pre>
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
 <pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
@@ -442,8 +442,8 @@ Menu::make('First')-&gt;sort(4);
 <pre><code class="language-php">Menu::make('Dropdown menu')
     -&gt;icon('code')
     -&gt;list([
-        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
-        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+        Menu::make('Sub element item 1')-&gt;icon('bs.bag')-&gt;sort(2),
+        Menu::make('Sub element item 2')-&gt;icon('bs.heart')-&gt;sort(0),
     ]),
 </code></pre>
 <p>To create a submenu dynamic, you need to add the main item and specify its unique name using the <code>slug</code> method. Then you can add other elements to the new item.</p>
@@ -451,8 +451,8 @@ Menu::make('First')-&gt;sort(4);
     -&gt;slug('sub-menu')
     -&gt;icon('code')
     -&gt;list([
-        Menu::make('Sub element item 1')-&gt;icon('bag'),
-        Menu::make('Sub element item 2')-&gt;icon('heart'),
+        Menu::make('Sub element item 1')-&gt;icon('bs.bag'),
+        Menu::make('Sub element item 2')-&gt;icon('bs.heart'),
     ]),
 </code></pre>
 <p>And then add new items in our own packages like:</p>
