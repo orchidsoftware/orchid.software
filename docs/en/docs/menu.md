@@ -108,9 +108,7 @@ Menu items have the ability to notify the user about any events in the form of a
 Menu::make('Comments')
     ->icon('bubbles')
     ->route('platform.comments')
-    ->badge(function () {
-        return 10;
-    });
+    ->badge(fn () => 10);
 ```
 
 ## Sorting Items
