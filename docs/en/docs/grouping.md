@@ -134,6 +134,8 @@ public function layout(): array
 
 Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.
 
+> Columns differ from `Split` in that they always have the same width and there can be many of them.
+
 Here is an example of columns:
 
 ![Columns](/img/layouts/columns.png)
