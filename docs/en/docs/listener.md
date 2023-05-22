@@ -7,78 +7,15 @@ extends: _layouts.documentation
 
 The `Listener` layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.
 
-For example, we have a screen on which there are two fields for entering numbers. We need to display the third field, the value of which will be the sum of the other two:
+In this example, we have a screen with two input fields for numbers that must be subtracted from each other. We can do this by using a listener layout.
 
-
-```php
-namespace App\Orchid\Screens;
-
-use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Screen;
-
-class PlatformScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'Dashboard';
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Action[]
-     */
-    public function commandBar(): array
-    {
-        return [];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    ->title('First argument')
-                    ->type('number'),
-
-                Input::make('subtrahend')
-                    ->title('Second argument')
-                    ->type('number'),
-            ]),
-        ];
-    }
-}
-```
-
-To create a listener layout, run the `artisan` command:
+To create a listener layout, you need to run the following `artisan` command in your terminal:
 
 ```php
 php artisan orchid:listener SubtractListener
 ```
 
-In the directory `app/Orchid/Layouts` a new class will be created with the name `SubtractListener`:
+This command will create a new class named `SubtractListener` in the `app/Orchid/Layouts` directory:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -134,7 +71,9 @@ protected $targets = [
 > **Note**. Multiple choice fields such as `<select name="users[]">` need to indicate that they are an array by ending the target value with a dot, such as `"users."`
 
 
-The `handle` method that will be called when the fields are changed.
+The `handle` method is called whenever the values of our target fields are changed, and it takes two arguments. 
+`$repository` represents the current state of all the fields on the screen,
+while `$request` represents the new state of the screen.
 
 
 ```php
