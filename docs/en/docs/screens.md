@@ -205,15 +205,15 @@ You can also use the `Repository` wrapper to pass an array of data to the screen
 ```php
 use Orchid\Screen\Repository;    
 
-public function query() : array
+public function query(): array
 {
     return [
-        'order'      => new Repository([
+        'order' => new Repository([
             'product_id' => 'prod-100',
             'name'       => 'Desk',
             'price'      => 10.24,
             'created_at' => '01.01.2020',
-      ]),
+        ]),
     ];
 }
 ```
