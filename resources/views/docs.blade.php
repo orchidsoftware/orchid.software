@@ -50,10 +50,11 @@
                             </a>
                         </div>
 
-                        @yield('sub-main')
 
                         <x-docs-anchors :content="$content"/>
                         <x-docs-content :content="$content"/>
+
+                        @yield('sub-main')
 
                     </main>
                 </div>

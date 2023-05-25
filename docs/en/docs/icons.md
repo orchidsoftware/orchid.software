@@ -6,6 +6,7 @@ description: Learn how to use and implement SVG icons in your Laravel Orchid pro
 The package comes with a set of icons that can be found on the [Bootstrap Icons](https://icons.getbootstrap.com/). 
 These icons are prefixed with `bs.*` which is used as a prefix to identify the icons in your code.
 
+> If you're looking for a list of icons for previous versions, please visit the [Orchid Icon Pack page](/en/docs/orchid-icons).
 
 ## Custom Icons
 

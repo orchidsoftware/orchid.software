@@ -21,8 +21,8 @@ Route::get('/{locale?}', function (string $locale = 'en') {
 })->where('locale', 'en|ru');
 
 
-/*
-Route::get('/{locale}/{type}/icons', function (string $locale, string $type) {
+
+Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
 
     $icons = collect(scandir(\Orchid\IconPack\Path::getFolder()))
         ->filter(function ($value) {
@@ -35,12 +35,11 @@ Route::get('/{locale}/{type}/icons', function (string $locale, string $type) {
             return [str_replace('.svg', '', $icon) => file_get_contents(Orchid\IconPack\Path::getFolder() . "/$icon")];
         });
 
-    return (new App\Docs($locale, "$type/icons"))
+    return (new App\Docs($locale, "$type/orchid-icons"))
         ->view('icons')
         ->with('icons', $icons);
 
 })->where('locale', 'en|ru');
-*/
 
 
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {
