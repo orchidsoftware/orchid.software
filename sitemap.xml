@@ -163,6 +163,12 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://orchid.software/en/docs/orchid-icons</loc>
+        <lastmod>2023-05-24T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://orchid.software/en/docs/packages/crud</loc>
         <lastmod>2023-05-24T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
@@ -445,6 +451,12 @@
     </url>
     <url>
         <loc>https://orchid.software/ru/docs/modals</loc>
+        <lastmod>2023-05-24T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://orchid.software/ru/docs/orchid-icons</loc>
         <lastmod>2023-05-24T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
