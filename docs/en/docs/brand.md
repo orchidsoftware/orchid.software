@@ -18,14 +18,12 @@ To change the page header or footer, you must specify your own `blade` templates
 
 ## Change Logo and Name
 
-Create a new directory in the `brand` template section and the` header.blade.php` file.
-Then the full path will look like `/resources/views/brand/header.blade.php`.
+Create a new file named `header.blade.php` in the `/resources/views/` directory.
 
 ```php
 resources          
 └── views
-    └── brand
-        └── header.blade.php
+    └── header.blade.php
 ```
 
  

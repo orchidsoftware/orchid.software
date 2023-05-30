@@ -19,14 +19,12 @@ description: Настройка внешнего вида, для соответ
 
 ## Смена логотипа и названия
 
-Создадим новую директорию `brand` в разделе для шаблонов и файл `header.blade.php`.
-Тогда полный путь будет выглядеть следующим образом `/resources/views/brand/header.blade.php`.
+Создайте новый файл с именем `header.blade.php` в каталоге `/resources/views/`.
 
 ```php
 resources          
 └── views
-    └── brand
-        └── header.blade.php
+    └── header.blade.php
 ```
 
  
