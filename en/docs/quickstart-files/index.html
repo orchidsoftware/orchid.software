@@ -485,15 +485,17 @@ class Post extends Model
 }
 </code></pre>
 <p>But also describe the synchronization of dependent records by relations in our screen:</p>
-<pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
+<pre><code class="language-php">public function createOrUpdate(Request $request)
 {
-    $post-&gt;fill($request-&gt;get('post'))-&gt;save();
+    $this-&gt;post-&gt;fill($request-&gt;get('post'))-&gt;save();
 
-    $post-&gt;attachment()-&gt;syncWithoutDetaching(
+    $this-&gt;post-&gt;attachment()-&gt;syncWithoutDetaching(
         $request-&gt;input('post.attachment', [])
     );
 
     Alert::info('You have successfully created a post.');
+
+    return redirect()-&gt;route('platform.post.list');
 }
 </code></pre>
 <p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
