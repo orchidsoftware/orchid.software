@@ -183,15 +183,17 @@ class Post extends Model
 But also describe the synchronization of dependent records by relations in our screen:
 
 ```php
-public function createOrUpdate(Post $post, Request $request)
+public function createOrUpdate(Request $request)
 {
-    $post->fill($request->get('post'))->save();
+    $this->post->fill($request->get('post'))->save();
 
-    $post->attachment()->syncWithoutDetaching(
+    $this->post->attachment()->syncWithoutDetaching(
         $request->input('post.attachment', [])
     );
 
     Alert::info('You have successfully created a post.');
+
+    return redirect()->route('platform.post.list');
 }
 ```
 
