@@ -117,6 +117,19 @@ TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 
 > **Note**: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
 
+When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed filter values.
+For example, you can replace an ID value with a display name. Here is an example of using the `filterValue()` method:
+
+```php
+TD::make('id')->filterValue(function ($value) {
+    $user = User::find($value);
+    return $user->name;
+})
+```
+
+The `$value` value passed to the function will contain the filter value that was applied.
+
+
 Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.
 
 ```php
