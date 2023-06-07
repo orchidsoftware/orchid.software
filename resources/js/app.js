@@ -47,3 +47,25 @@ function processIntersectionEntries(entries) {
         entry.target.classList.toggle('show', entry.isIntersecting);
     });
 }
+
+
+
+
+document.querySelectorAll('.documentation main img').forEach(function(el) {
+    el.addEventListener('click', function(){
+        var src = this.getAttribute('src');
+        var div = document.createElement('div');
+        div.style.cssText = `background: RGBA(0,0,0,.5) url('${src}') no-repeat center;
+        background-size: contain;
+        width:100%; height:100%;
+        position:fixed;
+        z-index:10000;
+        top:0; left:0;
+        cursor: zoom-out;
+        background-size: auto;`;
+        div.addEventListener('click', function() {
+            document.body.removeChild(this);
+        });
+        document.body.appendChild(div);
+    });
+});
