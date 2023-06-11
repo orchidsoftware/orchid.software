@@ -375,14 +375,19 @@ Alert::view('alert', Color::INFO(), [
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
-<p>When a notification is displayed, package sets several keys in the session:</p>
-<ul>
-<li>'flash_notification.message&rsquo; &ndash; the message to be displayed</li>
-<li>'flash_notification.level&rsquo; &ndash; a string representing the type of notification (e.g. &ldquo;info&rdquo;, &ldquo;success&rdquo;, &ldquo;error&rdquo;, &ldquo;warning&rdquo;)</li>
-</ul>
-<p>Package also includes a default display for notifications, which can be included in your blade templates by specifying:</p>
-<pre><code class="language-php">@include('platform::partials.alert')
-</code></pre>
+<!--
+
+When a notification is displayed, package sets several keys in the session:
+- 'flash_notification.message' - the message to be displayed
+- 'flash_notification.level' - a string representing the type of notification (e.g. "info", "success", "error", "warning")
+
+
+Package also includes a default display for notifications, which can be included in your blade templates by specifying:
+
+```php
+@include('platform::partials.alert')
+```
+-->
 <p>It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.</p>
 <p>That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.</p>
 <h2><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h2>
