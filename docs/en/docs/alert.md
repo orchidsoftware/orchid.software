@@ -5,6 +5,8 @@ description: The Laravel Orchid Notifications documentation page is the ultimate
 
 Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.
 
+> Please take a moment to [review our recommendations for giving feedback](https://orchid.software/en/hig/providing-feedback) to ensure that your application looks exceptional.
+
 ## Flash Messages
 
 A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.
