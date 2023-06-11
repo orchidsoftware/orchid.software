@@ -9,7 +9,7 @@ Notifications are a powerful tool that allows you to keep your users informed an
 
 A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.
 
-Laravel Orchid provides a simple and convenient way to create and display flash notifications through the use of flash data. To create a flash notification, you can use the following code:
+To create a flash notification, you can use the following code:
 
 ```php
 use Orchid\Support\Facades\Alert;
