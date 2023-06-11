@@ -51,6 +51,7 @@ The `Blade` template would look something like this:
 Hello <strong>{{ $name }}</strong>
 ```
 
+<!--
 
 When a notification is displayed, package sets several keys in the session:
 - 'flash_notification.message' - the message to be displayed
@@ -62,6 +63,7 @@ Package also includes a default display for notifications, which can be included
 ```php
 @include('platform::partials.alert')
 ```
+-->
 
 It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.
 
