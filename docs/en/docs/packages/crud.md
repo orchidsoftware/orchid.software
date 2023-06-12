@@ -384,7 +384,7 @@ class CustomAction extends Action
      */
     public function button(): Button
     {
-        return Button::make('Run Custom Action')->icon('fire');
+        return Button::make('Run Custom Action')->icon('bs.fire');
     }
 
     /**
