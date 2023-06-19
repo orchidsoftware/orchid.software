@@ -3,7 +3,7 @@
 </a>
 
 <ul class="nav nav-pills mx-auto align-items-center d-none d-md-inline-flex">
-    <li class="nav-item"><a href="https://demo.orchid.software" class="nav-link">Demo</a></li>
+    {{--<li class="nav-item"><a href="https://demo.orchid.software" class="nav-link">Demo</a></li>--}}
     {{--<li class="nav-item"><a href="https://blog.orchid.software" class="nav-link">Blog</a></li>--}}
     <li class="nav-item"><a href="https://orchid.software/en/hig" class="nav-link">Design</a></li>
     <li class="nav-item"><a href="https://github.com/orchidsoftware/platform/discussions" class="nav-link">Discussion</a></li>
