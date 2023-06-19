@@ -97,5 +97,5 @@ Classic          |   Orchid
 Платформа свободно распространяется через интернет, [исходные коды](https://github.com/orchidsoftware/platform) и [информация о выпусках](https://github.com/orchidsoftware/platform/releases) опубликованы на GitHub. В руководстве по [установке](/ru/docs/installation/) содержатся подробные инструкции. 
 
 
-> Для предложения улучшений этого руководства, [создайте новый issue](https://github.com/orchidsoftware/orchid.software/issues). 
+> Для предложения улучшений этого руководства, [создайте новый issue](https://github.com/orchidsoftware/platform/issues). 
 При появлении вопросов или нахождения ошибки по документации, пожалуйста, укажите главу и сопутствующий текст, чтобы указать на ошибку.
