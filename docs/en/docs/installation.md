@@ -6,7 +6,7 @@ description: Learn how to install and set up Laravel Orchid in your project with
 
 Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.
 
-## Create a Project
+## Create a New Laravel Project
 
 > **Note.** If you already have Laravel installation, you can skip this step.
 
@@ -49,7 +49,7 @@ $ composer require orchid/platform
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
 
 
-## Platform Installation
+## Package Installation
 
 > **Note.** The installation will overwrite the `app/Models/User` model. 
 
@@ -59,7 +59,7 @@ Run the installation process by running the command:
 php artisan orchid:install
 ```
 
-## Create User
+## Create an Admin User
 
 To create a user with maximum permissions, you can run the following command with a username, email, and password:
 
@@ -68,7 +68,7 @@ php artisan orchid:admin admin admin@admin.com password
 ```
 
 
-## Start Local Server
+## Start the Development Server
 
 If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:
 
