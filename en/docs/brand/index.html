@@ -350,7 +350,7 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
     └── brand
         └── header.blade.php
 </code></pre>
-<p>Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:</p>
+<p>Make changes to the file just created:</p>
 <pre><code class="language-php">@push('head')
     &lt;link
         href="/favicon.ico"
@@ -359,14 +359,16 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
     &gt;
 @endpush
 
-&lt;p class="h2 n-m font-thin v-center"&gt;
-    &lt;x-orchid-icon path="database"/&gt;
+&lt;div class="h2 d-flex align-items-center"&gt;
+    @auth
+        &lt;x-orchid-icon path="bs.house" class="d-inline d-xl-none"/&gt;
+    @endauth
 
-    &lt;span class="m-l d-none d-sm-block"&gt;
-        Analytics
-        &lt;small class="v-top opacity"&gt;Nest&lt;/small&gt;
-    &lt;/span&gt;
-&lt;/p&gt;
+    &lt;p class="my-0 {{ auth()-&gt;check() ? 'd-none d-xl-block' : '' }}"&gt;
+        {{ config('app.name') }}
+        &lt;small class="align-top opacity"&gt;{{ config('app.env') }}&lt;/small&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
 </code></pre>
 <p>In order for the created template to be used instead of the standard one, you must specify it in the configuration file, just as if passing an argument in the <code>view('brand.header')</code> helper:</p>
 <pre><code class="language-php">'template' =&gt; [
@@ -380,7 +382,7 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
 <p>In the same way, we can change the bottom of the page, again create a new file <code>/resources/views/brand/footer.blade.php</code> with the following contents:</p>
 <pre><code class="language-php">&lt;p class="small m-n"&gt;
     © Copyright {{date('Y')}} 
-    &lt;a href="//example.com" target="_blank"&gt;Analytics Nest&lt;/a&gt;
+    &lt;a href="{{ config('app.url') }}" target="_blank"&gt;{{ config('app.name') }}&lt;/a&gt;
 &lt;/p&gt;
 </code></pre>
 <p>Also making changes to the configuration file:</p>
