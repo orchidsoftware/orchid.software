@@ -29,7 +29,7 @@ resources
 ```
 
  
-Suppose that we are creating a system for a fictitious analytical agency, we will make changes to the file just created:
+Make changes to the file just created:
 
 ```php
 @push('head')
@@ -40,14 +40,16 @@ Suppose that we are creating a system for a fictitious analytical agency, we wil
     >
 @endpush
 
-<p class="h2 n-m font-thin v-center">
-    <x-orchid-icon path="database"/>
+<div class="h2 d-flex align-items-center">
+    @auth
+        <x-orchid-icon path="bs.house" class="d-inline d-xl-none"/>
+    @endauth
 
-    <span class="m-l d-none d-sm-block">
-        Analytics
-        <small class="v-top opacity">Nest</small>
-    </span>
-</p>
+    <p class="my-0 {{ auth()->check() ? 'd-none d-xl-block' : '' }}">
+        {{ config('app.name') }}
+        <small class="align-top opacity">{{ config('app.env') }}</small>
+    </p>
+</div>
 ```
  
 In order for the created template to be used instead of the standard one, you must specify it in the configuration file,
@@ -70,7 +72,7 @@ In the same way, we can change the bottom of the page, again create a new file `
 ```php
 <p class="small m-n">
     © Copyright {{date('Y')}} 
-    <a href="//example.com" target="_blank">Analytics Nest</a>
+    <a href="{{ config('app.url') }}" target="_blank">{{ config('app.name') }}</a>
 </p>
 ```
 
