@@ -124,23 +124,23 @@ Menu::make('First')->sort(4);
 You can specify a single-level submenu as follows:
 
 ```php
-Menu::make('Dropdown menu')
+Menu::make('Multi Level')
     ->icon('code')
     ->list([
-        Menu::make('Sub element item 1')->icon('bs.bag')->sort(2),
-        Menu::make('Sub element item 2')->icon('bs.heart')->sort(0),
+        Menu::make('Second Level Item 1')->icon('bs.bag')->sort(2),
+        Menu::make('Second Level Item 2')->icon('bs.heart')->sort(0),
     ]),
 ```
 
 To create a submenu dynamic, you need to add the main item and specify its unique name using the `slug` method. Then you can add other elements to the new item.
 
 ```php
-Menu::make('Dropdown menu')
+Menu::make('Multi Level')
     ->slug('sub-menu')
     ->icon('code')
     ->list([
-        Menu::make('Sub element item 1')->icon('bs.bag'),
-        Menu::make('Sub element item 2')->icon('bs.heart'),
+        Menu::make('Second Level Item 1')->icon('bs.bag'),
+        Menu::make('Second Level Item 2')->icon('bs.heart'),
     ]),
 ```
 
@@ -150,7 +150,7 @@ And then add new items in our own packages like:
 use Orchid\Support\Facades\Dashboard;
 
 Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Sub element item 3')->icon('badge')
+    Menu::make('Second Level Item 3')->icon('badge')
 ]);
 ```
 
