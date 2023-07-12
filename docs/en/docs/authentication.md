@@ -1,6 +1,6 @@
 ---
-title: Authentication
-description: Changing the Laravel Orchid login form.
+title: Customizing Authentication in Orchid for Laravel
+description: Modify the login form, configure user portals, and personalize the authentication process effortlessly. 
 ---
 
 
