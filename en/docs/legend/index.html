@@ -359,9 +359,7 @@ public function layout(): array
 </code></pre>
 <p>If you need to perform additional processing or rendering for a particular data point, you can use the <code>render</code> method and pass in a closure function:</p>
 <pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;render(function (){
-        return 'Any html';
-    }),
+    Sight::make('id')-&gt;render(fn() =&gt; 'Any html'),
 ]),
 </code></pre>
 <p>If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a Blade component and specify it using the <code>component</code> method:</p>
