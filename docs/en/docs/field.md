@@ -184,6 +184,8 @@ The `textarea` field is a form element that allows the user to enter multiple li
 To create a `textarea` field, you can use the `TextArea` class:
 
 ```php
+use Orchid\Screen\Fields\TextArea;
+
 TextArea::make('description');
 ```    
 
@@ -207,6 +209,8 @@ To create a checkbox field, you can use the `CheckBox` class:
 
 
 ```php
+use Orchid\Screen\Fields\CheckBox;
+
 CheckBox::make('free')
     ->value(1)
     ->title('Free')
@@ -234,6 +238,8 @@ The select field is a form element that allows the user to choose an option from
 To create a select field, you can use the `Select` class:
 
 ```php
+use Orchid\Screen\Fields\Select;
+
 Select::make('select')
     ->options([
         'index'   => 'Index',
@@ -317,6 +323,8 @@ Select::make('type')
 Relations fields can load dynamic data, this is a good solution if you need connections.
 
 ```php
+use Orchid\Screen\Fields\Relation;
+
 Relation::make('idea')
     ->fromModel(Idea::class, 'name')
     ->title('Choose your idea');
@@ -430,6 +438,8 @@ Allows you to select the date and time.
 
 Example:
 ```php
+use Orchid\Screen\Fields\DateTimer;
+
 DateTimer::make('open')
     ->title('Opening date');
 ```           
@@ -492,6 +502,8 @@ Allows you to select a range of date (and time).
 
 Example:
 ```php
+use Orchid\Screen\Fields\DateRange;
+
 DateRange::make('open')
     ->title('Opening between');
 ```           
@@ -504,6 +516,8 @@ The `TimeZone` field is a form element that allows the user to choose a time zon
 
 
 ```php
+use Orchid\Screen\Fields\TimeZone;
+
 TimeZone::make('time');
 ```
 
@@ -543,6 +557,8 @@ Such an editor allows you to insert pictures, tables, specify styles for text, v
 
 Example:
 ```php
+use Orchid\Screen\Fields\Quill;
+
 Quill::make('html');
 ``` 
 
@@ -606,6 +622,8 @@ To create a Markdown Editor field, you can use the `SimpleMDE` class:
 
 
 ```php
+use Orchid\Screen\Fields\SimpleMDE;
+
 SimpleMDE::make('markdown');
 ```  
 
@@ -614,6 +632,8 @@ SimpleMDE::make('markdown');
 The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:
 
 ```php
+use Orchid\Screen\Fields\Matrix;
+
 Matrix::make('options')
     ->columns([
         'Attribute',
@@ -662,6 +682,8 @@ A field for writing program code with the ability to highlight.
 
 Example:
 ```php
+use Orchid\Screen\Fields\Code;
+
 Code::make('code');
 ```    
 
@@ -669,8 +691,8 @@ To specify code highlighting for a specific programming language, you can use th
 
 
 ```php
- Code::make('code')
-     ->language(Code::CSS);
+Code::make('code')
+    ->language(Code::CSS);
 ```
 
 The following languages are available:
@@ -695,6 +717,8 @@ Allows you to upload an image.
 
 Example:
 ```php
+use Orchid\Screen\Fields\Picture;
+
 Picture::make('picture');
 ```  
 
@@ -724,6 +748,8 @@ Extends Picture and allows you to upload an image and crop to the desired format
 
 Example:
 ```php
+use Orchid\Screen\Fields\Cropper;
+
 Cropper::make('picture');
 ```  
 
@@ -787,6 +813,8 @@ Renders upload for images or regular files.
 
 Example:
 ```php
+use Orchid\Screen\Fields\Upload;
+
 Upload::make('upload');
 ```  
 
@@ -867,6 +895,8 @@ It will add a new button with a modal window to preview uploaded files.
 The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the `Group::make` method and pass an array of fields as the argument:
 
 ```php
+use Orchid\Screen\Fields\Group;
+
 Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
@@ -899,6 +929,8 @@ And to add a simple link in the form.
 An example of using the modal window `addNewPayment` added earlier to the screen:
 
 ```php
+use Orchid\Screen\Actions\ModalToggle;
+
 ModalToggle::make('Add Payment')
     ->modal('addNewPayment')
     ->icon('wallet');
@@ -907,6 +939,8 @@ ModalToggle::make('Add Payment')
 Linking example:
 
 ```php
+use Orchid\Screen\Actions\Link;
+
 Link::make('Google It!')
     ->href('http://google.com');
 
@@ -917,6 +951,8 @@ Link::make('Idea')
 Example use with method:
 
 ```php
+use Orchid\Screen\Actions\Button;
+
 Button::make('Google It!')
     ->method('goToGoogle');
 ```
@@ -935,6 +971,8 @@ You can easily create a DropDown action button combining all other actions.
 For example, you can create the typical three dots dropdown:
 
 ```php
+use Orchid\Screen\Actions\DropDown;
+
 DropDown::make()
     ->icon('options-vertical')
     ->list([
