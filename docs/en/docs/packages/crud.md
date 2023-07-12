@@ -604,7 +604,9 @@ Action buttons and notifications can also be translated, for example:
  */
 public static function createButtonLabel(): string
 {
-    return __('Create :resource', ['resource' => static::singularLabel()]);
+    return __('Create :resource', [
+        'resource' => static::singularLabel()
+    ]);
 }
 
 /**
@@ -614,7 +616,9 @@ public static function createButtonLabel(): string
  */
 public static function createToastMessage(): string
 {
-    return __('The :resource was created!', ['resource' => static::singularLabel()]);
+    return __('The :resource was created!', [
+        'resource' => static::singularLabel()
+    ]);
 }
 ```
 
