@@ -43,9 +43,7 @@ If you need to perform additional processing or rendering for a particular data 
 
 ```php
 Layout::legend('user', [
-    Sight::make('id')->render(function (){
-        return 'Any html';
-    }),
+    Sight::make('id')->render(fn() => 'Any html'),
 ]),
 ```
 
