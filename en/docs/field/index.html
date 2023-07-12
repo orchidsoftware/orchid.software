@@ -525,7 +525,9 @@ Input::make('name');
 <h2><a href='#textarea' id='textarea'>TextArea</a></h2>
 <p>The <code>textarea</code> field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.</p>
 <p>To create a <code>textarea</code> field, you can use the <code>TextArea</code> class:</p>
-<pre><code class="language-php">TextArea::make('description');
+<pre><code class="language-php">use Orchid\Screen\Fields\TextArea;
+
+TextArea::make('description');
 </code></pre>
 <p>By default, the <code>textarea</code> field will expand to fit the amount of text that is entered. However, you can use the <code>rows</code> method to specify a minimum number of rows:</p>
 <pre><code class="language-php">TextArea::make('description')
@@ -536,7 +538,9 @@ Input::make('name');
 <h2><a href='#checkbox' id='checkbox'>CheckBox</a></h2>
 <p>A checkbox is a graphical user interface element that allows the user to control a parameter with two states &ndash; checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.</p>
 <p>To create a checkbox field, you can use the <code>CheckBox</code> class:</p>
-<pre><code class="language-php">CheckBox::make('free')
+<pre><code class="language-php">use Orchid\Screen\Fields\CheckBox;
+
+CheckBox::make('free')
     -&gt;value(1)
     -&gt;title('Free')
     -&gt;placeholder('Event for free')
@@ -551,7 +555,9 @@ Input::make('name');
 <h2><a href='#select' id='select'>Select</a></h2>
 <p>The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for presenting a limited set of options and allowing the user to make a selection.</p>
 <p>To create a select field, you can use the <code>Select</code> class:</p>
-<pre><code class="language-php">Select::make('select')
+<pre><code class="language-php">use Orchid\Screen\Fields\Select;
+
+Select::make('select')
     -&gt;options([
         'index'   =&gt; 'Index',
         'noindex' =&gt; 'No index',
@@ -606,7 +612,9 @@ Select::make('user')
 </code></pre>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
 <p>Relations fields can load dynamic data, this is a good solution if you need connections.</p>
-<pre><code class="language-php">Relation::make('idea')
+<pre><code class="language-php">use Orchid\Screen\Fields\Relation;
+
+Relation::make('idea')
     -&gt;fromModel(Idea::class, 'name')
     -&gt;title('Choose your idea');
 </code></pre>
@@ -687,7 +695,9 @@ class User extends Model
 <p>Allows you to select the date and time.</p>
 <p><picture alt='Datatime'><img src="/img/ui/datatime.png" alt="Datatime"></picture></p>
 <p>Example:</p>
-<pre><code class="language-php">DateTimer::make('open')
+<pre><code class="language-php">use Orchid\Screen\Fields\DateTimer;
+
+DateTimer::make('open')
     -&gt;title('Opening date');
 </code></pre>
 <p>Allow direct input:</p>
@@ -725,13 +735,17 @@ class User extends Model
 <h2><a href='#daterange' id='daterange'>DateRange</a></h2>
 <p>Allows you to select a range of date (and time).</p>
 <p>Example:</p>
-<pre><code class="language-php">DateRange::make('open')
+<pre><code class="language-php">use Orchid\Screen\Fields\DateRange;
+
+DateRange::make('open')
     -&gt;title('Opening between');
 </code></pre>
 <p>Default value / result is an array with keys of <code>start</code>, <code>end</code>.</p>
 <h2><a href='#timezone' id='timezone'>TimeZone</a></h2>
 <p>The <code>TimeZone</code> field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.</p>
-<pre><code class="language-php">TimeZone::make('time');
+<pre><code class="language-php">use Orchid\Screen\Fields\TimeZone;
+
+TimeZone::make('time');
 </code></pre>
 <p>This will create a dropdown list of all available time zones. You can also specify a specific set of time zones to include in the list using the <code>listIdentifiers()</code> method:</p>
 <pre><code class="language-php">use DateTimeZone;
@@ -758,7 +772,9 @@ DateTimeZone::PER_COUNTRY;
 <h2><a href='#html-quill-editor' id='html-quill-editor'>HTML Quill Editor</a></h2>
 <p>Such an editor allows you to insert pictures, tables, specify styles for text, video.</p>
 <p>Example:</p>
-<pre><code class="language-php">Quill::make('html');
+<pre><code class="language-php">use Orchid\Screen\Fields\Quill;
+
+Quill::make('html');
 </code></pre>
 <p>There are 6&nbsp;groups of controls available:</p>
 <pre><code class="language-php">Quill::make('html')
@@ -800,11 +816,15 @@ DateTimeZone::PER_COUNTRY;
 <p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture>
 <picture alt='Markdown2'><img src="/img/ui/markdown2.png" alt="Markdown2"></picture></p>
 <p>To create a Markdown Editor field, you can use the <code>SimpleMDE</code> class:</p>
-<pre><code class="language-php">SimpleMDE::make('markdown');
+<pre><code class="language-php">use Orchid\Screen\Fields\SimpleMDE;
+
+SimpleMDE::make('markdown');
 </code></pre>
 <h2><a href='#matrix' id='matrix'>Matrix</a></h2>
 <p>The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:</p>
-<pre><code class="language-php">Matrix::make('options')
+<pre><code class="language-php">use Orchid\Screen\Fields\Matrix;
+
+Matrix::make('options')
     -&gt;columns([
         'Attribute',
         'Value',
@@ -839,11 +859,13 @@ DateTimeZone::PER_COUNTRY;
 <p>A field for writing program code with the ability to highlight.</p>
 <p><picture alt='Code'><img src="/img/ui/code.png" alt="Code"></picture></p>
 <p>Example:</p>
-<pre><code class="language-php">Code::make('code');
+<pre><code class="language-php">use Orchid\Screen\Fields\Code;
+
+Code::make('code');
 </code></pre>
 <p>To specify code highlighting for a specific programming language, you can use the <code>language()</code> method.</p>
-<pre><code class="language-php"> Code::make('code')
-     -&gt;language(Code::CSS);
+<pre><code class="language-php">Code::make('code')
+    -&gt;language(Code::CSS);
 </code></pre>
 <p>The following languages are available:</p>
 <ul>
@@ -859,7 +881,9 @@ DateTimeZone::PER_COUNTRY;
 <h2><a href='#picture' id='picture'>Picture</a></h2>
 <p>Allows you to upload an image.</p>
 <p>Example:</p>
-<pre><code class="language-php">Picture::make('picture');
+<pre><code class="language-php">use Orchid\Screen\Fields\Picture;
+
+Picture::make('picture');
 </code></pre>
 <p>You can specify the storage backend for the uploaded image using the <code>storage</code> method:</p>
 <pre><code class="language-php">Picture::make('picture')
@@ -874,7 +898,9 @@ DateTimeZone::PER_COUNTRY;
 <p>Extends Picture and allows you to upload an image and crop to the desired format.</p>
 <p><picture alt='Cropper'><img src="/img/fields/cropper.png" alt="Cropper"></picture></p>
 <p>Example:</p>
-<pre><code class="language-php">Cropper::make('picture');
+<pre><code class="language-php">use Orchid\Screen\Fields\Cropper;
+
+Cropper::make('picture');
 </code></pre>
 <h3><a href='#width-and-height' id='width-and-height'>Width and height</a></h3>
 <p>In order to control the format, you can specify the width and height of the desired image:</p>
@@ -910,7 +936,9 @@ DateTimeZone::PER_COUNTRY;
 <h2><a href='#upload' id='upload'>Upload</a></h2>
 <p>Renders upload for images or regular files.</p>
 <p>Example:</p>
-<pre><code class="language-php">Upload::make('upload');
+<pre><code class="language-php">use Orchid\Screen\Fields\Upload;
+
+Upload::make('upload');
 </code></pre>
 <pre><code class="language-php">Upload::make('docs')
     -&gt;groups('documents');
@@ -962,7 +990,9 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 <p>It will add a new button with a modal window to preview uploaded files.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
 <p>The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the <code>Group::make</code> method and pass an array of fields as the argument:</p>
-<pre><code class="language-php">Group::make([
+<pre><code class="language-php">use Orchid\Screen\Fields\Group;
+
+Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
 ]),
@@ -985,19 +1015,25 @@ For such cases, there is a <code>Button</code> field. The <code>Button</code> fi
 values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
 And to add a simple link in the form.</p>
 <p>An example of using the modal window <code>addNewPayment</code> added earlier to the screen:</p>
-<pre><code class="language-php">ModalToggle::make('Add Payment')
+<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
+
+ModalToggle::make('Add Payment')
     -&gt;modal('addNewPayment')
     -&gt;icon('wallet');
 </code></pre>
 <p>Linking example:</p>
-<pre><code class="language-php">Link::make('Google It!')
+<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+
+Link::make('Google It!')
     -&gt;href('http://google.com');
 
 Link::make('Idea')
     -&gt;route('platform.idea');
 </code></pre>
 <p>Example use with method:</p>
-<pre><code class="language-php">Button::make('Google It!')
+<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+
+Button::make('Google It!')
     -&gt;method('goToGoogle');
 </code></pre>
 <p>Available modifiers:</p>
@@ -1011,7 +1047,9 @@ Link::make('Idea')
 <h2><a href='#dropdown' id='dropdown'>Dropdown</a></h2>
 <p>You can easily create a DropDown action button combining all other actions.
 For example, you can create the typical three dots dropdown:</p>
-<pre><code class="language-php">DropDown::make()
+<pre><code class="language-php">use Orchid\Screen\Actions\DropDown;
+
+DropDown::make()
     -&gt;icon('options-vertical')
     -&gt;list([
         Link::make(__('Edit'))
