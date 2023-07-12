@@ -870,7 +870,9 @@ public static function singularLabel()
  */
 public static function createButtonLabel(): string
 {
-    return __('Create :resource', ['resource' =&gt; static::singularLabel()]);
+    return __('Create :resource', [
+        'resource' =&gt; static::singularLabel()
+    ]);
 }
 
 /**
@@ -880,7 +882,9 @@ public static function createButtonLabel(): string
  */
 public static function createToastMessage(): string
 {
-    return __('The :resource was created!', ['resource' =&gt; static::singularLabel()]);
+    return __('The :resource was created!', [
+        'resource' =&gt; static::singularLabel()
+    ]);
 }
 </code></pre>
 <p>You can learn more on the <a href="https://laravel.com/docs/localization">Laravel localization page</a>.</p>
