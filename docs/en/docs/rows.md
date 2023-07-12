@@ -1,5 +1,6 @@
 ---
-title: Rows
+title: Rows - Create Concise Forms with the Row Layout
+description: Learn how to create short and concise forms using the Row layout in Orchid. The Row layout combines necessary form elements and is perfect for displaying one or two fields. Find out how to create reusable Row classes and access screen data for conditional field display.
 ---
 
 
