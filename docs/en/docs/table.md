@@ -166,9 +166,7 @@ In some cases, you may need to display combined data, the `render` method is for
  
 ```php
 TD::make('full_name')
-    ->render(function ($user) {
-        return e($user->first_name) . ' ' . e($user->last_name);
-    });
+    ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
 ```
 
 > **Note.** The returned string will not be escaped! You need to take care of this yourself with the `e()` helper or use `Blade` view.
@@ -178,11 +176,9 @@ The loopback function must return any string value:
 
 ```php
 TD::make('full_name')
-    ->render(function ($user) {
-        return view('blade_template', [
-            'user' => $user
-        ]);
-    });
+    ->render(fn($user) => view('blade_template', [
+        'user' => $user,
+    ])),
 ```
 
 Please note that you can use fields and actions:
@@ -191,10 +187,7 @@ Please note that you can use fields and actions:
 use Orchid\Screen\Actions\Link;
 
 TD::make()
-    ->render(function ($user) {
-        return Link::make($user->last_name)
-               ->route('platform.user.edit', $user);
-    });
+    ->render(fn ($user) => Link::make($user->last_name)->route('platform.user.edit', $user)),
 ```
 
 Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a `Group`:
@@ -204,24 +197,21 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
 
 TD::make()
-    ->render(function ($user) {
-        return Group::make([
-            Link::make('Show')->route('platform.user.show', $user),
-            Link::make('Edit')->route('platform.user.edit', $user),
-        ]);
-    });
+    ->render(fn($user) => Group::make([
+        Link::make('Show')->route('platform.user.show', $user),
+        Link::make('Edit')->route('platform.user.edit', $user),
+    ])),
 ```
 
 For example, display a checkbox for each line for a bulk action:
 
 ```php
 TD::make()
-    ->render(function (User $user){
-        return CheckBox::make('users[]')
-            ->value($user->id)
-            ->placeholder($user->name)
-            ->checked(false);
-});
+    ->render(fn(User $user) => CheckBox::make('users[]')
+        ->value($user->id)
+        ->placeholder($user->name)
+        ->checked(false)
+    ),
 ```
 
 Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You can get the value as follows:
@@ -230,9 +220,7 @@ Sometimes it may be necessary to get the value from the `query` screen, rather t
 use Orchid\Screen\Actions\Link;
 
 TD::make('price')
-    ->render(function ($product) {
-        return $product->price + $this->query->get('tax');
-    });
+    ->render(fn ($product) => $product->price + $this->query->get('tax')),
 ```
 
 ## The Loop Variable
@@ -241,9 +229,7 @@ TD::make('price')
 The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:
 
 ```php
-TD::make()->render(function (Model $model, object $loop) {
-    return $loop->index;
-})
+TD::make()->render(fn (Model $model, object $loop) => $loop->index),
 ```
 
 The $loop variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
@@ -475,9 +461,7 @@ public function total():array
         TD::make('total')
             ->align(TD::ALIGN_RIGHT)
             ->colspan(2)
-            ->render(function () {
-                return 'Total:';
-            }),
+            ->render(fn () => 'Total:'),
 
         TD::make('total_count')
             ->align(TD::ALIGN_RIGHT),
