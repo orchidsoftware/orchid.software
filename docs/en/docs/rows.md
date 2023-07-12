@@ -207,11 +207,7 @@ class AddressLayout extends Rows
      */
     protected function addPrefix(array $fields): array
     {
-        return array_map(function (Field $field) {
-            return $field->set('name',
-                $this->prefix . $field->get('name')
-            );
-        }, $fields);
+        return array_map(fn(Field $field) => $field->set('name', $this->prefix . $field->get('name')), $fields);
     }
 }
 ```
