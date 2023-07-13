@@ -1,5 +1,5 @@
 ---
-title: Orchid CRUD for Laravel - Simplify Your Application Development Process
+title: Orchid CRUD for Laravel
 description: Easily create a user interface for Laravel eloquent models with Orchid's new package. This simplified CRUD solution allows you to efficiently perform common database operations, including create, read, update, and delete. With seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid platform for more advanced options. Compatible with all fields, filters, and traits.
 ---
 
