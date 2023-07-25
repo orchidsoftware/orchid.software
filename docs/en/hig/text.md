@@ -12,7 +12,7 @@ Just as sticking to a style guide is essential in documentation, it also plays a
 Consistency in style and language is vital for establishing a unified and professional user experience. 
 Users should perceive every interaction within the app as aligned with their expectations and reflective of the brand's identity.
 
-To achieve this, it is recommended to refer to reputable industry resources like the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/) and [Google Material Design](https://material.io/design/language/). These style guides offer valuable insights from experienced writers and designers, allowing you to leverage their expertise and save time in the process.
+To achieve this, it is recommended to refer to reputable industry resources like the [Microsoft Style Guide](https://docs.microsoft.com/en-us/style-guide/) and Google Material Design. These style guides offer valuable insights from experienced writers and designers, allowing you to leverage their expertise and save time in the process.
 
 For instance, the Microsoft Style Guide suggests capitalizing only the first word of headings and titles to maintain a clean and modern aesthetic.
 Similarly, Google Material Design emphasizes the importance of using concise and clear language that aligns with user expectations.
