@@ -134,7 +134,7 @@ return [
             ],
 
             'Reference' => [
-                'Writing Style <small class="text-muted">(Soon)</small>' => '#',
+                'Writing Style' => '/en/hig/text',
                 'Iconography'   => '/en/hig/icon',
             ],
         ],
