@@ -28,6 +28,11 @@ public function boot(Dashboard $dashboard)
 
 In the `boot` method of your service provider, you can define permissions for your package. Specify the group name, permission key, and description. The `Dashboard` class is injected to register the permissions.
 
+
+## Publish Resource
+
+// ...
+
 ## Layouts
 
 The `Layouts` class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:
