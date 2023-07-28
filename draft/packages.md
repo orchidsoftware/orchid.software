@@ -29,7 +29,27 @@ public function boot(Dashboard $dashboard)
 In the `boot` method of your service provider, you can define permissions for your package. Specify the group name, permission key, and description. The `Dashboard` class is injected to register the permissions.
 
 
-## Publish Resource
+## Assets
+
+### Register
+
+```php
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\Dashboard;
+
+class PackageServiceProvider extends ServiceProvider
+{
+    public function boot(Dashboard $dashboard)
+    {
+        $dashboard->registerResource('stylesheets', '/path/to/custom.css');
+        $dashboard->registerResource('scripts', '/path/to/custom.js');
+    }
+}
+```
+
+It’s worth noting that the resource file must be present in the `public` directory to be able to access it.
+
+### Publish
 
 // ...
 
