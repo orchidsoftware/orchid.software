@@ -42,3 +42,14 @@ public function boot(IconFinder $iconFinder)
 ```
 
 In this example, the FontAwesome icon set is registered. You should specify an identifier and the path to the icon directory. Once registered, you can use the registered icons in your package's views or components.
+
+
+## Versioning
+
+When developing a package that supports multiple versions, it is advised to utilize Composer for version management. Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:
+
+```php
+Orchid\Platform\Dashboard::VERSION
+```
+
+This constant returns a string representation of the current version being used.
