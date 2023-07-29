@@ -74,7 +74,6 @@ use App\Model;
 Model::filters([EmailFilter::class])->simplePaginate();
 ```
 
-> **Note.** You can use the same filters for different models.
 
 ### Using Filters for Different Models
 
