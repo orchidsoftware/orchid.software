@@ -30,7 +30,7 @@ Next, you need to configure the package to search for icons in the new directory
 
 ```php
 'icons' => [
-    // ...
+    // other icon configurations
     'fa' => resource_path('icons/fontawesome')
 ],
 ```
