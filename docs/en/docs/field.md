@@ -1008,6 +1008,8 @@ TD::make()->filter(TD::FILTER_NUMBER_RANGE);
 Result is an array with keys of `min`, `max`.  
 
 
-## Creating Custom Fields
+## Custom Fields Creation
 
-To create your own custom fields, check out the page "[Builder](/en/docs/builder)" in the documentation. 
+To create custom fields, refer to the "Builder" page in the documentation. 
+This page provides a straightforward guide on how to create and customize fields according to your requirements. 
+Access the "Builder" page by clicking here: [Builder](/en/docs/builder).
