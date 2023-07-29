@@ -46,3 +46,33 @@ Menu::make('Example of custom icons')
 ```
 
 You can also use the icons outside of the admin panel by [using the Blade component](https://github.com/orchidsoftware/blade-icons).
+
+
+## Server-side Rendering with Templates
+
+In our application, we rely solely on server-side rendering, which means we don't specifically prepare icons for JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the `<template>` tag.
+
+To illustrate this, you can include the following code on your page:
+
+```blade
+<template id="product-row">
+  <tr>
+    <td>{name}</td>
+    <td>
+      <x-orchid-icon path="minus" class="icon-minus" />
+    </td>
+  </tr>
+</template>
+```
+
+In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here's an example:
+
+```javascript
+let template = document.querySelector('#product-row');
+
+let row = template.content.querySelector('tr').cloneNode(true);
+
+row.innerHTML = row.innerHTML.replace(/{name}/gi, "Alexandr");
+```
+
+By substituting the `{name}` placeholder with the actual content, you can dynamically generate the desired element. You can then insert this element into your page wherever you need it.
