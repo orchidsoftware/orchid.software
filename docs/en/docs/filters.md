@@ -3,13 +3,6 @@ title: Eloquent Filters
 description: Learn how to use the Eloquent Filters feature in Laravel Orchid to easily filter and search your database records. Improve the user experience of your administration-style app with powerful and customizable filters.
 ---
 
-Filters used to simplify the search for records using a typical filter.
-For example, if you want to filter the product catalog by attributes, brands, etc.
-The sample values based on the Http request parameters.
-
-> **Note.** This is not a ready-made solution or a universal remedy.
-You must expand the structure for your specific applications.
-
 
 ## Eloquent Filter
 
@@ -36,13 +29,16 @@ use Illuminate\Database\Eloquent\Builder;
 
 class EmailFilter extends Filter
 {
-
     /**
+     * The array of matched parameters.
+     *
      * @var array
      */
     public $parameters = ['email'];
 
     /**
+     * Apply filter if the request parameters were satisfied.
+     * 
      * @param Builder $builder
      *
      * @return Builder
@@ -53,6 +49,8 @@ class EmailFilter extends Filter
     }
 
     /**
+     * Get the display fields.
+     *
      * @return Field[]
      */
     public function display(): array
