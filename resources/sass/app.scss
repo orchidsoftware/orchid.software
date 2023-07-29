@@ -213,9 +213,13 @@ main, main div {
     p {
         font-size: 1em;
         line-height: 1.6em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
         @extend .text-wrap;
         @extend .text-break;
+
+        &:not(:last-child){
+            margin-bottom: 1.5rem;
+        }
 
         > a {
             text-decoration: underline;
@@ -288,9 +292,12 @@ main {
         }
     }
 
+    /*
     p {
         margin: 0 0 1em;
     }
+
+     */
 
     li {
         padding-bottom: 0.33em;
@@ -477,4 +484,24 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .footer {
     background: linear-gradient(180deg, rgb(255 255 255 / 0%), rgb(0 0 0 / 25%));
+}
+
+.friends {
+    a {
+        filter: grayscale(1);
+        transition: 540ms all;
+
+        img{
+            width: 100%;
+            max-width: 150px;
+            display: block;
+            margin: 0 auto;
+            max-height: 40px;
+            object-fit: contain;
+        }
+
+        &:hover{
+            filter: grayscale(0);
+        }
+    }
 }
