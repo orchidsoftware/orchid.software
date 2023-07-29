@@ -417,9 +417,6 @@ class EmailFilter extends Filter
 
 Model::filters([EmailFilter::class])-&gt;simplePaginate();
 </code></pre>
-<blockquote>
-<p><strong>Note.</strong> You can use the same filters for different models.</p>
-</blockquote>
 <h3><a href='#using-filters-for-different-models' id='using-filters-for-different-models'>Using Filters for Different Models</a></h3>
 <p>One of the great advantages of Eloquent Filter is that you can reuse the same filter class for different models. This allows you to define a filter once and apply it to multiple models, reducing code duplication. Simply specify the filter class when applying filters to your models:</p>
 <pre><code class="language-php">User::filters([EmailFilter::class])-&gt;simplePaginate();
