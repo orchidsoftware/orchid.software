@@ -54,7 +54,7 @@ In our application, we rely solely on server-side rendering, which means we don'
 
 To illustrate this, you can include the following code on your page:
 
-```blade
+```html
 <template id="product-row">
   <tr>
     <td>{name}</td>
