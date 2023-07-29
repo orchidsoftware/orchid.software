@@ -387,7 +387,9 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
 <p>In the same way, we can change the bottom of the page, again create a new file <code>/resources/views/brand/footer.blade.php</code> with the following contents:</p>
 <pre><code class="language-php">&lt;p class="small m-n"&gt;
     © Copyright {{date('Y')}} 
-    &lt;a href="{{ config('app.url') }}" target="_blank"&gt;{{ config('app.name') }}&lt;/a&gt;
+    &lt;a href="{{ config('app.url') }}" target="_blank"&gt;
+        {{ config('app.name') }}
+    &lt;/a&gt;
 &lt;/p&gt;
 </code></pre>
 <p>Also making changes to the configuration file:</p>
