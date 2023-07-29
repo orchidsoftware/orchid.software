@@ -4,8 +4,6 @@ description: Learn how to use the Eloquent Filters feature in Laravel Orchid to 
 ---
 
 
-## Eloquent Filter
-
 Eloquent Filters are powerful tools for creating complex queries in Laravel. 
 They allow you to easily manage and customize your search criteria.
 You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.
@@ -179,7 +177,7 @@ public function layout(): array
 }
 ```
 
-Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
+> Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
 
 
 ## Automatic HTTP Filtering and Sorting
