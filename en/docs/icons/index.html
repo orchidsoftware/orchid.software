@@ -343,6 +343,9 @@
                     <a href="#custom-icons">Custom Icons</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#using-blade-components-for-icons">Using Blade Components for Icons</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#server-side-rendering-with-templates">Server-side Rendering with Templates</a>
                 </li>
                     </ul>
@@ -375,7 +378,19 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
     -&gt;icon('fa.address-book')
     -&gt;url('https://orchid.software');
 </code></pre>
-<p>You can also use the icons outside of the admin panel by <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
+<h2><a href='#using-blade-components-for-icons' id='using-blade-components-for-icons'>Using Blade Components for Icons</a></h2>
+<p>Icons can be easily integrated into your views using Blade components. Follow these steps to seamlessly incorporate icons in your views:</p>
+<pre><code class="language-blade">&lt;x-orchid-icon path="fa.home" /&gt;
+</code></pre>
+<p>The code above renders the icon component with the specified icon path.</p>
+<p>You can also apply additional attributes to your icon component:</p>
+<pre><code class="language-blade">&lt;x-orchid-icon 
+    path="fa.home" 
+    class="icon-big" 
+    width="2em" 
+    height="2em" /&gt;
+</code></pre>
+<p>You can also use the <code>Blade Icon Component</code> outside of the admin panel by <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
 <h2><a href='#server-side-rendering-with-templates' id='server-side-rendering-with-templates'>Server-side Rendering with Templates</a></h2>
 <p>In our application, we rely solely on server-side rendering, which means we don&rsquo;t specifically prepare icons for JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the <code>&lt;template&gt;</code> tag.</p>
 <p>To illustrate this, you can include the following code on your page:</p>
