@@ -77,7 +77,9 @@ Model::filters([EmailFilter::class])->simplePaginate();
 
 ### Using Filters for Different Models
 
-One of the great advantages of Eloquent Filter is that you can reuse the same filter class for different models. This allows you to define a filter once and apply it to multiple models, reducing code duplication. Simply specify the filter class when applying filters to your models:
+One of the great advantages of filters is that you can reuse the same filter class for different models.
+This allows you to define a filter once and apply it to multiple models, reducing code duplication.
+Simply specify the filter class when applying filters to your models:
 
 ```php
 User::filters([EmailFilter::class])->simplePaginate();
