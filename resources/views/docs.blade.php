@@ -42,11 +42,11 @@
                     </p>
 
                         <div class="d-flex flex-column friends">
-                            <a href="https://assisted-mindfulness.com/" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
+                            <a href="https://assisted-mindfulness.com?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
                                 <img src="/img/sponsors/assisted-mindfulness-logo.svg" class="rounded-3" height="40px">
                             </a>
 
-                            <a href="https://sajya.github.io/" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
+                            <a href="https://sajya.github.io?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
                                 <img src="/img/sponsors/sajya.svg" class="rounded-3" height="40px">
                             </a>
                         </div>
