@@ -338,6 +338,14 @@
 
 
                         <div class="anchors">
+            <ul>
+                            <li class="anchor-h2">
+                    <a href="#custom-icons">Custom Icons</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#server-side-rendering-with-templates">Server-side Rendering with Templates</a>
+                </li>
+                    </ul>
     </div>
                         <body><p>The package comes with a set of icons that can be found on the <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>.
 These icons are prefixed with <code>bs.*</code> which is used as a prefix to identify the icons in your code.</p>
@@ -368,6 +376,26 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
     -&gt;url('https://orchid.software');
 </code></pre>
 <p>You can also use the icons outside of the admin panel by <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
+<h2><a href='#server-side-rendering-with-templates' id='server-side-rendering-with-templates'>Server-side Rendering with Templates</a></h2>
+<p>In our application, we rely solely on server-side rendering, which means we don&rsquo;t specifically prepare icons for JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the <code>&lt;template&gt;</code> tag.</p>
+<p>To illustrate this, you can include the following code on your page:</p>
+<pre><code class="language-blade">&lt;template id="product-row"&gt;
+  &lt;tr&gt;
+    &lt;td&gt;{name}&lt;/td&gt;
+    &lt;td&gt;
+      &lt;x-orchid-icon path="minus" class="icon-minus" /&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/template&gt;
+</code></pre>
+<p>In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here&rsquo;s an example:</p>
+<pre><code class="language-javascript">let template = document.querySelector('#product-row');
+
+let row = template.content.querySelector('tr').cloneNode(true);
+
+row.innerHTML = row.innerHTML.replace(/{name}/gi, "Alexandr");
+</code></pre>
+<p>By substituting the <code>{name}</code> placeholder with the actual content, you can dynamically generate the desired element. You can then insert this element into your page wherever you need it.</p>
 </body>
                         
                     </main>
