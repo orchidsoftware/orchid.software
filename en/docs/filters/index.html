@@ -359,14 +359,7 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>Filters used to simplify the search for records using a typical filter.
-For example, if you want to filter the product catalog by attributes, brands, etc.
-The sample values based on the Http request parameters.</p>
-<blockquote>
-<p><strong>Note.</strong> This is not a ready-made solution or a universal remedy.
-You must expand the structure for your specific applications.</p>
-</blockquote>
-<h2><a href='#eloquent-filter' id='eloquent-filter'>Eloquent Filter</a></h2>
+                        <body><h2><a href='#eloquent-filter' id='eloquent-filter'>Eloquent Filter</a></h2>
 <p>Eloquent Filters are powerful tools for creating complex queries in Laravel.
 They allow you to easily manage and customize your search criteria.
 You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.</p>
@@ -383,13 +376,16 @@ use Illuminate\Database\Eloquent\Builder;
 
 class EmailFilter extends Filter
 {
-
     /**
+     * The array of matched parameters.
+     *
      * @var array
      */
     public $parameters = ['email'];
 
     /**
+     * Apply filter if the request parameters were satisfied.
+     * 
      * @param Builder $builder
      *
      * @return Builder
@@ -400,6 +396,8 @@ class EmailFilter extends Filter
     }
 
     /**
+     * Get the display fields.
+     *
      * @return Field[]
      */
     public function display(): array
