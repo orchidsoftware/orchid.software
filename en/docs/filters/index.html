@@ -342,6 +342,15 @@
                             <li class="anchor-h2">
                     <a href="#eloquent-filter">Eloquent Filter</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#using-filters-for-different-models">Using Filters for Different Models</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#running-the-filter-always">Running the Filter Always</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#parameter-patterns">Parameter Patterns</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#selection">Selection</a>
                 </li>
@@ -360,7 +369,7 @@ You must expand the structure for your specific applications.</p>
 <h2><a href='#eloquent-filter' id='eloquent-filter'>Eloquent Filter</a></h2>
 <p>When you need to create complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
 There is an artisan command to create a new filter:</p>
-<pre><code class="language-php">php artisan orchid:filter QueryFilter
+<pre><code class="language-php">php artisan orchid:filter EmailFilter
 </code></pre>
 <p>This will create a class filter in the <code>app/Http/Filters</code> folder. Filter example:</p>
 <pre><code class="language-php">namespace App\Http\Filters;
@@ -368,7 +377,7 @@ There is an artisan command to create a new filter:</p>
 use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
-class QueryFilter extends Filter
+class EmailFilter extends Filter
 {
 
     /**
@@ -401,16 +410,39 @@ class QueryFilter extends Filter
     }
 }
 </code></pre>
-<p>The filter will work, provided there is at least one parameter specified in the array <code>$parameters</code>,
-if the array is empty, then the filter will work on every request.</p>
-<blockquote>
-<p><strong>Note.</strong> You can use the same filters for different models.</p>
-</blockquote>
 <p>To use filters in your own models, you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
 <pre><code class="language-php">use App\Model;
 
-Model::filters([Filter::class])-&gt;simplePaginate();
+Model::filters([EmailFilter::class])-&gt;simplePaginate();
 </code></pre>
+<blockquote>
+<p><strong>Note.</strong> You can use the same filters for different models.</p>
+</blockquote>
+<h3><a href='#using-filters-for-different-models' id='using-filters-for-different-models'>Using Filters for Different Models</a></h3>
+<p>One of the great advantages of Eloquent Filter is that you can reuse the same filter class for different models. This allows you to define a filter once and apply it to multiple models, reducing code duplication. Simply specify the filter class when applying filters to your models:</p>
+<pre><code class="language-php">User::filters([EmailFilter::class])-&gt;simplePaginate();
+
+Customer::filters([EmailFilter::class])-&gt;simplePaginate();
+</code></pre>
+<h3><a href='#running-the-filter-always' id='running-the-filter-always'>Running the Filter Always</a></h3>
+<p>By default, filters are applied only when the corresponding parameters are specified.
+However, if you want a filter to run on every request, you can leave the <code>$parameters</code> property as an empty array in your filter class.
+This way, the filter will be applied to all queries. For instance:</p>
+<pre><code class="language-php">public $parameters = [];
+</code></pre>
+<h3><a href='#parameter-patterns' id='parameter-patterns'>Parameter Patterns</a></h3>
+<p>Filter provides the capability to define parameter patterns using a convenient syntax.
+This allows you to create custom patterns and perform advanced filtering based on specific patterns. For example:</p>
+<pre><code class="language-php">/**
+ * The array of matched parameters.
+ *
+ * @var null|array
+ */
+public $parameters = [
+    'pattern.*',
+];
+</code></pre>
+<p>In the above example, the filter will match any parameter that follows the pattern <code>pattern.*</code>. This allows you to handle a wide range of dynamic parameters in your filters.</p>
 <h2><a href='#selection' id='selection'>Selection</a></h2>
 <p>When you need to display filters and apply them to a model, it is more convenient to group them by creating a separate layer, &ldquo;Selection&rdquo;.
 To make, run the command:</p>
