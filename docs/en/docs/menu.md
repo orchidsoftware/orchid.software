@@ -28,7 +28,7 @@ class PlatformProvider extends OrchidServiceProvider
 }
 ```
 
-> **Note.** for each element during creation, the unique key which cannot repeat is generated, but it can be changed manually by means of the `slug` method.
+> **Note:** When creating each element, a unique key is automatically generated, which should not be repeated. However, you can manually change the key using the `slug` method.
 
 ## Links
 
