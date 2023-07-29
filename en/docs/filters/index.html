@@ -476,9 +476,10 @@ class MySelection extends Selection
 <pre><code class="language-php">Model::filters(MySelection::class)-&gt;simplePaginate();
 </code></pre>
 <p>By calling the <code>filters()</code> method on your model and passing <code>MySelection::class</code> as the argument, you can apply the filters defined in the <code>MySelection</code> class to the model.</p>
-<p>The &ldquo;Selection&rdquo; layer can also be used to display filters on a screen. In the <code>layout()</code> method of your screen, you can include the <code>MySelection</code> class to display the filters on the screen.
+<p>The &ldquo;Selection&rdquo; layer can also be used to display filters on a <a href="/en/docs/screens">screen</a>.
+In the <code>layout()</code> method of your screen, you can include the <code>MySelection</code> class to display the filters on the screen.
 For example:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code class="language-php">use App\Orchid\Layouts\MySelection;
 
 public function layout(): array
 {
