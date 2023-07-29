@@ -13,14 +13,20 @@ You must expand the structure for your specific applications.
 
 ## Eloquent Filter
 
-When you need to create complex queries, you can use Eloquent filters, which allow you to manage yourself completely.
-There is an artisan command to create a new filter:
+Eloquent Filters are powerful tools for creating complex queries in Laravel. 
+They allow you to easily manage and customize your search criteria.
+You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.
+
+To create a new Eloquent filter, you can use the `php artisan orchid:filter` command followed by the desired filter name.
+This command will generate a new filter class in the `app/Orchid/Filters` folder.
+
+Here's an example of creating an `EmailFilter`:
 
 ```php
 php artisan orchid:filter EmailFilter
 ```
 
-This will create a class filter in the `app/Http/Filters` folder. Filter example:
+The generated filter class will look like this:
 
 ```php
 namespace App\Http\Filters;
@@ -114,14 +120,20 @@ In the above example, the filter will match any parameter that follows the patte
 
 ## Selection
 
-When you need to display filters and apply them to a model, it is more convenient to group them by creating a separate layer, "Selection".
-To make, run the command:
+The "Selection" layer provides a convenient way to group and organize filters for both displaying and applying them to a model. 
+This layer acts as an intermediary between the user interface and the model, simplifying the process of managing filters.
 
-```php
+To create a "Selection" layer, you can use the following command:
+
+```shell
 php artisan orchid:selection MySelection
 ```
 
-In this class, there is one single method in which it is necessary to list all filters that should be displayed and applied, for example:
+This command will generate a new PHP file called `MySelection` in the `App\Orchid\Layouts` directory.
+Inside this class, you will find a single method called `filters()`. 
+This method is where you should list all the filters that need to be displayed and applied.
+
+For example, let's say you want to display and apply two filters: a search filter and a created filter. Your `MySelection` class would look like this:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -147,13 +159,16 @@ class MySelection extends Selection
 ```
 
 
-After that, we can apply it to the model:
+Once you have defined your filters in the `MySelection` class, you can apply them to a model by using the `filters()` method. For example:
 
 ```php
 Model::filters(MySelection::class)->simplePaginate();
 ```
 
-Since this is a layer, it can also be used to display fields on the screen:
+By calling the `filters()` method on your model and passing `MySelection::class` as the argument, you can apply the filters defined in the `MySelection` class to the model.
+
+The "Selection" layer can also be used to display filters on a screen. In the `layout()` method of your screen, you can include the `MySelection` class to display the filters on the screen.
+For example:
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -166,6 +181,7 @@ public function layout(): array
 }
 ```
 
+Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
 
 
 ## Automatic HTTP Filtering and Sorting
