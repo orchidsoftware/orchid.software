@@ -123,15 +123,15 @@ This layer acts as an intermediary between the user interface and the model, sim
 To create a "Selection" layer, you can use the following command:
 
 ```shell
-php artisan orchid:selection MySelection
+php artisan orchid:selection MailingSelection
 ```
 
-This command will generate a new PHP file called `MySelection` in the `App\Orchid\Layouts` directory.
+This command will generate a new PHP file called `MailingSelection` in the `App\Orchid\Layouts` directory.
 Inside this class, you will find a single method called `filters()`. 
 This method is where you should list all the filters that need to be displayed and applied.
 
 For example, let's say you want to display and apply two filters: a email filter and a created filter.
-Your `MySelection` class would look like this:
+Your `MailingSelection` class would look like this:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -140,7 +140,7 @@ use App\Orchid\Filters\EmailFilter;
 use App\Orchid\Filters\CreatedFilter;
 use Orchid\Screen\Layouts\Selection;
 
-class MySelection extends Selection
+class MailingSelection extends Selection
 {
     /**
      * @return Filter[]
@@ -156,25 +156,25 @@ class MySelection extends Selection
 ```
 
 
-Once you have defined your filters in the `MySelection` class, you can apply them to a model by using the `filters()` method. For example:
+Once you have defined your filters in the `MailingSelection` class, you can apply them to a model by using the `filters()` method. For example:
 
 ```php
-Model::filters(MySelection::class)->simplePaginate();
+Model::filters(MailingSelection::class)->simplePaginate();
 ```
 
-By calling the `filters()` method on your model and passing `MySelection::class` as the argument, you can apply the filters defined in the `MySelection` class to the model.
+By calling the `filters()` method on your model and passing `MailingSelection::class` as the argument, you can apply the filters defined in the `MailingSelection` class to the model.
 
 The "Selection" layer can also be used to display filters on a [screen](/en/docs/screens). 
-In the `layout()` method of your screen, you can include the `MySelection` class to display the filters on the screen.
+In the `layout()` method of your screen, you can include the `MailingSelection` class to display the filters on the screen.
 For example:
 
 ```php
-use App\Orchid\Layouts\MySelection;
+use App\Orchid\Layouts\MailingSelection;
 
 public function layout(): array
 {
     return [
-        MySelection::class,
+        MailingSelection::class,
     ];
 }
 ```
