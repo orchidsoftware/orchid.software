@@ -17,7 +17,7 @@ When you need to create complex queries, you can use Eloquent filters, which all
 There is an artisan command to create a new filter:
 
 ```php
-php artisan orchid:filter QueryFilter
+php artisan orchid:filter EmailFilter
 ```
 
 This will create a class filter in the `app/Http/Filters` folder. Filter example:
@@ -28,7 +28,7 @@ namespace App\Http\Filters;
 use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 
-class QueryFilter extends Filter
+class EmailFilter extends Filter
 {
 
     /**
@@ -62,20 +62,55 @@ class QueryFilter extends Filter
 }
 ```
 
-The filter will work, provided there is at least one parameter specified in the array `$parameters`,
-if the array is empty, then the filter will work on every request.
-
-> **Note.** You can use the same filters for different models.
-
 To use filters in your own models,
 you need to connect the trait `Orchid\Filters\Filterable` and pass an array of classes to the `filtersApply` function:
 
 ```php
 use App\Model;
 
-Model::filters([Filter::class])->simplePaginate();
+Model::filters([EmailFilter::class])->simplePaginate();
 ```
 
+> **Note.** You can use the same filters for different models.
+
+### Using Filters for Different Models
+
+One of the great advantages of Eloquent Filter is that you can reuse the same filter class for different models. This allows you to define a filter once and apply it to multiple models, reducing code duplication. Simply specify the filter class when applying filters to your models:
+
+```php
+User::filters([EmailFilter::class])->simplePaginate();
+
+Customer::filters([EmailFilter::class])->simplePaginate();
+```
+
+
+### Running the Filter Always
+
+By default, filters are applied only when the corresponding parameters are specified.
+However, if you want a filter to run on every request, you can leave the `$parameters` property as an empty array in your filter class.
+This way, the filter will be applied to all queries. For instance:
+
+```php
+public $parameters = [];
+```
+
+### Parameter Patterns
+
+Filter provides the capability to define parameter patterns using a convenient syntax.
+This allows you to create custom patterns and perform advanced filtering based on specific patterns. For example:
+
+```php
+/**
+ * The array of matched parameters.
+ *
+ * @var null|array
+ */
+public $parameters = [
+    'pattern.*',
+];
+```
+
+In the above example, the filter will match any parameter that follows the pattern `pattern.*`. This allows you to handle a wide range of dynamic parameters in your filters.
 
 ## Selection
 
