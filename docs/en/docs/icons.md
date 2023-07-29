@@ -46,7 +46,7 @@ Menu::make('Example of custom icons')
 ```
 
 
-## Using Blade Components for Icons
+## Using Blade Component
 
 Icons can be easily integrated into your views using Blade components. Follow these steps to seamlessly incorporate icons in your views:
 
