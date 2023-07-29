@@ -163,11 +163,12 @@ Model::filters(MySelection::class)->simplePaginate();
 
 By calling the `filters()` method on your model and passing `MySelection::class` as the argument, you can apply the filters defined in the `MySelection` class to the model.
 
-The "Selection" layer can also be used to display filters on a screen. In the `layout()` method of your screen, you can include the `MySelection` class to display the filters on the screen.
+The "Selection" layer can also be used to display filters on a [screen](/en/docs/screens). 
+In the `layout()` method of your screen, you can include the `MySelection` class to display the filters on the screen.
 For example:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use App\Orchid\Layouts\MySelection;
 
 public function layout(): array
 {
