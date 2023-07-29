@@ -163,6 +163,8 @@ Model::filters(MailingSelection::class)->simplePaginate();
 
 By calling the `filters()` method on your model and passing `MailingSelection::class` as the argument, you can apply the filters defined in the `MailingSelection` class to the model.
 
+### Displaying on a Screen
+
 The "Selection" layer can also be used to display filters on a [screen](/en/docs/screens). 
 In the `layout()` method of your screen, you can include the `MailingSelection` class to display the filters on the screen.
 For example:
