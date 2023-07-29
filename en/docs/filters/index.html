@@ -354,6 +354,9 @@
                             <li class="anchor-h2">
                     <a href="#selection">Selection</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#displaying-on-a-screen">Displaying on a Screen</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#automatic-http-filtering-and-sorting">Automatic HTTP Filtering and Sorting</a>
                 </li>
@@ -477,6 +480,7 @@ class MailingSelection extends Selection
 <pre><code class="language-php">Model::filters(MailingSelection::class)-&gt;simplePaginate();
 </code></pre>
 <p>By calling the <code>filters()</code> method on your model and passing <code>MailingSelection::class</code> as the argument, you can apply the filters defined in the <code>MailingSelection</code> class to the model.</p>
+<h3><a href='#displaying-on-a-screen' id='displaying-on-a-screen'>Displaying on a Screen</a></h3>
 <p>The &ldquo;Selection&rdquo; layer can also be used to display filters on a <a href="/en/docs/screens">screen</a>.
 In the <code>layout()</code> method of your screen, you can include the <code>MailingSelection</code> class to display the filters on the screen.
 For example:</p>
