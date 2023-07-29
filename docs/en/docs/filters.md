@@ -133,14 +133,14 @@ This command will generate a new PHP file called `MySelection` in the `App\Orchi
 Inside this class, you will find a single method called `filters()`. 
 This method is where you should list all the filters that need to be displayed and applied.
 
-For example, let's say you want to display and apply two filters: a search filter and a created filter. Your `MySelection` class would look like this:
+For example, let's say you want to display and apply two filters: a email filter and a created filter.
+Your `MySelection` class would look like this:
 
 ```php
 namespace App\Orchid\Layouts;
 
-use Orchid\Platform\Filters\Filter;
-use Orchid\Press\Http\Filters\CreatedFilter;
-use Orchid\Press\Http\Filters\SearchFilter;
+use App\Orchid\Filters\EmailFilter;
+use App\Orchid\Filters\CreatedFilter;
 use Orchid\Screen\Layouts\Selection;
 
 class MySelection extends Selection
@@ -151,7 +151,7 @@ class MySelection extends Selection
     public function filters(): array
     {
         return [
-          SearchFilter::class,
+          EmailFilter::class,
           CreatedFilter::class
         ];
     }
