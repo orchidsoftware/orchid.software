@@ -3,6 +3,7 @@ title: Eloquent Filters
 description: Learn how to use the Eloquent Filters feature in Laravel Orchid to easily filter and search your database records. Improve the user experience of your administration-style app with powerful and customizable filters.
 ---
 
+## Introduction
 
 Eloquent Filters are powerful tools for creating complex queries in Laravel. 
 They allow you to easily manage and customize your search criteria.
