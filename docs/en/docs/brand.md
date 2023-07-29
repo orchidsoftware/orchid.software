@@ -72,7 +72,9 @@ In the same way, we can change the bottom of the page, again create a new file `
 ```php
 <p class="small m-n">
     © Copyright {{date('Y')}} 
-    <a href="{{ config('app.url') }}" target="_blank">{{ config('app.name') }}</a>
+    <a href="{{ config('app.url') }}" target="_blank">
+        {{ config('app.name') }}
+    </a>
 </p>
 ```
 
