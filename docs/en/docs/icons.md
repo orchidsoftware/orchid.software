@@ -45,8 +45,27 @@ Menu::make('Example of custom icons')
     ->url('https://orchid.software');
 ```
 
-You can also use the icons outside of the admin panel by [using the Blade component](https://github.com/orchidsoftware/blade-icons).
 
+## Using Blade Components for Icons
+
+Icons can be easily integrated into your views using Blade components. Follow these steps to seamlessly incorporate icons in your views:
+
+```blade
+<x-orchid-icon path="fa.home" />
+```
+The code above renders the icon component with the specified icon path.
+
+You can also apply additional attributes to your icon component:
+
+```blade
+<x-orchid-icon 
+    path="fa.home" 
+    class="icon-big" 
+    width="2em" 
+    height="2em" />
+```
+
+You can also use the `Blade Icon Component` outside of the admin panel by [using the Blade component](https://github.com/orchidsoftware/blade-icons).
 
 ## Server-side Rendering with Templates
 
