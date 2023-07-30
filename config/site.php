@@ -35,7 +35,7 @@ return [
                 'Rows'            => '/en/docs/rows',
                 'Table'           => '/en/docs/table',
                 'Legend'          => '/en/docs/legend',
-                'Cell Types'      => '/en/docs/cell-types'
+                'Cell Types'      => '/en/docs/cell-types',
                 'Charts'          => '/en/docs/charts',
                 'Modals'          => '/en/docs/modals',
                 'Listeners'       => '/en/docs/listener',
