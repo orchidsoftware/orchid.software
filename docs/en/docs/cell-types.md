@@ -3,7 +3,7 @@ title: Cell Types
 description: Discover Orchid's built-in components for effortless data representation. Learn how to format dates with DateTimeSplit, display numbers with Number, represent boolean values with Boolean, and showcase percentage values with Percentage components. Enhance your project's visual appeal and user experience with these powerful tools.
 ---
 
-# Introduction
+## Introduction
 
 When working on your project, you'll often encounter the need to present various data types such as currency, numbers, or dates. Orchid makes this task easier by providing built-in components that handle these common data types, similar to popular spreadsheet software like Microsoft Excel or Apple Numbers.
 
