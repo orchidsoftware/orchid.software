@@ -95,3 +95,33 @@ The `Percentage` component provides a clear and concise representation of the nu
 TD::make('value')
     ->usingComponent(Percentage::class, decimals: 2),
 ```
+
+
+## Currency
+
+The `Currency` component simplifies the formatting and display of currency values. It ensures consistent formatting and provides options for customization.
+
+To use the `Currency` component, specify the field and use the `usingComponent` method:
+
+```php
+use Orchid\Screen\Components\Cells\Currency;
+
+TD::make('value')
+    ->usingComponent(Currency::class),
+```
+
+The `Currency` component automatically formats the currency value using the appropriate currency symbol and decimal separators. However, you can also customize the formatting by specifying additional options. For example:
+
+```php
+TD::make('value')
+    ->usingComponent(Currency::class, decimals: 1, decimal_separator: ',', thousands_separator: ' '),
+```
+
+If you need to use custom currency symbols, you can specify them using the `before` and `after` options. For example:
+
+```php
+TD::make('value')
+    ->usingComponent(Currency::class, before: '$', after: '₽'),
+```
+
+In this case, the currency value is displayed with a dollar sign before the value and a ruble symbol after the value. Adjust these options to match the currency symbols used in your project.
