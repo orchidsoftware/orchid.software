@@ -7,9 +7,7 @@ description: Discover Orchid's built-in components for effortless data represent
 
 When working on your project, you'll often encounter the need to present various data types such as currency, numbers, or dates. Orchid makes this task easier by providing built-in components that handle these common data types, similar to popular spreadsheet software like Microsoft Excel or Apple Numbers.
 
-## Components for Table Cells and Legends
-
-Orchid's data formatting components can be used for both [table cells](/en/docs/table) (using the `TD` class) and [legends](/en/docs/legend) (using the `Sight` class). In this documentation, we will primarily cover the usage of `TD` components.
+Orchid's components help you avoid code duplication and allow you to effortlessly format and display your data. **These components can be used for both [table cells](/en/docs/table) (using the `TD` class) and [legends](/en/docs/legend) (using the `Sight` class)**. In this documentation, we will primarily cover the usage of `TD` components.
 
 ## DateTimeSplit
 
