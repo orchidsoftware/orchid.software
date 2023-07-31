@@ -377,6 +377,9 @@
                             <li class="anchor-h2">
                     <a href="#percentage">Percentage</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#currency">Currency</a>
+                </li>
                     </ul>
     </div>
                         <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
@@ -435,6 +438,23 @@ TD::make('value')
 <pre><code class="language-php">TD::make('value')
     -&gt;usingComponent(Percentage::class, decimals: 2),
 </code></pre>
+<h2><a href='#currency' id='currency'>Currency</a></h2>
+<p>The <code>Currency</code> component simplifies the formatting and display of currency values. It ensures consistent formatting and provides options for customization.</p>
+<p>To use the <code>Currency</code> component, specify the field and use the <code>usingComponent</code> method:</p>
+<pre><code class="language-php">use Orchid\Screen\Components\Cells\Currency;
+
+TD::make('value')
+    -&gt;usingComponent(Currency::class),
+</code></pre>
+<p>The <code>Currency</code> component automatically formats the currency value using the appropriate currency symbol and decimal separators. However, you can also customize the formatting by specifying additional options. For example:</p>
+<pre><code class="language-php">TD::make('value')
+    -&gt;usingComponent(Currency::class, decimals: 1, decimal_separator: ',', thousands_separator: ' '),
+</code></pre>
+<p>If you need to use custom currency symbols, you can specify them using the <code>before</code> and <code>after</code> options. For example:</p>
+<pre><code class="language-php">TD::make('value')
+    -&gt;usingComponent(Currency::class, before: '$', after: '₽'),
+</code></pre>
+<p>In this case, the currency value is displayed with a dollar sign before the value and a ruble symbol after the value. Adjust these options to match the currency symbols used in your project.</p>
 </body>
                         
                     </main>
