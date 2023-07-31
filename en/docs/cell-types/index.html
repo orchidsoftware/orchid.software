@@ -381,7 +381,7 @@
     </div>
                         <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>When working on your project, you&rsquo;ll often encounter the need to present various data types such as currency, numbers, or dates. Orchid makes this task easier by providing built-in components that handle these common data types, similar to popular spreadsheet software like Microsoft Excel or Apple Numbers.</p>
-<p>Orchid&rsquo;s components help you avoid code duplication and allow you to effortlessly format and display your data. These components can be used for both table cells (using the <code>TD</code> class) and legends (using the <code>Sight</code> class). In this documentation, we will primarily cover the usage of <code>TD</code> components.</p>
+<p>Orchid&rsquo;s components help you avoid code duplication and allow you to effortlessly format and display your data. These components can be used for both <a href="/en/docs/table">table cells</a> (using the <code>TD</code> class) and <a href="/en/docs/legend">legends</a> (using the <code>Sight</code> class). In this documentation, we will primarily cover the usage of <code>TD</code> components.</p>
 <h2><a href='#datetimesplit' id='datetimesplit'>DateTimeSplit</a></h2>
 <p>The <code>DateTimeSplit</code> component is specifically designed to display dates in a two-line format. The top line shows the formatted date, while the bottom line provides additional details such as the day of the week and the time.</p>
 <p>To use the <code>DateTimeSplit</code> component, you can specify the attribute that contains the date information and include it in your table cell definition:</p>
@@ -395,6 +395,9 @@ TD::make('created_at')
     -&gt;usingComponent(DateTimeSplit::class, upperFormat: 'Y-m-d', lowerFormat: 'H:i:s.uP', timeZone: 'Europe/Madrid'),
 </code></pre>
 <p>In the above example, we set the <code>upperFormat</code> option to <code>'Y-m-d'</code> to display the date in the format 'YYYY-MM-DD&rsquo;. The <code>lowerFormat</code> option is set to <code>'H:i:s.uP'</code>, which shows the time in the format 'HH:MM:SS.microseconds+timezone&rsquo;. Feel free to adjust these formats and the <code>timeZone</code> option to suit your project&rsquo;s needs.</p>
+<blockquote>
+<p><strong>Note:</strong> This documentation assumes familiarity with the PHP &ldquo;Named Arguments&rdquo; feature. To learn more about this feature, visit the official PHP documentation page on <a href="https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments">Named Arguments</a>.</p>
+</blockquote>
 <h2><a href='#number' id='number'>Number</a></h2>
 <p>The <code>Number</code> component simplifies the formatting and display of numerical data. It allows you to present numbers in a desired format, such as with thousands separators for improved readability.</p>
 <p>To use the <code>Number</code> component, specify the attribute containing the numerical value within your table cell definition:</p>
