@@ -31,6 +31,9 @@ TD::make('created_at')
 
 In the above example, we set the `upperFormat` option to `'Y-m-d'` to display the date in the format 'YYYY-MM-DD'. The `lowerFormat` option is set to `'H:i:s.uP'`, which shows the time in the format 'HH:MM:SS.microseconds+timezone'. Feel free to adjust these formats and the `timeZone` option to suit your project's needs.
 
+> **Note:** This documentation assumes familiarity with the PHP "Named Arguments" feature. To learn more about this feature, visit the official PHP documentation page on [Named Arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments).
+
+
 ## Number
 
 The `Number` component simplifies the formatting and display of numerical data. It allows you to present numbers in a desired format, such as with thousands separators for improved readability.
