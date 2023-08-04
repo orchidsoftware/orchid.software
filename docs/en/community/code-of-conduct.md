@@ -4,39 +4,47 @@ description: Being involved in the Laravel Orchid community is an amazing experi
 section: site.community.
 ---
 
+## Introduction
+
+The Laravel Orchid community offers a remarkable experience where you can collaborate with individuals from around the world, shaping unique computing experiences together. To ensure a comfortable and inclusive environment for all participants, it is essential to adhere to the following rules in all community-related spaces such as GitHub, community resources, face-to-face conversations, and more.
+
 ## Mutual Respect
 
-Being involved in the community is a fantastic experience; you become part of something big, collaborate with people from all over the world, Help people make their computers unique. But along with this, there is an obligation to follow the rules, which provide the most comfortable environment for all participants. The following rules must be followed anytime, anywhere, community-related, Telegram, GitHub, a Laravel Orchid community resource, face-to-face chat, or something else.
+Being part of the Laravel Orchid community means being part of something big. However, it also comes with the responsibility to respect everyone involved. By following these guidelines, you contribute to an environment where each participant feels valued and included. Whether you are posting online or engaging in a chat, always keep the following rules in mind.
 
-## Content
+## Content Guidelines
 
-The Laravel Orchid community consists of thousands of users of different ages, creeds, as well as maturity levels. In this regard, you should be aware of the content that you create and the comments you leave. Adult materials, swearing, political or religious material, and any other inappropriate content should not appear in the context of Laravel Orchid. Ultimately, Laravel Orchid moderators have a decisive say in determining inappropriate content. If you doubt whether it is possible to write like that - imagine that you have an audience, including children and elderly people from around the world. And if you are still in doubt, then it is better to abstain.
+As the Laravel Orchid community encompasses users of different backgrounds, ages, and maturity levels, it is crucial to consider the content you create and the comments you leave. To maintain a positive atmosphere, please refrain from sharing adult materials, using offensive language, discussing political or religious subjects, or sharing any other inappropriate content. Ultimately, the Laravel Orchid moderators have the final say in determining whether content is appropriate. When in doubt, imagine that your audience includes children and elderly individuals from around the world. It is always best to err on the side of caution and abstain from posting potentially inappropriate content.
 
-Screenshots distributed within Laravel Orchid communities should not contain themes that mimic other web systems, as well as photos and images pointing to certain individuals and any other content that violates our Code of Conduct in one way or another.
+Furthermore, screenshots shared within Laravel Orchid communities should not include themes that imitate other web systems, photos or images targeting specific individuals, or any other content that violates our Code of Conduct.
 
 ## Rumors and Speculation
 
-While the rapidly developing and exciting nature of Laravel Orchid fuels the desire to spread rumors or speculation, we ask you to refrain from this. The discussion of future plans is harmless in itself, but should not be presented as a confirmed fact - either make it clear that these are speculations, or do not discuss at all. Disseminating inaccurate information can be detrimental to the community, especially if information is disseminated in a negative way.
+While the Laravel Orchid community thrives on excitement and constant progress, we kindly request that you refrain from spreading rumors or speculation. Discussing future plans is acceptable, as long as it is clear that they are not confirmed facts but rather speculative ideas. Spreading inaccurate information can be harmful to the community, especially when it is done in a negative manner.
 
-## Substantive Discussion
+## Meaningful Discussions
 
-Laravel Orchid is created by the joint efforts of many people in their free time, whose common goal is to create something special. It is important to always remember this and try to make your contribution to useful and meaningful discussions. At the meeting, support the topic of discussion and express your thoughts that are directly related to the subject of discussion. When commenting on a website, do not go far from the topic of the blog entry or the topic of the question. Taking part in discussions related to development, for example in mail correspondence or in Telegram, do not ask unnecessary questions and do not conduct conversations that are not directly related to the development process; thereby, you complicate the course of the discussion and overflow the logs of messages from developers that may not be in the conversation at that moment.
+Laravel Orchid is the result of the collaborative efforts of many individuals who contribute their free time for a common goal – creating something extraordinary. It is vital to always remember this and actively engage in beneficial and substantial discussions. Whether attending meetings, commenting on blog posts, or participating in discussions over mail or Telegram, please ensure your contributions are directly related to the topics under discussion. Avoid asking unnecessary questions or engaging in conversations that divert attention from the development process. By doing so, you will help maintain the clarity and effectiveness of conversations while respecting the time and effort put into the discussion by everyone involved.
 
-First of all, you need to understand that we are an online community, on the basis of this we need to make every effort to avoid all the negative aspects that the global network has. No need to troll - verbal skirmishes and comments made for the sole purpose of making someone a fool are unacceptable and look at least infantile. Spam is also not allowed. Spam includes links to pages that are not related to the topic of discussion or repeated links to the same web page. If one of the users is engaged in trolling or spam, just ignore it and notify the moderators about it.
+As an online community, it is our responsibility to minimize the negative aspects that are often associated with virtual networks. Refrain from engaging in trolling, which includes engaging in verbal skirmishes or making comments with the sole purpose of ridiculing others. Additionally, avoid spamming the community with unrelated links or repeatedly posting the same web page. If you come across a user who is engaging in trolling or spamming, simply ignore them and report their behavior to the moderators.
 
-## Avoiding Conflicts
+## Conflict Resolution
 
-If you feel that someone, whether a beginner or an old-timer, is behaving rudely, politely inform him of this. Problems must be addressed before they become a disaster. Everyone must contribute so that communication in our unique (sometimes too unique) work environment runs smoothly.
+If you encounter someone, whether a newcomer or an established member, who is behaving rudely, we encourage you to politely address the issue. It is crucial to address problems promptly to prevent them from escalating into bigger conflicts. Every community member plays a vital role in ensuring smooth communication in our unique (and sometimes quirky) work environment.
 
-## Tactful Retreat
+## Departing with Grace
 
-Life priorities, interests and hobbies can change. If you participate in an Laravel Orchid-related project, but feel that you must leave it, then make this the least problematic for the community. When we work together, the fruits of our work and ideas cease to be our own - they belong entirely to the Laravel Orchid community. Inform other team members that you are about to retire, and if possible, find someone who will continue your work. At the very least, make sure your work can continue when you leave.
+Priorities, interests, and hobbies change over time. If you are involved in a Laravel Orchid-related project and find yourself needing to step away, please make the transition as seamless as possible for the community. When we collaborate, the fruits of our labor and ideas belong to the Laravel Orchid community as a whole. Inform other team members of your intentions to retire and, if feasible, arrange for someone to continue your work. At the very least, ensure that your work can continue even after you leave.
 
-## Effects
+## Consequences
 
-If you decide not to follow the above rules of behavior, or otherwise interfere with the community, we reserve the right to do the following: change or delete any content for you published; disable or block the account on third-party websites; disable account in Telegram; or in any other way to prevent your interaction with the community.
+Failure to comply with the aforementioned rules of behavior or engaging in behavior that disrupts the community may result in the following consequences:
+
+- Content you have published may be changed or deleted.
+- Your account on third-party websites may be disabled or blocked.
+- Any other necessary measures may be taken to prevent your further interaction with the community.
 
 ----------
 
-_Laravel Orchid Code of Conduct distributed under license [Creative Commons Attribution-Share Alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/). 
-Some points were inspired. [Ubuntu Code of Conduct](http://www.ubuntu.com/about/about-ubuntu/conduct)._
+_Code of Conduct is distributed under the [Creative Commons Attribution-Share Alike 3.0 license](http://creativecommons.org/licenses/by-sa/3.0/). 
+Some points were inspired by the [Ubuntu Code of Conduct](http://www.ubuntu.com/about/about-ubuntu/conduct)._
