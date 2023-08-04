@@ -4,86 +4,47 @@ description: I urge everyone to contribute to the project.
 section: site.community.
 ---
 
+## Contribute and Collaborate
 
-I urge everyone to contribute to the project. You can find the latest version of the code on GitHub at <https://github.com/orchidsoftware/platform>.
+The Orchid project thrives on community collaboration. We invite you to participate in open discussions, ask questions, and propose ideas in our [GitHub discussions](https://github.com/orchidsoftware/platform/discussions). Your input can shape the future of Orchid!
+
+If you encounter any bugs or have specific feature requests, please check our [issues tracker](https://github.com/orchidsoftware/platform/issues). You can find unresolved issues and indicate your intention to work on a specific problem by leaving a comment on the relevant task.
+
+For active development, we encourage you to use `pull requests` instead of solely reporting bugs. This collaborative approach helps us work together efficiently to resolve issues and enhance Orchid.
 
 [![Users who have made significant contributions to Orchid. Alone we can do so little, together we can do so much.](https://opencollective.com/orchid/contributors.svg?width=800&button=false)](https://github.com/orchidsoftware/platform)
 
-Open discussions, questions, proposals are being held in [GitHub discussions](https://github.com/orchidsoftware/platform/discussions)
-
-If you are having specific bugs or specific feature requests, take a look at [issues](https://github.com/orchidsoftware/platform/issues)
-
-## Problem Tracking
-
-You can find unresolved issues on [GitHub Issues Tracker](https://github.com/orchidsoftware/platform/issues).
- If you intend to work on a specific issue, leave a comment on the relevant task to inform other project participants.
-
-For active development, it is strongly recommended that you use only `pull request` requests, not just bug reports.
 
 
-## Be Concise, But Explain The Issue
+## Writing Effective Bug Reports
 
-First of all, it's important to mention that bug reports should be written in English and you should, if possible, watch out for your language and grammar.
+When submitting a bug report, it is crucial to provide concise yet comprehensive details. To ensure your report is helpful for developers, make sure they can easily reproduce the issue. Be sure to include step-by-step instructions to replicate the problem. We kindly ask you to report bugs in English, while keeping an eye on your grammar and language usage.
 
-The most important thing for a report is that the developer must be able to reproduce the issue. If necessary, include exact numbered steps to reproduce the issue.
+Remember, bug reports are meant to encourage collaboration and allow other users with similar issues to participate in finding solutions. While we appreciate your enthusiasm, it's important to note that others may not be able to immediately drop their work and address your specific problem. Bug reports serve as a starting point for cooperative problem-solving.
 
+## Security Concerns
 
-Also remember that error reports are created in the hope that other users with the same problems will be able to participate in solving them together with you. But do not expect others to quit and start fixing your problem. The bug report is designed to help you and others start working together to resolve a problem.
+If you discover any security vulnerabilities within the platform, please promptly send an email to `bliz48rus@gmail.com`. We take all security concerns seriously and will promptly address them.
 
-## Participate in Discussions
+## Debugging and Submitting Change Requests
 
-You can offer new features and enhancements to your existing Laravel Orchid behavior. If you are proposing a new function, please be prepared to execute at least the code examples that will be needed to call / use this function.
-
-Informal discussion about bugs/problems and new features:
-
- 1. [Telegram group @orchid_community](https://t.me/orchid_community)
- 2. [Telegram group @orchid_russian_community](https://t.me/orchid_russian_community)
- 3. [Discord forum invite](https://discord.gg/aEVdGMyRt4)
- 4. [Discord forum invite Russian](https://discord.gg/CNYwzWVnjX)
- 
-
-## Security
-
-If you find a security vulnerability inside the platform, please send an e-mail message to `bliz48rus@gmail.com`.
-All appeals will be immediately considered.
-
-
-## Coding Style
-
-Laravel Orchid follows [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md) and [PSR-4](Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) standards.
-
-You can use [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) to fix your code style before publishing.
-
-To get started, install the tool on a global level and check the code style by executing the following command from the terminal of the root directory of your project:
-
-````bash
-php-cs-fixer fix
-````
-
-
-## Debug and Submit Change Request
-
-
-At the stage of helping the project, questions may arise related to debugging and installation,
-This section is designed for those who want to send a request for the first time.
+When contributing to the project, you might encounter issues related to debugging and installation. This section aims to assist you in submitting your first change request.
 
 ### Development Installation
-    
-To install the Laravel Orchid package as a developer, you will need an installation of the Laravel framework.
-    
 
-> First you have to make a fork [github repository](https://github.com/orchidsoftware/platform/fork) to post changes.
+To install the Laravel Orchid package as a developer, you'll need to have a Laravel framework installation.
 
+> Before making changes, fork the [GitHub repository](https://github.com/orchidsoftware/platform) and create a clone of it.
 
-Go to the directory of your fresh Laravel installation and execute:
+Navigate to the root directory of your fresh Laravel installation and execute the following command:
 
 ```bash
 git clone https://github.com/yourname/platform.git
 ```
 
-Add a local repository to the `composer.json` of the Laravel project, so the Orchid platform points to your locally cloned fork:
+Next, add a local repository to the `composer.json` file of your Laravel project to point the Orchid platform to your locally cloned fork:
 
-```php
+```json
 "repositories": [
     {
         "type": "path",
@@ -92,57 +53,56 @@ Add a local repository to the `composer.json` of the Laravel project, so the Orc
 ]
 ```
 
-And add our package depending:
+Lastly, include our package by executing the following command:
 
 ```bash
 composer require orchid/platform:@dev
 ```
 
-Composer adds the package from the repository that you specified.
-The remaining actions correspond to the section `Installations`.
+Composer will add the package from the repository you specified. Follow the rest of the installation instructions in the "Installation" section.
 
-
-In order to collect js/css resources and apply them immediately, you can use the command:
+To collect JavaScript and CSS resources and apply them immediately, use the following command:
 
 ```bash
 npm run dev --prefix platform && php artisan orchid:publish
 ```
 
+### Submitting a Change Request
 
-### Submit Change Request
-    
-Create a new branch like this:
+Create a new branch that indicates the added functionality or fixes the issue. Use the following command:
 
 ```bash
 git checkout -b feature/issue_001
 ```
 
-This will allow you to almost immediately understand that the created branch adds new functionality from the message number 001.
+This branch name will signify that you're addressing a specific functionality related to message number 001.
 
-Make changes and commit them:
+Make your changes and commit them:
 
 ```bash
-git commit -am 'ref #001 [Docs] Fix misprint'
+git commit -am 'ref #001 [Docs] Fix typo'
 ```
 
-To send your branch you need to do:
+To submit your branch for review, execute the following command:
+
 ```bash
 git push origin feature/issue_001
 ```
 
-## Help Translate Orchid in Different Languages!
+## Help Translate Orchid into Different Languages!
 
-Take a look at the conversation [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) on the Discussion-tab.
-Translation files can be found in https://github.com/orchidsoftware/platform/tree/master/resources/lang
+We appreciate your contributions in translating Orchid into multiple languages. Visit the [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) conversation on the Discussion tab for more details. Translation files can be found in the [resources/lang](https://github.com/orchidsoftware/platform/tree/master/resources/lang) directory.
 
-To start translating, create a dev install as mentioned in "Development Installation" and create your own branch. 
+To begin translating, follow the steps outlined in the "Development Installation" section to create a development installation. Create a new branch for your translation:
 
 ```bash
 git checkout -b feature/translation_nl
 ```
 
-Copy one of the existing json-files in https://github.com/orchidsoftware/platform/tree/master/resources/lang to your new language-file. Name your file according to the codes mentioned in [List of ISO_639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes).
+Copy one of the existing JSON files from the [resources/lang](https://github.com/orchidsoftware/platform/tree/master/resources/lang) directory and name your file according to the codes mentioned in the [List of ISO_639-1 codes](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) page.
 
-You can then start translating all the entries.
+Once you've completed the translation, submit it as a change request following the instructions mentioned earlier.
 
-Finally, submit your translation using the instructions found in "Submit change request"
+We appreciate your dedication to making Orchid accessible to a broader audience. Your translations will help us reach more users around the world.
+
+We hope this detailed documentation helps you contribute effectively and participate in the growth of Orchid. We value your time and effort in making Orchid better and more user-friendly. Thank you for being part of our community!
