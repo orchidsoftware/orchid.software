@@ -20,6 +20,11 @@ Route::get('/{locale?}', function (string $locale = 'en') {
     return view('welcome');
 })->where('locale', 'en|ru');
 
+Route::get('/{locale?}/donations', function (string $locale = 'en') {
+    app()->setLocale($locale);
+
+    return view('donations');
+})->where('locale', 'en|ru');
 
 
 Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
