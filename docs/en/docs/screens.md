@@ -33,7 +33,7 @@ use Orchid\Screen\Screen;
 class Idea extends Screen
 {
     /**
-     * Query data
+     * Fetch data to be displayed on the screen.
      *
      * @return array
      */
@@ -43,25 +43,19 @@ class Idea extends Screen
     }
 
     /**
-     * The name is displayed on the user's screen and in the headers
+     * The name of the screen is displayed in the header.
+     *
+     * @return string|null
      */
     public function name(): ?string
     {
         return "Idea Screen";
     }
-    
-    /**
-     * The description is displayed on the user's screen under the heading
-     */
-    public function description(): ?string
-    {
-        return "Idea Screen";
-    }
 
     /**
-     * Button commands
+     * The screen's action buttons.
      *
-     * @return array
+     * @return \Orchid\Screen\Action[]
      */
     public function commandBar() : array
     {
@@ -69,9 +63,9 @@ class Idea extends Screen
     }
 
     /**
-     * Views
+     * The screen's layout elements.
      *
-     * @return array
+     * @return \Orchid\Screen\Layout[]|string[]
      */
     public function layout() : array
     {
@@ -84,7 +78,7 @@ The screen class includes several methods that you can use to define the behavio
 
 ![This schematic illustrates how screens work in Orchid.](/img/scheme/screens.jpg)
 
-- **query**: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
+- **query**: This method loads data from the database or other sources. It should return an array of data that will be available to the screen's layouts and views.
 
 - **commandBar**: This method is used to define buttons and other actions that will be displayed on the screen.
 
