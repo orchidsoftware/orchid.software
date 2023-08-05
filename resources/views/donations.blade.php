@@ -1,8 +1,7 @@
 @extends('layout')
 
-@section('title', $title ?? '')
-@section('description', $description ?? '')
-@section('keywords', $keywords ?? '')
+@section('title', "Support Orchid Sustainable Development")
+@section('description', 'Your contribution goes a long way in enabling us to develop and maintain our open-source packages while providing ongoing support to the community')
 
 @section('body')
 
@@ -45,7 +44,7 @@
                                     <p class="h2 mb-3">Donate on OpenCollective</p>
 
                                     <p>
-                                        Contribute to Laravel Orchid on OpenCollective to support us financially and track project expenses transparently.
+                                        Contribute to Orchid for Laravel on OpenCollective to support us financially and track project expenses transparently.
                                         Help us promote sustainable and community-driven development.
                                     </p>
                                 </div>
@@ -79,8 +78,7 @@
                 </div>
             </div>
         </div>
+
+        <p class="my-3 my-md-5 text-center text-muted">Not ready to donate? Explore countless ways to make a difference on <a href="/en/community/promote" class="link-light">our page</a>!</p>
     </div>
-
-
-
 @endsection

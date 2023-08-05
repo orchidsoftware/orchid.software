@@ -149,7 +149,7 @@ return [
                 'Reporting Bugs'    => '/en/community/bug-report',
                 'Contribution'      => '/en/community/contributors',
                 'Project Promotion' => '/en/community/promote',
-                'License'           => '/en/community/license',
+                'License Agreement' => '/en/community/license',
             ],
 
             'Discussions' => [
