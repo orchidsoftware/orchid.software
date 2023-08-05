@@ -418,7 +418,7 @@ use Orchid\Screen\Screen;
 class Idea extends Screen
 {
     /**
-     * Query data
+     * Fetch data to be displayed on the screen.
      *
      * @return array
      */
@@ -428,25 +428,19 @@ class Idea extends Screen
     }
 
     /**
-     * The name is displayed on the user's screen and in the headers
+     * The name of the screen is displayed in the header.
+     *
+     * @return string|null
      */
     public function name(): ?string
     {
         return "Idea Screen";
     }
-    
-    /**
-     * The description is displayed on the user's screen under the heading
-     */
-    public function description(): ?string
-    {
-        return "Idea Screen";
-    }
 
     /**
-     * Button commands
+     * The screen's action buttons.
      *
-     * @return array
+     * @return \Orchid\Screen\Action[]
      */
     public function commandBar() : array
     {
@@ -454,9 +448,9 @@ class Idea extends Screen
     }
 
     /**
-     * Views
+     * The screen's layout elements.
      *
-     * @return array
+     * @return \Orchid\Screen\Layout[]|string[]
      */
     public function layout() : array
     {
@@ -467,7 +461,7 @@ class Idea extends Screen
 <p>The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:</p>
 <p><picture alt='This schematic illustrates how screens work in Orchid.'><img src="/img/scheme/screens.jpg" alt="This schematic illustrates how screens work in Orchid."></picture></p>
 <ul>
-<li><p><strong>query</strong>: This method is used to load data from the database or other sources. It should return an array of data that will be available to the screen&rsquo;s layouts and views.</p></li>
+<li><p><strong>query</strong>: This method loads data from the database or other sources. It should return an array of data that will be available to the screen&rsquo;s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
 <li><p><strong>layout</strong>: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.</p></li>
 </ul>
