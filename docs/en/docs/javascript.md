@@ -142,26 +142,26 @@ Many developers love the simplicity and power of Vue.js for building interactive
 Create a Stimulus controller file, for example `hello_controller.js`:
 
 ```js
-import Vue from 'vue'
+import {createApp} from 'vue';
 
 export default class extends window.Controller {
-  connect() {
-    const app = new Vue({
-      el: this.element,
-      data: {
-        message: 'Hello, Vue.js!'
-      }
-    })
+    connect() {
+        this.app = createApp({
+            data() {
+                return {
+                    message: 'Hello, Vue.js!'
+                }
+            }
+        });
 
-    // Save the Vue instance to a property for later use
-    this.app = app
-  }
+        this.app.mount(this.element);
+    }
 
-  disconnect() {
-    // Destroy the Vue instance when the controller is disconnected
-    this.app.$destroy()
-  }
+    disconnect() {
+        this.app.unmount();
+    }
 }
+
 ```
 
 Register the controller in your blade file:
