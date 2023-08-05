@@ -25,11 +25,13 @@ Even experienced tech writers, who may have key recommendations memorized, can s
 Fortunately, there are tools available to automate the process of checking texts against the recommendations provided in style guides such as Microsoft and Google.
 The [Vale](https://vale.sh/) linter is one such tool that assists in verifying compliance with style guide recommendations.
 
+<!--
 ## Writing Style
 
 ```php
 // Coming Soon
 ```
+-->
 
 ## Localization
 
