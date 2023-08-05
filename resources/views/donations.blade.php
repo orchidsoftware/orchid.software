@@ -79,6 +79,6 @@
             </div>
         </div>
 
-        <p class="my-3 my-md-5 text-center text-muted">Not ready to donate? Explore countless ways to make a difference on <a href="/en/community/promote" class="link-light">our page</a>!</p>
+        <p class="my-3 my-md-5 text-center text-muted">Not ready to donate? Explore countless ways to make Orchid magnificent on <a href="/en/community/promote" class="link-light">our page</a>!</p>
     </div>
 @endsection
