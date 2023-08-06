@@ -213,13 +213,9 @@ main, main div {
     p {
         font-size: 1em;
         line-height: 1.6em;
-        margin-bottom: 0;
+        margin-bottom: 1.5rem;
         @extend .text-wrap;
         @extend .text-break;
-
-        &:not(:last-child){
-            margin-bottom: 1.5rem;
-        }
 
         > a {
             text-decoration: underline;
