@@ -484,7 +484,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .friends {
     a {
-        filter: grayscale(1);
+        filter: grayscale(200) invert(0.50);
         transition: 540ms all;
 
         img{
