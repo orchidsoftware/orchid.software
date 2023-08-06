@@ -1,6 +1,6 @@
 <nav class="nav-docs px-md-5 py-2 px-3">
     @foreach($menu as $title => $values)
-        <h4 class="font-weight-normal my-md-3 my-2 me-2 me-md-0 d-none d-md-inline-block" style="color: #22184D8C">{{ $title }}</h4>
+        <p class="h5 font-weight-normal my-md-3 my-2 me-2 me-md-0 d-none d-md-inline-block" style="color: #22184D8C">{{ $title }}</p>
 
         <ul>
             @foreach($values as $title => $link)
