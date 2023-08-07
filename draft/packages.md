@@ -7,6 +7,8 @@ This documentation page provides an overview of various aspects of package devel
 
 ## Service Provicer
 
+// ...
+
 ## Routes
 
 To define routes in your package, you can use the standard Laravel routing mechanisms. Create a routes file in your package and register it in the `boot` method of your service provider.
