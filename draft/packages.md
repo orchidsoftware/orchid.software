@@ -172,6 +172,41 @@ public function layout(): array
 }
 ```
 
+### TD
+
+```php
+// AppServiceProvider.php
+TD::macro('bool', function () {
+
+    $column = $this->column;
+
+    $this->render(function ($datum) use ($column) {
+        return view('bool',[
+            'bool' => $datum->$column
+        ]);
+    });
+
+    return $this;
+});
+```
+
+Template example:
+
+```php
+// bool.blade.php
+
+<span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>
+```
+
+Usage example:
+```php
+public function grid(): array
+{
+    return [
+        TD::make('status')->bool(),
+    ];
+}
+
 ## Versioning
 
 When developing a package that supports multiple versions, it is advised to utilize Composer for version management. Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:
