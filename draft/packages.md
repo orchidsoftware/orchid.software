@@ -5,19 +5,19 @@ This documentation page provides an overview of various aspects of package devel
 > **Note for beginners:** Please be aware that the Orchid documentation page primarily focuses on demonstrating the usage and features of the Orchid platform. It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development. If you are new to PHP and Laravel, it is recommended to consult other beginner-friendly resources that specifically address those topics before diving into the Orchid documentation. ↩
 
 
-## Service Provicer
+## Package Service Providers
 
 // ...
 
-## Routes
+## Define Routes
 
 To define routes in your package, you can use the standard Laravel routing mechanisms. Create a routes file in your package and register it in the `boot` method of your service provider.
 
-## Navigation
+## Define Navigation
 
 // ...
 
-## Permissions
+## Define Permissions
 
 Laravel Orchid provides a powerful permission system that allows you to control access to different parts of your package. To define permissions for your package, you can use the `ItemPermission` class.
 
