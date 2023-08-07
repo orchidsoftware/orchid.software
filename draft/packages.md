@@ -4,6 +4,9 @@ This documentation page provides an overview of various aspects of package devel
 
 > **Note for beginners:** Please be aware that the Orchid documentation page primarily focuses on demonstrating the usage and features of the Orchid platform. It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development. If you are new to PHP and Laravel, it is recommended to consult other beginner-friendly resources that specifically address those topics before diving into the Orchid documentation. ↩
 
+
+## Service Provicer
+
 ## Routes
 
 To define routes in your package, you can use the standard Laravel routing mechanisms. Create a routes file in your package and register it in the `boot` method of your service provider.
