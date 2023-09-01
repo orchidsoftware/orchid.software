@@ -33,7 +33,7 @@ You can find more details on the website [turbo.hotwire.dev](https://turbo.hotwi
 
 [Stimulus](https://stimulus.hotwired.dev/) is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.
 
-Let's build a basic example that displays the text entered the field for this:
+Let's build a basic example for a project using **Laravel Mix** (Laravel before versoin 9) that displays the text entered the field for this:
 
 In `resources/js`, create the following structure:
 
@@ -114,6 +114,59 @@ class AppServiceProvider extends ServiceProvider
     }
 }
 ```
+
+To achieve the same for a project making use of **Vite** (Laravel ^9.0), the steps differ slightly:
+
+In `public/`, create the following structure:
+
+```php
+public
+├── js
+│   ├── controllers
+│   │   └── hello.js
+│   └── dashboard.js
+├── storage
+├── vendor
+└── index.php
+```
+
+Controller class with the following content:
+
+```php
+// hello.js
+export default class extends window.Controller {
+
+    static get targets() {
+        return [ "name", "output" ]
+    }
+
+    greet() {
+        this.outputTarget.textContent =
+            `Hello, ${this.nameTarget.value}!`
+    }
+}
+```
+
+And the assembly point:
+
+```php
+// dashboard.js
+import HelloController from "./controllers/hello"
+
+application.register("hello", HelloController);
+```
+
+It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.
+
+```php
+// config/platform.php
+'vite' => [
+        'public/js/dashboard.js',
+   ],
+```
+
+> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
+
 
 To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
 
