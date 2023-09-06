@@ -535,11 +535,13 @@ public function asyncGetData(string $welcome): array
 <p>When calling such a modal window, you can pass values using the <code>asyncParameters</code> method, for example:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
-ModalToggle::make('Open async modal')
+ModalToggle::make('Open asynchronous modal')
     -&gt;modal('asyncModal')
-    -&gt;modalTitle('Dynamics title')
+    -&gt;modalTitle('Customizable Title')
     -&gt;method('methodForModal')
-    -&gt;asyncParameters('Hello world!');
+    -&gt;asyncParameters([
+        'welcome' =&gt; 'Hello world!'
+    ]);
 </code></pre>
 <blockquote>
 <p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$variable ?? ''}}</code>.</p>
