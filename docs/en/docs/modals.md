@@ -197,11 +197,13 @@ When calling such a modal window, you can pass values using the `asyncParameters
 ```php
 use Orchid\Screen\Actions\ModalToggle;
 
-ModalToggle::make('Open async modal')
+ModalToggle::make('Open asynchronous modal')
     ->modal('asyncModal')
-    ->modalTitle('Dynamics title')
+    ->modalTitle('Customizable Title')
     ->method('methodForModal')
-    ->asyncParameters('Hello world!');
+    ->asyncParameters([
+        'welcome' => 'Hello world!'
+    ]);
 ```
 
 
