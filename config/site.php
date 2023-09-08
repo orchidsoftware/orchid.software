@@ -22,7 +22,7 @@ return [
                 'Managing Attachments'  => '/en/docs/quickstart-files',
                 'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
             ],
-            'Concepts'    => [
+            'The Basics'    => [
                 'Screens'       => '/en/docs/screens',
                 'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
