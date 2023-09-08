@@ -10,10 +10,12 @@ description: Фильтры служат для упрощения поиска 
 > Это не является готовым решением или универсальным средством, 
 вы должны расширить структуру для своих конкретных приложений.
 
-## Автоматическая HTTP фильтрация и сортировка
+## HTTP фильтрация и сортировка
 
-Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
-атрибутов:
+Для реагирования на HTTP параметры, в модели необходимо использовать трейт `Filterable`, также необходимо определить свойства 
+`allowedSorts` и `allowedFilters`. В `allowedSorts` должны быть перечислены поля, доступные для сортировки. 
+`allowedFilters` содержит пары ключ => значение, где ключ - это название поля, а значение - тип фильтра, 
+который будет использоваться для этого поля:
 
 ```php
 namespace App;
@@ -29,16 +31,16 @@ class Post extends Model
      * @var array
      */
     protected $allowedFilters = [
-        'id',
-        'user_id',
-        'type',
-        'status',
-        'content',
-        'options',
-        'slug',
-        'publish_at',
-        'created_at',
-        'deleted_at',
+        'id'            => Where::class,
+        'user_id'       => WhereIn::class,
+        'type'          => Like::class,
+        'rating'        => WhereMaxMin::class,
+        'content'       => Like::class,
+        'options'       => Like::class,
+        'slug'          => Like::class,
+        'publish_at'    => WhereDate::class,
+        'created_at'    => WhereDateMaxMin::class,
+        'deleted_at'    => WhereDateMaxMin::class,
     ];
 
     /**
@@ -57,37 +59,46 @@ class Post extends Model
 }
 ```
 
-Использование заключается в вызове метода `filters`:
+Для вызова фильтра используйте метод `filters`:
 
 ```php
 Post::filters()->defaultSort('id')->paginate();
 ```
 
-> **Примечание.** Автоматические HTTP фильтры не будут работать с отношениями. 
+> **Примечание.** HTTP фильтры не будут работать с отношениями. 
 >Если вас это интересует, вы можете использовать классический фильтр, описанный ниже.
 
-Как будет реагировать фильтрация:
+Для модели, описанной в предыдущем примере, фильтрация будет реагировать следующим образом:
 
 ```php
 http://example.com/demo?filter[id]=1
-$model->where('id', '=', 1)
+$model->where('id', 1)
 
-http://example.com/demo?filter[name]=A
-$model->where('name', 'like', '%A%')
+http://example.com/demo?filter[type]=A
+$model->where('name', 'type', '%A%')
 
 
-http://example.com/demo?filter[id]=1,2,3,4,5
-$model->whereIn('id', [1,2,3,4,5]);
+http://example.com/demo?filter[user_id]=1,2,3,4,5
+$model->whereIn('user_id', [1,2,3,4,5]);
 
-http://example.com/demo?filter[id][min]=1&filter[id][max]=5
-$model->whereBetween('id', [1,5]);
-
-http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
+http://example.com/demo?filter[user_id][]=1&filter[user_id][]=2&filter[user_id][]=3
 $model->whereIn('id', [1,2,3]);
 
+http://example.com/demo?filter[rating][min]=1&filter[rating][max]=5
+$model->where('rating', '>=', 1)->where('rating', '<=', 5);
 
-http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name', 'like', 'dwqdwq');
+http://example.com/demo?filter[rating][min]=1
+$model->where('rating', '>=', 1);
+
+http://example.com/demo?filter[publish_at]=2023-02-02
+$model->where('publish_at', '2023-02-02')
+
+http://example.com/demo?filter[created_at][min]=2023-01-01&filter[created_at][max]=2023-02-02
+$model->whereDate('created_at', '>=', '2023-01-01')->whereDate('created_at', '<=', '2023-02-02');
+
+http://example.com/demo?filter[created_at][min]=2023-01-01
+$model->whereDate('created_at', '>=', '2023-01-01');
+
 ```
 
 > **Примечание.** Фильтр соответствует модели `cast` . Он работает с типами `bool`,`datetime` и `string` (и их псевдонимами). 
