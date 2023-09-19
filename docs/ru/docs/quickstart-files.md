@@ -102,7 +102,7 @@ public function layout(): array
 После сохранения записи с изображением, в колонку базы данных будет записан полный `url` адрес до изображения, например:
 
 ```php
-http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png
+http://localhost:8000/storage/2019/08/02/0f92ef...e98310.png
 ```
 
 > **Примечание.** Ссылка на изображение формируется из `url` адреса указанного в вашем файле конфигурации,
@@ -215,7 +215,6 @@ id  attachmentable_type  attachmentable_id  attachment_id
 ```php
 public function query(Post $post): array
 {
-
     $post->load('attachment');
 
     return [
