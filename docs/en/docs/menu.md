@@ -19,7 +19,7 @@ class PlatformProvider extends OrchidServiceProvider
 {
     // ...
     
-    public function registerMenu(): array
+    public function menu(): array
     {
         return [
             Menu::make('Example')->url('https://orchid.software/'),
