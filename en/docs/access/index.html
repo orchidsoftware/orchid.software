@@ -594,15 +594,17 @@ public function boot()
 </code></pre>
 <p>Once the custom conditional has been defined, you can use it within your templates:</p>
 <pre><code class="language-html">@hasAccess('platform.index')
-    &lt;!-- User has permission 'platform.index' --&gt;
+    &lt;!-- User has permission for the 'platform.index' action --&gt;
 @elsehasAccess('platform.other')
-    &lt;!-- User does not have permission 'platform.index', but has 'platform.other' --&gt;
+    &lt;!-- User doesn't have permission for 'platform.index',
+         but has permission for 'platform.other' --&gt;
 @else
-    &lt;!-- User does not have permission 'platform.index' and 'platform.other'  --&gt;
+    &lt;!-- User doesn't have permission for both 'platform.index'
+         and 'platform.other' --&gt;
 @endhasAccess
 
 @unlesshasAccess('platform.index')
-    &lt;!-- User does not have permission 'platform.index' --&gt;
+    &lt;!-- User doesn't have permission for 'platform.index' --&gt;
 @endhasAccess
 </code></pre>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
