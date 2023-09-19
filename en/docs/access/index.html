@@ -606,18 +606,27 @@ public function boot()
 @endhasAccess
 </code></pre>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
-<p>A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.</p>
-<p>By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait <code>Orchid\Access\UserSwitch</code>.</p>
-<p>Impersonate another user:</p>
-<pre><code class="language-php">Auth::user()-&gt;loginAs($otherUser);
+<p>The <code>Orchid\Access\Impersonation</code> class provides developers with convenient functionality for logging in as another user.
+It allows administrators to impersonate other users in order to view and perform actions on their behalf.
+This is useful for troubleshooting and resolving issues reported by users.</p>
+<p>To switch to another user, use the <code>loginAs()</code> method:</p>
+<pre><code class="language-php">use Orchid\Access\Impersonation;
+
+// Login as another user
+Impersonation::loginAs($otherUser);
 </code></pre>
-<p>Stop impersonating another user:</p>
-<pre><code class="language-php">Auth::user()-&gt;logout();
+<p>To revert back to the original user, call the <code>logout()</code> method:</p>
+<pre><code class="language-php">// Revert back to the original user
+Impersonation::logout();
 </code></pre>
-<p>In order to check whether the user is posing as someone else, use:</p>
-<pre><code class="language-php">if (Auth::user()-&gt;isSwitch()) {
-    // User impersonates someone else
+<p>The <code>isSwitch()</code> method checks if the impersonation has been performed:</p>
+<pre><code class="language-php">if (Impersonation::isSwitch()) {
+    // The user is impersonating another user
 }
+</code></pre>
+<p>The <code>impersonator()</code> method returns information about the original user. If no impersonation has been performed, the method will return <code>null</code>:</p>
+<pre><code class="language-php">// Get information about the original user
+$impersonator = Impersonation::impersonator();
 </code></pre>
 </body>
                         
