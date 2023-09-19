@@ -3,292 +3,145 @@ title: Listener
 extends: _layouts.documentation
 ---
 
-Слой слушателя используется, когда необходимо менять отображаемые данные,
- в соответствии с выбранными параметрами пользователя.
+`Listener` макет - особый тип макета, который используется для обновления отображаемых данных на экране в ответ на ввод пользователя. Это полезно, когда вы хотите создать динамические и интерактивные экраны, способные изменять свой вид и поведение в зависимости от действий пользователя.
 
-Например, у нас есть экран, на котором расположены два поля для ввода чисел.
-Нам требуется вывести третье поле, значение которого будет суммой двух других:
+В этом примере у нас есть экран с двумя полями ввода для чисел, которые должны быть вычтены друг из друга. Мы можем сделать это с помощью макета слушателя (listener layout).
 
-```php
-namespace App\Orchid\Screens;
-
-use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Screen;
-
-class PlatformScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'Dashboard';
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Action[]
-     */
-    public function commandBar(): array
-    {
-        return [];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            Layout::rows([
-                Input::make('a')
-                    ->title('First argument')
-                    ->type('number'),
-
-                Input::make('b')
-                    ->title('Second argument')
-                    ->type('number'),
-            ]),
-        ];
-    }
-}
-```
-
-Для создания слоя слушателя необходимо выполнить `artisan` команду:
+Для создания макета слушателя вам необходимо выполнить следующую команду `artisan` в вашем терминале:
 
 ```php
-php artisan orchid:listener AmountListener
+php artisan orchid:listener SubtractListener
 ```
 
-В директории `app/Orchid/Layouts` будет создан новый класс с именем `AmountListener`:
+Эта команда создаст новый класс с именем `SubtractListener` в директории `app/Orchid/Layouts`.
+
+Выполнение вышеприведенной команды создаст новый класс с именем `SubtractListener` в директории `app/Orchid/Layouts`. После создания вы можете добавить необходимые поля в методе `layouts`, как показано ниже:
 
 ```php
 namespace App\Orchid\Layouts;
 
+use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
 
-class AmountListener extends Listener
+class SubtractListener extends Listener
 {
     /**
-     * List of field names for which values will be listened.
+     * Список имен полей, значения которых будут отслеживаться.
      *
      * @var string[]
      */
     protected $targets = [];
 
     /**
-     * What screen method should be called
-     * as a source for an asynchronous request.
-     *
-     * The name of the method must
-     * begin with the prefix "async"
-     *
-     * @var string
-     */
-    protected $asyncMethod = '';
-
-    /**
      * @return Layout[]
      */
     protected function layouts(): array
     {
         return [
             Layout::rows([
-                Input::make('a')
-                    ->title('First argument')
+                Input::make('minuend')
+                    ->title('Первый аргумент')
                     ->type('number'),
 
-                Input::make('b')
-                    ->title('Second argument')
+                Input::make('subtrahend')
+                    ->title('Второй аргумент')
                     ->type('number'),
             ]),
         ];
     }
+    
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        return $repository;
+    }
 }
 ```
 
-В свойстве `targets` указываются имена полей, при изменениях которых будет выполнено требуемое действие. Для нашего примера это поля с именами `a` и `b` :
-
+Здесь свойство `targets` содержит имена полей, для которых требуется действие при изменении. В нашем примере поля с именами `minuend` и `subtrahend` считаются целевыми:
 ```php
 /**
- * List of field names for which values will be listened.
+ * Список имен полей, значения которых будут отслеживаться.
  *
  * @var string[]
  */
 protected $targets = [
-    'a',
-    'b',
+    'minuend',
+    'subtrahend',
 ];
 ```
 
-> **Примечание**. Для полей  с множественным выбором, таких как `<select name="users[]">` необходимость указать, что они являются массивом, заканчивая значение точкой, например `"users."`
+> **Примечание**. Множественные поля выбора, такие как `<select name="users[]">`, должны указывать, что они являются массивом, окончив значение цели точкой, например `"users."`.
 
-В свойстве `asyncMethod` должен быть указан метод, который будет вызван при изменении полей. Этот метод необходимо реализовать в экране.
-Добавим его с именем `asyncSum`:
-
-```php
-namespace App\Orchid\Screens;
-
-use App\Orchid\Layouts\AmountListener;
-use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Screen;
-
-class PlatformScreen extends Screen
-{
-    /**
-     * Query data.
-     *
-     * @return array
-     */
-    public function query(): array
-    {
-        return [];
-    }
-
-    /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'Dashboard';
-    }
-
-    /**
-     * Button commands.
-     *
-     * @return Action[]
-     */
-    public function commandBar(): array
-    {
-        return [];
-    }
-
-    /**
-     * @param int|null $a
-     * @param int|null $b
-     *
-     * @return string[]
-     */
-    public function asyncSum(int $a = null, int $b = null)
-    {
-        return [
-            'a' => $a,
-            'b' => $b,
-            'sum' => $a + $b,
-        ];
-    }
-
-    /**
-     * Views.
-     *
-     * @return Layout[]
-     */
-    public function layout(): array
-    {
-        return [
-            AmountListener::class,
-        ];
-    }
-}
-```
-
-> **Обратите внимание**. Такая функция является заменой `query` для требуемых слоёв, при этом префикс `async` обязателен.
-
-И укажем его имя:
-
-```php
-/**
- * What screen method should be called
- * as a source for an asynchronous request.
- *
- * The name of the method must
- * begin with the prefix "async"
- *
- * @var string
- */
-protected $asyncMethod = 'asyncSum';
-```
-
-Осталось только определить, что будет показано в этом слоё.
-Полный класс будет выглядеть следующим образом:
-
+Теперь мы перейдем к методу `handle`, который отвечает за обработку целевых полей. Этот метод автоматически вызывается при изменении значений в целевых полях. Он принимает два аргумента: `$repository`, который представляет текущее состояние всех полей на экране, и `$request`, который представляет новое состояние экрана.
 
 ```php
 namespace App\Orchid\Layouts;
 
+use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Layouts\Listener;
+use Orchid\Screen\Repository;
+use Orchid\Support\Facades\Layout;
 
-class AmountListener extends Listener
+class SubtractListener extends Listener
 {
     /**
-     * List of field names for which values will be listened.
+     * Список имен полей, значения которых будут отслеживаться.
      *
      * @var string[]
      */
     protected $targets = [
-        'a',
-        'b',
+        'minuend',
+        'subtrahend',
     ];
-
-    /**
-     * What screen method should be called
-     * as a source for an asynchronous request.
-     *
-     * The name of the method must
-     * begin with the prefix "async"
-     *
-     * @var string
-     */
-    protected $asyncMethod = 'asyncSum';
 
     /**
      * @return Layout[]
      */
-    protected function layouts(): array
+    protected function layouts(): iterable
     {
         return [
             Layout::rows([
-                Input::make('a')
-                    ->title('First argument')
+                Input::make('minuend')
+                    ->title('Первый аргумент')
                     ->type('number'),
 
-                Input::make('b')
-                    ->title('Second argument')
+                Input::make('subtrahend')
+                    ->title('Второй аргумент')
                     ->type('number'),
 
-                Input::make('sum')
+                Input::make('result')
                     ->readonly()
-                    ->canSee($this->query->has('sum')),
+                    ->canSee($this->query->has('result')),
             ]),
         ];
+    }
+
+    /**
+     * @param \Orchid\Screen\Repository $repository
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Orchid\Screen\Repository
+     */
+    public function handle(Repository $repository, Request $request): Repository
+    {
+        [$minuend, $subtrahend] = $request->all();
+
+        return $repository
+            ->set('minuend', $minuend)
+            ->set('subtrahend', $subtrahend)
+            ->set('result', $minuend - $subtrahend);
     }
 }
 ```
 
-
-Теперь при изменении значений полей ввода, поле суммы будет меняться автоматически.
+Вышеприведенный код показывает обновленную версию класса `SubtractListener`. Для обработки значений в целевых полях мы использовали деконструкцию объекта `$request`, присваивая значения полей `minuend` и `subtrahend` переменным с теми же именами. Затем мы обновили объект `$repository` этими значениями, а также результатом вычитания двух чисел, отраженным в поле `result`.
