@@ -19,6 +19,7 @@ description:
 
 ```php
 'icons' => [
+    // ...
     'orc' => \Orchid\IconPack\Path::getFolder(),
 ],
 ```
