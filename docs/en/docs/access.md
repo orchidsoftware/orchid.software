@@ -290,26 +290,37 @@ Once the custom conditional has been defined, you can use it within your templat
 
 ## User Impersonation
 
-A great feature is the ability to impersonate other users. As an administrator, you can view all screens as if you were logged in as a different user. It allows you to spot an issue that your user might report easily.
+The `Orchid\Access\Impersonation` class provides developers with convenient functionality for logging in as another user. 
+It allows administrators to impersonate other users in order to view and perform actions on their behalf.
+This is useful for troubleshooting and resolving issues reported by users.
 
-By default, the inherited user model already has the required one. But if you want to add to another model, then for this, you need to add the trait `Orchid\Access\UserSwitch`.
-
-Impersonate another user:
+To switch to another user, use the `loginAs()` method:
 
 ```php
-Auth::user()->loginAs($otherUser);
+use Orchid\Access\Impersonation;
+
+// Login as another user
+Impersonation::loginAs($otherUser);
 ```
 
-Stop impersonating another user:
+To revert back to the original user, call the `logout()` method:
 
 ```php
-Auth::user()->logout();
+// Revert back to the original user
+Impersonation::logout();
 ```
 
-In order to check whether the user is posing as someone else, use:
+The `isSwitch()` method checks if the impersonation has been performed:
 
 ```php
-if (Auth::user()->isSwitch()) {
-    // User impersonates someone else
+if (Impersonation::isSwitch()) {
+    // The user is impersonating another user
 }
+```
+
+The `impersonator()` method returns information about the original user. If no impersonation has been performed, the method will return `null`:
+
+```php
+// Get information about the original user
+$impersonator = Impersonation::impersonator();
 ```
