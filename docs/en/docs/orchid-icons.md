@@ -19,6 +19,7 @@ And then specify in your configuration file:
 
 ```php
 'icons' => [
+    // ...
     'orc' => \Orchid\IconPack\Path::getFolder(),
 ],
 ```
