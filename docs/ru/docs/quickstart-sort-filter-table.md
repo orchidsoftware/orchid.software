@@ -121,13 +121,15 @@ class PostListLayout extends Table
 Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию. Для её установки вернёмся к модели и добавим новое свойство:
  
 ```php
+use Orchid\Filters\Types\Like;
+
 /**
  * Name of columns to which http filter can be applied
  *
  * @var array
  */
 protected $allowedFilters = [
-    'title',
+    'title' => Like::class,
 ];
 ```
  
