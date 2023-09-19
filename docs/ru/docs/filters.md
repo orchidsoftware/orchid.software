@@ -10,108 +10,6 @@ description: Фильтры служат для упрощения поиска 
 > Это не является готовым решением или универсальным средством, 
 вы должны расширить структуру для своих конкретных приложений.
 
-## Автоматическая HTTP фильтрация и сортировка
-
-Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
-атрибутов:
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filter\Filterable;
-
-class Post extends Model
-{
-    use Filterable;
-
-    /**
-     * @var array
-     */
-    protected $allowedFilters = [
-        'id',
-        'user_id',
-        'type',
-        'status',
-        'content',
-        'options',
-        'slug',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
-
-    /**
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'user_id',
-        'type',
-        'status',
-        'slug',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
-}
-```
-
-Использование заключается в вызове метода `filters`:
-
-```php
-Post::filters()->defaultSort('id')->paginate();
-```
-
-> **Примечание.** Автоматические HTTP фильтры не будут работать с отношениями. 
->Если вас это интересует, вы можете использовать классический фильтр, описанный ниже.
-
-Как будет реагировать фильтрация:
-
-```php
-http://example.com/demo?filter[id]=1
-$model->where('id', '=', 1)
-
-http://example.com/demo?filter[name]=A
-$model->where('name', 'like', '%A%')
-
-
-http://example.com/demo?filter[id]=1,2,3,4,5
-$model->whereIn('id', [1,2,3,4,5]);
-
-http://example.com/demo?filter[id][min]=1&filter[id][max]=5
-$model->whereBetween('id', [1,5]);
-
-http://example.com/demo?filter[id][]=1&filter[id][]=2&filter[id][]=3
-$model->whereIn('id', [1,2,3]);
-
-
-http://example.com/demo?filter[content.ru.name]=dwqdwq
-$model->where('content->ru->name', 'like', 'dwqdwq');
-```
-
-> **Примечание.** Фильтр соответствует модели `cast` . Он работает с типами `bool`,`datetime` и `string` (и их псевдонимами). 
->Чтобы использовать в фильтре число в качестве подстроки (используя `like`  вместо точного совпадения), убедитесь, что оно приведено к `string`. 
-
-
-Как будет реагировать сортировка:
-
-```php
-http://example.com/demo?sort=content.ru.name
-$model->orderBy('content->ru->name', 'asc');
-
-http://example.com/demo?sort=-content.ru.name
-$model->orderBy('content->ru->name', 'desc');
-```
-
-Отличным способом будет использовать такую сортировку в таблицах. Для того чтобы заголовки колонки стали активными, используйте:
-
-```php
-use Orchid\Screen\TD;
-
-TD::make('name')->sort();
-```
-
 
 ## Классический фильтр
 
@@ -123,10 +21,8 @@ TD::make('name')->sort();
 php artisan orchid:filter QueryFilter
 ```
 
-Это создаст класс фильтра в папке `app/Http/Filters`.
+Это создаст класс фильтра в папке `app/Http/Filters`. Пример фильтра:
 
-
-Пример фильтра:
 ```php
 namespace App\Http\Filters;
 
@@ -234,4 +130,80 @@ public function layout(): array
         MySelection::class,
     ];
 }
+```
+
+
+## Автоматическая HTTP фильтрация и сортировка
+
+Для реагирования на HTTP параметры, модель должна включать в себя `Filterable`, а так же определение доступных
+атрибутов:
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereDate;
+use Orchid\Filters\Types\WhereMaxMin;
+use Orchid\Filters\Types\WhereDateStartEnd;
+
+class Post extends Model
+{
+    use Filterable;
+
+    /**
+     * @var array
+     */
+    protected $allowedFilters = [
+        'id'            => Where::class,
+        'user_id'       => WhereIn::class,
+        'rating'        => WhereMaxMin::class,
+        'content'       => Like::class,
+        'publish_at'    => WhereDate::class,
+        'created_at'    => WhereDateStartEnd::class,
+        'deleted_at'    => WhereDateStartEnd::class,
+    ];
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'user_id',
+        'rating',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+}
+```
+
+Использование заключается в вызове метода `filters`:
+
+```php
+Post::filters()->defaultSort('id')->paginate();
+```
+
+> **Примечание.** Автоматические HTTP фильтры не будут работать с отношениями. 
+>Если вас это интересует, вы можете использовать классический фильтр, описанный выше.
+
+
+Как будет реагировать сортировка на HTTP параметры:
+
+```php
+http://example.com/demo?sort=content
+$model->orderBy('content', 'asc');
+
+http://example.com/demo?sort=-content
+$model->orderBy('content', 'desc');
+```
+
+Отличным способом будет использовать такую сортировку в таблицах. Для того чтобы заголовки колонки стали активными, используйте:
+
+```php
+use Orchid\Screen\TD;
+
+TD::make('name')->sort();
 ```
