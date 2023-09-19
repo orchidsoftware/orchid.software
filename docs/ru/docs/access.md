@@ -277,15 +277,17 @@ public function boot()
 
 ```html
 @hasAccess('platform.index')
-    <!-- User has permission 'platform.index' -->
+    <!-- User has permission for the 'platform.index' action -->
 @elsehasAccess('platform.other')
-    <!-- User does not have permission 'platform.index', but has 'platform.other' -->
+    <!-- User doesn't have permission for 'platform.index',
+         but has permission for 'platform.other' -->
 @else
-    <!-- User does not have permission 'platform.index' and 'platform.other'  -->
+    <!-- User doesn't have permission for both 'platform.index'
+         and 'platform.other' -->
 @endhasAccess
 
 @unlesshasAccess('platform.index')
-    <!-- User does not have permission 'platform.index' -->
+    <!-- User doesn't have permission for 'platform.index' -->
 @endhasAccess
 ```
 
