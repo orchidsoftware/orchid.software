@@ -77,13 +77,13 @@ You can also use the `required()` method on other types of form elements, such a
 There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the `canSee()` method and pass a value of false:
 
 ```php
-Input::make('name')->canSee(true);
+Input::make('name')->canSee(false);
 ```
 
 If you want to show a previously hidden form element, you can use the canSee() method and pass a value of true:
 
 ```php
-Input::make('name')->canSee(false);
+Input::make('name')->canSee(true);
 ```
 
 
