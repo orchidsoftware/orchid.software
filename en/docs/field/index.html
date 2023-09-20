@@ -489,10 +489,10 @@ Input::make('name');
 <p>You can also use the <code>required()</code> method on other types of form elements, such as select, radio buttons, and checkboxes.</p>
 <h3><a href='#hiding-input-fields' id='hiding-input-fields'>Hiding Input Fields</a></h3>
 <p>There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the <code>canSee()</code> method and pass a value of false:</p>
-<pre><code class="language-php">Input::make('name')-&gt;canSee(true);
+<pre><code class="language-php">Input::make('name')-&gt;canSee(false);
 </code></pre>
 <p>If you want to show a previously hidden form element, you can use the canSee() method and pass a value of true:</p>
-<pre><code class="language-php">Input::make('name')-&gt;canSee(false);
+<pre><code class="language-php">Input::make('name')-&gt;canSee(true);
 </code></pre>
 <blockquote>
 <p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
