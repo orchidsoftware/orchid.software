@@ -153,7 +153,7 @@ return [
             ],
 
             'Discussions' => [
-                'GitHub'   => 'https://github.com/orchidsoftware/discussions',
+                'GitHub'   => 'https://github.com/orgs/orchidsoftware/discussions',
                 'Telegram' => 'https://t.me/orchid_community',
                 'Twitter'  => 'https://twitter.com/orchid_platform',
                 'Discord'  => 'https://discord.gg/aEVdGMyRt4',
