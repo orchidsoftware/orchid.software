@@ -5,13 +5,18 @@
             .text-logo {
                 fill: #2e2e2e;
             }
+            .cls-2{fill:url(#linear-gradient)}
+            .cls-3{fill:url(#linear-gradient-2)}
+
             @media (prefers-color-scheme: dark) {
                 .text-logo {
                     fill: #fff;
                 }
+                .cls-2{fill:#fff}
+                .cls-3{fill:#fff}
             }
 
-            .cls-2{fill:url(#linear-gradient)}.cls-3{fill:url(#linear-gradient-2)}</style>
+        </style>
         <linearGradient id="linear-gradient" x1="47.92" y1="-281.31" x2="8.13" y2="-323.37"
                         gradientTransform="matrix(1 0 0 -1 0 -237.71)" gradientUnits="userSpaceOnUse">
             <stop offset="0" stop-color="#ac5ca0"/>
