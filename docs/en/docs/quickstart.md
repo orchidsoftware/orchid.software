@@ -215,7 +215,7 @@ public function description(): ?string
 
 To make it easier for users to access our screen, we can add a new menu item to the admin panel's navigation menu. This will allow users to click on a link in the menu to access the screen, rather than having to manually type the URL into the browser.
 
-To add a new menu item to the navigation menu, we will need to open the `app/Orchid/PlatformProvider.php` file and add a new declaration to the `registerMainMenu()` method. This declaration will use the `Menu` method provided by Orchid to define a new menu item for our screen.
+To add a new menu item to the navigation menu, we will need to open the `app/Orchid/PlatformProvider.php` file and add a new declaration to the `menu()` method. This declaration will use the `Menu` method provided by Orchid to define a new menu item for our screen.
 
 
 ```php
@@ -224,7 +224,7 @@ use Orchid\Screen\Actions\Menu;
 /**
  * @return Menu[]
  */
-public function registerMainMenu(): array
+public function menu(): array
 {
     return [
         // Other items...
