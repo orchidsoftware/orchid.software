@@ -576,13 +576,13 @@ public function description(): ?string
 <h2><a href='#navigation' id='navigation'>Navigation</a></h2>
 <h3><a href='#menu' id='menu'>Menu</a></h3>
 <p>To make it easier for users to access our screen, we can add a new menu item to the admin panel&rsquo;s navigation menu. This will allow users to click on a link in the menu to access the screen, rather than having to manually type the URL into the browser.</p>
-<p>To add a new menu item to the navigation menu, we will need to open the <code>app/Orchid/PlatformProvider.php</code> file and add a new declaration to the <code>registerMainMenu()</code> method. This declaration will use the <code>Menu</code> method provided by Orchid to define a new menu item for our screen.</p>
+<p>To add a new menu item to the navigation menu, we will need to open the <code>app/Orchid/PlatformProvider.php</code> file and add a new declaration to the <code>menu()</code> method. This declaration will use the <code>Menu</code> method provided by Orchid to define a new menu item for our screen.</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Menu;
 
 /**
  * @return Menu[]
  */
-public function registerMainMenu(): array
+public function menu(): array
 {
     return [
         // Other items...
