@@ -99,7 +99,7 @@ class Post extends Model
 
 Now we are ready for the real use of the platform.
 
-[In the previous tutorial](https://orchid.software/en/docs/quickstart) we already created our first screen for sending email messages, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:
+[In the previous tutorial](https://orchid.software/en/docs/quickstart) we already created our first screen for displaying posts, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:
 
 ```php
 php artisan orchid:screen PostEditScreen
