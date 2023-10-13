@@ -621,8 +621,8 @@ Impersonation::loginAs($otherUser);
 <pre><code class="language-php">// Revert back to the original user
 Impersonation::logout();
 </code></pre>
-<p>The <code>isSwitch()</code> method checks if the impersonation has been performed:</p>
-<pre><code class="language-php">if (Impersonation::isSwitch()) {
+<p>The <code>isImpersonating()</code> method checks if the impersonation has been performed:</p>
+<pre><code class="language-php">if (Impersonation::isImpersonating()) {
     // The user is impersonating another user
 }
 </code></pre>
