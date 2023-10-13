@@ -161,8 +161,8 @@ It remains only to connect the received script to the panel in the configuration
 ```php
 // config/platform.php
 'vite' => [
-        'public/js/dashboard.js',
-   ],
+    'public/js/dashboard.js',
+],
 ```
 
 > **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
