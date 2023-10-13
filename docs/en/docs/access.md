@@ -312,10 +312,10 @@ To revert back to the original user, call the `logout()` method:
 Impersonation::logout();
 ```
 
-The `isSwitch()` method checks if the impersonation has been performed:
+The `isImpersonating()` method checks if the impersonation has been performed:
 
 ```php
-if (Impersonation::isSwitch()) {
+if (Impersonation::isImpersonating()) {
     // The user is impersonating another user
 }
 ```
