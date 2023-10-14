@@ -196,3 +196,124 @@ public function layout(): array
     ];
 }
 ```
+
+
+## Sortable
+
+Sortable в платформе Orchid упрощает управление порядком элементов в вашем приложении.
+Вы сможете легко изменить порядок элементов в вашем списке и создавать интерактивные пользовательские интерфейсы путем простой функции перетаскивания (Drag & Drop) 
+Это значительно облегчает работу с порядковыми элементами в пользовательском интерфейсе.
+
+### Подготовка базы данных
+
+
+Для начала использования функциональности сортировки, вам необходимо подготовить базу данных.
+Для этого создайте миграцию, которая добавит простую целочисленную колонку в таблицу, с которой вы планируете работать.
+Вот пример миграции:
+
+```php
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddOrderColumnToTable extends Migration
+{
+   /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+   public function up()
+   {
+       Schema::table('table_name', function (Blueprint $table) {
+           $table->integer('order')->default(1);
+       });
+   }
+
+   // ...
+}
+```
+
+Замените `table_name` на имя таблицы, к которой нужно добавить колонку. 
+Также вы можете выбрать любое другое имя для колонки, заменив `'order'` на предпочитаемое.
+
+> Не забудьте выполнить миграцию с помощью команды `php artisan migrate`, чтобы добавить новую колонку в базу данных.
+
+
+### Подготовка Eloquent модели
+
+После настройки базы данных и миграций добавьте трейт `Sortable` к вашей модели:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Platform\Concerns\Sortable;
+
+class Idea extends Model
+{
+    use Sortable;
+
+    //...
+}
+```
+
+> Примечание: Обратите внимание, что необходимо импортировать класс модели Eloquent, а затем использовать трейт `Sortable`.
+
+Если имя колонки отличается от `order`, можно добавить метод `getSortColumnName()` в вашу модель, чтобы явно указать имя колонки:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Platform\Concerns\Sortable;
+
+class Idea extends Model
+{
+    use Sortable;
+
+    //...
+
+    /**
+     * Get the column name for sorting.
+     *
+     * @return string
+     */
+    public function getSortColumnName(): string
+    {
+        return 'sort';
+    }
+}
+```
+
+
+## Использование в экране
+
+Теперь у нас есть подготовленная модель с функцией сортировки.
+Давайте создадим графический интерфейс для drag&drop сортировки, в методе `query()` вашего экрана укажите список моделей, который будет отображаться для сортировки:
+
+```php
+use App\Models\Idea;
+use Orchid\Screen\Repository;
+
+public function query(): array
+{
+   return [
+       'models' => Idea::sorted()->get(),
+   ];
+}
+```
+
+Здесь мы используем метод `sorted()`, предоставляемый трейтом `Sortable`, чтобы получить отсортированный список моделей.
+
+В методе `layout()` вашего экрана добавим графический интерфейс с использованием слоя `Layout::sortable()`:
+
+```php
+use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Fields\Sight;
+
+public function layout(): iterable
+{
+   return [
+       Layout::sortable('idea', [
+           Sight::make('title'),
+       ]),
+   ];
+}
+```
