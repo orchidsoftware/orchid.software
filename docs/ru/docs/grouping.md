@@ -311,7 +311,7 @@ use Orchid\Screen\Fields\Sight;
 public function layout(): iterable
 {
    return [
-       Layout::sortable('idea', [
+       Layout::sortable('models', [
            Sight::make('title'),
        ]),
    ];
