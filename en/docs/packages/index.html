@@ -383,6 +383,9 @@
                             <li class="anchor-h2">
                     <a href="#define-icons">Define Icons</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#versioning">Versioning</a>
+                </li>
                     </ul>
     </div>
                         <body><blockquote>
@@ -487,6 +490,12 @@ public function icons(): array
 }
 </code></pre>
 <p>In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package&rsquo;s views or components.</p>
+<h2><a href='#versioning' id='versioning'>Versioning</a></h2>
+<p>When developing a package that supports multiple versions, it is advised to utilize Composer for version management.
+Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:</p>
+<pre><code class="language-php">Orchid\Platform\Dashboard::VERSION
+</code></pre>
+<p>This constant returns a string representation of the current version being used.</p>
 </body>
                         
                     </main>
