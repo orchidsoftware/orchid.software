@@ -1,6 +1,6 @@
 ---
 title: Package Development
-description: 
+description: Learn how to develop packages for Orchid
 ---
 
 
@@ -62,8 +62,8 @@ public function permissions(): array
     // Define your permissions here
     return [
         ItemPermission::group('Package Name')
-            ->addPermission('platform.package.option', 'Show Name for User')
-            ->addPermission('platform.package.other', 'Show Name for User'),
+            ->addPermission('platform.package.option', 'View Package Options')
+            ->addPermission('platform.package.other', 'View Other Package Content'),
     ];
 }
 ```
@@ -88,10 +88,9 @@ public function menu(): array
 {
     // Define your menu items here
     return [
-        Menu::make('Get Started')
+        Menu::make('My Package')
             ->icon('bs.book')
-            ->title('Navigation')
-            ->route(config('platform.index')),
+            ->route('package.index'),
     ];
 }
 ```
