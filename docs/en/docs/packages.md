@@ -132,3 +132,16 @@ public function icons(): array
 ```
 
 In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package's views or components.
+
+
+
+## Versioning
+
+When developing a package that supports multiple versions, it is advised to utilize Composer for version management.
+Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:
+
+```php
+Orchid\Platform\Dashboard::VERSION
+```
+
+This constant returns a string representation of the current version being used.
