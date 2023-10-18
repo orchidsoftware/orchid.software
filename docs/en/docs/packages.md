@@ -1,0 +1,117 @@
+---
+title: Package Development
+description: 
+---
+
+
+## Package Service Providers
+
+In Laravel, a service provider is a crucial component that sets up and configures the various features and functionality of a package. 
+The Orchid package also requires a service provider to integrate with your Laravel application.
+
+> **Note for beginners:** Please be aware that the Orchid documentation page primarily focuses on demonstrating the usage and features of the Orchid platform.
+>  It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development.
+>  If you are new to PHP and Laravel, it is recommended to consult other beginner-friendly resources that specifically address those topics before diving into the Orchid documentation. ↩
+
+To learn more about service providers in Laravel and how they work, you can refer to the [official Laravel documentation on service providers](https://laravel.com/docs/providers).
+
+The Orchid package provides its own service provider called `Orchid\Platform\OrchidServiceProvider`.
+This service provider extends the core Laravel `ServiceProvider` class and provides additional functionality specific to the Orchid package.
+It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.
+
+
+## Define Routes
+
+To define routes in your package, create a `routes` method within your service provider.
+You can use the standard Laravel routing mechanisms to register your routes with the `Router` instance.
+
+```php
+use Illuminate\Routing\Router;
+
+/**
+ * Define routes setup.
+ *
+ * @param \Illuminate\Routing\Router $router
+ *
+ * @return void
+ */
+public function routes(Router $route): void
+{
+    // Define your routes here
+    $route->screen('private-route', MyPackageScreen::class)->name('package');
+}
+```
+
+
+## Define Permissions
+
+Laravel Orchid provides a flexible permission system to control access to different parts of your package. 
+To define permissions, override the `permissions` method in your service provider. 
+This method should return an array of `ItemPermission` instances provided by the Orchid package.
+
+```php
+use Orchid\Platform\ItemPermission;
+
+/**
+ * Register permissions for the application.
+ *
+ * @return ItemPermission[]
+ */
+public function permissions(): array
+{
+    // Define your permissions here
+    return [
+        ItemPermission::group('Package Name')
+            ->addPermission('platform.package.option', 'Show Name for User')
+            ->addPermission('platform.package.other', 'Show Name for User'),
+    ];
+}
+```
+
+Specify the group name, permission key, and description for each permission.
+
+
+## Define Navigation
+
+To define navigation menus for your package, override the `menu` method in your service provider.
+This method should return an array of `Menu` instances provided by the Orchid package.
+
+```php
+use Orchid\Screen\Actions\Menu;
+
+/**
+ * Register the application menu.
+ *
+ * @return Menu[]
+ */
+public function menu(): array
+{
+    // Define your menu items here
+    return [
+        Menu::make('Get Started')
+            ->icon('bs.book')
+            ->title('Navigation')
+            ->route(config('platform.index')),
+    ];
+}
+```
+
+
+## Define Icons
+
+To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the `icons` method of your service provider.
+
+```php
+/**
+ * Get the icon paths and prefixes.
+ *
+ * @return array
+ */
+public function icons(): array
+{
+    // Define your icon sets here
+    return ['fa' => '/path/to/fontawesome'];
+}
+```
+
+In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package's views or components.
