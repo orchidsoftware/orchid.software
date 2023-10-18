@@ -83,8 +83,8 @@ public function permissions(): array
     // Define your permissions here
     return [
         ItemPermission::group('Package Name')
-            ->addPermission('platform.package.option', 'View Package Options')
-            ->addPermission('platform.package.other', 'View Other Package Content'),
+            ->addPermission('platform.package.option', 'View Options')
+            ->addPermission('platform.package.other', 'View Content'),
     ];
 }
 ```
