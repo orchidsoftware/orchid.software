@@ -44,14 +44,15 @@ return [
                 'Custom Template' => '/en/docs/custom-template',
             ],
             'Extra'       => [
-                'Icons'          => '/en/docs/icons',
-                'Scout Search'   => '/en/docs/global-search',
-                'Presenters'     => '/en/docs/presenters',
-                'Using JS'       => '/en/docs/javascript',
-                'Form Builder'   => '/en/docs/builder',
-                'Testing'        => '/en/docs/testing',
-                'Controllers'    => '/en/docs/controllers',
-                'Authentication' => '/en/docs/authentication',
+                'Icons'               => '/en/docs/icons',
+                'Scout Search'        => '/en/docs/global-search',
+                'Presenters'          => '/en/docs/presenters',
+                'Using JS'            => '/en/docs/javascript',
+                'Form Builder'        => '/en/docs/builder',
+                'Testing'             => '/en/docs/testing',
+                'Controllers'         => '/en/docs/controllers',
+                'Authentication'      => '/en/docs/authentication',
+                'Package Development' => '/en/docs/packages'
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
