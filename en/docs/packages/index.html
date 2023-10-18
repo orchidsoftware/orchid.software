@@ -21,33 +21,33 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <title>Use JavaScript | Orchid - Laravel Admin Panel</title>
+    <title>Package Development | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Use JavaScript | Orchid - Laravel Admin Panel">
-<meta name="description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta name="title" content="Package Development | Orchid - Laravel Admin Panel">
+<meta name="description" content="Learn how to develop packages for Orchid">
 
 
 
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/docs/javascript"/>
+<meta property="og:url" content="https://orchid.software/en/docs/packages"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Use JavaScript | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta property="og:title" content="Package Development | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Learn how to develop packages for Orchid">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/docs/javascript">
-<meta name="twitter:title" content="Use JavaScript | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta name="twitter:url" content="https://orchid.software/en/docs/packages">
+<meta name="twitter:title" content="Package Development | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Learn how to develop packages for Orchid">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
-    <link rel="alternate" href="https://orchid.software/ru/docs/javascript/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/javascript/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/javascript/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/docs/packages/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/packages/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/packages/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -285,8 +285,8 @@
                         Presenters
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/javascript" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
                         Using JS
                     </a>
                 </li>
@@ -310,8 +310,8 @@
                         Authentication
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/en/docs/packages" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/packages" class="text-decoration-none text-primary">
                         Package Development
                     </a>
                 </li>
@@ -353,9 +353,9 @@
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-2 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">Use JavaScript</h1>
+                            <h1 class="me-3">Package Development</h1>
 
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/javascript.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/packages.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                title="View and edit this file on GitHub" target="_blank" rel="noopener"
                             >
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -369,178 +369,108 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#turbo">Turbo</a>
+                    <a href="#package-service-providers">Package Service Providers</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#stimulus">Stimulus</a>
+                    <a href="#define-routes">Define Routes</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#vuejs-wrapped-in-a-stimulus">Vue.js Wrapped in a Stimulus</a>
+                    <a href="#define-permissions">Define Permissions</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#define-navigation">Define Navigation</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#define-icons">Define Icons</a>
                 </li>
                     </ul>
     </div>
-                        <body><p>The core of the platform in terms of styling is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser runs <a href="https://hotwired.dev">Hotwired</a> code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.</p>
-<h2><a href='#turbo' id='turbo'>Turbo</a></h2>
-<p>Thanks to <a href="https://turbo.hotwire.dev">Turbo</a>, the admin panel emulates the Single Page Application, loading resources only on the first call and giving the impression of re-rendering content in the browser instead of natural standard transitions between pages.</p>
-<p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
-<pre><code class="language-js">document.addEventListener("load", () =&gt; {
-    console.log('Page load');
-});
-</code></pre>
-<p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
-<pre><code class="language-js">document.addEventListener("turbo:load", () =&gt; {
-    console.log('Page load');
-})
-</code></pre>
-<p>You can find more details on the website <a href="https://turbo.hotwire.dev">turbo.hotwire.dev</a>.</p>
-<h2><a href='#stimulus' id='stimulus'>Stimulus</a></h2>
-<p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.</p>
-<p>Let&rsquo;s build a basic example for a project using <strong>Laravel Mix</strong> (Laravel before versoin 9) that displays the text entered the field for this:</p>
-<p>In <code>resources/js</code>, create the following structure:</p>
-<pre><code class="language-php">resources
-├── js
-│   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
-├── lang
-├── sass
-└── views
-</code></pre>
-<p>Controller class with the following content:</p>
-<pre><code class="language-php">// hello.js
-export default class extends window.Controller {
-
-    static get targets() {
-        return [ "name", "output" ]
-    }
-
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
-    }
-}
-</code></pre>
-<p>And the assembly point:</p>
-<pre><code class="language-php">// dashboard.js
-import HelloController from "./controllers/hello"
-
-application.register("hello", HelloController);
-</code></pre>
-<p>Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
-<p>It remains only to describe the assembly in webpack.mix.js:</p>
-<pre><code class="language-php">let mix = require('laravel-mix');
-
-mix.js('resources/js/dashboard.js', 'public/js')
-</code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file or in the service provider using the <code>registerResource</code> method. You can do the same with style sheets, which will allow you to effectively build application logic.</p>
-<pre><code class="language-php">// config/platform.php
-'resource' =&gt; [
-    'stylesheets' =&gt; [],
-    'scripts'     =&gt; [
-        '/js/dashboard.js'
-    ],
-],
-</code></pre>
+                        <body><h2><a href='#package-service-providers' id='package-service-providers'>Package Service Providers</a></h2>
+<p>In Laravel, a service provider is a crucial component that sets up and configures the various features and functionality of a package.
+The Orchid package also requires a service provider to integrate with your Laravel application.</p>
 <blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
+<p><strong>Note for beginners:</strong> Please be aware that the Orchid documentation page primarily focuses on demonstrating the usage and features of the Orchid platform.
+It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development.
+If you are new to PHP and Laravel, it is recommended to consult other beginner-friendly resources that specifically address those topics before diving into the Orchid documentation. &#8617;</p>
 </blockquote>
-<p>An example of a record for a service provider</p>
-<pre><code class="language-php">// app/Providers/AppServiceProvider.php
+<p>To learn more about service providers in Laravel and how they work, you can refer to the <a href="https://laravel.com/docs/providers">official Laravel documentation on service providers</a>.</p>
+<p>The Orchid package provides its own service provider called <code>Orchid\Platform\OrchidServiceProvider</code>.
+This service provider extends the core Laravel <code>ServiceProvider</code> class and provides additional functionality specific to the Orchid package.
+It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.</p>
+<h2><a href='#define-routes' id='define-routes'>Define Routes</a></h2>
+<p>To define routes in your package, create a <code>routes</code> method within your service provider.
+You can use the standard Laravel routing mechanisms to register your routes with the <code>Router</code> instance.</p>
+<pre><code class="language-php">use Illuminate\Routing\Router;
 
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
+/**
+ * Define routes setup.
+ *
+ * @param \Illuminate\Routing\Router $router
+ *
+ * @return void
+ */
+public function routes(Router $route): void
 {
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard-&gt;registerResource('scripts','/js/dashboard.js');
-        //$dashboard-&gt;registerResource('stylesheets','/css/dashboard.css');
-    }
+    // Define your routes here
+    $route-&gt;screen('private-route', MyPackageScreen::class)-&gt;name('package');
 }
 </code></pre>
-<p>To achieve the same for a project making use of <strong>Vite</strong> (Laravel ^9.0), the steps differ slightly:</p>
-<p>In <code>public/</code>, create the following structure:</p>
-<pre><code class="language-php">public
-├── js
-│   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
-├── storage
-├── vendor
-└── index.php
-</code></pre>
-<p>Controller class with the following content:</p>
-<pre><code class="language-php">// hello.js
-export default class extends window.Controller {
+<h2><a href='#define-permissions' id='define-permissions'>Define Permissions</a></h2>
+<p>Laravel Orchid provides a flexible permission system to control access to different parts of your package.
+To define permissions, override the <code>permissions</code> method in your service provider.
+This method should return an array of <code>ItemPermission</code> instances provided by the Orchid package.</p>
+<pre><code class="language-php">use Orchid\Platform\ItemPermission;
 
-    static get targets() {
-        return [ "name", "output" ]
-    }
-
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
-    }
+/**
+ * Register permissions for the application.
+ *
+ * @return ItemPermission[]
+ */
+public function permissions(): array
+{
+    // Define your permissions here
+    return [
+        ItemPermission::group('Package Name')
+            -&gt;addPermission('platform.package.option', 'View Package Options')
+            -&gt;addPermission('platform.package.other', 'View Other Package Content'),
+    ];
 }
 </code></pre>
-<p>And the assembly point:</p>
-<pre><code class="language-php">// dashboard.js
-import HelloController from "./controllers/hello"
+<p>Specify the group name, permission key, and description for each permission.</p>
+<h2><a href='#define-navigation' id='define-navigation'>Define Navigation</a></h2>
+<p>To define navigation menus for your package, override the <code>menu</code> method in your service provider.
+This method should return an array of <code>Menu</code> instances provided by the Orchid package.</p>
+<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
 
-application.register("hello", HelloController);
-</code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.</p>
-<pre><code class="language-php">// config/platform.php
-'vite' =&gt; [
-    'public/js/dashboard.js',
-],
-</code></pre>
-<blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
-</blockquote>
-<p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
-<pre><code class="language-php">// hello.blade.php
-&lt;div data-controller="hello"&gt;
-  &lt;input data-hello-target="name" type="text"&gt;
-
-  &lt;button data-action="click-&gt;hello#greet"&gt;
-    Greet
-  &lt;/button&gt;
-
-  &lt;span data-hello-target="output"&gt;
-  &lt;/span&gt;
-&lt;/div&gt;
-</code></pre>
-<h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js Wrapped in a Stimulus</a></h2>
-<p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
-<p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
-<pre><code class="language-js">import {createApp} from 'vue';
-
-export default class extends window.Controller {
-    connect() {
-        this.app = createApp({
-            data() {
-                return {
-                    message: 'Hello, Vue.js!'
-                }
-            }
-        });
-
-        this.app.mount(this.element);
-    }
-
-    disconnect() {
-        this.app.unmount();
-    }
+/**
+ * Register the application menu.
+ *
+ * @return Menu[]
+ */
+public function menu(): array
+{
+    // Define your menu items here
+    return [
+        Menu::make('My Package')
+            -&gt;icon('bs.book')
+            -&gt;route('package.index'),
+    ];
 }
-
 </code></pre>
-<p>Register the controller in your blade file:</p>
-<pre><code class="language-html">&lt;div data-controller="hello"&gt;
-  @{{ message }}
-&lt;/div&gt;
+<h2><a href='#define-icons' id='define-icons'>Define Icons</a></h2>
+<p>To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the <code>icons</code> method of your service provider.</p>
+<pre><code class="language-php">/**
+ * Get the icon paths and prefixes.
+ *
+ * @return array
+ */
+public function icons(): array
+{
+    // Define your icon sets here
+    return ['fa' =&gt; '/path/to/fontawesome'];
+}
 </code></pre>
-<p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
+<p>In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package&rsquo;s views or components.</p>
 </body>
                         
                     </main>
