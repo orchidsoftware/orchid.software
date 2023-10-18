@@ -23,6 +23,23 @@ This service provider extends the core Laravel `ServiceProvider` class and provi
 It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.
 
 
+To create a custom service provider for your package that extends the functionality of the `OrchidServiceProvider`, you can follow this example:
+
+- Create a new file called `MyPackageServiceProvider.php` in your package directory.
+- In the `MyPackageServiceProvider` class, extend the `OrchidServiceProvider` class provided by Orchid:
+
+```php
+use Orchid\Platform\OrchidServiceProvider;
+
+class MyPackageServiceProvider extends OrchidServiceProvider
+{
+   // Your package-specific code here
+}
+```
+
+This will allow you to utilize the features and methods provided by the `OrchidServiceProvider` class while also adding your own customizations and configurations specific to your package.
+
+
 ## Define Routes
 
 To define routes in your package, create a `routes` method within your service provider.
