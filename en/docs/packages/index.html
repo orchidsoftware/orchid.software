@@ -401,6 +401,19 @@ If you are new to PHP and Laravel, it is recommended to consult other beginner-f
 <p>The Orchid package provides its own service provider called <code>Orchid\Platform\OrchidServiceProvider</code>.
 This service provider extends the core Laravel <code>ServiceProvider</code> class and provides additional functionality specific to the Orchid package.
 It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.</p>
+<p>To create a custom service provider for your package that extends the functionality of the <code>OrchidServiceProvider</code>, you can follow this example:</p>
+<ul>
+<li>Create a new file called <code>MyPackageServiceProvider.php</code> in your package directory.</li>
+<li>In the <code>MyPackageServiceProvider</code> class, extend the <code>OrchidServiceProvider</code> class provided by Orchid:</li>
+</ul>
+<pre><code class="language-php">use Orchid\Platform\OrchidServiceProvider;
+
+class MyPackageServiceProvider extends OrchidServiceProvider
+{
+   // Your package-specific code here
+}
+</code></pre>
+<p>This will allow you to utilize the features and methods provided by the <code>OrchidServiceProvider</code> class while also adding your own customizations and configurations specific to your package.</p>
 <h2><a href='#define-routes' id='define-routes'>Define Routes</a></h2>
 <p>To define routes in your package, create a <code>routes</code> method within your service provider.
 You can use the standard Laravel routing mechanisms to register your routes with the <code>Router</code> instance.</p>
