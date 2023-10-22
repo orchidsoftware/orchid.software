@@ -18,6 +18,7 @@ return [
             ],
             'Tutorials'   => [
                 'Quick Start'           => '/en/docs/quickstart',
+                'State Management'      => '/en/docs/quickstart-state',
                 'Data Management'       => '/en/docs/quickstart-crud',
                 'Managing Attachments'  => '/en/docs/quickstart-files',
                 'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
