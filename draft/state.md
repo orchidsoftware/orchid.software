@@ -23,7 +23,7 @@ use App\Orchid\Screens\StateScreen;
 Route::screen('state', StateScreen::class)->name('state');
 ```
 
-Добавим следующий код в только что созданный экран, чтобы установить и отобразить простую строку "Привет мир":
+Классическим примером являеться подчсчёт количество кликов. Добавим следующий код в только что созданный экран:
 
 ```php
 <?php
@@ -47,7 +47,7 @@ class StateScreen extends Screen
     public function query(): array
     {
         return [
-            'message' => 'Hello Word!',
+            'clicks' => 0,
         ];
     }
 
@@ -70,15 +70,15 @@ class StateScreen extends Screen
     {
         return [
             Layout::rows([
-                Label::make('message')
-                    ->title('Your message:'),
+                Label::make('clicks')
+                        ->title('Click Count:'),
             ]),
         ];
     }
 }
 ```
 
-Перейдем в браузере на нашу страницу и посмотрим как выглядит экран. На нём должна быть выведена надпись "Hello Word!". 
+Перейдем в браузере на нашу страницу и посмотрим как выглядит экран. На нём должна быть выведена надпись "Click Count: 0". 
 Добавим в наш экран простой метод в котором посмотрим на содержимое запроса:
 
 ```php
@@ -91,42 +91,51 @@ public function layout(): array
 {
     return [
         Layout::rows([
-            Label::make('message')
-                ->title('Your message:'),
+            Label::make('clicks')
+                ->title('Click Count:'),
 
-            Button::make('Submit')
+            Button::make('Increment Click')
                 ->type(Color::DARK)
-                ->method('submit'),
+                ->method('increment'),
         ]),
     ];
 }
 
 /**
- * @param \Illuminate\Http\Request $request
+ * Increment the click count.
  *
- * @return void
+ * @return \Illuminate\Http\RedirectResponse
  */
-public function submit(Request $request)
+public function increment(Request $request)
 {
     dd($request->all());
 }
 ```
 
 
-После нажатия на кнопку "Отправить" вы увидите содержимое запроса. Однако заметим, что значение `message` отсутствует, и мы потеряли состояние `Hello Word!`. 
-Обычно, для сохранения состояния между запросами, можно добавить скрытое поле формы `<input type="hidden">`.
+После нажатия на кнопку "Отправить" вы увидите содержимое запроса. 
+Однако заметим, что значение кликов отсутствует, в классическом варианте посмтроение серверного приложения, мы могли бы добавить скрытое поле формы `<input type="hidden">`.
 Однако Orchid имеет удобное решение, позволяющее автоматически сохранять состояние публичных свойств экрана.
 
 
 ```php
 class StateScreen extends Screen
 {
-    public $message;
+    /**
+     * The number of clicks.
+     *
+     * @var int
+     */
+    public $clicks ;
 
     //...
 
-
-    public function submit()
+    /**
+     * Increment the click count.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function increment(Request $request)
     {
         dd($this->message);
     }
@@ -135,17 +144,14 @@ class StateScreen extends Screen
 ```
 
 Теперь если мы отправим форму, то значение свойства сохраниться таким же каким мы его задали в процессе. 
-В данном примере мы использовали простой тип `string`, но это так же можно использовать и для более сложных обьектов, таких как модели Eloquent.
+В данном примере мы использовали простой тип `int`, но это так же можно использовать и для более сложных обьектов, таких как модели Eloquent.
 
 > Сохранение больших объемов данных в публичных свойствах экрана может вызвать проблемы с производительностью. Поэтому рекомендуется быть осторожными и избегать хранения большого объема информации в публичных свойствах.
 
-## Подчсчёт количество кликов 
 
-Чтобы обновить состояние экрана нам достаточно изменить публичное свойство. Классическим примером являеться подчсчёт количество кликов.
+Чтобы обновить состояние экрана нам достаточно изменить публичное свойство, но перед этим обновим наш `query`,
+что бы он возвращал массив с ключом `clicks`, содержащим текущее значение свойства и если оно отсутствует устанавливает значение `0`:
 
-
-Сначала мы определяем публичное свойство `clicks`, которая будет хранить количество кликов.
-Затем, в методе `query()`, мы возвращаем массив с ключом `'clicks'`, содержащим текущее значение свойства и если оно отсутствует устанавливает значение `0`.
 
 ```php
 class StateScreen extends Screen
@@ -171,28 +177,6 @@ class StateScreen extends Screen
 }
 ```
 
-Затем мы определяем макет экрана, в котором выведем текущее значение кликов и кнопку:
-
-```php
-/**
- * The screen's layout elements.
- *
- * @return \Orchid\Screen\Layout[]|string[]
- */
-public function layout(): array
-{
-    return [
-        Layout::rows([
-            Label::make('clicks')
-                ->title('Click Count:'),
-
-            Button::make('Increment Click')
-                ->type(Color::DARK)
-                ->method('increment'),
-        ]),
-    ];
-}
-```
 
 В методе `increment()`, мы увеличиваем значение `$clicks` на единицу при каждом вызове.
 
