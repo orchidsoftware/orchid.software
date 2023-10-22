@@ -9,7 +9,7 @@
 Однако в Laravel Orchid есть удобное решение для хранения небольшого количества информации, такое как модель Eloquent.
 Это возможно благодаря тому, что каждый запрос передает с собой состояние всех публичных свойств экрана.
 
-Давайте попробуем это на практике и создадим новый экран под названием `StateScreen` с помощью команды artisan:
+Давайте попробуем это на практике и создадим новый экран под названием `StateScreen` с помощью команды Artisan:
 
 ```bash
 php artisan orchid:screen StateScreen
@@ -70,8 +70,7 @@ class StateScreen extends Screen
     {
         return [
             Layout::rows([
-                Label::make('clicks')
-                        ->title('Click Count:'),
+                Label::make('clicks')->title('Click Count:'),
             ]),
         ];
     }
@@ -126,7 +125,7 @@ class StateScreen extends Screen
      *
      * @var int
      */
-    public $clicks ;
+    public $clicks;
 
     //...
 
@@ -161,7 +160,7 @@ class StateScreen extends Screen
      *
      * @var int
      */
-    public $clicks ;
+    public $clicks;
 
     /**
      * Fetch data to be displayed on the screen.
@@ -177,14 +176,11 @@ class StateScreen extends Screen
 }
 ```
 
-
-В методе `increment()`, мы увеличиваем значение `$clicks` на единицу при каждом вызове.
+Обновим метод `increment()`, что бы он увеличиваем значение свойства `clicks` на единицу при каждом вызове.
 
 ```php
 /**
  * Increment the click count.
- *
- * @return \Illuminate\Http\RedirectResponse
  */
 public function increment()
 {
