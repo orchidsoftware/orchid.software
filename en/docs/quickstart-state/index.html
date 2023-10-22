@@ -21,33 +21,33 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 
-    <title>Navigation | Orchid - Laravel Admin Panel</title>
+    <title>Screen State | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Navigation | Orchid - Laravel Admin Panel">
-<meta name="description" content="Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and functions you need to effectively navigate your application.">
+<meta name="title" content="Screen State | Orchid - Laravel Admin Panel">
+<meta name="description" content="Learn how to store intermediate results and track screen state in Laravel using public properties. Optimize your information management with the user-friendly Orchid interface and code examples.">
 
 
 
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/docs/menu"/>
+<meta property="og:url" content="https://orchid.software/en/docs/quickstart-state"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Navigation | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and functions you need to effectively navigate your application.">
+<meta property="og:title" content="Screen State | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Learn how to store intermediate results and track screen state in Laravel using public properties. Optimize your information management with the user-friendly Orchid interface and code examples.">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/docs/menu">
-<meta name="twitter:title" content="Navigation | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and functions you need to effectively navigate your application.">
+<meta name="twitter:url" content="https://orchid.software/en/docs/quickstart-state">
+<meta name="twitter:title" content="Screen State | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Learn how to store intermediate results and track screen state in Laravel using public properties. Optimize your information management with the user-friendly Orchid interface and code examples.">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
-    <link rel="alternate" href="https://orchid.software/ru/docs/menu/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/menu/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/docs/quickstart-state/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/quickstart-state/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/quickstart-state/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -163,8 +163,8 @@
                         Quick Start
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
-                    <a href="/en/docs/quickstart-state" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/quickstart-state" class="text-decoration-none text-primary">
                         State Management
                     </a>
                 </li>
@@ -197,8 +197,8 @@
                         Form Elements
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-md-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/menu" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-md-3 py-1 ">
+                    <a href="/en/docs/menu" class="text-decoration-none ">
                         Navigation
                     </a>
                 </li>
@@ -358,9 +358,9 @@
                 <div class="col-12 col-md me-auto bg-white py-md-3">
                     <main class="py-2 px-3 py-md-2 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">Navigation</h1>
+                            <h1 class="me-3">Screen State</h1>
 
-                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/menu.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                            <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/quickstart-state.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                title="View and edit this file on GitHub" target="_blank" rel="noopener"
                             >
                                 <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -372,135 +372,160 @@
 
 
                         <div class="anchors">
-            <ul>
-                            <li class="anchor-h2">
-                    <a href="#usage">Usage</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#links">Links</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#active-state">Active State</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#permission-based">Permission-Based</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#appearance">Appearance</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#badge-notification">Badge Notification</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#sorting-items">Sorting Items</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#creating-nested-menus">Creating Nested Menus</a>
-                </li>
-                    </ul>
     </div>
-                        <body><p>The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.</p>
-<h2><a href='#usage' id='usage'>Usage</a></h2>
-<p>The default menu registration takes place in the <code>app/Orchid/PlatformProvider.php</code>:</p>
-<pre><code class="language-php">namespace App\Orchid;
+                        <body><p>In PHP, when we want to store intermediate results between requests, we usually use storage solutions like databases (MySQL) or fast storage systems such as Redis. For simpler cases, we can pass the state directly in the URL. You have probably seen this before, for example, <code>operation?result=success</code>. Each of these methods is suitable and widely applicable.</p>
+<p>However, in Laravel Orchid, there is a convenient solution for storing small amounts of information, such as an Eloquent model. This is made possible because each request carries the state of all public properties of the screen.</p>
+<p>Let&rsquo;s try it out and create a new screen called <code>StateScreen</code> using the Artisan command:</p>
+<pre><code class="language-bash">php artisan orchid:screen StateScreen
+</code></pre>
+<p>Next, we need to register it in the route file:</p>
+<pre><code class="language-php">use App\Orchid\Screens\StateScreen;
 
-use Orchid\Screen\Actions\Menu;
-use Orchid\Platform\OrchidServiceProvider;
+Route::screen('state', StateScreen::class)-&gt;name('state');
+</code></pre>
+<p>A classic example is counting the number of clicks. Let&rsquo;s add the following code to the newly created screen:</p>
+<pre><code class="language-php">&lt;?php
 
-class PlatformProvider extends OrchidServiceProvider
+namespace App\Orchid\Screens;
+
+use Illuminate\Http\Request;
+use Orchid\Screen\Screen;
+use Orchid\Support\Color;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Actions\Button;
+use Orchid\Support\Facades\Layout;
+
+class StateScreen extends Screen
 {
-    // ...
-    
-    public function menu(): array
+    /**
+     * Fetch data to be displayed on the screen.
+     *
+     * @return array
+     */
+    public function query(): array
     {
         return [
-            Menu::make('Example')-&gt;url('https://orchid.software/'),
+            'clicks' =&gt; 0,
+        ];
+    }
+
+    /**
+     * The name of the screen displayed in the header.
+     *
+     * @return string|null
+     */
+    public function name(): ?string
+    {
+        return 'State';
+    }
+
+    /**
+     * The screen's layout elements.
+     *
+     * @return array
+     */
+    public function layout(): array
+    {
+        return [
+            Layout::rows([
+                Label::make('clicks')-&gt;title('Click Count:'),
+            ]),
         ];
     }
 }
 </code></pre>
+<p>Let&rsquo;s open the page in a browser and see how the screen looks. It should display the label &ldquo;Click Count: 0&rdquo;. Now, let&rsquo;s add a simple method to the screen to see the request content:</p>
+<pre><code class="language-php">/**
+ * The screen's layout elements.
+ *
+ * @return array
+ */
+public function layout(): array
+{
+    return [
+        Layout::rows([
+            Label::make('clicks')
+                -&gt;title('Click Count:'),
+
+            Button::make('Increment Click')
+                -&gt;type(Color::DARK)
+                -&gt;method('increment'),
+        ]),
+    ];
+}
+
+/**
+ * Increment the click count.
+ *
+ * @param Request $request
+ * @return \Illuminate\Http\RedirectResponse
+ */
+public function increment(Request $request)
+{
+    dd($request-&gt;all());
+}
+</code></pre>
+<p>Upon clicking the &ldquo;Submit&rdquo; button, you will see the request content. However, please note that the click count value is missing. In a conventional server application, we could have achieved this by adding a hidden form field <code>&lt;input type="hidden"&gt;</code> and redirecting with a GET parameter <code>?count=1</code>.</p>
+<p>Fortunately, Orchid provides a convenient solution that automatically saves the state of public properties of the screen.</p>
+<pre><code class="language-php">class StateScreen extends Screen
+{
+    /**
+     * The number of clicks.
+     *
+     * @var int
+     */
+    public $clicks;
+
+    //...
+
+    /**
+     * Increment the click count.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function increment(Request $request)
+    {
+        dd($this-&gt;clicks);
+    }
+}
+</code></pre>
+<p>Now, when we submit the form, the property value will be preserved as we set it. In this example, we used a simple <code>int</code> type, but it can also be used for more complex objects like Eloquent models.</p>
 <blockquote>
-<p><strong>Note:</strong> When creating each element, a unique key is automatically generated, which should not be repeated. However, you can manually change the key using the <code>slug</code> method.</p>
+<p>Storing large amounts of data in public screen properties may cause performance issues. Therefore, it is recommended to exercise caution and avoid storing excessive information in public properties.</p>
 </blockquote>
-<h2><a href='#links' id='links'>Links</a></h2>
-<p>Create links with the <code>Menu</code> class using a URL or route. To create a link with a URL, use the <code>url</code> method:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+<p>To update the screen state, we simply need to modify the public property. But before that, let&rsquo;s update our <code>query</code> method to return an array with the key <code>clicks</code> containing the current value of the property. If it&rsquo;s absent, we&rsquo;ll set it to <code>0</code>:</p>
+<pre><code class="language-php">class StateScreen extends Screen
+{
+    /**
+     * The number of clicks.
+     *
+     * @var int
+     */
+    public $clicks;
 
-Menu::make('Example')-&gt;url('https://orchid.software/');
+    /**
+     * Fetch data to be displayed on the screen.
+     *
+     * @return array
+     */
+    public function query(): array
+    {
+        return [
+            'clicks'  =&gt; $this-&gt;clicks ?? 0,
+        ];
+    }
+}
 </code></pre>
-<p>To create a link with a route, use the <code>route</code> method and provide the name of the route:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
+<p>Let&rsquo;s update the <code>increment()</code> method to increment the value of the <code>clicks</code> property by one each time it&rsquo;s called.</p>
+<pre><code class="language-php">/**
+ * Increment the click count.
+ */
+public function increment()
+{
+    $this-&gt;clicks++;
+}
 </code></pre>
-<p>Make sure the route is defined in your app&rsquo;s routes file.</p>
-<h2><a href='#active-state' id='active-state'>Active State</a></h2>
-<p>To determine the link activity, already use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
-<pre><code class="language-php">Menu::make('Example')
-    -&gt;route('route.idea')
-    -&gt;active('route.idea*');
-    
-Menu::make('Example')
-    -&gt;route('route.idea')
-    -&gt;active([
-        'route.idea',
-        'route.other'
-    ]);
-    
-Menu::make('Example')
-    -&gt;url('/pages/contact')
-    -&gt;active('not:pages/contact');
-</code></pre>
-<h2><a href='#permission-based' id='permission-based'>Permission-Based</a></h2>
-<p>Quite an expected situation when some links should be missing
-depending on the <a href="/en/docs/access">availability of rights</a> or other circumstances, for this:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;permission('platform.idea');
-</code></pre>
-<p>or any other check returning a boolean value:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;canSee(true);
-</code></pre>
-<h2><a href='#appearance' id='appearance'>Appearance</a></h2>
-<p>For a menu item, you can specify a graphic icon with:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;icon('bs.heart');
-</code></pre>
-<p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
-</code></pre>
-<h2><a href='#badge-notification' id='badge-notification'>Badge Notification</a></h2>
-<p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
-<pre><code class="language-php">Menu::make('Comments')
-    -&gt;icon('bubbles')
-    -&gt;route('platform.comments')
-    -&gt;badge(fn () =&gt; 10);
-</code></pre>
-<h2><a href='#sorting-items' id='sorting-items'>Sorting Items</a></h2>
-<p>Sorting set by setting the sequence number:</p>
-<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
-Menu::make('First')-&gt;sort(4);
-</code></pre>
-<h2><a href='#creating-nested-menus' id='creating-nested-menus'>Creating Nested Menus</a></h2>
-<p>You can specify a single-level submenu as follows:</p>
-<pre><code class="language-php">Menu::make('Multi Level')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Second Level Item 1')-&gt;icon('bs.bag')-&gt;sort(2),
-        Menu::make('Second Level Item 2')-&gt;icon('bs.heart')-&gt;sort(0),
-    ]),
-</code></pre>
-<p>To create a submenu dynamic, you need to add the main item and specify its unique name using the <code>slug</code> method. Then you can add other elements to the new item.</p>
-<pre><code class="language-php">Menu::make('Multi Level')
-    -&gt;slug('sub-menu')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Second Level Item 1')-&gt;icon('bs.bag'),
-        Menu::make('Second Level Item 2')-&gt;icon('bs.heart'),
-    ]),
-</code></pre>
-<p>And then add new items in our own packages like:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
-
-Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Second Level Item 3')-&gt;icon('badge')
-]);
-</code></pre>
+<p>Now, when the user clicks the &ldquo;Increment Click&rdquo; button, the click counter will be updated. If you refresh the page, the counter will be reset.</p>
 </body>
                         
                     </main>
