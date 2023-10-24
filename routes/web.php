@@ -26,6 +26,12 @@ Route::get('/{locale?}/donations', function (string $locale = 'en') {
     return view('donations');
 })->where('locale', 'en|ru');
 
+Route::get('/{locale?}/license', function (string $locale = 'en') {
+    app()->setLocale($locale);
+
+    return view('license');
+})->where('locale', 'en|ru');
+
 
 Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
 
