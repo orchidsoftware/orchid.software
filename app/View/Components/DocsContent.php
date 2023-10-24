@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use JoliTypo\Fixer;
@@ -48,6 +49,13 @@ class DocsContent extends Component implements Htmlable
         $crawler->addContent($this->content);
 
         $this->content = $crawler->html();
+
+        $crawler->filter('x-docs-banner')->each(function (Crawler $elm) {
+            $tag = $elm->outerHtml();
+
+            $this->content = Str::of($this->content)
+                ->replace($tag, Blade::render($tag));
+        });
 
         $crawler
             ->filter('h2,h3,h4,h5,h6')

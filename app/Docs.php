@@ -47,7 +47,7 @@ class Docs
         $variables = Yaml::parse($variables);
 
         $all = collect()->merge($variables)->merge([
-            'content' => Blade::render(Str::of($page)->after('---')->after('---')->markdown()),
+            'content' => Str::of($page)->after('---')->after('---')->markdown(),
             'edit'    => $this->editLinkGitHub(),
         ]);
 
