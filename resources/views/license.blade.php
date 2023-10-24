@@ -19,7 +19,7 @@
         <div class="card shadow-sm h-100 position-relative">
             <div class="overflow-hidden">
                 <div class="row pb-0 pe-lg-0 align-items-baseline">
-                    <div class="col-lg-6 p-3 ps-lg-5 pt-lg-3">
+                    <div class="col-lg-6 p-3 ps-lg-5 pt-lg-4">
                         <div class="px-4 py-4">
                             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-4">Quick Summary</h1>
 
@@ -62,7 +62,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-6 p-3 pe-lg-5 pt-lg-3">
+                    <div class="col-lg-6 p-3 pe-lg-5 pt-lg-4">
                         <div class="text-muted px-4 py-md-4">
                             <h2>MIT License</h2>
                             <p>Copyright © Chernyaev Alexandr</p>
