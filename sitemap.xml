@@ -337,6 +337,12 @@
         <priority>0.8</priority>
             </url>
     <url>
+        <loc>https://orchid.software/en/license</loc>
+        <lastmod>2023-10-23T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
         <lastmod>2023-10-23T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
