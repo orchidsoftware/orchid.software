@@ -429,7 +429,7 @@ class Task extends Screen
                     <span class="d-block">for any purposes</span>
                 </h2>
                 <p class="lead px-lg-8 text-muted opacity-slow intersection px-3">
-                    Everything that we do is 100% composed of <a href="/en/community/license" class="text-white">open and free code</a>, jointly developed by people from all
+                    Everything that we do is 100% composed of <a href="/en/license" class="text-white">open and free code</a>, jointly developed by people from all
                     over the world.
                 </p>
             </div>
