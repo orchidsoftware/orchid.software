@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -46,7 +47,7 @@ class Docs
         $variables = Yaml::parse($variables);
 
         $all = collect()->merge($variables)->merge([
-            'content' => Str::of($page)->after('---')->after('---')->markdown(),
+            'content' => Blade::render(Str::of($page)->after('---')->after('---')->markdown()),
             'edit'    => $this->editLinkGitHub(),
         ]);
 
