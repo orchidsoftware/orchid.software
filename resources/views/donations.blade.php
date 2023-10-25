@@ -29,9 +29,16 @@
             </div>
         </div>
 
-        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3">
+        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3 love-confetti py-md-5">
 
-            <div class="col-12 col-xl-8 mx-auto">
+            <div class="col-12 col-xl-8 mx-auto position-relative py-md-5">
+
+
+
+                <div class="card shadow-sm position-relative card-feature overflow-hidden card-back-rotate ">
+                </div>
+
+
                 <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
 
 

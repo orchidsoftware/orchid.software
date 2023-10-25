@@ -501,3 +501,50 @@ input[type="search"]::-webkit-search-results-decoration {
         }
     }
 }
+
+.love-confetti {
+    background: url("/img/next/confetti.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-back-rotate {
+    position: absolute!important;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+    transform: rotate(350deg);
+    background: linear-gradient(315deg, rgba(202, 114, 183, 0.35) 0%, rgba(145, 70, 128, 0.35) 35.87%, rgba(63, 38, 96, 0.35) 82.29%);
+}
+
+.docs-banner {
+    @extend .d-none;
+    @extend .d-md-flex;
+    @extend .text-center;
+    @extend .text-md-start;
+    @extend .align-items-center;
+    @extend .gap-4;
+    @extend .bg-dark;
+    @extend .text-white;
+    @extend .px-5;
+    @extend .py-4;
+    @extend .mb-4;
+    @extend .shadow;
+    @extend .rounded-3;
+    @extend .position-relative;
+
+    label {
+        color: #CA72B7;
+    }
+
+    p {
+        line-height: 1.4;
+        margin-bottom: 0;
+    }
+
+    .btn-outline-primary {
+        border: 2px solid #C16EBB !important;
+    }
+}
