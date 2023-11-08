@@ -491,17 +491,17 @@ class AppServiceProvider extends ServiceProvider
 }
 </code></pre>
 <p>&#1047;&#1072;&#1090;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>createAdmin</code> &#1074; &#1074;&#1072;&#1096;&#1077;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>User</code>:</p>
-<pre><code class="language-php">    public static function createAdmin(string $name, string $email, string $password): void
-    {
-        throw_if(static::where('email', $email)-&gt;exists(), 'Пользователь уже существует');
+<pre><code class="language-php">public static function createAdmin(string $name, string $email, string $password): void
+{
+    throw_if(static::where('email', $email)-&gt;exists(), 'Пользователь уже существует');
 
-        static::create([
-            'name'        =&gt; $name,
-            'email'       =&gt; $email,
-            'password'    =&gt; Hash::make($password),
-            'permissions' =&gt; Dashboard::getAllowAllPermission(),
-        ]);
-    }
+    static::create([
+        'name'        =&gt; $name,
+        'email'       =&gt; $email,
+        'password'    =&gt; Hash::make($password),
+        'permissions' =&gt; Dashboard::getAllowAllPermission(),
+    ]);
+}
 </code></pre>
 <p>&#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1101;&#1090;&#1086;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1087;&#1086; &#1074;&#1072;&#1096;&#1077;&#1084;&#1091; &#1091;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;&#1085;&#1080;&#1102; &#1080; &#1087;&#1088;&#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1080; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080; &#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1086;&#1085; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;.</p>
 <h2><a href='#dobavlenie-sobstvennyx-razresenii' id='dobavlenie-sobstvennyx-razresenii'>Добавление собственных разрешений</a></h2>
