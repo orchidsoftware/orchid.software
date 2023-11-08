@@ -470,6 +470,34 @@ $role-&gt;getUsers();
 <p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
 <pre><code class="language-php">php artisan orchid:admin --id=1
 </code></pre>
+<p>If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first specify Orchid to use your model by adding the following code to the service provider:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        Dashboard::useModel(
+            \Orchid\Platform\Models\User::class,
+            \App\Models\User::class
+        );
+    }
+}
+</code></pre>
+<p>Then override the <code>createAdmin</code> method in your <code>User</code> model:</p>
+<pre><code class="language-php">public static function createAdmin(string $name, string $email, string $password): void
+{
+    throw_if(static::where('email', $email)-&gt;exists(), 'User already exists');
+
+    static::create([
+        'name'        =&gt; $name,
+        'email'       =&gt; $email,
+        'password'    =&gt; Hash::make($password),
+        'permissions' =&gt; Dashboard::getAllowAllPermission(),
+    ]);
+}
+</code></pre>
+<p>Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.</p>
 <h2><a href='#add-your-own-permissions' id='add-your-own-permissions'>Add Your Own Permissions</a></h2>
 <p>You can define your own permissions in applications.
 Using them, you explicitly implement access to certain functions.</p>
