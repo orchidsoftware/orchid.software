@@ -124,17 +124,17 @@ class AppServiceProvider extends ServiceProvider
 Затем переопределите метод `createAdmin` в вашей модели `User`:
 
 ```php
-    public static function createAdmin(string $name, string $email, string $password): void
-    {
-        throw_if(static::where('email', $email)->exists(), 'Пользователь уже существует');
+public static function createAdmin(string $name, string $email, string $password): void
+{
+    throw_if(static::where('email', $email)->exists(), 'Пользователь уже существует');
 
-        static::create([
-            'name'        => $name,
-            'email'       => $email,
-            'password'    => Hash::make($password),
-            'permissions' => Dashboard::getAllowAllPermission(),
-        ]);
-    }
+    static::create([
+        'name'        => $name,
+        'email'       => $email,
+        'password'    => Hash::make($password),
+        'permissions' => Dashboard::getAllowAllPermission(),
+    ]);
+}
 ```
 
 Теперь вы можете модифицировать этот метод по вашему усмотрению и при выполнении команды создани именно он будет выполнен.
