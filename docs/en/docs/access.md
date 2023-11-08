@@ -102,6 +102,40 @@ To give the existing user the maximum permissions, run with the `--id` option:
 php artisan orchid:admin --id=1
 ```
 
+If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first specify Orchid to use your model by adding the following code to the service provider:
+
+```php
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        Dashboard::useModel(
+            \Orchid\Platform\Models\User::class,
+            \App\Models\User::class
+        );
+    }
+}
+```
+
+Then override the `createAdmin` method in your `User` model:
+
+```php
+public static function createAdmin(string $name, string $email, string $password): void
+{
+    throw_if(static::where('email', $email)->exists(), 'User already exists');
+
+    static::create([
+        'name'        => $name,
+        'email'       => $email,
+        'password'    => Hash::make($password),
+        'permissions' => Dashboard::getAllowAllPermission(),
+    ]);
+}
+```
+
+Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.
 
 ## Add Your Own Permissions
 
