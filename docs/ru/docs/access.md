@@ -104,6 +104,40 @@ php artisan orchid:admin nickname email@email.com secretpassword
 php artisan orchid:admin --id=1
 ```
 
+Если вы добавили новые обязательные колонки для пользователя и нужно изменить команду для добавления соответствующих значений,  то  для этого сначала укажите Orchid использовать вашу модель, добавив следующий код в сервис-провайдер:
+
+```php
+use Orchid\Support\Facades\Dashboard;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot()
+    {
+        Dashboard::useModel(
+            \Orchid\Platform\Models\User::class, 
+            \App\Models\User::class
+        );
+    }
+}
+```
+
+Затем переопределите метод `createAdmin` в вашей модели `User`:
+
+```php
+    public static function createAdmin(string $name, string $email, string $password): void
+    {
+        throw_if(static::where('email', $email)->exists(), 'Пользователь уже существует');
+
+        static::create([
+            'name'        => $name,
+            'email'       => $email,
+            'password'    => Hash::make($password),
+            'permissions' => Dashboard::getAllowAllPermission(),
+        ]);
+    }
+```
+
+Теперь вы можете модифицировать этот метод по вашему усмотрению и при выполнении команды создани именно он будет выполнен.
 
 ## Добавление собственных разрешений
 
