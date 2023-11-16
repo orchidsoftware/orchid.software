@@ -393,13 +393,13 @@ main {
     }
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(lg) {
     .nav-docs{
         max-width: 320px;
     }
 }
 
-@media only screen and (max-width: 480px) {
+@include media-breakpoint-down(lg) {
     .nav-docs {
         display: inline-block;
         list-style: none;
@@ -422,12 +422,11 @@ main {
             li {
                 padding: 0;
                 display: inline-block;
-                border-left: none!important;
+                border-left: none !important;
             }
 
         }
     }
-
 }
 
 
@@ -489,9 +488,10 @@ input[type="search"]::-webkit-search-results-decoration {
 
         img{
             width: 100%;
+            min-width: 100px;
             max-width: 150px;
             display: block;
-            margin: 0 auto;
+            margin: 1em;
             max-height: 40px;
             object-fit: contain;
         }

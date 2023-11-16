@@ -32,28 +32,10 @@
     bottom: 20%">
 
 
-                <div class="col-12 col-md-auto bg-grey py-md-3 d-flex flex-column" style="background:#F9F9FE;z-index: 2">
+                <div class="col-12 col-lg-auto bg-grey py-lg-3 d-flex flex-column" style="background:#F9F9FE;z-index: 2">
                     <x-docs-menu :section="$section ?? 'site.navigation.'"/>
-
-
-                    <div class="mt-auto pt-5 d-none d-lg-flex flex-column mb-3">
-                        <p class="mb-1 d-none d-md-inline-block text-dark opacity-75 text-center small">
-                        Our Friends
-                    </p>
-
-                        <div class="d-flex flex-column friends">
-                            <a href="https://assisted-mindfulness.com?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
-                                <img src="/img/sponsors/assisted-mindfulness-logo.svg" class="rounded-3" height="40px">
-                            </a>
-
-                            <a href="https://sajya.github.io?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
-                                <img src="/img/sponsors/sajya.svg" class="rounded-3" height="40px">
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
-                <div class="col-12 col-md me-auto bg-white py-md-3">
+                <div class="col-12 col-md me-auto bg-white py-lg-3">
                     <main class="py-2 px-3 py-md-2 px-md-4 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
                             <h1 class="me-3">{{ $title }}</h1>
@@ -75,6 +57,24 @@
                         @yield('sub-main')
 
                     </main>
+                </div>
+
+                <div class="d-none d-xxl-block col-xxl-auto bg-white">
+                    <div class="mt-auto pt-5 d-none d-lg-flex flex-column mb-3">
+                        <p class="mb-1 d-none d-md-inline-block text-dark opacity-75 text-center small">
+                            Our Friends
+                        </p>
+
+                        <div class="d-flex flex-column friends">
+                            <a href="https://assisted-mindfulness.com?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
+                                <img src="/img/sponsors/assisted-mindfulness-logo.svg" class="rounded-3" height="40px">
+                            </a>
+
+                            <a href="https://sajya.github.io?utm_source=orchid&utm_medium=footer&utm_campaign=friends" class="mt-2 py-3 rounded-3 mx-4" target="_blank" style="background: #2624300f;">
+                                <img src="/img/sponsors/sajya.svg" class="rounded-3" height="40px">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
