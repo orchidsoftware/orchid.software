@@ -130,3 +130,41 @@ class AppServiceProvider extends ServiceProvider
   </span>
 </div>
 ```
+
+
+## Обертка Vue.js внутри Stimulus
+
+Многие разработчики любят простоту и мощность Vue.js для построения интерактивных и отзывчивых frontend приложений. В этой секции, мы рассмотрим как легки обернуть и интегрировать Vue компонент внутри Stimulus контроллера.
+
+Создайте файл Stimulus контроллера, для примера `hello_controller.js`:
+
+```js
+import {createApp} from 'vue';
+
+export default class extends window.Controller {
+    connect() {
+        this.app = createApp({
+            data() {
+                return {
+                    message: 'Hello, Vue.js!'
+                }
+            }
+        });
+
+        this.app.mount(this.element);
+    }
+
+    disconnect() {
+        this.app.unmount();
+    }
+}
+
+```
+Укажите ваш контроллер во view, а конкретно в blade шаблоне:
+
+```html
+<div data-controller="hello">
+  @{{ message }}
+</div>
+```
+Теперь, когда вы перезагрузите страницу, экземпляр Vue.js будет создан и мы увидим наше сообщение `Hello, Vue.js!' на экране и внутри HTML элемента. Далее вы можете использывать Vue.js как обычно в рамках контроллера Stimulus.
