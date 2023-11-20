@@ -15,7 +15,6 @@ Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by
 Open your `config/platform.php` file and look for the `resource` key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:
 
 ```php
-// config/platform.php
 'resource' => [
     'stylesheets' => [
         // Add your URLs for stylesheets here
