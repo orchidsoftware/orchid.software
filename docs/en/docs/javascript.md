@@ -7,6 +7,32 @@ The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http
 
 > **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
+
+## Configuring Resources
+
+Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any `<link>` or `<script>` tags. To set up the URLs for your resources, you'll need to modify the platform.php file in your Laravel application.
+
+Open your `config/platform.php` file and look for the `resource` key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:
+
+```php
+// config/platform.php
+'resource' => [
+    'stylesheets' => [
+        // Add your URLs for stylesheets here
+        'https://cdn.example.com/styles/main.css',
+    ],
+    'scripts' => [
+        // Add your URLs for scripts here
+        'https://cdn.example.com/scripts/app.js',
+    ],
+],
+```
+
+In this array, replace the placeholder URLs with the actual URLs where your stylesheet and script files are located. This way, whenever Laravel Orchid needs to load these resources, it will automatically use the URLs provided in this configuration.
+
+To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser. Look for the `link` tags for stylesheets and `script` tags for JavaScript files and ensure that the URLs match those specified in your configuration file.
+
+
 ## Turbo
 
 Orchid's seamless administrative panel experience is powered by [Turbo](https://turbo.hotwire.dev). With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.
