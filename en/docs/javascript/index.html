@@ -386,8 +386,7 @@
 <h2><a href='#loading-your-scripts-and-styles' id='loading-your-scripts-and-styles'>Loading Your Scripts And Styles</a></h2>
 <p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
 <p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:</p>
-<pre><code class="language-php">// config/platform.php
-'resource' =&gt; [
+<pre><code class="language-php">'resource' =&gt; [
     'stylesheets' =&gt; [
         // Add your URLs for stylesheets here
         'https://cdn.example.com/styles/main.css',
