@@ -8,7 +8,7 @@ The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http
 > **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
 
-## Configuring Resources
+## Loading Your Scripts And Styles
 
 Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any `<link>` or `<script>` tags. To set up the URLs for your resources, you'll need to modify the platform.php file in your Laravel application.
 
@@ -152,9 +152,10 @@ It remains only to connect the received script to the panel in the configuration
 ],
 ```
 
-Run to build assets:
+Running the `build` command will version and bundle your application's assets and get them ready for you to deploy to production:
 
 ```bash
+# Build and version the assets for production...
 npm run build
 ```
 
