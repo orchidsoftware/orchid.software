@@ -362,6 +362,15 @@
                             <li class="anchor-h2">
                     <a href="#stimulus">Stimulus</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#compilation-with-mix">Compilation with Mix</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#compilation-with-vite">Compilation with Vite</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#run-controller">Run controller</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#vuejs-wrapped-in-a-stimulus">Vue.js Wrapped in a Stimulus</a>
                 </li>
@@ -393,8 +402,6 @@
 │   ├── controllers
 │   │   └── hello.js
 │   └── dashboard.js
-├── lang
-├── sass
 └── views
 </code></pre>
 <p>Controller class with the following content:</p>
@@ -417,13 +424,16 @@ import HelloController from "./controllers/hello"
 
 application.register("hello", HelloController);
 </code></pre>
-<p>Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
-<p>It remains only to describe the assembly in webpack.mix.js:</p>
+<blockquote>
+<p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
+</blockquote>
+<h3><a href='#compilation-with-mix' id='compilation-with-mix'>Compilation with Mix</a></h3>
+<p>It remains only to describe the assembly in <code>webpack.mix.js</code>:</p>
 <pre><code class="language-php">let mix = require('laravel-mix');
 
 mix.js('resources/js/dashboard.js', 'public/js')
 </code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file or in the service provider using the <code>registerResource</code> method. You can do the same with style sheets, which will allow you to effectively build application logic.</p>
+<p>It remains only to connect the received script to the panel in the configuration file:</p>
 <pre><code class="language-php">// config/platform.php
 'resource' =&gt; [
     'stylesheets' =&gt; [],
@@ -435,60 +445,29 @@ mix.js('resources/js/dashboard.js', 'public/js')
 <blockquote>
 <p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
 </blockquote>
-<p>An example of a record for a service provider</p>
-<pre><code class="language-php">// app/Providers/AppServiceProvider.php
-
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard-&gt;registerResource('scripts','/js/dashboard.js');
-        //$dashboard-&gt;registerResource('stylesheets','/css/dashboard.css');
-    }
-}
+<p>Run to build assets:</p>
+<pre><code class="language-bash">npm run production
 </code></pre>
-<p>To achieve the same for a project making use of <strong>Vite</strong> (Laravel ^9.0), the steps differ slightly:</p>
-<p>In <code>public/</code>, create the following structure:</p>
-<pre><code class="language-php">public
-├── js
-│   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
-├── storage
-├── vendor
-└── index.php
-</code></pre>
-<p>Controller class with the following content:</p>
-<pre><code class="language-php">// hello.js
-export default class extends window.Controller {
-
-    static get targets() {
-        return [ "name", "output" ]
-    }
-
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
-    }
-}
-</code></pre>
-<p>And the assembly point:</p>
-<pre><code class="language-php">// dashboard.js
-import HelloController from "./controllers/hello"
-
-application.register("hello", HelloController);
+<h3><a href='#compilation-with-vite' id='compilation-with-vite'>Compilation with Vite</a></h3>
+<p>For Vite, configure your <code>vite.config.js</code> like this:</p>
+<pre><code class="language-javascript">laravel({
+    input: ['resources/js/dashboard.js'],
+    refresh: true,
+}),
 </code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.</p>
 <pre><code class="language-php">// config/platform.php
 'vite' =&gt; [
-    'public/js/dashboard.js',
+    'resources/js/app.js',
 ],
+</code></pre>
+<p>Run to build assets:</p>
+<pre><code class="language-bash">npm run build
 </code></pre>
 <blockquote>
 <p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
 </blockquote>
+<h3><a href='#run-controller' id='run-controller'>Run controller</a></h3>
 <p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
 <pre><code class="language-php">// hello.blade.php
 &lt;div data-controller="hello"&gt;
