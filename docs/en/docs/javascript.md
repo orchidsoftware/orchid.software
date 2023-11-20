@@ -3,12 +3,13 @@ title: Use JavaScript
 description: Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.
 ---
 
-The core of the platform in terms of styling is [Bootstrap](http://getbootstrap.com/), and the browser runs [Hotwired](https://hotwired.dev) code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.
+The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http://getbootstrap.com/) for CSS and [Hotwired](https://hotwired.dev) for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project's needs, we recommend utilizing these core technologies to leverage the full potential of Orchid's features.
+
+> **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
 ## Turbo
 
-Thanks to [Turbo](https://turbo.hotwire.dev), the admin panel emulates the Single Page Application, loading resources only on the first call and giving the impression of re-rendering content in the browser instead of natural standard transitions between pages.
-
+Orchid's seamless administrative panel experience is powered by [Turbo](https://turbo.hotwire.dev). With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.
 
 Since all resources will be loaded on the first call, classic calls like this will not work:
 
