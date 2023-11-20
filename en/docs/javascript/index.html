@@ -367,9 +367,12 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>The core of the platform in terms of styling is <a href="http://getbootstrap.com/">Bootstrap</a>, and the browser runs <a href="https://hotwired.dev">Hotwired</a> code. You can connect other libraries to your liking, but we recommend staying in this ecosystem.</p>
+                        <body><p>The aesthetic and functional foundation of Orchid is built upon <a href="http://getbootstrap.com/">Bootstrap</a> for CSS and <a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of Orchid&rsquo;s features.</p>
+<blockquote>
+<p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
+</blockquote>
 <h2><a href='#turbo' id='turbo'>Turbo</a></h2>
-<p>Thanks to <a href="https://turbo.hotwire.dev">Turbo</a>, the admin panel emulates the Single Page Application, loading resources only on the first call and giving the impression of re-rendering content in the browser instead of natural standard transitions between pages.</p>
+<p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
 <p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
 <pre><code class="language-js">document.addEventListener("load", () =&gt; {
     console.log('Page load');
