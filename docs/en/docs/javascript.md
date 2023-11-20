@@ -8,6 +8,21 @@ The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http
 > **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
 
+## Working With Vite
+
+Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the official [documentation page](https://laravel.com/docs/vite).
+
+To successfully incorporate the acquired resources into your project, you'll need to specify them in the `config/platform.php` file. This file allows you to define a list of resources that should be included in your project. Here's an example of such configuration:
+
+```php
+'vite' => [
+    'resources/js/app.js',
+],
+```
+
+This entry is equivalent to using the Blade directive `@vite`. By carefully following these steps, you can effectively integrate Vite into your Laravel project and achieve the best results from its usage.
+
+
 ## Loading Your Scripts And Styles
 
 Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any `<link>` or `<script>` tags. To set up the URLs for your resources, you'll need to modify the platform.php file in your Laravel application.
