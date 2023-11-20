@@ -357,6 +357,9 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#configuring-resources">Configuring Resources</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#turbo">Turbo</a>
                 </li>
                             <li class="anchor-h2">
@@ -380,6 +383,23 @@
 <blockquote>
 <p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
 </blockquote>
+<h2><a href='#configuring-resources' id='configuring-resources'>Configuring Resources</a></h2>
+<p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
+<p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:</p>
+<pre><code class="language-php">// config/platform.php
+'resource' =&gt; [
+    'stylesheets' =&gt; [
+        // Add your URLs for stylesheets here
+        'https://cdn.example.com/styles/main.css',
+    ],
+    'scripts' =&gt; [
+        // Add your URLs for scripts here
+        'https://cdn.example.com/scripts/app.js',
+    ],
+],
+</code></pre>
+<p>In this array, replace the placeholder URLs with the actual URLs where your stylesheet and script files are located. This way, whenever Laravel Orchid needs to load these resources, it will automatically use the URLs provided in this configuration.</p>
+<p>To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser. Look for the <code>link</code> tags for stylesheets and <code>script</code> tags for JavaScript files and ensure that the URLs match those specified in your configuration file.</p>
 <h2><a href='#turbo' id='turbo'>Turbo</a></h2>
 <p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
 <p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
