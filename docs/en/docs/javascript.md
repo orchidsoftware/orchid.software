@@ -44,8 +44,6 @@ resources
 │   ├── controllers
 │   │   └── hello.js
 │   └── dashboard.js
-├── lang
-├── sass
 └── views
 ```
 
@@ -75,9 +73,11 @@ import HelloController from "./controllers/hello"
 application.register("hello", HelloController);
 ```
 
-Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.
+> Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.
 
-It remains only to describe the assembly in webpack.mix.js:
+### Compilation with Mix
+
+It remains only to describe the assembly in `webpack.mix.js`:
 
 ```php
 let mix = require('laravel-mix');
@@ -85,7 +85,7 @@ let mix = require('laravel-mix');
 mix.js('resources/js/dashboard.js', 'public/js')
 ```
 
-It remains only to connect the received script to the panel in the configuration file or in the service provider using the `registerResource` method. You can do the same with style sheets, which will allow you to effectively build application logic.
+It remains only to connect the received script to the panel in the configuration file:
 
 ```php
 // config/platform.php
@@ -99,62 +99,22 @@ It remains only to connect the received script to the panel in the configuration
 
 > **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
 
-An example of a record for a service provider
+Run to build assets:
 
-```php
-// app/Providers/AppServiceProvider.php
-
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerResource('scripts','/js/dashboard.js');
-        //$dashboard->registerResource('stylesheets','/css/dashboard.css');
-    }
-}
+```bash
+npm run production
 ```
 
-To achieve the same for a project making use of **Vite** (Laravel ^9.0), the steps differ slightly:
 
-In `public/`, create the following structure:
+### Compilation with Vite
 
-```php
-public
-├── js
-│   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
-├── storage
-├── vendor
-└── index.php
-```
+For Vite, configure your `vite.config.js` like this:
 
-Controller class with the following content:
-
-```php
-// hello.js
-export default class extends window.Controller {
-
-    static get targets() {
-        return [ "name", "output" ]
-    }
-
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
-    }
-}
-```
-
-And the assembly point:
-
-```php
-// dashboard.js
-import HelloController from "./controllers/hello"
-
-application.register("hello", HelloController);
+```javascript
+laravel({
+    input: ['resources/js/dashboard.js'],
+    refresh: true,
+}),
 ```
 
 It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.
@@ -162,12 +122,20 @@ It remains only to connect the received script to the panel in the configuration
 ```php
 // config/platform.php
 'vite' => [
-    'public/js/dashboard.js',
+    'resources/js/app.js',
 ],
+```
+
+Run to build assets:
+
+```bash
+npm run build
 ```
 
 > **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
 
+
+### Run controller
 
 To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
 
