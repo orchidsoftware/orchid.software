@@ -357,7 +357,7 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#configuring-resources">Configuring Resources</a>
+                    <a href="#loading-your-scripts-and-styles">Loading Your Scripts And Styles</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#turbo">Turbo</a>
@@ -383,7 +383,7 @@
 <blockquote>
 <p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
 </blockquote>
-<h2><a href='#configuring-resources' id='configuring-resources'>Configuring Resources</a></h2>
+<h2><a href='#loading-your-scripts-and-styles' id='loading-your-scripts-and-styles'>Loading Your Scripts And Styles</a></h2>
 <p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
 <p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:</p>
 <pre><code class="language-php">// config/platform.php
@@ -481,8 +481,9 @@ mix.js('resources/js/dashboard.js', 'public/js')
     'resources/js/app.js',
 ],
 </code></pre>
-<p>Run to build assets:</p>
-<pre><code class="language-bash">npm run build
+<p>Running the <code>build</code> command will version and bundle your application&rsquo;s assets and get them ready for you to deploy to production:</p>
+<pre><code class="language-bash"># Build and version the assets for production...
+npm run build
 </code></pre>
 <blockquote>
 <p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
