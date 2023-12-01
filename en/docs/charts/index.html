@@ -360,16 +360,16 @@
                     <a href="#basic-configuration">Basic Configuration</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#height">Height</a>
+                    <a href="#adjusting-height">Adjusting Height</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#colors">Colors</a>
+                    <a href="#customizing-colors">Customizing Colors</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#export-image">Export Image</a>
+                    <a href="#exporting-images">Exporting Images</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#markers">Markers</a>
+                    <a href="#adding-markers">Adding Markers</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#eloquent-model">Eloquent Model</a>
@@ -378,7 +378,7 @@
                     <a href="#grouped-data">Grouped Data</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#a-period-of-time">A Period of Time</a>
+                    <a href="#working-with-time-periods">Working with Time Periods</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#value-query-types">Value Query Types</a>
@@ -455,14 +455,14 @@ public function layout(): iterable
 </code></pre>
 <h2><a href='#basic-configuration' id='basic-configuration'>Basic Configuration</a></h2>
 <p>The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.</p>
-<h3><a href='#height' id='height'>Height</a></h3>
+<h3><a href='#adjusting-height' id='adjusting-height'>Adjusting Height</a></h3>
 <p>Set the height of the chart in pixels by specifying the property:</p>
 <pre><code class="language-php">/**
  * @var int
  */
 protected $height = 250;
 </code></pre>
-<h3><a href='#colors' id='colors'>Colors</a></h3>
+<h3><a href='#customizing-colors' id='customizing-colors'>Customizing Colors</a></h3>
 <p>Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:</p>
 <pre><code class="language-php">/**
  * Colors used.
@@ -477,7 +477,7 @@ protected $colors = [
     '#00CC66',
 ];
 </code></pre>
-<h3><a href='#export-image' id='export-image'>Export Image</a></h3>
+<h3><a href='#exporting-images' id='exporting-images'>Exporting Images</a></h3>
 <p>Charts can be exported in the <code>SVG</code> format, in which they are displayed initially. To do this, specify the property:</p>
 <pre><code class="language-php">/**
  * Determines whether to display the export button.
@@ -486,7 +486,7 @@ protected $colors = [
  */
 protected $export = true;
 </code></pre>
-<h3><a href='#markers' id='markers'>Markers</a></h3>
+<h3><a href='#adding-markers' id='adding-markers'>Adding Markers</a></h3>
 <p>Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the <code>markers</code> method:</p>
 <pre><code class="language-php">/**
  * To highlight certain values on the Y axis, markers can be set.
@@ -559,7 +559,7 @@ public function layout(): array
 <pre><code class="language-php">User::countForGroup('uses_two_factor_auth')
     -&gt;toChart(fn(bool $value) =&gt; $value ? 'Enabled' : 'Disabled'),
 </code></pre>
-<h2><a href='#a-period-of-time' id='a-period-of-time'>A Period of Time</a></h2>
+<h2><a href='#working-with-time-periods' id='working-with-time-periods'>Working with Time Periods</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
 <p>For example, let&rsquo;s display a graph of new users and roles:</p>
 <pre><code class="language-php">namespace App\Orchid\Layouts;
