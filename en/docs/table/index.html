@@ -357,7 +357,7 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#basics-cells">Basics Cells</a>
+                    <a href="#introduction-to-cells">Introduction to Cells</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#alignment">Alignment</a>
@@ -378,19 +378,19 @@
                     <a href="#data-output">Data Output</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#the-loop-variable">The Loop Variable</a>
+                    <a href="#working-with-the-loop-variable">Working with the Loop Variable</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#components">Components</a>
+                    <a href="#using-components">Using Components</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#components-value">Components Value</a>
+                    <a href="#customizing-component-values">Customizing Component Values</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#table-options">Table Options</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#total-row">Total Row</a>
+                    <a href="#adding-a-total-row">Adding a Total Row</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#column-expansion">Column Expansion</a>
@@ -441,13 +441,13 @@ Layout::table('clients', [
 ]);
 </code></pre>
 <p><picture alt='This image shows an illustrative table, which is a common way to display data in a structured and organized format.'><img src="/img/layouts/table.png" alt="This image shows an illustrative table, which is a common way to display data in a structured and organized format."></picture></p>
-<h2><a href='#basics-cells' id='basics-cells'>Basics Cells</a></h2>
-<p>A table is only a general wrapper for which you need to specify TD classes. Designed to create a single cell.</p>
+<h2><a href='#introduction-to-cells' id='introduction-to-cells'>Introduction to Cells</a></h2>
+<p>A table is only a general wrapper for which you need to specify <code>TD</code> classes. Designed to create a single cell.</p>
 <pre><code class="language-php">use Orchid\Screen\TD;
 
 TD::make('last_name');
 </code></pre>
-<p>The <code>set</code> method is the main method, sets the key name from the array and the display name.</p>
+<p>The <code>make</code> method is the main method, sets the key name from the array and the display name.</p>
 <pre><code class="language-php">TD::make('last_name', 'Last name');
 </code></pre>
 <h2><a href='#alignment' id='alignment'>Alignment</a></h2>
@@ -541,12 +541,12 @@ TD::make()
 TD::make('price')
     -&gt;render(fn ($product) =&gt; $product-&gt;price + $this-&gt;query-&gt;get('tax')),
 </code></pre>
-<h2><a href='#the-loop-variable' id='the-loop-variable'>The Loop Variable</a></h2>
+<h2><a href='#working-with-the-loop-variable' id='working-with-the-loop-variable'>Working with the Loop Variable</a></h2>
 <p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
 <pre><code class="language-php">TD::make()-&gt;render(fn (Model $model, object $loop) =&gt; $loop-&gt;index),
 </code></pre>
 <p>The $loop variable contains a variety of other useful properties which you can find in the <a href="https://laravel.com/docs/9.x/blade#loops">Laravel documentation</a>.</p>
-<h2><a href='#components' id='components'>Components</a></h2>
+<h2><a href='#using-components' id='using-components'>Using Components</a></h2>
 <p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
 <p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our components.
 It is much nicer than specifying things directly in the view or creating particular areas for such processing.</p>
@@ -621,7 +621,7 @@ TD::make('status')-&gt;component(OrderShortInformation::class);
     'limit' =&gt; 100
 ]);
 </code></pre>
-<h2><a href='#components-value' id='components-value'>Components Value</a></h2>
+<h2><a href='#customizing-component-values' id='customizing-component-values'>Customizing Component Values</a></h2>
 <p>This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.</p>
 <p>To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, I want to display values of a specific format:</p>
 <pre><code class="language-php">namespace App\View\Components;
@@ -725,7 +725,7 @@ protected function onEachSide(): int
     return 3;
 }
 </code></pre>
-<h2><a href='#total-row' id='total-row'>Total Row</a></h2>
+<h2><a href='#adding-a-total-row' id='adding-a-total-row'>Adding a Total Row</a></h2>
 <p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
 <pre><code class="language-php">public function total():array
 {
