@@ -66,6 +66,118 @@ Layout::split([
 This will create a `Split` layout with a `40/60` ratio, and the order of the sections will be reversed on mobile devices.
 
 
+## Sortable
+
+Sortable in the Orchid platform simplifies managing the order of elements in your application. You will be able to easily change the order of items in your list and create interactive user interfaces through a simple drag and drop function. This significantly facilitates working with ordered elements in the user interface.
+
+### Preparing the Database
+
+To start using the sorting functionality, you need to prepare the database. To do this, create a migration that adds a simple integer column to the table you plan to work with. Here's an example migration:
+
+```php
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class AddOrderColumnToTable extends Migration
+{
+   /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+   public function up()
+   {
+       Schema::table('table_name', function (Blueprint $table) {
+           $table->integer('order')->default(1);
+       });
+   }
+
+   // ...
+}
+```
+
+Replace `table_name` with the name of the table to which you want to add the column. You can also choose any other name for the column by replacing `'order'` with the preferred name.
+
+> Don't forget to run the migration using the `php artisan migrate` command to add the new column to the database.
+
+### Preparing the Eloquent Model
+
+After setting up the database and migrations, add the `Sortable` trait to your model:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Platform\Concerns\Sortable;
+
+class Idea extends Model
+{
+    use Sortable;
+
+    //...
+}
+```
+
+> Note: Make sure to import the Eloquent model class and then use the `Sortable` trait.
+
+If the column name is different from `order`, you can add a `getSortColumnName()` method to your model to explicitly specify the column name:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Platform\Concerns\Sortable;
+
+class Idea extends Model
+{
+    use Sortable;
+
+    //...
+
+    /**
+     * Get the column name for sorting.
+     *
+     * @return string
+     */
+    public function getSortColumnName(): string
+    {
+        return 'sort';
+    }
+}
+```
+
+### Usage in a Screen
+
+Now we have a prepared model with sorting functionality. Let's create a graphical interface for drag and drop sorting. In the `query()` method of your screen, specify the list of models that will be displayed for sorting:
+
+```php
+use App\Models\Idea;
+use Orchid\Screen\Repository;
+
+public function query(): array
+{
+   return [
+       'models' => Idea::sorted()->get(),
+   ];
+}
+```
+
+Here, we use the `sorted()` method provided by the `Sortable` trait to get a sorted list of models. It also has an optional argument for sorting direction (ASC - ascending, DESC - descending). By default, the value is set to ASC.
+
+In the `layout()` method of your screen, add the graphical interface using the `Layout::sortable()` layer:
+
+```php
+use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Fields\Sight;
+
+public function layout(): iterable
+{
+   return [
+       Layout::sortable('models', [
+           Sight::make('title'),
+       ]),
+   ];
+}
+```
+
+
 ## Columns
 
 Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.
@@ -235,113 +347,3 @@ public function layout(): array
 ```
 
 
-## Sortable
-
-Sortable in the Orchid platform simplifies managing the order of elements in your application. You will be able to easily change the order of items in your list and create interactive user interfaces through a simple drag and drop function. This significantly facilitates working with ordered elements in the user interface.
-
-### Preparing the Database
-
-To start using the sorting functionality, you need to prepare the database. To do this, create a migration that adds a simple integer column to the table you plan to work with. Here's an example migration:
-
-```php
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
-
-class AddOrderColumnToTable extends Migration
-{
-   /**
-    * Run the migrations.
-    *
-    * @return void
-    */
-   public function up()
-   {
-       Schema::table('table_name', function (Blueprint $table) {
-           $table->integer('order')->default(1);
-       });
-   }
-
-   // ...
-}
-```
-
-Replace `table_name` with the name of the table to which you want to add the column. You can also choose any other name for the column by replacing `'order'` with the preferred name.
-
-> Don't forget to run the migration using the `php artisan migrate` command to add the new column to the database.
-
-### Preparing the Eloquent Model
-
-After setting up the database and migrations, add the `Sortable` trait to your model:
-
-```php
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Concerns\Sortable;
-
-class Idea extends Model
-{
-    use Sortable;
-
-    //...
-}
-```
-
-> Note: Make sure to import the Eloquent model class and then use the `Sortable` trait.
-
-If the column name is different from `order`, you can add a `getSortColumnName()` method to your model to explicitly specify the column name:
-
-```php
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Concerns\Sortable;
-
-class Idea extends Model
-{
-    use Sortable;
-
-    //...
-
-    /**
-     * Get the column name for sorting.
-     *
-     * @return string
-     */
-    public function getSortColumnName(): string
-    {
-        return 'sort';
-    }
-}
-```
-
-### Usage in a Screen
-
-Now we have a prepared model with sorting functionality. Let's create a graphical interface for drag and drop sorting. In the `query()` method of your screen, specify the list of models that will be displayed for sorting:
-
-```php
-use App\Models\Idea;
-use Orchid\Screen\Repository;
-
-public function query(): array
-{
-   return [
-       'models' => Idea::sorted()->get(),
-   ];
-}
-```
-
-Here, we use the `sorted()` method provided by the `Sortable` trait to get a sorted list of models. It also has an optional argument for sorting direction (ASC - ascending, DESC - descending). By default, the value is set to ASC.
-
-In the `layout()` method of your screen, add the graphical interface using the `Layout::sortable()` layer:
-
-```php
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Sight;
-
-public function layout(): iterable
-{
-   return [
-       Layout::sortable('models', [
-           Sight::make('title'),
-       ]),
-   ];
-}
-```
