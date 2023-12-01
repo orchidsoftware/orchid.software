@@ -61,9 +61,9 @@ Layout::table('clients', [
 ![This image shows an illustrative table, which is a common way to display data in a structured and organized format.](/img/layouts/table.png)
 
 
-## Basics Cells
+## Introduction to Cells
 
-A table is only a general wrapper for which you need to specify TD classes. Designed to create a single cell.
+A table is only a general wrapper for which you need to specify `TD` classes. Designed to create a single cell.
 
 ```php
 use Orchid\Screen\TD;
@@ -71,7 +71,7 @@ use Orchid\Screen\TD;
 TD::make('last_name');
 ```
 
-The `set` method is the main method, sets the key name from the array and the display name.
+The `make` method is the main method, sets the key name from the array and the display name.
 
 ```php
 TD::make('last_name', 'Last name');
@@ -223,7 +223,7 @@ TD::make('price')
     ->render(fn ($product) => $product->price + $this->query->get('tax')),
 ```
 
-## The Loop Variable
+## Working with the Loop Variable
 
 
 The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:
@@ -234,7 +234,7 @@ TD::make()->render(fn (Model $model, object $loop) => $loop->index),
 
 The $loop variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
 
-## Components
+## Using Components
 
 Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display logic, as well as reuse.
 
@@ -324,7 +324,7 @@ TD::make('status')->component(OrderShortInformation::class, [
 ]);
 ```
 
-## Components Value
+## Customizing Component Values
 
 This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.
 
@@ -450,7 +450,7 @@ protected function onEachSide(): int
 }
 ```
 
-## Total Row
+## Adding a Total Row
 
 Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required cells. For example:
 
