@@ -1,6 +1,6 @@
 ---
 title: Modal Dialog
-description: Learn how to use modal windows in your Laravel Orchid projects with our comprehensive documentation. Get tips on creating dynamic modals, passing data to modals, and customizing modal behavior.
+description: Learn how to use modal dialog in your Laravel Orchid projects with our comprehensive documentation. Get tips on creating dynamic modals, passing data to modals, and customizing modal behavior.
 ---
 
 
