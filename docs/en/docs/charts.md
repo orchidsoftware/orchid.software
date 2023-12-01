@@ -96,7 +96,7 @@ public function layout(): iterable
 
 The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.
 
-### Height
+### Adjusting Height
 
 Set the height of the chart in pixels by specifying the property:
 
@@ -108,7 +108,7 @@ protected $height = 250;
 ```
 
 
-### Colors
+### Customizing Colors
 
 Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:
 
@@ -128,7 +128,7 @@ protected $colors = [
 ```
 
 
-### Export Image
+### Exporting Images
 
 Charts can be exported in the `SVG` format, in which they are displayed initially. To do this, specify the property:
 
@@ -141,7 +141,7 @@ Charts can be exported in the `SVG` format, in which they are displayed initiall
 protected $export = true;
 ```
 
-### Markers
+### Adding Markers
 
 Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the `markers` method: 
 
@@ -235,7 +235,7 @@ User::countForGroup('uses_two_factor_auth')
     ->toChart(fn(bool $value) => $value ? 'Enabled' : 'Disabled'),
 ```
 
-## A Period of Time
+## Working with Time Periods
 
 Receives data for a certain period of time, filling in the missing values.
 
