@@ -484,7 +484,8 @@ class SubtractListener extends Listener
      */
     public function handle(Repository $repository, Request $request): Repository
     {
-        [$minuend, $subtrahend] = $request-&gt;all();
+        $minuend = $request-&gt;input('minuend');
+        $subtrahend = $request-&gt;input('subtrahend');
 
         return $repository
             -&gt;set('minuend', $minuend)
