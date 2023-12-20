@@ -51,7 +51,7 @@ $ composer require orchid/platform
 
 ## Package Installation
 
-> **Note.** The installation will overwrite the `app/Models/User` model. 
+> **Note:** During the installation process, the package will overwrite the `app/Models/User` model. However, it is important to note that replacing the model is not mandatory. You have the flexibility to customize the model according to your preferences. The package automatically applies certain configurations, such as `hidden` and `casts`, to the Eloquent model.
 
 Run the installation process by running the command:
 
