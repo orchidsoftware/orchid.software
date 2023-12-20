@@ -418,7 +418,7 @@ In other words, install your new framework project.</p>
 </blockquote>
 <h2><a href='#package-installation' id='package-installation'>Package Installation</a></h2>
 <blockquote>
-<p><strong>Note.</strong> The installation will overwrite the <code>app/Models/User</code> model.</p>
+<p><strong>Note:</strong> During the installation process, the package will overwrite the <code>app/Models/User</code> model. However, it is important to note that replacing the model is not mandatory. You have the flexibility to customize the model according to your preferences. The package automatically applies certain configurations, such as <code>hidden</code> and <code>casts</code>, to the Eloquent model.</p>
 </blockquote>
 <p>Run the installation process by running the command:</p>
 <pre><code class="language-php">php artisan orchid:install
