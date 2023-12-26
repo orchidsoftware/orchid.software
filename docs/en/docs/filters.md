@@ -184,13 +184,34 @@ public function layout(): array
 
 > Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
 
+## Handling HTTP Parameters
 
-## Automatic HTTP Filtering and Sorting
+To automatically filter and sort your application's data based on user-supplied HTTP parameters, the package provides a powerful and flexible set of tools.
+The key to effectively utilizing these tools is to ensure that your model includes the `Filterable` trait and implements a whitelist of acceptable filter and sort parameters.
 
-To automatically filter and sort your application's data based on user-supplied HTTP parameters, package provides a powerful and flexible set of tools.
-The key to using these tools effectively is to ensure that your model includes the `Filterable` trait, and implements a whitelist of acceptable filter and sort parameters.
+To make your `App\Models\Post` model filterable, follow these steps:
 
-For example, here's how you might set up an `App\Models\Post` model to be filterable:
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Filters\Types\Like;
+use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereDate;
+use Orchid\Filters\Types\WhereMaxMin;
+use Orchid\Filters\Types\WhereDateStartEnd;
+
+class Post extends Model
+{
+    use Filterable;
+}
+```
+
+### Filtering
+
+As mentioned before, any filtering action can only be performed on an allowed list of filters, which is specified using the `allowedFilters` property as a key-value pair. The key represents the name of your columns, and the value is the handling class. Here's an example:
+
 ```php
 namespace App\Models;
 
@@ -218,26 +239,20 @@ class Post extends Model
         'created_at'    => WhereDateStartEnd::class,
         'deleted_at'    => WhereDateStartEnd::class,
     ];
-
-    /**
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'user_id',
-        'rating',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
 }
 ```
-Once your model is properly configured, using the filter and sort functionality is as simple as a method call to `filters()`, like so:
+
+Once you have specified the list, using automatic filtering is straightforward. Simply call the `filters()` method, for example:
 
 ```php
-Post::filters()->defaultSort('id')->paginate();
+Post::filters()->paginate();
 ```
+
+By leveraging this approach, you can easily apply filters to your query and paginate the results.
+
 This code will automatically apply any filters or sorting rules that were included in the user's HTTP request.
+
+#### Query Examples
 
 In order to use this feature effectively, it's important to have a solid understanding of how the HTTP parameters are translated into database queries. For example:
 
@@ -332,5 +347,65 @@ $model->orderBy('content->ru->name', 'desc');
 -->
 
 > HTTP filters or sorting do not have separate display templates. You can see an example of this [use in the table headers](/en/docs/table/#sorting).
+
+### Sorting
+
+To enable sorting functionality, you need to specify a list of columns in the `allowedSorts` property. This list represents the columns in your database table that can be used for sorting. Here's an example:
+
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+
+class Post extends Model
+{
+    use Filterable;
+
+    /**
+     * @var array
+     */
+    protected $allowedSorts = [
+        'id',
+        'user_id',
+        'rating',
+        'publish_at',
+        'created_at',
+        'deleted_at',
+    ];
+}
+```
+
+Once you have defined the allowed sortable columns, you can easily enable sorting by calling the `filters()` method. This method will handle the sorting based on the provided HTTP parameter. For instance:
+
+```php
+Post::filters()->paginate();
+```
+
+Now, when you make an HTTP request, the sorting behavior will be as follows:
+
+```php
+http://example.com/demo?sort=created_at
+$model->orderBy('created_at', 'asc');
+
+http://example.com/demo?sort=-created_at
+$model->orderBy('created_at', 'desc');
+```
+
+### Default Sorting
+
+
+If you want to specify a default sorting order for your data, you can use the `defaultSort` method. This method allows you to set a default column for sorting when no specific sorting parameter is provided via the HTTP request. For example:
+
+```php
+Post::filters()->defaultSort('id')->paginate();
+```
+
+You can also specify the sort direction as a second parameter. For instance:
+
+```php
+Post::filters()->defaultSort('id', 'desc')->paginate();
+```
 
 
