@@ -67,6 +67,30 @@ To collect JavaScript and CSS resources and apply them immediately, use the foll
 npm run dev --prefix platform && php artisan orchid:publish
 ```
 
+### Preparing code for submitting
+
+First you need to check the code style ([Laravel Pint](https://laravel.com/docs/10.x/pint) is used for this)
+
+Run check and fix: 
+
+```bash
+./vendor/bin/pint
+```
+
+Run on specific files or directories:
+
+```bash
+./vendor/bin/pint src/Platform
+ 
+./vendor/bin/pint src/Platform/Dashboard.php
+```
+
+Next you need to check the execution of unit tests:
+
+```bash
+./vendor/bin/phpunit
+```
+
 ### Submitting a Change Request
 
 Create a new branch that indicates the added functionality or fixes the issue. Use the following command:
