@@ -225,6 +225,9 @@
                     <a href="#development-installation">Development Installation</a>
                 </li>
                             <li class="anchor-h3">
+                    <a href="#preparing-code-for-submitting">Preparing code for submitting</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#submitting-a-change-request">Submitting a Change Request</a>
                 </li>
                             <li class="anchor-h2">
@@ -266,6 +269,19 @@
 <p>Composer will add the package from the repository you specified. Follow the rest of the installation instructions in the &ldquo;Installation&rdquo; section.</p>
 <p>To collect JavaScript and CSS resources and apply them immediately, use the following command:</p>
 <pre><code class="language-bash">npm run dev --prefix platform &amp;&amp; php artisan orchid:publish
+</code></pre>
+<h3><a href='#preparing-code-for-submitting' id='preparing-code-for-submitting'>Preparing code for submitting</a></h3>
+<p>First you need to check the code style (<a href="https://laravel.com/docs/10.x/pint">Laravel Pint</a> is used for this)</p>
+<p>Run check and fix:</p>
+<pre><code class="language-bash">./vendor/bin/pint
+</code></pre>
+<p>Run on specific files or directories:</p>
+<pre><code class="language-bash">./vendor/bin/pint src/Platform
+ 
+./vendor/bin/pint src/Platform/Dashboard.php
+</code></pre>
+<p>Next you need to check the execution of unit tests:</p>
+<pre><code class="language-bash">./vendor/bin/phpunit
 </code></pre>
 <h3><a href='#submitting-a-change-request' id='submitting-a-change-request'>Submitting a Change Request</a></h3>
 <p>Create a new branch that indicates the added functionality or fixes the issue. Use the following command:</p>
