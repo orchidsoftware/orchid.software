@@ -672,6 +672,21 @@ Matrix::make('users')
     ]),
 ```
 
+Data in DB will be stored in JSON format, and once retrived must be casted as an associative array, you can do something like this in your model to do the job: 
+
+```php
+use Illuminate\Database\Eloquent\Casts\Attribute;
+...
+    protected function users(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => json_decode($value, true),
+            set: fn ($value) => json_encode($value),
+        );
+    }
+
+```
+
 > **Note.** The matrix under the hood does the copying of the fields on the client side. This works fine for simple `input/select/etc` fields, but may not work well for complex or compound fields.
 
 ## Code editor
