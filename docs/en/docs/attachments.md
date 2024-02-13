@@ -313,7 +313,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Orchid\Platform\Events\UploadFileEvent;
 
-class UploadListener extends ShouldQueue
+class UploadListener implements ShouldQueue
 {
     use InteractsWithQueue;
     
