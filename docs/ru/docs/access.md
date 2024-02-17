@@ -182,8 +182,8 @@ class PermissionServiceProvider extends ServiceProvider
 
 ## Проверка в Экранах
 
-Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью свойства 
-`$permission`, которое принимает как массив, так и строковое значение для проверки:
+Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью метода 
+`permission`, которое возаращает строкый массив для проверки:
 
 ```php
 namespace App\Orchid\Screens;
@@ -193,29 +193,7 @@ use Orchid\Screen\Screen;
 class History extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'History';
-    }
-
-    /**
-     * Display header description.
-     *
-     * @return string
-     */
-    public function description(): ?string
-    {
-        return 'History of changes to system objects';
-    }
-
-    /**
-     * Permission
-     *
-     * @return iterable|null
+     * The permissions required to access this screen.
      */
     public function permission(): ?iterable
     {
