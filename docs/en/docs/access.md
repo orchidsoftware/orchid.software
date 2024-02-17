@@ -188,29 +188,7 @@ use Orchid\Screen\Screen;
 class History extends Screen
 {
     /**
-     * Display header name.
-     *
-     * @return string
-     */
-    public function name(): ?string
-    {
-        return 'History';
-    }
-
-    /**
-     * Display header description.
-     *
-     * @return string
-     */
-    public function description(): ?string
-    {
-        return 'History of changes to system objects';
-    }
-
-    /**
-     * Permission
-     *
-     * @return iterable|null
+     * The permissions required to access this screen.
      */
     public function permission(): ?iterable
     {
