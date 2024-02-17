@@ -508,8 +508,8 @@ class PermissionServiceProvider extends ServiceProvider
 <p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel&rsquo;s Gate layer to do all the heavy lifting.</p>
 <p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>
 <h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>
-<p>Each created screen already has a built-in permission check set using the property
-<code>$permission</code>, which accepts both an array and a string value for verification:</p>
+<p>Each created screen already has a built-in permission check set using method
+<code>permission</code>, which accepts both an array and a string value for verification:</p>
 <pre><code class="language-php">namespace App\Orchid\Screens;
 
 use Orchid\Screen\Screen;
