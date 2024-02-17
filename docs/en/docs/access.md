@@ -177,8 +177,8 @@ eg: `users` have `roles`, and `roles` have `permissions`, and your app always ch
 
 ## Check-in Screens
 
-Each created screen already has a built-in permission check set using the property
-`$permission`, which accepts both an array and a string value for verification:
+Each created screen already has a built-in permission check set using method
+`permission`, which accepts both an array and a string value for verification:
 
 ```php
 namespace App\Orchid\Screens;
