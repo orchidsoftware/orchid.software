@@ -29,6 +29,10 @@ Before starting the upgrade process, it is important to backup your existing app
 
 In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
 
+### Laravel 10.x
+
+Laravel 10 is now required to install or upgrade. Update descriptions for existing projects can be found in the [documentation](https://laravel.com/docs/10.x/upgrade).
+
 ### Preserving State
 
 One of the main new features of the release is the ability to save the states of public properties between actions on the screen.
