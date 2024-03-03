@@ -37,7 +37,7 @@ If you currently have an admin panel based on `Blade` templates, you do not need
 
 It's crucial to understand that Orchid is a powerful tool for developers but not a "turnkey" solution. This means that it's not suitable for individuals with little or no programming experience and demands a strong grasp of programming concepts to work comfortably with complex systems.
 
-Furthermore, it's important to recognize that not all developers may be open to using a new platform, and forcing it could lead to resistance or even sabotage. If you face resistance from your development team, it's essential to have an open and honest conversation to address their concerns as best as possible. Seeking advice from an experienced professional could also be helpful in finding a mutually agreeable solution that works for everyone involved.
+Furthermore, it's important to recognize that not all developers may be open to using a new tool, and forcing it could lead to resistance or even sabotage. If you face resistance from your development team, it's essential to have an open and honest conversation to address their concerns as best as possible. Seeking advice from an experienced professional could also be helpful in finding a mutually agreeable solution that works for everyone involved.
 
 ## What Sets Orchid Apart from Other Packages?
 
