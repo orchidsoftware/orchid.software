@@ -13,7 +13,7 @@ Before you can use the Laravel Orchid, you need to install it. This guide should
 Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the `composer create-project` command in your terminal:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "11.*" --prefer-dist
+composer create-project laravel/laravel orchid-project "11.*" --prefer-dist
 ```
 
 Or if you would prefer Laravel Installer:
