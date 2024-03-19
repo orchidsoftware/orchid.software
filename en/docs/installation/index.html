@@ -391,9 +391,9 @@
 <pre><code class="language-php">$ composer create-project laravel/laravel orchid-project "11.*" --prefer-dist
 </code></pre>
 <p>Or if you would prefer Laravel Installer:</p>
-<pre><code class="language-php">$ composer global require laravel/installer
+<pre><code class="language-php">composer global require laravel/installer
 
-$ laravel new orchid-project
+laravel new orchid-project
 </code></pre>
 <p>For more information on how to install Laravel, follow <a href="https://laravel.com/docs/installation">Official Laravel Installation Guide</a>.</p>
 <blockquote>
@@ -411,7 +411,7 @@ In other words, install your new framework project.</p>
 </blockquote>
 <h2><a href='#add-dependency' id='add-dependency'>Add Dependency</a></h2>
 <p>Go to the created project directory and run the command:</p>
-<pre><code class="language-php">$ composer require orchid/platform
+<pre><code class="language-php">composer require orchid/platform
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application&rsquo;s URL to the variable <code>APP_URL</code>.</p>
