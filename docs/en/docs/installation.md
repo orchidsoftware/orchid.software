@@ -19,9 +19,9 @@ $ composer create-project laravel/laravel orchid-project "11.*" --prefer-dist
 Or if you would prefer Laravel Installer:
 
 ```php
-$ composer global require laravel/installer
+composer global require laravel/installer
 
-$ laravel new orchid-project
+laravel new orchid-project
 ```
 
 For more information on how to install Laravel, follow [Official Laravel Installation Guide](https://laravel.com/docs/installation).
@@ -43,7 +43,7 @@ In other words, install your new framework project.
 
 Go to the created project directory and run the command:
 ```php
-$ composer require orchid/platform
+composer require orchid/platform
 ```
 
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
