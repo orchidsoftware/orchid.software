@@ -251,6 +251,7 @@ main {
     }
 
     h1, h2, h3, h4, h5, h6 {
+        text-wrap: balance;
         a {
             color: $black;
             text-decoration: none;
@@ -268,7 +269,11 @@ main {
         }
 
         a {
-            padding-left: 1em;
+            display: block;
+            text-wrap: balance;
+            @include media-breakpoint-down(lg) {
+                padding-left: 1em;
+            }
             transition: all 340ms;
             &:before {
                 transition: all 340ms;
