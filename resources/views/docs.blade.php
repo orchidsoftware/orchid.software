@@ -32,7 +32,7 @@
     bottom: 20%">
 
 
-                <div class="col-12 col-lg-auto bg-grey py-lg-3 d-flex flex-column" style="background:#F9F9FE;z-index: 2">
+                <div class="col-12 col-lg-auto bg-grey py-lg-3 d-flex flex-column text-balance" style="background:#F9F9FE;z-index: 2">
                     <x-docs-menu :section="$section ?? 'site.navigation.'"/>
                 </div>
                 <div class="col-12 col-md me-auto bg-white py-lg-3">

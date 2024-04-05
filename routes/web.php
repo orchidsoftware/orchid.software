@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,57 @@ Route::get('/{locale?}/donations', function (string $locale = 'en') {
 
     return view('donations');
 })->where('locale', 'en|ru');
+
+Route::get('/{locale?}/discussions', function (string $locale = 'en') {
+    app()->setLocale($locale);
+
+    $owner = 'orchidsoftware';
+    $repo = 'platform';
+
+    $response = Http::post('https://api.github.com/graphql', [
+        'query' => <<<GRAPHQL
+{
+  repository(owner: "$owner", name: "$repo") {
+    discussions(first: 10) {
+      edges {
+        node {
+          title
+          url
+          createdAt
+          author {
+            login
+            avatarUrl
+            ... on User {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}
+GRAPHQL
+    ]);
+
+
+    return view('discussions', [
+        'discussions' => $response->collect('data.repository.discussions.edges')->pluck('node')->take(6),
+    ]);
+})->where('locale', 'en|ru');
+
+
+Route::get('/{locale?}/changelog', function (string $locale = 'en') {
+    app()->setLocale($locale);
+
+    $response = Http::get('https://raw.githubusercontent.com/orchidsoftware/platform/master/CHANGELOG.md')
+        ->body();
+
+    $content = \Illuminate\Support\Str::of($response)->markdown();
+
+    return view('changelog', [
+        'content' => $content,
+    ]);
+})->where('changelog', 'en|ru');
 
 Route::get('/{locale?}/license', function (string $locale = 'en') {
     app()->setLocale($locale);
