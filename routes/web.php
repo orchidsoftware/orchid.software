@@ -30,38 +30,7 @@ Route::get('/{locale?}/donations', function (string $locale = 'en') {
 Route::get('/{locale?}/discussions', function (string $locale = 'en') {
     app()->setLocale($locale);
 
-    $owner = 'orchidsoftware';
-    $repo = 'platform';
-
-    $response = Http::post('https://api.github.com/graphql', [
-        'query' => <<<GRAPHQL
-{
-  repository(owner: "$owner", name: "$repo") {
-    discussions(first: 10) {
-      edges {
-        node {
-          title
-          url
-          createdAt
-          author {
-            login
-            avatarUrl
-            ... on User {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-}
-GRAPHQL
-    ]);
-
-
-    return view('discussions', [
-        'discussions' => $response->collect('data.repository.discussions.edges')->pluck('node')->take(6),
-    ]);
+    return view('discussions');
 })->where('locale', 'en|ru');
 
 
@@ -72,6 +41,7 @@ Route::get('/{locale?}/changelog', function (string $locale = 'en') {
         ->body();
 
     $content = \Illuminate\Support\Str::of($response)->markdown();
+
 
     return view('changelog', [
         'content' => $content,
