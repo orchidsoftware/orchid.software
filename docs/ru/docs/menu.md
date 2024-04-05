@@ -86,7 +86,7 @@ Menu::make('Example')->permission('platform.idea');
 Menu::make('Example')->canSee(true);
 ```
 
-#### Внешний вид
+### Внешний вид
 
 
 Для элемента меню можно указать графическую иконку с помощью:
