@@ -31,6 +31,12 @@
         <priority>0.8</priority>
             </url>
     <url>
+        <loc>https://orchid.software/en/discussions</loc>
+        <lastmod>2024-04-04T00:00:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
         <loc>https://orchid.software/en/docs/access</loc>
         <lastmod>2024-04-04T00:00:00+00:00</lastmod>
         <changefreq>daily</changefreq>
