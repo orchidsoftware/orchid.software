@@ -407,14 +407,13 @@ You can also specify the sort direction as a second parameter. For instance:
 ```php
 Post::filters()->defaultSort('id', 'desc')->paginate();
 ```
-Automatic HTTP sorting will not work with model fields obtained through relationships.
-If you need to sort by such fields, you can use the <a href="https://github.com/kirschbaum-development/eloquent-power-joins">Eloquent Power Joins</a> package.
-With its help you can solve the sorting problem:
+
+Automatic sorting and filtering of HTTP requests will not work with fields of models obtained through relationships. If you need sorting or filtering based on such fields, you can use third-party packages, such as [Eloquent Power Joins](https://github.com/kirschbaum-development/eloquent-power-joins). This package can help you solve this issue:
+
 ```php
 User::orderByPowerJoins('profile.city');
 User::orderByPowerJoins('profile.city', 'desc');
 ```
-But you will have to write your own handler for the HTTP sort parameter,
-because the package does not automatically understand that the '-' sign before the field name means desc,
-and also catch and use package methods only when you sort only by fields connected through connections.
+
+However, you will need to manually handle the HTTP parameters `sort` and `filter`, as the package does not automatically recognize that the `-` sign before the field name indicates descending order for sorting, and also how to apply filters. You can do this using a "Filter." Additionally, you should only use the package methods for sorting or filtering based on fields accessible through relationships.
 
