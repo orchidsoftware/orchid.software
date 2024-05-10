@@ -458,7 +458,7 @@ public function formValidateMessage(): string
  */
 public function needPreventsAbandonment(): bool
 {
-    return config('platform.prevents_abandonment', true);
+    return false;
 }
 ```
 
