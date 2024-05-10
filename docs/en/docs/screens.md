@@ -474,3 +474,34 @@ public function layout(): array
 
 
 More details can be found in the `Layouts` section.
+
+
+## Additional Methods
+
+#### Validation Message
+
+```php
+/**
+ * Message if the form is not valid.
+ */
+public function formValidateMessage(): string
+{
+    return 'Please check the entered data';
+}
+```
+
+This method returns a message if the HTML form validation fails, for example, if a required field is missing.
+
+#### Prevent Data Loss on Navigation
+
+```php
+/**
+ * Determines whether to prevent data loss on navigation attempt.
+ */
+public function needPreventsAbandonment(): bool
+{
+    return false;
+}
+```
+
+No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.
