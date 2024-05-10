@@ -444,7 +444,7 @@ public function layout(): array
  */
 public function formValidateMessage(): string
 {
-    return __('Please check the entered data');
+    return 'Please check the entered data';
 }
 ```
 
