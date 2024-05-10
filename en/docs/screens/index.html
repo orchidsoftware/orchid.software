@@ -392,6 +392,15 @@
                             <li class="anchor-h2">
                     <a href="#screen-layouts">Screen Layouts</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#additional-methods">Additional Methods</a>
+                </li>
+                            <li class="anchor-h4">
+                    <a href="#validation-message">Validation Message</a>
+                </li>
+                            <li class="anchor-h4">
+                    <a href="#prevent-data-loss-on-navigation">Prevent Data Loss on Navigation</a>
+                </li>
                     </ul>
     </div>
                         <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
@@ -738,6 +747,27 @@ class ReusableEditLayout extends Rows
 }
 </code></pre>
 <p>More details can be found in the <code>Layouts</code> section.</p>
+<h2><a href='#additional-methods' id='additional-methods'>Additional Methods</a></h2>
+<h4><a href='#validation-message' id='validation-message'>Validation Message</a></h4>
+<pre><code class="language-php">/**
+ * Message if the form is not valid.
+ */
+public function formValidateMessage(): string
+{
+    return 'Please check the entered data';
+}
+</code></pre>
+<p>This method returns a message if the HTML form validation fails, for example, if a required field is missing.</p>
+<h4><a href='#prevent-data-loss-on-navigation' id='prevent-data-loss-on-navigation'>Prevent Data Loss on Navigation</a></h4>
+<pre><code class="language-php">/**
+ * Determines whether to prevent data loss on navigation attempt.
+ */
+public function needPreventsAbandonment(): bool
+{
+    return false;
+}
+</code></pre>
+<p>No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.</p>
 </body>
                         
                     </main>
