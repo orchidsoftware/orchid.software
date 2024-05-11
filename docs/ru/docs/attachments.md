@@ -168,61 +168,25 @@ public function boot()
 
 ## Подписка на событие загрузки
 
-Различные варианты обработки файлов могут потребовать дополнительной обработки, например, сжатие видео. 
-Это возможно благодаря событию, на которое можно подписаться стандартными средствами и выполнить задачу в фоне:
+Orchid позволяет вам подписываться на события, которые срабатывают при загрузке файла. Эта функция позволяет выполнять дополнительные задачи, такие как сжатие видео, оптимизация изображений или другие операции по обработке файлов.
+
+Для подписки на событие вы можете использовать [механизм прослушивания событий Laravel](https://laravel.com/docs/11.x/events#defining-listeners). В приведенном ниже примере анонимная функция регистрируется для прослушивания события `UploadFileEvent`:
 
 ```php
-namespace App\Providers;
+use Orchid\Platform\Events\UploadFileEvent;
+use Illuminate\Support\Facades\Event;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Listener\UploadListener;
-
-class EventServiceProvider extends ServiceProvider
+/**
+ * Bootstrap any application services.
+ */
+public function boot(): void
 {
-    /**
-     * The event handler mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        UploadFileEvent::class => [
-             UploadListener::class,
-        ],
-    ];
-
-    /**
-     * Register any events for your application.
-     */
-    public function boot()
-    {
-        parent::boot();
-    }
+    Event::listen(function (UploadFileEvent $event) {
+        // Ваша логика здесь для обработки события
+        // $event->attachment
+        // $event->time
+    });
 }
 ```
 
-Каждая подписка получит объект `UploadFileEvent`:
-
-```php
-namespace App\Listeners;
-
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Orchid\Platform\Events\UploadFileEvent;
-
-class UploadListener extends ShouldQueue
-{
-    use InteractsWithQueue;
-    
-    /**
-     * Handle the event.
-     *
-     * @param  UploadFileEvent  $event
-     * @return void
-     */
-    public function handle(UploadFileEvent $event)
-    {
-        //$event->attachment
-        //$event->time
-    }
-}
-``` 
+Когда событие `UploadFileEvent` срабатывает, вызывается анонимная функция, зарегистрированная с помощью `Event::listen`. Внутри этой функции вы можете определить свою логику для обработки события, такую как обработка загруженного файла, выполнение проверок или запуск дополнительных действий.
