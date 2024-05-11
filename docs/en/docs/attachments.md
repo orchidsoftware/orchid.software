@@ -268,65 +268,30 @@ Optimizing images can be an important step in improving the performance and user
 One way to optimize images on demand is to use a third-party package such as [https://github.com/Intervention/imagecache](https://github.com/Intervention/imagecache) or its alternatives. This approach allows you to optimize images only when necessary and keep the original images in their original quality, which can be useful in situations where the image requirements change over time or if you want to keep the original image for other purposes.
 
 
+
+
 ## Event Subscription
 
+Laravel Orchid allows you to subscribe to events that are triggered when a file is uploaded. This feature enables you to execute additional tasks like video compression, image optimization, or other file processing operations.
 
-Laravel Orchid allows you to subscribe to events that are triggered when a file is uploaded. This allows you to perform additional tasks such as video compression, image optimization, or other types of file processing.
-
-To subscribe to an event, you can use the standard event subscription tools provided by Laravel. In the example below, a listener class `UploadListener` is registered to listen for the `UploadFileEvent`:
+To subscribe to an event, you can use [Laravel's event listening mechanism](https://laravel.com/docs/11.x/events#defining-listeners). In the example below, an anonymous function is registered to listen for the `UploadFileEvent`:
 
 ```php
-namespace App\Providers;
+use Orchid\Platform\Events\UploadFileEvent;
+use Illuminate\Support\Facades\Event;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Listener\UploadListener;
-
-class EventServiceProvider extends ServiceProvider
+/**
+ * Bootstrap any application services.
+ */
+public function boot(): void
 {
-    /**
-     * The event handler mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        UploadFileEvent::class => [
-             UploadListener::class,
-        ],
-    ];
-
-    /**
-     * Register any events for your application.
-     */
-    public function boot()
-    {
-        parent::boot();
-    }
+    Event::listen(function (UploadFileEvent $event) {
+        // Your logic here to handle the event
+        // $event->attachment
+        // $event->time
+    });
 }
 ```
 
-When the `UploadFileEvent` is triggered, the `handle` method of the `UploadListener` class will be called. The method will receive an object of the `UploadFileEvent` class, which contains information about the attachment and the time of the upload.
+When the `UploadFileEvent` is triggered, the anonymous function registered with `Event::listen` will be called. Inside this function, you can define your logic to handle the event, such as processing the uploaded file, performing validations, or triggering additional actions.
 
-```php
-namespace App\Listeners;
-
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Orchid\Platform\Events\UploadFileEvent;
-
-class UploadListener implements ShouldQueue
-{
-    use InteractsWithQueue;
-    
-    /**
-     * Handle the event.
-     *
-     * @param  UploadFileEvent  $event
-     * @return void
-     */
-    public function handle(UploadFileEvent $event)
-    {
-        //$event->attachment
-        //$event->time
-    }
-}
-``` 
