@@ -272,7 +272,7 @@ One way to optimize images on demand is to use a third-party package such as [ht
 
 ## Event Subscription
 
-Laravel Orchid allows you to subscribe to events that are triggered when a file is uploaded. This feature enables you to execute additional tasks like video compression, image optimization, or other file processing operations.
+Orchid allows you to subscribe to event that are triggered when a file is uploaded. This feature enables you to execute additional tasks like video compression, image optimization, or other file processing operations.
 
 To subscribe to an event, you can use [Laravel's event listening mechanism](https://laravel.com/docs/11.x/events#defining-listeners). In the example below, an anonymous function is registered to listen for the `UploadFileEvent`:
 
