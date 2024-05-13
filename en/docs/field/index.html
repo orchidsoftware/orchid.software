@@ -396,7 +396,16 @@
                     <a href="#timezone">TimeZone</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#html-quill-editor">HTML Quill Editor</a>
+                    <a href="#quill-wysiwyg-editor">Quill WYSIWYG Editor</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#usage">Usage</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#toolbar-controls">Toolbar Controls</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#extensibility">Extensibility</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#markdown-editor">Markdown Editor</a>
@@ -788,19 +797,31 @@ DateTimeZone::ALL_WITH_BC;
 DateTimeZone::PER_COUNTRY;
 </code></pre>
 <p>The representation of variable zones can be found in the documentation <a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
-<h2><a href='#html-quill-editor' id='html-quill-editor'>HTML Quill Editor</a></h2>
-<p>Such an editor allows you to insert pictures, tables, specify styles for text, video.</p>
-<p>Example:</p>
+<h2><a href='#quill-wysiwyg-editor' id='quill-wysiwyg-editor'>Quill WYSIWYG Editor</a></h2>
+<p>The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
+<h3><a href='#usage' id='usage'>Usage</a></h3>
+<p>To create a Quill editor instance, simply utilize the <code>Quill</code> field. Here&rsquo;s an example of how to implement it in your code:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Quill;
 
 Quill::make('html');
 </code></pre>
-<p>There are 6&nbsp;groups of controls available:</p>
+<h3><a href='#toolbar-controls' id='toolbar-controls'>Toolbar Controls</a></h3>
+<p>Quill provides a comprehensive set of controls organized into six groups, empowering users with diverse editing functionalities. These groups include:</p>
+<ul>
+<li><strong>Text</strong>: Tools for basic text formatting such as bold, italic, underline, and strikethrough.</li>
+<li><strong>Color</strong>: Options for adjusting text and background color.</li>
+<li><strong>Header</strong>: Tools for styling text as headers.</li>
+<li><strong>List</strong>: Controls for creating ordered and unordered lists.</li>
+<li><strong>Format</strong>: Additional formatting options like alignment and indentation.</li>
+<li><strong>Media</strong>: Features for inserting multimedia content such as images and videos.</li>
+</ul>
+<p>You can customize the toolbar by specifying which groups of controls to display. Here&rsquo;s how you can configure the toolbar in your code:</p>
 <pre><code class="language-php">Quill::make('html')
     -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
 </code></pre>
-<p>It&rsquo;s possible to install additional plugins with a simple Javascript file</p>
-<pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
+<h3><a href='#extensibility' id='extensibility'>Extensibility</a></h3>
+<p>One of the strengths of Quill is its extensibility through plugins. You can enhance the editor&rsquo;s functionality by installing additional plugins. This can be easily accomplished using a JavaScript file.</p>
+<pre><code class="language-javascript">document.addEventListener('orchid:quill', (event) =&gt; {
     // Object for registering plugins
     event.detail.quill;
 
