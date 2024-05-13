@@ -548,27 +548,43 @@ DateTimeZone::PER_COUNTRY;
 The representation of variable zones can be found in the documentation [PHP](https://www.php.net/manual/en/class.datetimezone.php).
 
 
-## HTML Quill Editor
+## Quill WYSIWYG Editor
 
-Such an editor allows you to insert pictures, tables, specify styles for text, video.
+The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.
 
-Example:
+### Usage
+
+To create a Quill editor instance, simply utilize the `Quill` field. Here's an example of how to implement it in your code:
+
 ```php
 use Orchid\Screen\Fields\Quill;
 
 Quill::make('html');
-``` 
+```
 
-There are 6 groups of controls available:
+### Toolbar Controls
+
+Quill provides a comprehensive set of controls organized into six groups, empowering users with diverse editing functionalities. These groups include:
+
+- **Text**: Tools for basic text formatting such as bold, italic, underline, and strikethrough.
+- **Color**: Options for adjusting text and background color.
+- **Header**: Tools for styling text as headers.
+- **List**: Controls for creating ordered and unordered lists.
+- **Format**: Additional formatting options like alignment and indentation.
+- **Media**: Features for inserting multimedia content such as images and videos.
+
+You can customize the toolbar by specifying which groups of controls to display. Here's how you can configure the toolbar in your code:
 
 ```php
 Quill::make('html')
     ->toolbar(["text", "color", "header", "list", "format", "media"]);
-``` 
+```
 
-It's possible to install additional plugins with a simple Javascript file
+### Extensibility
 
-```js
+One of the strengths of Quill is its extensibility through plugins. You can enhance the editor's functionality by installing additional plugins. This can be easily accomplished using a JavaScript file.
+
+```javascript
 document.addEventListener('orchid:quill', (event) => {
     // Object for registering plugins
     event.detail.quill;
