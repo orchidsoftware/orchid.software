@@ -684,12 +684,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
-    /**
-     * @return string
-     */
     public function getFullAttribute(): string
     {
-        return $this-&gt;attributes['name'] . ' (' . $this-&gt;attributes['email'] . ')';
+        return sprintf('%s (%s)', $this-&gt;name, $this-&gt;email);
     }
 }
 </code></pre>
