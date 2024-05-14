@@ -184,6 +184,8 @@ public function layout(): array
 
 > Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
 
+### Template
+
 The appearance of the selection layer can vary, such as being displayed as a drop-down list (the default) or as a form. You can define this using the `template` property. For instance:
 
 ```php
