@@ -527,6 +527,23 @@ public function layout(): array
 <blockquote>
 <p>Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.</p>
 </blockquote>
+<p>The appearance of the selection layer can vary, such as being displayed as a drop-down list (the default) or as a form. You can define this using the <code>template</code> property. For instance:</p>
+<pre><code class="language-php">class MailingSelection extends Selection
+{
+    public $template = self::TEMPLATE_DROP_DOWN; // or self::TEMPLATE_LINE
+    
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+            //...
+        ];
+    }
+}
+</code></pre>
+<p>Moreover, you have the flexibility to define your own <code>Blade</code> template within this property.</p>
 <h2><a href='#handling-http-parameters' id='handling-http-parameters'>Handling HTTP Parameters</a></h2>
 <p>To automatically filter and sort your application&rsquo;s data based on user-supplied HTTP parameters, the package provides a powerful and flexible set of tools.
 The key to effectively utilizing these tools is to ensure that your model includes the <code>Filterable</code> trait and implements a whitelist of acceptable filter and sort parameters.</p>
