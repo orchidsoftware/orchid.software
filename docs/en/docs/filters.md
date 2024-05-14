@@ -184,6 +184,28 @@ public function layout(): array
 
 > Please note that filters with empty fields will not be rendered, ensuring a clean and user-friendly interface.
 
+The appearance of the selection layer can vary, such as being displayed as a drop-down list (the default) or as a form. You can define this using the `template` property. For instance:
+
+```php
+class MailingSelection extends Selection
+{
+    public $template = self::TEMPLATE_DROP_DOWN; // or self::TEMPLATE_LINE
+    
+    /**
+     * @return Filter[]
+     */
+    public function filters(): array
+    {
+        return [
+            //...
+        ];
+    }
+}
+```
+
+Moreover, you have the flexibility to define your own `Blade` template within this property.
+
+
 ## Handling HTTP Parameters
 
 To automatically filter and sort your application's data based on user-supplied HTTP parameters, the package provides a powerful and flexible set of tools.
