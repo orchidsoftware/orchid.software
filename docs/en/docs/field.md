@@ -430,9 +430,9 @@ Relation::make('users.')
 The DateTime field provides a streamlined interface for selecting both date and time within your Laravel applications, leveraging the robust functionality of the `flatpickr` JavaScript library.
 
 
-![DateTime](/img/ui/datetime.png) 
+![DateTime](/img/ui/datatime.png) 
 
-## Usage
+### Usage
 
 To create a DateTime field, utilize the `DateTimer` class:
 
