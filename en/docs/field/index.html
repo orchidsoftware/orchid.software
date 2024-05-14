@@ -390,6 +390,36 @@
                     <a href="#datetime">DateTime</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#usage">Usage</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#direct-input">Direct Input</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#date-format">Date Format</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#time-format">Time Format</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#time-selection">Time Selection</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#time-selection-only">Time Selection Only</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#range-selection">Range Selection</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#quick-date-selection">Quick Date Selection</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#allow-empty-values">Allow Empty Values</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#multiple-selection">Multiple Selection</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#daterange">DateRange</a>
                 </li>
                             <li class="anchor-h2">
@@ -414,7 +444,7 @@
                     <a href="#matrix">Matrix</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#basic">Basic</a>
+                    <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#customizing-column-headers">Customizing Column Headers</a>
@@ -732,45 +762,86 @@ class User extends Model
     -&gt;title('Select users');
 </code></pre>
 <h2><a href='#datetime' id='datetime'>DateTime</a></h2>
-<p>Allows you to select the date and time.</p>
-<p><picture alt='Datatime'><img src="/img/ui/datatime.png" alt="Datatime"></picture></p>
-<p>Example:</p>
+<p>The DateTime field provides a streamlined interface for selecting both date and time within your Laravel applications, leveraging the robust functionality of the <code>flatpickr</code> JavaScript library.</p>
+<p><picture alt='DateTime'><img src="/img/ui/datetime.png" alt="DateTime"></picture></p>
+<h2><a href='#usage' id='usage'>Usage</a></h2>
+<p>To create a DateTime field, utilize the <code>DateTimer</code> class:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\DateTimer;
 
 DateTimer::make('open')
     -&gt;title('Opening date');
 </code></pre>
-<p>Allow direct input:</p>
+<h3><a href='#direct-input' id='direct-input'>Direct Input</a></h3>
+<p>Enable direct input to allow users to manually enter the DateTime:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;allowInput();
 </code></pre>
-<p><strong>Please note</strong> that setting a field can be mandatory only with direct input:</p>
+<p><strong>Note:</strong> Enabling direct input can also make the field mandatory:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;allowInput()
     -&gt;required();
 </code></pre>
-<p>Data format:</p>
+<h3><a href='#date-format' id='date-format'>Date Format</a></h3>
+<p>Customize the date format using the <code>format()</code> method:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;format('Y-m-d');
 </code></pre>
-<p>Example for display in 24th format:</p>
+<h3><a href='#time-format' id='time-format'>Time Format</a></h3>
+<p>Opt to display time in 24-hour format:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;format24hr();
 </code></pre>
-<p>Calendar over time:</p>
+<h3><a href='#time-selection' id='time-selection'>Time Selection</a></h3>
+<p>Enable selection of both date and time using the <code>enableTime()</code> method:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening time')
     -&gt;enableTime();
 </code></pre>
-<p>Choice of time only:</p>
+<h3><a href='#time-selection-only' id='time-selection-only'>Time Selection Only</a></h3>
+<p>If only time selection is required:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening time')
     -&gt;noCalendar()
-    -&gt;format('h:i K');
+    -&gt;format('h:i K'); // Specify time format
+</code></pre>
+<h3><a href='#range-selection' id='range-selection'>Range Selection</a></h3>
+<p>Allow users to select a range for dates and times:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;format('Y-m-d H:i')
+    -&gt;enableTime()
+    -&gt;format24hr()
+    -&gt;range(); 
+</code></pre>
+<h3><a href='#quick-date-selection' id='quick-date-selection'>Quick Date Selection</a></h3>
+<p>Facilitate easy selection with predefined quick date options:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;format('Y-m-d H:i')
+    -&gt;enableTime()
+    -&gt;format24hr()
+    -&gt;range() 
+    -&gt;withQuickDates([
+        'Today'     =&gt; now(),
+        'Yesterday' =&gt; now()-&gt;subDay(),
+        'Last Week' =&gt; [now()-&gt;startOfDay()-&gt;subWeek(), now()-&gt;endOfDay()],
+    ]);
+</code></pre>
+<h3><a href='#allow-empty-values' id='allow-empty-values'>Allow Empty Values</a></h3>
+<p>Allow the field to remain empty:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;format('Y-m-d')
+    -&gt;allowEmpty()
+    -&gt;multiple();
+</code></pre>
+<h3><a href='#multiple-selection' id='multiple-selection'>Multiple Selection</a></h3>
+<p>Permit multiple date selections:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;format('Y-m-d')
+    -&gt;allowEmpty()
+    -&gt;multiple();
 </code></pre>
 <h2><a href='#daterange' id='daterange'>DateRange</a></h2>
 <p>Allows you to select a range of date (and time).</p>
@@ -874,7 +945,7 @@ SimpleMDE::make('markdown');
 </code></pre>
 <h2><a href='#matrix' id='matrix'>Matrix</a></h2>
 <p>The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It&rsquo;s particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.</p>
-<h3><a href='#basic' id='basic'>Basic</a></h3>
+<h3><a href='#usage' id='usage'>Usage</a></h3>
 <p>You can easily create a Matrix field by specifying the column headers. Here&rsquo;s an example of how to define a Matrix field with columns:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Matrix;
 
