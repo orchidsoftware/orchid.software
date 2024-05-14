@@ -638,9 +638,13 @@ use Orchid\Screen\Fields\SimpleMDE;
 SimpleMDE::make('markdown');
 ```  
 
-## Matrix
+## Matrix Field
 
-The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:
+The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It's particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.
+
+### Basic Usage
+
+You can easily create a Matrix field by specifying the column headers. Here's an example of how to define a Matrix field with columns:
 
 ```php
 use Orchid\Screen\Fields\Matrix;
@@ -650,28 +654,34 @@ Matrix::make('options')
         'Attribute',
         'Value',
         'Units',
-    ])
+    ]);
 ```
 
-Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:
+### Customizing Column Headers
+
+In some cases, the values of the columns may differ from what needs to be displayed in the headers. You can address this by specifying keys for the columns:
 
 ```php
 Matrix::make('options')
     ->columns([
         'Attribute' => 'attr',
         'Value' => 'product_value',
-    ])
+    ]);
 ```
 
-It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:
+### Limiting Rows
+
+You can also set a maximum number of rows, after which the add button will be disabled:
 
 ```php
 Matrix::make('options')
     ->columns(['id', 'name'])
-    ->maxRows(10)
+    ->maxRows(10);
 ```
 
-By default, each cell element has a textarea field, but you can change it to your own fields as follows:
+### Custom Fields
+
+By default, each cell in the Matrix field contains a textarea element. However, you can customize the field types according to your requirements:
 
 ```php
 Matrix::make('users')
@@ -680,7 +690,7 @@ Matrix::make('users')
     ->fields([
         'id'   => Input::make()->type('number'),
         'name' => TextArea::make(),
-    ]),
+    ]);
 ```
 
 > It's important to note that the Matrix field performs field copying on the client side. While this works seamlessly for simple input and select fields, it may encounter limitations with complex or compound fields.
