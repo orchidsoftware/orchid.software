@@ -399,9 +399,6 @@
                     <a href="#date-format">Date Format</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#time-format">Time Format</a>
-                </li>
-                            <li class="anchor-h3">
                     <a href="#time-selection">Time Selection</a>
                 </li>
                             <li class="anchor-h3">
@@ -789,7 +786,10 @@ DateTimer::make('open')
     -&gt;title('Opening date')
     -&gt;format('Y-m-d');
 </code></pre>
-<h3><a href='#time-format' id='time-format'>Time Format</a></h3>
+<p>Define the format for transmitting values to the frontend with the <code>serverFormat()</code> method:</p>
+<pre><code class="language-php">DateTimer::make('open')
+    -&gt;serverFormat('Y-m-d H:i:s');
+</code></pre>
 <p>Opt to display time in 24-hour format:</p>
 <pre><code class="language-php">DateTimer::make('open')
     -&gt;title('Opening date')
