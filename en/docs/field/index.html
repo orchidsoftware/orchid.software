@@ -411,7 +411,19 @@
                     <a href="#markdown-editor">Markdown Editor</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#matrix">Matrix</a>
+                    <a href="#matrix-field">Matrix Field</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#basic-usage">Basic Usage</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#customizing-column-headers">Customizing Column Headers</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#limiting-rows">Limiting Rows</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#custom-fields">Custom Fields</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#code-editor">Code editor</a>
@@ -860,8 +872,10 @@ Quill::make('html');
 
 SimpleMDE::make('markdown');
 </code></pre>
-<h2><a href='#matrix' id='matrix'>Matrix</a></h2>
-<p>The field provides a convenient interface for editing a flat table. For example, you can store information inside a JSON column type:</p>
+<h2><a href='#matrix-field' id='matrix-field'>Matrix Field</a></h2>
+<p>The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It&rsquo;s particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.</p>
+<h3><a href='#basic-usage' id='basic-usage'>Basic Usage</a></h3>
+<p>You can easily create a Matrix field by specifying the column headers. Here&rsquo;s an example of how to define a Matrix field with columns:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Matrix;
 
 Matrix::make('options')
@@ -869,28 +883,31 @@ Matrix::make('options')
         'Attribute',
         'Value',
         'Units',
-    ])
+    ]);
 </code></pre>
-<p>Not always the values of the columns can coincide with what needs to be displayed in the headers, for this you can write using the keys:</p>
+<h3><a href='#customizing-column-headers' id='customizing-column-headers'>Customizing Column Headers</a></h3>
+<p>In some cases, the values of the columns may differ from what needs to be displayed in the headers. You can address this by specifying keys for the columns:</p>
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns([
         'Attribute' =&gt; 'attr',
         'Value' =&gt; 'product_value',
-    ])
+    ]);
 </code></pre>
-<p>It is possible to indicate the maximum number of lines, upon reaching which the add button will not be available:</p>
+<h3><a href='#limiting-rows' id='limiting-rows'>Limiting Rows</a></h3>
+<p>You can also set a maximum number of rows, after which the add button will be disabled:</p>
 <pre><code class="language-php">Matrix::make('options')
     -&gt;columns(['id', 'name'])
-    -&gt;maxRows(10)
+    -&gt;maxRows(10);
 </code></pre>
-<p>By default, each cell element has a textarea field, but you can change it to your own fields as follows:</p>
+<h3><a href='#custom-fields' id='custom-fields'>Custom Fields</a></h3>
+<p>By default, each cell in the Matrix field contains a textarea element. However, you can customize the field types according to your requirements:</p>
 <pre><code class="language-php">Matrix::make('users')
     -&gt;title('Users list')
     -&gt;columns(['id', 'name'])
     -&gt;fields([
         'id'   =&gt; Input::make()-&gt;type('number'),
         'name' =&gt; TextArea::make(),
-    ]),
+    ]);
 </code></pre>
 <blockquote>
 <p>It&rsquo;s important to note that the Matrix field performs field copying on the client side. While this works seamlessly for simple input and select fields, it may encounter limitations with complex or compound fields.</p>
