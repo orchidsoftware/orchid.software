@@ -427,29 +427,33 @@ Relation::make('users.')
 
 ## DateTime
 
-
-Allows you to select the date and time.
-
-![Datatime](/img/ui/datatime.png) 
+The DateTime field provides a streamlined interface for selecting both date and time within your Laravel applications, leveraging the robust functionality of the `flatpickr` JavaScript library.
 
 
-Example:
+![DateTime](/img/ui/datetime.png) 
+
+## Usage
+
+To create a DateTime field, utilize the `DateTimer` class:
+
 ```php
 use Orchid\Screen\Fields\DateTimer;
 
 DateTimer::make('open')
     ->title('Opening date');
-```           
+```
 
-Allow direct input:
+### Direct Input
+
+Enable direct input to allow users to manually enter the DateTime:
 
 ```php
 DateTimer::make('open')
     ->title('Opening date')
     ->allowInput();
-```           
+```
 
-**Please note** that setting a field can be mandatory only with direct input:
+**Note:** Enabling direct input can also make the field mandatory:
 
 ```php
 DateTimer::make('open')
@@ -458,8 +462,9 @@ DateTimer::make('open')
     ->required();
 ```
 
+### Date Format
 
-Data format:
+Customize the date format using the `format()` method:
 
 ```php
 DateTimer::make('open')
@@ -467,7 +472,9 @@ DateTimer::make('open')
     ->format('Y-m-d');
 ```
 
-Example for display in 24th format:
+### Time Format
+
+Opt to display time in 24-hour format:
 
 ```php
 DateTimer::make('open')
@@ -475,7 +482,9 @@ DateTimer::make('open')
     ->format24hr();
 ```
 
-Calendar over time:
+### Time Selection
+
+Enable selection of both date and time using the `enableTime()` method:
 
 ```php
 DateTimer::make('open')
@@ -483,13 +492,66 @@ DateTimer::make('open')
     ->enableTime();
 ```
 
-Choice of time only:
+### Time Selection Only
+
+If only time selection is required:
 
 ```php
 DateTimer::make('open')
     ->title('Opening time')
     ->noCalendar()
-    ->format('h:i K');
+    ->format('h:i K'); // Specify time format
+```
+
+### Range Selection
+
+Allow users to select a range for dates and times:
+
+```php
+DateTimer::make('open')
+    ->format('Y-m-d H:i')
+    ->enableTime()
+    ->format24hr()
+    ->range(); 
+```
+
+### Quick Date Selection
+
+Facilitate easy selection with predefined quick date options:
+
+```php
+DateTimer::make('open')
+    ->format('Y-m-d H:i')
+    ->enableTime()
+    ->format24hr()
+    ->range() 
+    ->withQuickDates([
+        'Today'     => now(),
+        'Yesterday' => now()->subDay(),
+        'Last Week' => [now()->startOfDay()->subWeek(), now()->endOfDay()],
+    ]);
+```
+
+### Allow Empty Values
+
+Allow the field to remain empty:
+
+```php
+DateTimer::make('open')
+    ->format('Y-m-d')
+    ->allowEmpty()
+    ->multiple();
+```
+
+### Multiple Selection
+
+Permit multiple date selections:
+
+```php
+DateTimer::make('open')
+    ->format('Y-m-d')
+    ->allowEmpty()
+    ->multiple();
 ```
 
 ## DateRange
@@ -642,7 +704,7 @@ SimpleMDE::make('markdown');
 
 The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It's particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.
 
-### Basic
+### Usage
 
 You can easily create a Matrix field by specifying the column headers. Here's an example of how to define a Matrix field with columns:
 
