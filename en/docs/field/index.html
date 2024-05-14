@@ -852,10 +852,10 @@ Quill::make('html');
 });
 </code></pre>
 <h2><a href='#markdown-editor' id='markdown-editor'>Markdown Editor</a></h2>
-<p>The Markdown Editor field is a form element that allows the user to write and edit text using the lightweight markup language Markdown. It is designed to be easy to read and write, making it ideal for writing content that will be published on the web. The Markdown Editor field also has the ability to convert text into advanced languages for more advanced publications.</p>
+<p>The Markdown editor field is a powerful tool for creating and editing text using the Markdown markup language. Markdown offers a simple and intuitive syntax that allows users to focus on content creation without getting bogged down by complex formatting.</p>
 <p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture>
-<picture alt='Markdown2'><img src="/img/ui/markdown2.png" alt="Markdown2"></picture></p>
-<p>To create a Markdown Editor field, you can use the <code>SimpleMDE</code> class:</p>
+<picture alt='Markdown Editor Preview'><img src="/img/ui/markdown2.png" alt="Markdown Editor Preview"></picture></p>
+<p>To create a Markdown editor field, you can use the <code>SimpleMDE</code> class:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\SimpleMDE;
 
 SimpleMDE::make('markdown');
@@ -893,7 +893,7 @@ Matrix::make('options')
     ]),
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> The matrix under the hood does the copying of the fields on the client side. This works fine for simple <code>input/select/etc</code> fields, but may not work well for complex or compound fields.</p>
+<p>It&rsquo;s important to note that the Matrix field performs field copying on the client side. While this works seamlessly for simple input and select fields, it may encounter limitations with complex or compound fields.</p>
 </blockquote>
 <h2><a href='#code-editor' id='code-editor'>Code editor</a></h2>
 <p>A field for writing program code with the ability to highlight.</p>
