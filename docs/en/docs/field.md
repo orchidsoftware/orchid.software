@@ -638,11 +638,11 @@ use Orchid\Screen\Fields\SimpleMDE;
 SimpleMDE::make('markdown');
 ```  
 
-## Matrix Field
+## Matrix
 
 The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It's particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.
 
-### Basic Usage
+### Basic
 
 You can easily create a Matrix field by specifying the column headers. Here's an example of how to define a Matrix field with columns:
 
