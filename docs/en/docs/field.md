@@ -624,15 +624,13 @@ document.addEventListener('orchid:quill', (event) => {
 ```
 
 ## Markdown Editor
-   
 
-The Markdown Editor field is a form element that allows the user to write and edit text using the lightweight markup language Markdown. It is designed to be easy to read and write, making it ideal for writing content that will be published on the web. The Markdown Editor field also has the ability to convert text into advanced languages for more advanced publications.
+The Markdown editor field is a powerful tool for creating and editing text using the Markdown markup language. Markdown offers a simple and intuitive syntax that allows users to focus on content creation without getting bogged down by complex formatting.
 
 ![Markdown](/img/ui/markdown.png)
-![Markdown2](/img/ui/markdown2.png)
+![Markdown Editor Preview](/img/ui/markdown2.png)
 
-To create a Markdown Editor field, you can use the `SimpleMDE` class:
-
+To create a Markdown editor field, you can use the `SimpleMDE` class:
 
 ```php
 use Orchid\Screen\Fields\SimpleMDE;
@@ -685,7 +683,7 @@ Matrix::make('users')
     ]),
 ```
 
-> **Note.** The matrix under the hood does the copying of the fields on the client side. This works fine for simple `input/select/etc` fields, but may not work well for complex or compound fields.
+> It's important to note that the Matrix field performs field copying on the client side. While this works seamlessly for simple input and select fields, it may encounter limitations with complex or compound fields.
 
 ## Code editor
 
