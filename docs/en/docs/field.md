@@ -445,7 +445,7 @@ DateTimer::make('open')
 
 ### Direct Input
 
-Enable direct input to allow users to manually enter the DateTime:
+Enable direct input to allow users to manually enter:
 
 ```php
 DateTimer::make('open')
