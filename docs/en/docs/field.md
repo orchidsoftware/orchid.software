@@ -472,7 +472,12 @@ DateTimer::make('open')
     ->format('Y-m-d');
 ```
 
-### Time Format
+Define the format for transmitting values to the frontend with the `serverFormat()` method:
+
+```php
+DateTimer::make('open')
+    ->serverFormat('Y-m-d H:i:s');
+```
 
 Opt to display time in 24-hour format:
 
@@ -481,6 +486,7 @@ DateTimer::make('open')
     ->title('Opening date')
     ->format24hr();
 ```
+
 
 ### Time Selection
 
