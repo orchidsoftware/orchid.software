@@ -420,7 +420,8 @@ You can use the standard Laravel routing mechanisms to register your routes with
 public function routes(Router $route): void
 {
     // Define your routes here
-    $route-&gt;screen('private-route', MyPackageScreen::class)-&gt;name('package');
+    $route-&gt;screen('private-route', MyPackageScreen::class)
+        -&gt;name('package');
 }
 </code></pre>
 <h2><a href='#define-permissions' id='define-permissions'>Define Permissions</a></h2>
