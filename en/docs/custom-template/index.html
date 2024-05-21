@@ -383,7 +383,7 @@
 public function layout(): array
 {
     return [
-        Layout::view('myTemplate'),
+        Layout::view('greeting'),
     ];
 }
 </code></pre>
@@ -400,22 +400,22 @@ public function query(): array
 public function layout(): array
 {
     return [
-        Layout::view('hello'),
+        Layout::view('greeting'),
     ];
 }
 </code></pre>
 <p>In the <code>hello.blade.php</code> template, you can display the contents of the <code>name</code> variable like this:</p>
-<pre><code class="language-php">// ... /views/hello.blade.php
+<pre><code class="language-php">// ... /views/greeting.blade.php
 
-Hello {{ $name }}!
+Hello, {{ $name }}.
 </code></pre>
 <p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:</p>
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::view('template1'),
-        Layout::view('template2'),
-        Layout::view('template3'),
+        Layout::view('dashboard'),
+        Layout::view('users'),
+        Layout::view('settings'),
     ];
 }
 </code></pre>
@@ -425,7 +425,7 @@ Hello {{ $name }}!
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        Layout::wrapper('myTemplate', [
+        Layout::wrapper('settings', [
             'foo' =&gt; [
                 RowLayout::class,
                 RowLayout::class,
@@ -435,7 +435,7 @@ Hello {{ $name }}!
     ];
 }
 </code></pre>
-<p>In the <code>myTemplate.blade.ph</code>p template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
+<p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
 <pre><code class="language-html">&lt;div class="row"&gt;
     &lt;div class="col-7 border-right"&gt;
         @foreach($foo as $row)
@@ -456,7 +456,7 @@ Hello {{ $name }}!
 }
 </code></pre>
 <p>You can display the contents of the name variable in your template like this:</p>
-<pre><code class="language-php">Hello {{ $name }}!
+<pre><code class="language-php">Hello, {{ $name }}.
 </code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
 <p>Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the <code>artisan</code> command:</p>
