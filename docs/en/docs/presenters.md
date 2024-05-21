@@ -36,7 +36,10 @@ class CustomerPresenter extends Presenter
 {
     public function fullName(): string
     {
-        return $this->entity->firstName . ' ' . $this->entity->lastName;
+        return sprintf('%s %s',
+            $this->entity->firstName,
+            $this->entity->lastName
+        );
     }
 }
 ```
