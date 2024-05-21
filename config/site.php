@@ -13,7 +13,7 @@ return [
                 'Installation'  => '/en/docs/installation',
                 'Configuration' => '/en/docs/configuration',
                 'Directory Structure' => '/en/docs/structure',
-                'Branding'      => '/en/docs/brand',
+                'Basic Branding'      => '/en/docs/brand',
                 'Upgrade Guide' => '/en/docs/upgrade',
             ],
             'Tutorials'   => [
