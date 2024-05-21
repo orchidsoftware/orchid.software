@@ -3,7 +3,11 @@ title: Package Development
 description: Learn how to develop packages for Orchid
 ---
 
-> ⚠️ **Attention:** This section is currently being developed and is not ready for use. It may lack complete information or contain inaccuracies. If you are not an enthusiast or experienced user, it is recommended to wait until this section is finalized and verified before relying on the information provided here. Updates will be made to ensure the section is complete and accurate as soon as possible. Thank you for your patience and understanding.
+> ⚠️ **Attention:** This section is still a work in progress and isn't 100% ready for use. 🚧
+>
+> It may lack complete information or contain inaccuracies. If you are not an enthusiast or experienced user, it is recommended to wait until this section is finalized and verified before relying on the information provided here. Updates will be made to ensure the section is complete and accurate as soon as possible. Thank you for your patience and understanding.
+
+
 
 ## Package Service Providers
 
