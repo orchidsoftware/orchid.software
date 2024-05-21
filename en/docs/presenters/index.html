@@ -390,7 +390,10 @@ class CustomerPresenter extends Presenter
 {
     public function fullName(): string
     {
-        return $this-&gt;entity-&gt;firstName . ' ' . $this-&gt;entity-&gt;lastName;
+        return sprintf('%s %s',
+            $this-&gt;entity-&gt;firstName,
+            $this-&gt;entity-&gt;lastName
+        );
     }
 }
 </code></pre>
