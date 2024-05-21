@@ -376,11 +376,11 @@
 <p>&#1042; &#1076;&#1080;&#1088;&#1077;&#1082;&#1090;&#1086;&#1088;&#1080;&#1080; <code>database/migrations</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085; &#1085;&#1086;&#1074;&#1099;&#1081; &#1092;&#1072;&#1081;&#1083; &#1084;&#1080;&#1075;&#1088;&#1072;&#1094;&#1080;&#1080;, &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1084; &#1074; &#1085;&#1077;&#1075;&#1086; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1084;&#1099;&#1093; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082;.</p>
 <pre><code class="language-php">// `****_**_**_create_posts_table.php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
