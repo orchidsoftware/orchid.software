@@ -60,7 +60,8 @@ use Illuminate\Routing\Router;
 public function routes(Router $route): void
 {
     // Define your routes here
-    $route->screen('private-route', MyPackageScreen::class)->name('package');
+    $route->screen('private-route', MyPackageScreen::class)
+        ->name('package');
 }
 ```
 
