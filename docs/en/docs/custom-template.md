@@ -15,7 +15,7 @@ use Orchid\Support\Facades\Layout;
 public function layout(): array
 {
     return [
-        Layout::view('myTemplate'),
+        Layout::view('greeting'),
     ];
 }
 ```
@@ -35,7 +35,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        Layout::view('hello'),
+        Layout::view('greeting'),
     ];
 }
 ```
@@ -43,9 +43,9 @@ public function layout(): array
 In the `hello.blade.php` template, you can display the contents of the `name` variable like this:
 
 ```php
-// ... /views/hello.blade.php
+// ... /views/greeting.blade.php
 
-Hello {{ $name }}!
+Hello, {{ $name }}.
 ```
 
 Note that the `layout` method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:
@@ -54,9 +54,9 @@ Note that the `layout` method should return an array of views to be displayed in
 public function layout(): array
 {
     return [
-        Layout::view('template1'),
-        Layout::view('template2'),
-        Layout::view('template3'),
+        Layout::view('dashboard'),
+        Layout::view('users'),
+        Layout::view('settings'),
     ];
 }
 ```
@@ -71,7 +71,7 @@ To use a wrapper, you can pass an array of views to the `Layout::wrapper` method
 public function layout(): array
 {
     return [
-        Layout::wrapper('myTemplate', [
+        Layout::wrapper('settings', [
             'foo' => [
                 RowLayout::class,
                 RowLayout::class,
@@ -82,7 +82,7 @@ public function layout(): array
 }
 ```
 
-In the `myTemplate.blade.ph`p template, you can access the `foo` and `bar` variables and display the views they contain like this:
+In the `settings.blade.php` template, you can access the `foo` and `bar` variables and display the views they contain like this:
 
 ```html
 <div class="row">
@@ -111,7 +111,7 @@ public function query(): array
 You can display the contents of the name variable in your template like this:
 
 ```php
-Hello {{ $name }}!
+Hello, {{ $name }}.
 ```
 
 ## Blade Components
