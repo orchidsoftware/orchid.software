@@ -360,11 +360,11 @@
 in which we will analyze the work with <a href="/en/docs/attachments">&ldquo;Attached files&rdquo;</a>.</p>
 <p>Let&rsquo;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
 in which we will store information about the main image in our blog post:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
+<pre><code class="language-php">use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
-class AddHeroColumnForPostTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
