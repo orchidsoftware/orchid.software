@@ -234,14 +234,13 @@ class PostEditScreen extends Screen
     }
 
     /**
-     * @param Post    $post
      * @param Request $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createOrUpdate(Post $post, Request $request)
+    public function createOrUpdate(Request $request)
     {
-        $post->fill($request->get('post'))->save();
+        $this->post->fill($request->get('post'))->save();
 
         Alert::info('You have successfully created a post.');
 
@@ -249,14 +248,11 @@ class PostEditScreen extends Screen
     }
 
     /**
-     * @param Post $post
-     *
      * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
      */
-    public function remove(Post $post)
+    public function remove()
     {
-        $post->delete();
+        $this->post->delete();
 
         Alert::info('You have successfully deleted the post.');
 
