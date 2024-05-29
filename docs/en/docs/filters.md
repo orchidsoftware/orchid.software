@@ -252,6 +252,8 @@ class Post extends Model
     use Filterable;
 
     /**
+     * The attributes for which you can use filters in url.
+     *
      * @var array
      */
     protected $allowedFilters = [
@@ -388,6 +390,8 @@ class Post extends Model
     use Filterable;
 
     /**
+     * The attributes for which can use sort in url.
+     *
      * @var array
      */
     protected $allowedSorts = [
