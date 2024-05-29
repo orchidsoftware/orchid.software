@@ -401,6 +401,9 @@
                             <li class="anchor-h4">
                     <a href="#prevent-data-loss-on-navigation">Prevent Data Loss on Navigation</a>
                 </li>
+                            <li class="anchor-h4">
+                    <a href="#stimulus-controller">Stimulus Controller</a>
+                </li>
                     </ul>
     </div>
                         <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
@@ -768,6 +771,22 @@ public function needPreventsAbandonment(): bool
 }
 </code></pre>
 <p>No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.</p>
+<h4><a href='#stimulus-controller' id='stimulus-controller'>Stimulus Controller</a></h4>
+<pre><code class="language-php">/**
+ * Returns the name of the base Stimulus controller for the frontend.
+ *
+ * This method is used to determine the base Stimulus controller that will be
+ * utilized on the frontend of the application. The controller manages the
+ * behavior of UI elements, interacting with other components via Hotwire.
+ *
+ * @return string The name of the base controller.
+ */
+public function frontendController(): string
+{
+    return 'base';
+}
+</code></pre>
+<p>This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior of UI elements and interacting with other components via Hotwire.</p>
 </body>
                         
                     </main>
