@@ -516,7 +516,9 @@ new content.</p>
 </code></pre>
 <p>All asynchronous screen methods start with the <code>async</code> prefix:</p>
 <pre><code class="language-php">/**
- * @return array
+ * This method is called instead of the `query` method to fetch data
+ * and is used for updating data on the page without
+ * a full reload.
  */
 public function asyncGetData(string $welcome): array
 {
@@ -529,12 +531,11 @@ public function asyncGetData(string $welcome): array
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Open asynchronous modal')
-    -&gt;modal('asyncModal')
-    -&gt;modalTitle('Customizable Title')
     -&gt;method('methodForModal')
-    -&gt;asyncParameters([
-        'welcome' =&gt; 'Hello world!'
-    ]);
+    -&gt;modalTitle('Customizable Title')
+    -&gt;modal('asyncModal', [
+        'welcome' =&gt; 'Hello world!',
+    ]),
 </code></pre>
 <blockquote>
 <p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$variable ?? ''}}</code>.</p>
