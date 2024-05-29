@@ -505,3 +505,23 @@ public function needPreventsAbandonment(): bool
 ```
 
 No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.
+
+#### Stimulus Controller
+
+```php
+/**
+ * Returns the name of the base Stimulus controller for the frontend.
+ *
+ * This method is used to determine the base Stimulus controller that will be
+ * utilized on the frontend of the application. The controller manages the
+ * behavior of UI elements, interacting with other components via Hotwire.
+ *
+ * @return string The name of the base controller.
+ */
+public function frontendController(): string
+{
+    return 'base';
+}
+```
+
+This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior of UI elements and interacting with other components via Hotwire.
