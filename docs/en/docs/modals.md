@@ -182,7 +182,9 @@ All asynchronous screen methods start with the `async` prefix:
 
 ```php
 /**
- * @return array
+ * This method is called instead of the `query` method to fetch data
+ * and is used for updating data on the page without
+ * a full reload.
  */
 public function asyncGetData(string $welcome): array
 {
@@ -198,12 +200,11 @@ When calling such a modal window, you can pass values using the `asyncParameters
 use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Open asynchronous modal')
-    ->modal('asyncModal')
-    ->modalTitle('Customizable Title')
     ->method('methodForModal')
-    ->asyncParameters([
-        'welcome' => 'Hello world!'
-    ]);
+    ->modalTitle('Customizable Title')
+    ->modal('asyncModal', [
+        'welcome' => 'Hello world!',
+    ]),
 ```
 
 
