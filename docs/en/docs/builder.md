@@ -3,21 +3,22 @@ title: Form Builder
 description: Learn how to use the Laravel Orchid form builder to easily create and customize forms for your administration-style application. Improve the user experience and streamline data entry with this powerful tool.
 ---
 
+## Introduction
 
 Describing form fields can be a challenging task, but with `Orchid\Screen\Builder`, you can easily modify and reuse form fields using a single builder that generates `HTML` code.
 
-## Main Use
-
-The form feature set and data source must be passed to build:
+To build a form, you need to provide the field definitions and possibly a data source:
 
 ```php
 use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 
+// Initialize the form builder with the field definitions
 $builder = new Builder([
     Input::make('name'),
 ]);
 
+// Generate HTML code for the form
 $html = $builder->generateForm();
 ```
 
