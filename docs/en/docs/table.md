@@ -120,7 +120,10 @@ TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.
 
 ```php
-TD::make('color')->filter(TD::FILTER_SELECT, ['red'=>'Red', 'green'=>'Green']);
+TD::make('color')->filter(TD::FILTER_SELECT, [
+    'red'   => 'Red',
+    'green' => 'Green',
+]);
 ```
 
 When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed filter values.
