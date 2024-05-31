@@ -146,7 +146,7 @@ When developing a package that supports multiple versions, it is advised to util
 Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:
 
 ```php
-Orchid\Platform\Dashboard::VERSION
+Orchid\Platform\Dashboard::version()
 ```
 
 This constant returns a string representation of the current version being used.
