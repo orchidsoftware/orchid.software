@@ -357,7 +357,7 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#main-use">Main Use</a>
+                    <a href="#introduction">Introduction</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#data-binding">Data Binding</a>
@@ -367,16 +367,18 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>Describing form fields can be a challenging task, but with <code>Orchid\Screen\Builder</code>, you can easily modify and reuse form fields using a single builder that generates <code>HTML</code> code.</p>
-<h2><a href='#main-use' id='main-use'>Main Use</a></h2>
-<p>The form feature set and data source must be passed to build:</p>
+                        <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+<p>Describing form fields can be a challenging task, but with <code>Orchid\Screen\Builder</code>, you can easily modify and reuse form fields using a single builder that generates <code>HTML</code> code.</p>
+<p>To build a form, you need to provide the field definitions and possibly a data source:</p>
 <pre><code class="language-php">use Orchid\Screen\Builder;
 use Orchid\Screen\Fields\Input;
 
+// Initialize the form builder with the field definitions
 $builder = new Builder([
     Input::make('name'),
 ]);
 
+// Generate HTML code for the form
 $html = $builder-&gt;generateForm();
 </code></pre>
 <h2><a href='#data-binding' id='data-binding'>Data Binding</a></h2>
