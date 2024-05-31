@@ -35,7 +35,7 @@
                 <div class="col-12 col-lg-auto bg-grey py-lg-3 d-flex flex-column text-balance" style="background:#F9F9FE;z-index: 2">
                     <x-docs-menu :section="$section ?? 'site.navigation.'"/>
                 </div>
-                <div class="col-12 col-md me-auto bg-white py-lg-3">
+                <div class="col-12 col-md me-auto bg-white py-lg-3 overflow-hidden">
                     <main class="py-2 px-3 py-md-2 px-md-4 px-xl-5 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
                             <h1 class="me-3">{{ $title }}</h1>
