@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', "The MIT License (MIT)")
+@section('title', "License")
 @section('description', 'Join us as we celebrate collaboration, innovation, and the boundless potential of open source. Together, we can build a future defined by limitless possibilities.')
 
 @section('body')
