@@ -1,7 +1,7 @@
 @extends('layout')
 
-@section('title', "Support Orchid Sustainable Development")
-@section('description', 'Your contribution goes a long way in enabling us to develop and maintain our open-source packages while providing ongoing support to the community')
+@section('title', "Connect with the Orchid Community")
+@section('description', 'Dive into vibrant discussions with Orchid enthusiasts. Share ideas on GitHub, Telegram, Discord, and more. Join now!')
 
 @section('body')
 
