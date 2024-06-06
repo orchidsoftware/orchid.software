@@ -898,14 +898,15 @@ Will return the absolute path to the image.
 
 ## Upload
 
-Renders upload for images or regular files.
+This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.
 
-Example:
+To create a file upload element, use the `make` method of the `Upload` class and specify the field name:
+
 ```php
-use Orchid\Screen\Fields\Upload;
-
 Upload::make('upload');
 ```  
+
+You can group files by different categories using the `groups` method. This is especially useful if you need to upload different types of files, such as documents and images.
 
 ```php
 Upload::make('docs')
