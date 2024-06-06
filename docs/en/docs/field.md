@@ -1067,13 +1067,14 @@ use Orchid\Screen\Actions\DropDown;
 DropDown::make()
     ->icon('options-vertical')
     ->list([
-        Link::make(__('Edit'))
+        Link::make('Edit')
             ->route('platform.users.edit', $user->id)
             ->icon('pencil'),
-        Button::make(__('Delete'))
+
+        Button::make('Delete')
             ->method('remove')
             ->icon('trash')
-            ->confirm(__('Are you sure you want to delete the user?'))
+            ->confirm('Are you sure you want to delete the user?')
             ->parameters([
                 'id' => $user->id,
             ]),
