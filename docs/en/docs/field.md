@@ -946,7 +946,7 @@ Upload::make('upload')
     ->parallelUploads(2);
 ```
 
-> Maximum upload file size:
+> **Maximum upload file size:**
 > Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max file size to be more than 2M
 
 ```php
