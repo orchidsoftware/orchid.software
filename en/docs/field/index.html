@@ -1097,8 +1097,10 @@ public function documents()
 <pre><code class="language-php">Upload::make('upload')
     -&gt;parallelUploads(2);
 </code></pre>
+<blockquote>
 <p>Maximum upload file size:
 Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values are 2M, You can change them in <code>php.ini</code> to enable setting max file size to be more than 2M</p>
+</blockquote>
 <pre><code class="language-php">Upload::make('upload')
     -&gt;maxFileSize(1024); // Size in MB 
 </code></pre>
