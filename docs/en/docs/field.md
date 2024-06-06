@@ -1072,10 +1072,9 @@ DropDown::make()
             ->icon('pencil'),
 
         Button::make('Delete')
-            ->method('remove')
             ->icon('trash')
             ->confirm('Are you sure you want to delete the user?')
-            ->parameters([
+            ->method('remove', [
                 'id' => $user->id,
             ]),
     ]);
