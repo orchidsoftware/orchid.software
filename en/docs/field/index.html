@@ -1062,12 +1062,11 @@ Cropper::make('picture');
 </code></pre>
 <p>Will return the absolute path to the image.</p>
 <h2><a href='#upload' id='upload'>Upload</a></h2>
-<p>Renders upload for images or regular files.</p>
-<p>Example:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Upload;
-
-Upload::make('upload');
+<p>This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.</p>
+<p>To create a file upload element, use the <code>make</code> method of the <code>Upload</code> class and specify the field name:</p>
+<pre><code class="language-php">Upload::make('upload');
 </code></pre>
+<p>You can group files by different categories using the <code>groups</code> method. This is especially useful if you need to upload different types of files, such as documents and images.</p>
 <pre><code class="language-php">Upload::make('docs')
     -&gt;groups('documents');
 
