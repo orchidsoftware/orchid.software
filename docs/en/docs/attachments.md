@@ -175,7 +175,7 @@ When you have multiple attachments, you should use `attachment` relation from th
 public function deleting(Post $post)
 {
     //load attachment as collection and not query attachment()
-    $post->attachment->each->delete();
+    $post->attachment()->delete();
 }
 ```
 
