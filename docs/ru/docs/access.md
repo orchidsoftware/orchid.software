@@ -183,7 +183,7 @@ class PermissionServiceProvider extends ServiceProvider
 ## Проверка в Экранах
 
 Каждый созданный экран уже имеет встроенную проверку прав, установленных с помощью метода 
-`permission`, которое возаращает строкый массив для проверки:
+`permission`, которое возаращает строковый массив для проверки:
 
 ```php
 namespace App\Orchid\Screens;
