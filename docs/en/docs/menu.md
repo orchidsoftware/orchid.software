@@ -150,7 +150,9 @@ And then add new items in our own packages like:
 use Orchid\Support\Facades\Dashboard;
 
 Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Second Level Item 3')->icon('badge')
+    Menu::make('Second Level Item 2')->icon('badge')
 ]);
 ```
 
+
+> **Note:** The graphical interface supports menu nesting up to the second level. For more details on creating effective and intuitive navigation, explore our [design guidelines](https://orchid.software/en/hig/navigation).
