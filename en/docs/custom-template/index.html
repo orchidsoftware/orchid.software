@@ -371,9 +371,6 @@
                             <li class="anchor-h2">
                     <a href="#tabmenu">TabMenu</a>
                 </li>
-                            <li class="anchor-h2">
-                    <a href="#extension">Extension</a>
-                </li>
                     </ul>
     </div>
                         <body><h2><a href='#views' id='views'>Views</a></h2>
@@ -632,53 +629,6 @@ public function layout(): array
 {
     return [
         ExampleNavigation::class
-    ];
-}
-</code></pre>
-<h2><a href='#extension' id='extension'>Extension</a></h2>
-<p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
-<pre><code class="language-php">use Orchid\Screen\Layout;
-use Orchid\Screen\LayoutFactory;
-use Orchid\Screen\Repository;
-
-LayoutFactory::macro('hello', function (string $name) {
-    return new class($name) extends Layout
-    {
-        /**
-         * @ string
-         */
-        public $name;
-
-        /**
-         * Hello constructor.
-         *
-         * @param string $name
-         */
-        public function __construct(string $name)
-        {
-            $this-&gt;name = $name;
-        }
-
-        /**
-         * @param Repository $repository
-         *
-         * @return mixed
-         */
-        protected function build(Repository $repository)
-        {
-            return view('hello')-&gt;with('name', $this-&gt;name);
-        }
-
-    };
-});
-</code></pre>
-<p>Then on the screen, the call will look like:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-
-public function layout(): array
-{
-    return [
-        Layout::hello('Alexandr Chernyaev')
     ];
 }
 </code></pre>
