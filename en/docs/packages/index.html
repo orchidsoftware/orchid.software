@@ -374,6 +374,9 @@
                             <li class="anchor-h2">
                     <a href="#versioning">Versioning</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#extending-layouts">Extending Layouts</a>
+                </li>
                     </ul>
     </div>
                         <body><blockquote>
@@ -486,6 +489,53 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 <pre><code class="language-php">Orchid\Platform\Dashboard::version()
 </code></pre>
 <p>This constant returns a string representation of the current version being used.</p>
+<h2><a href='#extending-layouts' id='extending-layouts'>Extending Layouts</a></h2>
+<p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
+<pre><code class="language-php">use Orchid\Screen\Layout;
+use Orchid\Screen\LayoutFactory;
+use Orchid\Screen\Repository;
+
+LayoutFactory::macro('hello', function (string $name) {
+    return new class($name) extends Layout
+    {
+        /**
+         * @ string
+         */
+        public $name;
+
+        /**
+         * Hello constructor.
+         *
+         * @param string $name
+         */
+        public function __construct(string $name)
+        {
+            $this-&gt;name = $name;
+        }
+
+        /**
+         * @param Repository $repository
+         *
+         * @return mixed
+         */
+        protected function build(Repository $repository)
+        {
+            return view('hello')-&gt;with('name', $this-&gt;name);
+        }
+
+    };
+});
+</code></pre>
+<p>Then on the screen, the call will look like:</p>
+<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+
+public function layout(): array
+{
+    return [
+        Layout::hello('Alexandr Chernyaev')
+    ];
+}
+</code></pre>
 </body>
                         
                     </main>
