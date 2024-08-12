@@ -450,6 +450,9 @@ TD::make('last_name');
 <p>The <code>make</code> method is the main method, sets the key name from the array and the display name.</p>
 <pre><code class="language-php">TD::make('last_name', 'Last name');
 </code></pre>
+<blockquote>
+<p>Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.</p>
+</blockquote>
 <h2><a href='#alignment' id='alignment'>Alignment</a></h2>
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
 <pre><code class="language-php">TD::make('last_name')-&gt;align(TD::ALIGN_LEFT);
