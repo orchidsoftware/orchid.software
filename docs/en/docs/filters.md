@@ -191,7 +191,14 @@ The appearance of the selection layer can vary, such as being displayed as a dro
 ```php
 class MailingSelection extends Selection
 {
-    public $template = self::TEMPLATE_DROP_DOWN; // or self::TEMPLATE_LINE
+    /**
+     * Template for rendering the selection.
+     * 
+     * You can use any Blade template. Defaults:
+     * - `self::TEMPLATE_LINE` for a linear layout
+     * - `self::TEMPLATE_DROP_DOWN` for a dropdown menu
+     */
+    public $template = self::TEMPLATE_DROP_DOWN;
     
     /**
      * @return Filter[]
