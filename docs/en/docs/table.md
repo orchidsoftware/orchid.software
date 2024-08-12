@@ -78,6 +78,9 @@ TD::make('last_name', 'Last name');
 ```
 
 
+> Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.
+
+
 ## Alignment
 
 Content alignment control can be controlled using the `align` method:
