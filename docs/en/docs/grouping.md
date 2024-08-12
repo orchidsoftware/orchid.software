@@ -199,8 +199,8 @@ public function layout(): array
 {
     return [
         Layout::columns([
-           TableExample::class,
-           RowExample::class,
+           UserProfileForm::class,
+           ContactInformationForm::class,
         ]),
     ];
 }
