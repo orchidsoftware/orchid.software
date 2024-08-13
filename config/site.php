@@ -155,6 +155,7 @@ return [
                 'License Agreement' => '/en/community/license',
             ],
 
+            /*
             'Discussions' => [
                 'GitHub'   => 'https://github.com/orgs/orchidsoftware/discussions',
                 'Telegram' => 'https://t.me/orchid_community',
@@ -165,6 +166,15 @@ return [
             'Other' => [
                 'Donation'   => 'https://opencollective.com/orchid',
                 'Change Log' => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
+            ],
+
+            */
+
+            'Navigation' => [
+                'Back to Documentation' => '/en/documentation',
+                'Design Guidelines'     => '/en/hig',
+                'Community Forums'      => '/en/discussions',
+                'Change Log'            => 'https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md',
             ],
         ],
     ],

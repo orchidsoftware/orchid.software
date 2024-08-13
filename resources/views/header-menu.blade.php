@@ -1,13 +1,44 @@
+@php
+    $navLinks = [
+        /*
+        [
+            'href' => 'https://demo.orchid.software',
+            'label' => 'Demo',
+        ],
+        [
+            'href' => 'https://blog.orchid.software',
+            'label' => 'Blog',
+        ],
+        */
+        [
+            'href' => '/en/donations',
+            'label' => 'Donation',
+        ],
+        [
+            'href' => '/en/hig',
+            'label' => 'Design',
+        ],
+        [
+            'href' => '/en/discussions',
+            'label' => 'Discussion',
+        ],
+    ];
+@endphp
+
 <a href="/" class="d-flex align-items-center mb-0 me-md-auto text-dark text-decoration-none">
     <img src="/img/next/logo-full.svg" class="logo">
 </a>
 
 <ul class="nav nav-pills mx-auto align-items-center d-none d-md-inline-flex">
-    {{--<li class="nav-item"><a href="https://demo.orchid.software" class="nav-link">Demo</a></li>--}}
-    {{--<li class="nav-item"><a href="https://blog.orchid.software" class="nav-link">Blog</a></li>--}}
-    <li class="nav-item"><a href="/en/donations" class="nav-link">Donation</a></li>
-    <li class="nav-item"><a href="/en/hig" class="nav-link">Design</a></li>
-    <li class="nav-item"><a href="/en/discussions" class="nav-link">Discussion</a></li>
+
+    @foreach($navLinks as $link)
+        <li class="nav-item">
+            <a href="{{ $link['href'] }}" @class(['nav-link', 'text-white' => is_active('*'.$link['href'].'*')])>
+                {{ $link['label'] }}
+            </a>
+        </li>
+    @endforeach
+
     <li class="nav-item"><a href="https://github.com/orchidsoftware" class="nav-link">
             <svg width="1.5em" height="1.5em" viewBox="0 0 30 29" fill="currentColor"
                  xmlns="http://www.w3.org/2000/svg">
@@ -29,11 +60,6 @@
         >
     </li>
 
-    {{--
-<div id="docsearch">
-    test
-</div>
---}}
 </ul>
 
 <ul class="nav nav-pills ms-auto">
