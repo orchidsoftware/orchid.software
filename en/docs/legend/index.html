@@ -372,8 +372,8 @@ public function layout(): array
     ];
 }
 </code></pre>
-<p><picture alt='This image shows an illustrative legend for a User model.'><img src="/img/layouts/legend.png" alt="This image shows an illustrative legend for a User model."></picture></p>
 <p>In the example above, the first argument passed to the <code>Layout::legend()</code> method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen&rsquo;s <code>query</code> method. The second argument is an array of <code>Sight</code> objects, each representing a data point to be displayed.</p>
+<p><picture alt='This image shows an illustrative legend for a User model.'><img src="/img/layouts/legend.png" alt="This image shows an illustrative legend for a User model."></picture></p>
 <p>Many methods of the <code>Sight</code> class are similar to those of the <code>TD</code> class used in the <a href="/en/docs/table">Table</a> layout. For example, you can add a popover to provide additional information about a data point:</p>
 <pre><code class="language-php">Layout::legend('user', [
     Sight::make('id')-&gt;popover('Unique number in the system'),
