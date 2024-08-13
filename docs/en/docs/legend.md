@@ -24,10 +24,9 @@ public function layout(): array
 }
 ```
 
-![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
-
-
 In the example above, the first argument passed to the `Layout::legend()` method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen's `query` method. The second argument is an array of `Sight` objects, each representing a data point to be displayed.
+
+![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
 
 Many methods of the `Sight` class are similar to those of the `TD` class used in the [Table](/en/docs/table) layout. For example, you can add a popover to provide additional information about a data point:
 
