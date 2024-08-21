@@ -6,7 +6,7 @@ description: Learn how to configure Laravel Orchid's powerful features to custom
 
 The package uses the standard configuration system for Laravel. It stores the main parameters in the `config` directory, and the main file for the platform is the file `platform.php`. Each setting comes with a comment explaining its purpose.
 
-> **Note.** If you cache your configuration files, do not forget to clear them after making changes. You can use the command `php artisan config:clear` to do this.
+> **Note.** After caching your configuration files, don’t forget to clear the cache if you make changes. Use the `php artisan config:clear` command to refresh it.
 
 In this section, we will delve into the configuration file and provide a detailed description of each parameter.
 
