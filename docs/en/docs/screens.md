@@ -90,7 +90,7 @@ To use the new screen in your application, you will need to register it in the r
 ## Routing Screens
 
 
-Before a screen can be accessed at a direct URL, it must be registered in the routes/platform.php routes file. Routes registered in this file will be passed through the middleware specified in the [configuration](/en/docs/configuration).
+Before a screen can be accessed at a direct URL, it must be registered in the `routes/platform.php` routes file. Routes registered in this file will be passed through the middleware specified in the [configuration](/en/docs/configuration).
 
 
 To register a screen, you can use the screen method of the `Route` class. For example:
