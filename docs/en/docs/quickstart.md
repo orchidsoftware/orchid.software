@@ -16,7 +16,7 @@ In this tutorial, we will be creating a simple task list application to demonstr
 Before beginning this tutorial, make sure that you have already installed [the framework and package](/en/docs/installation), and started the web server. Let's get started!
 
 
-> Before we begin, we strongly recommend that you don't copy and paste. Typing each piece of code will help you practice and remember it.
+> To maximize your learning, we advise typing out the code yourself rather than copying and pasting. This approach helps reinforce your understanding and retention.
 
 
 ## Prepping the Database
