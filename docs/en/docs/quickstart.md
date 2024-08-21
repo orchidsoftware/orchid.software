@@ -5,9 +5,11 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 
 ## Introduction
 
+<!-- 
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
+-->
 
-Welcome to this tutorial on building an admin panel with Orchid! Admin panels and line of business applications are important for many web applications as they allow administrators to manage content, users, and other data.
+Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow administrators to manage content, users, and other data.
 
 In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional “to-do list”.
 
