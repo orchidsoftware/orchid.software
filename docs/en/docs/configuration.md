@@ -186,7 +186,7 @@ your-project/
                 └─ search.blade.php          
 ```
 
-> **Note.** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
+> ⚠️ **Warning.** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
 
 
 
