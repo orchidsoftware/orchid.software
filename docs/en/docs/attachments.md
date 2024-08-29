@@ -241,9 +241,9 @@ When you upload files using Laravel Orchid, the package uses a default configura
 
 ```php
 /*
-|----------------------------------------------------------------------
+|------------------------------------------------------------------
 | Default configuration for attachments.
-|----------------------------------------------------------------------
+|------------------------------------------------------------------
 |
 | Strategy properties for the file and storage used.
 |
