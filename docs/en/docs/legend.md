@@ -12,6 +12,19 @@ Here is an example of how to use the Legend layout:
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Sight;
 
+/**
+ * Fetch data to be displayed on the screen.
+ */
+public function query(): iterable
+{
+    return [
+        'user' => Auth::user(),
+    ];
+}
+
+/**
+ * The screen's layout elements.
+ */
 public function layout(): array
 {
     return [
