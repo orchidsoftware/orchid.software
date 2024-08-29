@@ -187,7 +187,7 @@ public function createOrUpdate(Request $request)
 {
     $this->post->fill($request->get('post'))->save();
 
-    $this->post->attachment()->syncWithoutDetaching(
+    $this->post->attachments()->syncWithoutDetaching(
         $request->input('post.attachment', [])
     );
 
