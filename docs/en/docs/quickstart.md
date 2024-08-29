@@ -144,7 +144,8 @@ class TaskScreen extends Screen
     }
 
     /**
-     * The description is displayed on the user's screen under the heading
+     * Displays a description on the user's screen
+     * directly under the heading.
      */
     public function description(): ?string
     {
