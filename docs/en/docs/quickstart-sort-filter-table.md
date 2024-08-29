@@ -138,11 +138,12 @@ And then call the new `filter` method with a text type for the header column:
 use Orchid\Screen\Fields\Input;
 
 TD::make('title')
-   ->sort()
-   ->filter(Input::make())
-   ->render(function (Post $post) {
-       return Link::make($post->title)->route('platform.post.edit', $post);
-   }),
+    ->sort()
+    ->filter(Input::make())
+    ->render(function (Post $post) {
+        return Link::make($post->title)
+            ->route('platform.post.edit', $post);
+    }),
 ```
  
 After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.
