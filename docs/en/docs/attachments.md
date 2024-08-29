@@ -6,7 +6,7 @@ description: Learn how to use Laravel Orchid's Attachments feature to manage and
 ## Attachments
 
 
-Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachment()` relationship.
+Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachments()` relationship.
 
 For example, to attach files to a `Hostel` model:
 
@@ -24,11 +24,11 @@ class Hostel extends Model
 }
 ```
 
-To retrieve the attachments for a particular hostel, you can use the `attachment()` relationship:
+To retrieve the attachments for a particular hostel, you can use the `attachments()` relationship:
 
 ```php
 $item = Hostel::find(42);
-$item->attachment()->get();
+$item->attachments()->get();
 ```
 
 
@@ -54,7 +54,7 @@ This will automatically upload the file to the default repository (usually `publ
 To retrieve the URL of an attachment, you can use the `url()` method:
 
 ```php
-$image = $item->attachment()->first();
+$image = $item->attachments()->first();
 
 // Get the URL of the file
 $image->url();
@@ -169,13 +169,13 @@ public function deleting(Post $post)
 }
 ```
 
-When you have multiple attachments, you should use `attachment` relation from the `Attachable` trait.
+When you have multiple attachments, you should use `attachments` relation from the `Attachable` trait.
 
 ```php
 public function deleting(Post $post)
 {
-    //load attachment as collection and not query attachment()
-    $post->attachment->each->delete();
+    //load attachments as collection and not query attachments()
+    $post->attachments->each->delete();
 }
 ```
 
@@ -236,7 +236,8 @@ class AttachmentClear extends Command
 
 ## Default Configuration
 
-When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the `config/platform.php` file. This configuration specifies the disk and generator that will be used to handle the files.
+When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the `config/platform.php` file. 
+This configuration specifies the disk and generator that will be used to handle the files.
 
 
 ```php
