@@ -392,6 +392,9 @@
                     <a href="#columns">Columns</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#tabmenu">TabMenu</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#tabs">Tabs</a>
                 </li>
                             <li class="anchor-h2">
@@ -557,6 +560,43 @@ public function layout(): array
 }
 </code></pre>
 <p>In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.</p>
+<h2><a href='#tabmenu' id='tabmenu'>TabMenu</a></h2>
+<p>The <code>TabMenu</code> layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.</p>
+<p>To create a <code>TabMenu</code> layout, you can use the <code>artisan</code> command:</p>
+<pre><code class="language-bash">php artisan orchid:tab-menu ExampleNavigation
+</code></pre>
+<p>This will create a new class called <code>ExampleNavigation</code> in the <code>app/Orchid/Layouts</code> directory. You can define the navigation items in this class by implementing the <code>navigations</code> method:</p>
+<pre><code class="language-php">namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\TabMenu;
+
+class ExampleNavigation extends TabMenu
+{
+    /**
+     * Get the menu elements to be displayed.
+     *
+     * @return Menu[]
+     */
+    protected function navigations(): iterable
+    {
+        return [
+            Menu::make('Get Started')
+                -&gt;route('platform.main'),
+        ];
+    }
+}
+</code></pre>
+<p>You can specify the items in the same way as in the <a href="/en/docs/menu">Menu section</a></p>
+<pre><code class="language-php">use App\Orchid\Layouts\ExampleNavigation;
+
+public function layout(): array
+{
+    return [
+        ExampleNavigation::class
+    ];
+}
+</code></pre>
 <h2><a href='#tabs' id='tabs'>Tabs</a></h2>
 <p>Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of content:</p>
 <p><picture alt='Tabs'><img src="/img/layouts/tabs.png" alt="Tabs"></picture></p>
