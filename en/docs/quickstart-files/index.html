@@ -498,7 +498,7 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
             Quill::make('post.body')
                 -&gt;title('Main text'),
 
-            Upload::make('post.attachment')
+            Upload::make('post.attachments')
                 -&gt;title('All files')
 
         ])
@@ -523,7 +523,7 @@ class Post extends Model
     $this-&gt;post-&gt;fill($request-&gt;get('post'))-&gt;save();
 
     $this-&gt;post-&gt;attachments()-&gt;syncWithoutDetaching(
-        $request-&gt;input('post.attachment', [])
+        $request-&gt;input('post.attachments', [])
     );
 
     Alert::info('You have successfully created a post.');
@@ -541,7 +541,7 @@ class Post extends Model
 <p>But when the record is accessed again, the field will be empty. This is due to the fact that <code>query</code> does not know about additional records to our model. We will fix this by adding a download:</p>
 <pre><code class="language-php">public function query(Post $post): array
 {
-    $post-&gt;load('attachment');
+    $post-&gt;load('attachments');
 
     return [
         'post' =&gt; $post
