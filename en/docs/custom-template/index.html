@@ -21,11 +21,11 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css?id=f869ed7c2605300a42b4213607127258">
 
 
-    <title>Custom Template | Orchid - Laravel Admin Panel</title>
+    <title>View Template | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Custom Template | Orchid - Laravel Admin Panel">
-<meta name="description" content="Learn how to create custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom Templates.">
+<meta name="title" content="View Template | Orchid - Laravel Admin Panel">
+<meta name="description" content="Learn how to create view/custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom/View Templates.">
 
 
 
@@ -35,15 +35,15 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://orchid.software/en/docs/custom-template"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Custom Template | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Learn how to create custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom Templates.">
+<meta property="og:title" content="View Template | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Learn how to create view/custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom/View Templates.">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:url" content="https://orchid.software/en/docs/custom-template">
-<meta name="twitter:title" content="Custom Template | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Learn how to create custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom Templates.">
+<meta name="twitter:title" content="View Template | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Learn how to create view/custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom/View Templates.">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
     <link rel="alternate" href="https://orchid.software/ru/docs/custom-template/" hreflang="ru"/>
@@ -352,7 +352,7 @@
                 <div class="col-12 col-lg col-md-auto me-auto bg-white py-lg-3 overflow-hidden">
                     <main class="py-2 px-3 py-md-2 px-md-4 px-xl-5 ms-md-4 me-md-auto order-md-first overflow-auto">
                         <div class="d-flex align-items-center mb-3 mt-3">
-                            <h1 class="me-3">Custom Template</h1>
+                            <h1 class="me-3">View Template</h1>
 
                             <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/custom-template.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                title="View and edit this file on GitHub" target="_blank" rel="noopener"
@@ -371,10 +371,10 @@
                     <a href="#views">Views</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#wrapper">Wrapper</a>
+                    <a href="#blade-components">Blade Components</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#blade-components">Blade Components</a>
+                    <a href="#wrapper">Wrapper</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#browsing">Browsing</a>
@@ -426,45 +426,6 @@ Hello, {{ $name }}.
         Layout::view('settings'),
     ];
 }
-</code></pre>
-<h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
-<p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
-<p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
-<pre><code class="language-php">public function layout(): array
-{
-    return [
-        Layout::wrapper('settings', [
-            'foo' =&gt; [
-                RowLayout::class,
-                RowLayout::class,
-            ],
-            'bar' =&gt; RowLayout::class,
-        ]),
-    ];
-}
-</code></pre>
-<p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
-<pre><code class="language-html">&lt;div class="row"&gt;
-    &lt;div class="col-7 border-right"&gt;
-        @foreach($foo as $row)
-            {!! $row !!}
-        @endforeach
-    &lt;/div&gt;
-    &lt;div class="col-5 no-gutter"&gt;
-        {!! $bar !!}
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
-<pre><code class="language-php">public function query(): array
-{
-    return [
-        'name' =&gt; 'Alexandr Chernyaev',
-    ];
-}
-</code></pre>
-<p>You can display the contents of the name variable in your template like this:</p>
-<pre><code class="language-php">Hello, {{ $name }}.
 </code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
 <p>Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the <code>artisan</code> command:</p>
@@ -582,6 +543,45 @@ blade;
 }
 </code></pre>
 <p>You can learn more about blade components in the <a href="https://laravel.com/docs/blade#components">Laravel documentation</a>.</p>
+<h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
+<p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
+<p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
+<pre><code class="language-php">public function layout(): array
+{
+    return [
+        Layout::wrapper('settings', [
+            'foo' =&gt; [
+                RowLayout::class,
+                RowLayout::class,
+            ],
+            'bar' =&gt; RowLayout::class,
+        ]),
+    ];
+}
+</code></pre>
+<p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
+<pre><code class="language-html">&lt;div class="row"&gt;
+    &lt;div class="col-7 border-right"&gt;
+        @foreach($foo as $row)
+            {!! $row !!}
+        @endforeach
+    &lt;/div&gt;
+    &lt;div class="col-5 no-gutter"&gt;
+        {!! $bar !!}
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
+<pre><code class="language-php">public function query(): array
+{
+    return [
+        'name' =&gt; 'Alexandr Chernyaev',
+    ];
+}
+</code></pre>
+<p>You can display the contents of the name variable in your template like this:</p>
+<pre><code class="language-php">Hello, {{ $name }}.
+</code></pre>
 <h2><a href='#browsing' id='browsing'>Browsing</a></h2>
 <p>Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this, you can use the <code>Layout::browsing</code> method to display the contents of a different web page within an iframe in your application.</p>
 <p>For example:</p>
