@@ -372,6 +372,19 @@
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Sight;
 
+/**
+ * Fetch data to be displayed on the screen.
+ */
+public function query(): iterable
+{
+    return [
+        'user' =&gt; Auth::user(),
+    ];
+}
+
+/**
+ * The screen's layout elements.
+ */
 public function layout(): array
 {
     return [

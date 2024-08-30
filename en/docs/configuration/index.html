@@ -398,7 +398,7 @@
     </div>
                         <body><p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
 <blockquote>
-<p><strong>Note.</strong> If you cache your configuration files, do not forget to clear them after making changes. You can use the command <code>php artisan config:clear</code> to do this.</p>
+<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Use the <code>php artisan config:clear</code> command to refresh it.</p>
 </blockquote>
 <p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
 <h2><a href='#domain' id='domain'>Domain</a></h2>
@@ -493,6 +493,9 @@ class AppServiceProvider extends ServiceProvider
 </code></pre>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
 <p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all packages, not just Orchid);</p>
+<blockquote>
+<p>&#9888;&#65039; <strong>Warning.</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
+</blockquote>
 <p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
 <code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
@@ -505,9 +508,6 @@ class AppServiceProvider extends ServiceProvider
             └─ partials/
                 └─ search.blade.php          
 </code></pre>
-<blockquote>
-<p><strong>Note.</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
-</blockquote>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">namespace App\Providers;

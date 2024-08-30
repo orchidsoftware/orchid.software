@@ -400,7 +400,7 @@
                     </ul>
     </div>
                         <body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
-<p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachment()</code> relationship.</p>
+<p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachments()</code> relationship.</p>
 <p>For example, to attach files to a <code>Hostel</code> model:</p>
 <pre><code class="language-php">namespace App;
 
@@ -413,9 +413,9 @@ class Hostel extends Model
     //
 }
 </code></pre>
-<p>To retrieve the attachments for a particular hostel, you can use the <code>attachment()</code> relationship:</p>
+<p>To retrieve the attachments for a particular hostel, you can use the <code>attachments()</code> relationship:</p>
 <pre><code class="language-php">$item = Hostel::find(42);
-$item-&gt;attachment()-&gt;get();
+$item-&gt;attachments()-&gt;get();
 </code></pre>
 <h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
 <p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller method that handles file uploads:</p>
@@ -431,7 +431,7 @@ public function upload(Request $request)
 </code></pre>
 <p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the database.</p>
 <p>To retrieve the URL of an attachment, you can use the <code>url()</code> method:</p>
-<pre><code class="language-php">$image = $item-&gt;attachment()-&gt;first();
+<pre><code class="language-php">$image = $item-&gt;attachments()-&gt;first();
 
 // Get the URL of the file
 $image-&gt;url();
@@ -508,11 +508,11 @@ public function hero()
     $post-&gt;hero()-&gt;delete();
 }
 </code></pre>
-<p>When you have multiple attachments, you should use <code>attachment</code> relation from the <code>Attachable</code> trait.</p>
+<p>When you have multiple attachments, you should use <code>attachments</code> relation from the <code>Attachable</code> trait.</p>
 <pre><code class="language-php">public function deleting(Post $post)
 {
-    //load attachment as collection and not query attachment()
-    $post-&gt;attachment-&gt;each-&gt;delete();
+    //load attachments as collection and not query attachments()
+    $post-&gt;attachments-&gt;each-&gt;delete();
 }
 </code></pre>
 <blockquote>
@@ -562,11 +562,12 @@ class AttachmentClear extends Command
 }
 </code></pre>
 <h2><a href='#default-configuration' id='default-configuration'>Default Configuration</a></h2>
-<p>When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the <code>config/platform.php</code> file. This configuration specifies the disk and generator that will be used to handle the files.</p>
+<p>When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the <code>config/platform.php</code> file.
+This configuration specifies the disk and generator that will be used to handle the files.</p>
 <pre><code class="language-php">/*
-|----------------------------------------------------------------------
+|------------------------------------------------------------------
 | Default configuration for attachments.
-|----------------------------------------------------------------------
+|------------------------------------------------------------------
 |
 | Strategy properties for the file and storage used.
 |
