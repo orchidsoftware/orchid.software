@@ -424,7 +424,7 @@
 <!-- 
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
 -->
-<p>Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow administrators to manage content, users, and other data.</p>
+<p>Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow to manage content, users, and other data.</p>
 <p>In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional &ldquo;to-do list&rdquo;.</p>
 <p>Before beginning this tutorial, make sure that you have already installed <a href="/en/docs/installation">the framework and package</a>, and started the web server. Let&rsquo;s get started!</p>
 <blockquote>
@@ -492,7 +492,7 @@ class Task extends Model
 </blockquote>
 <h2><a href='#screen' id='screen'>Screen</a></h2>
 <p>Now that we have the basic setup out of the way, it&rsquo;s time to add our first <a href="/en/docs/screens">screen</a> to the application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to define data and events for a single page. The structure of a screen allows us to easily define the layout and behavior of the page, and helps to keep our code organized and maintainable.</p>
-<p>To create a new screen, we will use the orchid generate screen command, which will generate a new screen class for us. This class will contain all of the necessary code for defining the data and events for our page. We can then use this class to render the page and handle user interactions.</p>
+<p>To create a new screen, use the <code>orchid:screen</code> command. This will generate a new screen class containing the code needed to define data and events for the page. You can then use this class to render the page and handle user interactions.</p>
 <pre><code class="language-bash">php artisan orchid:screen TaskScreen
 </code></pre>
 <p>A new file <code>TaskScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
