@@ -1,6 +1,6 @@
 ---
-title: Custom Template
-description: Learn how to create custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom Templates.
+title: View Template
+description: Learn how to create view/custom templates and themes for your Laravel Orchid application with our comprehensive documentation page on Custom/View Templates.
 ---
 
 ## Views
@@ -61,58 +61,6 @@ public function layout(): array
 }
 ```
 
-## Wrapper
-
-A "Wrapper" is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.
-
-To use a wrapper, you can pass an array of views to the `Layout::wrapper` method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.
-
-```php
-public function layout(): array
-{
-    return [
-        Layout::wrapper('settings', [
-            'foo' => [
-                RowLayout::class,
-                RowLayout::class,
-            ],
-            'bar' => RowLayout::class,
-        ]),
-    ];
-}
-```
-
-In the `settings.blade.php` template, you can access the `foo` and `bar` variables and display the views they contain like this:
-
-```html
-<div class="row">
-    <div class="col-7 border-right">
-        @foreach($foo as $row)
-            {!! $row !!}
-        @endforeach
-    </div>
-    <div class="col-5 no-gutter">
-        {!! $bar !!}
-    </div>
-</div>
-```
-
-Note that the variables returned by the `query` method will also be available in the template and can be accessed using blade syntax.
-
-```php
-public function query(): array
-{
-    return [
-        'name' => 'Alexandr Chernyaev',
-    ];
-}
-```
-
-You can display the contents of the name variable in your template like this:
-
-```php
-Hello, {{ $name }}.
-```
 
 ## Blade Components
 
@@ -250,6 +198,60 @@ blade;
 
 You can learn more about blade components in the [Laravel documentation](https://laravel.com/docs/blade#components).
 
+
+
+## Wrapper
+
+A "Wrapper" is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.
+
+To use a wrapper, you can pass an array of views to the `Layout::wrapper` method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.
+
+```php
+public function layout(): array
+{
+    return [
+        Layout::wrapper('settings', [
+            'foo' => [
+                RowLayout::class,
+                RowLayout::class,
+            ],
+            'bar' => RowLayout::class,
+        ]),
+    ];
+}
+```
+
+In the `settings.blade.php` template, you can access the `foo` and `bar` variables and display the views they contain like this:
+
+```html
+<div class="row">
+    <div class="col-7 border-right">
+        @foreach($foo as $row)
+            {!! $row !!}
+        @endforeach
+    </div>
+    <div class="col-5 no-gutter">
+        {!! $bar !!}
+    </div>
+</div>
+```
+
+Note that the variables returned by the `query` method will also be available in the template and can be accessed using blade syntax.
+
+```php
+public function query(): array
+{
+    return [
+        'name' => 'Alexandr Chernyaev',
+    ];
+}
+```
+
+You can display the contents of the name variable in your template like this:
+
+```php
+Hello, {{ $name }}.
+```
 
 ## Browsing
 
