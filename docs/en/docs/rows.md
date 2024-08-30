@@ -4,7 +4,7 @@ description: Learn how to create short and concise forms using the Row layout in
 ---
 
 
-The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](en/docs/field). 
+The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](/en/docs/field). 
 It is useful for creating short and concise forms, such as when you want to show one or two fields.
 
 Here is an example of how to use the `Row` layout:
