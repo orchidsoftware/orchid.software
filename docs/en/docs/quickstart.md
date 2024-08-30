@@ -9,7 +9,7 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
 -->
 
-Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow administrators to manage content, users, and other data.
+Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow to manage content, users, and other data.
 
 In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional “to-do list”.
 
@@ -106,9 +106,7 @@ class Task extends Model
 
 Now that we have the basic setup out of the way, it's time to add our first [screen](/en/docs/screens) to the application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to define data and events for a single page. The structure of a screen allows us to easily define the layout and behavior of the page, and helps to keep our code organized and maintainable.
 
-To create a new screen, we will use the orchid generate screen command, which will generate a new screen class for us. This class will contain all of the necessary code for defining the data and events for our page. We can then use this class to render the page and handle user interactions.
-
-
+To create a new screen, use the `orchid:screen` command. This will generate a new screen class containing the code needed to define data and events for the page. You can then use this class to render the page and handle user interactions.
 
 ```bash
 php artisan orchid:screen TaskScreen
