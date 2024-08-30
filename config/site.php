@@ -42,7 +42,7 @@ return [
                 'Listeners'       => '/en/docs/listener',
                 'Grouping'        => '/en/docs/grouping',
                 //'Display elements' => '/en/docs/display-elements',
-                'Custom Template' => '/en/docs/custom-template',
+                'Views'           => '/en/docs/custom-template',
             ],
             'Extra'       => [
                 'Icons'               => '/en/docs/icons',
