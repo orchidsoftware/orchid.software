@@ -157,7 +157,7 @@ public function layout(): array
             Quill::make('post.body')
                 ->title('Main text'),
 
-            Upload::make('post.attachment')
+            Upload::make('post.attachments')
                 ->title('All files')
 
         ])
@@ -188,7 +188,7 @@ public function createOrUpdate(Request $request)
     $this->post->fill($request->get('post'))->save();
 
     $this->post->attachments()->syncWithoutDetaching(
-        $request->input('post.attachment', [])
+        $request->input('post.attachments', [])
     );
 
     Alert::info('You have successfully created a post.');
@@ -212,7 +212,7 @@ But when the record is accessed again, the field will be empty. This is due to t
 ```php
 public function query(Post $post): array
 {
-    $post->load('attachment');
+    $post->load('attachments');
 
     return [
         'post' => $post
