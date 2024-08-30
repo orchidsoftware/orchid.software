@@ -208,6 +208,59 @@ public function layout(): array
 
 In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.
 
+
+
+## TabMenu
+
+The `TabMenu` layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.
+
+To create a `TabMenu` layout, you can use the `artisan` command:
+
+
+```bash
+php artisan orchid:tab-menu ExampleNavigation
+```
+
+This will create a new class called `ExampleNavigation` in the `app/Orchid/Layouts` directory. You can define the navigation items in this class by implementing the `navigations` method:
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\TabMenu;
+
+class ExampleNavigation extends TabMenu
+{
+    /**
+     * Get the menu elements to be displayed.
+     *
+     * @return Menu[]
+     */
+    protected function navigations(): iterable
+    {
+        return [
+            Menu::make('Get Started')
+                ->route('platform.main'),
+        ];
+    }
+}
+```
+
+You can specify the items in the same way as in the [Menu section](/en/docs/menu)
+
+```php
+use App\Orchid\Layouts\ExampleNavigation;
+
+public function layout(): array
+{
+    return [
+        ExampleNavigation::class
+    ];
+}
+```
+
+
+
 ## Tabs
 
 Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of content:
