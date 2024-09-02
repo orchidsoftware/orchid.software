@@ -398,7 +398,7 @@
                     <a href="#disabling-ajax-processing">Disabling AJAX Processing</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#asynchronous-data-loading">Asynchronous Data Loading</a>
+                    <a href="#deferred-data-loading">Deferred Data Loading</a>
                 </li>
                     </ul>
     </div>
@@ -516,20 +516,19 @@ To disable response processing, you need to add a call to the <code>rawClick</co
 ])
     -&gt;rawClick();
 </code></pre>
-<h2><a href='#asynchronous-data-loading' id='asynchronous-data-loading'>Asynchronous Data Loading</a></h2>
-<p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use asynchronous loading.
+<h2><a href='#deferred-data-loading' id='deferred-data-loading'>Deferred Data Loading</a></h2>
+<p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use deferred loading.
 This will replace the <code>query</code> screen data when opening the window and display
 new content.</p>
-<p>In order to declare a modal window asynchronous, you must call the <code>async</code> method passing in the argument the method name that should be used instead of <code>query</code>:</p>
-<pre><code class="language-php">Layout::modal('asyncModal', [
-    ExampleRow::class,
-])-&gt;async('asyncGetData');
+<p>In order to declare a modal window asynchronous, you must call the <code>deferred</code> method passing in the argument the method name that should be used instead of <code>query</code>:</p>
+<pre><code class="language-php">Layout::modal('deferredModal', Layout::rows([
+    Input::make('welcome')
+]))-&gt;deferred('loadDataOnOpen'),
 </code></pre>
-<p>All asynchronous screen methods start with the <code>async</code> prefix:</p>
+<p>Here is an example of a method for deferred loading:</p>
 <pre><code class="language-php">/**
- * This method is called instead of the `query` method to fetch data
- * and is used for updating data on the page without
- * a full reload.
+ * This method is called to fetch data and is used to update the modal content
+ * when the modal is opened, without a full page reload.
  */
 public function asyncGetData(string $welcome): array
 {
@@ -538,19 +537,21 @@ public function asyncGetData(string $welcome): array
     ];
 }
 </code></pre>
-<p>When calling such a modal window, you can pass values using the <code>asyncParameters</code> method, for example:</p>
+<p>When triggering the modal window, you can pass values directly:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
 ModalToggle::make('Open asynchronous modal')
     -&gt;method('methodForModal')
     -&gt;modalTitle('Customizable Title')
-    -&gt;modal('asyncModal', [
+    -&gt;modal('deferredModal', [
         'welcome' =&gt; 'Hello world!',
     ]),
 </code></pre>
-<blockquote>
-<p><strong>Please note</strong>, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the <code>Blade</code> template engine, this might look like: <code>{{$variable ?? ''}}</code>.</p>
-</blockquote>
+<!--
+
+> **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade` template engine, this might look like: `{{$variable ?? ''}}`.
+
+-->
 </body>
                         
                     </main>
