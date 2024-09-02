@@ -159,7 +159,7 @@ public function layout(): array
             Quill::make('post.body')
                 ->title('Main text'),
 
-            Upload::make('post.attachment')
+            Upload::make('post.attachments')
                 ->title('All files')
 
         ])
@@ -191,7 +191,7 @@ public function createOrUpdate(Post $post, Request $request)
     $post->fill($request->get('post'))->save();
 
     $post->attachment()->syncWithoutDetaching(
-        $request->input('post.attachment', [])
+        $request->input('post.attachments', [])
     );
 
     Alert::info('You have successfully created a post.');
@@ -215,7 +215,7 @@ id  attachmentable_type  attachmentable_id  attachment_id
 ```php
 public function query(Post $post): array
 {
-    $post->load('attachment');
+    $post->load('attachments');
 
     return [
         'post' => $post
