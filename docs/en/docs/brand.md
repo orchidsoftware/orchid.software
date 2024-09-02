@@ -47,7 +47,6 @@ Make changes to the file just created:
 
     <p class="my-0 {{ auth()->check() ? 'd-none d-xl-block' : '' }}">
         {{ config('app.name') }}
-        <small class="align-top opacity">{{ config('app.env') }}</small>
     </p>
 </div>
 ```
