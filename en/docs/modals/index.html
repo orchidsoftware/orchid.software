@@ -530,7 +530,7 @@ new content.</p>
  * This method is called to fetch data and is used to update the modal content
  * when the modal is opened, without a full page reload.
  */
-public function asyncGetData(string $welcome): array
+public function loadDataOnOpen(string $welcome): array
 {
     return [
         'welcome' =&gt; $welcome,
@@ -540,8 +540,8 @@ public function asyncGetData(string $welcome): array
 <p>When triggering the modal window, you can pass values directly:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
 
-ModalToggle::make('Open asynchronous modal')
-    -&gt;method('methodForModal')
+ModalToggle::make('Open Modal')
+    -&gt;method('methodForSubmitModal')
     -&gt;modalTitle('Customizable Title')
     -&gt;modal('deferredModal', [
         'welcome' =&gt; 'Hello world!',
