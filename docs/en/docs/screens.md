@@ -290,7 +290,8 @@ use Orchid\Screen\Actions\Link;
 public function commandBar() : array
 {
     return [
-        Link::make('External reference')->href('http://orchid.software'),
+        Link::make('External reference')
+                ->href('http://orchid.software'),
     ];
 }
 ```
