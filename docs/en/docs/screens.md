@@ -417,7 +417,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableEditLayout extends Rows
+class ReusableLayout extends Rows
 {
     /**
      * @var string
@@ -467,8 +467,8 @@ Instances can be used in the same way, but they can accept parameters
 public function layout(): array
 {
     return [
-        new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-        new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        new ReusableLayout('order.shipping_address', 'Shipping Address'),
+        new ReusableLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 ```
