@@ -152,17 +152,6 @@ Layout::modal('exampleModals', [
     ->open();
 ```
 
-## Disabling AJAX Processing
-
-By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
-To disable response processing, you need to add a call to the `rawClick` method:
-
-```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
-    ->rawClick();
-```
 
 ## Deferred Data Loading
 
@@ -211,3 +200,16 @@ ModalToggle::make('Open Modal')
 > **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade` template engine, this might look like: `{{$variable ?? ''}}`.
 
 -->
+
+
+## Disabling Reactive Processing
+
+By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
+To disable response processing, you need to add a call to the `rawClick` method:
+
+```php
+Layout::modal('exampleModals', [
+    Layout::rows([]),
+])
+    ->rawClick();
+```
