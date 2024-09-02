@@ -709,7 +709,7 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableEditLayout extends Rows
+class ReusableLayout extends Rows
 {
     /**
      * @var string
@@ -756,8 +756,8 @@ class ReusableEditLayout extends Rows
 <pre><code class="language-php">public function layout(): array
 {
     return [
-        new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-        new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        new ReusableLayout('order.shipping_address', 'Shipping Address'),
+        new ReusableLayout('order.invoice_address', 'Invoice Address'),
     ];
 }
 </code></pre>
