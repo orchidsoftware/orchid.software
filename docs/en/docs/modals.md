@@ -164,27 +164,26 @@ Layout::modal('exampleModals', [
     ->rawClick();
 ```
 
-## Asynchronous Data Loading
+## Deferred Data Loading
 
-When working with a dataset, there is no need to create a modal window for each value. Instead, you can use asynchronous loading.
+When working with a dataset, there is no need to create a modal window for each value. Instead, you can use deferred loading.
 This will replace the `query` screen data when opening the window and display
 new content.
 
-In order to declare a modal window asynchronous, you must call the `async` method passing in the argument the method name that should be used instead of `query`:
+In order to declare a modal window asynchronous, you must call the `deferred` method passing in the argument the method name that should be used instead of `query`:
 
 ```php
-Layout::modal('asyncModal', [
-    ExampleRow::class,
-])->async('asyncGetData');
+Layout::modal('deferredModal', Layout::rows([
+    Input::make('welcome')
+]))->deferred('loadDataOnOpen'),
 ```
 
-All asynchronous screen methods start with the `async` prefix:
+Here is an example of a method for deferred loading:
 
 ```php
 /**
- * This method is called instead of the `query` method to fetch data
- * and is used for updating data on the page without
- * a full reload.
+ * This method is called to fetch data and is used to update the modal content
+ * when the modal is opened, without a full page reload.
  */
 public function asyncGetData(string $welcome): array
 {
@@ -194,7 +193,7 @@ public function asyncGetData(string $welcome): array
 }
 ```
 
-When calling such a modal window, you can pass values using the `asyncParameters` method, for example:
+When triggering the modal window, you can pass values directly:
 
 ```php
 use Orchid\Screen\Actions\ModalToggle;
@@ -202,10 +201,13 @@ use Orchid\Screen\Actions\ModalToggle;
 ModalToggle::make('Open asynchronous modal')
     ->method('methodForModal')
     ->modalTitle('Customizable Title')
-    ->modal('asyncModal', [
+    ->modal('deferredModal', [
         'welcome' => 'Hello world!',
     ]),
 ```
 
+<!--
 
 > **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade` template engine, this might look like: `{{$variable ?? ''}}`.
+
+-->
