@@ -185,7 +185,7 @@ Here is an example of a method for deferred loading:
  * This method is called to fetch data and is used to update the modal content
  * when the modal is opened, without a full page reload.
  */
-public function asyncGetData(string $welcome): array
+public function loadDataOnOpen(string $welcome): array
 {
     return [
         'welcome' => $welcome,
@@ -198,8 +198,8 @@ When triggering the modal window, you can pass values directly:
 ```php
 use Orchid\Screen\Actions\ModalToggle;
 
-ModalToggle::make('Open asynchronous modal')
-    ->method('methodForModal')
+ModalToggle::make('Open Modal')
+    ->method('methodForSubmitModal')
     ->modalTitle('Customizable Title')
     ->modal('deferredModal', [
         'welcome' => 'Hello world!',
