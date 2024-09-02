@@ -41,13 +41,15 @@ resources
     >
 @endpush
 
-<p class="h2 n-m font-thin v-center">
-    <x-orchid-icon path="database"/>
-    <span class="m-l d-none d-sm-block">
-        Analytics
-        <small class="v-top opacity">Nest</small>
-    </span>
-</p>
+<div class="h2 d-flex align-items-center">
+    @auth
+        <x-orchid-icon path="bs.house" class="d-inline d-xl-none"/>
+    @endauth
+
+    <p class="my-0 {{ auth()->check() ? 'd-none d-xl-block' : '' }}">
+        {{ config('app.name') }}
+    </p>
+</div>
 ```
  
 Для того чтобы созданный шаблон использовался вместо стандартного, необходимо указать его в файле конфигурации,
