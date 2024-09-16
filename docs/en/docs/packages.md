@@ -207,35 +207,33 @@ use Orchid\Screen\Layout;
 use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Repository;
 
-LayoutFactory::macro('hello', function (string $name) {
-    return new class($name) extends Layout
+/**
+ * Define a custom macro for LayoutFactory.
+ *
+ * @param string $name
+ * @return Layout
+ */
+LayoutFactory::macro('hello', fn (string $name) => new class($name) extends Layout
+{
+    /**
+     * The name to be used in the view.
+     *
+     * @var string
+     */
+    public function __construct(
+        private string $name
+    ) {}
+
+    /**
+     * Build the layout and return the view.
+     *
+     * @param Repository $repository
+     * @return \Illuminate\View\View
+     */
+    protected function build(Repository $repository)
     {
-        /**
-         * @ string
-         */
-        public $name;
-
-        /**
-         * Hello constructor.
-         *
-         * @param string $name
-         */
-        public function __construct(string $name)
-        {
-            $this->name = $name;
-        }
-
-        /**
-         * @param Repository $repository
-         *
-         * @return mixed
-         */
-        protected function build(Repository $repository)
-        {
-            return view('hello')->with('name', $this->name);
-        }
-
-    };
+        return view('hello', ['name' => $this->name]);
+    }
 });
 ```
 
