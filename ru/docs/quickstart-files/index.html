@@ -534,7 +534,7 @@ class Post extends Model
 {
     $post-&gt;fill($request-&gt;get('post'))-&gt;save();
 
-    $post-&gt;attachment()-&gt;syncWithoutDetaching(
+    $post-&gt;attachments()-&gt;syncWithoutDetaching(
         $request-&gt;input('post.attachments', [])
     );
 
