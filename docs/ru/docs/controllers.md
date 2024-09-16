@@ -59,5 +59,7 @@ class CustomOrchidController extends Controller
 чтобы на него распространялись общие правила, такие как авторизация.
 
 ```php
-Route::get('custom', [\App\Http\Controllers\CustomOrchidController::class, 'index']);
+use App\Http\Controllers\CustomOrchidController;
+
+Route::get('custom', [CustomOrchidController::class, 'index']);
 ```
