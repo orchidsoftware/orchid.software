@@ -712,39 +712,25 @@ use Orchid\Screen\Layouts\Rows;
 class ReusableLayout extends Rows
 {
     /**
-     * @var string
+     * Constructor with automatic property declaration and initialization.
      */
-    private $title;
+    public function __construct(
+        private readonly string $prefix,
+        private readonly string $title
+    ) {}
 
     /**
-     * @var string
-     */
-    private $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string $prefix
-     * @param string $title
-     */
-    public function __construct(string $prefix, string $title)
-    {
-        $this-&gt;prefix = $prefix;
-        $this-&gt;title = $title;
-    }
-
-    /**
-     * Views.
+     * Define the fields for the layout.
      *
      * @return Field[]
      */
     protected function fields(): array
     {
         return [
-            Label::make('label')
+            new Label('label')
                 -&gt;title($this-&gt;title),
 
-            Input::make($this-&gt;prefix . '.address')
+            new Input($this-&gt;prefix . '.address')
                 -&gt;required()
                 -&gt;title('Address')
                 -&gt;placeholder('177A Bleecker Street'),
