@@ -145,40 +145,22 @@ $this->query->get('user.name');
 namespace App\Orchid\Layouts;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 
 class AddressLayout extends Rows
 {
-    /**
-     * Used to create the title of a group of form elements.
-     *
-     * @var string|null
-     */
-    protected $title;
-
-    /**
-     * Prefix for a field name
-     *
-     * @var string
-     */
-    protected $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string      $prefix
-     * @param string|null $title
-     */
-    public function __construct(string $prefix, string $title = null)
-    {
+    public function __construct(
+        private string $prefix,
+        private ?string $title = null
+    ) {
         $this->prefix = Str::finish($prefix, '.');
-        $this->title = $title;
     }
 
     /**
-     * Get the fields elements to be displayed.
+     * Get the fields to be displayed.
      *
      * @return Field[]
      */
@@ -193,19 +175,20 @@ class AddressLayout extends Rows
     }
 
     /**
+     * Add the prefix to each field name.
+     *
      * @param Field[] $fields
      *
-     * @return array
+     * @return Field[]
      */
     protected function addPrefix(array $fields): array
     {
-        return array_map(function (Field $field) {
-            return $field->set('name',
-                $this->prefix . $field->get('name')
-            );
-        }, $fields);
+        return collect($fields)
+            ->each(fn(Field $field) => $field->set('name', $this->prefix . $field->get('name')))
+            ->all();
     }
 }
+
 ```
 
 Теперь при использовании мы будем передавать значения префикса и заголовка:
