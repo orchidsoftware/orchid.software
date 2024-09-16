@@ -375,9 +375,6 @@ use Orchid\Screen\Layouts\Rows;
 
 class ReusableLayout extends Rows
 {
-    /**
-     * Constructor with automatic property declaration and initialization.
-     */
     public function __construct(
         private readonly string $prefix,
         private readonly string $title
