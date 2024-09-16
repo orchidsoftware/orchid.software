@@ -645,7 +645,7 @@ ModalToggle::make('Модальное окно')
 <p>&#1042;&#1099; &#1090;&#1072;&#1082;&#1078;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1101;&#1090;&#1086; &#1089; &#1082;&#1085;&#1086;&#1087;&#1082;&#1072;&#1084;&#1080; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1086;&#1075;&#1086; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1072;:</p>
 <pre><code class="language-php">use Orchid\Screen\Actions\Button;
 
-Button::make("Привет, мир!"')
+Button::make("Привет, мир!")
     -&gt;action(route('platform.screens.users', [
         'method' =&gt; 'hello',
     ]));
@@ -697,42 +697,28 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableEditLayout extends Rows
+class ReusableLayout extends Rows
 {
     /**
-     * @var string
+     * Constructor with automatic property declaration and initialization.
      */
-    private $title;
+    public function __construct(
+        private readonly string $prefix,
+        private readonly string $title
+    ) {}
 
     /**
-     * @var string
-     */
-    private $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string $prefix
-     * @param string $title
-     */
-    public function __construct(string $prefix, string $title)
-    {
-        $this-&gt;prefix = $prefix;
-        $this-&gt;title = $title;
-    }
-
-    /**
-     * Views.
+     * Define the fields for the layout.
      *
      * @return Field[]
      */
     protected function fields(): array
     {
         return [
-            Label::make('label')
+            new Label('label')
                 -&gt;title($this-&gt;title),
 
-            Input::make($this-&gt;prefix . '.address')
+            new Input($this-&gt;prefix . '.address')
                 -&gt;required()
                 -&gt;title('Address')
                 -&gt;placeholder('177A Bleecker Street'),
