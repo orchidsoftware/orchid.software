@@ -464,24 +464,11 @@
         '/path/to/custom.css'
     ],
     'scripts'     =&gt; [
-        'https://example.com/js/app.js',
+        '/path/to/custom.js', // Local path in the public directory
+        'https://cdn.example.com/app.js', // CDN path
+        Vite::asset('resources/js/app.js'), // Vite asset
     ],
 ],
-</code></pre>
-<p>You can also specify resources through the <code>Dashboard</code> object, for example, in a service provider:</p>
-<pre><code class="language-php">namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard-&gt;registerResource('stylesheets', 'custom.css');
-        $dashboard-&gt;registerResource('scripts', 'custom.js');
-    }
-}
 </code></pre>
 <p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
