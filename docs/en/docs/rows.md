@@ -153,36 +153,18 @@ Here is an example of a reusable `AddressLayout` class that takes a prefix and t
 namespace App\Orchid\Layouts;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 
 class AddressLayout extends Rows
 {
-    /**
-     * The title of the group of form elements.
-     *
-     * @var string|null
-     */
-    protected $title;
-
-    /**
-     * Prefix for a field name.
-     *
-     * @var string
-     */
-    protected $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string      $prefix
-     * @param string|null $title
-     */
-    public function __construct(string $prefix, string $title = null)
-    {
+    public function __construct(
+        private readonly string $prefix,
+        private readonly ?string $title = null
+    ) {
         $this->prefix = Str::finish($prefix, '.');
-        $this->title = $title;
     }
 
     /**
@@ -205,11 +187,13 @@ class AddressLayout extends Rows
      *
      * @param Field[] $fields
      *
-     * @return array
+     * @return Field[]
      */
     protected function addPrefix(array $fields): array
     {
-        return array_map(fn(Field $field) => $field->set('name', $this->prefix . $field->get('name')), $fields);
+        return collect($fields)
+            ->each(fn(Field $field) => $field->set('name', $this->prefix . $field->get('name')))
+            ->all();
     }
 }
 ```
