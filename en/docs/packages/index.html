@@ -549,35 +549,33 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Repository;
 
-LayoutFactory::macro('hello', function (string $name) {
-    return new class($name) extends Layout
+/**
+ * Define a custom macro for LayoutFactory.
+ *
+ * @param string $name
+ * @return Layout
+ */
+LayoutFactory::macro('hello', fn (string $name) =&gt; new class($name) extends Layout
+{
+    /**
+     * The name to be used in the view.
+     *
+     * @var string
+     */
+    public function __construct(
+        private string $name
+    ) {}
+
+    /**
+     * Build the layout and return the view.
+     *
+     * @param Repository $repository
+     * @return \Illuminate\View\View
+     */
+    protected function build(Repository $repository)
     {
-        /**
-         * @ string
-         */
-        public $name;
-
-        /**
-         * Hello constructor.
-         *
-         * @param string $name
-         */
-        public function __construct(string $name)
-        {
-            $this-&gt;name = $name;
-        }
-
-        /**
-         * @param Repository $repository
-         *
-         * @return mixed
-         */
-        protected function build(Repository $repository)
-        {
-            return view('hello')-&gt;with('name', $this-&gt;name);
-        }
-
-    };
+        return view('hello', ['name' =&gt; $this-&gt;name]);
+    }
 });
 </code></pre>
 <p>Then on the screen, the call will look like:</p>
