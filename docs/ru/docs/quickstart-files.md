@@ -190,7 +190,7 @@ public function createOrUpdate(Post $post, Request $request)
 {
     $post->fill($request->get('post'))->save();
 
-    $post->attachment()->syncWithoutDetaching(
+    $post->attachments()->syncWithoutDetaching(
         $request->input('post.attachments', [])
     );
 
