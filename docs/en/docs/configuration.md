@@ -127,27 +127,11 @@ For example, if you want to include a custom stylesheet on every page of the adm
         '/path/to/custom.css'
     ],
     'scripts'     => [
-        'https://example.com/js/app.js',
+        '/path/to/custom.js', // Local path in the public directory
+        'https://cdn.example.com/app.js', // CDN path
+        Vite::asset('resources/js/app.js'), // Vite asset
     ],
 ],
-```
-
-You can also specify resources through the `Dashboard` object, for example, in a service provider:
-
-```php
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
-
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerResource('stylesheets', 'custom.css');
-        $dashboard->registerResource('scripts', 'custom.js');
-    }
-}
 ```
 
 It's worth noting that the resource file must be present in the `public` directory to be able to access it.
