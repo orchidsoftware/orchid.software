@@ -616,39 +616,24 @@ use App\Models\Order;
 
 class OrderShortInformation extends Component
 {
-    /**
-     * @var Order
-     */
-    public $order;
+    public function __construct(
+        public readonly Order $order
+    ) {}
 
     /**
-     * Create the component instance.
+     * Get the status description.
      *
-     * @param  Order $order
-     * @return void
-     */
-    public function __construct(Order $order)
-    {
-        $this-&gt;order = $order;
-    }
-
-    /**
      * @return string
      */
-    public function status()
+    public function status(): string
     {
-        $descriptions = [
-            1 =&gt; __('In the process'),
-            2 =&gt; __('Paid'),
-            3 =&gt; __('Cancellation'),
-            4 =&gt; __('Refund'),
-        ];
-
-        if (array_key_exists($this-&gt;order-&gt;status, $descriptions)) {
-            return $descriptions[$this-&gt;order-&gt;status];
-        }
-
-        return 'Unknown';
+        return match ($this-&gt;order-&gt;status) {
+            Order::STATUS_PROCESS      =&gt; __('In the process'),
+            Order::STATUS_PAID         =&gt; __('Paid'),
+            Order::STATUS_CANCELLATION =&gt; __('Cancellation'),
+            Order::STATUS_REFUND       =&gt; __('Refund'),
+            default                    =&gt; __('Unknown'),
+        };
     }
 
     /**
@@ -656,7 +641,7 @@ class OrderShortInformation extends Component
      *
      * @return \Illuminate\View\View|\Closure|string
      */
-    public function render()
+    public function render(): \Illuminate\View\View|\Closure|string
     {
         return view('components.order.short-information');
     }
