@@ -303,7 +303,7 @@ PHP предлагает мощную возможность наследова�
 ```php
 use Orchid\Screen\Actions\Button;
 
-Button::make("Привет, мир!"')
+Button::make("Привет, мир!")
     ->action(route('platform.screens.users', [
         'method' => 'hello',
     ]));
@@ -373,42 +373,28 @@ use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableEditLayout extends Rows
+class ReusableLayout extends Rows
 {
     /**
-     * @var string
+     * Constructor with automatic property declaration and initialization.
      */
-    private $title;
+    public function __construct(
+        private readonly string $prefix,
+        private readonly string $title
+    ) {}
 
     /**
-     * @var string
-     */
-    private $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string $prefix
-     * @param string $title
-     */
-    public function __construct(string $prefix, string $title)
-    {
-        $this->prefix = $prefix;
-        $this->title = $title;
-    }
-
-    /**
-     * Views.
+     * Define the fields for the layout.
      *
      * @return Field[]
      */
     protected function fields(): array
     {
         return [
-            Label::make('label')
+            new Label('label')
                 ->title($this->title),
 
-            Input::make($this->prefix . '.address')
+            new Input($this->prefix . '.address')
                 ->required()
                 ->title('Address')
                 ->placeholder('177A Bleecker Street'),
