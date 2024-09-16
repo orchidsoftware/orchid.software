@@ -13,7 +13,7 @@ description: Использование контроллеров в прилож
 Для создания нового контроллера необходимо выполнить команду `make:controller`:
 
 ```php
-php artisan make:controller CustomOrchidController
+php artisan make:controller OrchidController
 ```
 
 В директории `app/Http/Controllers` будет создан новый класс, изменим его:
@@ -21,7 +21,7 @@ php artisan make:controller CustomOrchidController
 ```php
 namespace App\Http\Controllers;
 
-class CustomOrchidController extends Controller
+class OrchidController extends Controller
 {
     /**
      * @return \Illuminate\View\View
