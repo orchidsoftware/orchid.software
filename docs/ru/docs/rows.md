@@ -43,20 +43,19 @@ use Orchid\Screen\Fields\TextArea;
 
 class Appointment extends Rows
 {
-
     /**
+     * Define the fields for the appointment form.
+     *
      * @return Field[]
      */
     protected function fields(): array
     {
         return [
-            DateTimer::make()
-                ->name('appointment_time')
+            DateTimer::make('appointment_time')
                 ->required()
                 ->title('Time'),
 
-            TextArea::make()
-                ->name('doctor_notes')
+            TextArea::make('doctor_notes')
                 ->rows(10)
                 ->required()
                 ->title('Doctor notes')
