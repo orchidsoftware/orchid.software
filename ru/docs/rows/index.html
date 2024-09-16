@@ -494,40 +494,22 @@ public function query() : array
 <pre><code class="language-php">namespace App\Orchid\Layouts;
 
 use Illuminate\Support\Str;
+use Illuminate\Support\Collection;
 use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
 
 class AddressLayout extends Rows
 {
-    /**
-     * Used to create the title of a group of form elements.
-     *
-     * @var string|null
-     */
-    protected $title;
-
-    /**
-     * Prefix for a field name
-     *
-     * @var string
-     */
-    protected $prefix;
-
-    /**
-     * ReusableEditLayout constructor.
-     *
-     * @param string      $prefix
-     * @param string|null $title
-     */
-    public function __construct(string $prefix, string $title = null)
-    {
+    public function __construct(
+        private string $prefix,
+        private ?string $title = null
+    ) {
         $this-&gt;prefix = Str::finish($prefix, '.');
-        $this-&gt;title = $title;
     }
 
     /**
-     * Get the fields elements to be displayed.
+     * Get the fields to be displayed.
      *
      * @return Field[]
      */
@@ -542,19 +524,20 @@ class AddressLayout extends Rows
     }
 
     /**
+     * Add the prefix to each field name.
+     *
      * @param Field[] $fields
      *
-     * @return array
+     * @return Field[]
      */
     protected function addPrefix(array $fields): array
     {
-        return array_map(function (Field $field) {
-            return $field-&gt;set('name',
-                $this-&gt;prefix . $field-&gt;get('name')
-            );
-        }, $fields);
+        return collect($fields)
+            -&gt;each(fn(Field $field) =&gt; $field-&gt;set('name', $this-&gt;prefix . $field-&gt;get('name')))
+            -&gt;all();
     }
 }
+
 </code></pre>
 <p>&#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1087;&#1088;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1080; &#1084;&#1099; &#1073;&#1091;&#1076;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;&#1072; &#1080; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1082;&#1072;:</p>
 <pre><code class="language-php">public function layout(): array
