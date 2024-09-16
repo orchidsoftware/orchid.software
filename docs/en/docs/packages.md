@@ -119,6 +119,52 @@ public function menu(): array
 ```
 
 
+## Define Resources
+
+Laravel Orchid allows you to register custom resources like stylesheets and scripts that can be included in the dashboard. To register these resources, you need to define them in your service provider by overriding the appropriate methods.
+
+### Stylesheets
+
+To define the stylesheets to be registered, override the `stylesheets` method in your service provider. This method should return an array of strings, where each string represents the path to a stylesheet that you want to include.
+
+```php
+/**
+ * Define the stylesheets to be registered.
+ *
+ * @return string[]
+ */
+protected function stylesheets(): array
+{
+    return [
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', // CDN Path
+        '/absolute/path/to/your/styles.css', // Absolute Path
+        Vite::asset('resources/css/app.css'), // Vite Asset
+    ];
+}
+```
+
+### Scripts
+
+To define the scripts to be registered, override the `scripts` method in your service provider. This method should return an array of strings, where each string represents the path to a JavaScript file that you want to include.
+
+```php
+/**
+ * Define the scripts to be registered.
+ *
+ * @return string[]
+ */
+protected function scripts(): array
+{
+    return [
+        'https://cdn.jsdelivr.net/npm/vue@3.2.26/dist/vue.global.js', // CDN Path
+        '/absolute/path/to/your/script.js', // Absolute Path
+        Vite::asset('resources/js/app.js'), // Vite Asset
+    ];
+}
+```
+
+
+
 ## Define Icons
 
 To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the `icons` method of your service provider.
