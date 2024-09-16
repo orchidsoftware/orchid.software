@@ -389,10 +389,10 @@
                     <a href="#appearance-patterns">Appearance Patterns</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#overriding-blade-templates">Overriding Blade Templates</a>
+                    <a href="#model-classes">Model Classes</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#model-classes">Model Classes</a>
+                    <a href="#overriding-blade-templates">Overriding Blade Templates</a>
                 </li>
                     </ul>
     </div>
@@ -478,23 +478,6 @@
     'footer' =&gt; null,
 ],
 </code></pre>
-<h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all packages, not just Orchid);</p>
-<blockquote>
-<p>&#128680; <strong>Alert!</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
-</blockquote>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
-<p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
-<code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
-<pre><code class="language-php">your-project/
-├─ ...
-└─ resources/
-   └─ views/
-      └─ vendor/
-         └─ platform/
-            └─ partials/
-                └─ search.blade.php          
-</code></pre>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code class="language-php">namespace App\Providers;
@@ -524,6 +507,23 @@ class AppServiceProvider extends ServiceProvider
         User::class =&gt; MyCustomClass::class,
     ],
 ]);
+</code></pre>
+<h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all Laravel packages, not just Orchid);</p>
+<blockquote>
+<p>&#128680; <strong>Alert!</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
+</blockquote>
+<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
+<p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
+<code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
+<pre><code class="language-php">your-project/
+├─ ...
+└─ resources/
+   └─ views/
+      └─ vendor/
+         └─ platform/
+            └─ partials/
+                └─ search.blade.php          
 </code></pre>
 </body>
                         
