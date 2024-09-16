@@ -148,32 +148,6 @@ To change some templates, it is unnecessary to publish the entire package; you c
 ```
 
 
-## Overriding Blade Templates
-
-
-Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all packages, not just Orchid);
-
-> 🚨 **Alert!** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
-
-Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
-
-For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
-`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example: 
-
-
-```php
-your-project/
-├─ ...
-└─ resources/
-   └─ views/
-      └─ vendor/
-         └─ platform/
-            └─ partials/
-                └─ search.blade.php          
-```
-
-
-
 ## Model Classes
 
 The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
@@ -209,4 +183,29 @@ Dashboard::configure([
         User::class => MyCustomClass::class,
     ],
 ]);
+```
+
+
+## Overriding Blade Templates
+
+
+Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all Laravel packages, not just Orchid);
+
+> 🚨 **Alert!** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
+
+Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
+
+For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
+`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example: 
+
+
+```php
+your-project/
+├─ ...
+└─ resources/
+   └─ views/
+      └─ vendor/
+         └─ platform/
+            └─ partials/
+                └─ search.blade.php          
 ```
