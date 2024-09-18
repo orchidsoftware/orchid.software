@@ -129,7 +129,6 @@ For example, if you want to include a custom stylesheet on every page of the adm
     'scripts'     => [
         '/path/to/custom.js', // Local path in the public directory
         'https://cdn.example.com/app.js', // CDN path
-        Vite::asset('resources/js/app.js'), // Vite asset
     ],
 ],
 ```
