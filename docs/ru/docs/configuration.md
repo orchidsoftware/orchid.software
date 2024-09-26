@@ -14,7 +14,7 @@ description: Laravel Orchid использует стандартную сист
 ## Адрес платформы
 
 ```php
-'domain' => env('DASHBOARD_DOMAIN', null),
+'domain' => env('PLATFORM_DOMAIN', null),
 ```
 
 Для многих проектов адрес расположения панели администрирования играет важную роль.
@@ -33,10 +33,10 @@ description: Laravel Orchid использует стандартную сист
 
 
 ```php
-'prefix' => env('DASHBOARD_PREFIX', 'dashboard'),
+'prefix' => env('PLATFORM_PREFIX', 'admin'),
 ```
  
-Предоставляется возможность смены префикса `dashboard` на любое другое название, например `admin` или `administrator`.
+Предоставляется возможность смены префикса `admin` на любое другое название, например `dashboard` или `administrator`.
 
 
 
