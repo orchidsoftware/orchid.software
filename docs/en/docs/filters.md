@@ -82,9 +82,15 @@ This allows you to define a filter once and apply it to multiple models, reducin
 Simply specify the filter class when applying filters to your models:
 
 ```php
-User::filters([EmailFilter::class])->simplePaginate();
+$filters = [
+    EmailFilter::class,
+];
 
-Customer::filters([EmailFilter::class])->simplePaginate();
+User::filters($filters)
+    ->simplePaginate();
+
+Customer::filters($filters)
+    ->simplePaginate();
 ```
 
 
