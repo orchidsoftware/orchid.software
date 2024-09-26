@@ -13,7 +13,7 @@ In this section, we will delve into the configuration file and provide a detaile
 ## Domain
 
 ```php
-'domain' => env('DASHBOARD_DOMAIN', null),
+'domain' => env('PLATFORM_DOMAIN', null),
 ```
 
 For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at `example.com`, and the platform is at `admin.example.com` or on a third-party domain.
@@ -31,7 +31,7 @@ It is important to note that your web server settings must be configured correct
 
 
 ```php
-'prefix' => env('DASHBOARD_PREFIX', 'admin'),
+'prefix' => env('PLATFORM_PREFIX', 'admin'),
 ```
  
 The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `admin` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
