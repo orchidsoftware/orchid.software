@@ -402,7 +402,7 @@
 </blockquote>
 <p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
 <h2><a href='#domain' id='domain'>Domain</a></h2>
-<pre><code class="language-php">'domain' =&gt; env('DASHBOARD_DOMAIN', null),
+<pre><code class="language-php">'domain' =&gt; env('PLATFORM_DOMAIN', null),
 </code></pre>
 <p>For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
 <p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration file:</p>
@@ -410,7 +410,7 @@
 </code></pre>
 <p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
 <h2><a href='#prefix' id='prefix'>Prefix</a></h2>
-<pre><code class="language-php">'prefix' =&gt; env('DASHBOARD_PREFIX', 'admin'),
+<pre><code class="language-php">'prefix' =&gt; env('PLATFORM_PREFIX', 'admin'),
 </code></pre>
 <p>The <code>prefix</code> parameter allows you to change the default <code>admin</code> prefix to any other name, such as <code>admin</code> or <code>administrator</code>. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.</p>
 <p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code> instead of <code>https://example.com/admin/login</code>.</p>
