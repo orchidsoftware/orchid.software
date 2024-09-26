@@ -34,7 +34,7 @@ It is important to note that your web server settings must be configured correct
 'prefix' => env('PLATFORM_PREFIX', 'admin'),
 ```
  
-The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `admin` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
+The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `orchid` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
  
 For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login` instead of `https://example.com/admin/login`. 
  
