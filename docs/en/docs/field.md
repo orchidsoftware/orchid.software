@@ -930,7 +930,7 @@ public function hero()
 // Many-to-Many (no foreign id on table, should be uploaded with groups() function)
 public function documents()
 {
-    return $this->hasMany(Attachment::class)->where('group','documents');
+    return $this->attachments('documents');
 }
 ```
 
