@@ -1096,7 +1096,7 @@ public function hero()
 // Many-to-Many (no foreign id on table, should be uploaded with groups() function)
 public function documents()
 {
-    return $this-&gt;hasMany(Attachment::class)-&gt;where('group','documents');
+    return $this-&gt;attachments('documents');
 }
 </code></pre>
 <p>It can be used to limit the maximum number of files that will be processed:</p>
