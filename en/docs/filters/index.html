@@ -467,9 +467,15 @@ Model::filters([EmailFilter::class])-&gt;simplePaginate();
 <p>One of the great advantages of filters is that you can reuse the same filter class for different models.
 This allows you to define a filter once and apply it to multiple models, reducing code duplication.
 Simply specify the filter class when applying filters to your models:</p>
-<pre><code class="language-php">User::filters([EmailFilter::class])-&gt;simplePaginate();
+<pre><code class="language-php">$filters = [
+    EmailFilter::class,
+];
 
-Customer::filters([EmailFilter::class])-&gt;simplePaginate();
+User::filters($filters)
+    -&gt;simplePaginate();
+
+Customer::filters($filters)
+    -&gt;simplePaginate();
 </code></pre>
 <h3><a href='#running-the-filter-always' id='running-the-filter-always'>Running the Filter Always</a></h3>
 <p>By default, filters are applied only when the corresponding parameters are specified.
