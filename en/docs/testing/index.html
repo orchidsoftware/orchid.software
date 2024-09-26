@@ -385,7 +385,8 @@ class ExampleTest extends TestCase
 {
     $screen = $this-&gt;screen('platform.example');
 
-    $screen-&gt;display()
+    $screen
+        -&gt;display()
         -&gt;assertSee('Example screen');
 
     $screen
