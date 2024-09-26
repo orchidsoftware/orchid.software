@@ -28,7 +28,8 @@ public function testExampleScreen()
 {
     $screen = $this->screen('platform.example');
 
-    $screen->display()
+    $screen
+        ->display()
         ->assertSee('Example screen');
 
     $screen
