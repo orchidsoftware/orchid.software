@@ -176,7 +176,7 @@ npm run build
 > **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
 
 
-### Run controller
+### Run Controller
 
 To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
 
