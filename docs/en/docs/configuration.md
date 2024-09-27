@@ -107,7 +107,7 @@ You can change this to any other route you have defined in your application. For
 It's worth noting that you will need to create the corresponding route and controller for the new home page.
 
 
-## Dashboard Resources
+## Asset Resources
 
 
 ```php
