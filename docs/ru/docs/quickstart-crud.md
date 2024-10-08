@@ -14,6 +14,7 @@ description: Laravel CRUD
 ```php
 php artisan make:migration create_posts_table
 ```
+> **Примечание.** Удобнее создавать миграцию одновременно с созданием модели указав ключ `--migration` или сокращенно `-m`: `php artisan make:model Post -m`
 
 В директории `database/migrations` будет создан новый файл миграции, добавим в него описание требуемых колонок.
 
