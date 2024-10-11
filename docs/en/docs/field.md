@@ -575,6 +575,12 @@ DateRange::make('open')
 
 Default value / result is an array with keys of `start`, `end`.
 
+```php
+DateRange::make('open')
+                ->title('Opening between')
+                ->value(['start' => now()->subDays(30), 'end' => now()]),
+```
+
 ## TimeZone
 
 The `TimeZone` field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.
