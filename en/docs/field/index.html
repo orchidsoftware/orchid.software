@@ -863,6 +863,10 @@ DateRange::make('open')
     -&gt;title('Opening between');
 </code></pre>
 <p>Default value / result is an array with keys of <code>start</code>, <code>end</code>.</p>
+<pre><code class="language-php">DateRange::make('open')
+                -&gt;title('Opening between')
+                -&gt;value(['start' =&gt; now()-&gt;subDays(30), 'end' =&gt; now()]),
+</code></pre>
 <h2><a href='#timezone' id='timezone'>TimeZone</a></h2>
 <p>The <code>TimeZone</code> field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\TimeZone;
