@@ -15,8 +15,6 @@ To create a listener layout, you need to run the following `artisan` command in 
 php artisan orchid:listener SubtractListener
 ```
 
-This command will create a new class named `SubtractListener` in the `app/Orchid/Layouts` directory. 
-
 Running the command above will create a new class named `SubtractListener` in the `app/Orchid/Layouts` directory. 
 Once created, you can now add the required fields in the `layouts` method as shown below:
 
