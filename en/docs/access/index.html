@@ -374,7 +374,7 @@
                     <a href="#roles">Roles</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#admin-creation">Admin Creation</a>
+                    <a href="#creating-an-admin-user-via-console">Creating an Admin User via Console</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#add-your-own-permissions">Add Your Own Permissions</a>
@@ -456,8 +456,8 @@ User::byAnyAccess([
 <pre><code class="language-php">// Returns all users with this role.
 $role-&gt;getUsers();
 </code></pre>
-<h2><a href='#admin-creation' id='admin-creation'>Admin Creation</a></h2>
-<p>To create a user with the maximum (at the time of creation) rights, run the following command:</p>
+<h2><a href='#creating-an-admin-user-via-console' id='creating-an-admin-user-via-console'>Creating an Admin User via Console</a></h2>
+<p>To create a user with the maximum (at the time of creation) permissions, run the following command:</p>
 <pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword
 </code></pre>
 <p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
