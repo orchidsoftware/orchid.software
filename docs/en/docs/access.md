@@ -88,9 +88,9 @@ $role->getUsers();
 ```
 
 
-## Admin Creation
+## Creating an Admin User via Console
 
-To create a user with the maximum (at the time of creation) rights, run the following command:
+To create a user with the maximum (at the time of creation) permissions, run the following command:
 
 ```php
 php artisan orchid:admin nickname email@email.com secretpassword
