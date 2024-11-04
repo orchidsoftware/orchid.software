@@ -432,7 +432,6 @@ The DateTime field provides a streamlined interface for selecting both date and 
 
 ![DateTime](/img/ui/datatime.png) 
 
-### Usage
 
 To create a DateTime field, utilize the `DateTimer` class:
 
@@ -626,7 +625,6 @@ The representation of variable zones can be found in the documentation [PHP](htt
 
 The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.
 
-### Usage
 
 To create a Quill editor instance, simply utilize the `Quill` field. Here's an example of how to implement it in your code:
 
@@ -715,8 +713,6 @@ SimpleMDE::make('markdown');
 ## Matrix
 
 The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It's particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.
-
-### Usage
 
 You can easily create a Matrix field by specifying the column headers. Here's an example of how to define a Matrix field with columns:
 
