@@ -491,7 +491,7 @@
                     <a href="#action-confirmation">Action Confirmation</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#specifying-the-url-for-data-submission">Specifying the URL for Data Submission</a>
+                    <a href="#submission-url">Submission URL</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#file-download">File Download</a>
@@ -1222,7 +1222,8 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
     ]);
 </code></pre>
 <h3><a href='#action-confirmation' id='action-confirmation'>Action Confirmation</a></h3>
-<p>To prevent accidental actions, add the <code>confirm()</code> method. This will display a confirmation dialog before executing the action. It is particularly useful for irreversible actions, such as data deletion.</p>
+<p>To prevent accidental actions, add the <code>confirm()</code> method. This will display a confirmation dialog before executing the action.
+It is particularly useful for irreversible actions, such as data deletion.</p>
 <pre><code class="language-php">Button::make('Delete')
     -&gt;method('deleteItem')
     -&gt;confirm('You will lose access to this item.');
@@ -1230,7 +1231,7 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 <blockquote>
 <p><strong>Tip:</strong> Use clear and concise messaging in <code>confirm()</code> so the user understands the consequences.</p>
 </blockquote>
-<h3><a href='#specifying-the-url-for-data-submission' id='specifying-the-url-for-data-submission'>Specifying the URL for Data Submission</a></h3>
+<h3><a href='#submission-url' id='submission-url'>Submission URL</a></h3>
 <p>To specify the URL where the form data should be sent, use the <code>action()</code> method. Typically, this will be the URL of a controller within your application where the request is processed after the button is clicked.</p>
 <pre><code class="language-php">Button::make('Submit')
     -&gt;action('https://orchid.software');
