@@ -848,7 +848,7 @@ use Orchid\Screen\Fields\Cropper;
 Cropper::make('picture');
 ```  
 
-### Width and height
+### Width and Height
 
 In order to control the format, you can specify the width and height of the desired image:
 
