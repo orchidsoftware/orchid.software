@@ -1099,7 +1099,8 @@ Button::make('Submit')
 
 ### Action Confirmation
 
-To prevent accidental actions, add the `confirm()` method. This will display a confirmation dialog before executing the action. It is particularly useful for irreversible actions, such as data deletion.
+To prevent accidental actions, add the `confirm()` method. This will display a confirmation dialog before executing the action.
+It is particularly useful for irreversible actions, such as data deletion.
 
 ```php
 Button::make('Delete')
@@ -1109,7 +1110,7 @@ Button::make('Delete')
 
 > **Tip:** Use clear and concise messaging in `confirm()` so the user understands the consequences.
 
-### Specifying the URL for Data Submission
+### Submission URL
 
 To specify the URL where the form data should be sent, use the `action()` method. Typically, this will be the URL of a controller within your application where the request is processed after the button is clicked.
 
