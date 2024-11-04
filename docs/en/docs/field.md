@@ -989,30 +989,94 @@ It will add a new button with a modal window to preview uploaded files.
 
 ## Group
 
-The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the `Group::make` method and pass an array of fields as the argument:
+The `Group` component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.
 
 ```php
-use Orchid\Screen\Fields\Group;
-
 Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
 ]),
 ```
 
-By default, fields within a Group field will occupy the entire available screen width. You can specify the width of the fields using the `fullWidth` or `autoWidth` methods:
+### Column Width
+
+By default, fields will take up the full available width of the screen when you use the `fullWidth` method. This option is suitable for most scenarios where you need elements to fill the entire space:
 
 ```php
-// Fields will occupy the entire available screen width
 Group::make([
     // ...
 ])->fullWidth();
+```
 
-// Fields will take up as much space as necessary
+However, there may be cases where you want fields to occupy only the necessary space. The `autoWidth` method is perfect for situations where fields contain varying amounts of data. For example, when using radio buttons:
+
+```php
 Group::make([
-    // ...
+    Radio::make('agreement')
+        ->placeholder('Yes')
+        ->value(1),
+
+    Radio::make('contact')
+        ->placeholder('No')
+        ->value(0),
 ])->autoWidth();
 ```
+
+For greater flexibility in configuring column widths, you can use the `widthColumns()` method, which supports CSS Grid. This method allows you to specify column widths using values for the `grid-template-columns` property:
+
+```php
+Group::make([
+    // ...
+])->widthColumns('2fr 1fr');
+```
+
+Accepted values for `widthColumns()` include:
+
+- Percentages (e.g., `30%`)
+- Pixels (e.g., `120px`)
+- Fractional units (e.g., `2fr`)
+- Other values such as `max-content` and `auto`
+
+> **Important:** The number of specified values must not be less than the number of elements in the group.
+
+The width settings apply only on desktop devices. On mobile devices, each field will be displayed on a new line, enhancing the responsiveness of the interface and improving user experience.
+
+### Column Alignment
+
+Columns within a group can have different heights, especially when a header is present in only one of them. To create a more visually appealing interface, it is essential to utilize column alignment.
+
+When one of the columns has a header, aligning all columns to the bottom of the parent container will create a more harmonious look. To achieve this, use the `alignEnd` method:
+
+```php
+Group::make([
+    // ...
+])->alignEnd();
+```
+
+If you want all elements to align at the top, apply the `alignStart` method:
+
+```php
+Group::make([
+    // ...
+])->alignStart();
+```
+
+To ensure that the columns are aligned along the baseline of the text for consistency in content display, use the `alignBaseLine` method:
+
+```php
+Group::make([
+    // ...
+])->alignBaseLine();
+```
+
+For a symmetrical appearance, center the columns using the `alignCenter` method:
+
+```php
+Group::make([
+    // ...
+])->alignCenter();
+```
+
 
 
 ## Button/Link
