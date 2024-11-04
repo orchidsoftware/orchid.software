@@ -401,9 +401,6 @@
                     <a href="#datetime">DateTime</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#usage">Usage</a>
-                </li>
-                            <li class="anchor-h3">
                     <a href="#direct-input">Direct Input</a>
                 </li>
                             <li class="anchor-h3">
@@ -437,9 +434,6 @@
                     <a href="#quill-wysiwyg-editor">Quill WYSIWYG Editor</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#usage">Usage</a>
-                </li>
-                            <li class="anchor-h3">
                     <a href="#toolbar-controls">Toolbar Controls</a>
                 </li>
                             <li class="anchor-h3">
@@ -450,9 +444,6 @@
                 </li>
                             <li class="anchor-h2">
                     <a href="#matrix">Matrix</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#customizing-column-headers">Customizing Column Headers</a>
@@ -778,7 +769,6 @@ class User extends Model
 <h2><a href='#datetime' id='datetime'>DateTime</a></h2>
 <p>The DateTime field provides a streamlined interface for selecting both date and time within your Laravel applications, leveraging the robust functionality of the <code>flatpickr</code> JavaScript library.</p>
 <p><picture alt='DateTime'><img src="/img/ui/datatime.png" alt="DateTime"></picture></p>
-<h3><a href='#usage' id='usage'>Usage</a></h3>
 <p>To create a DateTime field, utilize the <code>DateTimer</code> class:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\DateTimer;
 
@@ -903,7 +893,6 @@ DateTimeZone::PER_COUNTRY;
 <p>The representation of variable zones can be found in the documentation <a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
 <h2><a href='#quill-wysiwyg-editor' id='quill-wysiwyg-editor'>Quill WYSIWYG Editor</a></h2>
 <p>The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
-<h3><a href='#usage' id='usage'>Usage</a></h3>
 <p>To create a Quill editor instance, simply utilize the <code>Quill</code> field. Here&rsquo;s an example of how to implement it in your code:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Quill;
 
@@ -966,7 +955,6 @@ SimpleMDE::make('markdown');
 </code></pre>
 <h2><a href='#matrix' id='matrix'>Matrix</a></h2>
 <p>The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It&rsquo;s particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.</p>
-<h3><a href='#usage' id='usage'>Usage</a></h3>
 <p>You can easily create a Matrix field by specifying the column headers. Here&rsquo;s an example of how to define a Matrix field with columns:</p>
 <pre><code class="language-php">use Orchid\Screen\Fields\Matrix;
 
