@@ -491,7 +491,7 @@
                     <a href="#action-confirmation">Action Confirmation</a>
                 </li>
                             <li class="anchor-h3">
-                    <a href="#sending-data-to-an-external-url">Sending Data to an External URL</a>
+                    <a href="#specifying-the-url-for-data-submission">Specifying the URL for Data Submission</a>
                 </li>
                             <li class="anchor-h3">
                     <a href="#file-download">File Download</a>
@@ -1230,10 +1230,13 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 <blockquote>
 <p><strong>Tip:</strong> Use clear and concise messaging in <code>confirm()</code> so the user understands the consequences.</p>
 </blockquote>
-<h3><a href='#sending-data-to-an-external-url' id='sending-data-to-an-external-url'>Sending Data to an External URL</a></h3>
-<p>To send data to an external URL, use the <code>action()</code> method. This is useful if you need to submit a form to a destination outside the current screen.</p>
+<h3><a href='#specifying-the-url-for-data-submission' id='specifying-the-url-for-data-submission'>Specifying the URL for Data Submission</a></h3>
+<p>To specify the URL where the form data should be sent, use the <code>action()</code> method. Typically, this will be the URL of a controller within your application where the request is processed after the button is clicked.</p>
 <pre><code class="language-php">Button::make('Submit')
     -&gt;action('https://orchid.software');
+
+Button::make('Submit')
+    -&gt;action(route('controller.method'));
 </code></pre>
 <h3><a href='#file-download' id='file-download'>File Download</a></h3>
 <p>To initiate a file download when clicking a button, use the <code>download()</code> method. This signals the system that the result of the method execution will be a downloadable file rather than simply displaying it in the browser.</p>
