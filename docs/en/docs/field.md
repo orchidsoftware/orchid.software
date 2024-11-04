@@ -1075,76 +1075,111 @@ Group::make([
 
 
 
-## Button/Link
+## Button
 
-In certain cases, you need to add a button to call a modal window, a simple link, or add a button
-submit the form at the end of the screen.
-For such cases, there is a `Button` field. The `Button` field cannot have any
-values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
-And to add a simple link in the form.
+Buttons are used to submit a form filled out by the user to the server.
 
-An example of using the modal window `addNewPayment` added earlier to the screen:
+To create a button that calls the `handler` method defined in the current screen, use `Button::make()`:
 
 ```php
-use Orchid\Screen\Actions\ModalToggle;
-
-ModalToggle::make('Add Payment')
-    ->modal('addNewPayment')
-    ->icon('wallet');
+Button::make('Submit')
+    ->method('handler');
 ```
 
-Linking example:
+> The method must be available in the screen where the button is located.
+
+If you need to pass specific data to the method, specify it as the second argument:
 
 ```php
-use Orchid\Screen\Actions\Link;
-
-Link::make('Google It!')
-    ->href('http://google.com');
-
-Link::make('Idea')
-    ->route('platform.idea');
-```
-
-Example use with method:
-
-```php
-use Orchid\Screen\Actions\Button;
-
-Button::make('Google It!')
-    ->method('goToGoogle');
-```
-
-Available modifiers:
-
-* `right()` - Positioning the element on the right edge of the screen
-* `block()` - Positioning the element across the entire width of the screen
-* `class('class-names')` - rewrites the standard button classes
-* `method('methodName')` - when clicked, the form will be sent to the specified method within the current screen
-* `icon('icon-wallet')` - sets an icon for the button
-
-## Dropdown
-
-You can easily create a DropDown action button combining all other actions. 
-For example, you can create the typical three dots dropdown:
-
-```php
-use Orchid\Screen\Actions\DropDown;
-
-DropDown::make()
-    ->icon('options-vertical')
-    ->list([
-        Link::make('Edit')
-            ->route('platform.users.edit', $user->id)
-            ->icon('pencil'),
-
-        Button::make('Delete')
-            ->icon('trash')
-            ->confirm('Are you sure you want to delete the user?')
-            ->method('remove', [
-                'id' => $user->id,
-            ]),
+Button::make('Submit')
+    ->method('handler', [
+        'user' => 1,
     ]);
 ```
+
+### Action Confirmation
+
+To prevent accidental actions, add the `confirm()` method. This will display a confirmation dialog before executing the action. It is particularly useful for irreversible actions, such as data deletion.
+
+```php
+Button::make('Delete')
+    ->method('deleteItem')
+    ->confirm('You will lose access to this item.');
+```
+
+> **Tip:** Use clear and concise messaging in `confirm()` so the user understands the consequences.
+
+### Sending Data to an External URL
+
+To send data to an external URL, use the `action()` method. This is useful if you need to submit a form to a destination outside the current screen.
+
+```php
+Button::make('Submit')
+    ->action('https://orchid.software');
+```
+
+### File Download
+
+To initiate a file download when clicking a button, use the `download()` method. This signals the system that the result of the method execution will be a downloadable file rather than simply displaying it in the browser.
+
+```php
+Button::make('Download Report')
+    ->method('export')
+    ->download();
+```
+
+## Link
+
+Links (`Link`) are used to direct the user to another page or to perform an action, such as downloading a file.
+
+To create a link to a specific URL, use `Link::make()` with the link text and the `href()` method:
+
+```php
+Link::make('Visit Orchid')
+    ->href('https://orchid.software');
+```
+
+### Opening Link in a New Tab
+
+To open a link in a new tab, add the `target('_blank')` method. This is useful for external sites or resources you want to open alongside the current page.
+
+```php
+Link::make('Documentation')
+    ->href('https://orchid.software/docs')
+    ->target('_blank');
+```
+
+### File Download
+
+If the link should initiate a file download, use the `download()` method. This informs the browser that the link points to a downloadable file.
+
+```php
+Link::make('Download Report')
+    ->href('/path/to/report.pdf')
+    ->download();
+```
+
+> **Note:** Ensure the file is accessible at the specified path to avoid download errors.
+
+## Dropdown Menu
+
+The `Dropdown` component allows you to create a button with a dropdown list of actions, which is convenient for grouping related actions, such as a three-dot menu for managing an item.
+
+To create a dropdown menu, list all actions in the `list()` method:
+
+```php
+DropDown::make()
+    ->icon('bs.options-vertical')
+    ->list([
+        Link::make('Edit')
+            ->route('platform.systems.users.edit', $user->id),
+
+        Button::make('Delete')
+            ->method('remove')
+            ->icon('trash'),
+    ]);
+```
+
 
  
 ## NumberRange
