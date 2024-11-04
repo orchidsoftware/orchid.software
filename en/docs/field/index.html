@@ -485,10 +485,28 @@
                     <a href="#column-alignment">Column Alignment</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#buttonlink">Button/Link</a>
+                    <a href="#button">Button</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#action-confirmation">Action Confirmation</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#sending-data-to-an-external-url">Sending Data to an External URL</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-download">File Download</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#dropdown">Dropdown</a>
+                    <a href="#link">Link</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#opening-link-in-a-new-tab">Opening Link in a New Tab</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-download">File Download</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#dropdown-menu">Dropdown Menu</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#numberrange">NumberRange</a>
@@ -1188,60 +1206,74 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
     // ...
 ])-&gt;alignCenter();
 </code></pre>
-<h2><a href='#buttonlink' id='buttonlink'>Button/Link</a></h2>
-<p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
-submit the form at the end of the screen.
-For such cases, there is a <code>Button</code> field. The <code>Button</code> field cannot have any
-values and is not transmitted when saving. It can be used to call a modal window defined on the screen.
-And to add a simple link in the form.</p>
-<p>An example of using the modal window <code>addNewPayment</code> added earlier to the screen:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
-
-ModalToggle::make('Add Payment')
-    -&gt;modal('addNewPayment')
-    -&gt;icon('wallet');
+<h2><a href='#button' id='button'>Button</a></h2>
+<p>Buttons are used to submit a form filled out by the user to the server.</p>
+<p>To create a button that calls the <code>handler</code> method defined in the current screen, use <code>Button::make()</code>:</p>
+<pre><code class="language-php">Button::make('Submit')
+    -&gt;method('handler');
 </code></pre>
-<p>Linking example:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Link;
-
-Link::make('Google It!')
-    -&gt;href('http://google.com');
-
-Link::make('Idea')
-    -&gt;route('platform.idea');
+<blockquote>
+<p>The method must be available in the screen where the button is located.</p>
+</blockquote>
+<p>If you need to pass specific data to the method, specify it as the second argument:</p>
+<pre><code class="language-php">Button::make('Submit')
+    -&gt;method('handler', [
+        'user' =&gt; 1,
+    ]);
 </code></pre>
-<p>Example use with method:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Button;
-
-Button::make('Google It!')
-    -&gt;method('goToGoogle');
+<h3><a href='#action-confirmation' id='action-confirmation'>Action Confirmation</a></h3>
+<p>To prevent accidental actions, add the <code>confirm()</code> method. This will display a confirmation dialog before executing the action. It is particularly useful for irreversible actions, such as data deletion.</p>
+<pre><code class="language-php">Button::make('Delete')
+    -&gt;method('deleteItem')
+    -&gt;confirm('You will lose access to this item.');
 </code></pre>
-<p>Available modifiers:</p>
-<ul>
-<li><code>right()</code> &ndash; Positioning the element on the right edge of the screen</li>
-<li><code>block()</code> &ndash; Positioning the element across the entire width of the screen</li>
-<li><code>class('class-names')</code> &ndash; rewrites the standard button classes</li>
-<li><code>method('methodName')</code> &ndash; when clicked, the form will be sent to the specified method within the current screen</li>
-<li><code>icon('icon-wallet')</code> &ndash; sets an icon for the button</li>
-</ul>
-<h2><a href='#dropdown' id='dropdown'>Dropdown</a></h2>
-<p>You can easily create a DropDown action button combining all other actions.
-For example, you can create the typical three dots dropdown:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\DropDown;
-
-DropDown::make()
-    -&gt;icon('options-vertical')
+<blockquote>
+<p><strong>Tip:</strong> Use clear and concise messaging in <code>confirm()</code> so the user understands the consequences.</p>
+</blockquote>
+<h3><a href='#sending-data-to-an-external-url' id='sending-data-to-an-external-url'>Sending Data to an External URL</a></h3>
+<p>To send data to an external URL, use the <code>action()</code> method. This is useful if you need to submit a form to a destination outside the current screen.</p>
+<pre><code class="language-php">Button::make('Submit')
+    -&gt;action('https://orchid.software');
+</code></pre>
+<h3><a href='#file-download' id='file-download'>File Download</a></h3>
+<p>To initiate a file download when clicking a button, use the <code>download()</code> method. This signals the system that the result of the method execution will be a downloadable file rather than simply displaying it in the browser.</p>
+<pre><code class="language-php">Button::make('Download Report')
+    -&gt;method('export')
+    -&gt;download();
+</code></pre>
+<h2><a href='#link' id='link'>Link</a></h2>
+<p>Links (<code>Link</code>) are used to direct the user to another page or to perform an action, such as downloading a file.</p>
+<p>To create a link to a specific URL, use <code>Link::make()</code> with the link text and the <code>href()</code> method:</p>
+<pre><code class="language-php">Link::make('Visit Orchid')
+    -&gt;href('https://orchid.software');
+</code></pre>
+<h3><a href='#opening-link-in-a-new-tab' id='opening-link-in-a-new-tab'>Opening Link in a New Tab</a></h3>
+<p>To open a link in a new tab, add the <code>target('_blank')</code> method. This is useful for external sites or resources you want to open alongside the current page.</p>
+<pre><code class="language-php">Link::make('Documentation')
+    -&gt;href('https://orchid.software/docs')
+    -&gt;target('_blank');
+</code></pre>
+<h3><a href='#file-download' id='file-download'>File Download</a></h3>
+<p>If the link should initiate a file download, use the <code>download()</code> method. This informs the browser that the link points to a downloadable file.</p>
+<pre><code class="language-php">Link::make('Download Report')
+    -&gt;href('/path/to/report.pdf')
+    -&gt;download();
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Ensure the file is accessible at the specified path to avoid download errors.</p>
+</blockquote>
+<h2><a href='#dropdown-menu' id='dropdown-menu'>Dropdown Menu</a></h2>
+<p>The <code>Dropdown</code> component allows you to create a button with a dropdown list of actions, which is convenient for grouping related actions, such as a three-dot menu for managing an item.</p>
+<p>To create a dropdown menu, list all actions in the <code>list()</code> method:</p>
+<pre><code class="language-php">DropDown::make()
+    -&gt;icon('bs.options-vertical')
     -&gt;list([
         Link::make('Edit')
-            -&gt;route('platform.users.edit', $user-&gt;id)
-            -&gt;icon('pencil'),
+            -&gt;route('platform.systems.users.edit', $user-&gt;id),
 
         Button::make('Delete')
-            -&gt;icon('trash')
-            -&gt;confirm('Are you sure you want to delete the user?')
-            -&gt;method('remove', [
-                'id' =&gt; $user-&gt;id,
-            ]),
+            -&gt;method('remove')
+            -&gt;icon('trash'),
     ]);
 </code></pre>
 <h2><a href='#numberrange' id='numberrange'>NumberRange</a></h2>
