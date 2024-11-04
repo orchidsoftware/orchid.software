@@ -862,11 +862,11 @@ Group::make([
 
 ```php
 Group::make([
-    Radio::make('radio')
+    Radio::make('agreement')
         ->placeholder('Yes')
         ->value(1),
 
-    Radio::make('radio')
+    Radio::make('contact')
         ->placeholder('No')
         ->value(0),
 ])->autoWidth();
