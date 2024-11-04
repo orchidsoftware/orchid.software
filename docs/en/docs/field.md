@@ -1109,14 +1109,18 @@ Button::make('Delete')
 
 > **Tip:** Use clear and concise messaging in `confirm()` so the user understands the consequences.
 
-### Sending Data to an External URL
+### Specifying the URL for Data Submission
 
-To send data to an external URL, use the `action()` method. This is useful if you need to submit a form to a destination outside the current screen.
+To specify the URL where the form data should be sent, use the `action()` method. Typically, this will be the URL of a controller within your application where the request is processed after the button is clicked.
 
 ```php
 Button::make('Submit')
     ->action('https://orchid.software');
+
+Button::make('Submit')
+    ->action(route('controller.method'));
 ```
+
 
 ### File Download
 
