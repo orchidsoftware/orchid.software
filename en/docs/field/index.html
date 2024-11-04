@@ -487,6 +487,12 @@
                             <li class="anchor-h2">
                     <a href="#group">Group</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#column-width">Column Width</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#column-alignment">Column Alignment</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#buttonlink">Button/Link</a>
                 </li>
@@ -1133,24 +1139,66 @@ Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values
 </code></pre>
 <p>It will add a new button with a modal window to preview uploaded files.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
-<p>The Group field is used to combine several fields on one line. This can be useful for creating compact forms or for aligning fields horizontally. To create a Group field, use the <code>Group::make</code> method and pass an array of fields as the argument:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Group;
-
-Group::make([
+<p>The <code>Group</code> component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.</p>
+<pre><code class="language-php">Group::make([
     Input::make('first_name'),
     Input::make('last_name'),
 ]),
 </code></pre>
-<p>By default, fields within a Group field will occupy the entire available screen width. You can specify the width of the fields using the <code>fullWidth</code> or <code>autoWidth</code> methods:</p>
-<pre><code class="language-php">// Fields will occupy the entire available screen width
-Group::make([
+<h3><a href='#column-width' id='column-width'>Column Width</a></h3>
+<p>By default, fields will take up the full available width of the screen when you use the <code>fullWidth</code> method. This option is suitable for most scenarios where you need elements to fill the entire space:</p>
+<pre><code class="language-php">Group::make([
     // ...
 ])-&gt;fullWidth();
+</code></pre>
+<p>However, there may be cases where you want fields to occupy only the necessary space. The <code>autoWidth</code> method is perfect for situations where fields contain varying amounts of data. For example, when using radio buttons:</p>
+<pre><code class="language-php">Group::make([
+    Radio::make('agreement')
+        -&gt;placeholder('Yes')
+        -&gt;value(1),
 
-// Fields will take up as much space as necessary
-Group::make([
-    // ...
+    Radio::make('contact')
+        -&gt;placeholder('No')
+        -&gt;value(0),
 ])-&gt;autoWidth();
+</code></pre>
+<p>For greater flexibility in configuring column widths, you can use the <code>widthColumns()</code> method, which supports CSS Grid. This method allows you to specify column widths using values for the <code>grid-template-columns</code> property:</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;widthColumns('2fr 1fr');
+</code></pre>
+<p>Accepted values for <code>widthColumns()</code> include:</p>
+<ul>
+<li>Percentages (e.g., <code>30%</code>)</li>
+<li>Pixels (e.g., <code>120px</code>)</li>
+<li>Fractional units (e.g., <code>2fr</code>)</li>
+<li>Other values such as <code>max-content</code> and <code>auto</code></li>
+</ul>
+<blockquote>
+<p><strong>Important:</strong> The number of specified values must not be less than the number of elements in the group.</p>
+</blockquote>
+<p>The width settings apply only on desktop devices. On mobile devices, each field will be displayed on a new line, enhancing the responsiveness of the interface and improving user experience.</p>
+<h3><a href='#column-alignment' id='column-alignment'>Column Alignment</a></h3>
+<p>Columns within a group can have different heights, especially when a header is present in only one of them. To create a more visually appealing interface, it is essential to utilize column alignment.</p>
+<p>When one of the columns has a header, aligning all columns to the bottom of the parent container will create a more harmonious look. To achieve this, use the <code>alignEnd</code> method:</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;alignEnd();
+</code></pre>
+<p>If you want all elements to align at the top, apply the <code>alignStart</code> method:</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;alignStart();
+</code></pre>
+<p>To ensure that the columns are aligned along the baseline of the text for consistency in content display, use the <code>alignBaseLine</code> method:</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;alignBaseLine();
+</code></pre>
+<p>For a symmetrical appearance, center the columns using the <code>alignCenter</code> method:</p>
+<pre><code class="language-php">Group::make([
+    // ...
+])-&gt;alignCenter();
 </code></pre>
 <h2><a href='#buttonlink' id='buttonlink'>Button/Link</a></h2>
 <p>In certain cases, you need to add a button to call a modal window, a simple link, or add a button
