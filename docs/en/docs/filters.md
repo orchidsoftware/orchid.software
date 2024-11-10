@@ -66,7 +66,7 @@ class EmailFilter extends Filter
 ```
 
 To use filters in your own models,
-you need to connect the trait `Orchid\Filters\Filterable` and pass an array of classes to the `filtersApply` function:
+you need to connect the trait `Orchid\Filters\Filterable` and pass an array of classes to the `filters` function:
 
 ```php
 use App\Model;
