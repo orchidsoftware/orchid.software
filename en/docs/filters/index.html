@@ -458,7 +458,7 @@ class EmailFilter extends Filter
     }
 }
 </code></pre>
-<p>To use filters in your own models, you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an array of classes to the <code>filtersApply</code> function:</p>
+<p>To use filters in your own models, you need to connect the trait <code>Orchid\Filters\Filterable</code> and pass an array of classes to the <code>filters</code> function:</p>
 <pre><code class="language-php">use App\Model;
 
 Model::filters([EmailFilter::class])-&gt;simplePaginate();
