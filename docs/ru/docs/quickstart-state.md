@@ -134,7 +134,7 @@ class StateScreen extends Screen
      */
     public function increment(Request $request)
     {
-        dd($this->message);
+        dd($this->clicks);
     }
 }
 ```
