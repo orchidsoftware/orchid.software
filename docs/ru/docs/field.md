@@ -732,20 +732,34 @@ Cropper::make('picture')
 ```php
 Cropper::make('picture')
     ->targetId();
+
+// 20
 ```
 Будет возвращён порядковый номер (`id`) записи `Attachment`.
 
 ```php
 Cropper::make('picture')
     ->targetRelativeUrl();
+
+// /storage/2024/11/12/0ae30560194b944c656c548becd371b15b22cfba.jpg
 ```
 Вернёт относительный путь до изображения.
 
 ```php
 Cropper::make('picture')
     ->targetUrl();
+
+// http://localhost/storage/2024/11/12/ade1a19e778ae64772a3e5348d32d5330c05893c.jpg
 ```
 Вернёт абсолютный путь до изображения.
+
+```php
+Cropper::make('picture')
+    ->path('some_path');
+
+// http://localhost/storage/some_path/69dc36c754411788a35a7e108d3b57396ddbcedc.jpg
+```
+Вернёт абсолютный путь до изображения, заменив path на своё значение
 
 
 
