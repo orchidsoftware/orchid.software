@@ -21,7 +21,7 @@
                     <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
                         <span class="d-block">Laravel with Orchid</span>
                     </h1>
-                    <p class="lead mb-md-5 pb-md-5 mb-3">
+                    <p class="lead mb-md-5 pb-md-5 mb-3 text-balance">
                         Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications.
                         With its code-driven approach, you can quickly and easily create efficient applications.
                     </p>
@@ -47,7 +47,7 @@
                     <small class="d-block">to tedious development</small>
                 </h1>
 
-                <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection px-3">
+                <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection px-3 text-balance">
                     Stop wasting time and effort on developing admin panels from scratch.
                     Orchid streamlines the process, allowing you to focus on what truly matters - creating your application's logic.
                 </p>
