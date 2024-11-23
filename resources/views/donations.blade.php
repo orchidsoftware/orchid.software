@@ -23,7 +23,7 @@
                     <span class="d-block d-md-inline-block">Your Donation <span class="text-primary d-block">Will Change Everything!</span></span>
                 </h1>
 
-                <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection px-3">
+                <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection px-3 text-balance">
                     Your contribution empowers us to continue developing and maintaining these open-source packages and provide ongoing support to the community.
                 </p>
             </div>
