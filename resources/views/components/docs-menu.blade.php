@@ -13,3 +13,8 @@
         </ul>
     @endforeach
 </nav>
+
+{{-- Button: Go to top --}}
+<div class="d-none d-md-block h-100 position-relative pt-5">
+    <a href="#" title="Scroll to the top of the page" class="stretched-link"></a>
+</div>
