@@ -831,14 +831,20 @@ Attach::make('images')
 ```php
 use Orchid\Attachment\Models\Attachment;
 
-// Один к одному (с внешним идентификатором)
-public function hero()
+/**
+ * Возвращает прикрепленный "hero" (один к одному).
+ */
+public function hero(): HasOne
 {
-    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
+    return $this->hasOne(Attachment::class, 'id', 'hero')
+        ->withDefault();
 }
 
-// Многие ко многим (без внешнего идентификатора в таблице, необходимо загружать через функцию group())
-public function documents()
+/**
+ * Возвращает документы (многие ко многим).
+ * Загрузка осуществляется через метод group().
+ */
+public function documents(): MorphToMany
 {
     return $this->attachments('documents');
 }
