@@ -51,9 +51,6 @@ Input::make('name')
 
 ```php
 Input::make('name')->vertical();
-```
-
-```php
 Input::make('name')->horizontal();
 ```
 
