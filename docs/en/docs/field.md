@@ -898,6 +898,138 @@ Cropper::make('picture')
 Will return the absolute path to the image.
 
 
+## Attach
+
+The `Attach` field provides an intuitive interface for uploading images and files, including support for grouping and sorting.
+
+To create a file upload element, use the `make` method of the `Attach` class and specify the field name:
+
+```php
+use Orchid\Screen\Fields\Attach;
+
+Attach::make('attachments');
+```
+
+To allow multiple file uploads, use the `multiple()` method:
+
+```php
+Attach::make('attachments')
+    ->multiple();
+```
+
+### File Upload Limitations
+
+For multiple file uploads, you can set a maximum number of files that can be uploaded using the `maxCount` method:
+
+```php
+Attach::make('attachments')
+    ->multiple()
+    ->maxCount(3); // 3 files
+```
+
+You can also limit the file size using the `maxSize()` method. The size is specified in megabytes (MB):
+
+```php
+Attach::make('attachments')
+    ->maxSize(1024); // Size in MB
+```
+
+> **Maximum file upload size:**
+> By default, the values for `upload_max_filesize` and `post_max_size` are set to 2M. You can change these settings in `php.ini` to allow file uploads larger than 2M.
+
+Use the `accept` method to specify which file types the field should accept, for example:
+
+```php
+Attach::make('upload')
+    ->accept('image/*,application/pdf,.psd');
+```
+
+The provided string is a list of [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers), separated by commas.
+
+### File Grouping
+
+You can group files by different categories using the `group` method. This is particularly useful if you need to upload different types of files, such as documents and images.
+
+```php
+Attach::make('docs')
+    ->group('documents');
+
+Attach::make('images')
+    ->group('photo');
+```
+
+To work with uploaded files that are grouped through model relationships, use the following syntax:
+
+```php
+use Orchid\Attachment\Models\Attachment;
+
+/**
+ * Returns the attached "hero" (one-to-one).
+ */
+public function hero(): HasOne
+{
+    return $this->hasOne(Attachment::class, 'id', 'hero')
+        ->withDefault();
+}
+
+/**
+ * Returns documents (many-to-many).
+ * Upload is handled via the group() method.
+ */
+public function documents(): MorphToMany
+{
+    return $this->attachments('documents');
+}
+```
+
+### File Storage
+
+The upload field can work with different repositories. To do this, specify the repository key defined in `config/filesystems.php`:
+
+```php
+Attach::make('upload')
+    ->storage('s3');
+```
+
+By default, the `public` storage is used.
+
+### Explicit File Path Configuration
+
+If you need to override the standard file storage rules and explicitly define the upload path, use the `path` method:
+
+```php
+Attach::make('upload')
+    ->path('/custom/path');
+```
+
+### File Validation and Sorting on the Server
+
+It’s important to validate files on the server side. For example, check that the file is an image with a specific aspect ratio or file type. To do this, use the `uploadUrl` method to specify the endpoint for file uploads:
+
+```php
+Attach::make('upload')
+    ->uploadUrl(route('my.upload.endpoint'));
+```
+
+Similarly, you can specify an endpoint for sorting files:
+
+```php
+Attach::make('upload')
+    ->sortUrl(route('my.sort.endpoint'));
+```
+
+### Error Handling and Message Display
+
+To ensure that users don’t encounter unclear errors, it’s important to provide clear and informative error messages. Use the `errorMaxSizeMessage` and `errorTypeMessage` methods to specify custom messages:
+
+```php
+Attach::make('upload')
+    ->errorMaxSizeMessage("File size is too large")
+    ->errorTypeMessage("Invalid file type");
+```
+
+
+<!--
 ## Upload
 
 This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.
@@ -982,6 +1114,7 @@ Upload::make('upload')
 ```
 
 It will add a new button with a modal window to preview uploaded files.
+-->
 
 ## Group
 
