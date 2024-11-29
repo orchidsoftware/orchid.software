@@ -478,7 +478,25 @@
                     <a href="#value">Value</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#upload">Upload</a>
+                    <a href="#attach">Attach</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-upload-limitations">File Upload Limitations</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-grouping">File Grouping</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-storage">File Storage</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#explicit-file-path-configuration">Explicit File Path Configuration</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#file-validation-and-sorting-on-the-server">File Validation and Sorting on the Server</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#error-handling-and-message-display">Error Handling and Message Display</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#group">Group</a>
@@ -1093,62 +1111,177 @@ Cropper::make('picture');
     -&gt;targetUrl();
 </code></pre>
 <p>Will return the absolute path to the image.</p>
-<h2><a href='#upload' id='upload'>Upload</a></h2>
-<p>This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.</p>
-<p>To create a file upload element, use the <code>make</code> method of the <code>Upload</code> class and specify the field name:</p>
-<pre><code class="language-php">Upload::make('upload');
+<h2><a href='#attach' id='attach'>Attach</a></h2>
+<p>The <code>Attach</code> field provides an intuitive interface for uploading images and files, including support for grouping and sorting.</p>
+<p>To create a file upload element, use the <code>make</code> method of the <code>Attach</code> class and specify the field name:</p>
+<pre><code class="language-php">use Orchid\Screen\Fields\Attach;
+
+Attach::make('attachments');
 </code></pre>
-<p>You can group files by different categories using the <code>groups</code> method. This is especially useful if you need to upload different types of files, such as documents and images.</p>
-<pre><code class="language-php">Upload::make('docs')
-    -&gt;groups('documents');
+<p>To allow multiple file uploads, use the <code>multiple()</code> method:</p>
+<pre><code class="language-php">Attach::make('attachments')
+    -&gt;multiple();
+</code></pre>
+<h3><a href='#file-upload-limitations' id='file-upload-limitations'>File Upload Limitations</a></h3>
+<p>For multiple file uploads, you can set a maximum number of files that can be uploaded using the <code>maxCount</code> method:</p>
+<pre><code class="language-php">Attach::make('attachments')
+    -&gt;multiple()
+    -&gt;maxCount(3); // 3 files
+</code></pre>
+<p>You can also limit the file size using the <code>maxSize()</code> method. The size is specified in megabytes (MB):</p>
+<pre><code class="language-php">Attach::make('attachments')
+    -&gt;maxSize(1024); // Size in MB
+</code></pre>
+<blockquote>
+<p><strong>Maximum file upload size:</strong>
+By default, the values for <code>upload_max_filesize</code> and <code>post_max_size</code> are set to 2M. You can change these settings in <code>php.ini</code> to allow file uploads larger than 2M.</p>
+</blockquote>
+<p>Use the <code>accept</code> method to specify which file types the field should accept, for example:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;accept('image/*,application/pdf,.psd');
+</code></pre>
+<p>The provided string is a list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>, separated by commas.</p>
+<h3><a href='#file-grouping' id='file-grouping'>File Grouping</a></h3>
+<p>You can group files by different categories using the <code>group</code> method. This is particularly useful if you need to upload different types of files, such as documents and images.</p>
+<pre><code class="language-php">Attach::make('docs')
+    -&gt;group('documents');
+
+Attach::make('images')
+    -&gt;group('photo');
+</code></pre>
+<p>To work with uploaded files that are grouped through model relationships, use the following syntax:</p>
+<pre><code class="language-php">use Orchid\Attachment\Models\Attachment;
+
+/**
+ * Returns the attached "hero" (one-to-one).
+ */
+public function hero(): HasOne
+{
+    return $this-&gt;hasOne(Attachment::class, 'id', 'hero')
+        -&gt;withDefault();
+}
+
+/**
+ * Returns documents (many-to-many).
+ * Upload is handled via the group() method.
+ */
+public function documents(): MorphToMany
+{
+    return $this-&gt;attachments('documents');
+}
+</code></pre>
+<h3><a href='#file-storage' id='file-storage'>File Storage</a></h3>
+<p>The upload field can work with different repositories. To do this, specify the repository key defined in <code>config/filesystems.php</code>:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;storage('s3');
+</code></pre>
+<p>By default, the <code>public</code> storage is used.</p>
+<h3><a href='#explicit-file-path-configuration' id='explicit-file-path-configuration'>Explicit File Path Configuration</a></h3>
+<p>If you need to override the standard file storage rules and explicitly define the upload path, use the <code>path</code> method:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;path('/custom/path');
+</code></pre>
+<h3><a href='#file-validation-and-sorting-on-the-server' id='file-validation-and-sorting-on-the-server'>File Validation and Sorting on the Server</a></h3>
+<p>It&rsquo;s important to validate files on the server side. For example, check that the file is an image with a specific aspect ratio or file type. To do this, use the <code>uploadUrl</code> method to specify the endpoint for file uploads:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;uploadUrl(route('my.upload.endpoint'));
+</code></pre>
+<p>Similarly, you can specify an endpoint for sorting files:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;sortUrl(route('my.sort.endpoint'));
+</code></pre>
+<h3><a href='#error-handling-and-message-display' id='error-handling-and-message-display'>Error Handling and Message Display</a></h3>
+<p>To ensure that users don&rsquo;t encounter unclear errors, it&rsquo;s important to provide clear and informative error messages. Use the <code>errorMaxSizeMessage</code> and <code>errorTypeMessage</code> methods to specify custom messages:</p>
+<pre><code class="language-php">Attach::make('upload')
+    -&gt;errorMaxSizeMessage("File size is too large")
+    -&gt;errorTypeMessage("Invalid file type");
+</code></pre>
+<!--
+## Upload
+
+This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.
+
+To create a file upload element, use the `make` method of the `Upload` class and specify the field name:
+
+```php
+Upload::make('upload');
+```  
+
+You can group files by different categories using the `groups` method. This is especially useful if you need to upload different types of files, such as documents and images.
+
+```php
+Upload::make('docs')
+    ->groups('documents');
 
 Upload::make('images')
-    -&gt;groups('photo');
-</code></pre>
-<p>To get specific files via Model relation</p>
-<pre><code class="language-php">use Orchid\Attachment\Models\Attachment;
+    ->groups('photo');
+```  
+
+To get specific files via Model relation
+
+```php
+use Orchid\Attachment\Models\Attachment;
 
 // One-to-Many (with foreign id)
 public function hero()
 {
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero')-&gt;withDefault();
+    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
 }
 
 // Many-to-Many (no foreign id on table, should be uploaded with groups() function)
 public function documents()
 {
-    return $this-&gt;attachments('documents');
+    return $this->attachments('documents');
 }
-</code></pre>
-<p>It can be used to limit the maximum number of files that will be processed:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFiles(10);
-</code></pre>
-<p>Determines the number of concurrent downloads for processing files:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;parallelUploads(2);
-</code></pre>
-<blockquote>
-<p><strong>Maximum upload file size:</strong>
-Default <code>upload_max_filesize</code> &amp; <code>post_max_size</code> values are 2M, You can change them in <code>php.ini</code> to enable setting max file size to be more than 2M</p>
-</blockquote>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;maxFileSize(1024); // Size in MB 
-</code></pre>
-<p>The default implementation of <code>accept</code> checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;acceptedFiles('image/*,application/pdf,.psd');
-</code></pre>
-<p>The upload field can work with various repositories. To specify it, you must pass the key specified in <code>config/filesystems.php</code>:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;storage('s3');
-</code></pre>
-<p>The default storage is <code>public</code>.</p>
-<p>Sometimes you already know that the file was loaded earlier, then you can use the library search:</p>
-<pre><code class="language-php">Upload::make('upload')
-    -&gt;media();
-</code></pre>
-<p>It will add a new button with a modal window to preview uploaded files.</p>
+```
+
+It can be used to limit the maximum number of files that will be processed:
+
+```php
+Upload::make('upload')
+    ->maxFiles(10);
+```
+
+Determines the number of concurrent downloads for processing files:
+```php
+Upload::make('upload')
+    ->parallelUploads(2);
+```
+
+> **Maximum upload file size:**
+> Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max file size to be more than 2M
+
+```php
+Upload::make('upload')
+    ->maxFileSize(1024); // Size in MB 
+```
+
+The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.
+
+```php
+Upload::make('upload')
+    ->acceptedFiles('image/*,application/pdf,.psd');
+```
+
+The upload field can work with various repositories. To specify it, you must pass the key specified in `config/filesystems.php`:
+
+```php
+Upload::make('upload')
+    ->storage('s3');
+```
+
+The default storage is `public`.
+
+
+Sometimes you already know that the file was loaded earlier, then you can use the library search:
+
+```php
+Upload::make('upload')
+    ->media();
+```
+
+It will add a new button with a modal window to preview uploaded files.
+-->
 <h2><a href='#group' id='group'>Group</a></h2>
 <p>The <code>Group</code> component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.</p>
 <pre><code class="language-php">Group::make([
