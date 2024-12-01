@@ -318,7 +318,7 @@ Order::sumByDays('price')->toChart('Order'),
 Order::minByDays('price')->toChart('Order'),
 ```
 
-### Максисум
+### Максимум
 
 Метод `max` метод можно использовать для вычисления максимума заданного столбца:
 
