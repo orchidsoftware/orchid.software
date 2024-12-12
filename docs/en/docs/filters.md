@@ -122,6 +122,24 @@ public $parameters = [
 
 In the above example, the filter will match any parameter that follows the pattern `pattern.*`. This allows you to handle a wide range of dynamic parameters in your filters.
 
+
+### Customizing Filter Display Values
+
+By default, the filter value is displayed in the format `name:value`, which works well for a wide range of filters. However, when dealing with IDs or system names, you might prefer to display a more user-friendly value.  
+
+To achieve this, you can define a `value` method that returns a string. For example:  
+
+```php
+public function value(): string
+{
+    return 'Your custom value';
+}
+```  
+
+If the filter is applied, this string will be displayed in the user interface.  
+
+This approach is particularly useful when using filters that rely on IDs or system-specific names, allowing you to provide more meaningful or descriptive output for the end user.  
+
 ## Selection
 
 The "Selection" layer provides a convenient way to group and organize filters for both displaying and applying them to a model. 
