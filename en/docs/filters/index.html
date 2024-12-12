@@ -491,6 +491,7 @@ However, if you want a filter to run on every request, you can leave the <code>$
 This way, the filter will be applied to all queries. For instance:</p>
 <pre><code class="language-php">public $parameters = [];
 </code></pre>
+<p>Additionally, if the array returned by the <code>display</code> method is empty, the filter will not appear in the interface but will still remain functional in queries. This allows for flexible configurations where certain filters operate silently in the background.</p>
 <h3><a href='#parameter-patterns' id='parameter-patterns'>Parameter Patterns</a></h3>
 <p>Filter provides the capability to define parameter patterns using a convenient syntax.
 This allows you to create custom patterns and perform advanced filtering based on specific patterns. For example:</p>
