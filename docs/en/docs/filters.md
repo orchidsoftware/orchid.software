@@ -104,6 +104,9 @@ This way, the filter will be applied to all queries. For instance:
 public $parameters = [];
 ```
 
+Additionally, if the array returned by the `display` method is empty, the filter will not appear in the interface but will still remain functional in queries. This allows for flexible configurations where certain filters operate silently in the background.
+
+
 ### Parameter Patterns
 
 Filter provides the capability to define parameter patterns using a convenient syntax.
