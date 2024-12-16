@@ -184,6 +184,9 @@ use App\Orchid\Screens\TaskScreen;
 
 Route::screen('task', TaskScreen::class)->name('platform.task');
 ```
+```php
+php artisan route:cache
+```
 
 Now that we have registered a new route for our screen, we can visit the screen in the browser by navigating to the corresponding URL. In this case, since we registered the route as `/admin/task`, we can visit the screen by going to `http://your-app.test/admin/task` in the browser.
 
