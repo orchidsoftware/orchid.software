@@ -165,7 +165,7 @@ In the `layout()` method of your screen, add the graphical interface using the `
 
 ```php
 use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Sight;
+use Orchid\Screen\Sight;
 
 public function layout(): iterable
 {

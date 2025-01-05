@@ -308,7 +308,7 @@ public function query(): array
 
 ```php
 use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Sight;
+use Orchid\Screen\Sight;
 
 public function layout(): iterable
 {
