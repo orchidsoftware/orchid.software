@@ -532,7 +532,7 @@ public function query(): array
 <p>Here, we use the <code>sorted()</code> method provided by the <code>Sortable</code> trait to get a sorted list of models. It also has an optional argument for sorting direction (ASC &ndash; ascending, DESC &ndash; descending). By default, the value is set to ASC.</p>
 <p>In the <code>layout()</code> method of your screen, add the graphical interface using the <code>Layout::sortable()</code> layer:</p>
 <pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Sight;
+use Orchid\Screen\Sight;
 
 public function layout(): iterable
 {
