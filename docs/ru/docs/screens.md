@@ -104,8 +104,11 @@ GET|POST | dashboard/idea/{method?} | platform.idea
 use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
-Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
-Route::screen('/idea', Idea::class)->name('platform.idea');
+Route::screen('/idea/edit', IdeaEdit::class)
+    ->name('platform.idea.edit');
+
+Route::screen('/idea', Idea::class)
+    ->name('platform.idea');
 ```
 > **Обратите внимание**, Routing Laravel выбирает первый подходящий маршрут.
 
