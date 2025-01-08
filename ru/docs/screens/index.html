@@ -430,58 +430,46 @@
 <pre><code class="language-php">php artisan orchid:screen Idea
 </code></pre>
 <p>&#1042; &#1076;&#1080;&#1088;&#1077;&#1082;&#1090;&#1086;&#1088;&#1080;&#1080; <code>app/Orchid/Screens</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085; &#1092;&#1072;&#1081;&#1083; <code>Idea</code> &#1089;&#1086; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1084; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1085;&#1080;&#1077;&#1084;:</p>
-<pre><code class="language-php">namespace App\Http\Controllers\Screens;
-
-use Illuminate\Http\Request;
-use Orchid\Screen\Screen;
+<pre><code class="language-php">use Orchid\Screen\Screen;
 
 class Idea extends Screen
 {
     /**
-     * Display header name
-     *
-     * @var string
+     * Fetch data to be displayed on the screen.
      */
-    public $name = 'Idea Screen';
-
-    /**
-     * Display header description
-     *
-     * @var string
-     */
-    public $description = 'Idea Screen';
-
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query(): array
+    public function query() : array
     {
         return [];
     }
 
     /**
-     * Button commands
-     *
-     * @return array
+     * The name of the screen is displayed in the header.
      */
-    public function commandBar(): array
+    public function name(): ?string
+    {
+        return "Idea Screen";
+    }
+
+    /**
+     * The screen's action buttons.
+     *
+     * @return \Orchid\Screen\Action[]
+     */
+    public function commandBar() : array
     {
         return [];
     }
 
     /**
-     * Views
+     * The screen's layout elements.
      *
-     * @return array
+     * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout(): array
+    public function layout() : array
     {
         return [];
     }
 }
-
 </code></pre>
 <p>&#1050;&#1083;&#1072;&#1089;&#1089; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072; &#1074;&#1082;&#1083;&#1102;&#1095;&#1072;&#1077;&#1090; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1076;&#1083;&#1103; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1103; &#1080; &#1074;&#1085;&#1077;&#1096;&#1085;&#1077;&#1075;&#1086; &#1074;&#1080;&#1076;&#1072; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;. &#1069;&#1090;&#1080; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099; &#1074;&#1082;&#1083;&#1102;&#1095;&#1072;&#1102;&#1090;:</p>
 <ul>
