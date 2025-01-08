@@ -497,8 +497,11 @@ GET|POST | dashboard/idea/{method?} | platform.idea
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
-Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+Route::screen('/idea/edit', IdeaEdit::class)
+    -&gt;name('platform.idea.edit');
+
+Route::screen('/idea', Idea::class)
+    -&gt;name('platform.idea');
 </code></pre>
 <blockquote>
 <p>It&rsquo;s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
