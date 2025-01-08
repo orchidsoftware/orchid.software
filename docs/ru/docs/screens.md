@@ -25,58 +25,46 @@ php artisan orchid:screen Idea
 В директории `app/Orchid/Screens` будет создан файл `Idea` со следующим содержанием:
 
 ```php
-namespace App\Http\Controllers\Screens;
-
-use Illuminate\Http\Request;
 use Orchid\Screen\Screen;
 
 class Idea extends Screen
 {
     /**
-     * Display header name
-     *
-     * @var string
+     * Fetch data to be displayed on the screen.
      */
-    public $name = 'Idea Screen';
-
-    /**
-     * Display header description
-     *
-     * @var string
-     */
-    public $description = 'Idea Screen';
-
-    /**
-     * Query data
-     *
-     * @return array
-     */
-    public function query(): array
+    public function query() : array
     {
         return [];
     }
 
     /**
-     * Button commands
-     *
-     * @return array
+     * The name of the screen is displayed in the header.
      */
-    public function commandBar(): array
+    public function name(): ?string
+    {
+        return "Idea Screen";
+    }
+
+    /**
+     * The screen's action buttons.
+     *
+     * @return \Orchid\Screen\Action[]
+     */
+    public function commandBar() : array
     {
         return [];
     }
 
     /**
-     * Views
+     * The screen's layout elements.
      *
-     * @return array
+     * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout(): array
+    public function layout() : array
     {
         return [];
     }
 }
-
 ```
 
 Класс экрана включает несколько методов, которые можно использовать для определения поведения и внешнего вида экрана. Эти методы включают:
