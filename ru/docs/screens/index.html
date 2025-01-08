@@ -494,8 +494,11 @@ GET|POST | dashboard/idea/{method?} | platform.idea
 <pre><code class="language-php">use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
-Route::screen('/idea/edit', IdeaEdit::class)-&gt;name('platform.idea.edit');
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+Route::screen('/idea/edit', IdeaEdit::class)
+    -&gt;name('platform.idea.edit');
+
+Route::screen('/idea', Idea::class)
+    -&gt;name('platform.idea');
 </code></pre>
 <blockquote>
 <p><strong>&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;</strong>, Routing Laravel &#1074;&#1099;&#1073;&#1080;&#1088;&#1072;&#1077;&#1090; &#1087;&#1077;&#1088;&#1074;&#1099;&#1081; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1103;&#1097;&#1080;&#1081; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;.</p>
