@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=7502275410bdd670efe506b2d1eaf271">
 
 
     <title>Orchid - Laravel Admin Panel</title>
@@ -225,14 +225,14 @@
 
 <span class="hl-keyword">class</span> <span class="hl-type">Task</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Task</span> $task</span>): <span class="hl-type">iterable</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Task</span> $task</span>): <span class="hl-keyword">array</span>
     {
         <span class="hl-keyword">return</span> [
             <span class="hl-value">'task'</span> <span class="hl-operator">=&gt;</span> $task
         ];
     }
 
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
     {
         <span class="hl-keyword">return</span> [
             <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
