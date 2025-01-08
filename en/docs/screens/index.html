@@ -431,17 +431,12 @@
 <pre><code class="language-php">php artisan orchid:screen Idea
 </code></pre>
 <p>An <code>Idea</code> file will be created in the <code>app/Orchid/Screens</code> directory with the following contents:</p>
-<pre><code class="language-php">namespace App\Http\Controllers\Screens;
-
-use Illuminate\Http\Request;
-use Orchid\Screen\Screen;
+<pre><code class="language-php">use Orchid\Screen\Screen;
 
 class Idea extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
-     *
-     * @return array
      */
     public function query() : array
     {
@@ -450,8 +445,6 @@ class Idea extends Screen
 
     /**
      * The name of the screen is displayed in the header.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
