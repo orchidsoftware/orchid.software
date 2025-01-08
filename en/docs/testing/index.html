@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Testing | Orchid - Laravel Admin Panel</title>
@@ -374,76 +374,76 @@
     </div>
                         <body><p>Nowadays, the development of high-quality software is intertwined with automated testing. Therefore, the package contains testing tools to help you make it easy.</p>
 <p>To use them, it is enough to add the <code>ScreenTesting</code> trait to your testing class, for example:</p>
-<pre><code class="language-php">namespace Tests\Feature;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> Tests\Feature;
 
-use Orchid\Support\Testing\ScreenTesting;
-use Tests\TestCase;
+<span class="hl-keyword">use</span> Orchid\Support\Testing\<span class="hl-type">ScreenTesting</span>;
+<span class="hl-keyword">use</span> Tests\<span class="hl-type">TestCase</span>;
 
-class ExampleTest extends TestCase
+<span class="hl-keyword">class</span> <span class="hl-type">ExampleTest</span> <span class="hl-keyword">extends</span> <span class="hl-template">TestCase</span>
 {
-    use ScreenTesting;
-    //...
+    <span class="hl-keyword">use</span> <span class="hl-type">ScreenTesting</span>;
+    <span class="hl-comment">//...</span>
 }
 </code></pre>
 <p>After that, a new method for obtaining screen data by route name will be available:</p>
-<pre><code class="language-php">public function testExampleScreen()
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">testExampleScreen</span>()
 {
-    $screen = $this-&gt;screen('platform.example');
+    $screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>);
 
     $screen
-        -&gt;display()
-        -&gt;assertSee('Example screen');
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">display</span>()
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Example screen'</span>);
 
     $screen
-        -&gt;method('showToast')
-        -&gt;assertSee('Hello, world! This is a toast message.');
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'showToast'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Hello, world! This is a toast message.'</span>);
 
     $screen
-        -&gt;method('showToast', [
-            'toast' =&gt; 'Custom message'
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'showToast'</span>, [
+            <span class="hl-value">'toast'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Custom message'</span>
         ])
-        -&gt;assertSee('Custom message');
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Custom message'</span>);
 }
 </code></pre>
 <p>In many cases, routes take parameters, for example <code>users/{user}/edit</code>, in order to transfer them, you can use the method:</p>
-<pre><code class="language-php">$screen = $this-&gt;screen('platform.systems.users.edit')
-    -&gt;parameters([
-        'user' =&gt; 1,
+<pre><code data-lang="php" class="notranslate">$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.systems.users.edit'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">parameters</span>([
+        <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">1</span>,
     ]);
 </code></pre>
 <blockquote>
 <p>Note. If your action relies on GET parameters, for example for action <code>/admin/orders/approve?order=1</code>, then this value must also be set, using method <code>parameters</code>.</p>
 </blockquote>
 <p>Most likely, your routes are closed from guests and are available only for users. You need to call the <code>actingAs</code> method passing the user to log in.</p>
-<pre><code class="language-php">// Create a single App\Models\User instance...
-$user = User::factory()-&gt;create();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Create a single App\Models\User instance...</span>
+$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">factory</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">create</span>();
 
-$screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
+$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">actingAs</span>($user);
 </code></pre>
 <p>You may get a <code>403|401 Error</code> when prompted &ndash; which means that the user does not have enough rights.
 One option is to get all available permissions through the <code>Dashboard</code> facade.</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-$user = User::factory()-&gt;create([
-  'permissions' =&gt; Dashboard::getAllowAllPermission(),
+$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">factory</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">create</span>([
+  <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
 ]);
 
-$screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
+$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">actingAs</span>($user);
 </code></pre>
 <p>A more elegant solution is to define a method in the factory:</p>
-<pre><code class="language-php">class UserFactory extends Factory 
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">UserFactory</span> <span class="hl-keyword">extends</span> <span class="hl-template">Factory</span> 
 {
-    // ...
+    <span class="hl-comment">// ...</span>
 
-    /**
+    <span class="hl-comment">/**
      * Indicate that the model's must have all permissions.
      *
-     * @return static
-     */
-    public function admin()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">static</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">admin</span>()
     {
-        return $this-&gt;state(fn (array $attributes) =&gt; [
-            'permissions' =&gt; Dashboard::getAllowAllPermission(),
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">state</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-keyword">array</span> $attributes</span>) <span class="hl-operator">=&gt;</span> [
+            <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
         ]);
     }
 }
@@ -518,7 +518,7 @@ $screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

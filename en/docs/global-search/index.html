@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Global Search | Orchid - Laravel Admin Panel</title>
@@ -386,123 +386,123 @@ This package offers an abstraction for searching through your <code>Eloquent</co
 These can be elasticsearch, algolia, sphinx, or other solutions.</p>
 <p>To make your models searchable within the application, you must register them in the Orchid <a href="/en/docs/configuration">configuration file</a>.
 You can do this by adding a new entry to the 'search&rsquo; array for each model you want to make searchable. For example:</p>
-<pre><code class="language-php">'search' =&gt; [
-    \App\Models\Idea::class,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'search'</span> <span class="hl-operator">=&gt;</span> [
+    \App\Models\<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ],
 </code></pre>
 <blockquote>
 <p>This example uses <a href="/en/docs/presenters">presenters</a>, it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
 </blockquote>
 <p>The <a href="/en/docs/presenters">Presenter</a> is used to display the search results, which calls the <code>presenter()</code> method of the model:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use App\Orchid\Presenters\IdeaPresenter;
-use Laravel\Scout\Searchable;
-use Illuminate\Database\Eloquent\Model;
+<span class="hl-keyword">use</span> App\Orchid\Presenters\<span class="hl-type">IdeaPresenter</span>;
+<span class="hl-keyword">use</span> Laravel\Scout\<span class="hl-type">Searchable</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
-class Idea extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use Searchable;
+    <span class="hl-keyword">use</span> <span class="hl-type">Searchable</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Get the presenter for the model.
      *
-     * @return IdeaPresenter
-     */
-    public function presenter()
+     * <span class="hl-keyword">@return</span> <span class="hl-type">IdeaPresenter</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>()
     {
-        return new IdeaPresenter($this);
+        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">IdeaPresenter</span>(<span class="hl-tag2">$this</span>);
     }
     
-    /**
+    <span class="hl-comment">/**
      * Get the indexable data array for the model.
      *
-     * @return array
-     */
-    public function toSearchableArray()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toSearchableArray</span>()
     {
-        $array = $this-&gt;toArray();
+        $array <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
 
-        // Customize array...
+        <span class="hl-comment">// Customize array...</span>
 
-        return $array;
+        <span class="hl-keyword">return</span> $array;
     }
 }
 </code></pre>
 <p>In the representatives, we indicate the <code>Searchable</code> interface and define methods that will return values for a display to the user, for example like this:</p>
-<pre><code class="language-php">namespace App\Orchid\Presenters;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Presenters;
 
-use Laravel\Scout\Builder;
-use Orchid\Screen\Contracts\Searchable;
-use Orchid\Support\Presenter;
+<span class="hl-keyword">use</span> Laravel\Scout\<span class="hl-type">Builder</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Contracts\<span class="hl-type">Searchable</span>;
+<span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Presenter</span>;
 
-class IdeaPresenter extends Presenter implements Searchable
-{
-    /**
-     * @return string
-     */
-    public function label(): string
+<span class="hl-keyword">class</span> <span class="hl-type">IdeaPresenter</span> <span class="hl-keyword">extends</span> <span class="hl-template">Presenter</span> <span class="hl-keyword">implements</span><span class="hl-template"> Searchable
+</span>{
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">label</span>(): <span class="hl-keyword">string</span>
     {
-        return 'Ideas';
+        <span class="hl-keyword">return</span> <span class="hl-value">'Ideas'</span>;
     }
 
-    /**
-     * @return string
-     */
-    public function title(): string
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">title</span>(): <span class="hl-keyword">string</span>
     {
-        return $this-&gt;entity-&gt;name;
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
     }
 
-    /**
-     * @return string
-     */
-    public function subTitle(): string
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">subTitle</span>(): <span class="hl-keyword">string</span>
     {
-        return 'Small descriptions';
+        <span class="hl-keyword">return</span> <span class="hl-value">'Small descriptions'</span>;
     }
 
-    /**
-     * @return string
-     */
-    public function url(): string
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">url</span>(): <span class="hl-keyword">string</span>
     {
-        return url('/');
+        <span class="hl-keyword">return</span> <span class="hl-function">url</span>(<span class="hl-value">'/'</span>);
     }
 
-    /**
-     * @return string
-     */
-    public function image(): ?string
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">image</span>(): ?<span class="hl-keyword">string</span>
     {
-        return null;
+        <span class="hl-keyword">return</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>;
     }
     
-    /**
-     * @param string|null $query
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span> $query
      *
-     * @return Builder
-     */
-    public function searchQuery(string $query = null): Builder
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Builder</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
     {
-        return $this-&gt;entity-&gt;search($query);
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query);
     }
     
-    /**
-     * @return int
-     */
-    public function perSearchShow(): int
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">int</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">perSearchShow</span>(): <span class="hl-keyword">int</span>
     {
-        return 3;
+        <span class="hl-keyword">return</span> <span class="hl-number">3</span>;
     }
 }
 </code></pre>
 <h2><a href='#customizing-search-queries' id='customizing-search-queries'>Customizing Search Queries</a></h2>
 <p>To customize search queries, you can override the default <code>searchQuery()</code> method.
 This method returns a <code>Builder</code> instance representing the query used to index the model.</p>
-<pre><code class="language-php">public function searchQuery(string $query = null): Builder
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
 {
-    return $this-&gt;entity-&gt;search($query)-&gt;where('active', true);
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query)<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
 }
 </code></pre>
 <p>Here, in the <code>searchQuery()</code> method, the <code>where()</code> method was used to limit the search to only active models</p>
@@ -576,7 +576,7 @@ This method returns a <code>Builder</code> instance representing the query used 
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

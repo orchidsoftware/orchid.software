@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Configuration | Orchid - Laravel Admin Panel</title>
@@ -407,32 +407,32 @@
 </blockquote>
 <p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
 <h2><a href='#domain' id='domain'>Domain</a></h2>
-<pre><code class="language-php">'domain' =&gt; env('PLATFORM_DOMAIN', null),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_DOMAIN'</span>, <span class="hl-keyword"><span class="hl-constant">null</span></span>),
 </code></pre>
 <p>For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
 <p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration file:</p>
-<pre><code class="language-php">'domain' =&gt; 'admin.example.com',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'admin.example.com'</span>,
 </code></pre>
 <p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
 <h2><a href='#prefix' id='prefix'>Prefix</a></h2>
-<pre><code class="language-php">'prefix' =&gt; env('PLATFORM_PREFIX', 'admin'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_PREFIX'</span>, <span class="hl-value">'admin'</span>),
 </code></pre>
 <p>The <code>prefix</code> parameter allows you to change the default <code>admin</code> prefix to any other name, such as <code>orchid</code> or <code>administrator</code>. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.</p>
 <p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code> instead of <code>https://example.com/admin/login</code>.</p>
 <p>To change the prefix, you can update the prefix parameter in the configuration file:</p>
-<pre><code class="language-php">'prefix' =&gt; 'dashboard',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'dashboard'</span>,
 </code></pre>
 <p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.</p>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
-<pre><code class="language-php">'middleware' =&gt; [
-    'public'  =&gt; [
-        'web', 
-        'cache.headers:private;must_revalidate;etag'
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'middleware'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'public'</span>  <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'web'</span>, 
+        <span class="hl-value">'cache.headers:private;must_revalidate;etag'</span>
     ],
-    'private' =&gt; [
-        'web',
-        'platform',
-        'cache.headers:private;must_revalidate;etag'
+    <span class="hl-value">'private'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'web'</span>,
+        <span class="hl-value">'platform'</span>,
+        <span class="hl-value">'cache.headers:private;must_revalidate;etag'</span>
     ],
 ],
 </code></pre>
@@ -440,75 +440,75 @@
 <p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The <code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.</p>
 <p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.</p>
 <h2><a href='#login-page' id='login-page'>Login Page</a></h2>
-<pre><code class="language-php">'auth' =&gt; true,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <p>The <code>auth</code> parameter controls whether the package uses its own simple login interface or not. By default, it is set to <code>true</code>, which means the platform will use its own login interface.</p>
 <p>If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a> or roll your own login interface.</p>
 <p>To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you roll your own login interface, you will need to create the necessary controllers, views, and routes for the login process.</p>
-<pre><code class="language-php">'auth' =&gt; false,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">false</span>,
 </code></pre>
 <h2><a href='#home-page' id='home-page'>Home Page</a></h2>
 <p>The <code>index</code> parameter controls the main page of the admin panel that the user will see when they first log in or click on the logo or links in the navigation bar.</p>
-<pre><code class="language-php">'index' =&gt; 'platform.main',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform.main'</span>,
 </code></pre>
 <p>The default value for this parameter is <code>platform.main</code>, which corresponds to the main dashboard page of the platform.</p>
 <p>You can change this to any other route you have defined in your application. For example, if you want to redirect users to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
-<pre><code class="language-php">'index' =&gt; 'custom.dashboard',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
 </code></pre>
 <p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
 <h2><a href='#asset-resources' id='asset-resources'>Asset Resources</a></h2>
-<pre><code class="language-php">'resource' =&gt; [
-    'stylesheets' =&gt; [],
-    'scripts'     =&gt; [],
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
+    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [],
 ],
 </code></pre>
 <p>The <code>resource</code> parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
 <p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
-<pre><code class="language-php">'resource' =&gt; [
-    'stylesheets' =&gt; [
-        '/path/to/custom.css'
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'/path/to/custom.css'</span>
     ],
-    'scripts'     =&gt; [
-        '/path/to/custom.js', // Local path in the public directory
-        'https://cdn.example.com/app.js', // CDN path
+    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'/path/to/custom.js'</span>, <span class="hl-comment">// Local path in the public directory</span>
+        <span class="hl-value">'https://cdn.example.com/app.js'</span>, // <span class="hl-constant">CDN</span> path
     ],
 ],
 </code></pre>
 <p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
 <p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
-<pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; null,
-    'footer' =&gt; null,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
+    <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
 ],
 </code></pre>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
-<pre><code class="language-php">namespace App\Providers;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
 
-class AppServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Bootstrap any application services.
      *
-     * @return void
-     */
-    public function boot()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
     {
-        Dashboard::useModel(
-            \Orchid\Platform\Models\User::class, 
-            \App\Models\User::class
+        <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
+            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, 
+            \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
         );
     }
 }
 </code></pre>
 <p>You can use the configuration parameter, which allows you to define all the substitutions at once:</p>
-<pre><code class="language-php">Dashboard::configure([
-    'models' =&gt; [
-        User::class =&gt; MyCustomClass::class,
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">configure</span>([
+    <span class="hl-value">'models'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">MyCustomClass</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     ],
 ]);
 </code></pre>
@@ -520,14 +520,14 @@ class AppServiceProvider extends ServiceProvider
 <p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
 <code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
-<pre><code class="language-php">your-project/
-├─ ...
+<pre><code data-lang="php" class="notranslate">your-project/
+├─ <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
 └─ resources/
    └─ views/
       └─ vendor/
          └─ platform/
             └─ partials/
-                └─ search.blade.php          
+                └─ search<span class="hl-delimeter">.</span>blade<span class="hl-delimeter">.</span>php          
 </code></pre>
 </body>
                         
@@ -599,7 +599,7 @@ class AppServiceProvider extends ServiceProvider
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

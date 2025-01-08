@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Screens | Orchid - Laravel Admin Panel</title>
@@ -428,47 +428,47 @@
 <p>In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.</p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
 <p>You can create a new screen by running the command:</p>
-<pre><code class="language-php">php artisan orchid:screen Idea
+<pre><code data-lang="php" class="notranslate">php artisan orchid:screen Idea
 </code></pre>
 <p>An <code>Idea</code> file will be created in the <code>app/Orchid/Screens</code> directory with the following contents:</p>
-<pre><code class="language-php">use Orchid\Screen\Screen;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-class Idea extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Fetch data to be displayed on the screen.
-     */
-    public function query() : array
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The name of the screen is displayed in the header.
-     */
-    public function name(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
     {
-        return "Idea Screen";
+        <span class="hl-keyword">return</span> <span class="hl-value">"Idea Screen"</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * The screen's action buttons.
      *
-     * @return \Orchid\Screen\Action[]
-     */
-    public function commandBar() : array
+     * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Action</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>() : <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The screen's layout elements.
      *
-     * @return \Orchid\Screen\Layout[]|string[]
-     */
-    public function layout() : array
+     * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Layout</span>[]|<span class="hl-keyword">string</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>() : <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 }
 </code></pre>
@@ -483,38 +483,38 @@ class Idea extends Screen
 <h2><a href='#routing-screens' id='routing-screens'>Routing Screens</a></h2>
 <p>Before a screen can be accessed at a direct URL, it must be registered in the <code>routes/platform.php</code> routes file. Routes registered in this file will be passed through the middleware specified in the <a href="/en/docs/configuration">configuration</a>.</p>
 <p>To register a screen, you can use the screen method of the <code>Route</code> class. For example:</p>
-<pre><code class="language-php">use App\Orchid\Screens\Idea;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">Idea</span>;
 
-Route::screen('/idea', Idea::class)-&gt;name('platform.idea');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.idea'</span>);
 </code></pre>
 <p>This will register a new route for the Idea screen, accessible at the URL <code>/idea</code>.</p>
 <p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
-<pre><code class="language-php">Method   | URI                      | Name
+<pre><code data-lang="php" class="notranslate">Method   | <span class="hl-constant">URI</span>                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | platform.idea
+<span class="hl-constant">GET</span>|<span class="hl-constant">POST</span> | dashboard/idea/{method?} | platform<span class="hl-delimeter">.</span>idea
 </code></pre>
 <p>If you have multiple screens, you can register them in the same way. For example:</p>
-<pre><code class="language-php">use App\Orchid\Screens\Idea;
-use App\Orchid\Screens\IdeaEdit;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">Idea</span>;
+<span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">IdeaEdit</span>;
 
-Route::screen('/idea/edit', IdeaEdit::class)
-    -&gt;name('platform.idea.edit');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea/edit'</span>, <span class="hl-type">IdeaEdit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.idea.edit'</span>);
 
-Route::screen('/idea', Idea::class)
-    -&gt;name('platform.idea');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.idea'</span>);
 </code></pre>
 <blockquote>
 <p>It&rsquo;s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
 </blockquote>
 <p>By writing the following routes:</p>
-<pre><code class="language-php">Route::screen('/idea', ...
-Route::screen('/idea/edit',...
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea/edit'</span>,<span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
 </code></pre>
 <p>We get:</p>
-<pre><code class="language-php">URI                           | Name
+<pre><code data-lang="php" class="notranslate"><span class="hl-constant">URI</span>                           | Name
 ------------------------------+---------------------
-dashboard/idea/{method?}      | platform.idea
-dashboard/idea/edit/{method?} | platform.idea.edit
+dashboard/idea/{method?}      | platform<span class="hl-delimeter">.</span>idea
+dashboard/idea/edit/{method?} | platform<span class="hl-delimeter">.</span>idea<span class="hl-delimeter">.</span>edit
 </code></pre>
 <p><code>{method?}</code> &ndash; means an optional argument that may go further.
 Correspondingly, the name &ldquo;edit&rdquo; in the address falls under it.
@@ -523,46 +523,46 @@ The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, m
 <p>The <code>query</code> method of a screen is used to load data from the database or other sources.
 This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 <p>For example, you might use the <code>query</code> method to response simple string:</p>
-<pre><code class="language-php">public function query() : array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        'name'  =&gt; 'Alexandr Chernyaev',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
     ];
 }
 </code></pre>
 <p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows you to easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
 <p>To use the <code>AsSource</code> trait, you need to include it in your model class:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\AsSource;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Order extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Order</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource;
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource</span>;
 }
 </code></pre>
 <p>Then, in your screen&rsquo;s <code>query</code> method, you can access the model&rsquo;s data like this:</p>
-<pre><code class="language-php">public function query() : array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        'order'  =&gt; Order::find(1),
-        'orders' =&gt; Order::paginate(),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'order'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>),
+        <span class="hl-value">'orders'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">paginate</span>(),
     ];
 }
 </code></pre>
 <p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain a paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and views to display the data to the user.</p>
 <p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen&rsquo;s layouts and views. For example:</p>
-<pre><code class="language-php">use Orchid\Screen\Repository;    
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;    
 
-public function query(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'order' =&gt; new Repository([
-            'product_id' =&gt; 'prod-100',
-            'name'       =&gt; 'Desk',
-            'price'      =&gt; 10.24,
-            'created_at' =&gt; '01.01.2020',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'order'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">new</span> <span class="hl-type">Repository</span>([
+            <span class="hl-value">'product_id'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'prod-100'</span>,
+            <span class="hl-value">'name'</span>       <span class="hl-operator">=&gt;</span> <span class="hl-value">'Desk'</span>,
+            <span class="hl-value">'price'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-number">10</span><span class="hl-delimeter">.</span><span class="hl-number">24</span>,
+            <span class="hl-value">'created_at'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'01.01.2020'</span>,
         ]),
     ];
 }
@@ -572,21 +572,21 @@ public function query(): array
 <h2><a href='#autocompleting-public-properties' id='autocompleting-public-properties'>Autocompleting Public Properties</a></h2>
 <p>You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the <code>query</code> method will be automatically assigned to public properties of the same name.</p>
 <p>For example, consider the following code:</p>
-<pre><code class="language-php">/**
- * @var string
- */
-public $message;
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> $message;
 
-public function query() : array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        'message'  =&gt; 'Hello World!',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'message'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Hello World!'</span>,
     ];
 }
 
-public function name(): ?string
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
 {
-    return $this-&gt;message;
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">message</span>;
 }
 </code></pre>
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
@@ -597,45 +597,45 @@ public function name(): ?string
 <p>There are several types of actions available:</p>
 <h3><a href='#button' id='button'>Button</a></h3>
 <p>Button actions allow users to trigger a method on the screen when clicked. For example:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Button;
-use Orchid\Support\Facades\Toast;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
-public function commandBar() : array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        Button::make('Go print')-&gt;method('print'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Go print'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'print'</span>),
     ];
 }
 
-public function print(): void
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-keyword"><span class="hl-function">print</span></span>(): <span class="hl-keyword">void</span>
 {
-   Toast::warning('Hello, world! This is a toast message.');
+   <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Hello, world! This is a toast message.'</span>);
 }
 </code></pre>
 <p>In this example, when the Print button is clicked, the <code>print</code> method of the screen will be called.
 All of the data that the user has seen on the screen will be available in the request.</p>
 <h3><a href='#link' id='link'>Link</a></h3>
 <p>Link actions allow users to navigate to a different URL when clicked. For example:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
 
-public function commandBar() : array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        Link::make('External reference')
-                -&gt;href('http://orchid.software'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'External reference'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'http://orchid.software'</span>),
     ];
 }
 </code></pre>
 <h3><a href='#modaltoggle' id='modaltoggle'>ModalToggle</a></h3>
 <p>Modal toggle actions allow users to open a modal window when clicked. For example:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">ModalToggle</span>;
 
-public function commandBar() : array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        ModalToggle::make('Modal window')
-            -&gt;modal('CreateUserModal')
-            -&gt;method('save'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ModalToggle</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Modal window'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">modal</span>(<span class="hl-value">'CreateUserModal'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'save'</span>),
     ];
 }
 </code></pre>
@@ -645,20 +645,20 @@ public function commandBar() : array
 <h3><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h3>
 <p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
-<pre><code class="language-php">&lt;form action="{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}"
-      method="POST"
-&gt;
+<pre><code data-lang="php" class="notranslate">&lt;form action=<span class="hl-value">"{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}"</span>
+      method=<span class="hl-value">"POST"</span>
+<span class="hl-operator">&gt;</span>
     @csrf
-    &lt;button type="submit"&gt;Say "Hello, World!"&lt;/button&gt;
+    &lt;button type=<span class="hl-value">"submit"</span>&gt;Say <span class="hl-value">"Hello, World!"</span>&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
 <p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 
-Button::make('Say "Hello, World!"')
-    -&gt;action(route('platform.screens.users', [
-        'method' =&gt; 'hello',
+<span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Say "Hello, World!"'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [
+        <span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>,
     ]));
 </code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
@@ -667,13 +667,13 @@ Button::make('Say "Hello, World!"')
 One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
-<pre><code class="language-php">&lt;div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"&gt;
-	&lt;span class="thumb-sm avatar m-r-xs"&gt;
-        &lt;img src="/avatar/maria.jpg" class="bg-light" alt="Maria"&gt;
+<pre><code data-lang="php" class="notranslate">&lt;div class=<span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span>&gt;
+	&lt;span class=<span class="hl-value">"thumb-sm avatar m-r-xs"</span>&gt;
+        &lt;img src=<span class="hl-value">"/avatar/maria.jpg"</span> class=<span class="hl-value">"bg-light"</span> alt=<span class="hl-value">"Maria"</span>&gt;
     &lt;/span&gt;
-    &lt;div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"&gt;
-        &lt;h6 class="mb-0"&gt;Maria&lt;/h6&gt;
-        &lt;p class="text-muted mb-1"&gt;maria@exaple.com&lt;/p&gt;
+    &lt;div class=<span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span>&gt;
+        &lt;h6 class=<span class="hl-value">"mb-0"</span>&gt;Maria&lt;/h6&gt;
+        &lt;p class=<span class="hl-value">"text-muted mb-1"</span>&gt;maria@exaple<span class="hl-delimeter">.</span>com&lt;/p&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -682,104 +682,104 @@ If you try to explain briefly, it turns out that this is a <code>view</code> on 
 <p>Each layout may include a different layout, that is, nesting.
 For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.</p>
-<pre><code class="language-php">public function layout() : array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::columns([
-            'Left column' =&gt; [
-                FirstRows::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">columns</span>([
+            <span class="hl-value">'Left column'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">FirstRows</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             ],
-            'Right column' =&gt; [
-                SecondRows::class,
+            <span class="hl-value">'Right column'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">SecondRows</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             ],
         ]),
         
-        // Modal window
-        Layout::modal('Appointments', [
-            ThirdRows::class,
+        <span class="hl-comment">// Modal window</span>
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'Appointments'</span>, [
+            <span class="hl-type">ThirdRows</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
 </code></pre>
 <p>Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a configurable design.
 To pass custom parameters to your layout you can use the class constructor to handle them:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Field;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Label;
-use Orchid\Screen\Layouts\Rows;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Label</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
 
-class ReusableLayout extends Rows
+<span class="hl-keyword">class</span> <span class="hl-type">ReusableLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Rows</span>
 {
-    public function __construct(
-        private readonly string $prefix,
-        private readonly string $title
-    ) {}
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
+        <span class="hl-keyword">private</span> readonly <span class="hl-keyword">string</span> $prefix,
+        <span class="hl-keyword">private</span> readonly <span class="hl-keyword">string</span> $title
+    </span>) {}
 
-    /**
+    <span class="hl-comment">/**
      * Define the fields for the layout.
      *
-     * @return Field[]
-     */
-    protected function fields(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Field</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">fields</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            new Label('label')
-                -&gt;title($this-&gt;title),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-constant">new</span> <span class="hl-type">Label</span>(<span class="hl-value">'label'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>),
 
-            new Input($this-&gt;prefix . '.address')
-                -&gt;required()
-                -&gt;title('Address')
-                -&gt;placeholder('177A Bleecker Street'),
+            <span class="hl-constant">new</span> <span class="hl-type">Input</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-delimeter">.</span> <span class="hl-value">'.address'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Address'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'177A Bleecker Street'</span>),
         ];
     }
 }
 </code></pre>
 <p>Instances can be used in the same way, but they can accept parameters</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        new ReusableLayout('order.shipping_address', 'Shipping Address'),
-        new ReusableLayout('order.invoice_address', 'Invoice Address'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-constant">new</span> <span class="hl-type">ReusableLayout</span>(<span class="hl-value">'order.shipping_address'</span>, <span class="hl-value">'Shipping Address'</span>),
+        <span class="hl-constant">new</span> <span class="hl-type">ReusableLayout</span>(<span class="hl-value">'order.invoice_address'</span>, <span class="hl-value">'Invoice Address'</span>),
     ];
 }
 </code></pre>
 <p>More details can be found in the <code>Layouts</code> section.</p>
 <h2><a href='#additional-methods' id='additional-methods'>Additional Methods</a></h2>
 <h4><a href='#validation-message' id='validation-message'>Validation Message</a></h4>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Message if the form is not valid.
- */
-public function formValidateMessage(): string
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">formValidateMessage</span>(): <span class="hl-keyword">string</span>
 {
-    return 'Please check the entered data';
+    <span class="hl-keyword">return</span> <span class="hl-value">'Please check the entered data'</span>;
 }
 </code></pre>
 <p>This method returns a message if the HTML form validation fails, for example, if a required field is missing.</p>
 <h4><a href='#prevent-data-loss-on-navigation' id='prevent-data-loss-on-navigation'>Prevent Data Loss on Navigation</a></h4>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Determines whether to prevent data loss on navigation attempt.
- */
-public function needPreventsAbandonment(): bool
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">needPreventsAbandonment</span>(): <span class="hl-keyword">bool</span>
 {
-    return false;
+    <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
 }
 </code></pre>
 <p>No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.</p>
 <h4><a href='#stimulus-controller' id='stimulus-controller'>Stimulus Controller</a></h4>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Returns the name of the base Stimulus controller for the frontend.
  *
  * This method is used to determine the base Stimulus controller that will be
  * utilized on the frontend of the application. The controller manages the
  * behavior of UI elements, interacting with other components via Hotwire.
  *
- * @return string The name of the base controller.
- */
-public function frontendController(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span> <span class="hl-type">The</span> <span class="hl-type">name</span> <span class="hl-type">of</span> <span class="hl-type">the</span> <span class="hl-type">base</span> <span class="hl-type">controller</span>.
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">frontendController</span>(): <span class="hl-keyword">string</span>
 {
-    return 'base';
+    <span class="hl-keyword">return</span> <span class="hl-value">'base'</span>;
 }
 </code></pre>
 <p>This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior of UI elements and interacting with other components via Hotwire.</p>
@@ -853,7 +853,7 @@ public function frontendController(): string
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

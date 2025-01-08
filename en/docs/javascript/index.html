@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Use JavaScript | Orchid - Laravel Admin Panel</title>
@@ -405,22 +405,22 @@
 <h2><a href='#working-with-vite' id='working-with-vite'>Working With Vite</a></h2>
 <p>Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the official <a href="https://laravel.com/docs/vite">documentation page</a>.</p>
 <p>To successfully incorporate the acquired resources into your project, you&rsquo;ll need to specify them in the <code>config/platform.php</code> file. This file allows you to define a list of resources that should be included in your project. Here&rsquo;s an example of such configuration:</p>
-<pre><code class="language-php">'vite' =&gt; [
-    'resources/js/app.js',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'resources/js/app.js'</span>,
 ],
 </code></pre>
 <p>This entry is equivalent to using the Blade directive <code>@vite</code>. By carefully following these steps, you can effectively integrate Vite into your Laravel project and achieve the best results from its usage.</p>
 <h2><a href='#loading-your-scripts-and-styles' id='loading-your-scripts-and-styles'>Loading Your Scripts And Styles</a></h2>
 <p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
 <p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:</p>
-<pre><code class="language-php">'resource' =&gt; [
-    'stylesheets' =&gt; [
-        // Add your URLs for stylesheets here
-        'https://cdn.example.com/styles/main.css',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-comment">// Add your URLs for stylesheets here</span>
+        <span class="hl-value">'https://cdn.example.com/styles/main.css'</span>,
     ],
-    'scripts' =&gt; [
-        // Add your URLs for scripts here
-        'https://cdn.example.com/scripts/app.js',
+    <span class="hl-value">'scripts'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-comment">// Add your URLs for scripts here</span>
+        <span class="hl-value">'https://cdn.example.com/scripts/app.js'</span>,
     ],
 ],
 </code></pre>
@@ -429,13 +429,13 @@
 <h2><a href='#turbo' id='turbo'>Turbo</a></h2>
 <p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
 <p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
-<pre><code class="language-js">document.addEventListener("load", () =&gt; {
-    console.log('Page load');
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("load", () =&gt; {
+    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
 });
 </code></pre>
 <p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
-<pre><code class="language-js">document.addEventListener("turbo:load", () =&gt; {
-    console.log('Page load');
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbo:load", () =&gt; {
+    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
 })
 </code></pre>
 <p>You can find more details on the website <a href="https://turbo.hotwire.dev">turbo.hotwire.dev</a>.</p>
@@ -443,48 +443,48 @@
 <p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.</p>
 <p>Let&rsquo;s build a basic example for that displays the text entered the field for this:</p>
 <p>In <code>resources/js</code>, create the following structure:</p>
-<pre><code class="language-php">resources
+<pre><code data-lang="php" class="notranslate">resources
 ├── js
 │   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
+│   │   └── hello<span class="hl-delimeter">.</span>js
+│   └── dashboard<span class="hl-delimeter">.</span>js
 └── views
 </code></pre>
 <p>Controller class with the following content:</p>
-<pre><code class="language-php">// hello.js
-export default class extends window.Controller {
+<pre><code data-lang="js" class="notranslate"><span class="hl-comment">// hello.js</span>
+<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
 
-    static get targets() {
-        return [ "name", "output" ]
+    <span class="hl-keyword">static</span> <span class="hl-keyword">get</span> <span class="hl-function">targets</span>() {
+        <span class="hl-keyword">return</span> [ "name", "output" ]
     }
 
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
+    <span class="hl-function">greet</span>() {
+        <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
+            <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>
     }
 }
 </code></pre>
 <p>And the assembly point:</p>
-<pre><code class="language-php">// dashboard.js
-import HelloController from "./controllers/hello"
+<pre><code data-lang="js" class="notranslate"><span class="hl-comment">// dashboard.js</span>
+<span class="hl-keyword">import</span> HelloController <span class="hl-keyword">from</span> "./controllers/hello"
 
-application.register("hello", HelloController);
+application.<span class="hl-property2"><span class="hl-function">register</span></span>("hello", HelloController);
 </code></pre>
 <blockquote>
 <p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
 </blockquote>
 <h3><a href='#compilation-with-mix' id='compilation-with-mix'>Compilation with Mix</a></h3>
 <p>It remains only to describe the assembly in <code>webpack.mix.js</code>:</p>
-<pre><code class="language-php">let mix = require('laravel-mix');
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> mix <span class="hl-operator">=</span> <span class="hl-function">require</span>(<span class="hl-value">'laravel-mix'</span>);
 
-mix.js('resources/js/dashboard.js', 'public/js')
+mix.<span class="hl-property2"><span class="hl-function">js</span></span>(<span class="hl-value">'resources/js/dashboard.js'</span>, <span class="hl-value">'public/js'</span>)
 </code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file:</p>
-<pre><code class="language-php">// config/platform.php
-'resource' =&gt; [
-    'stylesheets' =&gt; [],
-    'scripts'     =&gt; [
-        '/js/dashboard.js'
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
+<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
+    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'/js/dashboard.js'</span>
     ],
 ],
 </code></pre>
@@ -492,23 +492,23 @@ mix.js('resources/js/dashboard.js', 'public/js')
 <p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
 </blockquote>
 <p>Run to build assets:</p>
-<pre><code class="language-bash">npm run production
+<pre><code data-lang="shell" class="notranslate">npm run production
 </code></pre>
 <h3><a href='#compilation-with-vite' id='compilation-with-vite'>Compilation with Vite</a></h3>
 <p>For Vite, configure your <code>vite.config.js</code> like this:</p>
-<pre><code class="language-javascript">laravel({
-    input: ['resources/js/dashboard.js'],
-    refresh: true,
+<pre><code data-lang="js" class="notranslate"><span class="hl-function">laravel</span>({
+    input: [<span class="hl-value">'resources/js/dashboard.js'</span>],
+    refresh: <span class="hl-slug">true</span>,
 }),
 </code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.</p>
-<pre><code class="language-php">// config/platform.php
-'vite' =&gt; [
-    'resources/js/app.js',
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
+<span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'resources/js/app.js'</span>,
 ],
 </code></pre>
 <p>Running the <code>build</code> command will version and bundle your application&rsquo;s assets and get them ready for you to deploy to production:</p>
-<pre><code class="language-bash"># Build and version the assets for production...
+<pre><code data-lang="shell" class="notranslate"><span class="hl-comment"># Build and version the assets for production...</span>
 npm run build
 </code></pre>
 <blockquote>
@@ -516,46 +516,46 @@ npm run build
 </blockquote>
 <h3><a href='#run-controller' id='run-controller'>Run Controller</a></h3>
 <p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
-<pre><code class="language-php">// hello.blade.php
-&lt;div data-controller="hello"&gt;
-  &lt;input data-hello-target="name" type="text"&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- hello.blade.php --}}</span> 
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
 
-  &lt;button data-action="click-&gt;hello#greet"&gt;
+  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">button</span> <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"click-&gt;hello#greet"</span><span class="hl-delimeter">&gt;</span>
     Greet
-  &lt;/button&gt;
+  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">button</span><span class="hl-delimeter">&gt;</span>
 
-  &lt;span data-hello-target="output"&gt;
-  &lt;/span&gt;
-&lt;/div&gt;
+  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js Wrapped in a Stimulus</a></h2>
 <p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
 <p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
-<pre><code class="language-js">import {createApp} from 'vue';
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> {createApp} <span class="hl-keyword">from</span> <span class="hl-value">'vue'</span>;
 
-export default class extends window.Controller {
-    connect() {
-        this.app = createApp({
-            data() {
-                return {
-                    message: 'Hello, Vue.js!'
+<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
+    <span class="hl-function">connect</span>() {
+        <span class="hl-slug">this</span>.<span class="hl-property2">app</span> <span class="hl-operator">=</span> <span class="hl-function">createApp</span>({
+            <span class="hl-function">data</span>() {
+                <span class="hl-keyword">return</span> {
+                    message: <span class="hl-value">'Hello, Vue.js!'</span>
                 }
             }
         });
 
-        this.app.mount(this.element);
+        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">mount</span></span>(<span class="hl-slug">this</span>.<span class="hl-property2">element</span>);
     }
 
-    disconnect() {
-        this.app.unmount();
+    <span class="hl-function">disconnect</span>() {
+        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">unmount</span></span>();
     }
 }
 
 </code></pre>
 <p>Register the controller in your blade file:</p>
-<pre><code class="language-html">&lt;div data-controller="hello"&gt;
-  @{{ message }}
-&lt;/div&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-attribute">@</span><span class="hl-delimeter">{{</span> message <span class="hl-delimeter">}}</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
 </body>
@@ -628,7 +628,7 @@ export default class extends window.Controller {
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

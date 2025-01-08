@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Уведомления | Orchid - Laravel Admin Panel</title>
@@ -397,29 +397,29 @@
 <p>Flash-&#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077; &mdash; &#1101;&#1090;&#1086; &#1086;&#1076;&#1085;&#1086;&#1088;&#1072;&#1079;&#1086;&#1074;&#1086;&#1077; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1091;&#1076;&#1072;&#1083;&#1077;&#1085;&#1086; &#1087;&#1088;&#1080; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1077;&#1084; &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1080;.
 &#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1088;&#1080;&#1079;&#1074;&#1072;&#1085;&#1099; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1086; &#1085;&#1077;&#1087;&#1086;&#1089;&#1088;&#1077;&#1076;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086; &#1087;&#1088;&#1086;&#1080;&#1079;&#1086;&#1096;&#1077;&#1076;&#1096;&#1077;&#1084; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1080;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077; &#1086; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1080; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;.</p>
 <p>ORCHID &#1080;&#1084;&#1077;&#1077;&#1090; &#1091;&#1076;&#1086;&#1073;&#1085;&#1099;&#1081; &#1074;&#1099;&#1079;&#1086;&#1074; &#1080; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1081; &#1087;&#1086;&#1074;&#1077;&#1088;&#1093; &#1086;&#1076;&#1085;&#1086;&#1088;&#1072;&#1079;&#1086;&#1074;&#1099;&#1093; flash-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;.</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Alert;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
-Alert::message('Welcome Aboard!');
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">message</span>(<span class="hl-value">'Welcome Aboard!'</span>);
 </code></pre>
 <p>&#1052;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1073;&#1086;&#1083;&#1077;&#1077; &#1082;&#1086;&#1088;&#1086;&#1090;&#1082;&#1091;&#1102; &#1079;&#1072;&#1087;&#1080;&#1089;&#1100;:</p>
-<pre><code class="language-php">alert('Message');
+<pre><code data-lang="php" class="notranslate"><span class="hl-function">alert</span>(<span class="hl-value">'Message'</span>);
 </code></pre>
 <p>&#1057;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1074;&#1080;&#1079;&#1091;&#1072;&#1083;&#1100;&#1085;&#1086; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1090;&#1100; &#1089;&#1090;&#1072;&#1090;&#1091;&#1089; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1094;&#1074;&#1077;&#1090;&#1086;&#1074;&#1086;&#1081; &#1075;&#1072;&#1084;&#1084;&#1099;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1087;&#1088;&#1077;&#1076;&#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1099; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099;:</p>
-<pre><code class="language-php">Alert::info('Message')
-Alert::success('Message')
-Alert::error('Message')
-Alert::warning('Message')
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Message'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">success</span>(<span class="hl-value">'Message'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Message'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Message'</span>)
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1074;&#1089;&#1090;&#1072;&#1074;&#1082;&#1080; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1099;&#1093;, &#1090;&#1077;&#1075;&#1086;&#1074; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076; <code>view</code>:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Alert;
-use Orchid\Support\Color;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
+<span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
 
-Alert::view('alert', Color::INFO(), [
-    'name' =&gt; 'Alexandr'
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'alert'</span>, <span class="hl-type">Color</span><span class="hl-delimeter">::</span><span class="hl-constant"><span class="hl-function">INFO</span></span>(), [
+    <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>
 ]);
 </code></pre>
 <p>&#1055;&#1077;&#1088;&#1074;&#1099;&#1081; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; &#1101;&#1090;&#1086; &#1087;&#1091;&#1090;&#1100;/&#1080;&#1084;&#1103; <code>Blade</code> &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072;:</p>
-<pre><code class="language-php">// resources/views/alert.blade.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// resources/views/alert.blade.php</span>
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
@@ -429,21 +429,21 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 <li>'flash_notification.level&rsquo; &ndash; &#1057;&#1090;&#1088;&#1086;&#1082;&#1072;, &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1102;&#1097;&#1072;&#1103; &#1090;&#1080;&#1087; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103;.</li>
 </ul>
 <p>&#1054;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1091;&#1078;&#1077; &#1074;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1086; &#1074; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;, &#1085;&#1086; &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1074;&#1099;&#1079;&#1099;&#1074;&#1072;&#1090;&#1100; &#1077;&#1075;&#1086; &#1103;&#1074;&#1085;&#1086; &#1074; <code>blade</code> &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072;&#1093;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100;:</p>
-<pre><code class="language-php">@include('platform::partials.alert')
+<pre><code data-lang="php" class="notranslate">@<span class="hl-keyword"><span class="hl-function">include</span></span>(<span class="hl-value">'platform::partials.alert'</span>)
 </code></pre>
 <h2><a href='#tost-soobshheniia' id='tost-soobshheniia'>Тост сообщения</a></h2>
 <p>&#1069;&#1090;&#1086; &#1084;&#1072;&#1083;&#1077;&#1085;&#1100;&#1082;&#1086;&#1077; &#1074;&#1089;&#1087;&#1083;&#1099;&#1074;&#1072;&#1102;&#1097;&#1077;&#1077; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077; &#1074; &#1087;&#1088;&#1072;&#1074;&#1086;&#1084; &#1074;&#1077;&#1088;&#1093;&#1085;&#1077;&#1084; &#1091;&#1075;&#1083;&#1091; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;, &#1076;&#1083;&#1103; &#1082;&#1088;&#1072;&#1090;&#1082;&#1086;&#1075;&#1086; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1086; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1077;.
 &#1054;&#1085;&#1086; &#1087;&#1086;&#1083;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1077;&#1090; &#1086;&#1076;&#1085;&#1086;&#1088;&#1072;&#1079;&#1086;&#1074;&#1099;&#1084; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1103;&#1084; <code>Alert</code>, &#1085;&#1086; &#1080;&#1084;&#1077;&#1077;&#1090; &#1076;&#1088;&#1091;&#1075;&#1086;&#1081; &#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1081; &#1074;&#1080;&#1076; &#1080; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Toast;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
-Toast::warning('Lorem ipsum dolor sit amet, consectetur adipiscing elit.')
+<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'</span>)
 </code></pre>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1089;&#1090;&#1100; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1089;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103; &#1080; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080; &#1076;&#1086; &#1101;&#1090;&#1086;&#1075;&#1086;:</p>
-<pre><code class="language-php">Toast::warning('Lorem ipsum dolor sit amet.')
-    -&gt;autoHide(false);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Lorem ipsum dolor sit amet.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">autoHide</span>(<span class="hl-constant">false</span>);
 
-Toast::warning('Lorem ipsum dolor sit amet.')
-    -&gt;delay(2000);
+<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Lorem ipsum dolor sit amet.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
 <h2><a href='#uvedomleniia-v-paneli-administrirovaniia' id='uvedomleniia-v-paneli-administrirovaniia'>Уведомления в панели администрирования</a></h2>
 <p>&#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1074; &#1087;&#1072;&#1085;&#1077;&#1083;&#1080; &#1072;&#1076;&#1084;&#1080;&#1085;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1086;&#1090;&#1083;&#1080;&#1095;&#1072;&#1102;&#1090;&#1089;&#1103; &#1086;&#1090; flash-&#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1081; &#1090;&#1077;&#1084;, &#1095;&#1090;&#1086; &#1085;&#1077; &#1091;&#1076;&#1072;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; &#1087;&#1086;&#1089;&#1083;&#1077; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1072; &#1080;
@@ -453,34 +453,34 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;:</strong> &#1055;&#1077;&#1088;&#1077;&#1076; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1101;&#1090;&#1086;&#1081; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080;, &#1087;&#1088;&#1086;&#1095;&#1080;&#1090;&#1072;&#1081;&#1090;&#1077; <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a>.</p>
 </blockquote>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1077;, &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1091;&#1102; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091; Artisan:</p>
-<pre><code class="language-php">php artisan make:notification TaskCompleted
+<pre><code data-lang="php" class="notranslate">php artisan make:notification TaskCompleted
 </code></pre>
 <p>&#1069;&#1090;&#1072; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1072; &#1089;&#1086;&#1079;&#1076;&#1072;&#1089;&#1090; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089; &#1074; &#1074;&#1072;&#1096;&#1077;&#1084; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075;&#1077; <code>app/Notifications</code>.
 &#1053;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1082;&#1072;&#1085;&#1072;&#1083; <code>DashboardChannel</code> &#1074; <code>via</code> &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103;:</p>
-<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardChannel;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardChannel</span>;
 
-public function via($notifiable)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">via</span>(<span class="hl-injection">$notifiable</span>)
 {
-    return [DashboardChannel::class];
+    <span class="hl-keyword">return</span> [<span class="hl-type">DashboardChannel</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>];
 }
 </code></pre>
 <p>&#1055;&#1077;&#1088;&#1077;&#1076; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; <code>DashboardChannel</code> &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>toDashboard</code> &#1074; &#1082;&#1083;&#1072;&#1089;&#1089;&#1077; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1081;.
 &#1069;&#1090;&#1086;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090; <code>$notifiable</code> &#1080; &#1076;&#1086;&#1083;&#1078;&#1077;&#1085; &#1074;&#1077;&#1088;&#1085;&#1091;&#1090;&#1100; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090; <code>DashboardMessage</code>:</p>
-<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardMessage;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardMessage</span>;
 
-public function toDashboard($notifiable)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toDashboard</span>(<span class="hl-injection">$notifiable</span>)
 {
-    return (new DashboardMessage)
-        -&gt;title('Hello Word')
-        -&gt;message('New post!')
-        -&gt;action(url('/'));
+    <span class="hl-keyword">return</span> (<span class="hl-constant">new</span> <span class="hl-type">DashboardMessage</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Hello Word'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">message</span>(<span class="hl-value">'New post!'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">url</span>(<span class="hl-value">'/'</span>));
 }
 </code></pre>
 <p>&#1059;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1099; &#1076;&#1074;&#1091;&#1084;&#1103; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1072;&#1084;&#1080;: &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; <code>notify</code> &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; &#1074; &#1090;&#1088;&#1077;&#1081;&#1090;&#1077; <code>Notifiable</code> &#1080;&#1083;&#1080; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; <code>Notification</code> &#1092;&#1072;&#1089;&#1072;&#1076;&#1072;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1074;&#1079;&#1075;&#1083;&#1103;&#1085;&#1091;&#1090;&#1100; &#1085;&#1072; <a href="https://laravel.com/docs/notifications#sending-notifications">&#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1102; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1081; Laravel</a>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090;&#1100; &#1073;&#1086;&#1083;&#1077;&#1077; &#1087;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1091;&#1102; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102; &#1086;&#1073; &#1101;&#1090;&#1080;&#1093; &#1076;&#1074;&#1091;&#1093; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1072;&#1093; &#1082; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1077; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1081;.</p>
 <p>&#1042;&#1086;&#1090; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1081; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; <code>notify</code> &#1084;&#1077;&#1090;&#1086;&#1076;&#1072;:</p>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-$user-&gt;notify(new TaskCompleted);
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</span>(<span class="hl-constant">new</span> <span class="hl-type">TaskCompleted</span>);
 </code></pre>
 </body>
                         
@@ -555,7 +555,7 @@ $user-&gt;notify(new TaskCompleted);
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

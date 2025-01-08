@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Laravel Orchid CRUD | Orchid - Laravel Admin Panel</title>
@@ -455,23 +455,23 @@
 <p>&#1042; &#1088;&#1091;&#1082;&#1086;&#1074;&#1086;&#1076;&#1089;&#1090;&#1074;&#1077; &#1087;&#1088;&#1077;&#1076;&#1087;&#1086;&#1083;&#1072;&#1075;&#1072;&#1077;&#1090;&#1089;&#1103;, &#1095;&#1090;&#1086; &#1091; &#1074;&#1072;&#1089; &#1091;&#1078;&#1077; &#1077;&#1089;&#1090;&#1100; &#1082;&#1086;&#1087;&#1080;&#1103; <a href="https://laravel.com/docs/installation">Laravel</a> &#1089; <a href="https://orchid.software/en/docs/installation/">Orchid</a></p>
 </blockquote>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1087;&#1072;&#1082;&#1077;&#1090; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1057;omposer. &#1042;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091;:</p>
-<pre><code class="language-php">$ composer require orchid/crud
+<pre><code data-lang="php" class="notranslate">$ composer <span class="hl-keyword">require</span> orchid/crud
 </code></pre>
 <p>&#1069;&#1090;&#1086; &#1086;&#1073;&#1085;&#1086;&#1074;&#1080;&#1090; <code>composer.json</code> &#1080; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090; &#1087;&#1072;&#1082;&#1077;&#1090; &#1074; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; <code>vendor/</code>.</p>
 <h2><a href='#opredelenie-resursov' id='opredelenie-resursov'>Определение ресурсов</a></h2>
 <p>&#1056;&#1077;&#1089;&#1091;&#1088;&#1089;&#1099; &#1093;&#1088;&#1072;&#1085;&#1103;&#1090;&#1089;&#1103; &#1074; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075;&#1077; <code>app/Orchid/Resources</code>  &#1074;&#1072;&#1096;&#1077;&#1075;&#1086; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1089;&#1075;&#1077;&#1085;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1085;&#1086;&#1074;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; Artisan &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1099; <code>orchid:resource</code>:</p>
-<pre><code class="language-bash">php artisan orchid:resource PostResource
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:resource PostResource
 </code></pre>
 <p>&#1053;&#1072;&#1080;&#1073;&#1086;&#1083;&#1077;&#1077; &#1092;&#1091;&#1085;&#1076;&#1072;&#1084;&#1077;&#1085;&#1090;&#1072;&#1083;&#1100;&#1085;&#1099;&#1084; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086;&#1084; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1077;&#1075;&#1086; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086; <code>model</code>.
 &#1069;&#1090;&#1086; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086; &#1089;&#1086;&#1086;&#1073;&#1097;&#1072;&#1077;&#1090; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1091;, &#1082;&#1072;&#1082;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; Eloquent &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1077;&#1090; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;:</p>
-<pre><code class="language-php">use App\Models\Post;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
 
-/**
+<span class="hl-comment">/**
  * The model the resource corresponds to.
  *
- * @var string
- */
-public static $model = Post::class;
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> $model <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>;
 </code></pre>
 <p>&#1069;&#1090;&#1080; &#1082;&#1083;&#1072;&#1089;&#1089;&#1099; &#1087;&#1086;&#1083;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1085;&#1099;. &#1059; &#1085;&#1080;&#1093; &#1074;&#1086;&#1086;&#1073;&#1097;&#1077; &#1085;&#1077;&#1090; &#1089;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1103; &#1080;&#1079;-&#1079;&#1072; &#1080;&#1093; &#1076;&#1077;&#1082;&#1083;&#1072;&#1088;&#1072;&#1090;&#1080;&#1074;&#1085;&#1086;&#1075;&#1086; &#1093;&#1072;&#1088;&#1072;&#1082;&#1090;&#1077;&#1088;&#1072;.
 &#1054;&#1085;&#1080; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1075;&#1086;&#1074;&#1086;&#1088;&#1103;&#1090;, &#1095;&#1090;&#1086; &#1076;&#1077;&#1083;&#1072;&#1090;&#1100; &#1080; &#1093;&#1088;&#1072;&#1085;&#1103;&#1090; &#1085;&#1080;&#1082;&#1072;&#1082;&#1080;&#1093; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;. &#1055;&#1086;&#1101;&#1090;&#1086;&#1084;&#1091;, &#1077;&#1089;&#1083;&#1080; &#1042;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090;&#1077; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1080;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099;, &#1091;&#1073;&#1077;&#1076;&#1080;&#1090;&#1077;&#1089;&#1100;, &#1095;&#1090;&#1086; &#1086;&#1085;&#1080; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1077;.</p>
@@ -479,70 +479,70 @@ public static $model = Post::class;
 <h2><a href='#registraciia-resursov' id='registraciia-resursov'>Регистрация ресурсов</a></h2>
 <p>&#1042;&#1089;&#1077; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1099; &#1074; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075;&#1077; <code>app/Orchid/Resources</code> &#1073;&#1091;&#1076;&#1091;&#1090; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080; &#1079;&#1072;&#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1099; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102;.
 &#1042;&#1072;&#1084; &#1085;&#1077; &#1085;&#1091;&#1078;&#1085;&#1086; &#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1080;&#1093; &#1074;&#1088;&#1091;&#1095;&#1085;&#1091;&#1102;. &#1053;&#1086; &#1077;&#1089;&#1083;&#1080; &#1101;&#1090;&#1086; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1087;&#1088;&#1080; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1080; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1087;&#1072;&#1082;&#1077;&#1090;&#1072;, &#1090;&#1086; &#1083;&#1091;&#1095;&#1096;&#1080;&#1084; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1086;&#1084; &#1073;&#1091;&#1076;&#1077;&#1090;:</p>
-<pre><code class="language-php">use App\Orchid\Resources\UserResource;
-use Illuminate\Support\ServiceProvider;
-use Orchid\Crud\Arbitrator;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Resources\<span class="hl-type">UserResource</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
+<span class="hl-keyword">use</span> Orchid\Crud\<span class="hl-type">Arbitrator</span>;
 
-class CrudServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">CrudServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Bootstrap any application services.
      *
-     * @return void
-     */
-    public function boot(Arbitrator $arbitrator)
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>(<span class="hl-injection"><span class="hl-type">Arbitrator</span> $arbitrator</span>)
     {
-        $arbitrator-&gt;resources([
-            UserResource::class,
+        $arbitrator<span class="hl-delimeter">-&gt;</span><span class="hl-function">resources</span>([
+            <span class="hl-type">UserResource</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]);
     }
 }
 </code></pre>
 <h2><a href='#rassirenie-modeli' id='rassirenie-modeli'>Расширение модели</a></h2>
 <p>&#1052;&#1085;&#1086;&#1075;&#1080;&#1077; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1099; Orchid &#1079;&#1072;&#1074;&#1080;&#1089;&#1103;&#1090; &#1086;&#1090; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1090;&#1100; &#1080;&#1083;&#1080; &#1091;&#1076;&#1072;&#1083;&#1103;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090;&#1099; &#1074; &#1079;&#1072;&#1074;&#1080;&#1089;&#1080;&#1084;&#1086;&#1089;&#1090;&#1080; &#1086;&#1090; &#1074;&#1072;&#1096;&#1080;&#1093; &#1094;&#1077;&#1083;&#1077;&#1081;. &#1053;&#1086; &#1084;&#1099; &#1087;&#1088;&#1077;&#1076;&#1087;&#1086;&#1083;&#1072;&#1075;&#1072;&#1077;&#1084;, &#1095;&#1090;&#1086; &#1074;&#1099; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1083;&#1080; &#1080;&#1093; &#1076;&#1083;&#1103; &#1089;&#1074;&#1086;&#1077;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Filters\Filterable;
-use Orchid\Screen\AsSource;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource, Filterable, Attachable;
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource, Filterable, Attachable</span>;
 }
 </code></pre>
 <h2><a href='#opredelenie-polei' id='opredelenie-polei'>Определение полей</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; <code>fields</code>. &#1069;&#1090;&#1086;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1090; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; &#1087;&#1086;&#1083;&#1077;&#1081;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1086;&#1073;&#1099;&#1095;&#1085;&#1086; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1103;&#1102;&#1090; &#1082;&#1083;&#1072;&#1089;&#1089; <code>Orchid\Screen\Field</code> &#1082;&#1083;&#1072;&#1089;&#1089;. &#1063;&#1090;&#1086;&#1073;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1087;&#1086;&#1083;&#1077; &#1082; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;, &#1084;&#1099; &#1084;&#1086;&#1078;&#1077;&#1084; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076; <code>fields</code> &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072;. &#1050;&#1072;&#1082; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;, &#1087;&#1086;&#1083;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1099; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1080;&#1093; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>make</code>. &#1069;&#1090;&#1086;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1077;&#1090; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;; &#1086;&#1076;&#1085;&#1072;&#1082;&#1086; &#1086;&#1073;&#1099;&#1095;&#1085;&#1086; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1080;&#1084;&#1103; &#1087;&#1086;&#1083;&#1103;.</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-/**
+<span class="hl-comment">/**
  * Get the fields displayed by the resource.
  *
- * @return array
- */
-public function fields(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">fields</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Input::make('title')
-            -&gt;title('Title')
-            -&gt;placeholder('Enter title here'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Enter title here'</span>),
     ];
 }
 </code></pre>
 <p>&#1042; &#1087;&#1072;&#1082;&#1077;&#1090;&#1077; &#1076;&#1083;&#1103; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; CRUD &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1103; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1099; Orchid. &#1055;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1080;&#1090;&#1077; <a href="https://orchid.software/ru/docs/field/">&#1074;&#1089;&#1077; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103; &#1085;&#1072; &#1089;&#1072;&#1081;&#1090;&#1077; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080;</a>.</p>
 <h2><a href='#opredelenie-stolbcov' id='opredelenie-stolbcov'>Определение столбцов</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; <code>&#1089;olumns</code>. &#1063;&#1090;&#1086;&#1073;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1089;&#1090;&#1086;&#1083;&#1073;&#1077;&#1094; &#1082; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;, &#1084;&#1099; &#1084;&#1086;&#1078;&#1077;&#1084; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;<code>column</code>. &#1050;&#1072;&#1082; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;, &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1099; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1099; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1080;&#1093; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>make</code>.</p>
-<pre><code class="language-php">use Orchid\Screen\TD;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
-/**
+<span class="hl-comment">/**
  * Get the columns displayed by the resource.
  *
- * @return TD[]
- */
-public function columns(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">TD</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">columns</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        TD::make('id'),
-        TD::make('title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>),
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>),
     ];
 }
 </code></pre>
@@ -551,35 +551,35 @@ public function columns(): array
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; <code>legend</code>. &#1054;&#1085; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090;, &#1082;&#1072;&#1082; &#1084;&#1086;&#1076;&#1077;&#1083;&#1100; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1075;&#1083;&#1103;&#1076;&#1077;&#1090;&#1100; &#1087;&#1088;&#1080; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;.
 &#1063;&#1090;&#1086;&#1073;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1082; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;, &#1084;&#1099; &#1084;&#1086;&#1078;&#1077;&#1084; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; <code>legend</code> method.
 &#1050;&#1072;&#1082; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1086;, &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1099; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1099; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1080;&#1093; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>make</code>.</p>
-<pre><code class="language-php">use Orchid\Screen\Sight;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
-/**
+<span class="hl-comment">/**
  * Get the sights displayed by the resource.
  *
- * @return Sight[]
- */
-public function legend(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Sight</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">legend</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Sight::make('id'),
-        Sight::make('title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>),
+        <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>),
     ];
 }
 </code></pre>
 <p>&#1055;&#1072;&#1082;&#1077;&#1090; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; CRUD &#1087;&#1086;&#1083;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1086;&#1089;&#1085;&#1086;&#1074;&#1072;&#1085; &#1085;&#1072; &#1089;&#1083;&#1086;&#1077; &#1083;&#1077;&#1075;&#1077;&#1085;&#1076;&#1099;. &#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077; &#1086;&#1073; &#1101;&#1090;&#1086;&#1084; &#1084;&#1086;&#1078;&#1085;&#1086; <a href="https://orchid.software/en/docs/legend">&#1087;&#1088;&#1086;&#1095;&#1080;&#1090;&#1072;&#1090;&#1100; &#1085;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080;</a>.</p>
 <h2><a href='#opredelenie-pravil' id='opredelenie-pravil'>Определение правил</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; <code>rules</code> &#1084;&#1077;&#1090;&#1086;&#1076;.  &#1055;&#1088;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1077; &#1092;&#1086;&#1088;&#1084;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1080;&#1083;&#1080; &#1086;&#1073;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1077;&#1085;&#1099; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1083; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1085;&#1099;&#1093; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; <code>rules</code>:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the validation rules that apply to save/update.
  *
- * @return array
- */
-public function rules(Model $model): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">rules</span>(<span class="hl-injection"><span class="hl-type">Model</span> $model</span>): <span class="hl-keyword">array</span>
 {
-    return [
-        'slug' =&gt; [
-            'required',
-            Rule::unique(self::$model, 'slug')-&gt;ignore($model),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'slug'</span> <span class="hl-operator">=&gt;</span> [
+            <span class="hl-value">'required'</span>,
+            <span class="hl-type">Rule</span><span class="hl-delimeter">::</span><span class="hl-function">unique</span>(<span class="hl-keyword"><span class="hl-type">self</span></span><span class="hl-delimeter">::</span>$model, <span class="hl-value">'slug'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">ignore</span>($model),
         ],
     ];
 }
@@ -587,24 +587,24 @@ public function rules(Model $model): array
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1079;&#1085;&#1072;&#1090;&#1100; &#1073;&#1086;&#1083;&#1100;&#1096;&#1077; &#1085;&#1072; <a href="https://laravel.com/docs/validation#available-validation-rules">&#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; validation</a>.</p>
 <h2><a href='#opredelenie-filtrov' id='opredelenie-filtrov'>Определение фильтров</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; <code>filters</code>. &#1054;&#1078;&#1080;&#1076;&#1072;&#1077;&#1090;&#1089;&#1103;, &#1095;&#1090;&#1086; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1077;&#1085; &#1089;&#1087;&#1080;&#1089;&#1086;&#1082; &#1080;&#1084;&#1077;&#1085; &#1082;&#1083;&#1072;&#1089;&#1089;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1076;&#1086;&#1083;&#1078;&#1085;&#1099; &#1073;&#1099;&#1090;&#1100; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1099; &#1080;, &#1087;&#1088;&#1080; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1089;&#1090;&#1080;, &#1079;&#1072;&#1084;&#1077;&#1085;&#1077;&#1085;&#1099; &#1076;&#1083;&#1103; &#1087;&#1088;&#1086;&#1089;&#1084;&#1072;&#1090;&#1088;&#1080;&#1074;&#1072;&#1077;&#1084;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the filters available for the resource.
  *
- * @return array
- */
-public function filters(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">filters</span>(): <span class="hl-keyword">array</span>
 {
-    return [];
+    <span class="hl-keyword">return</span> [];
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1085;&#1086;&#1074;&#1086;&#1075;&#1086; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091;:</p>
-<pre><code class="language-bash">php artisan orchid:filter QueryFilter
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:filter QueryFilter
 </code></pre>
 <p>&#1042; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1077; &#1095;&#1077;&#1075;&#1086; &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; &#1074; &#1087;&#1072;&#1087;&#1082;&#1077; <code>app/Http/Filters</code>. &#1063;&#1090;&#1086;&#1073;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1099; &#1085;&#1072; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1084; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1077;, &#1074;&#1072;&#1084; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;:</p>
-<pre><code class="language-php">public function filters(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">filters</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        QueryFilter::class
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">QueryFilter</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
     ];
 }
 </code></pre>
@@ -613,141 +613,141 @@ public function filters(): array
 <li><code>Orchid\Crud\Filters\DefaultSorted</code> &ndash; &#1053;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1072; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1086;&#1074; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102;</li>
 <li><code>Orchid\Crud\Filters\WithTrashed</code> &ndash; &#1044;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1091;&#1076;&#1072;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1079;&#1072;&#1087;&#1080;&#1089;&#1077;&#1081;</li>
 </ul>
-<pre><code class="language-php">public function filters(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">filters</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        new DefaultSorted('id', 'desc'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-constant">new</span> <span class="hl-type">DefaultSorted</span>(<span class="hl-value">'id'</span>, <span class="hl-value">'desc'</span>),
     ];
 }
 </code></pre>
 <p>&#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1079;&#1085;&#1072;&#1090;&#1100; &#1085;&#1072; <a href="https://orchid.software/ru/docs/filters/#klassiceskii-filtr">&#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072;&#1094;&#1080;&#1080;</a> Orchid.</p>
 <h2><a href='#navigaciia' id='navigaciia'>Навигация</a></h2>
 <p>&#1045;&#1089;&#1083;&#1080; &#1074;&#1099; &#1085;&#1077; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1083;&#1089;&#1103; &#1074; &#1085;&#1072;&#1074;&#1080;&#1075;&#1072;&#1094;&#1080;&#1080;, &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>displayInNavigation</code> &#1089;&#1074;&#1086;&#1077;&#1075;&#1086; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1086;&#1074;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the resource should be displayed in the navigation
  *
- * @return bool
- */
-public static function displayInNavigation(): bool
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">displayInNavigation</span>(): <span class="hl-keyword">bool</span>
 {
-    return false;
+    <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
 }
 </code></pre>
 <h2><a href='#neterpelivaia-zagruzka' id='neterpelivaia-zagruzka'>Нетерпеливая загрузка</a></h2>
 <p>&#1055;&#1088;&#1077;&#1076;&#1087;&#1086;&#1083;&#1086;&#1078;&#1080;&#1084;, &#1074;&#1072;&#1084; &#1088;&#1077;&#1075;&#1091;&#1083;&#1103;&#1088;&#1085;&#1086; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087; &#1082; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103;&#1084; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; &#1074; &#1074;&#1072;&#1096;&#1080;&#1093; &#1087;&#1086;&#1083;&#1103;&#1093;. &#1042; &#1101;&#1090;&#1086;&#1084; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090; &#1073;&#1099;&#1090;&#1100; &#1093;&#1086;&#1088;&#1086;&#1096;&#1077;&#1081; &#1080;&#1076;&#1077;&#1077;&#1081; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1077; &#1082; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1091; <code>with</code> &#1074;&#1072;&#1096;&#1077;&#1075;&#1086; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072;.
 &#1069;&#1090;&#1086; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086; &#1087;&#1088;&#1077;&#1076;&#1087;&#1080;&#1089;&#1099;&#1074;&#1072;&#1077;&#1090; &#1074;&#1089;&#1077;&#1075;&#1076;&#1072; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1087;&#1077;&#1088;&#1077;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1085;&#1099;&#1077; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103; &#1087;&#1088;&#1080; &#1080;&#1079;&#1074;&#1083;&#1077;&#1095;&#1077;&#1085;&#1080;&#1080; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072;.</p>
-<pre><code class="language-php"> /**
+<pre><code data-lang="php" class="notranslate"> <span class="hl-comment">/**
  * Get relationships that should be eager loaded when performing an index query.
  *
- * @return array
- */
-public function with(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">with</span>(): <span class="hl-keyword">array</span>
 {
-    return ['user'];
+    <span class="hl-keyword">return</span> [<span class="hl-value">'user'</span>];
 }
 </code></pre>
 <h2><a href='#paginaciia' id='paginaciia'>Пагинация</a></h2>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100;, &#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1086;&#1074; &#1076;&#1086;&#1083;&#1078;&#1085;&#1086; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1090;&#1100;&#1089;&#1103; &#1085;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>perPage</code>:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the number of models to return per page
  *
- * @return int
- */
-public static function perPage(): int
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">int</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">perPage</span>(): <span class="hl-keyword">int</span>
 {
-    return 30;
+    <span class="hl-keyword">return</span> <span class="hl-number">30</span>;
 }
 </code></pre>
 <h2><a href='#sobytiia-resursa' id='sobytiia-resursa'>События Ресурса</a></h2>
 <p>&#1059; &#1082;&#1072;&#1078;&#1076;&#1086;&#1075;&#1086; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; &#1077;&#1089;&#1090;&#1100; &#1076;&#1074;&#1072; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1103;&#1102;&#1090; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1091;, <code>onSave</code> &#1080; <code>onDelete</code>.
 &#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1080;&#1079; &#1085;&#1080;&#1093; &#1079;&#1072;&#1087;&#1091;&#1089;&#1082;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1088;&#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1080; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1077;&#1075;&#1086; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1103;, &#1080; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1080;&#1083;&#1080; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1100; &#1083;&#1086;&#1075;&#1080;&#1082;&#1091;:</p>
-<pre><code class="language-php">use Orchid\Crud\ResourceRequest;
-use Illuminate\Database\Eloquent\Model;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Crud\<span class="hl-type">ResourceRequest</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
-/**
+<span class="hl-comment">/**
  * Action to create and update the model
  *
- * @param ResourceRequest $request
- * @param Model           $model
- */
-public function onSave(ResourceRequest $request, Model $model)
+ * <span class="hl-keyword">@param</span> <span class="hl-type">ResourceRequest</span> $request
+ * <span class="hl-keyword">@param</span> <span class="hl-type">Model</span>           $model
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">onSave</span>(<span class="hl-injection"><span class="hl-type">ResourceRequest</span> $request, <span class="hl-type">Model</span> $model</span>)
 {
-    $model-&gt;forceFill($request-&gt;all())-&gt;save();
+    $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">forceFill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>())<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 }
 
-/**
+<span class="hl-comment">/**
  * Action to delete a model
  *
- * @param Model $model
+ * <span class="hl-keyword">@param</span> <span class="hl-type">Model</span> $model
  *
- * @throws Exception
- */
-public function onDelete(Model $model)
+ * <span class="hl-keyword">@throws</span> <span class="hl-type">Exception</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">onDelete</span>(<span class="hl-injection"><span class="hl-type">Model</span> $model</span>)
 {
-    $model-&gt;delete();
+    $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 }
 </code></pre>
 <h2><a href='#razreseniia-resursov' id='razreseniia-resursov'>Разрешения ресурсов</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; <code>permission</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1076;&#1086;&#1083;&#1078;&#1077;&#1085; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1090;&#1100; &#1089;&#1090;&#1088;&#1086;&#1082;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1102;&#1095;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1099;&#1081; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1076;&#1083;&#1103; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072; &#1082; &#1101;&#1090;&#1086;&#1084;&#1091; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;.
 &#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1074;&#1089;&#1077; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1099; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099; &#1082;&#1072;&#1078;&#1076;&#1086;&#1084;&#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102;.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the permission key for the resource.
  *
- * @return string|null
- */
-public static function permission(): ?string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-keyword">string</span>
 {
-    return null;
+    <span class="hl-keyword">return</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>;
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1082;&#1072;&#1078;&#1076;&#1086;&#1075;&#1086; &#1079;&#1072;&#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072;, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1084;&#1077;&#1090;&#1086;&#1076; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1090; &#1085;&#1077;&#1085;&#1091;&#1083;&#1077;&#1074;&#1086;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077;, &#1089;&#1086;&#1079;&#1076;&#1072;&#1077;&#1090;&#1089;&#1103; &#1085;&#1086;&#1074;&#1086;&#1077; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the permission key for the resource.
  *
- * @return string|null
- */
-public static function permission(): ?string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-keyword">string</span>
 {
-    return 'private-post-resource';
+    <span class="hl-keyword">return</span> <span class="hl-value">'private-post-resource'</span>;
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086; &#1073;&#1099; &#1076;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1084;&#1072;&#1085;&#1076;&#1072;&#1090; (&#1087;&#1088;&#1072;&#1074;&#1072;) &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1085;&#1072;&#1078;&#1072;&#1090;&#1100; &#1085;&#1072; &#1074;&#1082;&#1083;&#1072;&#1076;&#1082;&#1091; <code>&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1080;</code> &#1074; &#1083;&#1077;&#1074;&#1086;&#1084; &#1084;&#1077;&#1085;&#1102;, &#1087;&#1077;&#1088;&#1077;&#1081;&#1090;&#1080; &#1082; &#1082;&#1086;&#1085;&#1082;&#1088;&#1077;&#1090;&#1085;&#1086;&#1084;&#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102;. &#1053;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1073;&#1091;&#1076;&#1077;&#1090; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083; &#1075;&#1076;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1080;&#1090;&#1100; &#1077;&#1084;&#1091; &#1088;&#1086;&#1083;&#1100; &#1080;&#1083;&#1080; &#1087;&#1088;&#1072;&#1074;&#1072;. &#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1073;&#1091;&#1076;&#1077;&#1090; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085; &#1074; &#1084;&#1077;&#1085;&#1102;</p>
 <h2><a href='#deistviia' id='deistviia'>Действия</a></h2>
 <p>&#1044;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1089;&#1075;&#1077;&#1085;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1099; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1099;  Artisan <code>orchid:action</code>:</p>
-<pre><code class="language-bash">php artisan orchid:action CustomAction
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:action CustomAction
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1074;&#1089;&#1077; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1087;&#1086;&#1084;&#1077;&#1097;&#1072;&#1102;&#1090;&#1089;&#1103; &#1074; &#1082;&#1072;&#1090;&#1072;&#1083;&#1086;&#1075; <code>app/Orchid/Actions</code>. &#1044;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1089;&#1086;&#1089;&#1090;&#1086;&#1080;&#1090; &#1080;&#1079; &#1076;&#1074;&#1091;&#1093; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;. &#1052;&#1077;&#1090;&#1086;&#1076; <code>button</code> &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090; &#1080;&#1084;&#1103;, &#1079;&#1085;&#1072;&#1095;&#1086;&#1082;, &#1076;&#1080;&#1072;&#1083;&#1086;&#1075;&#1086;&#1074;&#1086;&#1077; &#1086;&#1082;&#1085;&#1086; &#1080; &#1090;. &#1076;. &#1048; <code>handler</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1085;&#1072;&#1087;&#1088;&#1103;&#1084;&#1091;&#1102; &#1086;&#1073;&#1088;&#1072;&#1073;&#1072;&#1090;&#1099;&#1074;&#1072;&#1077;&#1090; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1089; &#1084;&#1086;&#1076;&#1077;&#1083;&#1103;&#1084;&#1080;.</p>
-<pre><code class="language-php">namespace App\Orchid\Actions;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Actions;
 
-use Illuminate\Support\Collection;
-use Orchid\Crud\Action;
-use Orchid\Screen\Actions\Button;
-use Orchid\Support\Facades\Toast;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">Collection</span>;
+<span class="hl-keyword">use</span> Orchid\Crud\<span class="hl-type">Action</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
-class CustomAction extends Action
+<span class="hl-keyword">class</span> <span class="hl-type">CustomAction</span> <span class="hl-keyword">extends</span> <span class="hl-template">Action</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The button of the action.
      *
-     * @return Button
-     */
-    public function button(): Button
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Button</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">button</span>(): <span class="hl-type">Button</span>
     {
-        return Button::make('Run Custom Action')-&gt;icon('fire');
+        <span class="hl-keyword">return</span> <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Run Custom Action'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'fire'</span>);
     }
 
-    /**
+    <span class="hl-comment">/**
      * Perform the action on the given models.
      *
-     * @param \Illuminate\Support\Collection $models
-     */
-    public function handle(Collection $models)
+     * <span class="hl-keyword">@param</span> \Illuminate\Support\<span class="hl-type">Collection</span> $models
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">handle</span>(<span class="hl-injection"><span class="hl-type">Collection</span> $models</span>)
     {
-        $models-&gt;each(function () {
-            // action
+        $models<span class="hl-delimeter">-&gt;</span><span class="hl-function">each</span>(<span class="hl-keyword">function</span> () {
+            <span class="hl-comment">// action</span>
         });
 
-        Toast::message('It worked!');
+        <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">message</span>(<span class="hl-value">'It worked!'</span>);
     }
 }
 </code></pre>
@@ -756,15 +756,15 @@ class CustomAction extends Action
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; handle &#1074;&#1089;&#1077;&#1075;&#1076;&#1072; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1077;&#1090; <code>Collection</code> &#1084;&#1086;&#1076;&#1077;&#1083;&#1077;&#1081;, &#1076;&#1072;&#1078;&#1077; &#1077;&#1089;&#1083;&#1080; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1103;&#1077;&#1090;&#1089;&#1103; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1076;&#1083;&#1103; &#1086;&#1076;&#1085;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;.</p>
 </blockquote>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1090;&#1086;&#1075;&#1086; &#1082;&#1072;&#1082; &#1074;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1083;&#1080; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077;, &#1074;&#1099; &#1075;&#1086;&#1090;&#1086;&#1074;&#1099; &#1087;&#1088;&#1080;&#1082;&#1088;&#1077;&#1087;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086; &#1082; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;. &#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081;. &#1063;&#1090;&#1086;&#1073;&#1099; &#1087;&#1088;&#1080;&#1082;&#1088;&#1077;&#1087;&#1080;&#1090;&#1100; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1082; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1091;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086; &#1074; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081;, &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1084;&#1099;&#1093; &#1101;&#1090;&#1080;&#1084; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the actions available for the resource.
  *
- * @return array
- */
-public function actions(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">actions</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        CustomAction::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">CustomAction</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     ];
 }
 </code></pre>
@@ -781,26 +781,26 @@ public function actions(): array
 <li>forceDelete</li>
 </ul>
 <p>&#1053;&#1080;&#1082;&#1072;&#1082;&#1080;&#1093; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1077;&#1082; &#1085;&#1077; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103;! &#1058;&#1072;&#1082;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100;, &#1082;&#1072;&#1082;&#1080;&#1084; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#1084; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1086; &#1086;&#1073;&#1085;&#1086;&#1074;&#1083;&#1103;&#1090;&#1100; &#1084;&#1086;&#1076;&#1077;&#1083;&#1100; <code>Post</code> &#1074;&#1072;&#1084; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>update</code> &#1074; &#1076;&#1083;&#1103; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1077;&#1084; &#1082;&#1083;&#1072;&#1089;&#1089;&#1077; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1080; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;:</p>
-<pre><code class="language-php">namespace App\Policies;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;
 
-use App\Models\User;
-use App\Models\Post;
-use Illuminate\Auth\Access\HandlesAuthorization;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> Illuminate\Auth\Access\<span class="hl-type">HandlesAuthorization</span>;
 
-class PostPolicy
+<span class="hl-keyword">class</span> <span class="hl-type">PostPolicy</span>
 {
-    use HandlesAuthorization;
+    <span class="hl-keyword">use</span> <span class="hl-type">HandlesAuthorization</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Determine whether the user can update the post.
      *
-     * @param  User  $user
-     * @param  Post  $post
-     * @return mixed
-     */
-    public function update(User $user, Post $post)
+     * <span class="hl-keyword">@param</span>  <span class="hl-type">User</span>  $user
+     * <span class="hl-keyword">@param</span>  <span class="hl-type">Post</span>  $post
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">mixed</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">update</span>(<span class="hl-injection"><span class="hl-type">User</span> $user, <span class="hl-type">Post</span> $post</span>)
     {
-        return true;
+        <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
     }
 }
 </code></pre>
@@ -808,128 +808,128 @@ class PostPolicy
 <p>&#1045;&#1089;&#1083;&#1080; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1072; &#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1091;&#1077;&#1090;, &#1085;&#1086; &#1074; &#1085;&#1077;&#1081; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1091;&#1077;&#1090; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103;, &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1085;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1086; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1103;&#1090;&#1100; &#1101;&#1090;&#1086; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077;. &#1048;&#1090;&#1072;&#1082;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1083;&#1080; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1091;, &#1085;&#1077; &#1079;&#1072;&#1073;&#1091;&#1076;&#1100;&#1090;&#1077; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1074;&#1089;&#1077; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099;.</p>
 </blockquote>
 <p>&#1045;&#1089;&#1083;&#1080; &#1074;&#1099; &#1085;&#1077; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1072; &#1074;&#1083;&#1080;&#1103;&#1083;&#1072; &#1085;&#1072; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; CRUD, &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1080;&#1090;&#1100; &#1074;&#1089;&#1077; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1074; &#1088;&#1072;&#1084;&#1082;&#1072;&#1093; &#1076;&#1072;&#1085;&#1085;&#1086;&#1081; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1080;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>before</code> &#1084;&#1077;&#1090;&#1086;&#1076; &#1074; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1077;. &#1054;&#1085; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085; &#1087;&#1077;&#1088;&#1077;&#1076; &#1083;&#1102;&#1073;&#1099;&#1084;&#1080; &#1076;&#1088;&#1091;&#1075;&#1080;&#1084;&#1080; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072;&#1084;&#1080; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1080; &#1095;&#1090;&#1086; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1080;&#1090; &#1074;&#1072;&#1084; &#1072;&#1074;&#1090;&#1086;&#1088;&#1080;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1076;&#1086; &#1092;&#1072;&#1082;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1074;&#1099;&#1079;&#1086;&#1074;&#1072; &#1087;&#1088;&#1077;&#1076;&#1087;&#1086;&#1083;&#1072;&#1075;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; &#1087;&#1086;&#1083;&#1080;&#1090;&#1080;&#1082;&#1080;.</p>
-<pre><code class="language-php">namespace App\Policies;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;
 
-use App\Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
+<span class="hl-keyword">use</span> Illuminate\Auth\Access\<span class="hl-type">HandlesAuthorization</span>;
 
-class PostPolicy
+<span class="hl-keyword">class</span> <span class="hl-type">PostPolicy</span>
 {
-    use HandlesAuthorization;
+    <span class="hl-keyword">use</span> <span class="hl-type">HandlesAuthorization</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Perform pre-authorization checks.
      *
-     * @param  User  $user
-     * @param  string  $ability
-     * @return void|bool
-     */
-    public function before(User $user, $ability)
+     * <span class="hl-keyword">@param</span>  <span class="hl-type">User</span>  $user
+     * <span class="hl-keyword">@param</span>  <span class="hl-keyword">string</span>  $ability
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>|<span class="hl-keyword">bool</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">before</span>(<span class="hl-injection"><span class="hl-type">User</span> $user, $ability</span>)
     {
-        if ($user-&gt;hasAccess('private-post-resource')) {
-            return true;
+        <span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>(<span class="hl-value">'private-post-resource'</span>)) {
+            <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
         }
     }
 }
 </code></pre>
 <h2><a href='#predotvrashhenie-konfliktov-traffic-cop' id='predotvrashhenie-konfliktov-traffic-cop'>Предотвращение конфликтов (Traffic Cop)</a></h2>
 <p>&#1045;&#1089;&#1083;&#1080; &#1101;&#1090;&#1072; &#1086;&#1087;&#1094;&#1080;&#1103; &#1072;&#1082;&#1090;&#1080;&#1074;&#1085;&#1072;, &#1084;&#1086;&#1076;&#1077;&#1083;&#1100; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1077;&#1085;&#1072; &#1085;&#1072; &#1085;&#1072;&#1083;&#1080;&#1095;&#1080;&#1077; &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1085;&#1080;&#1093; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1081;, &#1077;&#1089;&#1083;&#1080; &#1086;&#1085;&#1072; &#1073;&#1099;&#1083;&#1072; &#1086;&#1073;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1072; &#8203;&#8203;&#1087;&#1086;&#1089;&#1083;&#1077; &#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103; &#1092;&#1086;&#1088;&#1084;&#1099; &#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103;. &#1041;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1073;&#1088;&#1086;&#1096;&#1077;&#1085;&#1072; &#1086;&#1096;&#1080;&#1073;&#1082;&#1072; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1080;. &#1060;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103; Traffic Cop &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1086;&#1090;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1072;.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Indicates whether should check for modifications
  * between viewing and updating a resource.
  *
- * @return  bool
-*/
-public static function trafficCop(): bool
+ * <span class="hl-keyword">@return</span>  <span class="hl-keyword">bool</span>
+*/</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">trafficCop</span>(): <span class="hl-keyword">bool</span>
 {
-    return false;
+    <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
 }
 </code></pre>
 <h2><a href='#opisanie' id='opisanie'>Описание</a></h2>
 <p>&#1044;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1103; &#1085;&#1072; &#1082;&#1072;&#1078;&#1076;&#1086;&#1081; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; <code>description</code>:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the descriptions for the screen.
  *
- * @return null|string
- */
-public static function description(): ?string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">null</span>|<span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">description</span>(): ?<span class="hl-keyword">string</span>
 {
-    return null;
+    <span class="hl-keyword">return</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>;
 }
 </code></pre>
 <h2><a href='#breadcrumbs' id='breadcrumbs'>Breadcrumbs</a></h2>
 <p>&#1053;&#1072; &#1082;&#1072;&#1078;&#1076;&#1086;&#1081; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1072; &#1077;&#1089;&#1090;&#1100; &#1093;&#1083;&#1077;&#1073;&#1085;&#1099;&#1077; &#1082;&#1088;&#1086;&#1096;&#1082;&#1080;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1086;&#1090;&#1089;&#1083;&#1077;&#1078;&#1080;&#1074;&#1072;&#1090;&#1100; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1103;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the text for the list breadcrumbs.
  *
- * @return string
- */
-public static function listBreadcrumbsMessage(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">listBreadcrumbsMessage</span>(): <span class="hl-keyword">string</span>
 {
-    return static::label();
+    <span class="hl-keyword">return</span> <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">label</span>();
 }
 
-/**
+<span class="hl-comment">/**
  * Get the text for the create breadcrumbs.
  *
- * @return string
- */
-public static function createBreadcrumbsMessage(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createBreadcrumbsMessage</span>(): <span class="hl-keyword">string</span>
 {
-    return __('New :resource', ['resource' =&gt; static::singularLabel()]);
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'New :resource'</span>, [<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">singularLabel</span>()]);
 }
 
-/**
+<span class="hl-comment">/**
  * Get the text for the edit breadcrumbs.
  *
- * @return string
- */
-public static function editBreadcrumbsMessage(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">editBreadcrumbsMessage</span>(): <span class="hl-keyword">string</span>
 {
-    return __('Edit :resource', ['resource' =&gt; static::singularLabel()]);
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Edit :resource'</span>, [<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">singularLabel</span>()]);
 }
 </code></pre>
 <h2><a href='#lokalizaciia' id='lokalizaciia'>Локализация</a></h2>
 <p>&#1048;&#1084;&#1077;&#1085;&#1072; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1086;&#1074; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1083;&#1086;&#1082;&#1072;&#1083;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1099; &#1087;&#1091;&#1090;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;  <code>label</code> &#1080; <code>singularLabel</code> &#1074; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;&#1093; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1086;&#1074;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the displayable label of the resource.
  *
- * @return string
- */
-public static function label()
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">label</span>()
 {
-    return __('Posts');
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Posts'</span>);
 }
 
-/**
+<span class="hl-comment">/**
  * Get the displayable singular label of the resource.
  *
- * @return string
- */
-public static function singularLabel()
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">singularLabel</span>()
 {
-    return __('Post');
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Post'</span>);
 }
 </code></pre>
 <p>&#1050;&#1085;&#1086;&#1087;&#1082;&#1080; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081; &#1080; &#1091;&#1074;&#1077;&#1076;&#1086;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1090;&#1086;&#1078;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1074;&#1077;&#1089;&#1090;&#1080;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the text for the create resource button.
  *
- * @return string|null
- */
-public static function createButtonLabel(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createButtonLabel</span>(): <span class="hl-keyword">string</span>
 {
-    return __('Create :resource', ['resource' =&gt; static::singularLabel()]);
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Create :resource'</span>, [<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">singularLabel</span>()]);
 }
 
-/**
+<span class="hl-comment">/**
  * Get the text for the create resource toast.
  *
- * @return string
- */
-public static function createToastMessage(): string
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createToastMessage</span>(): <span class="hl-keyword">string</span>
 {
-    return __('The :resource was created!', ['resource' =&gt; static::singularLabel()]);
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'The :resource was created!'</span>, [<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">singularLabel</span>()]);
 }
 </code></pre>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1079;&#1085;&#1072;&#1090;&#1100; &#1073;&#1086;&#1083;&#1100;&#1096;&#1077; &#1085;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077; <a href="https://laravel.com/docs/localization">Laravel localization</a>.</p>
@@ -1006,7 +1006,7 @@ public static function createToastMessage(): string
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

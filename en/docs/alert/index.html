@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Notifications | Orchid - Laravel Admin Panel</title>
@@ -390,29 +390,29 @@
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
 <p>A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.</p>
 <p>To create a flash notification, you can use the following code:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Alert;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
-Alert::message('Welcome Aboard!');
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">message</span>(<span class="hl-value">'Welcome Aboard!'</span>);
 </code></pre>
 <p>You can also use a shorter version of this code:</p>
-<pre><code class="language-php">alert('Your action has been completed.');
+<pre><code data-lang="php" class="notranslate"><span class="hl-function">alert</span>(<span class="hl-value">'Your action has been completed.'</span>);
 </code></pre>
 <p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:</p>
-<pre><code class="language-php">Alert::info('Welcome to our website!')
-Alert::success('Your message has been sent.')
-Alert::error('Please fill in all required fields.')
-Alert::warning('Your account will be permanently deleted.')
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Welcome to our website!'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">success</span>(<span class="hl-value">'Your message has been sent.'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Please fill in all required fields.'</span>)
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Your account will be permanently deleted.'</span>)
 </code></pre>
 <p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Alert;
-use Orchid\Support\Color;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
+<span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
 
-Alert::view('alert', Color::INFO(), [
-    'name' =&gt; 'Alexandr'
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'alert'</span>, <span class="hl-type">Color</span><span class="hl-delimeter">::</span><span class="hl-constant"><span class="hl-function">INFO</span></span>(), [
+    <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>
 ]);
 </code></pre>
 <p>The <code>Blade</code> template would look something like this:</p>
-<pre><code class="language-php">// resources/views/alert.blade.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// resources/views/alert.blade.php</span>
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
@@ -434,17 +434,17 @@ Package also includes a default display for notifications, which can be included
 <h2><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h2>
 <p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
 <p>To create a toast message, you can use the following code:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Toast;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
-Toast::warning('Invalid input. Please check your form.')
+<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
 </code></pre>
 <p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>autoHide</code> method:</p>
-<pre><code class="language-php">Toast::warning('Invalid input. Please check your form.')
-    -&gt;autoHide(false);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">autoHide</span>(<span class="hl-constant">false</span>);
 </code></pre>
 <p>You can also specify the delay time before the toast message appears by using the <code>delay</code> method. This method takes one argument, which is the number of milliseconds to wait before showing the message:</p>
-<pre><code class="language-php">Toast::warning('Invalid input. Please check your form.')
-    -&gt;delay(2000);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
 <p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
 <h2><a href='#persistent-notification' id='persistent-notification'>Persistent Notification</a></h2>
@@ -453,35 +453,35 @@ They are an excellent way to inform, for example, for a task manager application
 <p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
 <p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
 <p>To create a notification, you can use the following <code>Artisan</code> command:</p>
-<pre><code class="language-php">php artisan make:notification TaskCompleted
+<pre><code data-lang="php" class="notranslate">php artisan make:notification TaskCompleted
 </code></pre>
 <p>This command will create a new class in your <code>app/Notifications</code> directory.</p>
 <p>To send the notification, you must add the <code>DashboardChannel</code> to the <code>via</code> notification method:</p>
-<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardChannel;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardChannel</span>;
 
-public function via($notifiable)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">via</span>(<span class="hl-injection">$notifiable</span>)
 {
-    return [DashboardChannel::class];
+    <span class="hl-keyword">return</span> [<span class="hl-type">DashboardChannel</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>];
 }
 </code></pre>
 <p>Before sending the notification, you must also define a <code>toDashboard</code> method in the notification class.
 This method will receive a <code>$notifiable</code> object and must return a <code>DashboardMessage</code> object:</p>
-<pre><code class="language-php">use Orchid\Platform\Notifications\DashboardMessage;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardMessage</span>;
 
-public function toDashboard($notifiable)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toDashboard</span>(<span class="hl-injection">$notifiable</span>)
 {
-    return (new DashboardMessage)
-        -&gt;title('New Task: January Report')
-        -&gt;message('Please review the task details and deadline.')
-        -&gt;action(url('/'));
+    <span class="hl-keyword">return</span> (<span class="hl-constant">new</span> <span class="hl-type">DashboardMessage</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'New Task: January Report'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">message</span>(<span class="hl-value">'Please review the task details and deadline.'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">url</span>(<span class="hl-value">'/'</span>));
 }
 </code></pre>
 <p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the <code>Notification</code> facade.
 You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about these two approaches to sending notifications.</p>
 <p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-$user-&gt;notify(new TaskCompleted);
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</span>(<span class="hl-constant">new</span> <span class="hl-type">TaskCompleted</span>);
 </code></pre>
 </body>
                         
@@ -553,7 +553,7 @@ $user-&gt;notify(new TaskCompleted);
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

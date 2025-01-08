@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Icons | Orchid - Laravel Admin Panel</title>
@@ -390,58 +390,58 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
 </blockquote>
 <h2><a href='#custom-icons' id='custom-icons'>Custom Icons</a></h2>
 <p>In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new <code>icons</code> directory and a <code>fontawesome</code> subdirectory in your <code>resources</code> folder:</p>
-<pre><code class="language-bash">resources
+<pre><code data-lang="shell" class="notranslate">resources
   - css 
   - icons
-      -- fontawesome 
+      <span class="hl-constant">--</span> fontawesome 
   - js
   - lang
   - views
 </code></pre>
 <p>Once you have created the new directory, you can download the appropriate icons and place them in the new directory. For example, you can download the <a href="https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg">notebook icon</a> and place it in the <code>fontawesome</code> subdirectory.</p>
 <p>Next, you need to configure the package to search for icons in the new directory. You can do this by editing the <code>config/platform.php</code> configuration file:</p>
-<pre><code class="language-php">'icons' =&gt; [
-    // other icon configurations
-    'fa' =&gt; resource_path('icons/fontawesome')
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-comment">// other icon configurations</span>
+    <span class="hl-value">'fa'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">resource_path</span>(<span class="hl-value">'icons/fontawesome'</span>)
 ],
 </code></pre>
 <p>In the example above, we have declared the prefix &ldquo;fa&rdquo; and the directory where the icons are located.</p>
 <p>In order to display the icons in the package&rsquo;s components, you only need to pass the prefix and the icon&rsquo;s name. For example, the icon definition in a menu would look like this:</p>
-<pre><code class="language-php">Menu::make('Example of custom icons')
-    -&gt;icon('fa.address-book')
-    -&gt;url('https://orchid.software');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example of custom icons'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'fa.address-book'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'https://orchid.software'</span>);
 </code></pre>
 <h2><a href='#using-blade-component' id='using-blade-component'>Using Blade Component</a></h2>
 <p>Icons can be easily integrated into your views using Blade components. Follow these steps to seamlessly incorporate icons in your views:</p>
-<pre><code class="language-blade">&lt;x-orchid-icon path="fa.home" /&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"fa.home"</span> <span class="hl-delimeter">/&gt;</span>
 </code></pre>
 <p>The code above renders the icon component with the specified icon path.</p>
 <p>You can also apply additional attributes to your icon component:</p>
-<pre><code class="language-blade">&lt;x-orchid-icon 
-    path="fa.home" 
-    class="icon-big" 
-    width="2em" 
-    height="2em" /&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> 
+    <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"fa.home"</span> 
+    <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"icon-big"</span> 
+    <span class="hl-attribute">width</span><span class="hl-delimeter">=</span><span class="hl-value">"2em"</span> 
+    <span class="hl-attribute">height</span><span class="hl-delimeter">=</span><span class="hl-value">"2em"</span> <span class="hl-delimeter">/&gt;</span>
 </code></pre>
 <p>You can also use the <code>Blade Icon Component</code> outside of the admin panel by <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
 <h2><a href='#server-side-rendering-with-templates' id='server-side-rendering-with-templates'>Server-side Rendering with Templates</a></h2>
 <p>In our application, we rely solely on server-side rendering, which means we don&rsquo;t specifically prepare icons for JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the <code>&lt;template&gt;</code> tag.</p>
 <p>To illustrate this, you can include the following code on your page:</p>
-<pre><code class="language-html">&lt;template id="product-row"&gt;
-  &lt;tr&gt;
-    &lt;td&gt;{name}&lt;/td&gt;
-    &lt;td&gt;
-      &lt;x-orchid-icon path="minus" class="icon-minus" /&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/template&gt;
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">template</span> <span class="hl-attribute">id</span><span class="hl-delimeter">=</span><span class="hl-value">"product-row"</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">tr</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>{name}<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
+      <span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"minus"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"icon-minus"</span> <span class="hl-delimeter">/&gt;</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">tr</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">template</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here&rsquo;s an example:</p>
-<pre><code class="language-javascript">let template = document.querySelector('#product-row');
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> template <span class="hl-operator">=</span> document.<span class="hl-property2"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'#product-row'</span>);
 
-let row = template.content.querySelector('tr').cloneNode(true);
+<span class="hl-keyword">let</span> row <span class="hl-operator">=</span> template.<span class="hl-property2">content</span>.<span class="hl-property2"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'tr'</span>).<span class="hl-property2"><span class="hl-function">cloneNode</span></span>(<span class="hl-slug"><span class="hl-constant">true</span></span>);
 
-row.innerHTML = row.innerHTML.replace(/{name}/gi, "Alexandr");
+row.<span class="hl-property2">innerHTML</span> <span class="hl-operator">=</span> row.<span class="hl-property2">innerHTML</span>.<span class="hl-property2"><span class="hl-function">replace</span></span>(/{name}/gi, "Alexandr");
 </code></pre>
 <p>By substituting the <code>{name}</code> placeholder with the actual content, you can dynamically generate the desired element. You can then insert this element into your page wherever you need it.</p>
 </body>
@@ -514,7 +514,7 @@ row.innerHTML = row.innerHTML.replace(/{name}/gi, "Alexandr");
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

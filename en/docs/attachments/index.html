@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Attachments | Orchid - Laravel Admin Panel</title>
@@ -407,51 +407,51 @@
                         <body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
 <p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachments()</code> relationship.</p>
 <p>For example, to attach files to a <code>Hostel</code> model:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
 
-class Hostel extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Hostel</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use Attachable;
-    //
+    <span class="hl-keyword">use</span> <span class="hl-type">Attachable</span>;
+    <span class="hl-comment">//</span>
 }
 </code></pre>
 <p>To retrieve the attachments for a particular hostel, you can use the <code>attachments()</code> relationship:</p>
-<pre><code class="language-php">$item = Hostel::find(42);
-$item-&gt;attachments()-&gt;get();
+<pre><code data-lang="php" class="notranslate">$item <span class="hl-operator">=</span> <span class="hl-type">Hostel</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">42</span>);
+$item<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
 <p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller method that handles file uploads:</p>
-<pre><code class="language-php">use Orchid\Attachment\File;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
-public function upload(Request $request)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    $file = new File($request-&gt;file('photo'));
-    $attachment = $file-&gt;load();
+    $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
+    $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
-    return response()-&gt;json($attachment);
+    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>($attachment);
 }
 </code></pre>
 <p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the database.</p>
 <p>To retrieve the URL of an attachment, you can use the <code>url()</code> method:</p>
-<pre><code class="language-php">$image = $item-&gt;attachments()-&gt;first();
+<pre><code data-lang="php" class="notranslate">$image <span class="hl-operator">=</span> $item<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">first</span>();
 
-// Get the URL of the file
-$image-&gt;url();
+<span class="hl-comment">// Get the URL of the file</span>
+$image<span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>();
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> The <code>url()</code> method will first check for the path existence, and then get the URL. When using external storage like <code>s3</code>, this will make two calls. To improve performance you can use the <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve performance. You can also simply override this method and adjust to your needs.</p>
 </blockquote>
 <h2><a href='#uploading-a-file-via-the-console' id='uploading-a-file-via-the-console'>Uploading a File via the Console</a></h2>
 <p>Sometimes the necessary files are already on the server, and you can use the following code to upload them to the desired storage:</p>
-<pre><code class="language-php">use Illuminate\Http\UploadedFile;
-use Orchid\Attachment\File;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">UploadedFile</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
-$file = new UploadedFile($path, $originalName);
+$file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">UploadedFile</span>($path, $originalName);
 
-$attachment = (new File($file))-&gt;load();
+$attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</span> <span class="hl-type">File</span>($file))<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 </code></pre>
 <h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate Uploaded Files</a></h2>
 <p>To prevent unnecessary duplication and save resources, Laravel Orchid uses a hashing algorithm to check for existing files before uploading a new attachment. If a file with the same hash already exists in storage, a link to the existing file is created in the database instead of uploading a duplicate copy. This allows for efficient storage and management of attachments.</p>
@@ -459,29 +459,29 @@ $attachment = (new File($file))-&gt;load();
 <p>This feature not only improves the performance and reduces the storage space, but also eliminates the chance of having multiple copies of the same file in the storage.</p>
 <h3><a href='#allowing-duplicate-files' id='allowing-duplicate-files'>Allowing Duplicate Files</a></h3>
 <p>While the hashing algorithm in Laravel Orchid is designed to prevent the duplication of files, in some cases, you may want to keep duplicate files and generate different links to request different physical files. To do this, you can use the <code>allowDuplicates()</code> method.</p>
-<pre><code class="language-php">use Orchid\Attachment\File;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
-public function upload(Request $request)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    $file = new File($request-&gt;file('photo'));
-    $attachment = $file-&gt;allowDuplicates()-&gt;load();
+    $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
+    $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">allowDuplicates</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
-    return response()-&gt;json()
+    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>()
 }   
 </code></pre>
 <p>Keep in mind that allowing duplicate files may increase storage usage and affect your application&rsquo;s performance. Therefore, it should be used with caution and only when necessary.</p>
 <h2><a href='#customizing-the-upload-path' id='customizing-the-upload-path'>Customizing the Upload Path</a></h2>
 <p>By default, Laravel Orchid uses a default upload path for all files of <code>Y/m/d</code>, for example: <code>2022/06/11</code>. This path is used to organize and structure the uploaded files in the storage. However, you may want to customize the path to suit your specific needs.</p>
 <p>You can change the default path by using the <code>path(string $path)</code> method:</p>
-<pre><code class="language-php">use Orchid\Attachment\File;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
-public function upload(Request $request)
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    $path = "photos"
-    $file = new File($request-&gt;file('photo'));
-    $attachment = $file-&gt;path($path)-&gt;load();
+    $path <span class="hl-operator">=</span> <span class="hl-value">"photos"</span>
+    $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
+    $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>($path)<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
-    return response()-&gt;json()
+    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>()
 }
 </code></pre>
 <p>In this example, the <code>path()</code> method is used to set the path to <code>photos</code> before loading the file. This will change the default path and all files will be uploaded to the <code>photos</code> folder.</p>
@@ -489,98 +489,98 @@ public function upload(Request $request)
 <h2><a href='#remove' id='remove'>Remove</a></h2>
 <p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
 <p>Let&rsquo;s come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&ldquo;Manage file attachments&rdquo;</a></p>
-<pre><code class="language-php">// app/Post.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Post.php</span>
 
-use Orchid\Attachment\Models\Attachment;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
 
-public function hero()
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">hero</span>()
 {
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero')-&gt;withDefault();
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 </code></pre>
 <p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute sql query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
-<pre><code class="language-php">$post-&gt;hero()-&gt;delete();
+<pre><code data-lang="php" class="notranslate">$post<span class="hl-delimeter">-&gt;</span><span class="hl-function">hero</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You should build your relation using <code>withDefault()</code> function to avoid the null pointer exception.</p>
 </blockquote>
 <p>Let&rsquo;s generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
-<pre><code class="language-bash">php artisan make:observer PostObserver
+<pre><code data-lang="shell" class="notranslate">php artisan make:observer PostObserver
 </code></pre>
 <p>In PostObserver we create <code>deleting</code> function</p>
-<pre><code class="language-php">public function deleting(Post $post)
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">deleting</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>)
 {
-    $post-&gt;hero()-&gt;delete();
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">hero</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 }
 </code></pre>
 <p>When you have multiple attachments, you should use <code>attachments</code> relation from the <code>Attachable</code> trait.</p>
-<pre><code class="language-php">public function deleting(Post $post)
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">deleting</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>)
 {
-    //load attachments as collection and not query attachments()
-    $post-&gt;attachments-&gt;each-&gt;delete();
+    <span class="hl-comment">//load attachments as collection and not query attachments()</span>
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">attachments</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">each</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 }
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done to access the filesystem to delete a file (The database won&rsquo;t do it for us).</p>
 </blockquote>
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
-<pre><code class="language-php">public function boot()
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
 {
-    ...
+    <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
     
-    Post::observe(PostObserver::class);
+    <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">observe</span>(<span class="hl-type">PostObserver</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 }
 </code></pre>
 <p>Occasionally, users may upload image files without properly establishing a relationship with them. These models and files may end up remaining in the system indefinitely, taking up valuable storage space. To address this issue, you can create a console command that clears out any unassociated image files on a set schedule. For example, you might schedule the command to run once a week or once a month, depending on the frequency of uploads and the amount of storage space available.</p>
-<pre><code class="language-php">namespace App\Console\Commands;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Console\Commands;
 
-use Illuminate\Console\Command;
-use Orchid\Attachment\Models\Attachment;
+<span class="hl-keyword">use</span> Illuminate\Console\<span class="hl-type">Command</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
 
-class AttachmentClear extends Command
+<span class="hl-keyword">class</span> <span class="hl-type">AttachmentClear</span> <span class="hl-keyword">extends</span> <span class="hl-template">Command</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The name and signature of the console command.
-     */
-    protected $signature = 'attachment:clear';
+     */</span>
+    <span class="hl-keyword">protected</span> $signature <span class="hl-operator">=</span> <span class="hl-value">'attachment:clear'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * The console command description.
-     */
-    protected $description = 'Remove dont relation attachment';
+     */</span>
+    <span class="hl-keyword">protected</span> $description <span class="hl-operator">=</span> <span class="hl-value">'Remove dont relation attachment'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Execute the console command.
      *
-     * @return int
-     */
-    public function handle()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">int</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">handle</span>()
     {
-        $unrelatedAttachments = Attachment::doesntHave('relationships')
-            -&gt;whereDate('created_at', '&lt;', now()-&gt;subDays(2))
-            -&gt;get();
+        $unrelatedAttachments <span class="hl-operator">=</span> <span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-function">doesntHave</span>(<span class="hl-value">'relationships'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">whereDate</span>(<span class="hl-value">'created_at'</span>, <span class="hl-value">'&lt;'</span>, <span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDays</span>(<span class="hl-number">2</span>))
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 
-        $unrelatedAttachments-&gt;each-&gt;delete();
+        $unrelatedAttachments<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">each</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 
-        return Command::SUCCESS;
+        <span class="hl-keyword">return</span> <span class="hl-type">Command</span><span class="hl-delimeter">::</span><span class="hl-constant">SUCCESS</span>;
     }
 }
 </code></pre>
 <h2><a href='#default-configuration' id='default-configuration'>Default Configuration</a></h2>
 <p>When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the <code>config/platform.php</code> file.
 This configuration specifies the disk and generator that will be used to handle the files.</p>
-<pre><code class="language-php">/*
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/*
 |------------------------------------------------------------------
 | Default configuration for attachments.
 |------------------------------------------------------------------
 |
 | Strategy properties for the file and storage used.
 |
-*/
+*/</span>
 
-'attachment' =&gt; [
-    'disk'      =&gt; 'public',
-    'generator' =&gt; \Orchid\Attachment\Engines\Generator::class,
+<span class="hl-value">'attachment'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'disk'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-value">'public'</span>,
+    <span class="hl-value">'generator'</span> <span class="hl-operator">=&gt;</span> \Orchid\Attachment\Engines\<span class="hl-type">Generator</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ],
 </code></pre>
 <ul>
@@ -594,18 +594,18 @@ This configuration specifies the disk and generator that will be used to handle 
 <h2><a href='#event-subscription' id='event-subscription'>Event Subscription</a></h2>
 <p>Orchid allows you to subscribe to event that are triggered when a file is uploaded. This feature enables you to execute additional tasks like video compression, image optimization, or other file processing operations.</p>
 <p>To subscribe to an event, you can use <a href="https://laravel.com/docs/11.x/events#defining-listeners">Laravel&rsquo;s event listening mechanism</a>. In the example below, an anonymous function is registered to listen for the <code>UploadFileEvent</code>:</p>
-<pre><code class="language-php">use Orchid\Platform\Events\UploadFileEvent;
-use Illuminate\Support\Facades\Event;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Events\<span class="hl-type">UploadFileEvent</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Event</span>;
 
-/**
+<span class="hl-comment">/**
  * Bootstrap any application services.
- */
-public function boot(): void
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>(): <span class="hl-keyword">void</span>
 {
-    Event::listen(function (UploadFileEvent $event) {
-        // Your logic here to handle the event
-        // $event-&gt;attachment
-        // $event-&gt;time
+    <span class="hl-type">Event</span><span class="hl-delimeter">::</span><span class="hl-function">listen</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">UploadFileEvent</span> $event</span>) {
+        <span class="hl-comment">// Your logic here to handle the event</span>
+        <span class="hl-comment">// $event-&gt;attachment</span>
+        <span class="hl-comment">// $event-&gt;time</span>
     });
 }
 </code></pre>
@@ -680,7 +680,7 @@ public function boot(): void
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

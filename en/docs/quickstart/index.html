@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Quick Start for Beginners | Orchid - Laravel Admin Panel</title>
@@ -438,58 +438,58 @@
 <h2><a href='#prepping-the-database' id='prepping-the-database'>Prepping the Database</a></h2>
 <h3><a href='#database-migrations' id='database-migrations'>Database Migrations</a></h3>
 <p>First, let&rsquo;s use a migration to define a database table to hold all of our tasks.</p>
-<pre><code class="language-php">php artisan make:migration create_tasks_table --create=tasks
+<pre><code data-lang="shell" class="notranslate">php artisan make:migration create_tasks_table <span class="hl-constant">--create=tasks</span>
 </code></pre>
 <p>Let&rsquo;s edit this file and add an additional string column for the <code>name</code> and boolean column for the <code>active</code> of our tasks:</p>
-<pre><code class="language-php">use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
 
-return new class extends Migration
+<span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span> <span class="hl-type"><span class="hl-keyword">extends</span></span> <span class="hl-template">Migration</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Run the migrations.
      *
-     * @return void
-     */
-    public function up()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">up</span>()
     {
-        Schema::create('tasks', function (Blueprint $table) {
-            $table-&gt;id();
-            $table-&gt;string('name');
-            $table-&gt;boolean('active')-&gt;default(1);
-            $table-&gt;timestamps();
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">create</span>(<span class="hl-value">'tasks'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">id</span>();
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">string</span></span>(<span class="hl-value">'name'</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">boolean</span>(<span class="hl-value">'active'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">default</span></span>(<span class="hl-number">1</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">timestamps</span>();
         });
     }
 
-    /**
+    <span class="hl-comment">/**
      * Reverse the migrations.
      *
-     * @return void
-     */
-    public function down()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">down</span>()
     {
-        Schema::dropIfExists('tasks');
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">dropIfExists</span>(<span class="hl-value">'tasks'</span>);
     }
 };
 </code></pre>
 <p>To run our migration, we will use the <code>migrate</code> Artisan command.</p>
-<pre><code class="language-bash">php artisan migrate
+<pre><code data-lang="shell" class="notranslate">php artisan migrate
 </code></pre>
 <h3><a href='#eloquent-models' id='eloquent-models'>Eloquent Models</a></h3>
 <p>So, let&rsquo;s define a <code>Task</code> model that corresponds to our <code>tasks</code> database table we just created.</p>
-<pre><code class="language-bash">php artisan make:model Task
+<pre><code data-lang="shell" class="notranslate">php artisan make:model Task
 </code></pre>
 <p>In the <code>app/Models</code> directory, a new file <code>Task.php</code> will be created, we will describe the fields as available for filling:</p>
-<pre><code class="language-php">namespace App\Models;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\AsSource;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\Factories\<span class="hl-type">HasFactory</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Task extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Task</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use HasFactory, AsSource;
+    <span class="hl-keyword">use</span> <span class="hl-type">HasFactory, AsSource</span>;
 }
 </code></pre>
 <blockquote>
@@ -498,61 +498,61 @@ class Task extends Model
 <h2><a href='#screen' id='screen'>Screen</a></h2>
 <p>Now that we have the basic setup out of the way, it&rsquo;s time to add our first <a href="/en/docs/screens">screen</a> to the application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to define data and events for a single page. The structure of a screen allows us to easily define the layout and behavior of the page, and helps to keep our code organized and maintainable.</p>
 <p>To create a new screen, use the <code>orchid:screen</code> command. This will generate a new screen class containing the code needed to define data and events for the page. You can then use this class to render the page and handle user interactions.</p>
-<pre><code class="language-bash">php artisan orchid:screen TaskScreen
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:screen TaskScreen
 </code></pre>
 <p>A new file <code>TaskScreen.php</code> will be created in the <code>app/Orchid/Screens</code> directory:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use Orchid\Screen\Screen;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-class TaskScreen extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">TaskScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * A method that defines all screen input data
      * is in it that database queries should be called,
      * api or any others (not necessarily explicit),
      * the result of which should be an array,
      * appeal to which his keys will be used.
-     */
-    public function query(): array
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The name is displayed on the user's screen and in the headers
-     */
-    public function name(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
     {
-        return "TaskScreen";
+        <span class="hl-keyword">return</span> <span class="hl-value">"TaskScreen"</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Displays a description on the user's screen
      * directly under the heading.
-     */
-    public function description(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">description</span>(): ?<span class="hl-keyword">string</span>
     {
-        return "TaskScreen";
+        <span class="hl-keyword">return</span> <span class="hl-value">"TaskScreen"</span>;
     }
     
-    /**
+    <span class="hl-comment">/**
      * Identifies control buttons and events.
      * which will have to happen by pressing
-     */
-    public function commandBar(): array
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 
-    /**
+    <span class="hl-comment">/**
      * Set of mappings
      * rows, tables, graphs,
      * modal windows, and their combinations
-     */
-    public function layout(): array
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
     {
-        return [];
+        <span class="hl-keyword">return</span> [];
     }
 }
 </code></pre>
@@ -560,47 +560,47 @@ class TaskScreen extends Screen
 <p>Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically <code>routes/platform.php</code>) and define a new route for the screen.</p>
 <p>To define a new route for a screen, we can use the Screen method provided by Orchid.
 This method takes two arguments: the url of the screen, and the class name of the screen.</p>
-<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">TaskScreen</span>;
 
-Route::screen('task', TaskScreen::class)-&gt;name('platform.task');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'task'</span>, <span class="hl-type">TaskScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.task'</span>);
 </code></pre>
 <p>Now that we have registered a new route for our screen, we can visit the screen in the browser by navigating to the corresponding URL. In this case, since we registered the route as <code>/admin/task</code>, we can visit the screen by going to <code>http://your-app.test/admin/task</code> in the browser.</p>
 <p>When you visit the screen for the first time, it will likely be empty, as we have not yet defined any content or layout for the page. To fill the screen with elements, we will need to define the data and events for the screen, and use them to render the content of the page.</p>
 <p>To add a name and description to our screen, we will need to update the <code>name</code> and <code>description</code> methods as follows:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The name is displayed on the user's screen and in the headers
- */
-public function name(): ?string
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
 {
-    return 'Simple To-Do List';
+    <span class="hl-keyword">return</span> <span class="hl-value">'Simple To-Do List'</span>;
 }
 
-/**
+<span class="hl-comment">/**
  * The description is displayed on the user's screen under the heading
- */
-public function description(): ?string
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">description</span>(): ?<span class="hl-keyword">string</span>
 {
-    return 'Orchid Quickstart';
+    <span class="hl-keyword">return</span> <span class="hl-value">'Orchid Quickstart'</span>;
 }
 </code></pre>
 <h2><a href='#navigation' id='navigation'>Navigation</a></h2>
 <h3><a href='#menu' id='menu'>Menu</a></h3>
 <p>To make it easier for users to access our screen, we can add a new menu item to the admin panel&rsquo;s navigation menu. This will allow users to click on a link in the menu to access the screen, rather than having to manually type the URL into the browser.</p>
 <p>To add a new menu item to the navigation menu, we will need to open the <code>app/Orchid/PlatformProvider.php</code> file and add a new declaration to the <code>menu()</code> method. This declaration will use the <code>Menu</code> method provided by Orchid to define a new menu item for our screen.</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
-/**
- * @return Menu[]
- */
-public function menu(): array
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Menu</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">menu</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        // Other items...
+    <span class="hl-keyword">return</span> [
+        <span class="hl-comment">// Other items...</span>
     
-        Menu::make('Tasks')
-            -&gt;icon('bag')
-            -&gt;route('platform.task')
-            -&gt;title('Tools')
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Tasks'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bag'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.task'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Tools'</span>)
     ];
 }
 </code></pre>
@@ -608,15 +608,15 @@ public function menu(): array
 <p>Now that we have added a menu item for our screen, it will be displayed in the navigation menu and users will be able to access it by clicking on the menu item. In addition to navigating to the screen via the menu, users can also navigate to the screen using breadcrumbs.</p>
 <p>Breadcrumbs are a navigation aid that allows users to see their current location within the application and easily return to previous screens. They are typically displayed as a series of links at the top of the page, with the current screen being the last link in the series.</p>
 <p>To add breadcrumbs to our screen, we will need to update the route definition for the screen in the <code>routes/platform.php</code> file. Specifically, we will need to append the route with the <code>-&gt;breadcrumbs()</code> method:</p>
-<pre><code class="language-php">use App\Orchid\Screens\TaskScreen;
-use Tabuna\Breadcrumbs\Trail;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">TaskScreen</span>;
+<span class="hl-keyword">use</span> Tabuna\Breadcrumbs\<span class="hl-type">Trail</span>;
     
-Route::screen('task', TaskScreen::class)
-    -&gt;name('platform.task')
-    -&gt;breadcrumbs(function (Trail $trail){
-        return $trail
-            -&gt;parent('platform.index')
-            -&gt;push('Task');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'task'</span>, <span class="hl-type">TaskScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.task'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">breadcrumbs</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Trail</span> $trail</span>){
+        <span class="hl-keyword">return</span> $trail
+            <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">parent</span></span>(<span class="hl-value">'platform.index'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">push</span>(<span class="hl-value">'Task'</span>);
     });
 </code></pre>
 <h2><a href='#adding-tasks' id='adding-tasks'>Adding Tasks</a></h2>
@@ -624,25 +624,25 @@ Route::screen('task', TaskScreen::class)
 <p>To display elements on the workspace, we will need to define them in the <code>layout</code> method of the screen class.
 The <code>layout</code> method is responsible for returning an array of layout definitions, which define the structure and content of the page.</p>
 <p>To add a modal window with an input field for the task name, we can update the <code>layout</code> method as follows:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-/**
+<span class="hl-comment">/**
  * The screen's layout elements.
  *
- * @return \Orchid\Screen\Layout[]|string[]
- */
-public function layout(): iterable
+ * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Layout</span>[]|<span class="hl-keyword">string</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        Layout::modal('taskModal', Layout::rows([
-            Input::make('task.name')
-                -&gt;title('Name')
-                -&gt;placeholder('Enter task name')
-                -&gt;help('The name of the task to be created.'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'taskModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'task.name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Enter task name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'The name of the task to be created.'</span>),
         ]))
-            -&gt;title('Create Task')
-            -&gt;applyButton('Add Task'),
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Create Task'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyButton</span>(<span class="hl-value">'Add Task'</span>),
     ];
 }
 </code></pre>
@@ -651,20 +651,20 @@ public function layout(): iterable
 <p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the <code>layout</code> method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
 <p>To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the <code>commandBar</code> method of the screen class, which defines the basic actions that are available on the screen.</p>
 <p>To add a button that calls the modal window, we can update the <code>commandBar</code> method as follows:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\ModalToggle;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">ModalToggle</span>;
 
-/**
+<span class="hl-comment">/**
  * The screen's action buttons.
  *
- * @return \Orchid\Screen\Action[]
- */
-public function commandBar(): iterable
+ * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Action</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        ModalToggle::make('Add Task')
-            -&gt;modal('taskModal')
-            -&gt;method('create')
-            -&gt;icon('plus'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ModalToggle</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Add Task'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">modal</span>(<span class="hl-value">'taskModal'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'create'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'plus'</span>),
     ];
 }
 </code></pre>
@@ -674,24 +674,24 @@ When the button is clicked, it will open the <code>taskModal</code> modal window
 <h3><a href='#creating-the-task' id='creating-the-task'>Creating the Task</a></h3>
 <p>To handle the submission of the modal window form, we will need to define a method that will be called when the form is sent to the server. This method can be used to validate the form data, save the new task to the database, and perform any other necessary actions.</p>
 <p>To define the method that will be called when the form is submitted, we can update the screen class as follows:</p>
-<pre><code class="language-php">use App\Models\Task;
-use Illuminate\Http\Request;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Task</span>;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
 
-/**
- * @param \Illuminate\Http\Request $request
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span> $request
  *
- * @return void
- */
-public function create(Request $request)
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">create</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    // Validate form data, save task to database, etc.
-    $request-&gt;validate([
-        'task.name' =&gt; 'required|max:255',
+    <span class="hl-comment">// Validate form data, save task to database, etc.</span>
+    $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">validate</span>([
+        <span class="hl-value">'task.name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'required|max:255'</span>,
     ]);
 
-    $task = new Task();
-    $task-&gt;name = $request-&gt;input('task.name');
-    $task-&gt;save();
+    $task <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Task</span>();
+    $task<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'task.name'</span>);
+    $task<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 }
 </code></pre>
 <p>Great! We can now successfully create tasks. Next, let&rsquo;s continue adding to our screen by building a list of all existing tasks.</p>
@@ -699,46 +699,46 @@ public function create(Request $request)
 <p>The query method specifies what data should be shown on the screen.
 This data can be collected or generated within the method. The data is returned in an array,</p>
 <p>Let&rsquo;s return a simple sample with the key <code>tasks</code>:</p>
-<pre><code class="language-php">use App\Models\Task;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Task</span>;
 
-/**
+<span class="hl-comment">/**
  * Fetch data to be displayed on the screen.
  *
- * @return array
- */
-public function query(): iterable
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        'tasks' =&gt; Task::latest()-&gt;get(),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'tasks'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Task</span><span class="hl-delimeter">::</span><span class="hl-function">latest</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(),
     ];
 }
 </code></pre>
 <p>Once the data is passed, we can spin through the tasks in our layouts and display them in a table.</p>
 <p>To create the task list, we will need to define a new layout for the screen. This layout will use a table component to display the list of tasks, and will include columns for the task name and actions.</p>
 <p>To define the task list layout, we can update the layouts method of the screen class as follows:</p>
-<pre><code class="language-php">
-use Orchid\Screen\TD;
+<pre><code data-lang="php" class="notranslate">
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
-/**
+<span class="hl-comment">/**
  * The screen's layout elements.
  *
- * @return \Orchid\Screen\Layout[]|string[]
- */
-public function layout(): iterable
+ * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Layout</span>[]|<span class="hl-keyword">string</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        Layout::table('tasks', [
-            TD::make('name'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'tasks'</span>, [
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
         ]),
 
-        Layout::modal('taskModal', Layout::rows([
-            Input::make('task.name')
-                -&gt;title('Name')
-                -&gt;placeholder('Enter task name')
-                -&gt;help('The name of the task to be created.'),
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'taskModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'task.name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Enter task name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'The name of the task to be created.'</span>),
         ]))
-            -&gt;title('Create Task')
-            -&gt;applyButton('Add Task'),
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Create Task'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyButton</span>(<span class="hl-value">'Add Task'</span>),
     ];
 }
 </code></pre>
@@ -748,30 +748,30 @@ And the second one, we pass the set of columns we want to display. The values in
 <h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
 <h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding the Delete Button</a></h3>
 <p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Button;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 
-Layout::table('tasks', [
-    TD::make('name'),
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'tasks'</span>, [
+    <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
 
-    TD::make('Actions')
-        -&gt;alignRight()
-        -&gt;render(function (Task $task) {
-            return Button::make('Delete Task')
-                -&gt;confirm('After deleting, the task will be gone forever.')
-                -&gt;method('delete', ['task' =&gt; $task-&gt;id]);
+    <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Actions'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">alignRight</span>()
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Task</span> $task</span>) {
+            <span class="hl-keyword">return</span> <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Delete Task'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">confirm</span>(<span class="hl-value">'After deleting, the task will be gone forever.'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'delete'</span>, [<span class="hl-value">'task'</span> <span class="hl-operator">=&gt;</span> $task<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">id</span>]);
         }),
 ]),
 </code></pre>
 <h3><a href='#deleting-the-task' id='deleting-the-task'>Deleting the Task</a></h3>
 <p>To delete a task, we will need to add a method to the screen class that handles the deletion of the task. This method can be called when the delete button is clicked, and can be used to delete the task from the database:</p>
-<pre><code class="language-php">/**
- * @param Task $task
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@param</span> <span class="hl-type">Task</span> $task
  *
- * @return void
- */
-public function delete(Task $task)
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">delete</span>(<span class="hl-injection"><span class="hl-type">Task</span> $task</span>)
 {
-    $task-&gt;delete();
+    $task<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 }
 </code></pre>
 <p>Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.</p>
@@ -847,7 +847,7 @@ public function delete(Task $task)
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

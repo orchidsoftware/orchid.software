@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Screen State | Orchid - Laravel Admin Panel</title>
@@ -375,116 +375,116 @@
                         <body><p>In PHP, when we want to store intermediate results between requests, we usually use storage solutions like databases (MySQL) or fast storage systems such as Redis. For simpler cases, we can pass the state directly in the URL. You have probably seen this before, for example, <code>operation?result=success</code>. Each of these methods is suitable and widely applicable.</p>
 <p>However, in Laravel Orchid, there is a convenient solution for storing small amounts of information, such as an Eloquent model. This is made possible because each request carries the state of all public properties of the screen.</p>
 <p>Let&rsquo;s try it out and create a new screen called <code>StateScreen</code> using the Artisan command:</p>
-<pre><code class="language-bash">php artisan orchid:screen StateScreen
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:screen StateScreen
 </code></pre>
 <p>Next, we need to register it in the route file:</p>
-<pre><code class="language-php">use App\Orchid\Screens\StateScreen;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">StateScreen</span>;
 
-Route::screen('state', StateScreen::class)-&gt;name('state');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'state'</span>, <span class="hl-type">StateScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'state'</span>);
 </code></pre>
 <p>A classic example is counting the number of clicks. Let&rsquo;s add the following code to the newly created screen:</p>
-<pre><code class="language-php">&lt;?php
+<pre><code data-lang="php" class="notranslate"><span class="hl-tag">&lt;?php</span>
 
-namespace App\Orchid\Screens;
+<span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use Illuminate\Http\Request;
-use Orchid\Screen\Screen;
-use Orchid\Support\Color;
-use Orchid\Screen\Fields\Label;
-use Orchid\Screen\Actions\Button;
-use Orchid\Support\Facades\Layout;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
+<span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Label</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-class StateScreen extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">StateScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Fetch data to be displayed on the screen.
      *
-     * @return array
-     */
-    public function query(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            'clicks' =&gt; 0,
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'clicks'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">0</span>,
         ];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The name of the screen displayed in the header.
      *
-     * @return string|null
-     */
-    public function name(): ?string
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
     {
-        return 'State';
+        <span class="hl-keyword">return</span> <span class="hl-value">'State'</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * The screen's layout elements.
      *
-     * @return array
-     */
-    public function layout(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Layout::rows([
-                Label::make('clicks')-&gt;title('Click Count:'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Label</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'clicks'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Click Count:'</span>),
             ]),
         ];
     }
 }
 </code></pre>
 <p>Let&rsquo;s open the page in a browser and see how the screen looks. It should display the label &ldquo;Click Count: 0&rdquo;. Now, let&rsquo;s add a simple method to the screen to see the request content:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The screen's layout elements.
  *
- * @return array
- */
-public function layout(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-            Label::make('clicks')
-                -&gt;title('Click Count:'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Label</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'clicks'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Click Count:'</span>),
 
-            Button::make('Increment Click')
-                -&gt;type(Color::DARK)
-                -&gt;method('increment'),
+            <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Increment Click'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-type">Color</span><span class="hl-delimeter">::</span><span class="hl-constant">DARK</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'increment'</span>),
         ]),
     ];
 }
 
-/**
+<span class="hl-comment">/**
  * Increment the click count.
  *
- * @param Request $request
- * @return \Illuminate\Http\RedirectResponse
- */
-public function increment(Request $request)
+ * <span class="hl-keyword">@param</span> <span class="hl-type">Request</span> $request
+ * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">increment</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    dd($request-&gt;all());
+    <span class="hl-function">dd</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>());
 }
 </code></pre>
 <p>Upon clicking the &ldquo;Submit&rdquo; button, you will see the request content. However, please note that the click count value is missing. In a conventional server application, we could have achieved this by adding a hidden form field <code>&lt;input type="hidden"&gt;</code> and redirecting with a GET parameter <code>?count=1</code>.</p>
 <p>Fortunately, Orchid provides a convenient solution that automatically saves the state of public properties of the screen.</p>
-<pre><code class="language-php">class StateScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">StateScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The number of clicks.
      *
-     * @var int
-     */
-    public $clicks;
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">int</span>
+     */</span>
+    <span class="hl-keyword">public</span> $clicks;
 
-    //...
+    <span class="hl-comment">//...</span>
 
-    /**
+    <span class="hl-comment">/**
      * Increment the click count.
      *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function increment(Request $request)
+     * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">increment</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
     {
-        dd($this-&gt;clicks);
+        <span class="hl-function">dd</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span>);
     }
 }
 </code></pre>
@@ -493,35 +493,35 @@ public function increment(Request $request)
 <p>Storing large amounts of data in public screen properties may cause performance issues. Therefore, it is recommended to exercise caution and avoid storing excessive information in public properties.</p>
 </blockquote>
 <p>To update the screen state, we simply need to modify the public property. But before that, let&rsquo;s update our <code>query</code> method to return an array with the key <code>clicks</code> containing the current value of the property. If it&rsquo;s absent, we&rsquo;ll set it to <code>0</code>:</p>
-<pre><code class="language-php">class StateScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">StateScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The number of clicks.
      *
-     * @var int
-     */
-    public $clicks;
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">int</span>
+     */</span>
+    <span class="hl-keyword">public</span> $clicks;
 
-    /**
+    <span class="hl-comment">/**
      * Fetch data to be displayed on the screen.
      *
-     * @return array
-     */
-    public function query(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            'clicks'  =&gt; $this-&gt;clicks ?? 0,
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'clicks'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span> ?? <span class="hl-number">0</span>,
         ];
     }
 }
 </code></pre>
 <p>Let&rsquo;s update the <code>increment()</code> method to increment the value of the <code>clicks</code> property by one each time it&rsquo;s called.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Increment the click count.
- */
-public function increment()
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">increment</span>()
 {
-    $this-&gt;clicks++;
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span><span class="hl-constant">++</span>;
 }
 </code></pre>
 <p>Now, when the user clicks the &ldquo;Increment Click&rdquo; button, the click counter will be updated. If you refresh the page, the counter will be reset.</p>
@@ -595,7 +595,7 @@ public function increment()
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

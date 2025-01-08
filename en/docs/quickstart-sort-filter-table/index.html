@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Sorting and Filtering In a Table | Orchid - Laravel Admin Panel</title>
@@ -375,54 +375,54 @@
                         <body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>, in which we will help the user find information in tables faster.</p>
 <p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the <code>Eloquent</code> models.
 In order to enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
-<pre><code class="language-php">namespace App\Models;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Filters\Filterable;
-use Orchid\Screen\AsSource;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource, Attachable, Filterable;
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource, Attachable, Filterable</span>;
 
-    /**
+    <span class="hl-comment">/**
      * The attributes that are mass assignable.
      *
-     * @var array
-     */
-    protected $fillable = [
-        'title',
-        'description',
-        'body',
-        'author',
-        'hero'
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+        <span class="hl-value">'title'</span>,
+        <span class="hl-value">'description'</span>,
+        <span class="hl-value">'body'</span>,
+        <span class="hl-value">'author'</span>,
+        <span class="hl-value">'hero'</span>
     ];
 
-    /**
+    <span class="hl-comment">/**
      * Name of columns to which http sorting can be applied
      *
-     * @var array
-     */
-    protected $allowedSorts = [
-        'title',
-        'created_at',
-        'updated_at'
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $allowedSorts <span class="hl-operator">=</span> [
+        <span class="hl-value">'title'</span>,
+        <span class="hl-value">'created_at'</span>,
+        <span class="hl-value">'updated_at'</span>
     ];
 }
 </code></pre>
 <p>Now, when calling the <code>filters</code> method, the database query will be modified.
 In the data source method of the <code>PostListScreen</code> screen, it will look like this:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data.
  *
- * @return array
- */
-public function query(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'posts' =&gt; Post::filters()-&gt;defaultSort('id')-&gt;paginate()
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'posts'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">filters</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">defaultSort</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">paginate</span>()
     ];
 }
 </code></pre>
@@ -435,66 +435,66 @@ public function query(): array
 <p><strong>Note.</strong> In this way, you cannot sort related models.</p>
 </blockquote>
 <p>In order to display the sorting feature in the graphical interface, we must call the <code>sort</code> method for the necessary table columns in the <code>PostListLayout</code>:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use App\Models\Post;
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Table;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Table</span>;
 
-class PostListLayout extends Table
+<span class="hl-keyword">class</span> <span class="hl-type">PostListLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Table</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
-     * @var string
-     */
-    public $target = 'posts';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $target <span class="hl-operator">=</span> <span class="hl-value">'posts'</span>;
 
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">TD</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">columns</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            TD::make('title')
-                -&gt;sort()
-                -&gt;render(function (Post $post) {
-                    return Link::make($post-&gt;title)
-                        -&gt;route('platform.post.edit', $post);
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Post</span> $post</span>) {
+                    <span class="hl-keyword">return</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
                 }),
 
-            TD::make('created_at', 'Created')
-                -&gt;sort(),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>, <span class="hl-value">'Created'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
 
-            TD::make('updated_at', 'Last edit')
-                -&gt;sort(),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'updated_at'</span>, <span class="hl-value">'Last edit'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
         ];
     }
 }
 </code></pre>
 <p>After that, the column heading will respond to clicking and change the sorting position.</p>
 <p>The trait <code>Filterable</code>, allows you to set not only sorting. But also simple <code>Http</code> filtering, to set it back to the model and add a new property:</p>
-<pre><code class="language-php">use Orchid\Filters\Types\Like;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Like</span>;
 
-/**
+<span class="hl-comment">/**
  * Name of columns to which http filter can be applied
  *
- * @var array
- */
-protected $allowedFilters = [
-    'title' =&gt; Like::class,
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $allowedFilters <span class="hl-operator">=</span> [
+    <span class="hl-value">'title'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Like</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
 <p>And then call the new <code>filter</code> method with a text type for the header column:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-TD::make('title')
-    -&gt;sort()
-    -&gt;filter(Input::make())
-    -&gt;render(function (Post $post) {
-        return Link::make($post-&gt;title)
-            -&gt;route('platform.post.edit', $post);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>())
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Post</span> $post</span>) {
+        <span class="hl-keyword">return</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
     }),
 </code></pre>
 <p>After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.</p>
@@ -572,7 +572,7 @@ TD::make('title')
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Права доступа | Orchid - Laravel Admin Panel</title>
@@ -426,78 +426,78 @@
 </ul>
 <h2><a href='#primenenie' id='primenenie'>Применение</a></h2>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>hasAccess</code> &#1089;&#1090;&#1088;&#1086;&#1075;&#1086; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1085;&#1085;&#1086;&#1077; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077; &#1073;&#1099;&#1083;&#1086; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1084; &#1076;&#1083;&#1103; &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072;.</p>
-<pre><code class="language-php">// Check is carried out both for the user and for his role
-Auth::user()-&gt;hasAccess($string);
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Check is carried out both for the user and for his role</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($string);
 </code></pre>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>hasAnyAccess</code> &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;, &#1077;&#1089;&#1083;&#1080; &#1082;&#1072;&#1082;&#1086;&#1077;-&#1083;&#1080;&#1073;&#1086; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077; &#1087;&#1088;&#1086;&#1081;&#1076;&#1077;&#1090; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1091;.</p>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])) {
-    // Execute this code if the user has permission
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAnyAccess</span>([<span class="hl-value">'user.admin'</span>, <span class="hl-value">'user.update'</span>])) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
 }
 </code></pre>
 <p>&#1056;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100; &#1085;&#1072; &#1086;&#1089;&#1085;&#1086;&#1074;&#1077; &#1087;&#1086;&#1076;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1086;&#1095;&#1085;&#1099;&#1093; &#1079;&#1085;&#1072;&#1082;&#1086;&#1074;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; &#1089;&#1080;&#1084;&#1074;&#1086;&#1083; <code>*</code> , &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1081; &#1083;&#1102;&#1073;&#1086;&#1084;&#1091; &#1085;&#1072;&#1073;&#1086;&#1088;&#1091; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1081;.</p>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-if ($user-&gt;hasAccess('user.*')) {
-    // Execute this code if the user has permission
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>(<span class="hl-value">'user.*'</span>)) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
 }
 </code></pre>
 <p>&#1059; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1077;&#1089;&#1090;&#1100; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1074;&#1072;&#1088;&#1080;&#1072;&#1085;&#1090;&#1086;&#1074; &#1091;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1088;&#1086;&#1083;&#1103;&#1084;&#1080;:</p>
-<pre><code class="language-php">// Получить все роли пользователя
-Auth::user()-&gt;getRoles();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Получить все роли пользователя</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">getRoles</span>();
 
-// Проверить имеет ли пользователь роль
-Auth::user()-&gt;inRole($role);
+<span class="hl-comment">// Проверить имеет ли пользователь роль</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">inRole</span>($role);
 
-// Добавить к пользователю роль
-Auth::user()-&gt;addRole($role);
+<span class="hl-comment">// Добавить к пользователю роль</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">addRole</span>($role);
 </code></pre>
 <p>&#1042; &#1088;&#1077;&#1076;&#1082;&#1080;&#1093; &#1089;&#1083;&#1091;&#1095;&#1072;&#1103;&#1093; &#1084;&#1086;&#1078;&#1077;&#1090; &#1087;&#1086;&#1090;&#1088;&#1077;&#1073;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1074;&#1099;&#1073;&#1088;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;, &#1091; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1093; &#1077;&#1089;&#1090;&#1100; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;, &#1085;&#1072;&#1087;&#1088;&#1103;&#1084;&#1091;&#1102; &#1080;&#1083;&#1080; &#1095;&#1077;&#1088;&#1077;&#1079; &#1088;&#1086;&#1083;&#1100;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;:</p>
-<pre><code class="language-php">User::byAccess('platform.systems.users')-&gt;get();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAccess</span>(<span class="hl-value">'platform.systems.users'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 
-// Or if the user has at least one of the passed permissions
-User::byAnyAccess([
-   'platform.systems.users'   
-   'non existent',
-])-&gt;get();
+<span class="hl-comment">// Or if the user has at least one of the passed permissions</span>
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAnyAccess</span>([
+   <span class="hl-value">'platform.systems.users'</span>   
+   <span class="hl-value">'non existent'</span>,
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#roli' id='roli'>Роли</a></h2>
 <p>&#1056;&#1086;&#1083;&#1080; &#1090;&#1072;&#1082;&#1078;&#1077; &#1080;&#1084;&#1077;&#1102;&#1090; &#1087;&#1088;&#1086;&#1094;&#1077;&#1076;&#1091;&#1088;&#1099; &#1076;&#1083;&#1103;:</p>
-<pre><code class="language-php">// Возвращает всех пользователей с этой ролью
-$role-&gt;getUsers();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Возвращает всех пользователей с этой ролью</span>
+$role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</span>();
 </code></pre>
 <h2><a href='#sozdanie-administratora' id='sozdanie-administratora'>Создание администратора</a></h2>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1089; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1084;&#1080; (&#1085;&#1072; &#1084;&#1086;&#1084;&#1077;&#1085;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103;) &#1087;&#1088;&#1072;&#1074;&#1072;&#1084;&#1080;, &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1091;&#1102; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091;:</p>
-<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin nickname email@email<span class="hl-delimeter">.</span>com secretpassword
 </code></pre>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1076;&#1072;&#1090;&#1100; &#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1077;&#1084;&#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;, &#1079;&#1072;&#1087;&#1091;&#1089;&#1090;&#1080;&#1090;&#1077; &#1089; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1086;&#1084; <code>--id</code> :</p>
-<pre><code class="language-php">php artisan orchid:admin --id=1
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin --id=<span class="hl-number">1</span>
 </code></pre>
 <p>&#1045;&#1089;&#1083;&#1080; &#1074;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1083;&#1080; &#1085;&#1086;&#1074;&#1099;&#1077; &#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080; &#1076;&#1083;&#1103; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1080; &#1085;&#1091;&#1078;&#1085;&#1086; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091; &#1076;&#1083;&#1103; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1093; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1081;, &#1090;&#1086;  &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1089;&#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1091;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; Orchid &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1074;&#1072;&#1096;&#1091; &#1084;&#1086;&#1076;&#1077;&#1083;&#1100;, &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1074; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1081; &#1082;&#1086;&#1076; &#1074; &#1089;&#1077;&#1088;&#1074;&#1080;&#1089;-&#1087;&#1088;&#1086;&#1074;&#1072;&#1081;&#1076;&#1077;&#1088;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-class AppServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    public function boot()
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
     {
-        Dashboard::useModel(
-            \Orchid\Platform\Models\User::class, 
-            \App\Models\User::class
+        <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
+            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, 
+            \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
         );
     }
 }
 </code></pre>
 <p>&#1047;&#1072;&#1090;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>createAdmin</code> &#1074; &#1074;&#1072;&#1096;&#1077;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>User</code>:</p>
-<pre><code class="language-php">public static function createAdmin(string $name, string $email, string $password): void
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createAdmin</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name, <span class="hl-keyword">string</span> $email, <span class="hl-keyword">string</span> $password</span>): <span class="hl-keyword">void</span>
 {
-    throw_if(static::where('email', $email)-&gt;exists(), 'Пользователь уже существует');
+    <span class="hl-function">throw_if</span>(<span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'email'</span>, $email)<span class="hl-delimeter">-&gt;</span><span class="hl-function">exists</span>(), <span class="hl-value">'Пользователь уже существует'</span>);
 
-    static::create([
-        'name'        =&gt; $name,
-        'email'       =&gt; $email,
-        'password'    =&gt; Hash::make($password),
-        'permissions' =&gt; Dashboard::getAllowAllPermission(),
+    <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">create</span>([
+        <span class="hl-value">'name'</span>        <span class="hl-operator">=&gt;</span> $name,
+        <span class="hl-value">'email'</span>       <span class="hl-operator">=&gt;</span> $email,
+        <span class="hl-value">'password'</span>    <span class="hl-operator">=&gt;</span> <span class="hl-type">Hash</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($password),
+        <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
     ]);
 }
 </code></pre>
@@ -506,22 +506,22 @@ class AppServiceProvider extends ServiceProvider
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1090;&#1100; &#1074;&#1072;&#1096;&#1080; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103; &#1074; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;&#1093;.
 &#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; &#1080;&#1093;, &#1074;&#1099; &#1103;&#1074;&#1085;&#1086; &#1088;&#1077;&#1072;&#1083;&#1080;&#1079;&#1091;&#1077;&#1090;&#1077; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087; &#1082; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1084; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103;&#1084;.</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1093; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1081; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1097;&#1080;&#1082;&#1072;:</p>
-<pre><code class="language-php">use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\ItemPermission;
-use Orchid\Platform\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
 
-class PermissionServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">PermissionServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Dashboard</span> $dashboard
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>(<span class="hl-injection"><span class="hl-type">Dashboard</span> $dashboard</span>)
     {
-        $permissions = ItemPermission::group('modules')
-            -&gt;addPermission('analytics', 'Access to data analytics')
-            -&gt;addPermission('monitor', 'Access to the system monitor');
+        $permissions <span class="hl-operator">=</span> <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'modules'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'analytics'</span>, <span class="hl-value">'Access to data analytics'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'monitor'</span>, <span class="hl-value">'Access to the system monitor'</span>);
 
-        $dashboard-&gt;registerPermissions($permissions);
+        $dashboard<span class="hl-delimeter">-&gt;</span><span class="hl-function">registerPermissions</span>($permissions);
     }
 }
 </code></pre>
@@ -533,99 +533,99 @@ class PermissionServiceProvider extends ServiceProvider
 <h2><a href='#proverka-v-ekranax' id='proverka-v-ekranax'>Проверка в Экранах</a></h2>
 <p>&#1050;&#1072;&#1078;&#1076;&#1099;&#1081; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1085;&#1099;&#1081; &#1101;&#1082;&#1088;&#1072;&#1085; &#1091;&#1078;&#1077; &#1080;&#1084;&#1077;&#1077;&#1090; &#1074;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1085;&#1091;&#1102; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1091; &#1087;&#1088;&#1072;&#1074;, &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1085;&#1099;&#1093; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072;
 <code>permission</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1074;&#1086;&#1079;&#1072;&#1088;&#1072;&#1097;&#1072;&#1077;&#1090; &#1089;&#1090;&#1088;&#1086;&#1082;&#1086;&#1074;&#1099;&#1081; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; &#1076;&#1083;&#1103; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1082;&#1080;:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use Orchid\Screen\Screen;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-class History extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">History</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The permissions required to access this screen.
-     */
-    public function permission(): ?iterable
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-type">iterable</span>
     {
-        return [
-            'systems.history'
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'systems.history'</span>
         ];
     }
         
-    // ...
+    <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>&#1045;&#1089;&#1083;&#1080; &#1087;&#1077;&#1088;&#1077;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1086; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1082;&#1083;&#1102;&#1095;&#1077;&#1081;, &#1090;&#1086; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085; &#1087;&#1088;&#1080; &#1085;&#1072;&#1083;&#1080;&#1095;&#1080;&#1080; &#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1093;&#1086;&#1090;&#1103; &#1073;&#1099; &#1086;&#1076;&#1085;&#1086;&#1075;&#1086; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;.</p>
 <p>&#1055;&#1088;&#1080; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1080;&#1080; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1072; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1079;&#1074;&#1072;&#1085; &#1089;&#1090;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076; <code>unaccessed</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1087;&#1086;&#1082;&#1072;&#1078;&#1077;&#1090; 403 &#1086;&#1096;&#1080;&#1073;&#1082;&#1091;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1101;&#1090;&#1086; &#1087;&#1086;&#1074;&#1077;&#1076;&#1077;&#1085;&#1080;&#1077;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1085;&#1072; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1091; &#1086;&#1087;&#1083;&#1072;&#1090;&#1099; &#1080;&#1083;&#1080; &#1074;&#1077;&#1088;&#1085;&#1091;&#1090;&#1100; &#1080;&#1085;&#1086;&#1081; &#1086;&#1090;&#1074;&#1077;&#1090;:</p>
-<pre><code class="language-php">use Illuminate\Http\RedirectResponse;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">RedirectResponse</span>;
 
-/**
- * @return \Illuminate\Http\RedirectResponse
- */
-public static function unaccessed(): RedirectResponse
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">unaccessed</span>(): <span class="hl-type">RedirectResponse</span>
 {
-    return redirect('/other-screen');
+    <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>(<span class="hl-value">'/other-screen'</span>);
 }
 </code></pre>
 <h2><a href='#proverka-v-middleware' id='proverka-v-middleware'>Проверка в Middleware</a></h2>
 <p>&#1053;&#1077;&#1073;&#1086;&#1083;&#1100;&#1096;&#1080;&#1077; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1085;&#1077; &#1085;&#1091;&#1078;&#1076;&#1072;&#1090;&#1100;&#1089;&#1103; &#1074; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1080; &#1087;&#1088;&#1072;&#1074; &#1076;&#1083;&#1103; &#1082;&#1072;&#1078;&#1076;&#1086;&#1075;&#1086; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072; &#1080;&#1083;&#1080; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;, &#1074;&#1084;&#1077;&#1089;&#1090;&#1086; &#1101;&#1090;&#1086;&#1075;&#1086; &#1080;&#1084;&#1077;&#1077;&#1090; &#1089;&#1084;&#1099;&#1089;&#1083; &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1103;&#1090;&#1100; &#1080;&#1093; &#1085;&#1072;&#1083;&#1080;&#1095;&#1080;&#1077; &#1076;&#1083;&#1103; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1086;&#1074;.
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1079;&#1072;&#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1085;&#1086;&#1074;&#1099;&#1081; <code>middleware</code> &#1074; <code>app/Http/Kernel</code>:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The application's route middleware.
  *
  * These middleware may be assigned to groups or used individually.
  *
- * @var array
- */
-protected $routeMiddleware = [
-    //...
-    'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $routeMiddleware <span class="hl-operator">=</span> [
+    <span class="hl-comment">//...</span>
+    <span class="hl-value">'access'</span> <span class="hl-operator">=&gt;</span> \Orchid\Platform\Http\Middleware\<span class="hl-type">Access</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1077;&#1075;&#1086; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1087;&#1088;&#1080; &#1083;&#1102;&#1073;&#1099;&#1093; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1081; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1072;, &#1095;&#1077;&#1088;&#1077;&#1079; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1095;&#1091; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1072; <code>access:my-permission</code>, &#1090;&#1072;&#1082; &#1078;&#1077; &#1082;&#1072;&#1082; &#1080; &#1074; <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)-&gt;middleware('access:systems.history');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">middleware</span>(<span class="hl-value">'access:systems.history'</span>);
 </code></pre>
 <p>&#1058;&#1072;&#1082; &#1078;&#1077; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1086;&#1073;&#1098;&#1077;&#1076;&#1080;&#1085;&#1103;&#1090;&#1100; &#1080;&#1093; &#1074; &#1075;&#1088;&#1091;&#1087;&#1087;&#1099;:</p>
-<pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
-    Route::screen('/stories', StoriesScreen::class);
-    Route::get('stories/best', function () {
-        // ...
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">middleware</span>([<span class="hl-value">'access:systems.history'</span>])<span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-keyword">function</span> () {
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'stories/best'</span>, <span class="hl-keyword">function</span> () {
+        <span class="hl-comment">// ...</span>
     });
 });
 </code></pre>
 <h2><a href='#proverka-v-blade' id='proverka-v-blade'>Проверка в Blade</a></h2>
 <p>&#1044;&#1083;&#1103; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1081;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1087;&#1086;&#1083;&#1072;&#1075;&#1072;&#1102;&#1090;&#1089;&#1103; &#1085;&#1072; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1099; Blade &#1076;&#1083;&#1103; &#1088;&#1077;&#1085;&#1076;&#1077;&#1088;&#1080;&#1085;&#1075;&#1072;, &#1073;&#1091;&#1076;&#1077;&#1090; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; <a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;&#1055;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1080;&#1077; &#1086;&#1087;&#1077;&#1088;&#1072;&#1090;&#1086;&#1088;&#1099; If&rdquo;</a> &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1084; &#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1084;:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Auth;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Blade</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Auth</span>;
 
-/**
+<span class="hl-comment">/**
  * Bootstrap any application services.
  *
- * @return void
- */
-public function boot()
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
 {
-    Blade::if('hasAccess', function (string $value) {
-        $user = Auth::user();
+    <span class="hl-type">Blade</span><span class="hl-delimeter">::</span><span class="hl-keyword"><span class="hl-function">if</span></span>(<span class="hl-value">'hasAccess'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-keyword">string</span> $value</span>) {
+        $user <span class="hl-operator">=</span> <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>();
 
-        if ($user === null) {
-            return false;
+        <span class="hl-keyword">if</span> ($user <span class="hl-operator">===</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>) {
+            <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
         }
 
-        return $user-&gt;hasAccess($value);
+        <span class="hl-keyword">return</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($value);
     });
 }
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1086;&#1075;&#1086; &#1091;&#1089;&#1083;&#1086;&#1074;&#1080;&#1103; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1077;&#1075;&#1086; &#1074; &#1089;&#1074;&#1086;&#1080;&#1093; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072;&#1093;:</p>
-<pre><code class="language-html">@hasAccess('platform.index')
-    &lt;!-- User has permission for the 'platform.index' action --&gt;
+<pre><code data-lang="html" class="notranslate">@hasAccess('platform.index')
+    <span class="hl-comment">&lt;!-- User has permission for the 'platform.index' action --&gt;</span>
 @elsehasAccess('platform.other')
-    &lt;!-- User doesn't have permission for 'platform.index',
-         but has permission for 'platform.other' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index',
+         but has permission for 'platform.other' --&gt;</span>
 @else
-    &lt;!-- User doesn't have permission for both 'platform.index'
-         and 'platform.other' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for both 'platform.index'
+         and 'platform.other' --&gt;</span>
 @endhasAccess
 
 @unlesshasAccess('platform.index')
-    &lt;!-- User doesn't have permission for 'platform.index' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index' --&gt;</span>
 @endhasAccess
 </code></pre>
 <h2><a href='#vxod-ot-imeni-drugogo-polzovatelia-user-impersonation' id='vxod-ot-imeni-drugogo-polzovatelia-user-impersonation'>Вход от имени другого пользователя (User Impersonation)</a></h2>
@@ -633,23 +633,23 @@ public function boot()
 &#1069;&#1090;&#1086;&#1090; &#1082;&#1083;&#1072;&#1089;&#1089; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1072;&#1076;&#1084;&#1080;&#1085;&#1080;&#1089;&#1090;&#1088;&#1072;&#1090;&#1086;&#1088;&#1072;&#1084; &#1074;&#1099;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1089;&#1077;&#1073;&#1103; &#1079;&#1072; &#1076;&#1088;&#1091;&#1075;&#1080;&#1093; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;&#1090;&#1100; &#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1100; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1086;&#1090; &#1080;&#1093; &#1080;&#1084;&#1077;&#1085;&#1080;.
 &#1058;&#1072;&#1082;&#1072;&#1103; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1072; &#1087;&#1088;&#1080; &#1086;&#1073;&#1085;&#1072;&#1088;&#1091;&#1078;&#1077;&#1085;&#1080;&#1080; &#1080; &#1080;&#1089;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1080; &#1087;&#1088;&#1086;&#1073;&#1083;&#1077;&#1084;, &#1086; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1093; &#1089;&#1086;&#1086;&#1073;&#1097;&#1080;&#1083; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;.</p>
 <p>&#1044;&#1083;&#1103; &#1089;&#1084;&#1077;&#1085;&#1099; &#1090;&#1077;&#1082;&#1091;&#1097;&#1077;&#1075;&#1086; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1085;&#1072; &#1076;&#1088;&#1091;&#1075;&#1086;&#1075;&#1086;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>loginAs()</code>:</p>
-<pre><code class="language-php">use Orchid\Access\Impersonation;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
 
-// Вход от имени другого пользователя
-Impersonation::loginAs($otherUser);
+<span class="hl-comment">// Вход от имени другого пользователя</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">loginAs</span>($otherUser);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1090;&#1072; &#1082; &#1086;&#1088;&#1080;&#1075;&#1080;&#1085;&#1072;&#1083;&#1100;&#1085;&#1086;&#1084;&#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>logout()</code>:</p>
-<pre><code class="language-php">// Возврат к оригинальному пользователю
-Impersonation::logout();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Возврат к оригинальному пользователю</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">logout</span>();
 </code></pre>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>isSwitch()</code> &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1103;&#1077;&#1090;, &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1083;&#1089;&#1103; &#1083;&#1080; &#1074;&#1093;&#1086;&#1076; &#1086;&#1090; &#1080;&#1084;&#1077;&#1085;&#1080; &#1076;&#1088;&#1091;&#1075;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;:</p>
-<pre><code class="language-php">if (Impersonation::isSwitch()) {
-    // Пользователь представляет себя за другого пользователя
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">if</span> (<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">isSwitch</span>()) {
+    <span class="hl-comment">// Пользователь представляет себя за другого пользователя</span>
 }
 </code></pre>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>impersonator()</code> &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1090; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102; &#1086;&#1073; &#1086;&#1088;&#1080;&#1075;&#1080;&#1085;&#1072;&#1083;&#1100;&#1085;&#1086;&#1084; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;. &#1045;&#1089;&#1083;&#1080; &#1085;&#1077; &#1073;&#1099;&#1083;&#1086; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1086; &#1074;&#1093;&#1086;&#1076;&#1072; &#1086;&#1090; &#1080;&#1084;&#1077;&#1085;&#1080; &#1076;&#1088;&#1091;&#1075;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;, &#1084;&#1077;&#1090;&#1086;&#1076; &#1074;&#1077;&#1088;&#1085;&#1077;&#1090; <code>null</code>:</p>
-<pre><code class="language-php">// Получение информации об оригинальном пользователе
-$impersonator = Impersonation::impersonator();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Получение информации об оригинальном пользователе</span>
+$impersonator <span class="hl-operator">=</span> <span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">impersonator</span>();
 </code></pre>
 </body>
                         
@@ -724,7 +724,7 @@ $impersonator = Impersonation::impersonator();
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

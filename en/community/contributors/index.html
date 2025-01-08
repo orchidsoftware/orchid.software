@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Contributors | Orchid - Laravel Admin Panel</title>
@@ -236,51 +236,51 @@
 <p>Before making changes, fork the <a href="https://github.com/orchidsoftware/platform">GitHub repository</a> and create a clone of it.</p>
 </blockquote>
 <p>Navigate to the root directory of your fresh Laravel installation and execute the following command:</p>
-<pre><code class="language-bash">git clone https://github.com/yourname/platform.git
+<pre><code data-lang="shell" class="notranslate">git clone https://github.com/yourname/platform.git
 </code></pre>
 <p>Next, add a local repository to the <code>composer.json</code> file of your Laravel project to point the Orchid platform to your locally cloned fork:</p>
-<pre><code class="language-json">"repositories": [
+<pre><code data-lang="json" class="notranslate">"<span class="hl-value">repositories</span>": [
     {
-        "type": "path",
-        "url": "./platform"
+        "<span class="hl-value">type</span>": "<span class="hl-value2">path</span>",
+        "<span class="hl-value">url</span>": "<span class="hl-value2">./platform</span>"
     }
 ]
 </code></pre>
 <p>Lastly, include our package by executing the following command:</p>
-<pre><code class="language-bash">composer require orchid/platform:@dev
+<pre><code data-lang="shell" class="notranslate">composer require orchid/platform:@dev
 </code></pre>
 <p>Composer will add the package from the repository you specified. Follow the rest of the installation instructions in the &ldquo;Installation&rdquo; section.</p>
 <p>To collect JavaScript and CSS resources and apply them immediately, use the following command:</p>
-<pre><code class="language-bash">npm run dev --prefix platform &amp;&amp; php artisan orchid:publish
+<pre><code data-lang="shell" class="notranslate">npm run dev <span class="hl-constant">--prefix</span> platform &amp;&amp; php artisan orchid:publish
 </code></pre>
 <h3><a href='#preparing-code-for-submitting' id='preparing-code-for-submitting'>Preparing code for submitting</a></h3>
 <p>First you need to check the code style (<a href="https://laravel.com/docs/10.x/pint">Laravel Pint</a> is used for this)</p>
 <p>Run check and fix:</p>
-<pre><code class="language-bash">./vendor/bin/pint
+<pre><code data-lang="shell" class="notranslate">./vendor/bin/pint
 </code></pre>
 <p>Run on specific files or directories:</p>
-<pre><code class="language-bash">./vendor/bin/pint src/Platform
+<pre><code data-lang="shell" class="notranslate">./vendor/bin/pint src/Platform
  
 ./vendor/bin/pint src/Platform/Dashboard.php
 </code></pre>
 <p>Next you need to check the execution of unit tests:</p>
-<pre><code class="language-bash">./vendor/bin/phpunit
+<pre><code data-lang="shell" class="notranslate">./vendor/bin/phpunit
 </code></pre>
 <h3><a href='#submitting-a-change-request' id='submitting-a-change-request'>Submitting a Change Request</a></h3>
 <p>Create a new branch that indicates the added functionality or fixes the issue. Use the following command:</p>
-<pre><code class="language-bash">git checkout -b feature/issue_001
+<pre><code data-lang="shell" class="notranslate">git checkout <span class="hl-constant">-b</span> feature/issue_001
 </code></pre>
 <p>This branch name will signify that you&rsquo;re addressing a specific functionality related to message number 001.</p>
 <p>Make your changes and commit them:</p>
-<pre><code class="language-bash">git commit -am 'ref #001 [Docs] Fix typo'
+<pre><code data-lang="shell" class="notranslate">git commit <span class="hl-constant">-am</span> <span class="hl-value">'ref #001 [Docs] Fix typo'</span>
 </code></pre>
 <p>To submit your branch for review, execute the following command:</p>
-<pre><code class="language-bash">git push origin feature/issue_001
+<pre><code data-lang="shell" class="notranslate">git push origin feature/issue_001
 </code></pre>
 <h2><a href='#help-translate-orchid-into-different-languages' id='help-translate-orchid-into-different-languages'>Help Translate Orchid into Different Languages!</a></h2>
 <p>We appreciate your contributions in translating Orchid into multiple languages. Visit the <a href="https://github.com/orchidsoftware/platform/discussions/1545">Make Orchid (more) International</a> conversation on the Discussion tab for more details. Translation files can be found in the <a href="https://github.com/orchidsoftware/platform/tree/master/resources/lang">resources/lang</a> directory.</p>
 <p>To begin translating, follow the steps outlined in the &ldquo;Development Installation&rdquo; section to create a development installation. Create a new branch for your translation:</p>
-<pre><code class="language-bash">git checkout -b feature/translation_nl
+<pre><code data-lang="shell" class="notranslate">git checkout <span class="hl-constant">-b</span> feature/translation_nl
 </code></pre>
 <p>Copy one of the existing JSON files from the <a href="https://github.com/orchidsoftware/platform/tree/master/resources/lang">resources/lang</a> directory and name your file according to the codes mentioned in the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">List of ISO_639&ndash;1&nbsp;codes</a> page.</p>
 <p>Once you&rsquo;ve completed the translation, submit it as a change request following the instructions mentioned earlier.</p>
@@ -356,7 +356,7 @@
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

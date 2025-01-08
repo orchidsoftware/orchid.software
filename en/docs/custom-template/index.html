@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>View Template | Orchid - Laravel Admin Panel</title>
@@ -388,81 +388,81 @@
     </div>
                         <body><h2><a href='#views' id='views'>Views</a></h2>
 <p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the <code>Layout::view</code> method and pass it a string containing the name of your template.</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::view('greeting'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'greeting'</span>),
     ];
 }
 </code></pre>
 <p>Any data returned by the <code>query</code> method will be passed to your template and can be accessed using Blade syntax. For example:</p>
-<pre><code class="language-php">// ... Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... Screen</span>
 
-public function query(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'name' =&gt; 'Alexandr Chernyaev',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::view('greeting'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'greeting'</span>),
     ];
 }
 </code></pre>
 <p>In the <code>hello.blade.php</code> template, you can display the contents of the <code>name</code> variable like this:</p>
-<pre><code class="language-php">// ... /views/greeting.blade.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... /views/greeting.blade.php</span>
 
-Hello, {{ $name }}.
+Hello, {{ $name }}<span class="hl-delimeter">.</span>
 </code></pre>
 <p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::view('dashboard'),
-        Layout::view('users'),
-        Layout::view('settings'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'dashboard'</span>),
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'users'</span>),
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'settings'</span>),
     ];
 }
 </code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
 <p>Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the <code>artisan</code> command:</p>
-<pre><code class="language-php">php artisan make:component Hello --inline
+<pre><code data-lang="php" class="notranslate">php artisan make:component Hello --inline
 </code></pre>
 <p>This will create a new class called <code>Hello</code> in the <code>App\View\Components</code> namespace. The class should look something like this:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\View\Component;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
 
-class Hello extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">Hello</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    /**
-     * @var string
-     */
-    public $name;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $name;
 
-    /**
+    <span class="hl-comment">/**
      * Create a new component instance.
      *
-     * @param string $name
-     */
-    public function __construct(string $name)
+     * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span> $name
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>)
     {
-        $this-&gt;name = $name;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>()
     {
-        return &lt;&lt;&lt;'blade'
+        <span class="hl-keyword">return</span> &lt;&lt;&lt;<span class="hl-value">'blade'</span>
 &lt;div&gt;
     Hello {{ $name }}!
 &lt;/div&gt;
@@ -471,74 +471,74 @@ blade;
 }
 </code></pre>
 <p>To use the component in your screens, you can pass its lowercase representation to the <code>Layout::component</code> method:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data.
  *
- * @return array
- */
-public function query(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'name' =&gt; 'Sheldon Cooper',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Sheldon Cooper'</span>,
     ];
 }
 
-/**
+<span class="hl-comment">/**
  * Views.
  *
- * @return Layout[]
- */
-public function layout(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::component(Hello::class),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">component</span>(<span class="hl-type">Hello</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
     ];
 }
 </code></pre>
 <p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using blade syntax. For example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
-<pre><code class="language-php">Hello {{ $name }}!
+<pre><code data-lang="php" class="notranslate">Hello {{ $name }}!
 </code></pre>
 <p>If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as arguments. For example:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\View\Component;
+<span class="hl-keyword">use</span> Illuminate\Contracts\Foundation\<span class="hl-type">Application</span>;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
 
-class Hello extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">Hello</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    /**
-     * @var string
-     */
-    public $name;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $name;
 
-    /**
-     * @var Application
-     */
-    public $application;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-type">Application</span>
+     */</span>
+    <span class="hl-keyword">public</span> $application;
 
-    /**
+    <span class="hl-comment">/**
      * Create a new component instance.
      *
-     * @param Application $application
-     * @param string      $name
-     */
-    public function __construct(Application $application, string $name)
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Application</span> $application
+     * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span>      $name
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Application</span> $application, <span class="hl-keyword">string</span> $name</span>)
     {
-        $this-&gt;application = $application;
-        $this-&gt;name = $name;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">application</span> <span class="hl-operator">=</span> $application;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>()
     {
-        return &lt;&lt;&lt;'blade'
+        <span class="hl-keyword">return</span> &lt;&lt;&lt;<span class="hl-value">'blade'</span>
 &lt;div&gt;
     Hello {{ $name }}!&lt;br&gt;
-    Version {{ $application-&gt;version() }}
+    Version {{ $application<span class="hl-delimeter">-&gt;</span><span class="hl-function">version</span>() }}
 &lt;/div&gt;
 blade;
     }
@@ -548,64 +548,64 @@ blade;
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
 <p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
 <p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::wrapper('settings', [
-            'foo' =&gt; [
-                RowLayout::class,
-                RowLayout::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">wrapper</span>(<span class="hl-value">'settings'</span>, [
+            <span class="hl-value">'foo'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+                <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             ],
-            'bar' =&gt; RowLayout::class,
+            <span class="hl-value">'bar'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
 </code></pre>
 <p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
-<pre><code class="language-html">&lt;div class="row"&gt;
-    &lt;div class="col-7 border-right"&gt;
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"row"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-delimeter">&gt;</span>
         @foreach($foo as $row)
             {!! $row !!}
         @endforeach
-    &lt;/div&gt;
-    &lt;div class="col-5 no-gutter"&gt;
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-delimeter">&gt;</span>
         {!! $bar !!}
-    &lt;/div&gt;
-&lt;/div&gt;
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'name' =&gt; 'Alexandr Chernyaev',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
     ];
 }
 </code></pre>
 <p>You can display the contents of the name variable in your template like this:</p>
-<pre><code class="language-php">Hello, {{ $name }}.
+<pre><code data-lang="php" class="notranslate">Hello, {{ $name }}<span class="hl-delimeter">.</span>
 </code></pre>
 <h2><a href='#browsing' id='browsing'>Browsing</a></h2>
 <p>Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this, you can use the <code>Layout::browsing</code> method to display the contents of a different web page within an iframe in your application.</p>
 <p>For example:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::browsing('http://127.0.0.1:8000/telescope'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">browsing</span>(<span class="hl-value">'http://127.0.0.1:8000/telescope'</span>),
     ];
 }
 </code></pre>
 <p>You can also specify various attributes for the iframe element by chaining method calls onto the <code>Layout::browsing</code> method. For example:</p>
-<pre><code class="language-php">Layout::browsing('http://127.0.0.1:8000/telescope')
-    -&gt;allow('...')
-    -&gt;loading('...')
-    -&gt;csp('...')
-    -&gt;name('...')
-    -&gt;referrerpolicy('...')
-    -&gt;sandbox('...')
-    -&gt;src('...')
-    -&gt;srcdoc('...');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">browsing</span>(<span class="hl-value">'http://127.0.0.1:8000/telescope'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">allow</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">loading</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">csp</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">referrerpolicy</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sandbox</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">src</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">srcdoc</span>(<span class="hl-value">'...'</span>);
 </code></pre>
 <p>Refer to the <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">HTML specification</a> for a complete list of available attributes.</p>
 </body>
@@ -678,7 +678,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Charts | Orchid - Laravel Admin Panel</title>
@@ -403,69 +403,69 @@
     </div>
                         <body><p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command.
 By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code> directory:</p>
-<pre><code class="language-php">php artisan orchid:chart ChartsLayout
+<pre><code data-lang="php" class="notranslate">php artisan orchid:chart ChartsLayout
 </code></pre>
 <p>Once your chart class has been generated, you&rsquo;re ready to customize it. Example:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class ChartsLayout extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">ChartsLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line', 
      * 'pie', 'percentage'
      *
-     * @var string
-     */
-    protected $type = 'bar';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'bar'</span>;
 }
 </code></pre>
 <p>By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
-<pre><code class="language-php">public function query() : array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    $dataset = [
+    $dataset <span class="hl-operator">=</span> [
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Some Data',
-            'values' =&gt; [25, 40, 30, 35, 8, 52, 17, -4],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Some Data'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">25</span>, <span class="hl-number">40</span>, <span class="hl-number">30</span>, <span class="hl-number">35</span>, <span class="hl-number">8</span>, <span class="hl-number">52</span>, <span class="hl-number">17</span>, -<span class="hl-number">4</span>],
         ],
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Another Set',
-            'values' =&gt; [25, 50, -10, 15, 18, 32, 27, 14],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Another Set'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">25</span>, <span class="hl-number">50</span>, -<span class="hl-number">10</span>, <span class="hl-number">15</span>, <span class="hl-number">18</span>, <span class="hl-number">32</span>, <span class="hl-number">27</span>, <span class="hl-number">14</span>],
         ],
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Yet Another',
-            'values' =&gt; [15, 20, -3, -15, 58, 12, -17, 37],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Yet Another'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">15</span>, <span class="hl-number">20</span>, -<span class="hl-number">3</span>, -<span class="hl-number">15</span>, <span class="hl-number">58</span>, <span class="hl-number">12</span>, -<span class="hl-number">17</span>, <span class="hl-number">37</span>],
         ],
     ];
     
-    return [
-        'dataset' =&gt; $dataset,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'dataset'</span> <span class="hl-operator">=&gt;</span> $dataset,
     ];
 }
 </code></pre>
 <p>Now we can use the layout class by calling the static method <code>make</code> and specifying the target key for the data:</p>
-<pre><code class="language-php">use App\Orchid\Layouts\ChartsLayout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Layouts\<span class="hl-type">ChartsLayout</span>;
 
-public function layout(): iterable
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        ChartsLayout::make('dataset', 'Header for our dataset'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ChartsLayout</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'dataset'</span>, <span class="hl-value">'Header for our dataset'</span>),
     ];
 }
 </code></pre>
 <p>Often datasets need a little explanation, we can add a description for that:</p>
-<pre><code class="language-php">use App\Orchid\Layouts\ChartsLayout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Layouts\<span class="hl-type">ChartsLayout</span>;
 
-public function layout(): iterable
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        ChartsLayout::make('dataset', 'Header for our dataset'),
-            -&gt;description('Description of the chart')
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ChartsLayout</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'dataset'</span>, <span class="hl-value">'Header for our dataset'</span>),
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">description</span>(<span class="hl-value">'Description of the chart'</span>)
     ];
 }
 </code></pre>
@@ -473,62 +473,62 @@ public function layout(): iterable
 <p>The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.</p>
 <h3><a href='#adjusting-height' id='adjusting-height'>Adjusting Height</a></h3>
 <p>Set the height of the chart in pixels by specifying the property:</p>
-<pre><code class="language-php">/**
- * @var int
- */
-protected $height = 250;
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">int</span>
+ */</span>
+<span class="hl-keyword">protected</span> $height <span class="hl-operator">=</span> <span class="hl-number">250</span>;
 </code></pre>
 <h3><a href='#customizing-colors' id='customizing-colors'>Customizing Colors</a></h3>
 <p>Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Colors used.
  *
- * @var array
- */
-protected $colors = [
-    '#2274A5',
-    '#F75C03',
-    '#F1C40F',
-    '#D90368',
-    '#00CC66',
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $colors <span class="hl-operator">=</span> [
+    <span class="hl-value">'#2274A5'</span>,
+    <span class="hl-value">'#F75C03'</span>,
+    <span class="hl-value">'#F1C40F'</span>,
+    <span class="hl-value">'#D90368'</span>,
+    <span class="hl-value">'#00CC66'</span>,
 ];
 </code></pre>
 <h3><a href='#exporting-images' id='exporting-images'>Exporting Images</a></h3>
 <p>Charts can be exported in the <code>SVG</code> format, in which they are displayed initially. To do this, specify the property:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Determines whether to display the export button.
  *
- * @var bool
- */
-protected $export = true;
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">protected</span> $export <span class="hl-operator">=</span> <span class="hl-constant">true</span>;
 </code></pre>
 <h3><a href='#adding-markers' id='adding-markers'>Adding Markers</a></h3>
 <p>Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the <code>markers</code> method:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * To highlight certain values on the Y axis, markers can be set.
  * They will show as dashed lines on the graph.
- */
-protected function markers(): ?array
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">markers</span>(): ?<span class="hl-keyword">array</span>
 {
-    return [
+    <span class="hl-keyword">return</span> [
         [
-            'label'   =&gt; 'Medium',
-            'value'   =&gt; 40,
+            <span class="hl-value">'label'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-value">'Medium'</span>,
+            <span class="hl-value">'value'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-number">40</span>,
         ],
     ];
 }
 </code></pre>
 <h2><a href='#eloquent-model' id='eloquent-model'>Eloquent Model</a></h2>
 <p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Orchid\Metrics\Chartable;
-use Orchid\Platform\Models\User as Authenticatable;
+<span class="hl-keyword">use</span> Orchid\Metrics\<span class="hl-type">Chartable</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\Models\<span class="hl-type">User <span class="hl-keyword">as</span> Authenticatable</span>;
 
-class User extends Authenticatable
+<span class="hl-keyword">class</span> <span class="hl-type">User</span> <span class="hl-keyword">extends</span> <span class="hl-template">Authenticatable</span>
 {
-    use Chartable;
-    // ...
+    <span class="hl-keyword">use</span> <span class="hl-type">Chartable</span>;
+    <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>This will add several new methods specifically for charting:</p>
@@ -538,105 +538,105 @@ class User extends Authenticatable
 </ul>
 <h2><a href='#grouped-data' id='grouped-data'>Grouped Data</a></h2>
 <p>For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class BasicPieChart extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">BasicPieChart</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line',
      * 'pie', 'percentage'.
      *
-     * @var string
-     */
-    protected $type = 'pie';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'pie'</span>;
 }
 </code></pre>
 <p>Then the model query will serve as a data source <code>countForGroup()</code></p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    $userUsageTwoFactorAuth = User::countForGroup('uses_two_factor_auth')-&gt;toChart();
+    $userUsageTwoFactorAuth <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countForGroup</span>(<span class="hl-value">'uses_two_factor_auth'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>();
 
-    return [
-        'userUsageTwoFactorAuth' =&gt; $userUsageTwoFactorAuth,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'userUsageTwoFactorAuth'</span> <span class="hl-operator">=&gt;</span> $userUsageTwoFactorAuth,
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        BasicPieChart::make('userUsageTwoFactorAuth', 'Usage two-factor authentication'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">BasicPieChart</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'userUsageTwoFactorAuth'</span>, <span class="hl-value">'Usage two-factor authentication'</span>),
     ];
 }
 </code></pre>
 <p>In order to change the text of headers, you can pass the closure function as the first argument:</p>
-<pre><code class="language-php">User::countForGroup('uses_two_factor_auth')
-    -&gt;toChart(fn(bool $value) =&gt; $value ? 'Enabled' : 'Disabled'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countForGroup</span>(<span class="hl-value">'uses_two_factor_auth'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-keyword">bool</span> $value</span>) <span class="hl-operator">=&gt;</span> $value <span class="hl-operator">?</span> <span class="hl-value">'Enabled'</span> : <span class="hl-value">'Disabled'</span>),
 </code></pre>
 <h2><a href='#working-with-time-periods' id='working-with-time-periods'>Working with Time Periods</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
 <p>For example, let&rsquo;s display a graph of new users and roles:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class BasicLineChart extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">BasicLineChart</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {   
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line',
      * 'pie', 'percentage'.
      *
-     * @var string
-     */
-    protected $type = 'line';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'line'</span>;
 }
 </code></pre>
 <p>Then the data source will be:</p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'members' =&gt; [
-            User::countByDays()-&gt;toChart('Users'),
-            Role::countByDays()-&gt;toChart('Roles'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'members'</span> <span class="hl-operator">=&gt;</span> [
+            <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>),
+            <span class="hl-type">Role</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Roles'</span>),
         ]
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        BasicLineChart::make('members', 'New members'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">BasicLineChart</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'members'</span>, <span class="hl-value">'New members'</span>),
     ];
 }
 </code></pre>
 <p>By default, the data will be taken for one month; to set your own period, you need to pass the arguments:</p>
-<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
-$end = Carbon::now()-&gt;subDay(1);
+<pre><code data-lang="php" class="notranslate">$start <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">7</span>);
+$end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">1</span>);
 
-User::countByDays($start, $end)-&gt;toChart('Users')
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>)
 </code></pre>
 <p>By default, data is grouped by the <code>created_at</code> column, to change it:</p>
-<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
-$end = Carbon::now()-&gt;subDay(1);
+<pre><code data-lang="php" class="notranslate">$start <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">7</span>);
+$end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">1</span>);
 
-User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end, <span class="hl-value">'updated_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>)
 </code></pre>
 <h3><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h3>
 <p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions when building your metric.</p>
 <p>The <code>average</code> method may be used to calculate the average of a given column</p>
-<pre><code class="language-php">Order::averageByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">averageByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <p>The <code>sum</code> method may be used to calculate the sum of a given column:</p>
-<pre><code class="language-php">Order::sumByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">sumByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <p>The <code>min</code> method may be used to calculate the min of a given column:</p>
-<pre><code class="language-php">Order::minByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">minByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <p>The <code>max</code> method may be used to calculate the max of a given column:</p>
-<pre><code class="language-php">Order::maxByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">maxByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 </body>
                         
@@ -708,7 +708,7 @@ User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users')
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

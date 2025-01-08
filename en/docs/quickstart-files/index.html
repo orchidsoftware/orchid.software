@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Manage File Attachments | Orchid - Laravel Admin Panel</title>
@@ -376,77 +376,77 @@
 in which we will analyze the work with <a href="/en/docs/attachments">&ldquo;Attached files&rdquo;</a>.</p>
 <p>Let&rsquo;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
 in which we will store information about the main image in our blog post:</p>
-<pre><code class="language-php">use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
 
-return new class extends Migration
+<span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span> <span class="hl-type"><span class="hl-keyword">extends</span></span> <span class="hl-template">Migration</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Run the migrations.
      *
-     * @return void
-     */
-    public function up()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">up</span>()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;string('hero')-&gt;nullable();
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'posts'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">string</span></span>(<span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">nullable</span>();
         });
     }
 
-    /**
+    <span class="hl-comment">/**
      * Reverse the migrations.
      *
-     * @return void
-     */
-    public function down()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">down</span>()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;dropColumn('hero');
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'posts'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">dropColumn</span>(<span class="hl-value">'hero'</span>);
         });
     }
 }
 </code></pre>
 <p>Add to the model for automatic recording:</p>
-<pre><code class="language-php">// app/Models/Post.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Models/Post.php</span>
 
-protected $fillable = [
-    'title',
-    'description',
-    'body',
-    'author',
-    'hero'
+<span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+    <span class="hl-value">'title'</span>,
+    <span class="hl-value">'description'</span>,
+    <span class="hl-value">'body'</span>,
+    <span class="hl-value">'author'</span>,
+    <span class="hl-value">'hero'</span>
 ];
-//..
+<span class="hl-comment">//..</span>
 </code></pre>
 <p>To write data to a new column, you need to add a suitable field to our create/edit screen, take <code>Cropper</code> to crop the image:</p>
-<pre><code class="language-php">// app/Orchid/Screens/PostEditScreen.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Orchid/Screens/PostEditScreen.php</span>
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Attractive but mysterious title'</span>),
 
-            Cropper::make('post.hero')
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
+            <span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Large web banner image, generally in the front and center'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">1000</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">500</span>),
 
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
+            <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">3</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxlength</span>(<span class="hl-number">200</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Brief description for preview'</span>),
 
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
+            <span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>),
 
-            Quill::make('post.body')
-                -&gt;title('Main text'),
+            <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.body'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Main text'</span>),
 
         ])
     ];
@@ -456,100 +456,100 @@ public function layout(): array
 <p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the <code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
 </blockquote>
 <p>For such a field, the width and height were additionally indicated, in order to be sure the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
-<pre><code class="language-php">http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png
+<pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</span>
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file, that for local development through the built-in web server, a port indication is required.</p>
 </blockquote>
 <p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain?
 To do this, it is better to use a relative notation:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetRelativeUrl(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetRelativeUrl</span>(),
 </code></pre>
 <p>Another option for writing is to use <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a>, for this
 the <code>Cropper</code> field will record the number of the downloaded file:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetId(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>(),
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> In order for your database to be homogeneous, use one of the proposed options.</p>
 </blockquote>
 <p>Let us dwell on the records of the number, but first, delete all existing records.</p>
 <p>Most often, some files are combined, for example, for display in whole groups, the <code>Upload</code> field is suitable for this.</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Attractive but mysterious title'</span>),
 
-            Cropper::make('post.hero')
-                -&gt;targetId()
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
+            <span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Large web banner image, generally in the front and center'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">1000</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">500</span>),
 
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
+            <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">3</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxlength</span>(<span class="hl-number">200</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Brief description for preview'</span>),
 
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
+            <span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>),
 
-            Quill::make('post.body')
-                -&gt;title('Main text'),
+            <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.body'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Main text'</span>),
 
-            Upload::make('post.attachments')
-                -&gt;title('All files')
+            <span class="hl-type">Upload</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.attachments'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'All files'</span>)
 
         ])
     ];
 }
 </code></pre>
 <p>The field will differ from the previous ones because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the <code>Attachable</code> trait:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Screen\AsSource;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource, Attachable;
-    //...
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource, Attachable</span>;
+    <span class="hl-comment">//...</span>
 }
 </code></pre>
 <p>But also describe the synchronization of dependent records by relations in our screen:</p>
-<pre><code class="language-php">public function createOrUpdate(Request $request)
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">createOrUpdate</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    $this-&gt;post-&gt;fill($request-&gt;get('post'))-&gt;save();
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">fill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'post'</span>))<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 
-    $this-&gt;post-&gt;attachments()-&gt;syncWithoutDetaching(
-        $request-&gt;input('post.attachments', [])
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">syncWithoutDetaching</span>(
+        $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'post.attachments'</span>, [])
     );
 
-    Alert::info('You have successfully created a post.');
+    <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'You have successfully created a post.'</span>);
 
-    return redirect()-&gt;route('platform.post.list');
+    <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.list'</span>);
 }
 </code></pre>
 <p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
-<pre><code class="language-php">id  attachmentable_type  attachmentable_id  attachment_id
-1	App\Post	         3	                101
-2	App\Post	         3	                102
-3	App\Post	         3	                103
-4	App\Post	         3	                104
+<pre><code data-lang="php" class="notranslate">id  attachmentable_type  attachmentable_id  attachment_id
+<span class="hl-number">1</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">101</span>
+<span class="hl-number">2</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">102</span>
+<span class="hl-number">3</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">103</span>
+<span class="hl-number">4</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">104</span>
 </code></pre>
 <p>But when the record is accessed again, the field will be empty. This is due to the fact that <code>query</code> does not know about additional records to our model. We will fix this by adding a download:</p>
-<pre><code class="language-php">public function query(Post $post): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>): <span class="hl-keyword">array</span>
 {
-    $post-&gt;load('attachments');
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>(<span class="hl-value">'attachments'</span>);
 
-    return [
-        'post' =&gt; $post
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'post'</span> <span class="hl-operator">=&gt;</span> $post
     ];
 }
 </code></pre>
@@ -625,7 +625,7 @@ For more details, see the section <a href="/en/docs/field">&ldquo;Form Elements&
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

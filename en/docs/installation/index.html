@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Installation | Orchid - Laravel Admin Panel</title>
@@ -404,10 +404,10 @@
 <p><strong>Note.</strong> If you already have Laravel installation, you can skip this step.</p>
 </blockquote>
 <p>Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the <code>composer create-project</code> command in your terminal:</p>
-<pre><code class="language-php">composer create-project laravel/laravel orchid-project "11.*"
+<pre><code data-lang="shell" class="notranslate">composer create-project laravel/laravel orchid-project <span class="hl-value">"11.*"</span>
 </code></pre>
 <p>Or if you would prefer Laravel Installer:</p>
-<pre><code class="language-php">composer global require laravel/installer
+<pre><code data-lang="shell" class="notranslate">composer global require laravel/installer
 
 laravel new orchid-project
 </code></pre>
@@ -427,7 +427,7 @@ In other words, install your new framework project.</p>
 </blockquote>
 <h2><a href='#add-dependency' id='add-dependency'>Add Dependency</a></h2>
 <p>Go to the created project directory and run the command:</p>
-<pre><code class="language-php">composer require orchid/platform
+<pre><code data-lang="shell" class="notranslate">composer require orchid/platform
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application&rsquo;s URL to the variable <code>APP_URL</code>.</p>
@@ -437,15 +437,15 @@ In other words, install your new framework project.</p>
 <p><strong>Note:</strong> During the installation process, the package will overwrite the <code>app/Models/User</code> model. However, it is important to note that replacing the model is not mandatory. You have the flexibility to customize the model according to your preferences. The package automatically applies certain configurations, such as <code>hidden</code> and <code>casts</code>, to the Eloquent model.</p>
 </blockquote>
 <p>Run the installation process by running the command:</p>
-<pre><code class="language-php">php artisan orchid:install
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:install
 </code></pre>
 <h2><a href='#create-an-admin-user' id='create-an-admin-user'>Create an Admin User</a></h2>
 <p>To create a user with maximum permissions, you can run the following command with a username, email, and password:</p>
-<pre><code class="language-php">php artisan orchid:admin admin admin@admin.com password
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:admin admin admin@admin.com password
 </code></pre>
 <h2><a href='#start-the-development-server' id='start-the-development-server'>Start the Development Server</a></h2>
 <p>If you haven&rsquo;t installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:</p>
-<pre><code class="language-php">php artisan serve
+<pre><code data-lang="shell" class="notranslate">php artisan serve
 </code></pre>
 <p>Open a browser and go to <code>http://localhost:8000/admin</code>. If everything works, you will see the control panel login page. Later you can stop the server by pressing <code>Ctrl + C</code> in the terminal.</p>
 <blockquote>
@@ -453,27 +453,29 @@ In other words, install your new framework project.</p>
 </blockquote>
 <h2><a href='#updating' id='updating'>Updating</a></h2>
 <p>While in the project directory, use <code>Composer</code> to update the package:</p>
-<pre><code class="language-php">composer update orchid/platform --with-dependencies
+<pre><code data-lang="shell" class="notranslate">composer update orchid/platform <span class="hl-constant">--with-dependencies</span>
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> You can also update all your dependencies listed in the <code>composer.json</code> file by running <code>composer update</code>.</p>
 </blockquote>
 <p>After updating to a new release, you should be sure to update JavaScript and CSS assets using <code>orchid:publish</code> and clear any cached views with <code>view:clear</code>. It will ensure the newly-updated version is using the latest versions.</p>
-<pre><code class="language-bash">php artisan orchid:publish
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:publish
 php artisan view:clear
 </code></pre>
 <h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping Assets Updated</a></h2>
 <p>To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer hook to your project&rsquo;s <code>composer.json</code> file.
 This will automatically publish the latest assets for you:</p>
-<pre><code class="language-json">"scripts": {
-    "post-update-cmd": [
-      "@php artisan orchid:publish --ansi"
-  ]
+<pre><code data-lang="json" class="notranslate">{
+    "<span class="hl-value">scripts</span>": {
+        "<span class="hl-value">post-update-cmd</span>": [
+            "<span class="hl-value2">@php artisan orchid:publish --ansi</span>"
+        ]
+    }
 }
 </code></pre>
 <p>Once you have added this hook, you can rest assured that your assets will always be up-to-date and functioning properly.
 And if you ever want to verify that the assets are indeed current, you can simply use the <code>artisan</code> console command to check:</p>
-<pre><code class="language-php">php artisan about
+<pre><code data-lang="shell" class="notranslate">php artisan about
 </code></pre>
 <p>This command will provide you with an importance of information, including some of the details about the package itself.
 It&rsquo;s  ensuring that your environment is correctly configured and running as expected.</p>
@@ -552,7 +554,7 @@ It&rsquo;s  ensuring that your environment is correctly configured and running a
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

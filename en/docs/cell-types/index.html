@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Cell Types | Orchid - Laravel Admin Panel</title>
@@ -398,14 +398,14 @@
 <h2><a href='#datetimesplit' id='datetimesplit'>DateTimeSplit</a></h2>
 <p>The <code>DateTimeSplit</code> component is specifically designed to display dates in a two-line format. The top line shows the formatted date, while the bottom line provides additional details such as the day of the week and the time.</p>
 <p>To use the <code>DateTimeSplit</code> component, you can specify the attribute that contains the date information and include it in your table cell definition:</p>
-<pre><code class="language-php">TD::make('created_at')
-    -&gt;usingComponent(DateTimeSplit::class),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 </code></pre>
 <p>By default, Orchid provides sensible formatting options for the upper and lower parts of the cell. However, you can also customize these options to match your specific requirements. For example, you can change the format of the date or adjust the timezone:</p>
-<pre><code class="language-php">use Orchid\Screen\Components\Cells\DateTimeSplit;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">DateTimeSplit</span>;
 
-TD::make('created_at')
-    -&gt;usingComponent(DateTimeSplit::class, upperFormat: 'Y-m-d', lowerFormat: 'H:i:s.uP', timeZone: 'Europe/Madrid'),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property">upperFormat</span>: <span class="hl-value">'Y-m-d'</span>, <span class="hl-property">lowerFormat</span>: <span class="hl-value">'H:i:s.uP'</span>, <span class="hl-property">timeZone</span>: <span class="hl-value">'Europe/Madrid'</span>),
 </code></pre>
 <p>In the above example, we set the <code>upperFormat</code> option to <code>'Y-m-d'</code> to display the date in the format 'YYYY-MM-DD&rsquo;. The <code>lowerFormat</code> option is set to <code>'H:i:s.uP'</code>, which shows the time in the format 'HH:MM:SS.microseconds+timezone&rsquo;. Feel free to adjust these formats and the <code>timeZone</code> option to suit your project&rsquo;s needs.</p>
 <blockquote>
@@ -414,55 +414,55 @@ TD::make('created_at')
 <h2><a href='#number' id='number'>Number</a></h2>
 <p>The <code>Number</code> component simplifies the formatting and display of numerical data. It allows you to present numbers in a desired format, such as with thousands separators for improved readability.</p>
 <p>To use the <code>Number</code> component, specify the attribute containing the numerical value within your table cell definition:</p>
-<pre><code class="language-php">use Orchid\Screen\Components\Cells\Number;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">Number</span>;
 
-TD::make('value')
-    -&gt;usingComponent(Number::class),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Number</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 </code></pre>
 <p>When the component encounters a large number, it automatically adds thousands separators to enhance readability. For example, the value <code>100400500.75</code> will be rendered as <code>100 400 500,8</code>.</p>
 <p>In addition to the default behavior, you can customize the <code>Number</code> component by specifying options such as the number of decimal places, decimal separators, and thousands separators:</p>
-<pre><code class="language-php">TD::make('value')
-    -&gt;usingComponent(Number::class, decimals: 1, decimal_separator: ',', thousands_separator: ' '),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Number</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property">decimals</span>: <span class="hl-number">1</span>, <span class="hl-property">decimal_separator</span>: <span class="hl-value">','</span>, <span class="hl-property">thousands_separator</span>: <span class="hl-value">' '</span>),
 </code></pre>
 <h2><a href='#boolean' id='boolean'>Boolean</a></h2>
 <p>The <code>Boolean</code> component is designed to represent boolean values in a concise and visually clear manner. It allows you to display boolean data with appropriate labels.</p>
 <p>Here&rsquo;s an example of using the <code>Boolean</code> component:</p>
-<pre><code class="language-php">use Orchid\Screen\Components\Cells\Boolean;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">Boolean</span>;
 
-TD::make('value')
-    -&gt;usingComponent(Boolean::class),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Boolean</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 </code></pre>
 <p>By default, the <code>Boolean</code> component will display boolean values as &ldquo;true&rdquo; or &ldquo;false&rdquo;. However, you can easily customize the labels to match the semantics of your data:</p>
-<pre><code class="language-php">TD::make('value')
-    -&gt;usingComponent(Boolean::class, true: 'Enabled', false: 'Disabled'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Boolean</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property"><span class="hl-constant">true</span></span>: <span class="hl-value">'Enabled'</span>, <span class="hl-property"><span class="hl-constant">false</span></span>: <span class="hl-value">'Disabled'</span>),
 </code></pre>
 <h2><a href='#percentage' id='percentage'>Percentage</a></h2>
 <p>The <code>Percentage</code> component simplifies the presentation of values as percentages. It automatically formats the values and adds the percentage symbol for clear visual representation.</p>
 <p>To use the <code>Percentage</code> component, specify the attribute that contains the numerical value within your table cell definition:</p>
-<pre><code class="language-php">use Orchid\Screen\Components\Cells\Percentage;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">Percentage</span>;
 
-TD::make('value')
-    -&gt;usingComponent(Percentage::class),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Percentage</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 </code></pre>
 <p>The <code>Percentage</code> component provides a clear and concise representation of the numeric value as a percentage. You can also customize the component by specifying the number of decimal places to display:</p>
-<pre><code class="language-php">TD::make('value')
-    -&gt;usingComponent(Percentage::class, decimals: 2),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Percentage</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property">decimals</span>: <span class="hl-number">2</span>),
 </code></pre>
 <h2><a href='#currency' id='currency'>Currency</a></h2>
 <p>The <code>Currency</code> component simplifies the formatting and display of currency values. It ensures consistent formatting and provides options for customization.</p>
 <p>To use the <code>Currency</code> component, specify the field and use the <code>usingComponent</code> method:</p>
-<pre><code class="language-php">use Orchid\Screen\Components\Cells\Currency;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">Currency</span>;
 
-TD::make('value')
-    -&gt;usingComponent(Currency::class),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Currency</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 </code></pre>
 <p>The <code>Currency</code> component automatically formats the currency value using the appropriate currency symbol and decimal separators. However, you can also customize the formatting by specifying additional options. For example:</p>
-<pre><code class="language-php">TD::make('value')
-    -&gt;usingComponent(Currency::class, decimals: 1, decimal_separator: ',', thousands_separator: ' '),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Currency</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property">decimals</span>: <span class="hl-number">1</span>, <span class="hl-property">decimal_separator</span>: <span class="hl-value">','</span>, <span class="hl-property">thousands_separator</span>: <span class="hl-value">' '</span>),
 </code></pre>
 <p>If you need to use custom currency symbols, you can specify them using the <code>before</code> and <code>after</code> options. For example:</p>
-<pre><code class="language-php">TD::make('value')
-    -&gt;usingComponent(Currency::class, before: '$', after: '₽'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'value'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">Currency</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-property">before</span>: <span class="hl-value">'$'</span>, <span class="hl-property">after</span>: <span class="hl-value">'₽'</span>),
 </code></pre>
 <p>In this case, the currency value is displayed with a dollar sign before the value and a ruble symbol after the value. Adjust these options to match the currency symbols used in your project.</p>
 </body>
@@ -535,7 +535,7 @@ TD::make('value')
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

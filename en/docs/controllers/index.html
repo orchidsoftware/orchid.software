@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Controllers | Orchid - Laravel Admin Panel</title>
@@ -375,46 +375,46 @@
                         <body><p>There is usually no need to create custom controllers to do anything outside the package&rsquo;s scope since you can place <a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
 <p>But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.</p>
 <p>To create a new controller, use the <code>make:controller</code> Artisan command:</p>
-<pre><code class="language-php">php artisan make:controller OrchidController
+<pre><code data-lang="php" class="notranslate">php artisan make:controller OrchidController
 </code></pre>
 <p>This will generate a new class in the <code>app/Http/Controllers</code> directory. You can then modify the class as needed:</p>
-<pre><code class="language-php">namespace App\Http\Controllers;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Controllers;
 
-class OrchidController extends Controller
+<span class="hl-keyword">class</span> <span class="hl-type">OrchidController</span> <span class="hl-keyword">extends</span> <span class="hl-template">Controller</span>
 {
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">index</span>()
     {
-        return view('custom');
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'custom'</span>);
     }
 }
 
 </code></pre>
 <p>The <code>index</code> method of your controller should return a view template, which will be rendered using the Orchid package&rsquo;s style. Here is an example of a view template:</p>
-<pre><code class="language-php">@extends('platform::dashboard')
+<pre><code data-lang="php" class="notranslate">@<span class="hl-keyword"><span class="hl-function">extends</span></span>(<span class="hl-value">'platform::dashboard'</span>)
 
-@section('title','title')
-@section('description', 'description')
+@<span class="hl-function">section</span>(<span class="hl-value">'title'</span>,<span class="hl-value">'title'</span>)
+@<span class="hl-function">section</span>(<span class="hl-value">'description'</span>, <span class="hl-value">'description'</span>)
 
-@section('navbar')
-    &lt;div class="text-center"&gt;
+@<span class="hl-function">section</span>(<span class="hl-value">'navbar'</span>)
+    &lt;div class=<span class="hl-value">"text-center"</span>&gt;
         Navbar
     &lt;/div&gt;
 @stop
 
-@section('content')
-    &lt;div class="text-center mt-5 mb-5"&gt;
+@<span class="hl-function">section</span>(<span class="hl-value">'content'</span>)
+    &lt;div class=<span class="hl-value">"text-center mt-5 mb-5"</span>&gt;
         &lt;h1&gt;Content&lt;/h1&gt;
     &lt;/div&gt;
 @stop
 </code></pre>
 <p>To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file (e.g. <code>routes/platform</code>). This will ensure that common rules such as authorization apply to the controller.</p>
 <p>Here is an example of how to declare a route for the <code>OrchidController</code>:</p>
-<pre><code class="language-php">use App\Http\Controllers\OrchidController;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Http\Controllers\<span class="hl-type">OrchidController</span>;
 
-Route::get('custom', [OrchidController::class, 'index']);
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'custom'</span>, [<span class="hl-type">OrchidController</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'index'</span>]);
 </code></pre>
 <p>You can now access your custom controller by visiting the custom route in your Orchid app.</p>
 </body>
@@ -487,7 +487,7 @@ Route::get('custom', [OrchidController::class, 'index']);
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

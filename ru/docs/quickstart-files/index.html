@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Управление вложенными файлами | Orchid - Laravel Admin Panel</title>
@@ -385,78 +385,78 @@
 &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1084;&#1099; &#1073;&#1091;&#1076;&#1077;&#1084; &#1088;&#1072;&#1079;&#1073;&#1080;&#1088;&#1072;&#1090;&#1100; &#1088;&#1072;&#1073;&#1086;&#1090;&#1091; &#1089; <a href="/ru/docs/attachments">&ldquo;&#1042;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084;&#1080; &#1092;&#1072;&#1081;&#1083;&#1072;&#1084;&#1080;&rdquo;</a>.</p>
 <p>&#1042;&#1077;&#1088;&#1085;&#1077;&#1084;&#1089;&#1103; &#1082; &#1088;&#1072;&#1085;&#1077;&#1077; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1085;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>Post</code> &#1080; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1084; &#1085;&#1086;&#1074;&#1091;&#1102; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1091; <code>hero</code>,
 &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1081; &#1073;&#1091;&#1076;&#1077;&#1084; &#1093;&#1088;&#1072;&#1085;&#1080;&#1090;&#1100; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102; &#1086; &#1075;&#1083;&#1072;&#1074;&#1085;&#1086;&#1084; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1080; &#1074; &#1085;&#1072;&#1096;&#1077;&#1081; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1073;&#1083;&#1086;&#1075;&#1072;:</p>
-<pre><code class="language-php">use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
 
-return new class extends Migration
+<span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span> <span class="hl-type"><span class="hl-keyword">extends</span></span> <span class="hl-template">Migration</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Run the migrations.
      *
-     * @return void
-     */
-    public function up()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">up</span>()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;string('hero')-&gt;nullable();
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'posts'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">string</span></span>(<span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">nullable</span>();
         });
     }
 
-    /**
+    <span class="hl-comment">/**
      * Reverse the migrations.
      *
-     * @return void
-     */
-    public function down()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">down</span>()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table-&gt;dropColumn('hero');
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'posts'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">dropColumn</span>(<span class="hl-value">'hero'</span>);
         });
     }
 }
 </code></pre>
 <p>&#1044;&#1086;&#1073;&#1072;&#1074;&#1080;&#1084; &#1074; &#1084;&#1086;&#1076;&#1077;&#1083;&#1100; &#1076;&#1083;&#1103; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1081; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">// app/Models/Post.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Models/Post.php</span>
 
-protected $fillable = [
-    'title',
-    'description',
-    'body',
-    'author',
-    'hero'
+<span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+    <span class="hl-value">'title'</span>,
+    <span class="hl-value">'description'</span>,
+    <span class="hl-value">'body'</span>,
+    <span class="hl-value">'author'</span>,
+    <span class="hl-value">'hero'</span>
 ];
-//..
+<span class="hl-comment">//..</span>
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1074; &#1085;&#1086;&#1074;&#1091;&#1102; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1091;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1103;&#1097;&#1077;&#1077; &#1087;&#1086;&#1083;&#1077; &#1074; &#1085;&#1072;&#1096; &#1101;&#1082;&#1088;&#1072;&#1085; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103;/&#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103;.
 &#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1084; <code>Cropper</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1073;&#1088;&#1077;&#1079;&#1072;&#1090;&#1100; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;:</p>
-<pre><code class="language-php">// app/Orchid/Screens/PostEditScreen.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Orchid/Screens/PostEditScreen.php</span>
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Attractive but mysterious title'</span>),
 
-            Cropper::make('post.hero')
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
+            <span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Large web banner image, generally in the front and center'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">1000</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">500</span>),
 
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
+            <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">3</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxlength</span>(<span class="hl-number">200</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Brief description for preview'</span>),
 
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
+            <span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>),
 
-            Quill::make('post.body')
-                -&gt;title('Main text'),
+            <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.body'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Main text'</span>),
 
         ])
     ];
@@ -467,55 +467,55 @@ public function layout(): array
 </blockquote>
 <p>&#1044;&#1083;&#1103; &#1090;&#1072;&#1082;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1103; &#1073;&#1099;&#1083;&#1080; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1099; &#1096;&#1080;&#1088;&#1080;&#1085;&#1072; &#1080; &#1074;&#1099;&#1089;&#1086;&#1090;&#1072;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1073;&#1099;&#1090;&#1100; &#1091;&#1074;&#1077;&#1088;&#1077;&#1085;&#1085;&#1099;&#1084;, &#1095;&#1090;&#1086; &#1087;&#1088;&#1086;&#1087;&#1086;&#1088;&#1094;&#1080;&#1080; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1102;&#1090;&#1089;&#1103; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102;.
 &#1055;&#1086;&#1089;&#1083;&#1077; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1103; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1089; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;&#1084;, &#1074; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1091; &#1073;&#1072;&#1079;&#1099; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1073;&#1091;&#1076;&#1077;&#1090; &#1079;&#1072;&#1087;&#1080;&#1089;&#1072;&#1085; &#1087;&#1086;&#1083;&#1085;&#1099;&#1081; <code>url</code> &#1072;&#1076;&#1088;&#1077;&#1089; &#1076;&#1086; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">http://localhost:8000/storage/2019/08/02/0f92ef...e98310.png
+<pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//localhost:8000/storage/2019/08/02/0f92ef...e98310.png</span>
 </code></pre>
 <blockquote>
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1057;&#1089;&#1099;&#1083;&#1082;&#1072; &#1085;&#1072; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1092;&#1086;&#1088;&#1084;&#1080;&#1088;&#1091;&#1077;&#1090;&#1089;&#1103; &#1080;&#1079; <code>url</code> &#1072;&#1076;&#1088;&#1077;&#1089;&#1072; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1074; &#1074;&#1072;&#1096;&#1077;&#1084; &#1092;&#1072;&#1081;&#1083;&#1077; &#1082;&#1086;&#1085;&#1092;&#1080;&#1075;&#1091;&#1088;&#1072;&#1094;&#1080;&#1080;, &#1087;&#1088;&#1080; &#1083;&#1086;&#1082;&#1072;&#1083;&#1100;&#1085;&#1086;&#1081; &#1088;&#1072;&#1079;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1077; &#1095;&#1077;&#1088;&#1077;&#1079; &#1074;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1085;&#1099;&#1081; &#1074;&#1077;&#1073;-&#1089;&#1077;&#1088;&#1074;&#1077;&#1088; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1077; &#1087;&#1086;&#1088;&#1090;&#1072;.</p>
 </blockquote>
 <p>&#1069;&#1090;&#1086; &#1089;&#1072;&#1084;&#1072;&#1103; &#1087;&#1088;&#1086;&#1089;&#1090;&#1072;&#1103; &#1079;&#1072;&#1087;&#1080;&#1089;&#1100;, &#1085;&#1086; &#1095;&#1090;&#1086;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1099; &#1088;&#1077;&#1096;&#1080;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; <code>https</code> &#1080;&#1083;&#1080; &#1089;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1076;&#1086;&#1084;&#1077;&#1085;?
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1083;&#1091;&#1095;&#1096;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1086;&#1090;&#1085;&#1086;&#1089;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1091;&#1102; &#1079;&#1072;&#1087;&#1080;&#1089;&#1100;:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetRelativeUrl(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetRelativeUrl</span>(),
 </code></pre>
 <p>&#1045;&#1097;&#1077; &#1086;&#1076;&#1080;&#1085; &#1074;&#1072;&#1088;&#1080;&#1072;&#1085;&#1090; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &ndash; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; <a href="https://laravel.com/docs/master/eloquent-relationships">&#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103;</a>, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086;
 &#1087;&#1086;&#1083;&#1077; <code>Cropper</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1079;&#1072;&#1087;&#1080;&#1089;&#1099;&#1074;&#1072;&#1090;&#1100; &#1085;&#1086;&#1084;&#1077;&#1088; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072;:</p>
-<pre><code class="language-php">Cropper::make('post.hero')
-    -&gt;targetId(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>(),
 </code></pre>
 <blockquote>
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1074;&#1072;&#1096;&#1072; &#1073;&#1072;&#1079;&#1072; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1073;&#1099;&#1083;&#1072; &#1086;&#1076;&#1085;&#1086;&#1088;&#1086;&#1076;&#1085;&#1072;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1086;&#1076;&#1080;&#1085; &#1080;&#1079; &#1087;&#1088;&#1077;&#1076;&#1083;&#1086;&#1078;&#1077;&#1085;&#1085;&#1099;&#1093; &#1074;&#1072;&#1088;&#1080;&#1072;&#1085;&#1090;&#1086;&#1074;.</p>
 </blockquote>
 <p>&#1054;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1084;&#1089;&#1103; &#1085;&#1072; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1085;&#1086;&#1084;&#1077;&#1088;&#1072;, &#1085;&#1086; &#1076;&#1083;&#1103; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1091;&#1076;&#1072;&#1083;&#1080;&#1090;&#1077; &#1074;&#1089;&#1077; &#1091;&#1078;&#1077; &#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;.</p>
 <p>&#1063;&#1072;&#1097;&#1077; &#1074;&#1089;&#1077;&#1075;&#1086; &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1092;&#1072;&#1081;&#1083;&#1099; &#1086;&#1073;&#1098;&#1077;&#1076;&#1080;&#1085;&#1103;&#1102;&#1090;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1076;&#1083;&#1103; &#1087;&#1086;&#1082;&#1072;&#1079;&#1072; &#1094;&#1077;&#1083;&#1099;&#1084;&#1080; &#1075;&#1088;&#1091;&#1087;&#1087;&#1072;&#1084;&#1080;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1087;&#1086;&#1076;&#1086;&#1081;&#1076;&#1077;&#1090; &#1087;&#1086;&#1083;&#1077; <code>Upload</code>.</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-            Input::make('post.title')
-                -&gt;title('Title')
-                -&gt;placeholder('Attractive but mysterious title'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Attractive but mysterious title'</span>),
 
-            Cropper::make('post.hero')
-                -&gt;targetId()
-                -&gt;title('Large web banner image, generally in the front and center')
-                -&gt;width(1000)
-                -&gt;height(500),
+            <span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Large web banner image, generally in the front and center'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">1000</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">500</span>),
 
-            TextArea::make('post.description')
-                -&gt;title('Description')
-                -&gt;rows(3)
-                -&gt;maxlength(200)
-                -&gt;placeholder('Brief description for preview'),
+            <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Description'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">3</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxlength</span>(<span class="hl-number">200</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Brief description for preview'</span>),
 
-            Relation::make('post.author')
-                -&gt;title('Author')
-                -&gt;fromModel(User::class, 'name'),
+            <span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Author'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>),
 
-            Quill::make('post.body')
-                -&gt;title('Main text'),
+            <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.body'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Main text'</span>),
 
-            Upload::make('post.attachments')
-                -&gt;title('All files')
+            <span class="hl-type">Upload</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.attachments'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'All files'</span>)
 
         ])
     ];
@@ -523,45 +523,45 @@ public function layout(): array
 </code></pre>
 <p>&#1055;&#1086;&#1083;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1086;&#1090;&#1083;&#1080;&#1095;&#1072;&#1090;&#1100;&#1089;&#1103; &#1086;&#1090; &#1087;&#1088;&#1077;&#1076;&#1099;&#1076;&#1091;&#1097;&#1080;&#1093; &#1090;&#1077;&#1084;, &#1095;&#1090;&#1086; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1085;&#1077; &#1086;&#1090;&#1085;&#1086;&#1089;&#1103;&#1090;&#1089;&#1103; &#1103;&#1074;&#1085;&#1086; &#1082; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>Post</code>, &#1072; &#1073;&#1091;&#1076;&#1091;&#1090; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100;&#1089;&#1103; &#1080; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1103;&#1090;&#1100;&#1089;&#1103; &#1073;&#1083;&#1072;&#1075;&#1086;&#1076;&#1072;&#1088;&#1103; &#1089;&#1074;&#1103;&#1079;&#1080;.
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1084;&#1099; &#1076;&#1086;&#1083;&#1078;&#1085;&#1099; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090; <code>Attachable</code>:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Screen\AsSource;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource, Attachable;
-    //...
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource, Attachable</span>;
+    <span class="hl-comment">//...</span>
 }
 </code></pre>
 <p>&#1058;&#1072;&#1082; &#1078;&#1077; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1086;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100; &#1089;&#1080;&#1085;&#1093;&#1088;&#1086;&#1085;&#1080;&#1079;&#1072;&#1094;&#1080;&#1102; &#1079;&#1072;&#1074;&#1080;&#1089;&#1080;&#1084;&#1099;&#1093; &#1079;&#1072;&#1087;&#1080;&#1089;&#1077;&#1081; &#1087;&#1086; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103;&#1084; &#1074; &#1085;&#1072;&#1096;&#1077;&#1084; &#1101;&#1082;&#1088;&#1072;&#1085;&#1077;:</p>
-<pre><code class="language-php">public function createOrUpdate(Post $post, Request $request)
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">createOrUpdate</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post, <span class="hl-type">Request</span> $request</span>)
 {
-    $post-&gt;fill($request-&gt;get('post'))-&gt;save();
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">fill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'post'</span>))<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 
-    $post-&gt;attachments()-&gt;syncWithoutDetaching(
-        $request-&gt;input('post.attachments', [])
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">syncWithoutDetaching</span>(
+        $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'post.attachments'</span>, [])
     );
 
-    Alert::info('You have successfully created a post.');
+    <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'You have successfully created a post.'</span>);
 
-    return redirect()-&gt;route('platform.post.list');
+    <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.list'</span>);
 }
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1103;, &#1089;&#1074;&#1103;&#1079;&#1100; &#1089; &#1085;&#1072;&#1096;&#1077;&#1081; &#1079;&#1072;&#1087;&#1080;&#1089;&#1100;&#1102; &#1073;&#1091;&#1076;&#1077;&#1090; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1083;&#1077;&#1085;&#1072; &#1074; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1077; <code>attachmentable</code>:</p>
-<pre><code class="language-php">id  attachmentable_type  attachmentable_id  attachment_id
-1	App\Post	         3	                101
-2	App\Post	         3	                102
-3	App\Post	         3	                103
-4	App\Post	         3	                104
+<pre><code data-lang="php" class="notranslate">id  attachmentable_type  attachmentable_id  attachment_id
+<span class="hl-number">1</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">101</span>
+<span class="hl-number">2</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">102</span>
+<span class="hl-number">3</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">103</span>
+<span class="hl-number">4</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">104</span>
 </code></pre>
 <p>&#1053;&#1086; &#1087;&#1088;&#1080; &#1085;&#1086;&#1074;&#1086;&#1084; &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1080; &#1082; &#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1102; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;, &#1087;&#1086;&#1083;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1091;&#1089;&#1090;&#1099;&#1084;. &#1069;&#1090;&#1086; &#1080;&#1079;-&#1079;&#1072; &#1090;&#1086;&#1075;&#1086;, &#1095;&#1090;&#1086; <code>query</code> &#1085;&#1077; &#1079;&#1085;&#1072;&#1077;&#1090; &#1086; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093; &#1079;&#1072;&#1087;&#1080;&#1089;&#1103;&#1093; &#1082; &#1085;&#1072;&#1096;&#1077;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;. &#1048;&#1089;&#1087;&#1088;&#1072;&#1074;&#1080;&#1084; &#1101;&#1090;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1074; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1091;:</p>
-<pre><code class="language-php">public function query(Post $post): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>): <span class="hl-keyword">array</span>
 {
-    $post-&gt;load('attachments');
+    $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>(<span class="hl-value">'attachments'</span>);
 
-    return [
-        'post' =&gt; $post
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'post'</span> <span class="hl-operator">=&gt;</span> $post
     ];
 }
 </code></pre>
@@ -640,7 +640,7 @@ class Post extends Model
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

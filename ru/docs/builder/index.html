@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Строитель форм | Orchid - Laravel Admin Panel</title>
@@ -395,134 +395,134 @@
                         <body><p>&#1054;&#1087;&#1080;&#1089;&#1099;&#1074;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1103; &#1092;&#1086;&#1088;&#1084;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090; &#1073;&#1099;&#1090;&#1100; &#1085;&#1091;&#1076;&#1085;&#1099;&#1084; &#1080; &#1079;&#1072;&#1090;&#1088;&#1091;&#1076;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1084; &#1079;&#1072;&#1085;&#1103;&#1090;&#1080;&#1077;&#1084;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1093; &#1083;&#1077;&#1075;&#1082;&#1086; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1087;&#1086;&#1074;&#1090;&#1086;&#1088;&#1085;&#1086;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1089;&#1087;&#1077;&#1094;&#1080;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1089;&#1090;&#1088;&#1086;&#1080;&#1090;&#1077;&#1083;&#1100; <code>Orchid\Screen\Builder</code>, &#1079;&#1072;&#1076;&#1072;&#1095;&#1072; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1089;&#1086;&#1089;&#1090;&#1086;&#1080;&#1090; &#1074; &#1075;&#1077;&#1085;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080; <code>html</code>-&#1082;&#1086;&#1076;&#1072;.</p>
 <h2><a href='#osnovnoe-ispolzovanie' id='osnovnoe-ispolzovanie'>Основное использование</a></h2>
 <p>&#1044;&#1083;&#1103; &#1087;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1103; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1085;&#1072;&#1073;&#1086;&#1088; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074; &#1092;&#1086;&#1088;&#1084;&#1099; &#1080; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;:</p>
-<pre><code class="language-php">use Orchid\Screen\Builder;
-use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Builder</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-$builder = new Builder([
-    Input::make('name'),
+$builder <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Builder</span>([
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
 ]);
 
-$html = $builder-&gt;generateForm();
+$html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
 <h2><a href='#priviazka-dannyx' id='priviazka-dannyx'>Привязка данных</a></h2>
 <p>&#1044;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1074; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082;&#1077;.
 &#1044;&#1072;&#1085;&#1085;&#1099;&#1077; &#1073;&#1091;&#1076;&#1091;&#1090; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080; &#1087;&#1086;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1099;, &#1087;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1084;&#1091; &#1082;&#1083;&#1102;&#1095;&#1091;.</p>
-<pre><code class="language-php">use Orchid\Screen\Builder;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Repository;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Builder</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
-$fields = [
-    Input::make('name'),
+$fields <span class="hl-operator">=</span> [
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
 ];
 
-$repository = new Repository([
-    'name' =&gt; 'Alexandr Chernyaev',
+$repository <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Repository</span>([
+    <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
 ]);
 
-$builder = new Builder($fields, $repository);
+$builder <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Builder</span>($fields, $repository);
 
-$html = $builder-&gt;generateForm();
+$html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
 <p>&#1055;&#1088;&#1080; &#1101;&#1090;&#1086;&#1084; &#1080;&#1084;&#1077;&#1077;&#1090; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#1074;&#1093;&#1086;&#1076;&#1080;&#1090;&#1100; &#1074;&#1075;&#1083;&#1091;&#1073;&#1100; &#1086;&#1073;&#1098;&#1077;&#1082;&#1090;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; <code>dot</code>-&#1085;&#1086;&#1090;&#1072;&#1094;&#1080;&#1102;.</p>
-<pre><code class="language-php">$fields = [
-    Input::make('name.ru'),
+<pre><code data-lang="php" class="notranslate">$fields <span class="hl-operator">=</span> [
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name.ru'</span>),
 ];
 
-$repository = new Repository([
-    'name' =&gt; [
-        'en' =&gt; 'Alexandr Chernyaev',
-        'ru' =&gt; 'Александр Черняев',
+$repository <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Repository</span>([
+    <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'en'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
+        <span class="hl-value">'ru'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Александр Черняев'</span>,
     ],
 ]);
 
-$builder = new Builder($fields, $repository);
+$builder <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Builder</span>($fields, $repository);
 
-$html = $builder-&gt;generateForm();
+$html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
 <p>&#1058;&#1072;&#1082; &#1078;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1090;&#1100; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1084;&#1099;&#1081; &#1103;&#1079;&#1099;&#1082; &#1080; &#1087;&#1088;&#1077;&#1092;&#1080;&#1082;&#1089;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">$fields = [
-    Input::make('name'),
+<pre><code data-lang="php" class="notranslate">$fields <span class="hl-operator">=</span> [
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
 ];
 
-$repository = new Repository([
-    'en' =&gt; [
-        'name' =&gt; 'Alexandr Chernyaev',
+$repository <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Repository</span>([
+    <span class="hl-value">'en'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
     ],
-    'ru' =&gt; [
-        'name' =&gt; 'Александр Черняев',
+    <span class="hl-value">'ru'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Александр Черняев'</span>,
     ]
 ]);
 
-$builder = new Builder($fields, $repository);
-$builder-&gt;setLanguage('en');
+$builder <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Builder</span>($fields, $repository);
+$builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">setLanguage</span>(<span class="hl-value">'en'</span>);
 
-$html = $builder-&gt;generateForm();
+$html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
 <h2><a href='#predstavlenie-elementov-formy' id='predstavlenie-elementov-formy'>Представление элементов формы</a></h2>
 <p>&#1051;&#1102;&#1073;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077; &#1076;&#1083;&#1103; &#1074;&#1074;&#1086;&#1076;&#1072; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1086;&#1081; &#1085;&#1072;&#1076; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1077;&#1090; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1074; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;.</p>
 <p>&#1057;&#1086;&#1079;&#1076;&#1072;&#1076;&#1080;&#1084; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;&#1090;&#1100; &#1080;&#1079; &#1095;&#1077;&#1075;&#1086; &#1086;&#1085; &#1089;&#1086;&#1089;&#1090;&#1086;&#1080;&#1090;:</p>
-<pre><code class="language-php">namespace App\Orchid\Fields;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Fields;
 
-use Orchid\Screen\Field;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
 
-class CustomField extends Field
+<span class="hl-keyword">class</span> <span class="hl-type">CustomField</span> <span class="hl-keyword">extends</span> <span class="hl-template">Field</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Blade template
      * 
-     * @var string
-     */
-    protected $view = '';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $view <span class="hl-operator">=</span> <span class="hl-value">''</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Default attributes value.
      *
-     * @var array
-     */
-    protected $attributes = [];
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $attributes <span class="hl-operator">=</span> [];
 
-    /**
+    <span class="hl-comment">/**
      * Attributes available for a particular tag.
      *
-     * @var array
-     */
-    protected $inlineAttributes = [];
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $inlineAttributes <span class="hl-operator">=</span> [];
 }
 </code></pre>
 <p>&#1057;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086; <code>view</code> &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090; blade &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084;&#1091; &#1073;&#1091;&#1076;&#1091;&#1090; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1085;&#1099; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;, &#1074; <code>attributes</code> &#1087;&#1077;&#1088;&#1077;&#1095;&#1080;&#1089;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102;, &#1072; <code>inlineAttributes</code>
 &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090; &#1082;&#1083;&#1102;&#1095;&#1080;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1099;&#1077; &#1076;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1074; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1077; html, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-html">First name: &lt;input type="text" name="name"&gt;&lt;br&gt;
+<pre><code data-lang="html" class="notranslate">First name: <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span> <span class="hl-attribute">name</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;</span><span class="hl-tag2">br</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>&#1042; &#1101;&#1090;&#1086;&#1084; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1077; inline-&#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090;&#1072;&#1084;&#1080; &#1103;&#1074;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; type &#1080; name, &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1099;&#1077; &#1085;&#1077;&#1087;&#1086;&#1089;&#1088;&#1077;&#1076;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086; &#1074; &#1090;&#1077;&#1075;&#1077;.
 &#1040; &#1084;&#1077;&#1090;&#1086;&#1076; <code>make()</code> &#1089;&#1083;&#1091;&#1078;&#1080;&#1090; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1076;&#1083;&#1103; &#1073;&#1099;&#1089;&#1090;&#1088;&#1086;&#1081; &#1080; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086;&#1081; &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1080;, &#1090;&#1072;&#1082; &#1082;&#1072;&#1082; &#1083;&#1102;&#1073;&#1072;&#1103; &#1092;&#1086;&#1088;&#1084;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1072;&#1103; &#1076;&#1086;&#1083;&#1078;&#1085;&#1072; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1090;&#1100; &#1080;&#1083;&#1080; &#1080;&#1079;&#1084;&#1077;&#1085;&#1103;&#1090;&#1100; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;, &#1076;&#1086;&#1083;&#1078;&#1085;&#1072; &#1077;&#1102; &#1086;&#1073;&#1083;&#1072;&#1076;&#1072;&#1090;&#1100;.</p>
 <p>&#1054;&#1073;&#1085;&#1086;&#1074;&#1080;&#1084; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1095;&#1090;&#1086; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1085;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089; &#1080; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1084; blade &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;, &#1085;&#1072; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1077; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1084; &#1074;&#1099;&#1096;&#1077;:</p>
-<pre><code class="language-php">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;
+<pre><code data-lang="php" class="notranslate">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1087;&#1088;&#1086;&#1073;&#1086;&#1074;&#1072;&#1090;&#1100; &#1085;&#1086;&#1074;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1074;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076; <code>render()</code>:</p>
-<pre><code class="language-php">$input = CustomField::make('name');
+<pre><code data-lang="php" class="notranslate">$input <span class="hl-operator">=</span> <span class="hl-type">CustomField</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>);
     
-$html = $input-&gt;render(); // html string
+$html <span class="hl-operator">=</span> $input<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(); <span class="hl-comment">// html string</span>
 </code></pre>
 <p>&#1042; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081; <code>html</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1090;&#1100;&#1089;&#1103; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1095;&#1090;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1099;&#1081; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;, &#1087;&#1086;&#1087;&#1088;&#1086;&#1073;&#1091;&#1077;&#1084; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099;:</p>
-<pre><code class="language-php">$input = CustomField::make('name')
-    -&gt;title('How your name?')
-    -&gt;placeholder('Sheldon Cooper')
-    -&gt;value('Alexandr Chernyaev');
+<pre><code data-lang="php" class="notranslate">$input <span class="hl-operator">=</span> <span class="hl-type">CustomField</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'How your name?'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Sheldon Cooper'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-value">'Alexandr Chernyaev'</span>);
 
-$html = $input-&gt;render();
+$html <span class="hl-operator">=</span> $input<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>();
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1086;&#1073;&#1085;&#1086;&#1074;&#1080;&#1084; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1091;, &#1085;&#1072; &#1085;&#1077;&#1081; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1077;&#1090;&#1089;&#1103; &#1085;&#1086;&#1074;&#1099;&#1081; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1086;&#1082;, &#1074;&#1084;&#1077;&#1089;&#1090;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102;, &#1085;&#1086; &#1085;&#1080; placeholder, &#1085;&#1080; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1085;&#1077; &#1073;&#1099;&#1083;&#1080; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1077;&#1085;&#1099;.
 &#1069;&#1090;&#1086; &#1087;&#1086;&#1090;&#1086;&#1084;&#1091;, &#1095;&#1090;&#1086; &#1086;&#1085;&#1080; &#1085;&#1077; &#1073;&#1099;&#1083;&#1080; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1099; &#1074; <code>inlineAttributes</code>, &#1080;&#1089;&#1087;&#1088;&#1072;&#1074;&#1080;&#1084; &#1101;&#1090;&#1086;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Attributes available for a particular tag.
  *
- * @var array
- */
-protected $inlineAttributes = [
-    'name',
-    'type',
-    'placeholder',
-    'value'
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $inlineAttributes <span class="hl-operator">=</span> [
+    <span class="hl-value">'name'</span>,
+    <span class="hl-value">'type'</span>,
+    <span class="hl-value">'placeholder'</span>,
+    <span class="hl-value">'value'</span>
 ];
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090; &#1073;&#1091;&#1076;&#1077;&#1090; &#1086;&#1090;&#1088;&#1080;&#1089;&#1086;&#1074;&#1072;&#1085; &#1074; &#1085;&#1072;&#1096;&#1077;&#1084; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1077;.</p>
@@ -599,7 +599,7 @@ protected $inlineAttributes = [
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

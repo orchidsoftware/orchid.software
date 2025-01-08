@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Data Management | Orchid - Laravel Admin Panel</title>
@@ -378,71 +378,71 @@
 </blockquote>
 <p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch &ldquo;<a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a> &rdquo;.</p>
 <p>First, we need to create a new table. To do this, execute the command:</p>
-<pre><code class="language-php">php artisan make:migration create_posts_table
+<pre><code data-lang="php" class="notranslate">php artisan make:migration create_posts_table
 </code></pre>
 <p>A new migration file will be created in the <code>database/migrations</code> directory, we will add a description of the required columns to it.</p>
-<pre><code class="language-php">// `****_**_**_create_posts_table.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// `****_**_**_create_posts_table.php</span>
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+<span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
 
-return new class extends Migration
+<span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span> <span class="hl-type"><span class="hl-keyword">extends</span></span> <span class="hl-template">Migration</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Run the migrations.
      *
-     * @return void
-     */
-    public function up()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">up</span>()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table-&gt;id();
-            $table-&gt;string('title');
-            $table-&gt;string('description');
-            $table-&gt;text('body');
-            $table-&gt;bigInteger('author');
-            $table-&gt;timestamps();
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">create</span>(<span class="hl-value">'posts'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">id</span>();
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">string</span></span>(<span class="hl-value">'title'</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">string</span></span>(<span class="hl-value">'description'</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">text</span>(<span class="hl-value">'body'</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">bigInteger</span>(<span class="hl-value">'author'</span>);
+            $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">timestamps</span>();
         });
     }
 
-    /**
+    <span class="hl-comment">/**
      * Reverse the migrations.
      *
-     * @return void
-     */
-    public function down()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">down</span>()
     {
-        Schema::dropIfExists('posts');
+        <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">dropIfExists</span>(<span class="hl-value">'posts'</span>);
     }
 }
 </code></pre>
 <p>To apply the new scheme to the connected database, we will do:</p>
-<pre><code class="language-php">php artisan migrate
+<pre><code data-lang="php" class="notranslate">php artisan migrate
 </code></pre>
 <p>After successfully creating the table, add a new <code>Eloquent</code> model, to do this:</p>
-<pre><code class="language-php">php artisan make:model Post
+<pre><code data-lang="php" class="notranslate">php artisan make:model Post
 </code></pre>
 <p>In the <code>app</code> directory, a new file <code>Post.php</code> will be created, we will describe the fields as available for filling:</p>
-<pre><code class="language-php">// app/Models/Post.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Models/Post.php</span>
 
-namespace App\Models;
+<span class="hl-keyword">namespace</span> App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Screen\AsSource;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource;
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource</span>;
 
-    /**
-     * @var array
-     */
-    protected $fillable = [
-        'title',
-        'description',
-        'body',
-        'author'
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+        <span class="hl-value">'title'</span>,
+        <span class="hl-value">'description'</span>,
+        <span class="hl-value">'body'</span>,
+        <span class="hl-value">'author'</span>
     ];
 }
 </code></pre>
@@ -451,197 +451,197 @@ class Post extends Model
 </blockquote>
 <p>Now we are ready for the real use of the platform.</p>
 <p><a href="https://orchid.software/en/docs/quickstart">In the previous tutorial</a> we already created our first screen for displaying posts, but now we need to both display the records and edit them, so we&rsquo;ll add two new screens for each action, alternately executing the commands:</p>
-<pre><code class="language-php">php artisan orchid:screen PostEditScreen
+<pre><code data-lang="php" class="notranslate">php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen
 </code></pre>
 <blockquote>
 <p><strong>Note:</strong> Creating two or more screens to provide CRUD is optional, but is used for convenience.</p>
 </blockquote>
 <p>Register new screens in the application route list:</p>
-<pre><code class="language-php">// routes/platform.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// routes/platform.php</span>
 
-use App\Orchid\Screens\PostEditScreen;
-use App\Orchid\Screens\PostListScreen;
+<span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">PostEditScreen</span>;
+<span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">PostListScreen</span>;
 
-Route::screen('post/{post?}', PostEditScreen::class)
-    -&gt;name('platform.post.edit');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'post/{post?}'</span>, <span class="hl-type">PostEditScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.post.edit'</span>);
 
-Route::screen('posts', PostListScreen::class)
-    -&gt;name('platform.post.list');
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'posts'</span>, <span class="hl-type">PostListScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.post.list'</span>);
 </code></pre>
 <p>Now the screens are available for viewing at the address <code>/admin/post</code> and <code>/admin/posts</code>.
 The resulting screens currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required fields:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use App\Models\Post;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
-use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Upload;
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Actions\Button;
-use Orchid\Screen\Screen;
-use Orchid\Support\Facades\Alert;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Quill</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Relation</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">TextArea</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Upload</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
-class PostEditScreen extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">PostEditScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
-     * @var Post
-     */
-    public $post;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-type">Post</span>
+     */</span>
+    <span class="hl-keyword">public</span> $post;
 
-    /**
+    <span class="hl-comment">/**
      * Query data.
      *
-     * @param Post $post
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Post</span> $post
      *
-     * @return array
-     */
-    public function query(Post $post): array
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>): <span class="hl-keyword">array</span>
     {
-        return [
-            'post' =&gt; $post
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'post'</span> <span class="hl-operator">=&gt;</span> $post
         ];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The name is displayed on the user's screen and in the headers
-     */
-    public function name(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
     {
-        return $this-&gt;post-&gt;exists ? 'Edit post' : 'Creating a new post';
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">exists</span> <span class="hl-operator">?</span> <span class="hl-value">'Edit post'</span> : <span class="hl-value">'Creating a new post'</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * The description is displayed on the user's screen under the heading
-     */
-    public function description(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">description</span>(): ?<span class="hl-keyword">string</span>
     {
-        return "Blog posts";
+        <span class="hl-keyword">return</span> <span class="hl-value">"Blog posts"</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Button commands.
      *
-     * @return Link[]
-     */
-    public function commandBar(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Link</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Button::make('Create post')
-                -&gt;icon('pencil')
-                -&gt;method('createOrUpdate')
-                -&gt;canSee(!$this-&gt;post-&gt;exists),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Create post'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'pencil'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'createOrUpdate'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(!<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">exists</span>),
 
-            Button::make('Update')
-                -&gt;icon('note')
-                -&gt;method('createOrUpdate')
-                -&gt;canSee($this-&gt;post-&gt;exists),
+            <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Update'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'note'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'createOrUpdate'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">exists</span>),
 
-            Button::make('Remove')
-                -&gt;icon('trash')
-                -&gt;method('remove')
-                -&gt;canSee($this-&gt;post-&gt;exists),
+            <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Remove'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'trash'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'remove'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">exists</span>),
         ];
     }
 
-    /**
+    <span class="hl-comment">/**
      * Views.
      *
-     * @return Layout[]
-     */
-    public function layout(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Layout::rows([
-                Input::make('post.title')
-                    -&gt;title('Title')
-                    -&gt;placeholder('Attractive but mysterious title')
-                    -&gt;help('Specify a short descriptive title for this post.'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.title'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Title'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Attractive but mysterious title'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Specify a short descriptive title for this post.'</span>),
 
-                TextArea::make('post.description')
-                    -&gt;title('Description')
-                    -&gt;rows(3)
-                    -&gt;maxlength(200)
-                    -&gt;placeholder('Brief description for preview'),
+                <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.description'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Description'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">3</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxlength</span>(<span class="hl-number">200</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Brief description for preview'</span>),
 
-                Relation::make('post.author')
-                    -&gt;title('Author')
-                    -&gt;fromModel(User::class, 'name'),
+                <span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.author'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Author'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>),
 
-                Quill::make('post.body')
-                    -&gt;title('Main text'),
+                <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.body'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Main text'</span>),
 
             ])
         ];
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span> $request
      *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function createOrUpdate(Request $request)
+     * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">createOrUpdate</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
     {
-        $this-&gt;post-&gt;fill($request-&gt;get('post'))-&gt;save();
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">fill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'post'</span>))<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 
-        Alert::info('You have successfully created a post.');
+        <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'You have successfully created a post.'</span>);
 
-        return redirect()-&gt;route('platform.post.list');
+        <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.list'</span>);
     }
 
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function remove()
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">remove</span>()
     {
-        $this-&gt;post-&gt;delete();
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 
-        Alert::info('You have successfully deleted the post.');
+        <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'You have successfully deleted the post.'</span>);
 
-        return redirect()-&gt;route('platform.post.list');
+        <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.list'</span>);
     }
 }
 </code></pre>
 <p>Now we can create, edit, and delete records. But do not browse as a list. Change it!</p>
 <p>In all previous layer definitions, only a short record of the form <code>Layout:rows()</code> was used, but to display complex or voluminous information, it is desirable to create separate classes.</p>
 <p>Add a new <code>Layout</code> class by running the command:</p>
-<pre><code class="language-php">php artisan orchid:table PostListLayout
+<pre><code data-lang="php" class="notranslate">php artisan orchid:table PostListLayout
 </code></pre>
 <p>We indicate what data we want to see:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use App\Models\Post;
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Table;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Table</span>;
 
-class PostListLayout extends Table
+<span class="hl-keyword">class</span> <span class="hl-type">PostListLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Table</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
-     * @var string
-     */
-    public $target = 'posts';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $target <span class="hl-operator">=</span> <span class="hl-value">'posts'</span>;
 
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">TD</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">columns</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            TD::make('title', 'Title')
-                -&gt;render(function (Post $post) {
-                    return Link::make($post-&gt;title)
-                        -&gt;route('platform.post.edit', $post);
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>, <span class="hl-value">'Title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Post</span> $post</span>) {
+                    <span class="hl-keyword">return</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
                 }),
 
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>, <span class="hl-value">'Created'</span>),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'updated_at'</span>, <span class="hl-value">'Last edit'</span>),
         ];
     }
 }
@@ -651,66 +651,66 @@ class PostListLayout extends Table
 <p><strong>Note.</strong> Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code> templates.</p>
 </blockquote>
 <p>Having defined the table layer, we return to the view screen, change it:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use App\Orchid\Layouts\PostListLayout;
-use App\Models\Post;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Screen;
+<span class="hl-keyword">use</span> App\Orchid\Layouts\<span class="hl-type">PostListLayout</span>;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-class PostListScreen extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">PostListScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Query data.
      *
-     * @return array
-     */
-    public function query(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            'posts' =&gt; Post::paginate()
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'posts'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">paginate</span>()
         ];
     }
 
-    /**
+    <span class="hl-comment">/**
      * The name is displayed on the user's screen and in the headers
-     */
-    public function name(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
     {
-        return 'Blog post';
+        <span class="hl-keyword">return</span> <span class="hl-value">'Blog post'</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * The description is displayed on the user's screen under the heading
-     */
-    public function description(): ?string
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">description</span>(): ?<span class="hl-keyword">string</span>
     {
-        return "All blog posts";
+        <span class="hl-keyword">return</span> <span class="hl-value">"All blog posts"</span>;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Button commands.
      *
-     * @return Link[]
-     */
-    public function commandBar(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Link</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Link::make('Create new')
-                -&gt;icon('pencil')
-                -&gt;route('platform.post.edit')
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Create new'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'pencil'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>)
         ];
     }
 
-    /**
+    <span class="hl-comment">/**
      * Views.
      *
-     * @return Layout[]
-     */
-    public function layout(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            PostListLayout::class
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">PostListLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
         ];
     }
 }
@@ -786,7 +786,7 @@ class PostListScreen extends Screen
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

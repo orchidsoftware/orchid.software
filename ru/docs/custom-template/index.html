@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Универсальные макеты | Orchid - Laravel Admin Panel</title>
@@ -401,104 +401,104 @@
                         <body><h2><a href='#polzovatelskii-sablon' id='polzovatelskii-sablon'>Пользовательский шаблон</a></h2>
 <p>&#1042;&#1087;&#1086;&#1083;&#1085;&#1077; &#1086;&#1078;&#1080;&#1076;&#1072;&#1077;&#1084;&#1072;&#1103; &#1089;&#1080;&#1090;&#1091;&#1072;&#1094;&#1080;&#1103;, &#1082;&#1086;&#1075;&#1076;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1081; <code>blade</code> &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;.
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1074;&#1099;&#1079;&#1074;&#1072;&#1090;&#1100; <code>Layout::view</code>, &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1086;&#1084; &#1089;&#1090;&#1088;&#1086;&#1082;&#1091; &#1080;&#1084;&#1077;&#1085;&#1080;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::view('myTemplate'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'myTemplate'</span>),
     ];
 }
 </code></pre>
 <p>&#1042;&#1089;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1080;&#1079; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>query</code> &#1073;&#1091;&#1076;&#1091;&#1090; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1085;&#1099; &#1074; &#1042;&#1072;&#1096; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;.</p>
-<pre><code class="language-php">// ... Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... Screen</span>
 
-public function query(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'name' =&gt; 'Alexandr Chernyaev',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr Chernyaev'</span>,
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::view('hello'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'hello'</span>),
     ];
 }
 </code></pre>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1084;&#1086;&#1077; <code>name</code> &#1074;&#1086;&#1090; &#1090;&#1072;&#1082;:</p>
-<pre><code class="language-php">// ... /views/hello.blade.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... /views/hello.blade.php</span>
 
 Hello {{ $name }}!
 </code></pre>
 <h2><a href='#obertka' id='obertka'>Обертка</a></h2>
 <p>&#1055;&#1088;&#1086;&#1084;&#1077;&#1078;&#1091;&#1090;&#1086;&#1095;&#1085;&#1099;&#1084; &#1079;&#1074;&#1077;&#1085;&#1086;&#1084; &#1084;&#1077;&#1078;&#1076;&#1091; &ldquo;&#1055;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1080;&#1084; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1086;&#1084;&rdquo; &#1080; &#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1099;&#1084;&#1080; &#1089;&#1083;&#1086;&#1103;&#1084;&#1080; &#1084;&#1086;&#1078;&#1077;&#1090; &#1089;&#1083;&#1091;&#1078;&#1080;&#1090;&#1100; &ldquo;&#1054;&#1073;&#1105;&#1088;&#1090;&#1082;&#1072;&rdquo;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1072;&#1103; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1090;&#1100;, &#1075;&#1076;&#1077; &#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1076;&#1086;&#1083;&#1078;&#1085;&#1099; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1088;&#1091;&#1075;&#1080;&#1077; &#1089;&#1083;&#1086;&#1080;.</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::wrapper('myTemplate', [
-            'foo' =&gt; [
-                RowLayout::class,
-                RowLayout::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">wrapper</span>(<span class="hl-value">'myTemplate'</span>, [
+            <span class="hl-value">'foo'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+                <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             ],
-            'bar' =&gt; RowLayout::class,
+            <span class="hl-value">'bar'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">RowLayout</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
 </code></pre>
 <p>&#1042; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085; <code>myTemplate</code> &#1073;&#1091;&#1076;&#1091;&#1090; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1085;&#1099; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1099;&#1077; <code>foo</code> &#1080; <code>bar</code>, &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1097;&#1080;&#1077; &#1091;&#1078;&#1077; &#1089;&#1086;&#1073;&#1088;&#1072;&#1085;&#1085;&#1099;&#1077; <code>View</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1074;&#1099;&#1074;&#1086;&#1076;&#1080;&#1090;&#1100;:</p>
-<pre><code class="language-html">&lt;div class="row"&gt;
-    &lt;div class="col-7 border-right"&gt;
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"row"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-delimeter">&gt;</span>
         @foreach($foo as $row)
             {!! $row !!}
         @endforeach
-    &lt;/div&gt;
-    &lt;div class="col-5 no-gutter"&gt;
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-delimeter">&gt;</span>
         {!! $bar !!}
-    &lt;/div&gt;
-&lt;/div&gt;
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>&#1055;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1099;&#1077; &#1080;&#1079; <code>query</code> &#1090;&#1072;&#1082; &#1078;&#1077; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099; &#1074; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1077;.</p>
 <h2><a href='#komponenty' id='komponenty'>Компоненты</a></h2>
 <p>&#1054;&#1076;&#1085;&#1080;&#1084; &#1080;&#1079; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1086;&#1074; &#1087;&#1086;&#1074;&#1090;&#1086;&#1088;&#1085;&#1086;&#1075;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1086;&#1074; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077;
 <code>Blade</code> &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1086;&#1074;. &#1058;&#1072;&#1082;&#1080;&#1077; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1099; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1099; &#1080; &#1074; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1077;.</p>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;, &#1074;&#1086;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1084;&#1089;&#1103; <code>artisan</code> &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1086;&#1081;:</p>
-<pre><code class="language-php">php artisan make:component Hello --inline
+<pre><code data-lang="php" class="notranslate">php artisan make:component Hello --inline
 </code></pre>
 <blockquote>
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1041;&#1086;&#1083;&#1077;&#1077; &#1087;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1086; &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1079;&#1085;&#1072;&#1090;&#1100; &#1086; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1072;&#1093; &#1074; <a href="https://laravel.com/docs/blade#components">&#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; &#1092;&#1088;&#1077;&#1081;&#1084;&#1074;&#1086;&#1088;&#1082;&#1072;</a></p>
 </blockquote>
 <p>&#1042; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1085;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089; <code>Hello</code>, &#1087;&#1088;&#1080;&#1074;&#1077;&#1076;&#1105;&#1084; &#1077;&#1075;&#1086; &#1074; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1081; &#1074;&#1080;&#1076;:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\View\Component;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
 
-class Hello extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">Hello</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    /**
-     * @var string
-     */
-    public $name;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $name;
 
-    /**
+    <span class="hl-comment">/**
      * Create a new component instance.
      *
-     * @param string $name
-     */
-    public function __construct(string $name)
+     * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span> $name
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>)
     {
-        $this-&gt;name = $name;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>()
     {
-        return &lt;&lt;&lt;'blade'
+        <span class="hl-keyword">return</span> &lt;&lt;&lt;<span class="hl-value">'blade'</span>
 &lt;div&gt;
     Hello {{ $name }}!
 &lt;/div&gt;
@@ -507,71 +507,71 @@ blade;
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; &#1074; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;&#1093; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1077;&#1075;&#1086; &#1089;&#1090;&#1088;&#1086;&#1095;&#1085;&#1086;&#1077; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data.
  *
- * @return array
- */
-public function query(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'name' =&gt; 'Sheldon Cooper',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Sheldon Cooper'</span>,
     ];
 }
 
-/**
+<span class="hl-comment">/**
  * Views.
  *
- * @return Layout[]
- */
-public function layout(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::component(Hello::class),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">component</span>(<span class="hl-type">Hello</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
     ];
 }
 </code></pre>
 <p>&#1047;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1080;&#1079; <code>query</code> &#1073;&#1091;&#1076;&#1091;&#1090; &#1087;&#1086;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1099; &#1074; &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090; &#1087;&#1086; &#1080;&#1084;&#1077;&#1085;&#1080;. &#1055;&#1088;&#1080; &#1101;&#1090;&#1086;&#1084; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1077;&#1085;&#1099; &#1080;&#1079; &#1082;&#1086;&#1085;&#1090;&#1077;&#1081;&#1085;&#1077;&#1088;&#1072;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\View\Component;
+<span class="hl-keyword">use</span> Illuminate\Contracts\Foundation\<span class="hl-type">Application</span>;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
 
-class Hello extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">Hello</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    /**
-     * @var string
-     */
-    public $name;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $name;
 
-    /**
-     * @var Application
-     */
-    public $application;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-type">Application</span>
+     */</span>
+    <span class="hl-keyword">public</span> $application;
 
-    /**
+    <span class="hl-comment">/**
      * Create a new component instance.
      *
-     * @param Application $application
-     * @param string      $name
-     */
-    public function __construct(Application $application, string $name)
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Application</span> $application
+     * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span>      $name
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Application</span> $application, <span class="hl-keyword">string</span> $name</span>)
     {
-        $this-&gt;application = $application;
-        $this-&gt;name = $name;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">application</span> <span class="hl-operator">=</span> $application;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>()
     {
-        return &lt;&lt;&lt;'blade'
+        <span class="hl-keyword">return</span> &lt;&lt;&lt;<span class="hl-value">'blade'</span>
 &lt;div&gt;
     Hello {{ $name }}!&lt;br&gt;
-    Version {{ $application-&gt;version() }}
+    Version {{ $application<span class="hl-delimeter">-&gt;</span><span class="hl-function">version</span>() }}
 &lt;/div&gt;
 blade;
     }
@@ -580,71 +580,71 @@ blade;
 <h2><a href='#browsing' id='browsing'>Browsing</a></h2>
 <p>&#1055;&#1072;&#1085;&#1077;&#1083;&#1100; &#1072;&#1076;&#1084;&#1080;&#1085;&#1080;&#1089;&#1090;&#1088;&#1072;&#1090;&#1086;&#1088;&#1072; &mdash; &#1101;&#1090;&#1086; &#1084;&#1077;&#1089;&#1090;&#1086;, &#1075;&#1076;&#1077; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1087;&#1088;&#1086;&#1089;&#1084;&#1072;&#1090;&#1088;&#1080;&#1074;&#1072;&#1090;&#1100; &#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1103;&#1090;&#1100; &#1074;&#1089;&#1077; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1099;&#1077; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1074; &#1087;&#1088;&#1086;&#1077;&#1082;&#1090;&#1077;. &#1053;&#1086; &#1080;&#1085;&#1086;&#1075;&#1076;&#1072; &#1090;&#1077;&#1093;&#1085;&#1086;&#1083;&#1086;&#1075;&#1080;&#1103; &#1080; &#1075;&#1088;&#1072;&#1092;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1081; &#1074;&#1080;&#1076; &#1085;&#1077; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1090; &#1076;&#1088;&#1091;&#1075; &#1076;&#1088;&#1091;&#1075;&#1091; &#1080; &#1088;&#1072;&#1089;&#1087;&#1086;&#1083;&#1086;&#1078;&#1077;&#1085;&#1099; &#1087;&#1086; &#1088;&#1072;&#1079;&#1085;&#1099;&#1084; &#1072;&#1076;&#1088;&#1077;&#1089;&#1072;&#1084; (&#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1077;  <a href="https://laravel.com/docs/telescope">Telescope</a> &#1080;&#1083;&#1080; <a href="https://laravel.com/docs/horizon">Horizon</a>). &#1069;&#1090;&#1086; &#1087;&#1088;&#1080;&#1074;&#1086;&#1076;&#1080;&#1090; &#1082; &#1090;&#1086;&#1084;&#1091;, &#1095;&#1090;&#1086; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1087;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1097;&#1072;&#1090;&#1100;&#1089;&#1103; &#1084;&#1077;&#1078;&#1076;&#1091; &#1076;&#1074;&#1091;&#1084;&#1103; &#1074;&#1082;&#1083;&#1072;&#1076;&#1082;&#1072;&#1084;&#1080; &#1073;&#1088;&#1072;&#1091;&#1079;&#1077;&#1088;&#1072;.</p>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1080;&#1079;&#1073;&#1077;&#1078;&#1072;&#1090;&#1100; &#1101;&#1090;&#1086;&#1075;&#1086;, &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1100; iframe &#1076;&#1083;&#1103; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1072; &#1076;&#1088;&#1091;&#1075;&#1086;&#1081; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1099;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::browsing('http://127.0.0.1:8000/telescope'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">browsing</span>(<span class="hl-value">'http://127.0.0.1:8000/telescope'</span>),
     ];
 }
 </code></pre>
 <p>Attributes are also available to the html definition:</p>
-<pre><code class="language-php">Layout::browsing('http://127.0.0.1:8000/telescope')
-    -&gt;allow('...')
-    -&gt;loading('...')
-    -&gt;csp('...')
-    -&gt;name('...')
-    -&gt;referrerpolicy('...')
-    -&gt;sandbox('...')
-    -&gt;src('...')
-    -&gt;srcdoc('...');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">browsing</span>(<span class="hl-value">'http://127.0.0.1:8000/telescope'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">allow</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">loading</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">csp</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">referrerpolicy</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sandbox</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">src</span>(<span class="hl-value">'...'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">srcdoc</span>(<span class="hl-value">'...'</span>);
 </code></pre>
 <h2><a href='#rassirenie' id='rassirenie'>Расширение</a></h2>
 <p>&#1050;&#1083;&#1072;&#1089;&#1089; <code>Layouts</code> &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1091;&#1102;&#1097;&#1080;&#1084; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1080;&#1093; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1093;. &#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1074; &#1085;&#1077;&#1075;&#1086; &#1085;&#1086;&#1074;&#1091;&#1102; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;, &#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1077;&#1105; &#1074; &#1089;&#1077;&#1088;&#1074;&#1080;&#1089; &#1087;&#1088;&#1086;&#1074;&#1072;&#1081;&#1076;&#1077;&#1088;&#1077; &#1082;&#1072;&#1082;:</p>
-<pre><code class="language-php">use Orchid\Screen\Layout;
-use Orchid\Screen\LayoutFactory;
-use Orchid\Screen\Repository;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">LayoutFactory</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
 
-LayoutFactory::macro('hello', function (string $name) {
-    return new class($name) extends Layout
+<span class="hl-type">LayoutFactory</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'hello'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>) {
+    <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span>($name) <span class="hl-keyword">extends</span> <span class="hl-template">Layout</span>
     {
-        /**
+        <span class="hl-comment">/**
          * @ string
-         */
-        public $name;
+         */</span>
+        <span class="hl-keyword">public</span> $name;
 
-        /**
+        <span class="hl-comment">/**
          * Hello constructor.
          *
-         * @param string $name
-         */
-        public function __construct(string $name)
+         * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span> $name
+         */</span>
+        <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>)
         {
-            $this-&gt;name = $name;
+            <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
         }
 
-        /**
-         * @param Repository $repository
+        <span class="hl-comment">/**
+         * <span class="hl-keyword">@param</span> <span class="hl-type">Repository</span> $repository
          *
-         * @return mixed
-         */
-        public function build(Repository $repository)
+         * <span class="hl-keyword">@return</span> <span class="hl-keyword">mixed</span>
+         */</span>
+        <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">build</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository</span>)
         {
-            return view('hello')-&gt;with('name', $this-&gt;name);
+            <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'hello'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">with</span>(<span class="hl-value">'name'</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>);
         }
 
     };
 });
 </code></pre>
 <p>&#1058;&#1086;&#1075;&#1076;&#1072; &#1074; &#1101;&#1082;&#1088;&#1072;&#1085;&#1077; &#1074;&#1099;&#1079;&#1086;&#1074; &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1075;&#1083;&#1103;&#1076;&#1077;&#1090;&#1100; &#1082;&#1072;&#1082;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::hello('Alexandr Chernyaev')
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">hello</span>(<span class="hl-value">'Alexandr Chernyaev'</span>)
     ];
 }
 </code></pre>
@@ -721,7 +721,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

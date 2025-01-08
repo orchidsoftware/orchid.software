@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Legend | Orchid - Laravel Admin Panel</title>
@@ -384,36 +384,36 @@
                         <body><p>&#1052;&#1072;&#1082;&#1077;&#1090; &#1083;&#1077;&#1075;&#1077;&#1085;&#1076;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1072; &#1086;&#1076;&#1085;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;:</p>
 <p><picture alt='Legend'><img src="/img/layouts/legend.png" alt="Legend"></picture></p>
 <p>&#1051;&#1077;&#1075;&#1077;&#1085;&#1076;&#1072; &#1087;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1080;&#1074;&#1072;&#1077;&#1090; &#1082;&#1088;&#1072;&#1090;&#1082;&#1086;&#1077; &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1073;&#1077;&#1079; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1086;&#1090;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Sight;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::legend('user', [
-            Sight::make('id'),
-            Sight::make('name'),
-            Sight::make('email'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>),
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'email'</span>),
         ]),
     ];
 }
 </code></pre>
 <p>&#1054;&#1078;&#1080;&#1076;&#1072;&#1077;&#1090;&#1089;&#1103;, &#1095;&#1090;&#1086; &#1087;&#1077;&#1088;&#1074;&#1099;&#1081; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090; &#1082;&#1083;&#1102;&#1095;, &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1099;&#1081; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1072; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1076;&#1086;&#1083;&#1078;&#1077;&#1085; &#1073;&#1099;&#1090;&#1100; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1086;&#1084; &#1080;&#1083;&#1080; &#1084;&#1086;&#1076;&#1077;&#1083;&#1100;&#1102;. &#1040; &#1074;&#1090;&#1086;&#1088;&#1086;&#1081; &mdash; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1099; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100;.</p>
 <p>&#1052;&#1085;&#1086;&#1075;&#1080;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099; &#1091; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;  <code>Sight</code> &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; &#1086;&#1073;&#1097;&#1080;&#1077; &#1089; <code>TD</code> (&#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1074; <a href="/en/docs/table/">&#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1077;</a>).  &#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1087;&#1086;&#1103;&#1089;&#1085;&#1077;&#1085;&#1080;&#1077;:</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;popover('Unique number in the system'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">popover</span>(<span class="hl-value">'Unique number in the system'</span>),
 ]),
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1081; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085; &#1080;&#1083;&#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1100; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1091;&#1102; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1091;, &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1079;&#1072;&#1084;&#1099;&#1082;&#1072;&#1085;&#1080;&#1077;, &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1085;&#1085;&#1086;&#1077; &#1074;  &#1084;&#1077;&#1090;&#1086;&#1076; <code>render</code> :</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;render(function (){
-        return 'Any html';
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (){
+        <span class="hl-keyword">return</span> <span class="hl-value">'Any html'</span>;
     }),
 ]),
 </code></pre>
 <p>&#1045;&#1089;&#1083;&#1080; &#1090;&#1072;&#1082;&#1072;&#1103; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1072; &#1085;&#1091;&#1078;&#1085;&#1072; &#1095;&#1072;&#1089;&#1090;&#1086;, &#1090;&#1086; &#1073;&#1086;&#1083;&#1077;&#1077; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1103;&#1097;&#1080;&#1084; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;&#1084; &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; <code>Blade &#1082;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;</code> (<a href="https://laravel.com/docs/blade#components">&#1055;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1077;&#1077;</a>) &#1080; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1077;&#1075;&#1086;:</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;component(IdInformation::class),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">IdInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 ]),
 </code></pre>
 <p>&#1050;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090;&#1099; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1102;&#1090; &#1090;&#1072;&#1082; &#1078;&#1077;, &#1082;&#1072;&#1082; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1072;. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1074;&#1080;&#1076;&#1077;&#1090;&#1100; &#1073;&#1086;&#1083;&#1100;&#1096;&#1077; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1086;&#1074; <a href="/ru/docs/table#components">&#1079;&#1076;&#1077;&#1089;&#1100;</a>.</p>
@@ -490,7 +490,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Legend | Orchid - Laravel Admin Panel</title>
@@ -374,29 +374,29 @@
     </div>
                         <body><p>The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.</p>
 <p>Here is an example of how to use the Legend layout:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Sight;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
-/**
+<span class="hl-comment">/**
  * Fetch data to be displayed on the screen.
- */
-public function query(): iterable
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        'user' =&gt; Auth::user(),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>(),
     ];
 }
 
-/**
+<span class="hl-comment">/**
  * The screen's layout elements.
- */
-public function layout(): array
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::legend('user', [
-            Sight::make('id'),
-            Sight::make('name'),
-            Sight::make('email'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>),
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
+            <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'email'</span>),
         ]),
     ];
 }
@@ -404,18 +404,18 @@ public function layout(): array
 <p>In the example above, the first argument passed to the <code>Layout::legend()</code> method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen&rsquo;s <code>query</code> method. The second argument is an array of <code>Sight</code> objects, each representing a data point to be displayed.</p>
 <p><picture alt='This image shows an illustrative legend for a User model.'><img src="/img/layouts/legend.png" alt="This image shows an illustrative legend for a User model."></picture></p>
 <p>Many methods of the <code>Sight</code> class are similar to those of the <code>TD</code> class used in the <a href="/en/docs/table">Table</a> layout. For example, you can add a popover to provide additional information about a data point:</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;popover('Unique number in the system'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">popover</span>(<span class="hl-value">'Unique number in the system'</span>),
 ]),
 </code></pre>
 <p>If you need to perform additional processing or rendering for a particular data point, you can use the <code>render</code> method and pass in a closure function:</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;render(fn() =&gt; 'Any html'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>() <span class="hl-operator">=&gt;</span> <span class="hl-value">'Any html'</span>),
 ]),
 </code></pre>
 <p>If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a Blade component and specify it using the <code>component</code> method:</p>
-<pre><code class="language-php">Layout::legend('user', [
-    Sight::make('id')-&gt;component(IdInformation::class),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
+    <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">IdInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 ]),
 </code></pre>
 <p>Blade components work in a similar way to those used in the <a href="/en/docs/table">Table</a> layout. You can find more examples and information about using Blade components <a href="https://laravel.com/docs/blade#components">here</a>.</p>
@@ -489,7 +489,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

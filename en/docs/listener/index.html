@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Listener | Orchid - Laravel Admin Panel</title>
@@ -375,67 +375,67 @@
                         <body><p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.</p>
 <p>In this example, we have a screen with two input fields for numbers that must be subtracted from each other. We can do this by using a listener layout.</p>
 <p>To create a listener layout, you need to run the following <code>artisan</code> command in your terminal:</p>
-<pre><code class="language-php">php artisan orchid:listener SubtractListener
+<pre><code data-lang="php" class="notranslate">php artisan orchid:listener SubtractListener
 </code></pre>
 <p>Running the command above will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory.
 Once created, you can now add the required fields in the <code>layouts</code> method as shown below:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Listener;
-use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Listener</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-class SubtractListener extends Listener
+<span class="hl-keyword">class</span> <span class="hl-type">SubtractListener</span> <span class="hl-keyword">extends</span> <span class="hl-template">Listener</span>
 {
-    /**
+    <span class="hl-comment">/**
      * List of field names for which values will be listened.
      *
-     * @var string[]
-     */
-    protected $targets = [];
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> $targets <span class="hl-operator">=</span> [];
 
-    /**
-     * @return Layout[]
-     */
-    protected function layouts(): array
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">layouts</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    -&gt;title('First argument')
-                    -&gt;type('number'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'minuend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
 
-                Input::make('subtrahend')
-                    -&gt;title('Second argument')
-                    -&gt;type('number'),
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'subtrahend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Second argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
             ]),
         ];
     }
     
-    /**
-     * @param \Orchid\Screen\Repository $repository
-     * @param \Illuminate\Http\Request  $request
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> \Orchid\Screen\<span class="hl-type">Repository</span> $repository
+     * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span>  $request
      *
-     * @return \Orchid\Screen\Repository
-     */
-    public function handle(Repository $repository, Request $request): Repository
+     * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Repository</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">handle</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository, <span class="hl-type">Request</span> $request</span>): <span class="hl-type">Repository</span>
     {
-        return $repository;
+        <span class="hl-keyword">return</span> $repository;
     }
 }
 </code></pre>
 <p>Here, the <code>targets</code> property takes the names of the fields that require action whenever they are changed.
 In our example, the fields with the names <code>minuend</code> and <code>subtrahend</code> are considered targets:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * List of field names for which values will be listened.
  *
- * @var string[]
- */
-protected $targets = [
-    'minuend',
-    'subtrahend',
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>[]
+ */</span>
+<span class="hl-keyword">protected</span> $targets <span class="hl-operator">=</span> [
+    <span class="hl-value">'minuend'</span>,
+    <span class="hl-value">'subtrahend'</span>,
 ];
 </code></pre>
 <blockquote>
@@ -443,63 +443,63 @@ protected $targets = [
 </blockquote>
 <p>Now comes the <code>handle</code> method, which is responsible for handling the target fields. The method is automatically called when the values in the target fields change.
 It takes in two arguments &ndash; <code>$repository</code> represents the current state of all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Listener;
-use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Listener</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-class SubtractListener extends Listener
+<span class="hl-keyword">class</span> <span class="hl-type">SubtractListener</span> <span class="hl-keyword">extends</span> <span class="hl-template">Listener</span>
 {
-    /**
+    <span class="hl-comment">/**
      * List of field names for which values will be listened.
      *
-     * @var string[]
-     */
-    protected $targets = [
-        'minuend',
-        'subtrahend',
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> $targets <span class="hl-operator">=</span> [
+        <span class="hl-value">'minuend'</span>,
+        <span class="hl-value">'subtrahend'</span>,
     ];
 
-    /**
-     * @return Layout[]
-     */
-    protected function layouts(): iterable
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">layouts</span>(): <span class="hl-type">iterable</span>
     {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    -&gt;title('First argument')
-                    -&gt;type('number'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'minuend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
 
-                Input::make('subtrahend')
-                    -&gt;title('Second argument')
-                    -&gt;type('number'),
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'subtrahend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Second argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
 
-                Input::make('result')
-                    -&gt;readonly()
-                    -&gt;canSee($this-&gt;query-&gt;has('result')),
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'result'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">readonly</span></span>()
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">has</span>(<span class="hl-value">'result'</span>)),
             ]),
         ];
     }
 
-    /**
-     * @param \Orchid\Screen\Repository $repository
-     * @param \Illuminate\Http\Request  $request
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> \Orchid\Screen\<span class="hl-type">Repository</span> $repository
+     * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span>  $request
      *
-     * @return \Orchid\Screen\Repository
-     */
-    public function handle(Repository $repository, Request $request): Repository
+     * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Repository</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">handle</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository, <span class="hl-type">Request</span> $request</span>): <span class="hl-type">Repository</span>
     {
-        $minuend = $request-&gt;input('minuend');
-        $subtrahend = $request-&gt;input('subtrahend');
+        $minuend <span class="hl-operator">=</span> $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'minuend'</span>);
+        $subtrahend <span class="hl-operator">=</span> $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'subtrahend'</span>);
 
-        return $repository
-            -&gt;set('minuend', $minuend)
-            -&gt;set('subtrahend', $subtrahend)
-            -&gt;set('result', $minuend - $subtrahend);
+        <span class="hl-keyword">return</span> $repository
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'minuend'</span>, $minuend)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'subtrahend'</span>, $subtrahend)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'result'</span>, $minuend - $subtrahend);
     }
 }
 </code></pre>
@@ -574,7 +574,7 @@ class SubtractListener extends Listener
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

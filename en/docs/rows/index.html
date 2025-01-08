@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Rows | Orchid - Laravel Admin Panel</title>
@@ -383,59 +383,59 @@
                         <body><p>The <code>Row</code> layout serves as a basic layout that combines all the necessary <a href="/en/docs/field">elements of a form</a>.
 It is useful for creating short and concise forms, such as when you want to show one or two fields.</p>
 <p>Here is an example of how to use the <code>Row</code> layout:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::rows([
-           Input::make('name')
-                -&gt;type('text')
-                -&gt;title('First name:')
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+           <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First name:'</span>)
         ]),
     ];
 }
 </code></pre>
 <p>To make the <code>Row</code> layout more reusable, you can create a custom class by running the following command:</p>
-<pre><code class="language-php">php artisan orchid:rows Appointment
+<pre><code data-lang="php" class="notranslate">php artisan orchid:rows Appointment
 </code></pre>
 <p>This will create a new class in the <code>app/Orchid/Layouts</code> directory where you can define your fields:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Field;
-use Orchid\Screen\Layouts\Rows;
-use Orchid\Screen\Fields\DateTimer;
-use Orchid\Screen\Fields\TextArea;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">DateTimer</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">TextArea</span>;
 
-class Appointment extends Rows
+<span class="hl-keyword">class</span> <span class="hl-type">Appointment</span> <span class="hl-keyword">extends</span> <span class="hl-template">Rows</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Define the fields for the appointment form.
      *
-     * @return Field[]
-     */
-    protected function fields(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Field</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">fields</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            DateTimer::make('appointment_time')
-                -&gt;required()
-                -&gt;title('Time'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'appointment_time'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Time'</span>),
 
-            TextArea::make('doctor_notes')
-                -&gt;rows(10)
-                -&gt;required()
-                -&gt;title('Doctor notes')
-                -&gt;help('What did the patient complain about?'),
+            <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'doctor_notes'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">10</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Doctor notes'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'What did the patient complain about?'</span>),
         ];
     }
 }
 </code></pre>
 <p>To use the custom <code>Row</code> class in a screen, pass the class name in the <code>layout</code> method:</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Appointment::class
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Appointment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
     ];
 }
 </code></pre>
@@ -445,104 +445,104 @@ class Appointment extends Rows
 <h2><a href='#accessing-screen-data' id='accessing-screen-data'>Accessing Screen Data</a></h2>
 <p>The <code>Row</code> layout has access to data from the screen through the <code>query</code> property. This allows you to use data from the screen in the fields of the Row layout.</p>
 <p>For example, you can use the <code>query</code> property to conditionally show or hide a field based on the presence of a specific key:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Field;
-use Orchid\Screen\Layouts\Rows;
-use Orchid\Screen\Fields\Input;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-class Appointment extends Rows
+<span class="hl-keyword">class</span> <span class="hl-type">Appointment</span> <span class="hl-keyword">extends</span> <span class="hl-template">Rows</span>
 {
 
-    /**
-     * @return Field[]
-     */
-    protected function fields(): array
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Field</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">fields</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Input::make('appointment_time')
-                -&gt;canSee($this-&gt;query-&gt;has('available'))
-                -&gt;required()
-                -&gt;title('Time'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'appointment_time'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">has</span>(<span class="hl-value">'available'</span>))
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Time'</span>),
         ];
     }
 }
 </code></pre>
 <p>In this example, the <code>appointment_time</code> field will only be displayed if the screen&rsquo;s <code>query</code> method returns <code>true</code> for the <code>available</code> key:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data
  *
- * @return array
- */
-public function query() : array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-      'available' =&gt; true,
+    <span class="hl-keyword">return</span> [
+      <span class="hl-value">'available'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
     ];
 }
 </code></pre>
 <p>You can also use the <code>query</code> method to retrieve a specific value from the screen data:</p>
-<pre><code class="language-php">$this-&gt;query-&gt;get('available');
+<pre><code data-lang="php" class="notranslate"><span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'available'</span>);
 </code></pre>
 <p>The <code>query</code> method also supports dot notation for accessing nested data:</p>
-<pre><code class="language-php">$this-&gt;query-&gt;get('user.name');
+<pre><code data-lang="php" class="notranslate"><span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'user.name'</span>);
 </code></pre>
 <h2><a href='#reusing-layouts' id='reusing-layouts'>Reusing Layouts</a></h2>
 <p>Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.</p>
 <p>Here is an example of a reusable <code>AddressLayout</code> class that takes a prefix and title as arguments:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Collection;
-use Orchid\Screen\Field;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Rows;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">Str</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">Collection</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
 
-class AddressLayout extends Rows
+<span class="hl-keyword">class</span> <span class="hl-type">AddressLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Rows</span>
 {
-    public function __construct(
-        private readonly string $prefix,
-        private readonly ?string $title = null
-    ) {
-        $this-&gt;prefix = Str::finish($prefix, '.');
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
+        <span class="hl-keyword">private</span> readonly <span class="hl-keyword">string</span> $prefix,
+        <span class="hl-keyword">private</span> readonly ?<span class="hl-keyword">string</span> $title <span class="hl-operator">=</span> <span class="hl-constant">null</span>
+    </span>) {
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-operator">=</span> <span class="hl-type">Str</span><span class="hl-delimeter">::</span><span class="hl-function">finish</span>($prefix, <span class="hl-value">'.'</span>);
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the fields to be displayed.
      *
-     * @return Field[]
-     */
-    protected function fields(): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Field</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">fields</span>(): <span class="hl-keyword">array</span>
     {
-        return $this-&gt;addPrefix([
-            Input::make('address')
-                -&gt;required()
-                -&gt;title('Address')
-                -&gt;placeholder('177A Bleecker Street'),
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">addPrefix</span>([
+            <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'address'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Address'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'177A Bleecker Street'</span>),
         ]);
     }
 
-    /**
+    <span class="hl-comment">/**
      * Add the prefix to each field name.
      *
-     * @param Field[] $fields
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Field</span>[] $fields
      *
-     * @return Field[]
-     */
-    protected function addPrefix(array $fields): array
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Field</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">addPrefix</span>(<span class="hl-injection"><span class="hl-keyword">array</span> $fields</span>): <span class="hl-keyword">array</span>
     {
-        return collect($fields)
-            -&gt;each(fn(Field $field) =&gt; $field-&gt;set('name', $this-&gt;prefix . $field-&gt;get('name')))
-            -&gt;all();
+        <span class="hl-keyword">return</span> <span class="hl-function">collect</span>($fields)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">each</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-type">Field</span> $field</span>) <span class="hl-operator">=&gt;</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'name'</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-delimeter">.</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'name'</span>)))
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>();
     }
 }
 </code></pre>
 <p>To use the <code>AddressLayout</code> class, pass the prefix and title values as arguments:</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        new AddressLayout('order.shipping_address', 'Shipping Address'),
-        new AddressLayout('order.invoice_address', 'Invoice Address'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-constant">new</span> <span class="hl-type">AddressLayout</span>(<span class="hl-value">'order.shipping_address'</span>, <span class="hl-value">'Shipping Address'</span>),
+        <span class="hl-constant">new</span> <span class="hl-type">AddressLayout</span>(<span class="hl-value">'order.invoice_address'</span>, <span class="hl-value">'Invoice Address'</span>),
     ];
 }
 </code></pre>
@@ -617,7 +617,7 @@ class AddressLayout extends Rows
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

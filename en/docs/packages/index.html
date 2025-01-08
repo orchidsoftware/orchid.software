@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Package Development | Orchid - Laravel Admin Panel</title>
@@ -425,51 +425,51 @@ It allows you to register menus, permissions, routes, and other features within 
 <li>Create a new file called <code>MyPackageServiceProvider.php</code> in your package directory.</li>
 <li>In the <code>MyPackageServiceProvider</code> class, extend the <code>OrchidServiceProvider</code> class provided by Orchid:</li>
 </ul>
-<pre><code class="language-php">use Orchid\Platform\OrchidServiceProvider;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">OrchidServiceProvider</span>;
 
-class MyPackageServiceProvider extends OrchidServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">MyPackageServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">OrchidServiceProvider</span>
 {
-   // Your package-specific code here
+   <span class="hl-comment">// Your package-specific code here</span>
 }
 </code></pre>
 <p>This will allow you to utilize the features and methods provided by the <code>OrchidServiceProvider</code> class while also adding your own customizations and configurations specific to your package.</p>
 <h2><a href='#define-routes' id='define-routes'>Define Routes</a></h2>
 <p>To define routes in your package, create a <code>routes</code> method within your service provider.
 You can use the standard Laravel routing mechanisms to register your routes with the <code>Router</code> instance.</p>
-<pre><code class="language-php">use Illuminate\Routing\Router;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Routing\<span class="hl-type">Router</span>;
 
-/**
+<span class="hl-comment">/**
  * Define routes setup.
  *
- * @param \Illuminate\Routing\Router $router
+ * <span class="hl-keyword">@param</span> \Illuminate\Routing\<span class="hl-type">Router</span> $router
  *
- * @return void
- */
-public function routes(Router $route): void
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">routes</span>(<span class="hl-injection"><span class="hl-type">Router</span> $route</span>): <span class="hl-keyword">void</span>
 {
-    // Define your routes here
-    $route-&gt;screen('private-route', MyPackageScreen::class)
-        -&gt;name('package');
+    <span class="hl-comment">// Define your routes here</span>
+    $route<span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'private-route'</span>, <span class="hl-type">MyPackageScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'package'</span>);
 }
 </code></pre>
 <h2><a href='#define-permissions' id='define-permissions'>Define Permissions</a></h2>
 <p>Laravel Orchid provides a flexible permission system to control access to different parts of your package.
 To define permissions, override the <code>permissions</code> method in your service provider.
 This method should return an array of <code>ItemPermission</code> instances provided by the Orchid package.</p>
-<pre><code class="language-php">use Orchid\Platform\ItemPermission;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
 
-/**
+<span class="hl-comment">/**
  * Register permissions for the application.
  *
- * @return ItemPermission[]
- */
-public function permissions(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">ItemPermission</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permissions</span>(): <span class="hl-keyword">array</span>
 {
-    // Define your permissions here
-    return [
-        ItemPermission::group('Package Name')
-            -&gt;addPermission('platform.package.option', 'View Options')
-            -&gt;addPermission('platform.package.other', 'View Content'),
+    <span class="hl-comment">// Define your permissions here</span>
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'Package Name'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'platform.package.option'</span>, <span class="hl-value">'View Options'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'platform.package.other'</span>, <span class="hl-value">'View Content'</span>),
     ];
 }
 </code></pre>
@@ -477,20 +477,20 @@ public function permissions(): array
 <h2><a href='#define-navigation' id='define-navigation'>Define Navigation</a></h2>
 <p>To define navigation menus for your package, override the <code>menu</code> method in your service provider.
 This method should return an array of <code>Menu</code> instances provided by the Orchid package.</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
-/**
+<span class="hl-comment">/**
  * Register the application menu.
  *
- * @return Menu[]
- */
-public function menu(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Menu</span>[]
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">menu</span>(): <span class="hl-keyword">array</span>
 {
-    // Define your menu items here
-    return [
-        Menu::make('My Package')
-            -&gt;icon('bs.book')
-            -&gt;route('package.index'),
+    <span class="hl-comment">// Define your menu items here</span>
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'My Package'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.book'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'package.index'</span>),
     ];
 }
 </code></pre>
@@ -498,98 +498,98 @@ public function menu(): array
 <p>Laravel Orchid allows you to register custom resources like stylesheets and scripts that can be included in the dashboard. To register these resources, you need to define them in your service provider by overriding the appropriate methods.</p>
 <h3><a href='#stylesheets' id='stylesheets'>Stylesheets</a></h3>
 <p>To define the stylesheets to be registered, override the <code>stylesheets</code> method in your service provider. This method should return an array of strings, where each string represents the path to a stylesheet that you want to include.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Define the stylesheets to be registered.
  *
- * @return string[]
- */
-protected function stylesheets(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>[]
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">stylesheets</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', // CDN Path
-        '/absolute/path/to/your/styles.css', // Absolute Path
-        Vite::asset('resources/css/app.css'), // Vite Asset
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'</span>, // <span class="hl-constant">CDN</span> Path
+        <span class="hl-value">'/absolute/path/to/your/styles.css'</span>, <span class="hl-comment">// Absolute Path</span>
+        <span class="hl-type">Vite</span><span class="hl-delimeter">::</span><span class="hl-function">asset</span>(<span class="hl-value">'resources/css/app.css'</span>), <span class="hl-comment">// Vite Asset</span>
     ];
 }
 </code></pre>
 <h3><a href='#scripts' id='scripts'>Scripts</a></h3>
 <p>To define the scripts to be registered, override the <code>scripts</code> method in your service provider. This method should return an array of strings, where each string represents the path to a JavaScript file that you want to include.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Define the scripts to be registered.
  *
- * @return string[]
- */
-protected function scripts(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>[]
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">scripts</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'https://cdn.jsdelivr.net/npm/vue@3.2.26/dist/vue.global.js', // CDN Path
-        '/absolute/path/to/your/script.js', // Absolute Path
-        Vite::asset('resources/js/app.js'), // Vite Asset
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'https://cdn.jsdelivr.net/npm/vue@3.2.26/dist/vue.global.js'</span>, // <span class="hl-constant">CDN</span> Path
+        <span class="hl-value">'/absolute/path/to/your/script.js'</span>, <span class="hl-comment">// Absolute Path</span>
+        <span class="hl-type">Vite</span><span class="hl-delimeter">::</span><span class="hl-function">asset</span>(<span class="hl-value">'resources/js/app.js'</span>), <span class="hl-comment">// Vite Asset</span>
     ];
 }
 </code></pre>
 <h2><a href='#define-icons' id='define-icons'>Define Icons</a></h2>
 <p>To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the <code>icons</code> method of your service provider.</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the icon paths and prefixes.
  *
- * @return array
- */
-public function icons(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">icons</span>(): <span class="hl-keyword">array</span>
 {
-    // Define your icon sets here
-    return ['fa' =&gt; '/path/to/fontawesome'];
+    <span class="hl-comment">// Define your icon sets here</span>
+    <span class="hl-keyword">return</span> [<span class="hl-value">'fa'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'/path/to/fontawesome'</span>];
 }
 </code></pre>
 <p>In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package&rsquo;s views or components.</p>
 <h2><a href='#versioning' id='versioning'>Versioning</a></h2>
 <p>When developing a package that supports multiple versions, it is advised to utilize Composer for version management.
 Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:</p>
-<pre><code class="language-php">Orchid\Platform\Dashboard::version()
+<pre><code data-lang="php" class="notranslate">Orchid\Platform\<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">version</span>()
 </code></pre>
 <p>This constant returns a string representation of the current version being used.</p>
 <h2><a href='#extending-layouts' id='extending-layouts'>Extending Layouts</a></h2>
 <p>The <code>Layouts</code> class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:</p>
-<pre><code class="language-php">use Orchid\Screen\Layout;
-use Orchid\Screen\LayoutFactory;
-use Orchid\Screen\Repository;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">LayoutFactory</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
-/**
+<span class="hl-comment">/**
  * Define a custom macro for LayoutFactory.
  *
- * @param string $name
- * @return Layout
- */
-LayoutFactory::macro('hello', fn (string $name) =&gt; new class($name) extends Layout
+ * <span class="hl-keyword">@param</span> <span class="hl-keyword">string</span> $name
+ * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>
+ */</span>
+<span class="hl-type">LayoutFactory</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'hello'</span>, <span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>) <span class="hl-operator">=&gt;</span> <span class="hl-constant">new</span> <span class="hl-keyword"><span class="hl-type">class</span></span>($name) <span class="hl-keyword">extends</span> <span class="hl-template">Layout</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The name to be used in the view.
      *
-     * @var string
-     */
-    public function __construct(
-        private string $name
-    ) {}
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
+        <span class="hl-keyword">private</span> <span class="hl-keyword">string</span> $name
+    </span>) {}
 
-    /**
+    <span class="hl-comment">/**
      * Build the layout and return the view.
      *
-     * @param Repository $repository
-     * @return \Illuminate\View\View
-     */
-    protected function build(Repository $repository)
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Repository</span> $repository
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">build</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository</span>)
     {
-        return view('hello', ['name' =&gt; $this-&gt;name]);
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'hello'</span>, [<span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>]);
     }
 });
 </code></pre>
 <p>Then on the screen, the call will look like:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::hello('Alexandr Chernyaev')
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">hello</span>(<span class="hl-value">'Alexandr Chernyaev'</span>)
     ];
 }
 </code></pre>
@@ -663,7 +663,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

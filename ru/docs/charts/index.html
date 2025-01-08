@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Графики | Orchid - Laravel Admin Panel</title>
@@ -419,111 +419,111 @@
                         <body><p>&#1052;&#1072;&#1082;&#1077;&#1090; &#1075;&#1088;&#1072;&#1092;&#1080;&#1082;&#1086;&#1074; &ndash; &#1091;&#1076;&#1086;&#1073;&#1085;&#1099;&#1081; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073; &#1075;&#1088;&#1072;&#1092;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1090;&#1100; &#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1082;&#1091; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1081;.</p>
 <p><picture alt='Charts'><img src="/img/layouts/charts.png" alt="Charts"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1080;&#1079; <code>query</code>:</p>
-<pre><code class="language-php">public function query() : array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    $charts = [
+    $charts <span class="hl-operator">=</span> [
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Some Data',
-            'values' =&gt; [25, 40, 30, 35, 8, 52, 17, -4],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Some Data'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">25</span>, <span class="hl-number">40</span>, <span class="hl-number">30</span>, <span class="hl-number">35</span>, <span class="hl-number">8</span>, <span class="hl-number">52</span>, <span class="hl-number">17</span>, -<span class="hl-number">4</span>],
         ],
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Another Set',
-            'values' =&gt; [25, 50, -10, 15, 18, 32, 27, 14],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Another Set'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">25</span>, <span class="hl-number">50</span>, -<span class="hl-number">10</span>, <span class="hl-number">15</span>, <span class="hl-number">18</span>, <span class="hl-number">32</span>, <span class="hl-number">27</span>, <span class="hl-number">14</span>],
         ],
         [
-            'labels' =&gt; ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  =&gt; 'Yet Another',
-            'values' =&gt; [15, 20, -3, -15, 58, 12, -17, 37],
+            <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'12am-3am'</span>, <span class="hl-value">'3am-6am'</span>, <span class="hl-value">'6am-9am'</span>, <span class="hl-value">'9am-12pm'</span>, <span class="hl-value">'12pm-3pm'</span>, <span class="hl-value">'3pm-6pm'</span>, <span class="hl-value">'6pm-9pm'</span>],
+            <span class="hl-value">'name'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Yet Another'</span>,
+            <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">15</span>, <span class="hl-number">20</span>, -<span class="hl-number">3</span>, -<span class="hl-number">15</span>, <span class="hl-number">58</span>, <span class="hl-number">12</span>, -<span class="hl-number">17</span>, <span class="hl-number">37</span>],
         ],
     ];
     
-    return [
-        'charts' =&gt; $charts,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'charts'</span> <span class="hl-operator">=&gt;</span> $charts,
     ];
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077; &#1082;&#1086;&#1084;&#1072;&#1085;&#1076;&#1091;:</p>
-<pre><code class="language-php">php artisan orchid:chart ChartsLayout
+<pre><code data-lang="php" class="notranslate">php artisan orchid:chart ChartsLayout
 </code></pre>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1084;&#1072;&#1082;&#1077;&#1090;&#1072;:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class ChartsLayout extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">ChartsLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Add a title to the Chart.
      * 
-     * @var string
-     */
-    protected $title = 'DemoCharts';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $title <span class="hl-operator">=</span> <span class="hl-value">'DemoCharts'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line', 
      * 'pie', 'percentage'
      *
-     * @var string
-     */
-    protected $type = 'bar';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'bar'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
      * The name of the key to fetch it from the query.
      * The results of which will be elements of the charts.
      *
-     * @var string
-     */
-    protected $target = 'charts';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $target <span class="hl-operator">=</span> <span class="hl-value">'charts'</span>;
 }
 </code></pre>
 <h2><a href='#vysota' id='vysota'>Высота</a></h2>
 <p>&#1059;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1077; &#1074;&#1099;&#1089;&#1086;&#1090;&#1091; &#1076;&#1080;&#1072;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099; &#1074; &#1087;&#1080;&#1082;&#1089;&#1077;&#1083;&#1103;&#1093; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;:</p>
-<pre><code class="language-php">/**
- * @var int
- */
-protected $height = 250;
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">int</span>
+ */</span>
+<span class="hl-keyword">protected</span> $height <span class="hl-operator">=</span> <span class="hl-number">250</span>;
 </code></pre>
 <h2><a href='#cveta' id='cveta'>Цвета</a></h2>
 <p>&#1059;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1077; &#1094;&#1074;&#1077;&#1090;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1073;&#1091;&#1076;&#1091;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1083;&#1103; &#1082;&#1072;&#1078;&#1076;&#1086;&#1075;&#1086; &#1086;&#1090;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1090;&#1080;&#1087;&#1072; &#1077;&#1076;&#1080;&#1085;&#1080;&#1094; &#1080;&#1079;&#1084;&#1077;&#1088;&#1077;&#1085;&#1080;&#1103;, &#1074; &#1079;&#1072;&#1074;&#1080;&#1089;&#1080;&#1084;&#1086;&#1089;&#1090;&#1080; &#1086;&#1090; &#1090;&#1080;&#1087;&#1072; &#1076;&#1080;&#1072;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Colors used.
  *
- * @var array
- */
-protected $colors = [
-    '#2274A5',
-    '#F75C03',
-    '#F1C40F',
-    '#D90368',
-    '#00CC66',
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $colors <span class="hl-operator">=</span> [
+    <span class="hl-value">'#2274A5'</span>,
+    <span class="hl-value">'#F75C03'</span>,
+    <span class="hl-value">'#F1C40F'</span>,
+    <span class="hl-value">'#D90368'</span>,
+    <span class="hl-value">'#00CC66'</span>,
 ];
 </code></pre>
 <h2><a href='#eksport-izobrazeniia' id='eksport-izobrazeniia'>Экспорт изображения</a></h2>
 <p>&#1044;&#1080;&#1072;&#1075;&#1088;&#1072;&#1084;&#1084;&#1099;  &#1084;&#1086;&#1078;&#1085;&#1086; &#1101;&#1082;&#1089;&#1087;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1074; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1077; <code>SVG</code>, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1086;&#1085;&#1080; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1102;&#1090;&#1089;&#1103; &#1080;&#1079;&#1085;&#1072;&#1095;&#1072;&#1083;&#1100;&#1085;&#1086;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Определяет, следует ли отображать кнопку экспорта.
  *
- * @var bool
- */
-protected $export = true;
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">protected</span> $export <span class="hl-operator">=</span> <span class="hl-constant">true</span>;
 </code></pre>
 <h2><a href='#grafiki-dlia-modelei' id='grafiki-dlia-modelei'>Графики для моделей</a></h2>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099; &#1087;&#1086;&#1083;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1076;&#1083;&#1103; &#1075;&#1088;&#1072;&#1092;&#1080;&#1082;&#1086;&#1074; &#1091; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090; <code>Chartable</code>:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Orchid\Metrics\Chartable;
-use Orchid\Platform\Models\User as Authenticatable;
+<span class="hl-keyword">use</span> Orchid\Metrics\<span class="hl-type">Chartable</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\Models\<span class="hl-type">User <span class="hl-keyword">as</span> Authenticatable</span>;
 
-class User extends Authenticatable
+<span class="hl-keyword">class</span> <span class="hl-type">User</span> <span class="hl-keyword">extends</span> <span class="hl-template">Authenticatable</span>
 {
-    use Chartable;
+    <span class="hl-keyword">use</span> <span class="hl-type">Chartable</span>;
 
-    // ...
+    <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>&#1069;&#1090;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1085;&#1086;&#1074;&#1099;&#1093; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074; &#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1076;&#1083;&#1103; &#1087;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1103; &#1075;&#1088;&#1072;&#1092;&#1080;&#1082;&#1086;&#1074;:</p>
@@ -533,142 +533,142 @@ class User extends Authenticatable
 </ul>
 <h3><a href='#sgruppirovannye-dannye' id='sgruppirovannye-dannye'>&#1057;&#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;</a></h3>
 <p>&#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1085;&#1091;&#1078;&#1085;&#1086; &#1087;&#1086;&#1089;&#1090;&#1088;&#1086;&#1080;&#1090;&#1100; &#1076;&#1080;&#1072;&#1075;&#1088;&#1072;&#1084;&#1084;&#1091;, &#1087;&#1086;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1102;&#1097;&#1091;&#1102; &#1076;&#1086;&#1083;&#1102; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1074;&#1082;&#1083;&#1102;&#1095;&#1080;&#1083;&#1080; &#1076;&#1074;&#1091;&#1093;&#1092;&#1072;&#1082;&#1090;&#1086;&#1088;&#1085;&#1091;&#1102; &#1072;&#1091;&#1090;&#1077;&#1085;&#1090;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1102;.</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class UsageTwoFactorAuth extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">UsageTwoFactorAuth</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Add a title to the Chart.
      *
-     * @var string
-     */
-    protected $title = 'Usage two-factor authentication';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $title <span class="hl-operator">=</span> <span class="hl-value">'Usage two-factor authentication'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line',
      * 'pie', 'percentage'.
      *
-     * @var string
-     */
-    protected $type = 'pie';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'pie'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
      * The name of the key to fetch it from the query.
      * The results of which will be elements of the chart.
      *
-     * @var string
-     */
-    protected $target = 'userUsageTwoFactorAuth';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $target <span class="hl-operator">=</span> <span class="hl-value">'userUsageTwoFactorAuth'</span>;
 }
 </code></pre>
 <p>&#1058;&#1086;&#1075;&#1076;&#1072; &#1074; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1077; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082;&#1072; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;, &#1073;&#1091;&#1076;&#1077;&#1090; &#1089;&#1083;&#1091;&#1078;&#1080;&#1090;&#1100; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>countForGroup()</code></p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'userUsageTwoFactorAuth' =&gt; User::countForGroup('uses_two_factor_auth')-&gt;toChart(),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'userUsageTwoFactorAuth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countForGroup</span>(<span class="hl-value">'uses_two_factor_auth'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(),
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        UsageTwoFactorAuth::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">UsageTwoFactorAuth</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     ];
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1090;&#1077;&#1082;&#1089;&#1090; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1082;&#1086;&#1074;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1087;&#1077;&#1088;&#1074;&#1099;&#1084; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;&#1086;&#1084; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1102; &#1079;&#1072;&#1084;&#1099;&#1082;&#1072;&#1085;&#1080;&#1103;:</p>
-<pre><code class="language-php">User::countForGroup('uses_two_factor_auth')-&gt;toChart(static function (bool $title) {
-    return $title ? 'Enabled' : 'Disabled';
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countForGroup</span>(<span class="hl-value">'uses_two_factor_auth'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-keyword">static</span> <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-keyword">bool</span> $title</span>) {
+    <span class="hl-keyword">return</span> $title <span class="hl-operator">?</span> <span class="hl-value">'Enabled'</span> : <span class="hl-value">'Disabled'</span>;
 });
 </code></pre>
 <h3><a href='#vremennoi-period' id='vremennoi-period'>&#1042;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081; &#1087;&#1077;&#1088;&#1080;&#1086;&#1076;</a></h3>
 <p>&#1055;&#1086;&#1083;&#1091;&#1095;&#1072;&#1077;&#1090; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1079;&#1072; &#1082;&#1072;&#1082;&#1086;&#1081;-&#1083;&#1080;&#1073;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086;&#1081; &#1087;&#1077;&#1088;&#1080;&#1086;&#1076;, &#1087;&#1088;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1103; &#1086;&#1090;&#1089;&#1091;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103;.</p>
 <p>&#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1074;&#1099;&#1074;&#1077;&#1076;&#1077;&#1084; &#1075;&#1088;&#1072;&#1092;&#1080;&#1082; &#1085;&#1086;&#1074;&#1099;&#1093; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1081; &#1080; &#1088;&#1086;&#1083;&#1077;&#1081;:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Layouts\Chart;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
-class Members extends Chart
+<span class="hl-keyword">class</span> <span class="hl-type">Members</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Add a title to the Chart.
      *
-     * @var string
-     */
-    protected $title = 'New members';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $title <span class="hl-operator">=</span> <span class="hl-value">'New members'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line',
      * 'pie', 'percentage'.
      *
-     * @var string
-     */
-    protected $type = 'line';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'line'</span>;
 
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
      * The name of the key to fetch it from the query.
      * The results of which will be elements of the chart.
      *
-     * @var string
-     */
-    protected $target = 'members';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $target <span class="hl-operator">=</span> <span class="hl-value">'members'</span>;
 }
 </code></pre>
 <p>&#1058;&#1086;&#1075;&#1076;&#1072; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1073;&#1091;&#1076;&#1077;&#1090;:</p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'members' =&gt; [
-            User::countByDays()-&gt;toChart('Users'),
-            Role::countByDays()-&gt;toChart('Roles'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'members'</span> <span class="hl-operator">=&gt;</span> [
+            <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>),
+            <span class="hl-type">Role</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Roles'</span>),
         ]
     ];
 }
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Members::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Members</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     ];
 }
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1073;&#1091;&#1076;&#1091;&#1090; &#1074;&#1079;&#1103;&#1090;&#1099; &#1079;&#1072; &#1086;&#1076;&#1080;&#1085; &#1084;&#1077;&#1089;&#1103;&#1094;, &#1076;&#1083;&#1103; &#1079;&#1072;&#1076;&#1072;&#1085;&#1080;&#1103; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1077;&#1088;&#1080;&#1086;&#1076;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;&#1099;:</p>
-<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
-$end = Carbon::now()-&gt;subDay(1);
+<pre><code data-lang="php" class="notranslate">$start <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">7</span>);
+$end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">1</span>);
 
-User::countByDays($start, $end)-&gt;toChart('Users');
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>);
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1091;&#1102;&#1090;&#1089;&#1103; &#1087;&#1086; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1077; <code>created_at</code>. &#1044;&#1083;&#1103; &#1080;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1103; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;:</p>
-<pre><code class="language-php">$start = Carbon::now()-&gt;subDay(7);
-$end = Carbon::now()-&gt;subDay(1);
+<pre><code data-lang="php" class="notranslate">$start <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">7</span>);
+$end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">1</span>);
 
-User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users');
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end, <span class="hl-value">'updated_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>);
 </code></pre>
 <h2><a href='#tipy-zaprosov' id='tipy-zaprosov'>Типы запросов</a></h2>
 <p>&#1052;&#1077;&#1090;&#1088;&#1080;&#1082;&#1080; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1081; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; &#1085;&#1077; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1089; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084;  <code>countByDays</code>.&#1042;&#1099; &#1090;&#1072;&#1082;&#1078;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1085;&#1086;&#1078;&#1077;&#1089;&#1090;&#1074;&#1086; &#1076;&#1088;&#1091;&#1075;&#1080;&#1093; &#1072;&#1075;&#1088;&#1077;&#1075;&#1072;&#1090;&#1085;&#1099;&#1093; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1081; &#1087;&#1088;&#1080; &#1087;&#1086;&#1089;&#1090;&#1088;&#1086;&#1077;&#1085;&#1080;&#1080; &#1084;&#1077;&#1090;&#1088;&#1080;&#1082;&#1080;.</p>
 <h3><a href='#srednee' id='srednee'>Среднее</a></h3>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076;  <code>average</code> &#1084;&#1086;&#1078;&#1077;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1083;&#1103; &#1074;&#1099;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1080;&#1103; &#1089;&#1088;&#1077;&#1076;&#1085;&#1077;&#1075;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1076;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1072;.</p>
-<pre><code class="language-php">Order::averageByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">averageByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <h3><a href='#summa' id='summa'>Сумма</a></h3>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>sum</code> &#1084;&#1086;&#1078;&#1077;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1083;&#1103; &#1074;&#1099;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1080;&#1103; &#1089;&#1091;&#1084;&#1084;&#1099; &#1076;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1072;:</p>
-<pre><code class="language-php">Order::sumByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">sumByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <h3><a href='#minimum' id='minimum'>Минимум</a></h3>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>min</code> method may be used to calculate the min of a given column:</p>
-<pre><code class="language-php">Order::minByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">minByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 <h3><a href='#maksimum' id='maksimum'>Максимум</a></h3>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>max</code> &#1084;&#1077;&#1090;&#1086;&#1076; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1076;&#1083;&#1103; &#1074;&#1099;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1080;&#1103; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1091;&#1084;&#1072; &#1079;&#1072;&#1076;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1072;:</p>
-<pre><code class="language-php">Order::maxByDays('price')-&gt;toChart('Order'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">maxByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>
 </body>
                         
@@ -743,7 +743,7 @@ User::countByDays($start, $end, 'updated_at')-&gt;toChart('Users');
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

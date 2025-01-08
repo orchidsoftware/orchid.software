@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Элементы формы | Orchid - Laravel Admin Panel</title>
@@ -511,39 +511,39 @@
 <p>&#1071;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1086;&#1076;&#1085;&#1080;&#1084; &#1080;&#1079; &#1088;&#1072;&#1079;&#1085;&#1086;&#1089;&#1090;&#1086;&#1088;&#1086;&#1085;&#1085;&#1080;&#1093; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074; &#1092;&#1086;&#1088;&#1084;&#1099; &#1080; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1088;&#1072;&#1079;&#1085;&#1099;&#1077; &#1095;&#1072;&#1089;&#1090;&#1080; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1072; &#1080; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1080;&#1074;&#1072;&#1090;&#1100; &#1074;&#1079;&#1072;&#1080;&#1084;&#1086;&#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1077; &#1089; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1084;. &#1043;&#1083;&#1072;&#1074;&#1085;&#1099;&#1084; &#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1084; &#1087;&#1088;&#1077;&#1076;&#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085; &#1076;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1099;&#1093; &#1087;&#1086;&#1083;&#1077;&#1081;.</p>
 <p><picture alt='Input'><img src="/img/fields/input.png" alt="Input"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-Input::make('name');
+<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>);
 </code></pre>
 <h3><a href='#polzovatelskoe-oformlenie' id='polzovatelskoe-oformlenie'>Пользовательское оформление</a></h3>
 <p>&#1055;&#1091;&#1089;&#1090;&#1099;&#1077; &#1080; &#1085;&#1077;&#1074;&#1099;&#1088;&#1072;&#1079;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103; &#1076;&#1083;&#1103; &#1074;&#1074;&#1086;&#1076;&#1072; &#1084;&#1086;&#1075;&#1091;&#1090; &#1079;&#1072;&#1087;&#1091;&#1090;&#1099;&#1074;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;, &#1085;&#1086; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1087;&#1086;&#1084;&#1086;&#1095;&#1100;, &#1091;&#1082;&#1072;&#1079;&#1072;&#1074; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1086;&#1082;.</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;title('First name');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First name'</span>);
 </code></pre>
 <p>&#1050;&#1086;&#1075;&#1076;&#1072; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1073;&#1086;&#1083;&#1077;&#1077; &#1087;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1086; &#1086;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100; &#1087;&#1088;&#1077;&#1076;&#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1087;&#1086;&#1083;&#1103;, &#1090;&#1086;&#1075;&#1076;&#1072; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1087;&#1086;&#1076;&#1089;&#1082;&#1072;&#1079;&#1082;&#1091;:</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;help('What is your name?');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'What is your name?'</span>);
 </code></pre>
 <p>&#1045;&#1089;&#1083;&#1080; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077; &#1087;&#1086;&#1083;&#1103; &#1086;&#1095;&#1077;&#1085;&#1100; &#1089;&#1087;&#1077;&#1094;&#1080;&#1092;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1077; &#1080; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1073;&#1086;&#1083;&#1100;&#1096;&#1086;&#1077; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1090;&#1091;&#1083;&#1090;&#1080;&#1087;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1086;&#1082;&#1072;&#1079;&#1072;&#1085; &#1074; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1077; &#1074;&#1089;&#1087;&#1083;&#1099;&#1074;&#1072;&#1102;&#1097;&#1077;&#1075;&#1086; &#1086;&#1082;&#1085;&#1072;:</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;popover('Tooltip - hint that user opens himself.');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">popover</span>(<span class="hl-value">'Tooltip - hint that user opens himself.'</span>);
 </code></pre>
 <p>&#1043;&#1086;&#1088;&#1080;&#1079;&#1086;&#1085;&#1090;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077; &#1080;&#1083;&#1080; &#1074;&#1077;&#1088;&#1090;&#1080;&#1082;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;:</p>
-<pre><code class="language-php">Input::make('name')-&gt;vertical();
-Input::make('name')-&gt;horizontal();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">vertical</span>();
+<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">horizontal</span>();
 </code></pre>
 <h3><a href='#obiazatelnoe-dlia-zapolneniia' id='obiazatelnoe-dlia-zapolneniia'>Обязательное для заполнения</a></h3>
 <p>&#1048;&#1085;&#1086;&#1075;&#1076;&#1072; &#1074;&#1072;&#1084; &#1084;&#1086;&#1078;&#1077;&#1090; &#1087;&#1086;&#1090;&#1088;&#1077;&#1073;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1077; &#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1084; &#1082; &#1079;&#1072;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1102;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1074;&#1099;&#1079;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>required</code>:</p>
-<pre><code class="language-php">Input::make('name')
-    -&gt;type('text')
-    -&gt;required();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>();
 </code></pre>
 <h3><a href='#skrytie-polei' id='skrytie-polei'>Скрытие полей</a></h3>
 <p>&#1048;&#1085;&#1086;&#1075;&#1076;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1086; &#1080;&#1083;&#1080; &#1085;&#1072; &#1087;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1085;&#1086;&#1081; &#1086;&#1089;&#1085;&#1086;&#1074;&#1077; &#1089;&#1082;&#1088;&#1099;&#1090;&#1100; &#1087;&#1086;&#1083;&#1077; &#1080;&#1079; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1086;&#1075;&#1086; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1072;. &#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1089;&#1082;&#1088;&#1099;&#1090;&#1100; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1092;&#1086;&#1088;&#1084;&#1099;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>canSee</code> &#1080; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1074; &#1085;&#1077;&#1075;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; <code>false</code>:</p>
-<pre><code class="language-php">Input::make('name')-&gt;canSee(false);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">false</span>);
 </code></pre>
 <p>&#1045;&#1089;&#1083;&#1080; &#1078;&#1077; &#1042;&#1099; &#1093;&#1086;&#1090;&#1080;&#1090;&#1077; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100; &#1089;&#1082;&#1088;&#1099;&#1090;&#1099;&#1081; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1089;&#1085;&#1086;&#1074;&#1072;, &#1090;&#1086; &#1085;&#1091;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>canSee</code> &#1080; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1074; &#1085;&#1077;&#1075;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; <code>true</code>:</p>
-<pre><code class="language-php">Input::make('name')-&gt;canSee(true);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">true</span>);
 </code></pre>
 <blockquote>
 <p>&#1047;&#1072;&#1084;&#1077;&#1090;&#1100;&#1090;&#1077;, &#1084;&#1085;&#1086;&#1075;&#1080;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099;, &#1090;&#1072;&#1082;&#1080;&#1077; &#1082;&#1072;&#1082; <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> &#1080; &#1084;&#1085;&#1086;&#1075;&#1080;&#1077; &#1076;&#1088;&#1091;&#1075;&#1080;&#1077;, &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099; &#1087;&#1086;&#1095;&#1090;&#1080; &#1074; &#1082;&#1072;&#1078;&#1076;&#1086;&#1084; <code>&#1087;&#1086;&#1083;&#1077;</code> &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1099;.</p>
@@ -554,52 +554,52 @@ Input::make('name')-&gt;horizontal();
 <p><strong>&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;</strong>. &#1055;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1082;&#1072; &#1085;&#1086;&#1074;&#1099;&#1093; HTML5 &#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090;&#1086;&#1074; &#1087;&#1086;&#1083;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1079;&#1072;&#1074;&#1080;&#1089;&#1080;&#1090; &#1086;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1084;&#1086;&#1075;&#1086; &#1073;&#1088;&#1072;&#1091;&#1079;&#1077;&#1088;&#1072;.</p>
 </blockquote>
 <p>&#1058;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077;. &#1055;&#1088;&#1077;&#1076;&#1085;&#1072;&#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1086; &#1076;&#1083;&#1103; &#1074;&#1074;&#1086;&#1076;&#1072; &#1089;&#1080;&#1084;&#1074;&#1086;&#1083;&#1086;&#1074; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1082;&#1083;&#1072;&#1074;&#1080;&#1072;&#1090;&#1091;&#1088;&#1099;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('text');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>);
 </code></pre>
 <p>&#1055;&#1086;&#1083;&#1077; &#1076;&#1083;&#1103; &#1074;&#1074;&#1086;&#1076;&#1072; &#1080;&#1084;&#1077;&#1085;&#1080; &#1092;&#1072;&#1081;&#1083;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1087;&#1077;&#1088;&#1077;&#1089;&#1099;&#1083;&#1072;&#1077;&#1090;&#1089;&#1103; &#1085;&#1072; &#1089;&#1077;&#1088;&#1074;&#1077;&#1088;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('file');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'file'</span>);
 </code></pre>
 <p>&#1057;&#1082;&#1088;&#1099;&#1090;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('hidden');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'hidden'</span>);
 </code></pre>
 <p>&#1042;&#1080;&#1076;&#1078;&#1077;&#1090; &#1076;&#1083;&#1103; &#1074;&#1099;&#1073;&#1086;&#1088;&#1072; &#1094;&#1074;&#1077;&#1090;&#1072;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('color');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'color'</span>);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1072;&#1076;&#1088;&#1077;&#1089;&#1086;&#1074; &#1101;&#1083;&#1077;&#1082;&#1090;&#1088;&#1086;&#1085;&#1085;&#1086;&#1081; &#1087;&#1086;&#1095;&#1090;&#1099;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('email');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'email'</span>);
 </code></pre>
 <p>&#1042;&#1074;&#1086;&#1076; &#1095;&#1080;&#1089;&#1077;&#1083;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('number');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>);
 </code></pre>
 <p>&#1055;&#1086;&#1083;&#1079;&#1091;&#1085;&#1086;&#1082; &#1076;&#1083;&#1103; &#1074;&#1099;&#1073;&#1086;&#1088;&#1072; &#1095;&#1080;&#1089;&#1077;&#1083; &#1074; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1084; &#1076;&#1080;&#1072;&#1087;&#1072;&#1079;&#1086;&#1085;&#1077;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('range');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'range'</span>);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1074;&#1077;&#1073;-&#1072;&#1076;&#1088;&#1077;&#1089;&#1086;&#1074;.</p>
-<pre><code class="language-php">Input::make('name')-&gt;type('url');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'url'</span>);
 </code></pre>
 <p>&#1041;&#1086;&#1083;&#1077;&#1077; &#1087;&#1086;&#1076;&#1088;&#1086;&#1073;&#1085;&#1086; &#1086; &#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090;&#1077; <code>type</code> &#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1079;&#1085;&#1072;&#1090;&#1100; &#1085;&#1072; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">&#1089;&#1072;&#1081;&#1090;&#1077; Mozilla</a>.</p>
 <h3><a href='#maska-dlia-vvoda-znacenii' id='maska-dlia-vvoda-znacenii'>Маска для ввода значений</a></h3>
 <p>&#1054;&#1090;&#1083;&#1080;&#1095;&#1085;&#1086; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1080;&#1090; &#1077;&#1089;&#1083;&#1080; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1076;&#1086;&#1083;&#1078;&#1085;&#1099; &#1073;&#1099;&#1090;&#1100; &#1079;&#1072;&#1087;&#1080;&#1089;&#1072;&#1085;&#1099; &#1074; &#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1086;&#1084; &#1074;&#1080;&#1076;&#1077;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1048;&#1053;&#1053; &#1080;&#1083;&#1080; &#1085;&#1086;&#1084;&#1077;&#1088; &#1090;&#1077;&#1083;&#1077;&#1092;&#1086;&#1085;&#1072;</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">Input::make('phone')
-    -&gt;mask('(999) 999-9999')
-    -&gt;title('Номер телефона');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'phone'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>(<span class="hl-value">'(999) 999-9999'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Номер телефона'</span>);
 </code></pre>
 <p>&#1042; &#1084;&#1072;&#1089;&#1082;&#1091; &#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; &#1089; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1072;&#1084;&#1080;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">Input::make('price')
-    -&gt;title('Стоимость')
-    -&gt;mask([
-     'mask' =&gt; '999 999 999.99',
-     'numericInput' =&gt; true
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Стоимость'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>([
+     <span class="hl-value">'mask'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'999 999 999.99'</span>,
+     <span class="hl-value">'numericInput'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>
     ]);
 </code></pre>
-<pre><code class="language-php">Input::make('price')
-    -&gt;title('Стоимость')
-    -&gt;mask([
-        'alias' =&gt; 'currency',
-        'prefix' =&gt; ' ',
-        'groupSeparator' =&gt; ' ',
-        'digitsOptional' =&gt; true,
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Стоимость'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>([
+        <span class="hl-value">'alias'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'currency'</span>,
+        <span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">' '</span>,
+        <span class="hl-value">'groupSeparator'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">' '</span>,
+        <span class="hl-value">'digitsOptional'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
     ]);
 </code></pre>
 <p>&#1042;&#1089;&#1077; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099;&#1077; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1099; <em>Inputmask</em> &#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1077;&#1090;&#1100; <a href="https://github.com/RobinHerbots/Inputmask#options">&#1079;&#1076;&#1077;&#1089;&#1100;</a>.</p>
@@ -607,237 +607,237 @@ Input::make('name')-&gt;horizontal();
 <p>&#1055;&#1086;&#1083;&#1077; <code>textarea</code> &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1073;&#1086;&#1081; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1092;&#1086;&#1088;&#1084;&#1099; &#1076;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1086;&#1073;&#1083;&#1072;&#1089;&#1090;&#1080;, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1091;&#1102; &#1084;&#1086;&#1078;&#1085;&#1086; &#1074;&#1074;&#1086;&#1076;&#1080;&#1090;&#1100; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1089;&#1090;&#1088;&#1086;&#1082; &#1090;&#1077;&#1082;&#1089;&#1090;&#1072;.
 &#1042; &#1086;&#1090;&#1083;&#1080;&#1095;&#1080;&#1077; &#1086;&#1090; &#1090;&#1077;&#1075;&#1072; <code>input</code> &#1074; &#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1086;&#1084; &#1087;&#1086;&#1083;&#1077; &#1076;&#1086;&#1087;&#1091;&#1089;&#1090;&#1080;&#1084;&#1086; &#1076;&#1077;&#1083;&#1072;&#1090;&#1100; &#1087;&#1077;&#1088;&#1077;&#1085;&#1086;&#1089;&#1099; &#1089;&#1090;&#1088;&#1086;&#1082;, &#1086;&#1085;&#1080; &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1103;&#1102;&#1090;&#1089;&#1103; &#1087;&#1088;&#1080; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1085;&#1072; &#1089;&#1077;&#1088;&#1074;&#1077;&#1088;.</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">TextArea::make('description');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'description'</span>);
 </code></pre>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1079;&#1072;&#1076;&#1072;&#1090;&#1100; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1089;&#1090;&#1088;&#1086;&#1082; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>rows</code>:</p>
-<pre><code class="language-php">TextArea::make('description')
-    -&gt;rows(5);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'description'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">5</span>);
 </code></pre>
 <h2><a href='#checkbox' id='checkbox'>CheckBox</a></h2>
 <p>&#1069;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1075;&#1088;&#1072;&#1092;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1086;&#1075;&#1086; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1072;, &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1102;&#1097;&#1080;&#1081; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1091;&#1087;&#1088;&#1072;&#1074;&#1083;&#1103;&#1090;&#1100; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1086;&#1084; &#1089; &#1076;&#1074;&#1091;&#1084;&#1103; &#1089;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1103;&#1084;&#1080; &mdash; &#9745; &#1074;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1086; &#1080; &#9744; &#1074;&#1099;&#1082;&#1083;&#1102;&#1095;&#1077;&#1085;&#1086;.</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">CheckBox::make('free')
-    -&gt;value(1)
-    -&gt;title('Free')
-    -&gt;placeholder('Event for free')
-    -&gt;help('Event for free');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">CheckBox</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'free'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-number">1</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Free'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Event for free'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Event for free'</span>);
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1073;&#1088;&#1072;&#1091;&#1079;&#1077;&#1088;&#1099; &#1085;&#1077; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1103;&#1102;&#1090; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1085;&#1077;&#1074;&#1099;&#1073;&#1088;&#1072;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1103;. &#1069;&#1090;&#1086; &#1086;&#1089;&#1083;&#1086;&#1078;&#1085;&#1103;&#1077;&#1090; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1082;&#1091; &#1087;&#1088;&#1086;&#1089;&#1090;&#1099;&#1093; &#1073;&#1091;&#1083;&#1077;&#1074;&#1099;&#1093; &#1090;&#1080;&#1087;&#1086;&#1074;.
 &#1044;&#1083;&#1103; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1077;&#1089;&#1090;&#1100; &#1086;&#1090;&#1076;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076;, &#1087;&#1088;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1080; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; <code>false</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1086;:</p>
-<pre><code class="language-php">CheckBox::make('enabled')
-    -&gt;sendTrueOrFalse();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">CheckBox</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'enabled'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sendTrueOrFalse</span>();
 </code></pre>
 <h2><a href='#select' id='select'>Select</a></h2>
 <p>&#1055;&#1088;&#1086;&#1089;&#1090;&#1086;&#1081; &#1074;&#1099;&#1073;&#1086;&#1088; &#1080;&#1079; &#1089;&#1087;&#1080;&#1089;&#1082;&#1072; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;:</p>
-<pre><code class="language-php">Select::make('select')
-    -&gt;options([
-        'index'   =&gt; 'Index',
-        'noindex' =&gt; 'No index',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'select'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">options</span>([
+        <span class="hl-value">'index'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-value">'Index'</span>,
+        <span class="hl-value">'noindex'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'No index'</span>,
     ])
-    -&gt;title('Select tags')
-    -&gt;help('Allow search bots to index');
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Select tags'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Allow search bots to index'</span>);
 </code></pre>
 <p>&#1056;&#1072;&#1073;&#1086;&#1090;&#1072; &#1089; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082;&#1086;&#1084;:</p>
-<pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'email'</span>);
 </code></pre>
 <p>&#1048;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082; &#1089; &#1091;&#1089;&#1083;&#1086;&#1074;&#1080;&#1077;&#1084;:</p>
-<pre><code class="language-php">Select::make('user')
-    -&gt;fromQuery(User::where('balance', '!=', '0'), 'email');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromQuery</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'balance'</span>, <span class="hl-value">'!='</span>, <span class="hl-value">'0'</span>), <span class="hl-value">'email'</span>);
 </code></pre>
 <p>&#1048;&#1079;&#1084;&#1077;&#1085;&#1077;&#1085;&#1080;&#1077; &#1082;&#1083;&#1102;&#1095;&#1072;:</p>
-<pre><code class="language-php">Select::make('user')
-    -&gt;fromModel(User::class, 'email', 'uuid');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'email'</span>, <span class="hl-value">'uuid'</span>);
 </code></pre>
 <p>&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099; &#1089;&#1080;&#1090;&#1091;&#1072;&#1094;&#1080;&#1080;, &#1082;&#1086;&#1075;&#1076;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1077; &#1086;&#1079;&#1085;&#1072;&#1095;&#1072;&#1077;&#1090;, &#1095;&#1090;&#1086; &#1087;&#1086;&#1083;&#1077; &#1085;&#1077; &#1074;&#1099;&#1073;&#1088;&#1072;&#1085;&#1086;.
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>empty</code>:</p>
-<pre><code class="language-php">// Для массива
-Select::make('user')
-    -&gt;options([
-        1  =&gt; 'Пункт 1',
-        2  =&gt; 'Пункт 2',
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Для массива</span>
+<span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">options</span>([
+        <span class="hl-number">1</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Пункт 1'</span>,
+        <span class="hl-number">2</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Пункт 2'</span>,
     ])
-    -&gt;empty('Не выбрано');
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">empty</span></span>(<span class="hl-value">'Не выбрано'</span>);
 
-// Для источника
-Select::make('user')
-    -&gt;fromModel(User::class, 'name')
-    -&gt;empty('Не выбрано');
+<span class="hl-comment">// Для источника</span>
+<span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">empty</span></span>(<span class="hl-value">'Не выбрано'</span>);
 </code></pre>
 <blockquote>
 <p><strong>&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;</strong>, &#1095;&#1090;&#1086; <code>empty</code> &#1074;&#1099;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1087;&#1086;&#1079;&#1076;&#1085;&#1077;&#1077; &#1079;&#1072;&#1087;&#1086;&#1083;&#1085;&#1103;&#1102;&#1097;&#1080;&#1093; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;, &#1080;&#1085;&#1072;&#1095;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1077;&#1085;&#1085;&#1086;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1077;&#1088;&#1077;&#1079;&#1072;&#1087;&#1080;&#1089;&#1072;&#1085;&#1086;.</p>
 </blockquote>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>empty</code> &#1090;&#1072;&#1082; &#1078;&#1077; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1077;&#1090; &#1080; &#1074;&#1090;&#1086;&#1088;&#1086;&#1081; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;, &#1086;&#1090;&#1074;&#1077;&#1095;&#1072;&#1102;&#1097;&#1080;&#1081; &#1079;&#1072; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077;:</p>
-<pre><code class="language-php">Select::make('user')
-    -&gt;empty('Не выбрано', 0)
-    -&gt;options([
-        1  =&gt; 'Пункт 1',
-        2  =&gt; 'Пункт 2',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">empty</span></span>(<span class="hl-value">'Не выбрано'</span>, <span class="hl-number">0</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">options</span>([
+        <span class="hl-number">1</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Пункт 1'</span>,
+        <span class="hl-number">2</span>  <span class="hl-operator">=&gt;</span> <span class="hl-value">'Пункт 2'</span>,
     ]);
 </code></pre>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
 <p>&#1055;&#1086;&#1083;&#1103; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1087;&#1086;&#1076;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;, &#1101;&#1090;&#1086; &#1093;&#1086;&#1088;&#1086;&#1096;&#1077;&#1077; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1099; &#1089;&#1074;&#1103;&#1079;&#1080;.</p>
-<pre><code class="language-php">Relation::make('idea')
-    -&gt;fromModel(Idea::class, 'name')
-    -&gt;title('Выберите свою идею');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'idea'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Выберите свою идею'</span>);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1084;&#1085;&#1086;&#1078;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1074;&#1099;&#1073;&#1086;&#1088;&#1072; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>multiple()</code></p>
-<pre><code class="language-php">Relation::make('ideas.')
-    -&gt;fromModel(Idea::class, 'name')
-    -&gt;multiple()
-    -&gt;title('Выберите свои идеи');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'ideas.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">multiple</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Выберите свои идеи'</span>);
 </code></pre>
 <blockquote>
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077; &#1085;&#1072; &#1090;&#1086;&#1095;&#1082;&#1091; &#1074; &#1082;&#1086;&#1085;&#1094;&#1077; &#1080;&#1084;&#1077;&#1085;&#1080;. &#1054;&#1085;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1072; &#1076;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1086;&#1078;&#1080;&#1076;&#1072;&#1077;&#1084;&#1086;&#1089;&#1090;&#1100; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074;&#1072;. &#1050;&#1072;&#1082; &#1077;&#1089;&#1083;&#1080; &#1073;&#1099; &#1101;&#1090;&#1086; &#1073;&#1099;&#1083; <code>HTML</code> &#1082;&#1086;&#1076; <code>&lt;input name='ideas[]'&gt;</code></p>
 </blockquote>
 <p>&#1044;&#1083;&#1103; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1080; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1077; &#1085;&#1072; <code>scope</code> &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1074;&#1079;&#1103;&#1090;&#1100; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1072;&#1082;&#1090;&#1080;&#1074;&#1085;&#1099;&#1077;:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
-class Idea extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
 
-    /**
-     * @param Builder $query
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Builder</span> $query
      *
-     * @return Builder
-     */
-    public function scopeActive(Builder $query)
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Builder</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">scopeActive</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $query</span>)
     {
-        return $query-&gt;where('active', true);
+        <span class="hl-keyword">return</span> $query<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
     }
 }
 </code></pre>
-<pre><code class="language-php">Relation::make('idea')
-    -&gt;fromModel(Idea::class, 'name')
-    -&gt;applyScope('active')
-    -&gt;title('Выберите свою идею');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'idea'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyScope</span>(<span class="hl-value">'active'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Выберите свою идею'</span>);
 </code></pre>
 <p>&#1042;&#1099; &#1090;&#1072;&#1082;&#1078;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1099;:</p>
-<pre><code class="language-php">Relation::make('idea')
-    -&gt;fromModel(Idea::class, 'name')
-    -&gt;applyScope('status', 'active')
-    -&gt;title('Выберите свою идею');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'idea'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyScope</span>(<span class="hl-value">'status'</span>, <span class="hl-value">'active'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Выберите свою идею'</span>);
 </code></pre>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1086;&#1076;&#1085;&#1086; &#1080;&#1083;&#1080; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1086; &#1087;&#1086;&#1083;&#1077;&#1081;, &#1087;&#1086; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1084; &#1073;&#1091;&#1076;&#1077;&#1090; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1086;&#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1083;&#1103;&#1090;&#1100;&#1089;&#1103; &#1087;&#1086;&#1080;&#1089;&#1082;:</p>
-<pre><code class="language-php">Relation::make('idea')
-     -&gt;fromModel(Idea::class, 'name')
-     -&gt;searchColumns('author', 'description')
-     -&gt;title('Choose your idea');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'idea'</span>)
+     <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+     <span class="hl-delimeter">-&gt;</span><span class="hl-function">searchColumns</span>(<span class="hl-value">'author'</span>, <span class="hl-value">'description'</span>)
+     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Choose your idea'</span>);
 </code></pre>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1073;&#1091;&#1076;&#1091;&#1090; &#1087;&#1077;&#1088;&#1077;&#1095;&#1080;&#1089;&#1083;&#1077;&#1085;&#1099; &#1074; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1077; &#1087;&#1086;&#1080;&#1089;&#1082;&#1072;, &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; chunk, &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1086;&#1074; &#1087;&#1086;&#1080;&#1089;&#1082;&#1072; &#1074; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1077; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1072;:</p>
-<pre><code class="language-php">Relation::make('users.')
-    -&gt;fromModel(User::class, 'name')
-    -&gt;chunk(20);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">chunk</span>(<span class="hl-number">20</span>);
 </code></pre>
 <p>&#1054;&#1087;&#1094;&#1080;&#1080; &#1074;&#1099;&#1073;&#1086;&#1088;&#1072; &#1084;&#1086;&#1075;&#1091;&#1090; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100; &#1089; &#1074;&#1099;&#1095;&#1080;&#1089;&#1083;&#1103;&#1077;&#1084;&#1099;&#1084;&#1080; &#1087;&#1086;&#1083;&#1103;&#1084;&#1080;, &#1085;&#1086; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1076;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1072;, &#1087;&#1086;&#1080;&#1089;&#1082; &#1073;&#1091;&#1076;&#1077;&#1090; &#1087;&#1088;&#1086;&#1080;&#1089;&#1093;&#1086;&#1076;&#1080;&#1090;&#1100; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1087;&#1086; &#1086;&#1076;&#1085;&#1086;&#1081; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1077; &#1074; &#1073;&#1072;&#1079;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076; <code>displayAppend</code>.</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
-class User extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">User</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    public function getFullAttribute(): string
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">getFullAttribute</span>(): <span class="hl-keyword">string</span>
     {
-        return sprintf('%s (%s)', $this-&gt;name, $this-&gt;email);
+        <span class="hl-keyword">return</span> <span class="hl-function">sprintf</span>(<span class="hl-value">'%s (%s)'</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">email</span>);
     }
 }
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1087;&#1086;&#1083;&#1103; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;:</p>
-<pre><code class="language-php">Relation::make('users.')
-    -&gt;fromModel(User::class, 'name')
-    -&gt;displayAppend('full')
-    -&gt;multiple()
-    -&gt;title('Select users');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">displayAppend</span>(<span class="hl-value">'full'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">multiple</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Select users'</span>);
 </code></pre>
 <h2><a href='#datetime' id='datetime'>DateTime</a></h2>
 <p>&#1055;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1074;&#1099;&#1073;&#1088;&#1072;&#1090;&#1100; &#1076;&#1072;&#1090;&#1091; &#1080; &#1074;&#1088;&#1077;&#1084;&#1103;.</p>
 <p><picture alt='Datatime'><img src="/img/ui/datatime.png" alt="Datatime"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>);
 </code></pre>
 <p>&#1056;&#1072;&#1079;&#1088;&#1077;&#1096;&#1080;&#1090;&#1100; &#1087;&#1088;&#1103;&#1084;&#1086;&#1081; &#1074;&#1074;&#1086;&#1076;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;allowInput();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">allowInput</span>();
 </code></pre>
 <p><strong>&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;</strong>, &#1095;&#1090;&#1086; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1082;&#1072; &#1087;&#1086;&#1083;&#1103; &#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1084; &#1084;&#1086;&#1078;&#1077;&#1090; &#1073;&#1099;&#1090;&#1100; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1087;&#1088;&#1080; &#1091;&#1089;&#1083;&#1086;&#1074;&#1080;&#1080; &#1087;&#1088;&#1103;&#1084;&#1086;&#1075;&#1086; &#1074;&#1074;&#1086;&#1076;&#1072;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;allowInput()
-    -&gt;required();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">allowInput</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>();
 </code></pre>
 <p>&#1060;&#1086;&#1088;&#1084;&#1072;&#1090; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;format('Y-m-d');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">format</span>(<span class="hl-value">'Y-m-d'</span>);
 </code></pre>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1076;&#1083;&#1103; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103; &#1074; 24-&#1086;&#1084; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1077;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening date')
-    -&gt;format24hr();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">format24hr</span>();
 </code></pre>
 <p>&#1050;&#1072;&#1083;&#1077;&#1085;&#1076;&#1072;&#1088;&#1100; &#1089;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1077;&#1084;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening time')
-    -&gt;enableTime();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening time'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">enableTime</span>();
 </code></pre>
 <p>&#1042;&#1099;&#1073;&#1086;&#1088; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080;:</p>
-<pre><code class="language-php">DateTimer::make('open')
-    -&gt;title('Opening time')
-    -&gt;noCalendar()
-    -&gt;format('h:i K');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening time'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">noCalendar</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">format</span>(<span class="hl-value">'h:i K'</span>);
 </code></pre>
 <h2><a href='#daterange' id='daterange'>DateRange</a></h2>
 <p>&#1055;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1074;&#1099;&#1073;&#1088;&#1072;&#1090;&#1100; &#1076;&#1080;&#1072;&#1087;&#1072;&#1079;&#1086;&#1085; &#1076;&#1072;&#1090;&#1099; (&#1080; &#1074;&#1088;&#1077;&#1084;&#1077;&#1085;&#1080;).</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">DateRange::make('open')
-    -&gt;title('Opening between');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateRange</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening between'</span>);
 </code></pre>
 <h2><a href='#timezone' id='timezone'>TimeZone</a></h2>
 <p>&#1055;&#1086;&#1083;&#1077; &#1076;&#1083;&#1103; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086;&#1075;&#1086; &#1074;&#1099;&#1073;&#1086;&#1088;&#1072; &#1095;&#1072;&#1089;&#1086;&#1074;&#1086;&#1075;&#1086; &#1087;&#1086;&#1103;&#1089;&#1072;:</p>
-<pre><code class="language-php">TimeZone::make('time');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TimeZone</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'time'</span>);
 </code></pre>
 <p>&#1059;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1085;&#1082;&#1088;&#1077;&#1090;&#1085;&#1099;&#1093; &#1095;&#1072;&#1089;&#1086;&#1074;&#1099;&#1093; &#1087;&#1086;&#1103;&#1089;&#1086;&#1074; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102;:</p>
-<pre><code class="language-php">use DateTimeZone;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> <span class="hl-type">DateTimeZone</span>;
 
-TimeZone::make('time')
-    -&gt;listIdentifiers(DateTimeZone::ALL); 
+<span class="hl-type">TimeZone</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'time'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">listIdentifiers</span>(<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ALL</span>); 
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1077;&#1090; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; <code>DateTimeZone::ALL</code>, &#1085;&#1086; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1099; &#1080; &#1076;&#1088;&#1091;&#1075;&#1080;&#1077;:</p>
-<pre><code class="language-php">DateTimeZone::AFRICA;
-DateTimeZone::AMERICA;
-DateTimeZone::ANTARCTICA;
-DateTimeZone::ARCTIC;
-DateTimeZone::ASIA;
-DateTimeZone::ATLANTIC;
-DateTimeZone::AUSTRALIA;
-DateTimeZone::EUROPE;
-DateTimeZone::INDIAN;
-DateTimeZone::PACIFIC;
-DateTimeZone::UTC;
-DateTimeZone::ALL_WITH_BC;
-DateTimeZone::PER_COUNTRY;
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">AFRICA</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">AMERICA</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ANTARCTICA</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ARCTIC</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ASIA</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ATLANTIC</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">AUSTRALIA</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">EUROPE</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">INDIAN</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">PACIFIC</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">UTC</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ALL_WITH_BC</span>;
+<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">PER_COUNTRY</span>;
 </code></pre>
 <p>&#1057; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077;&#1084; &#1087;&#1077;&#1088;&#1077;&#1084;&#1077;&#1085;&#1085;&#1099;&#1093; &#1079;&#1086;&#1085; &#1084;&#1086;&#1078;&#1085;&#1086; &#1086;&#1079;&#1085;&#1072;&#1082;&#1086;&#1084;&#1080;&#1090;&#1100;&#1089;&#1103; &#1074; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; <a href="https://www.php.net/manual/ru/class.datetimezone.php">PHP</a>.</p>
 <h2><a href='#html-redaktor-quill' id='html-redaktor-quill'>HTML редактор Quill</a></h2>
 <p>&#1058;&#1072;&#1082;&#1086;&#1081; &#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1086;&#1088; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1074;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1090;&#1100; &#1088;&#1080;&#1089;&#1091;&#1085;&#1082;&#1080;, &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1099;, &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1090;&#1100; &#1089;&#1090;&#1080;&#1083;&#1080; &#1086;&#1092;&#1086;&#1088;&#1084;&#1083;&#1077;&#1085;&#1080;&#1103; &#1090;&#1077;&#1082;&#1089;&#1090;&#1072;, &#1074;&#1080;&#1076;&#1077;&#1086;.</p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">Quill::make('html');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>);
 </code></pre>
 <p>&#1044;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1086; 6 &#1075;&#1088;&#1091;&#1087;&#1087; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1074; &#1091;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103;:</p>
-<pre><code class="language-php">Quill::make('html')
-    -&gt;toolbar(["text", "color", "header", "list", "format", "media"]);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">toolbar</span>([<span class="hl-value">"text"</span>, <span class="hl-value">"color"</span>, <span class="hl-value">"header"</span>, <span class="hl-value">"list"</span>, <span class="hl-value">"format"</span>, <span class="hl-value">"media"</span>]);
 </code></pre>
 <p>&#1052;&#1086;&#1078;&#1085;&#1086; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1076;&#1086;&#1087;&#1086;&#1083;&#1085;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1077; &#1087;&#1083;&#1072;&#1075;&#1080;&#1085;&#1099; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086;&#1075;&#1086; Javascript &#1092;&#1072;&#1081;&#1083;&#1072;:</p>
-<pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
-    // Object for registering plugins
-    event.detail.quill;
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+    <span class="hl-comment">// Object for registering plugins</span>
+    event.<span class="hl-property2">detail</span>.<span class="hl-property2">quill</span>;
 
-    // Parameter object for initialization
-    event.detail.options;
+    <span class="hl-comment">// Parameter object for initialization</span>
+    event.<span class="hl-property2">detail</span>.<span class="hl-property2">options</span>;
 });
 </code></pre>
 <blockquote>
@@ -845,21 +845,21 @@ DateTimeZone::PER_COUNTRY;
 </blockquote>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1076;&#1083;&#1103; <a href="https://github.com/benwinding/quill-image-compress">quill-image-compress</a>:</p>
 <p>&#1042; &#1092;&#1072;&#1081;&#1083;&#1077; <code>config/platform.php</code> &#1076;&#1086;&#1073;&#1072;&#1074;&#1100;&#1090;&#1077; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1077;&#1077; &#1074; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; <code>resource.scripts</code> :</p>
-<pre><code>"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
-"/js/admin/quill.imagecropper.js",
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js"</span>,
+<span class="hl-value">"/js/admin/quill.imagecropper.js"</span>,
 </code></pre>
 <p>&#1042; &#1076;&#1080;&#1088;&#1077;&#1082;&#1090;&#1086;&#1088;&#1080;&#1080; <code>public/js/admin</code> &#1089;&#1086;&#1079;&#1076;&#1072;&#1081;&#1090;&#1077; &#1092;&#1072;&#1081;&#1083; <code>quill.imagecropper.js</code> &#1089;&#1086; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1084; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1084;&#1099;&#1084;:</p>
-<pre><code class="language-js">document.addEventListener('orchid:quill', (event) =&gt; {
-    // Object for registering plugins
-    event.detail.quill.register("modules/imageCompressor", imageCompressor);
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+    <span class="hl-comment">// Object for registering plugins</span>
+    event.<span class="hl-property2">detail</span>.<span class="hl-property2">quill</span>.<span class="hl-property2"><span class="hl-function">register</span></span>("modules/imageCompressor", imageCompressor);
 
-    // Parameter object for initialization
-    event.detail.options.modules = {
+    <span class="hl-comment">// Parameter object for initialization</span>
+    event.<span class="hl-property2">detail</span>.<span class="hl-property2">options</span>.<span class="hl-property2">modules</span> <span class="hl-operator">=</span> {
          imageCompressor: {
-            quality: 0.9,
-            maxWidth: 1000, // default
-            maxHeight: 1000, // default
-            imageType: 'image/jpeg'
+            quality: <span class="hl-number">0</span>.<span class="hl-property2"><span class="hl-number">9</span></span>,
+            maxWidth: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
+            maxHeight: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
+            imageType: <span class="hl-value">'image/jpeg'</span>
         }
     };
 });
@@ -869,38 +869,38 @@ DateTimeZone::PER_COUNTRY;
 <p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture>
 <picture alt='Markdown2'><img src="/img/ui/markdown2.png" alt="Markdown2"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">SimpleMDE::make('markdown');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">SimpleMDE</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'markdown'</span>);
 </code></pre>
 <h2><a href='#matrix' id='matrix'>Matrix</a></h2>
 <p>&#1055;&#1086;&#1083;&#1077; &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1091;&#1076;&#1086;&#1073;&#1085;&#1099;&#1081; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089; &#1076;&#1083;&#1103; &#1088;&#1077;&#1076;&#1072;&#1082;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1087;&#1083;&#1086;&#1089;&#1082;&#1086;&#1081; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1099;.
 &#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1093;&#1088;&#1072;&#1085;&#1080;&#1090;&#1100; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102; &#1074;&#1085;&#1091;&#1090;&#1088;&#1080; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1072; &#1090;&#1080;&#1087;&#1072; JSON:</p>
-<pre><code class="language-php">Matrix::make('options')
-    -&gt;columns([
-        'Attribute',
-        'Value',
-        'Units',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'options'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([
+        <span class="hl-value">'Attribute'</span>,
+        <span class="hl-value">'Value'</span>,
+        <span class="hl-value">'Units'</span>,
     ])
 </code></pre>
 <p>&#1053;&#1077; &#1074;&#1089;&#1077;&#1075;&#1076;&#1072; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1089;&#1090;&#1086;&#1083;&#1073;&#1094;&#1086;&#1074; &#1084;&#1086;&#1075;&#1091;&#1090; &#1089;&#1086;&#1074;&#1087;&#1072;&#1076;&#1072;&#1090;&#1100; &#1089; &#1090;&#1077;&#1084;, &#1095;&#1090;&#1086; &#1085;&#1091;&#1078;&#1085;&#1086; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1072;&#1090;&#1100; &#1074; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1082;&#1072;&#1093;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1085;&#1072;&#1087;&#1080;&#1089;&#1072;&#1090;&#1100;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; &#1082;&#1083;&#1102;&#1095;&#1080;:</p>
-<pre><code class="language-php">Matrix::make('options')
-    -&gt;columns([
-        'Attribute' =&gt; 'attr',
-        'Value' =&gt; 'product_value',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'options'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([
+        <span class="hl-value">'Attribute'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'attr'</span>,
+        <span class="hl-value">'Value'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'product_value'</span>,
     ])
 </code></pre>
 <p>&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1077; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1072; &#1089;&#1090;&#1088;&#1086;&#1082;, &#1087;&#1088;&#1080; &#1076;&#1086;&#1089;&#1090;&#1080;&#1078;&#1077;&#1085;&#1080;&#1080; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1082;&#1085;&#1086;&#1087;&#1082;&#1072; &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1085;&#1077; &#1073;&#1091;&#1076;&#1077;&#1090; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1072;:</p>
-<pre><code class="language-php">Matrix::make('options')
-    -&gt;columns(['id', 'name'])
-    -&gt;maxRows(10)
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'options'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([<span class="hl-value">'id'</span>, <span class="hl-value">'name'</span>])
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxRows</span>(<span class="hl-number">10</span>)
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1103;&#1095;&#1077;&#1081;&#1082;&#1080; &#1080;&#1084;&#1077;&#1077;&#1090; &#1087;&#1086;&#1083;&#1077; textarea, &#1085;&#1086; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100;
 &#1077;&#1075;&#1086; &#1085;&#1072; &#1089;&#1074;&#1086;&#1080; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1087;&#1086;&#1083;&#1103; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1084; &#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1084;:</p>
-<pre><code class="language-php">Matrix::make('users')
-    -&gt;title('Users list')
-    -&gt;columns(['id', 'name'])
-    -&gt;fields([
-        'id'   =&gt; Input::make()-&gt;type('number'),
-        'name' =&gt; TextArea::make(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Users list'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([<span class="hl-value">'id'</span>, <span class="hl-value">'name'</span>])
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fields</span>([
+        <span class="hl-value">'id'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
+        <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(),
     ]),
 </code></pre>
 <blockquote>
@@ -910,11 +910,11 @@ DateTimeZone::PER_COUNTRY;
 <p>&#1055;&#1086;&#1083;&#1077; &#1076;&#1083;&#1103; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1085;&#1086;&#1075;&#1086; &#1082;&#1086;&#1076;&#1072; &#1089; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1087;&#1086;&#1076;&#1089;&#1074;&#1077;&#1090;&#1082;&#1080;.</p>
 <p><picture alt='Code'><img src="/img/ui/code.png" alt="Code"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">Code::make('code');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Code</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'code'</span>);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; &#1087;&#1086;&#1076;&#1094;&#1074;&#1077;&#1090;&#1082;&#1080; &#1082;&#1086;&#1076;&#1072; &#1087;&#1086;&#1076; &#1082;&#1086;&#1085;&#1082;&#1088;&#1077;&#1090;&#1085;&#1099;&#1081; &#1103;&#1079;&#1099;&#1082; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>language()</code>.</p>
-<pre><code class="language-php"> Code::make('code')
-     -&gt;language(Code::CSS);
+<pre><code data-lang="php" class="notranslate"> <span class="hl-type">Code</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'code'</span>)
+     <span class="hl-delimeter">-&gt;</span><span class="hl-function">language</span>(<span class="hl-type">Code</span><span class="hl-delimeter">::</span><span class="hl-constant">CSS</span>);
 </code></pre>
 <p>&#1044;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1077; &#1103;&#1079;&#1099;&#1082;&#1080;:</p>
 <ul>
@@ -924,13 +924,13 @@ DateTimeZone::PER_COUNTRY;
 <li>JavaScript &ndash; <code>javascript</code>, <code>js</code></li>
 </ul>
 <p>&#1055;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1080;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1072; &#1089;&#1090;&#1088;&#1086;&#1082;:</p>
-<pre><code class="language-php">Code::make('code')
-    -&gt;lineNumbers();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Code</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">lineNumbers</span>();
 </code></pre>
 <!--
 ## Picture
 
-&#1055;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;.
+Позволяет загружать изображение.
 
 
 &#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:
@@ -939,171 +939,171 @@ Picture::make('picture');
 ```  
 
 
-&#1055;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1080;&#1074;&#1072;&#1102;&#1090;&#1089;&#1103; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;&#1099;&#1077; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1099; Laravel:
+Поддерживаются файловые системы Laravel:
 
 ```php
 Picture::make('picture')
     ->storage('s3');
 ```
 
-&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; `acceptedFiles`, &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1090;&#1080;&#1087;&#1099; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1076;&#1086;&#1083;&#1078;&#1085;&#1086; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1077;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:
+Используйте метод `acceptedFiles`, чтобы определить типы файлов, которые должно принимать поле, например:
 
 ```php
 Picture::make('picture')
     ->acceptedFiles('.jpg');
 ```
 
-&#1055;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1077;&#1084;&#1072;&#1103; &#1089;&#1090;&#1088;&#1086;&#1082;&#1072; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1073;&#1086;&#1081; &#1089;&#1087;&#1080;&#1089;&#1086;&#1082;   [&#1091;&#1085;&#1080;&#1082;&#1072;&#1083;&#1100;&#1085;&#1099;&#1093; &#1089;&#1087;&#1077;&#1094;&#1080;&#1092;&#1080;&#1082;&#1072;&#1090;&#1086;&#1088;&#1086;&#1074; &#1090;&#1080;&#1087;&#1086;&#1074; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers), &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1081; &#1079;&#1072;&#1087;&#1103;&#1090;&#1099;&#1084;&#1080;.
+Передаваемая строка представляет собой список   [уникальных спецификаторов типов файлов](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers), разделённый запятыми.
 -->
 <h2><a href='#cropper' id='cropper'>Cropper</a></h2>
 <p>&#1055;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077; &#1080; &#1086;&#1073;&#1088;&#1077;&#1079;&#1072;&#1090;&#1100; &#1076;&#1086; &#1085;&#1091;&#1078;&#1085;&#1086;&#1075;&#1086; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1072;.</p>
 <p><picture alt='Cropper'><img src="/img/fields/cropper.png" alt="Cropper"></picture></p>
 <p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080;:</p>
-<pre><code class="language-php">Cropper::make('picture');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>);
 </code></pre>
 <h3><a href='#sirina-i-vysota' id='sirina-i-vysota'>Ширина и высота</a></h3>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1096;&#1080;&#1088;&#1080;&#1085;&#1091; &#1080; &#1074;&#1099;&#1089;&#1086;&#1090;&#1091; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1075;&#1086; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;:</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;width(500)
-    -&gt;height(300);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">500</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">300</span>);
 </code></pre>
 <p>&#1048;&#1083;&#1080; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1077; &#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1080;&#1103;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; <code>minWidth</code> / <code>maxWidth</code> &#1080;&#1083;&#1080; <code>minHeight</code> / <code>maxHeight</code> &#1080;&#1083;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1091;&#1076;&#1086;&#1073;&#1085;&#1099;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099; <code>minCanvas</code> / <code>maxCanvas</code></p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;minCanvas(500)
-    -&gt;maxWidth(1000)
-    -&gt;maxHeight(800);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">minCanvas</span>(<span class="hl-number">500</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxWidth</span>(<span class="hl-number">1000</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxHeight</span>(<span class="hl-number">800</span>);
 </code></pre>
 <h3><a href='#ogranicenie-razmera-faila' id='ogranicenie-razmera-faila'>Ограничение размера файла</a></h3>
 <p>&#1044;&#1083;&#1103; &#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1080;&#1103; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088;&#1072; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1079;&#1072;&#1076;&#1072;&#1090;&#1100; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1074; <code>MB</code></p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;maxFileSize(2);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxFileSize</span>(<span class="hl-number">2</span>);
 </code></pre>
 <h3><a href='#znacenie' id='znacenie'>Значение</a></h3>
 <p>&#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1100; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1086;&#1089;&#1091;&#1097;&#1077;&#1089;&#1090;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1074;:</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetId();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>();
 
-// 20
+<span class="hl-comment">// 20</span>
 </code></pre>
 <p>&#1041;&#1091;&#1076;&#1077;&#1090; &#1074;&#1086;&#1079;&#1074;&#1088;&#1072;&#1097;&#1105;&#1085; &#1087;&#1086;&#1088;&#1103;&#1076;&#1082;&#1086;&#1074;&#1099;&#1081; &#1085;&#1086;&#1084;&#1077;&#1088; (<code>id</code>) &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; <code>Attachment</code>.</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetRelativeUrl();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetRelativeUrl</span>();
 
-// /storage/2024/11/12/0ae30560194b944c656c548becd371b15b22cfba.jpg
+<span class="hl-comment">// /storage/2024/11/12/0ae30560194b944c656c548becd371b15b22cfba.jpg</span>
 </code></pre>
 <p>&#1042;&#1077;&#1088;&#1085;&#1105;&#1090; &#1086;&#1090;&#1085;&#1086;&#1089;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1099;&#1081; &#1087;&#1091;&#1090;&#1100; &#1076;&#1086; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;.</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;targetUrl();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetUrl</span>();
 
-// http://localhost/storage/2024/11/12/ade1a19e778ae64772a3e5348d32d5330c05893c.jpg
+<span class="hl-comment">// http://localhost/storage/2024/11/12/ade1a19e778ae64772a3e5348d32d5330c05893c.jpg</span>
 </code></pre>
 <p>&#1042;&#1077;&#1088;&#1085;&#1105;&#1090; &#1072;&#1073;&#1089;&#1086;&#1083;&#1102;&#1090;&#1085;&#1099;&#1081; &#1087;&#1091;&#1090;&#1100; &#1076;&#1086; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;.</p>
-<pre><code class="language-php">Cropper::make('picture')
-    -&gt;path('some_path');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>(<span class="hl-value">'some_path'</span>);
 
-// http://localhost/storage/some_path/69dc36c754411788a35a7e108d3b57396ddbcedc.jpg
+<span class="hl-comment">// http://localhost/storage/some_path/69dc36c754411788a35a7e108d3b57396ddbcedc.jpg</span>
 </code></pre>
 <p>&#1042;&#1077;&#1088;&#1085;&#1105;&#1090; &#1072;&#1073;&#1089;&#1086;&#1083;&#1102;&#1090;&#1085;&#1099;&#1081; &#1087;&#1091;&#1090;&#1100; &#1076;&#1086; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1079;&#1072;&#1084;&#1077;&#1085;&#1080;&#1074; path &#1085;&#1072; &#1089;&#1074;&#1086;&#1105; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077;</p>
 <h2><a href='#attach' id='attach'>Attach</a></h2>
 <p>&#1055;&#1086;&#1083;&#1077; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090; &#1080;&#1085;&#1090;&#1091;&#1080;&#1090;&#1080;&#1074;&#1085;&#1086; &#1087;&#1086;&#1085;&#1103;&#1090;&#1085;&#1099;&#1081; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089; &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1081; &#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1074;&#1082;&#1083;&#1102;&#1095;&#1072;&#1103; &#1087;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1082;&#1091; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1080; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;.</p>
 <p>&#1044;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1072; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1092;&#1072;&#1081;&#1083;&#1072; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>make</code> &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; <code>Attach</code>, &#1091;&#1082;&#1072;&#1079;&#1072;&#1074; &#1080;&#1084;&#1103; &#1087;&#1086;&#1083;&#1103;:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Attach;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Attach</span>;
 
-Attach::make('attachments');
+<span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'attachments'</span>);
 </code></pre>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1080;&#1090;&#1100; &#1084;&#1085;&#1086;&#1078;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1091;&#1102; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1091;  &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>multiple()</code>:</p>
-<pre><code class="language-php">Attach::make('attachments')
-    -&gt;multiple();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'attachments'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">multiple</span>();
 </code></pre>
 <h3><a href='#ogranicenie-zagruzaemyx-failov' id='ogranicenie-zagruzaemyx-failov'>Ограничение загружаемых файлов</a></h3>
 <p>&#1044;&#1083;&#1103; &#1084;&#1085;&#1086;&#1078;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1081; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>maxCount</code> &#1084;&#1086;&#1078;&#1085;&#1086; &#1079;&#1072;&#1076;&#1072;&#1090;&#1100; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1086;&#1077; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099;&#1093; &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080;:</p>
-<pre><code class="language-php">Attach::make('attachments')
-    -&gt;multiple()
-    -&gt;maxCount(3); // 3 файла
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'attachments'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">multiple</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxCount</span>(<span class="hl-number">3</span>); <span class="hl-comment">// 3 файла</span>
 </code></pre>
 <p>&#1058;&#1072;&#1082;&#1078;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1080;&#1090;&#1100; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>maxSize()</code>. &#1056;&#1072;&#1079;&#1084;&#1077;&#1088; &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1074; &#1084;&#1077;&#1075;&#1072;&#1073;&#1072;&#1081;&#1090;&#1072;&#1093; (MB):</p>
-<pre><code class="language-php">Attach::make('attachments')
-    -&gt;maxSize(1024); // Размер в MB
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'attachments'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxSize</span>(<span class="hl-number">1024</span>); <span class="hl-comment">// Размер в MB</span>
 </code></pre>
 <blockquote>
 <p><strong>&#1052;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072;:</strong>
 &#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; <code>upload_max_filesize</code> &#1080; <code>post_max_size</code> &#1088;&#1072;&#1074;&#1085;&#1099; 2M. &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1101;&#1090;&#1080; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1099; &#1074; <code>php.ini</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074; &#1073;&#1086;&#1083;&#1100;&#1096;&#1077; 2M.</p>
 </blockquote>
 <p>&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>accept</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1090;&#1080;&#1087;&#1099; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1076;&#1086;&#1083;&#1078;&#1085;&#1086; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1077;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;accept('image/*,application/pdf,.psd');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">accept</span>(<span class="hl-value">'image/*,application/pdf,.psd'</span>);
 </code></pre>
 <p>&#1055;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1077;&#1084;&#1072;&#1103; &#1089;&#1090;&#1088;&#1086;&#1082;&#1072; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1073;&#1086;&#1081; &#1089;&#1087;&#1080;&#1089;&#1086;&#1082; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">&#1091;&#1085;&#1080;&#1082;&#1072;&#1083;&#1100;&#1085;&#1099;&#1093; &#1089;&#1087;&#1077;&#1094;&#1080;&#1092;&#1080;&#1082;&#1072;&#1090;&#1086;&#1088;&#1086;&#1074; &#1090;&#1080;&#1087;&#1086;&#1074; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;</a>, &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1081; &#1079;&#1072;&#1087;&#1103;&#1090;&#1099;&#1084;&#1080;.</p>
 <h3><a href='#gruppirovka-failov' id='gruppirovka-failov'>Группировка файлов</a></h3>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1092;&#1072;&#1081;&#1083;&#1099; &#1087;&#1086; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1084; &#1082;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103;&#1084; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>group</code>.
 &#1069;&#1090;&#1086; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1086;, &#1077;&#1089;&#1083;&#1080; &#1085;&#1091;&#1078;&#1085;&#1086; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1088;&#1072;&#1079;&#1085;&#1099;&#1077; &#1090;&#1080;&#1087;&#1099; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1090;&#1072;&#1082;&#1080;&#1077; &#1082;&#1072;&#1082; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1099; &#1080; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;.</p>
-<pre><code class="language-php">Attach::make('docs')
-    -&gt;group('documents');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'docs'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-value">'documents'</span>);
 
-Attach::make('images')
-    -&gt;group('photo');
+<span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'images'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-value">'photo'</span>);
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1088;&#1072;&#1073;&#1086;&#1090;&#1099; &#1089; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084;&#1080; &#1092;&#1072;&#1081;&#1083;&#1072;&#1084;&#1080; &#1076;&#1083;&#1103; &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1093; &#1091;&#1082;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1075;&#1088;&#1091;&#1087;&#1087;&#1099; &#1095;&#1077;&#1088;&#1077;&#1079; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1081; &#1089;&#1080;&#1085;&#1090;&#1072;&#1082;&#1089;&#1080;&#1089;:</p>
-<pre><code class="language-php">use Orchid\Attachment\Models\Attachment;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
 
-/**
+<span class="hl-comment">/**
  * Возвращает прикрепленный "hero" (один к одному).
- */
-public function hero(): HasOne
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">hero</span>(): <span class="hl-type">HasOne</span>
 {
-    return $this-&gt;hasOne(Attachment::class, 'id', 'hero')
-        -&gt;withDefault();
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 
-/**
+<span class="hl-comment">/**
  * Возвращает документы (многие ко многим).
  * Загрузка осуществляется через метод group().
- */
-public function documents(): MorphToMany
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">documents</span>(): <span class="hl-type">MorphToMany</span>
 {
-    return $this-&gt;attachments('documents');
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>(<span class="hl-value">'documents'</span>);
 }
 </code></pre>
 <h3><a href='#rabota-s-xranilishhami-failov' id='rabota-s-xranilishhami-failov'>Работа с хранилищами файлов</a></h3>
 <p>&#1055;&#1086;&#1083;&#1077; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1084;&#1086;&#1078;&#1077;&#1090; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100; &#1089; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1084;&#1080; &#1088;&#1077;&#1087;&#1086;&#1079;&#1080;&#1090;&#1086;&#1088;&#1080;&#1103;&#1084;&#1080;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1091;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1082;&#1083;&#1102;&#1095; &#1088;&#1077;&#1087;&#1086;&#1079;&#1080;&#1090;&#1086;&#1088;&#1080;&#1103;, &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1099;&#1081; &#1074; <code>config/filesystems.php</code>:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;storage('s3');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">storage</span>(<span class="hl-value">'s3'</span>);
 </code></pre>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1093;&#1088;&#1072;&#1085;&#1080;&#1083;&#1080;&#1097;&#1077; <code>public</code>.</p>
 <h3><a href='#iavnaia-nastroika-puti-k-failam' id='iavnaia-nastroika-puti-k-failam'>Явная настройка пути к файлам</a></h3>
 <p>&#1045;&#1089;&#1083;&#1080; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1080;&#1075;&#1085;&#1086;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1099;&#1077; &#1087;&#1088;&#1072;&#1074;&#1080;&#1083;&#1072; &#1093;&#1088;&#1072;&#1085;&#1077;&#1085;&#1080;&#1103; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074; &#1080; &#1103;&#1074;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1087;&#1091;&#1090;&#1100; &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>path</code>:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;path('/custom/path');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>(<span class="hl-value">'/custom/path'</span>);
 </code></pre>
 <h3><a href='#validaciia-i-sortirovka-failov-na-servere' id='validaciia-i-sortirovka-failov-na-servere'>Валидация и сортировка файлов на сервере</a></h3>
 <p>&#1042;&#1072;&#1078;&#1085;&#1086; &#1074;&#1072;&#1083;&#1080;&#1076;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1092;&#1072;&#1081;&#1083;&#1099; &#1080; &#1085;&#1072; &#1089;&#1077;&#1088;&#1074;&#1077;&#1088;&#1085;&#1086;&#1081; &#1089;&#1090;&#1086;&#1088;&#1086;&#1085;&#1077;. &#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1080;&#1090;&#1100;, &#1095;&#1090;&#1086; &#1092;&#1072;&#1081;&#1083; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;&#1084; &#1089; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1084; &#1089;&#1086;&#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1077;&#1084; &#1089;&#1090;&#1086;&#1088;&#1086;&#1085; &#1080;&#1083;&#1080; &#1089;&#1086;&#1086;&#1090;&#1074;&#1077;&#1090;&#1089;&#1090;&#1074;&#1091;&#1102;&#1097;&#1080;&#1084; &#1090;&#1080;&#1087;&#1086;&#1084;. &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>uploadUrl</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; endpoint &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;uploadUrl(route('my.upload.endpoint'));
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">uploadUrl</span>(<span class="hl-function">route</span>(<span class="hl-value">'my.upload.endpoint'</span>));
 </code></pre>
 <p>&#1058;&#1086;&#1095;&#1085;&#1086; &#1090;&#1072;&#1082; &#1078;&#1077; &#1084;&#1086;&#1078;&#1085;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; endpoint &#1076;&#1083;&#1103; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;sortUrl(route('my.sort.endpoint'));
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sortUrl</span>(<span class="hl-function">route</span>(<span class="hl-value">'my.sort.endpoint'</span>));
 </code></pre>
 <h3><a href='#obrabotka-osibok-i-vyvod-soobshhenii' id='obrabotka-osibok-i-vyvod-soobshhenii'>Обработка ошибок и вывод сообщений</a></h3>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1080; &#1085;&#1077; &#1089;&#1090;&#1072;&#1083;&#1082;&#1080;&#1074;&#1072;&#1083;&#1080;&#1089;&#1100; &#1089; &#1085;&#1077;&#1103;&#1089;&#1085;&#1099;&#1084;&#1080; &#1086;&#1096;&#1080;&#1073;&#1082;&#1072;&#1084;&#1080;, &#1074;&#1072;&#1078;&#1085;&#1086; &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1100; &#1095;&#1105;&#1090;&#1082;&#1080;&#1077; &#1080; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1080;&#1074;&#1085;&#1099;&#1077; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1103; &#1086;&#1073; &#1086;&#1096;&#1080;&#1073;&#1082;&#1072;&#1093;. &#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1099; <code>errorMaxSizeMessage</code> &#1080; <code>errorTypeMessage</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1099;&#1077; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1103;:</p>
-<pre><code class="language-php">Attach::make('upload')
-    -&gt;errorMaxSizeMessage("Размер файла слишком большой")
-    -&gt;errorTypeMessage("Неверный тип файла");
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">errorMaxSizeMessage</span>(<span class="hl-value">"Размер файла слишком большой"</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">errorTypeMessage</span>(<span class="hl-value">"Неверный тип файла"</span>);
 </code></pre>
 <!--
 ## Upload
 
-&#1055;&#1086;&#1083;&#1077; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1080;&#1074;&#1072;&#1077;&#1090; &#1080;&#1085;&#1090;&#1091;&#1080;&#1090;&#1080;&#1074;&#1085;&#1086; &#1087;&#1086;&#1085;&#1103;&#1090;&#1085;&#1099;&#1081; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089; &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1081; &#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1074;&#1082;&#1083;&#1102;&#1095;&#1072;&#1103; &#1087;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1082;&#1091; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1080; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1080; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1093; &#1090;&#1080;&#1087;&#1086;&#1074; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;.
+Поле обеспечивает интуитивно понятный интерфейс для загрузки изображений и файлов, включая поддержку группировки и обработки различных типов файлов.
 
-&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1092;&#1072;&#1081;&#1083;&#1072;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; `make` &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; `Upload` &#1080; &#1091;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1080;&#1084;&#1103; &#1087;&#1086;&#1083;&#1103;:
+Чтобы создать элемент загрузки файла, используйте метод `make` класса `Upload` и укажите имя поля:
 
 ```php
 Upload::make('upload');
 ```  
 
 
-&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1092;&#1072;&#1081;&#1083;&#1099; &#1087;&#1086; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1084; &#1082;&#1072;&#1090;&#1077;&#1075;&#1086;&#1088;&#1080;&#1103;&#1084;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076; `groups`.
-&#1069;&#1090;&#1086; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1086;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1088;&#1072;&#1079;&#1085;&#1099;&#1077; &#1090;&#1080;&#1087;&#1099; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1090;&#1072;&#1082;&#1080;&#1077; &#1082;&#1072;&#1082; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1099; &#1080; &#1080;&#1079;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1103;.
+Вы можете группировать файлы по различным категориям, используя метод `groups`.
+Это особенно полезно, если вам нужно загружать разные типы файлов, такие как документы и изображения.
 
 ```php
 Upload::make('docs')
@@ -1113,99 +1113,99 @@ Upload::make('images')
     ->groups('photo');
 ```  
 
-&#1063;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090;&#1100; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1077; &#1092;&#1072;&#1081;&#1083;&#1099; &#1095;&#1077;&#1088;&#1077;&#1079; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1077; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;:
+Чтобы получить определенные файлы через отношение модели:
 
 ```php
 use Orchid\Attachment\Models\Attachment;
 
-// &#1054;&#1076;&#1080;&#1085; &#1082;&#1086; &#1084;&#1085;&#1086;&#1075;&#1080;&#1084; (&#1089; &#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1084;  id)
+// Один ко многим (с внешним  id)
 public function hero()
 {
     return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
 }
 
-// &#1052;&#1085;&#1086;&#1075;&#1086; &#1082;&#1086; &#1084;&#1085;&#1086;&#1075;&#1080;&#1084; (&#1074; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1077; &#1085;&#1077;&#1090; &#1074;&#1085;&#1077;&#1096;&#1085;&#1077;&#1075;&#1086; &#1080;&#1076;&#1077;&#1085;&#1090;&#1080;&#1092;&#1080;&#1082;&#1072;&#1090;&#1086;&#1088;&#1072;, &#1077;&#1075;&#1086; &#1089;&#1083;&#1077;&#1076;&#1091;&#1077;&#1090; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1090;&#1100; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; groups())
+// Много ко многим (в таблице нет внешнего идентификатора, его следует загружать с помощью функции groups())
 public function documents()
 {
     return $this->hasMany(Attachment::class)->where('group','documents');
 }
 ```
 
-&#1052;&#1086;&#1078;&#1077;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1083;&#1103; &#1086;&#1075;&#1088;&#1072;&#1085;&#1080;&#1095;&#1077;&#1085;&#1080;&#1103; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1072; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1073;&#1091;&#1076;&#1091;&#1090; &#1086;&#1073;&#1088;&#1072;&#1073;&#1072;&#1090;&#1099;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103;:
+Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться:
 
 ```php
 Upload::make('upload')
     ->maxFiles(10);
 ```
 
-&#1054;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090; &#1082;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1087;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;&#1085;&#1099;&#1093; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1086;&#1082; &#1076;&#1083;&#1103; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1080; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;:
+Определяет количество параллельных загрузок для обработки файлов:
 ```php
 Upload::make('upload')
     ->parallelUploads(2);
 ```
 
-&#1052;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1072;&#1077;&#1084;&#1086;&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072;: 
-&#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; `upload_max_filesize` &#1080; `post_max_size` &#1088;&#1072;&#1074;&#1085;&#1099; 2M , &#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1079;&#1084;&#1077;&#1085;&#1080;&#1090;&#1100; &#1080;&#1093; &#1074; &#1092;&#1072;&#1081;&#1083;&#1077; `php.ini` , &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1100; &#1084;&#1072;&#1082;&#1089;&#1080;&#1084;&#1072;&#1083;&#1100;&#1085;&#1099;&#1081; &#1088;&#1072;&#1079;&#1084;&#1077;&#1088; &#1092;&#1072;&#1081;&#1083;&#1072; &#1073;&#1086;&#1083;&#1077;&#1077; 2M.
+Максимальный размер загружаемого файла: 
+по умолчанию значения `upload_max_filesize` и `post_max_size` равны 2M , Вы можете изменить их в файле `php.ini` , чтобы установить максимальный размер файла более 2M.
 ```php
 Upload::make('upload')
     ->maxFileSize(1024); // Size in MB 
 ```
 
 
-&#1056;&#1077;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103; &#1087;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; `accept` &#1087;&#1088;&#1086;&#1074;&#1077;&#1088;&#1103;&#1077;&#1090; &#1090;&#1080;&#1087; &#1080;&#1083;&#1080; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1080;&#1077; MIME &#1092;&#1072;&#1081;&#1083;&#1072; &#1087;&#1086; &#1101;&#1090;&#1086;&#1084;&#1091; &#1089;&#1087;&#1080;&#1089;&#1082;&#1091;. &#1069;&#1090;&#1086; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083;&#1077;&#1085;&#1085;&#1099;&#1081; &#1079;&#1072;&#1087;&#1103;&#1090;&#1099;&#1084;&#1080; &#1089;&#1087;&#1080;&#1089;&#1086;&#1082; &#1090;&#1080;&#1087;&#1086;&#1074; MIME &#1080;&#1083;&#1080; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1080;&#1081; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;.
+Реализация по умолчанию `accept` проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми список типов MIME или расширений файлов.
 
 ```php
 Upload::make('upload')
     ->acceptedFiles('image/*,application/pdf,.psd');
 ```
 
-&#1055;&#1086;&#1083;&#1077; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080; &#1084;&#1086;&#1078;&#1077;&#1090; &#1088;&#1072;&#1073;&#1086;&#1090;&#1072;&#1090;&#1100; &#1089; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1084;&#1080; &#1093;&#1088;&#1072;&#1085;&#1080;&#1083;&#1080;&#1097;&#1072;&#1084;&#1080;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1077;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1082;&#1083;&#1102;&#1095;, &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1099;&#1081; &#1074; `config/filesystems.php`:
+Поле загрузки может работать с различными хранилищами, чтобы указать его необходимо передать ключ, указанный в `config/filesystems.php`:
 
 ```php
 Upload::make('upload')
     ->storage('s3');
 ```
 
-&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1093;&#1088;&#1072;&#1085;&#1080;&#1083;&#1080;&#1097;&#1077; `public`.
+По умолчанию используется хранилище `public`.
 
 
-&#1050;&#1086;&#1075;&#1076;&#1072; &#1042;&#1099; &#1079;&#1085;&#1072;&#1077;&#1090;&#1077;, &#1095;&#1090;&#1086; &#1092;&#1072;&#1081;&#1083; &#1073;&#1099;&#1083; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1077;&#1085; &#1088;&#1072;&#1085;&#1077;&#1077;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1074;&#1086;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1087;&#1086;&#1080;&#1089;&#1082;&#1086;&#1084; &#1087;&#1086; &#1073;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1077;:
+Когда Вы знаете, что файл был загружен ранее, можно воспользоваться поиском по библиотеке:
 
 ```php
 Upload::make('upload')
     ->media();
 ```
 
-&#1044;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1089;&#1103; &#1085;&#1086;&#1074;&#1072;&#1103; &#1082;&#1085;&#1086;&#1087;&#1082;&#1072; &#1089; &#1084;&#1086;&#1076;&#1072;&#1083;&#1100;&#1085;&#1099;&#1084; &#1086;&#1082;&#1085;&#1086;&#1084; &#1076;&#1083;&#1103; &#1087;&#1088;&#1077;&#1076;&#1074;&#1072;&#1088;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1087;&#1088;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1072; &#1079;&#1072;&#1075;&#1088;&#1091;&#1078;&#1077;&#1085;&#1085;&#1099;&#1093; &#1092;&#1072;&#1081;&#1083;&#1086;&#1074;.
+Добавится новая кнопка с модальным окном для предварительного просмотра загруженных файлов.
 -->
 <h2><a href='#group' id='group'>Group</a></h2>
 <p>&#1050;&#1086;&#1084;&#1087;&#1086;&#1085;&#1077;&#1085;&#1090; <code>Group</code> &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1086;&#1073;&#1098;&#1077;&#1076;&#1080;&#1085;&#1077;&#1085;&#1080;&#1103; &#1085;&#1077;&#1089;&#1082;&#1086;&#1083;&#1100;&#1082;&#1080;&#1093; &#1087;&#1086;&#1083;&#1077;&#1081; &#1085;&#1072; &#1086;&#1076;&#1085;&#1086;&#1081; &#1089;&#1090;&#1088;&#1086;&#1082;&#1077;, &#1095;&#1090;&#1086; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1073;&#1086;&#1083;&#1077;&#1077; &#1082;&#1086;&#1084;&#1087;&#1072;&#1082;&#1090;&#1085;&#1099;&#1077; &#1080; &#1086;&#1088;&#1075;&#1072;&#1085;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1077; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1099;. &#1069;&#1090;&#1086; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1086; &#1076;&#1083;&#1103; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1089;&#1074;&#1103;&#1079;&#1072;&#1085;&#1085;&#1099;&#1093; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;, &#1090;&#1072;&#1082;&#1080;&#1093; &#1082;&#1072;&#1082; &#1080;&#1084;&#1103; &#1080; &#1092;&#1072;&#1084;&#1080;&#1083;&#1080;&#1103;.</p>
-<pre><code class="language-php">Group::make([
-    Input::make('first_name'),
-    Input::make('last_name'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'first_name'</span>),
+    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>),
 ]),
 </code></pre>
 <h3><a href='#sirina-kolonok' id='sirina-kolonok'>Ширина колонок</a></h3>
 <p>&#1055;&#1086; &#1091;&#1084;&#1086;&#1083;&#1095;&#1072;&#1085;&#1080;&#1102; &#1087;&#1086;&#1083;&#1103; &#1073;&#1091;&#1076;&#1091;&#1090; &#1079;&#1072;&#1085;&#1080;&#1084;&#1072;&#1090;&#1100; &#1074;&#1089;&#1102; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1091;&#1102; &#1096;&#1080;&#1088;&#1080;&#1085;&#1091; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>fullWidth</code>. &#1069;&#1090;&#1086;&#1090; &#1074;&#1072;&#1088;&#1080;&#1072;&#1085;&#1090; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1080;&#1090; &#1076;&#1083;&#1103; &#1073;&#1086;&#1083;&#1100;&#1096;&#1080;&#1085;&#1089;&#1090;&#1074;&#1072; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077;&#1074;, &#1082;&#1086;&#1075;&#1076;&#1072; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099; &#1079;&#1072;&#1087;&#1086;&#1083;&#1085;&#1103;&#1083;&#1080; &#1074;&#1089;&#1105; &#1087;&#1088;&#1086;&#1089;&#1090;&#1088;&#1072;&#1085;&#1089;&#1090;&#1074;&#1086;:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;fullWidth();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullWidth</span>();
 </code></pre>
 <p>&#1054;&#1076;&#1085;&#1072;&#1082;&#1086; &#1074; &#1085;&#1077;&#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1093; &#1089;&#1083;&#1091;&#1095;&#1072;&#1103;&#1093; &#1074;&#1072;&#1084; &#1084;&#1086;&#1078;&#1077;&#1090; &#1087;&#1086;&#1085;&#1072;&#1076;&#1086;&#1073;&#1080;&#1090;&#1100;&#1089;&#1103;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1103; &#1079;&#1072;&#1085;&#1080;&#1084;&#1072;&#1083;&#1080; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1077; &#1087;&#1088;&#1086;&#1089;&#1090;&#1088;&#1072;&#1085;&#1089;&#1090;&#1074;&#1086;. &#1052;&#1077;&#1090;&#1086;&#1076; <code>autoWidth</code> &#1086;&#1090;&#1083;&#1080;&#1095;&#1085;&#1086; &#1087;&#1086;&#1076;&#1093;&#1086;&#1076;&#1080;&#1090; &#1076;&#1083;&#1103; &#1089;&#1080;&#1090;&#1091;&#1072;&#1094;&#1080;&#1081;, &#1082;&#1086;&#1075;&#1076;&#1072; &#1087;&#1086;&#1083;&#1103; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1072;&#1090; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1081; &#1086;&#1073;&#1098;&#1077;&#1084; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;. &#1053;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1077;&#1089;&#1083;&#1080; &#1074;&#1099; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1077; &#1088;&#1072;&#1076;&#1080;&#1086;&#1082;&#1085;&#1086;&#1087;&#1082;&#1080;:</p>
-<pre><code class="language-php">Group::make([
-    Radio::make('agreement')
-        -&gt;placeholder('Yes')
-        -&gt;value(1),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-type">Radio</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'agreement'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Yes'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-number">1</span>),
 
-    Radio::make('contact')
-        -&gt;placeholder('No')
-        -&gt;value(0),
-])-&gt;autoWidth();
+    <span class="hl-type">Radio</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'contact'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'No'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-number">0</span>),
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">autoWidth</span>();
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1073;&#1086;&#1083;&#1100;&#1096;&#1077;&#1081; &#1075;&#1080;&#1073;&#1082;&#1086;&#1089;&#1090;&#1080; &#1074; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1077; &#1096;&#1080;&#1088;&#1080;&#1085;&#1099; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>widthColumns()</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1087;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1080;&#1074;&#1072;&#1077;&#1090; CSS Grid. &#1069;&#1090;&#1086;&#1090; &#1084;&#1077;&#1090;&#1086;&#1076; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1090;&#1086;&#1095;&#1085;&#1086; &#1085;&#1072;&#1089;&#1090;&#1088;&#1072;&#1080;&#1074;&#1072;&#1090;&#1100; &#1096;&#1080;&#1088;&#1080;&#1085;&#1091; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1089; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1081; &#1076;&#1083;&#1103; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; <code>grid-template-columns</code>:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;widthColumns('2fr 1fr');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">widthColumns</span>(<span class="hl-value">'2fr 1fr'</span>);
 </code></pre>
 <p>&#1044;&#1086;&#1087;&#1091;&#1089;&#1090;&#1080;&#1084;&#1099;&#1077; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1076;&#1083;&#1103; <code>widthColumns()</code> &#1074;&#1082;&#1083;&#1102;&#1095;&#1072;&#1102;&#1090;:</p>
 <ul>
@@ -1223,45 +1223,45 @@ Upload::make('upload')
 &#1044;&#1083;&#1103; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103; &#1073;&#1086;&#1083;&#1077;&#1077; &#1087;&#1088;&#1080;&#1074;&#1083;&#1077;&#1082;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1072; &#1074;&#1072;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1074;&#1099;&#1088;&#1072;&#1074;&#1085;&#1080;&#1074;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082;.</p>
 <p>&#1050;&#1086;&#1075;&#1076;&#1072; &#1074; &#1086;&#1076;&#1085;&#1086;&#1081; &#1080;&#1079; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1077;&#1089;&#1090;&#1100; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1086;&#1082;, &#1074;&#1099;&#1088;&#1072;&#1074;&#1085;&#1080;&#1074;&#1072;&#1085;&#1080;&#1077; &#1074;&#1089;&#1077;&#1093; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1087;&#1086; &#1085;&#1080;&#1078;&#1085;&#1077;&#1084;&#1091; &#1082;&#1088;&#1072;&#1102; &#1088;&#1086;&#1076;&#1080;&#1090;&#1077;&#1083;&#1100;&#1089;&#1082;&#1086;&#1075;&#1086; &#1082;&#1086;&#1085;&#1090;&#1077;&#1081;&#1085;&#1077;&#1088;&#1072; &#1087;&#1086;&#1084;&#1086;&#1078;&#1077;&#1090; &#1089;&#1076;&#1077;&#1083;&#1072;&#1090;&#1100; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099; &#1073;&#1086;&#1083;&#1077;&#1077; &#1075;&#1072;&#1088;&#1084;&#1086;&#1085;&#1080;&#1095;&#1085;&#1099;&#1084;&#1080;.
 &#1044;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1074;&#1086;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077;&#1089;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084; <code>alignEnd</code>:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;alignEnd();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignEnd</span>();
 </code></pre>
 <p>&#1050;&#1086;&#1075;&#1076;&#1072; &#1074;&#1072;&#1084; &#1085;&#1091;&#1078;&#1085;&#1086;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1074;&#1089;&#1077; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1099; &#1088;&#1072;&#1089;&#1087;&#1086;&#1083;&#1072;&#1075;&#1072;&#1083;&#1080;&#1089;&#1100; &#1085;&#1072; &#1086;&#1076;&#1085;&#1086;&#1084; &#1091;&#1088;&#1086;&#1074;&#1085;&#1077; &#1089;&#1074;&#1077;&#1088;&#1093;&#1091;, &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>alignStart</code>:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;alignStart();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignStart</span>();
 </code></pre>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1080;&#1090;&#1100; &#1074;&#1099;&#1088;&#1072;&#1074;&#1085;&#1080;&#1074;&#1072;&#1085;&#1080;&#1077; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1087;&#1086; &#1073;&#1072;&#1079;&#1086;&#1074;&#1086;&#1081; &#1083;&#1080;&#1085;&#1080;&#1080; &#1090;&#1077;&#1082;&#1089;&#1090;&#1072; &#1080; &#1076;&#1086;&#1073;&#1080;&#1090;&#1100;&#1089;&#1103; &#1089;&#1086;&#1075;&#1083;&#1072;&#1089;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1089;&#1090;&#1080; &#1074; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1080; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1084;&#1086;&#1075;&#1086;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>alignBaseLine</code>:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;alignBaseLine();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignBaseLine</span>();
 </code></pre>
 <p>&#1044;&#1083;&#1103; &#1076;&#1086;&#1089;&#1090;&#1080;&#1078;&#1077;&#1085;&#1080;&#1103; &#1089;&#1080;&#1084;&#1084;&#1077;&#1090;&#1088;&#1080;&#1095;&#1085;&#1086;&#1075;&#1086; &#1074;&#1080;&#1076;&#1072; &#1094;&#1077;&#1085;&#1090;&#1088;&#1080;&#1088;&#1091;&#1081;&#1090;&#1077; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>alignCenter</code>:</p>
-<pre><code class="language-php">Group::make([
-    // ...
-])-&gt;alignCenter();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+    <span class="hl-comment">// ...</span>
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignCenter</span>();
 </code></pre>
 <h2><a href='#knopka' id='knopka'>Кнопка</a></h2>
 <p>&#1050;&#1085;&#1086;&#1087;&#1082;&#1080; (<code>Button</code>) &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1102;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1082;&#1080; &#1079;&#1072;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1085;&#1086;&#1081; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1077;&#1084; &#1092;&#1086;&#1088;&#1084;&#1099; &#1085;&#1072; &#1089;&#1077;&#1088;&#1074;&#1077;&#1088;.</p>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1082;&#1085;&#1086;&#1087;&#1082;&#1091;, &#1074;&#1099;&#1079;&#1099;&#1074;&#1072;&#1102;&#1097;&#1091;&#1102; &#1084;&#1077;&#1090;&#1086;&#1076; <code>handler</code>, &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1081; &#1074; &#1090;&#1077;&#1082;&#1091;&#1097;&#1077;&#1084; &#1101;&#1082;&#1088;&#1072;&#1085;&#1077;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; <code>Button::make()</code>:</p>
-<pre><code class="language-php">Button::make('Отправить')
-    -&gt;method('handler');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Отправить'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'handler'</span>);
 </code></pre>
 <blockquote>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; &#1076;&#1086;&#1083;&#1078;&#1077;&#1085; &#1073;&#1099;&#1090;&#1100; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1077;&#1085; &#1074; &#1090;&#1077;&#1082;&#1091;&#1097;&#1077;&#1084; &#1101;&#1082;&#1088;&#1072;&#1085;&#1077;, &#1075;&#1076;&#1077; &#1088;&#1072;&#1079;&#1084;&#1077;&#1097;&#1077;&#1085;&#1072; &#1082;&#1085;&#1086;&#1087;&#1082;&#1072;.</p>
 </blockquote>
 <p>&#1045;&#1089;&#1083;&#1080; &#1074;&#1072;&#1084; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;, &#1091;&#1082;&#1072;&#1078;&#1080;&#1090;&#1077; &#1080;&#1093; &#1074;&#1090;&#1086;&#1088;&#1099;&#1084; &#1072;&#1088;&#1075;&#1091;&#1084;&#1077;&#1085;&#1090;&#1086;&#1084;:</p>
-<pre><code class="language-php">Button::make('Отправить')
-    -&gt;method('handler', [
-        'user' =&gt; 1,
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Отправить'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'handler'</span>, [
+        <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">1</span>,
     ]);
 </code></pre>
 <h3><a href='#podtverzdenie-deistviia' id='podtverzdenie-deistviia'>Подтверждение действия</a></h3>
 <p>&#1044;&#1083;&#1103; &#1087;&#1088;&#1077;&#1076;&#1086;&#1090;&#1074;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1103; &#1089;&#1083;&#1091;&#1095;&#1072;&#1081;&#1085;&#1099;&#1093; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081; &#1076;&#1086;&#1073;&#1072;&#1074;&#1100;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>confirm()</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090; &#1086;&#1082;&#1085;&#1086; &#1087;&#1086;&#1076;&#1090;&#1074;&#1077;&#1088;&#1078;&#1076;&#1077;&#1085;&#1080;&#1103; &#1087;&#1077;&#1088;&#1077;&#1076; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1077;&#1084; &#1086;&#1087;&#1077;&#1088;&#1072;&#1094;&#1080;&#1080;. &#1069;&#1090;&#1086; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1086; &#1076;&#1083;&#1103; &#1085;&#1077;&#1086;&#1073;&#1088;&#1072;&#1090;&#1080;&#1084;&#1099;&#1093; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081;, &#1090;&#1072;&#1082;&#1080;&#1093; &#1082;&#1072;&#1082; &#1091;&#1076;&#1072;&#1083;&#1077;&#1085;&#1080;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;.</p>
-<pre><code class="language-php">Button::make('Удалить')
-    -&gt;method('deleteItem')
-    -&gt;confirm('Вы потеряете доступ к этому элементу.');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Удалить'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'deleteItem'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">confirm</span>(<span class="hl-value">'Вы потеряете доступ к этому элементу.'</span>);
 </code></pre>
 <blockquote>
 <p><strong>&#1057;&#1086;&#1074;&#1077;&#1090;:</strong> &#1059;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1081;&#1090;&#1077; &#1074; <code>confirm()</code> &#1095;&#1105;&#1090;&#1082;&#1086;&#1077; &#1089;&#1086;&#1086;&#1073;&#1097;&#1077;&#1085;&#1080;&#1077;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1100; &#1087;&#1086;&#1085;&#1080;&#1084;&#1072;&#1083; &#1087;&#1086;&#1089;&#1083;&#1077;&#1076;&#1089;&#1090;&#1074;&#1080;&#1103;.</p>
@@ -1269,35 +1269,35 @@ Upload::make('upload')
 <p>&#1061;&#1086;&#1088;&#1086;&#1096;&#1077;&#1077; &#1079;&#1072;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;! &#1044;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086;, &#1074; &#1073;&#1086;&#1083;&#1100;&#1096;&#1080;&#1085;&#1089;&#1090;&#1074;&#1077; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077;&#1074; <code>action()</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;&#1089;&#1103; &#1076;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; URL &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1072;, &#1072; &#1085;&#1077; &#1082;&#1072;&#1082;&#1086;&#1075;&#1086;-&#1090;&#1086; &#1074;&#1085;&#1077;&#1096;&#1085;&#1077;&#1075;&#1086; &#1072;&#1076;&#1088;&#1077;&#1089;&#1072;. &#1071; &#1089;&#1082;&#1086;&#1088;&#1088;&#1077;&#1082;&#1090;&#1080;&#1088;&#1091;&#1102; &#1086;&#1087;&#1080;&#1089;&#1072;&#1085;&#1080;&#1077;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1085;&#1086; &#1083;&#1091;&#1095;&#1096;&#1077; &#1086;&#1090;&#1088;&#1072;&#1078;&#1072;&#1083;&#1086; &#1101;&#1090;&#1086;&#1090; &#1084;&#1086;&#1084;&#1077;&#1085;&#1090;. &#1042;&#1086;&#1090; &#1086;&#1073;&#1085;&#1086;&#1074;&#1083;&#1105;&#1085;&#1085;&#1099;&#1081; &#1073;&#1083;&#1086;&#1082;:</p>
 <h3><a href='#ukazanie-url-dlia-otpravki-dannyx' id='ukazanie-url-dlia-otpravki-dannyx'>Указание URL для отправки данных</a></h3>
 <p>&#1044;&#1083;&#1103; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1080;&#1103; URL, &#1082;&#1091;&#1076;&#1072; &#1076;&#1086;&#1083;&#1078;&#1085;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1083;&#1103;&#1090;&#1100;&#1089;&#1103; &#1092;&#1086;&#1088;&#1084;&#1072;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>action()</code>. &#1054;&#1073;&#1099;&#1095;&#1085;&#1086; &#1101;&#1090;&#1086; &#1073;&#1091;&#1076;&#1077;&#1090; URL &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1072; &#1074; &#1088;&#1072;&#1084;&#1082;&#1072;&#1093; &#1074;&#1072;&#1096;&#1077;&#1075;&#1086; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;, &#1082;&#1091;&#1076;&#1072; &#1086;&#1090;&#1087;&#1088;&#1072;&#1074;&#1080;&#1090;&#1089;&#1103; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089; &#1087;&#1086;&#1089;&#1083;&#1077; &#1085;&#1072;&#1078;&#1072;&#1090;&#1080;&#1103; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080;.</p>
-<pre><code class="language-php">Button::make('Отправить')
-    -&gt;action('https://orchid.software');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Отправить'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-value">'https://orchid.software'</span>);
 
-Button::make('Отправить')
-    -&gt;action(route('controller.method'));
+<span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Отправить'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">route</span>(<span class="hl-value">'controller.method'</span>));
 </code></pre>
 <h3><a href='#skacivanie-faila' id='skacivanie-faila'>Скачивание файла</a></h3>
 <p>&#1044;&#1083;&#1103; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1089;&#1082;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1103; &#1092;&#1072;&#1081;&#1083;&#1072; &#1087;&#1086; &#1085;&#1072;&#1078;&#1072;&#1090;&#1080;&#1102; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1080;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>download()</code>. &#1054;&#1085; &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1077;, &#1095;&#1090;&#1086; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1086;&#1084; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1103; &#1073;&#1091;&#1076;&#1077;&#1090; &#1092;&#1072;&#1081;&#1083;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1085;&#1091;&#1078;&#1085;&#1086; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1080;&#1090;&#1100;, &#1072; &#1085;&#1077; &#1087;&#1088;&#1086;&#1089;&#1090;&#1086; &#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1100; &#1074; &#1073;&#1088;&#1072;&#1091;&#1079;&#1077;&#1088;&#1077;.</p>
-<pre><code class="language-php">Button::make('Скачать отчёт')
-    -&gt;method('export')
-    -&gt;download();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Скачать отчёт'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'export'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">download</span>();
 </code></pre>
 <h2><a href='#ssylka' id='ssylka'>Ссылка</a></h2>
 <p>&#1057;&#1089;&#1099;&#1083;&#1082;&#1080; (<code>Link</code>) &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1102;&#1090;&#1089;&#1103; &#1076;&#1083;&#1103; &#1087;&#1077;&#1088;&#1077;&#1085;&#1072;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1085;&#1072; &#1076;&#1088;&#1091;&#1075;&#1091;&#1102; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1091; &#1080;&#1083;&#1080; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1077;&#1085;&#1080;&#1103; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103;, &#1090;&#1072;&#1082;&#1086;&#1075;&#1086; &#1082;&#1072;&#1082; &#1089;&#1082;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1077; &#1092;&#1072;&#1081;&#1083;&#1072;.</p>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1089;&#1089;&#1099;&#1083;&#1082;&#1091; &#1085;&#1072; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1105;&#1085;&#1085;&#1099;&#1081; URL, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; <code>Link::make()</code> &#1089; &#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1084; &#1089;&#1089;&#1099;&#1083;&#1082;&#1080; &#1080; &#1084;&#1077;&#1090;&#1086;&#1076;&#1086;&#1084; <code>href()</code>:</p>
-<pre><code class="language-php">Link::make('Посетить Orchid')
-    -&gt;href('https://orchid.software');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Посетить Orchid'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'https://orchid.software'</span>);
 </code></pre>
 <h3><a href='#otkrytie-ssylki-v-novoi-vkladke' id='otkrytie-ssylki-v-novoi-vkladke'>Открытие ссылки в новой вкладке</a></h3>
 <p>&#1044;&#1083;&#1103; &#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1080;&#1103; &#1089;&#1089;&#1099;&#1083;&#1082;&#1080; &#1074; &#1085;&#1086;&#1074;&#1086;&#1081; &#1074;&#1082;&#1083;&#1072;&#1076;&#1082;&#1077; &#1076;&#1086;&#1073;&#1072;&#1074;&#1100;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>target('_blank')</code>. &#1069;&#1090;&#1086; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086; &#1076;&#1083;&#1103; &#1074;&#1085;&#1077;&#1096;&#1085;&#1080;&#1093; &#1088;&#1077;&#1089;&#1091;&#1088;&#1089;&#1086;&#1074;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1085;&#1091;&#1078;&#1085;&#1086; &#1086;&#1090;&#1082;&#1088;&#1099;&#1090;&#1100; &#1087;&#1072;&#1088;&#1072;&#1083;&#1083;&#1077;&#1083;&#1100;&#1085;&#1086; &#1089; &#1090;&#1077;&#1082;&#1091;&#1097;&#1077;&#1081; &#1089;&#1090;&#1088;&#1072;&#1085;&#1080;&#1094;&#1077;&#1081;.</p>
-<pre><code class="language-php">Link::make('Документация')
-    -&gt;href('https://orchid.software/docs')
-    -&gt;target('_blank');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Документация'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'https://orchid.software/docs'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">target</span>(<span class="hl-value">'_blank'</span>);
 </code></pre>
 <h3><a href='#skacivanie-faila' id='skacivanie-faila'>Скачивание файла</a></h3>
 <p>&#1045;&#1089;&#1083;&#1080; &#1087;&#1077;&#1088;&#1077;&#1093;&#1086;&#1076; &#1087;&#1086; &#1089;&#1089;&#1099;&#1083;&#1082;&#1077; &#1076;&#1086;&#1083;&#1078;&#1077;&#1085; &#1080;&#1085;&#1080;&#1094;&#1080;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1082;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1077; &#1092;&#1072;&#1081;&#1083;&#1072;, &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1081;&#1090;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076; <code>download()</code>. &#1069;&#1090;&#1086; &#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090; &#1073;&#1088;&#1072;&#1091;&#1079;&#1077;&#1088;&#1091;, &#1095;&#1090;&#1086; &#1089;&#1089;&#1099;&#1083;&#1082;&#1072; &#1074;&#1077;&#1076;&#1105;&#1090; &#1082; &#1092;&#1072;&#1081;&#1083;&#1091; &#1076;&#1083;&#1103; &#1079;&#1072;&#1075;&#1088;&#1091;&#1079;&#1082;&#1080;.</p>
-<pre><code class="language-php">Link::make('Скачать отчёт')
-    -&gt;href('/path/to/report.pdf')
-    -&gt;download();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Скачать отчёт'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'/path/to/report.pdf'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">download</span>();
 </code></pre>
 <blockquote>
 <p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;:</strong> &#1059;&#1073;&#1077;&#1076;&#1080;&#1090;&#1077;&#1089;&#1100;, &#1095;&#1090;&#1086; &#1092;&#1072;&#1081;&#1083; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1077;&#1085; &#1087;&#1086; &#1091;&#1082;&#1072;&#1079;&#1072;&#1085;&#1085;&#1086;&#1084;&#1091; &#1087;&#1091;&#1090;&#1080;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1079;&#1073;&#1077;&#1078;&#1072;&#1090;&#1100; &#1086;&#1096;&#1080;&#1073;&#1086;&#1082; &#1087;&#1088;&#1080; &#1089;&#1082;&#1072;&#1095;&#1080;&#1074;&#1072;&#1085;&#1080;&#1080;.</p>
@@ -1305,25 +1305,25 @@ Button::make('Отправить')
 <h2><a href='#vypadaiushhee-meniu-dropdown' id='vypadaiushhee-meniu-dropdown'>Выпадающее меню (Dropdown)</a></h2>
 <p><code>Dropdown</code> &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090; &#1089; &#1074;&#1099;&#1087;&#1072;&#1076;&#1072;&#1102;&#1097;&#1080;&#1084; &#1089;&#1087;&#1080;&#1089;&#1082;&#1086;&#1084; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081;, &#1095;&#1090;&#1086; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086; &#1076;&#1083;&#1103; &#1075;&#1088;&#1091;&#1087;&#1087;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080; &#1089;&#1074;&#1103;&#1079;&#1072;&#1085;&#1085;&#1099;&#1093; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1081; &#1087;&#1086;&#1076; &#1086;&#1076;&#1085;&#1086;&#1081; &#1082;&#1085;&#1086;&#1087;&#1082;&#1086;&#1081;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1074; &#1084;&#1077;&#1085;&#1102; &#1091;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1103; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1086;&#1084;.</p>
 <p>&#1063;&#1090;&#1086;&#1073;&#1099; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1084;&#1077;&#1085;&#1102;, &#1087;&#1077;&#1088;&#1077;&#1095;&#1080;&#1089;&#1083;&#1080;&#1090;&#1077; &#1074;&#1089;&#1077; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; <code>list()</code>:</p>
-<pre><code class="language-php">DropDown::make()
-    -&gt;icon('bs.options-vertical')
-    -&gt;list([
-        Link::make('Редактировать')
-            -&gt;route('platform.systems.users.edit', $user-&gt;id),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">DropDown</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.options-vertical'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Редактировать'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.systems.users.edit'</span>, $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">id</span>),
 
-        Button::make('Удалить')
-            -&gt;method('remove')
-            -&gt;icon('trash'),
+        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Удалить'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'remove'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'trash'</span>),
     ]);
 </code></pre>
 <h2><a href='#numberrange' id='numberrange'>NumberRange</a></h2>
 <p>&#1042;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1089;&#1086;&#1079;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1076;&#1080;&#1072;&#1087;&#1072;&#1079;&#1086;&#1085;&#1099; &#1095;&#1080;&#1089;&#1077;&#1083;. &#1054;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1087;&#1086;&#1083;&#1077;&#1079;&#1085;&#1086; &#1076;&#1083;&#1103; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1086;&#1074;.</p>
-<pre><code class="language-php">NumberRange::make();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">NumberRange</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>();
 </code></pre>
 <p>&#1048;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1089; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072;&#1084;&#1080;:</p>
-<pre><code class="language-php">TD::make()-&gt;filter(NumberRange::make())
-//or
-TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE)
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">NumberRange</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>())
+<span class="hl-comment">//or</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">FILTER_NUMBER_RANGE</span>)
 </code></pre>
 <p>&#1056;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1086;&#1084; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1084;&#1072;&#1089;&#1089;&#1080;&#1074; &#1089; &#1082;&#1083;&#1102;&#1095;&#1072;&#1084;&#1080; <code>min</code>, <code>max</code>.</p>
 </body>
@@ -1399,7 +1399,7 @@ TD::make()-&gt;filter(TD::FILTER_NUMBER_RANGE)
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

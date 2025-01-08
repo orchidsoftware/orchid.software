@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Orchid - Laravel Admin Panel</title>
@@ -121,7 +121,7 @@
 
             <div class="px-3 py-md-5 my-md-5 text-md-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5 pt-3 pt-md-0">
-                    <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
+                    <h1 class="display-5 fw-bold mb-md-5 mb-3 text-balance">Enhance Your
                         <span class="d-block">Laravel with Orchid</span>
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3 text-balance">
@@ -157,7 +157,7 @@
             </div>
         </div>
 
-        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3">
+        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3 text-balance">
 
             <div class="col-12 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/rocket.svg);
@@ -191,7 +191,7 @@
                 <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
 
 
-                    <div class="row">
+                    <div class="row h-100">
 
                         <div class="col-12 col-md-5">
                         <div class="card-body d-flex flex-column p-5 h-100">
@@ -220,33 +220,30 @@
                     </div>
                         </div>
 
-                        <div class="col-12 col-md-7" style="background: #2C2939">
-                            <pre class="overflow-hidden user-select-none" style="background: #2C2939"><code class="language-php">
+                        <div class="col-12 col-md-7 hero-code">
+                            <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-use Orchid\Screen\Screen;
-
-class Task extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">Task</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    public function query(Task $task): iterable
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Task</span> $task</span>): <span class="hl-type">iterable</span>
     {
-        return [
-            'task' => $task
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'task'</span> <span class="hl-operator">=&gt;</span> $task
         ];
     }
 
-    public function layout(): iterable
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
     {
-        return [
-            Layout::rows([
-                Input::make('task.name')
-                    ->title('Name')
-                    ->placeholder('Enter task name')
-                    ->help('The name of the task to be created.'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'task.name'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Name'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Enter task name'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'The name of the task to be created.'</span>),
             ]),
         ];
     }
 }
-
 </code></pre>
                         </div>
 
@@ -541,7 +538,7 @@ class Task extends Screen
                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
                     </svg>
                 </a>
-                
+
             </div>
 
             <div class="d-none d-md-block col-md-7">
@@ -737,7 +734,7 @@ class Task extends Screen
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

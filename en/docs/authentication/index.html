@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Authentication | Orchid - Laravel Admin Panel</title>
@@ -382,13 +382,13 @@
     </div>
                         <body><h2><a href='#guard' id='guard'>Guard</a></h2>
 <p>Orchid provides support for different types of users (e.g. customers and sellers) who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the <code>guard</code> option in the <code>config/platform.php</code> configuration file:</p>
-<pre><code class="language-php">'guard' =&gt; 'sellers',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'guard'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'sellers'</span>,
 </code></pre>
 <p>Keep in mind that the value of <code>guard</code> must be one of the authentication guards listed in Laravel&rsquo;s <a href="https://github.com/laravel/laravel/blob/9.x/config/auth.php">authentication configuration</a>.</p>
 <h2><a href='#customizing-the-authentication-process' id='customizing-the-authentication-process'>Customizing the Authentication Process</a></h2>
 <p>The package does not provide any specific implementation of user authentication. The needs of different applications can vary significantly, from using email or phone numbers for authentication to sending one-time passwords by email.</p>
 <p>To customize the authentication process, you can write your own controllers following the guidelines in the <a href="https://laravel.com/docs/authentication">Laravel documentation</a>. Before doing so, it is recommended to disable the built-in login page provided by Orchid. To do this, set the auth option in the config/platform.php configuration file to <code>false</code>:</p>
-<pre><code class="language-php">'auth' =&gt; false,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">false</span>,
 </code></pre>
 <p>This will remove the availability of the built-in authorization routes and allow you to write your own</p>
 <blockquote>
@@ -464,7 +464,7 @@
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

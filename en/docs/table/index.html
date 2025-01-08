@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Table | Orchid - Laravel Admin Panel</title>
@@ -415,72 +415,72 @@
     </div>
                         <body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
 <p>To create a new table layout, you can use the following Artisan command:</p>
-<pre><code class="language-php">php artisan orchid:table PatientListLayout
+<pre><code data-lang="php" class="notranslate">php artisan orchid:table PatientListLayout
 </code></pre>
 <p>Example:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\TD;
-use Orchid\Screen\Layouts\Table;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Table</span>;
 
-class PatientListLayout extends Table
+<span class="hl-keyword">class</span> <span class="hl-type">PatientListLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Table</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
      * The name of the key to fetch it from the query.
      * The results of which will be elements of the table.
      *
-     * @var string
-     */
-    protected $target = 'patients';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $target <span class="hl-operator">=</span> <span class="hl-value">'patients'</span>;
 
-    /**
-     * @return TD[]
-     */
-    protected function columns() : iterable
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">TD</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">columns</span>() : <span class="hl-type">iterable</span>
     {
-        return [
-            TD::make('name'),
-            TD::make('created_at')-&gt;sort(),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
         ];
     }
 }
 </code></pre>
 <p>Tables also support writing through short syntax without creating a class:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\TD;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
-Layout::table('clients', [
-    TD::make('name'),
-    TD::make('created_at')-&gt;sort(),
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'clients'</span>, [
+    <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>),
+    <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
 ]);
 </code></pre>
 <p><picture alt='This image shows an illustrative table, which is a common way to display data in a structured and organized format.'><img src="/img/layouts/table.png" alt="This image shows an illustrative table, which is a common way to display data in a structured and organized format."></picture></p>
 <h2><a href='#introduction-to-cells' id='introduction-to-cells'>Introduction to Cells</a></h2>
 <p>A table is only a general wrapper for which you need to specify <code>TD</code> classes. Designed to create a single cell.</p>
-<pre><code class="language-php">use Orchid\Screen\TD;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
-TD::make('last_name');
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>);
 </code></pre>
 <p>The <code>make</code> method is the main method, sets the key name from the array and the display name.</p>
-<pre><code class="language-php">TD::make('last_name', 'Last name');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>, <span class="hl-value">'Last name'</span>);
 </code></pre>
 <blockquote>
 <p>Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.</p>
 </blockquote>
 <h2><a href='#alignment' id='alignment'>Alignment</a></h2>
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
-<pre><code class="language-php">TD::make('last_name')-&gt;align(TD::ALIGN_LEFT);
-TD::make('last_name')-&gt;align(TD::ALIGN_CENTER);
-TD::make('last_name')-&gt;align(TD::ALIGN_RIGHT);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_LEFT</span>);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_CENTER</span>);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_RIGHT</span>);
 </code></pre>
 <h2><a href='#sorting' id='sorting'>Sorting</a></h2>
 <p>Sorting the selection should be done in the <code>query</code> screen, for models, you can use automatic <code>http</code> <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">sorting and
 filtering</a></p>
 <p>To enable active sorting by this column
 you must specify the <code>sort</code> method:</p>
-<pre><code class="language-php">TD::make('last_name')-&gt;sort();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>();
 </code></pre>
 <h2><a href='#filtration' id='filtration'>Filtration</a></h2>
 <p>When building simple tables, the use of separate filters may seem overkill.
@@ -488,305 +488,305 @@ Therefore, you can display the field for filtering right above the column headin
 <p>It will only define the visible part. You can specify the filtering logic yourself or rely on &ldquo;Automatic HTTP Filtering&rdquo;.
 You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&ldquo;Eloquent Filters&rdquo; page</a>.</p>
 <p>To add a field, call the filter method and pass the instance of the class you would like to display:</p>
-<pre><code class="language-php">TD::make('SKU')-&gt;filter(Input::make()-&gt;mask('A-999999'));
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'SKU'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>(<span class="hl-value">'A-999999'</span>));
 </code></pre>
 <blockquote>
 <p><strong>Note</strong>: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.</p>
 </blockquote>
 <p>Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.</p>
-<pre><code class="language-php">TD::make('color')-&gt;filter(TD::FILTER_SELECT, [
-    'red'   =&gt; 'Red',
-    'green' =&gt; 'Green',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'color'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">FILTER_SELECT</span>, [
+    <span class="hl-value">'red'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-value">'Red'</span>,
+    <span class="hl-value">'green'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Green'</span>,
 ]);
 </code></pre>
 <p>When working with filters, it is possible to use the <code>filterValue()</code> method, which allows you to modify the displayed filter values.
 For example, you can replace an ID value with a display name. Here is an example of using the <code>filterValue()</code> method:</p>
-<pre><code class="language-php">TD::make('id')-&gt;filterValue(function ($value) {
-    $user = User::find($value);
-    return $user-&gt;name;
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filterValue</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$value</span>) {
+    $user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>($value);
+    <span class="hl-keyword">return</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
 })
 </code></pre>
 <p>The <code>$value</code> value passed to the function will contain the filter value that was applied.</p>
 <h2><a href='#width' id='width'>Width</a></h2>
 <p>You can control the width of the cell using the <code>width</code> method:</p>
-<pre><code class="language-php">TD::make('last_name')-&gt;width('100px');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-value">'100px'</span>);
 </code></pre>
 <h2><a href='#showhide' id='showhide'>Show/Hide</a></h2>
 <p>By default, the user can hide any column for himself, but you can
 prohibit doing this by specifying:</p>
-<pre><code class="language-php">TD::make('last_name')-&gt;cantHide();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">cantHide</span>();
 </code></pre>
 <p>And also hide by default, but can be shown at the request of the user.</p>
-<pre><code class="language-php">TD::make('last_name')-&gt;defaultHidden();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">defaultHidden</span>();
 </code></pre>
 <h2><a href='#data-output' id='data-output'>Data Output</a></h2>
 <p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
-<pre><code class="language-php">TD::make('full_name')
-    -&gt;render(fn($user) =&gt; e($user-&gt;first_name . ' ' . $user-&gt;last_name)),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'full_name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection">$user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-function">e</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">first_name</span> <span class="hl-delimeter">.</span> <span class="hl-value">' '</span> <span class="hl-delimeter">.</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">last_name</span>)),
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> The returned string will not be escaped! You need to take care of this yourself with the <code>e()</code> helper or use <code>Blade</code> view.</p>
 </blockquote>
 <p>The loopback function must return any string value:</p>
-<pre><code class="language-php">TD::make('full_name')
-    -&gt;render(fn($user) =&gt; view('blade_template', [
-        'user' =&gt; $user,
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'full_name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection">$user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-function">view</span>(<span class="hl-value">'blade_template'</span>, [
+        <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> $user,
     ])),
 </code></pre>
 <p>Please note that you can use fields and actions:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
 
-TD::make()
-    -&gt;render(fn ($user) =&gt; Link::make($user-&gt;last_name)-&gt;route('platform.user.edit', $user)),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection">$user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">last_name</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.user.edit'</span>, $user)),
 </code></pre>
 <p>Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a <code>Group</code>:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Fields\Group;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Group</span>;
 
-TD::make()
-    -&gt;render(fn($user) =&gt; Group::make([
-        Link::make('Show')-&gt;route('platform.user.show', $user),
-        Link::make('Edit')-&gt;route('platform.user.edit', $user),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection">$user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
+        <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Show'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.user.show'</span>, $user),
+        <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Edit'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.user.edit'</span>, $user),
     ])),
 </code></pre>
 <p>For example, display a checkbox for each line for a bulk action:</p>
-<pre><code class="language-php">TD::make()
-    -&gt;render(fn(User $user) =&gt; CheckBox::make('users[]')
-        -&gt;value($user-&gt;id)
-        -&gt;placeholder($user-&gt;name)
-        -&gt;checked(false)
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-type">User</span> $user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-type">CheckBox</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users[]'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">id</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">checked</span>(<span class="hl-constant">false</span>)
     ),
 </code></pre>
 <p>Sometimes it may be necessary to get the value from the <code>query</code> screen, rather than relying only on the <code>target</code>. You can get the value as follows:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Link;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
 
-TD::make('price')
-    -&gt;render(fn ($product) =&gt; $product-&gt;price + $this-&gt;query-&gt;get('tax')),
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection">$product</span>) <span class="hl-operator">=&gt;</span> $product<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">price</span> <span class="hl-operator">+</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'tax'</span>)),
 </code></pre>
 <h2><a href='#working-with-the-loop-variable' id='working-with-the-loop-variable'>Working with the Loop Variable</a></h2>
 <p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
-<pre><code class="language-php">TD::make()-&gt;render(fn (Model $model, object $loop) =&gt; $loop-&gt;index),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-type">Model</span> $model, <span class="hl-keyword">object</span> $loop</span>) <span class="hl-operator">=&gt;</span> $loop<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">index</span>),
 </code></pre>
 <p>The $loop variable contains a variety of other useful properties which you can find in the <a href="https://laravel.com/docs/9.x/blade#loops">Laravel documentation</a>.</p>
 <h2><a href='#using-components' id='using-components'>Using Components</a></h2>
 <p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
 <p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our components.
 It is much nicer than specifying things directly in the view or creating particular areas for such processing.</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\View\Component;
-use App\Models\Order;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Order</span>;
 
-class OrderShortInformation extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">OrderShortInformation</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    public function __construct(
-        public readonly Order $order
-    ) {}
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
+        <span class="hl-keyword">public</span> readonly <span class="hl-type">Order</span> $order
+    </span>) {}
 
-    /**
+    <span class="hl-comment">/**
      * Get the status description.
      *
-     * @return string
-     */
-    public function status(): string
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">status</span>(): <span class="hl-keyword">string</span>
     {
-        return match ($this-&gt;order-&gt;status) {
-            Order::STATUS_PROCESS      =&gt; __('In the process'),
-            Order::STATUS_PAID         =&gt; __('Paid'),
-            Order::STATUS_CANCELLATION =&gt; __('Cancellation'),
-            Order::STATUS_REFUND       =&gt; __('Refund'),
-            default                    =&gt; __('Unknown'),
+        <span class="hl-keyword">return</span> <span class="hl-keyword">match</span> (<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">status</span>) {
+            <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_PROCESS</span>      <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'In the process'</span>),
+            <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_PAID</span>         <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Paid'</span>),
+            <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_CANCELLATION</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Cancellation'</span>),
+            <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_REFUND</span>       <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Refund'</span>),
+            <span class="hl-keyword">default</span>                    <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Unknown'</span>),
         };
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\View\View|\Closure|string
-     */
-    public function render(): \Illuminate\View\View|\Closure|string
+     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|\<span class="hl-type">Closure</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>(): \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>|\<span class="hl-type">Closure</span>|<span class="hl-keyword">string</span>
     {
-        return view('components.order.short-information');
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'components.order.short-information'</span>);
     }
 }
 </code></pre>
 <p>To use a component in a cell, you must pass it:</p>
-<pre><code class="language-php">use App\View\CompochangingOrderShortInformation;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\View\<span class="hl-type">CompochangingOrderShortInformation</span>;
 
-TD::make('status')-&gt;component(OrderShortInformation::class);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">OrderShortInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 </code></pre>
 <p>The component will receive the entire row as its first argument, not just the cell data.</p>
 <p>Therefore, if you are using a deep injection in your component, it is essential to specify the variable&rsquo;s name.</p>
-<pre><code class="language-php">public function __construct(Application $application, Order $order, int $limit = 300)
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Application</span> $application, <span class="hl-type">Order</span> $order, <span class="hl-keyword">int</span> $limit <span class="hl-operator">=</span> <span class="hl-number">300</span></span>)
 {
-    $this-&gt;order = $order;
-    // ...
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span> <span class="hl-operator">=</span> $order;
+    <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>Other additional arguments, for example, limit. You can specify in the following way:</p>
-<pre><code class="language-php">TD::make('status')-&gt;component(OrderShortInformation::class, [
-    'limit' =&gt; 100
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">OrderShortInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, [
+    <span class="hl-value">'limit'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">100</span>
 ]);
 </code></pre>
 <h2><a href='#customizing-component-values' id='customizing-component-values'>Customizing Component Values</a></h2>
 <p>This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.</p>
 <p>To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, I want to display values of a specific format:</p>
-<pre><code class="language-php">namespace App\View\Components;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
-use Illuminate\View\Component;
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
 
-class Numeric extends Component
+<span class="hl-keyword">class</span> <span class="hl-type">Numeric</span> <span class="hl-keyword">extends</span> <span class="hl-template">Component</span>
 {
-    /**
-     * @var float
-     */
-    public float $value;
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@var</span> <span class="hl-type">float</span>
+     */</span>
+    <span class="hl-keyword">public</span> float $value;
 
-    /**
+    <span class="hl-comment">/**
      * Create a new component instance.
      *
-     * @param  float        $value
-     * @param  int          $decimals
-     * @param  string|null  $decimal_separator
-     * @param  string|null  $thousands_separator
-     */
-    public function __construct(
-        float   $value,
-        int     $decimals = 0,
-        ?string $decimal_separator = ".",
-        ?string $thousands_separator = ","
-    ) {
-        $this-&gt;value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
+     * <span class="hl-keyword">@param</span>  <span class="hl-type">float</span>        $value
+     * <span class="hl-keyword">@param</span>  <span class="hl-keyword">int</span>          $decimals
+     * <span class="hl-keyword">@param</span>  <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>  $decimal_separator
+     * <span class="hl-keyword">@param</span>  <span class="hl-keyword">string</span>|<span class="hl-keyword">null</span>  $thousands_separator
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
+        <span class="hl-type">float</span>   $value,
+        <span class="hl-keyword">int</span>     $decimals <span class="hl-operator">=</span> <span class="hl-number">0</span>,
+        ?<span class="hl-keyword">string</span> $decimal_separator <span class="hl-operator">=</span> ".",
+        ?<span class="hl-keyword">string</span> $thousands_separator <span class="hl-operator">=</span> ","
+    </span>) {
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">value</span> <span class="hl-operator">=</span> <span class="hl-function">number_format</span>($value, $decimals, $decimal_separator, $thousands_separator);
     }
 
-    /**
+    <span class="hl-comment">/**
      * Get the view/contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+     * <span class="hl-keyword">@return</span> \Illuminate\Contracts\<span class="hl-type">View</span>\<span class="hl-type">View</span>|\<span class="hl-type">Closure</span>|<span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">render</span>()
     {
-        return &lt;&lt;&lt;'blade'
+        <span class="hl-keyword">return</span> &lt;&lt;&lt;<span class="hl-value">'blade'</span>
     {{ $value }}
 blade;
     }
 }
 </code></pre>
 <p>Then the table call might look like this:</p>
-<pre><code class="language-php">TD::make('price')-&gt;asComponent(Numeric::class);
-// 1,235
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">asComponent</span>(<span class="hl-type">Numeric</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
+<span class="hl-comment">// 1,235</span>
 </code></pre>
 <p>Also with additional parameters:</p>
-<pre><code class="language-php">TD::make('price')-&gt;asComponent(Numeric::class, [
-    'decimals' =&gt; 2,
-    'decimal_separator' =&gt; ',',
-    'thousands_separator' =&gt; ' ',
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">asComponent</span>(<span class="hl-type">Numeric</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, [
+    <span class="hl-value">'decimals'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">2</span>,
+    <span class="hl-value">'decimal_separator'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">','</span>,
+    <span class="hl-value">'thousands_separator'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">' '</span>,
 ]);
-// 1 234,56
+<span class="hl-comment">// 1 234,56</span>
 </code></pre>
 <h2><a href='#table-options' id='table-options'>Table Options</a></h2>
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
-<pre><code class="language-php">/**
- * @return string
- */
-protected function iconNotFound(): string
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">iconNotFound</span>(): <span class="hl-keyword">string</span>
 {
-    return 'table';
+    <span class="hl-keyword">return</span> <span class="hl-value">'table'</span>;
 }
 
-/**
- * @return string
- */
-protected function textNotFound(): string
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">textNotFound</span>(): <span class="hl-keyword">string</span>
 {
-    return __('There are no records in this view');
+    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'There are no records in this view'</span>);
 }
 
-/**
- * @return string
- */
-protected function subNotFound(): string
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">subNotFound</span>(): <span class="hl-keyword">string</span>
 {
-    return '';
+    <span class="hl-keyword">return</span> <span class="hl-value">''</span>;
 }
 </code></pre>
 <p>If the table rows do not seem contrasting to you, then you can enable
 <code>striped</code> mode:</p>
-<pre><code class="language-php">/**
- * @return bool
- */
-protected function striped(): bool
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">striped</span>(): <span class="hl-keyword">bool</span>
 {
-    return true;
+    <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
 }
 </code></pre>
 <p>You can dynamically change the amount of links to display in the table pagination with the following method:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The number of links to display on each side of current page link.
  *
- * @return int
- */
-protected function onEachSide(): int
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">int</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">onEachSide</span>(): <span class="hl-keyword">int</span>
 {
-    return 3;
+    <span class="hl-keyword">return</span> <span class="hl-number">3</span>;
 }
 </code></pre>
 <h2><a href='#adding-a-total-row' id='adding-a-total-row'>Adding a Total Row</a></h2>
 <p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
-<pre><code class="language-php">public function total():array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">total</span>():<span class="hl-keyword">array</span>
 {
-    return [
-        TD::make('total')
-            -&gt;align(TD::ALIGN_RIGHT)
-            -&gt;colspan(2)
-            -&gt;render(fn () =&gt; 'Total:'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'total'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_RIGHT</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">colspan</span>(<span class="hl-number">2</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> () <span class="hl-operator">=&gt;</span> <span class="hl-value">'Total:'</span>),
 
-        TD::make('total_count')
-            -&gt;align(TD::ALIGN_RIGHT),
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'total_count'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_RIGHT</span>),
 
-        TD::make('total_active_count')
-            -&gt;align(TD::ALIGN_RIGHT),
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'total_active_count'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_RIGHT</span>),
     ];
 }
 </code></pre>
 <p>This line will ignore the specified <code>target</code> based on the result of the <code>query</code> screen:</p>
-<pre><code class="language-php">public function query(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'total_active_count' =&gt; '$93 960',
-        'total_count' =&gt; '$103 783',
-        // ...
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'total_active_count'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'$93 960'</span>,
+        <span class="hl-value">'total_count'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'$103 783'</span>,
+        <span class="hl-comment">// ...</span>
     ];
 }
 </code></pre>
 <h2><a href='#column-expansion' id='column-expansion'>Column Expansion</a></h2>
 <p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to register the closure function in the service provider.</p>
 <p>Registration example:</p>
-<pre><code class="language-php">// AppServiceProvider.php
-TD::macro('bool', function () {
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// AppServiceProvider.php</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'bool'</span>, <span class="hl-keyword">function</span> () {
 
-    $column = $this-&gt;column;
+    $column <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">column</span>;
 
-    $this-&gt;render(function ($datum) use ($column) {
-        return view('bool',[
-            'bool' =&gt; $datum-&gt;$column
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$datum) <span class="hl-keyword">use</span> ($column</span>) {
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'bool'</span>,[
+            <span class="hl-value">'bool'</span> <span class="hl-operator">=&gt;</span> $datum<span class="hl-delimeter">-&gt;</span>$column
         ]);
     });
 
-    return $this;
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span>;
 });
 </code></pre>
 <p>Template example:</p>
-<pre><code class="language-php">// bool.blade.php
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// bool.blade.php</span>
 
-&lt;span class="{{ $bool ? 'text-success' : 'text-danger' }}"&gt;●&lt;/span&gt;
+&lt;span class=<span class="hl-value">"{{ $bool ? 'text-success' : 'text-danger' }}"</span>&gt;●&lt;/span&gt;
 </code></pre>
 <p>Usage example:</p>
-<pre><code class="language-php">public function grid(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">grid</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        TD::make('status')-&gt;bool(),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">bool</span></span>(),
     ];
 }
 </code></pre>
@@ -860,7 +860,7 @@ TD::macro('bool', function () {
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

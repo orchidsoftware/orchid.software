@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Permissions | Orchid - Laravel Admin Panel</title>
@@ -418,80 +418,80 @@ due to a large number of users and permissions.</p>
 </ul>
 <h2><a href='#usage' id='usage'>Usage</a></h2>
 <p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
-<pre><code class="language-php">// Check is carried out both for the user and for his role
-Auth::user()-&gt;hasAccess($string);
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Check is carried out both for the user and for his role</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($string);
 </code></pre>
 <p>Method <code>hasAnyAccess</code> will grant access if any permission passes the check.</p>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-if ($user-&gt;hasAnyAccess(['user.admin', 'user.update'])) {
-    // Execute this code if the user has permission
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAnyAccess</span>([<span class="hl-value">'user.admin'</span>, <span class="hl-value">'user.update'</span>])) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
 }
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> Permissions can be checked based on wildcards using the <code>*</code> character to match any set of permissions.</p>
 </blockquote>
-<pre><code class="language-php">$user = User::find(1);
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
-if ($user-&gt;hasAccess('user.*')) {
-    // Execute this code if the user has permission
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>(<span class="hl-value">'user.*'</span>)) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
 }
 </code></pre>
 <p>The user has several options for managing roles:</p>
-<pre><code class="language-php">// Get all user roles
-Auth::user()-&gt;getRoles();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get all user roles</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">getRoles</span>();
 
-// Check whether the user has a role
-Auth::user()-&gt;inRole($role);
+<span class="hl-comment">// Check whether the user has a role</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">inRole</span>($role);
 
-// Add role to user
-Auth::user()-&gt;addRole($role);
+<span class="hl-comment">// Add role to user</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">addRole</span>($role);
 </code></pre>
 <p>In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:</p>
-<pre><code class="language-php">User::byAccess('platform.systems.users')-&gt;get();
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAccess</span>(<span class="hl-value">'platform.systems.users'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 
-// Or if the user has at least one of the passed permissions
-User::byAnyAccess([
-   'platform.systems.users',
-   'non existent',
-])-&gt;get();
+<span class="hl-comment">// Or if the user has at least one of the passed permissions</span>
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAnyAccess</span>([
+   <span class="hl-value">'platform.systems.users'</span>,
+   <span class="hl-value">'non existent'</span>,
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#roles' id='roles'>Roles</a></h2>
 <p>Roles also have procedures for:</p>
-<pre><code class="language-php">// Returns all users with this role.
-$role-&gt;getUsers();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Returns all users with this role.</span>
+$role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</span>();
 </code></pre>
 <h2><a href='#creating-an-admin-user-via-console' id='creating-an-admin-user-via-console'>Creating an Admin User via Console</a></h2>
 <p>To create a user with the maximum (at the time of creation) permissions, run the following command:</p>
-<pre><code class="language-php">php artisan orchid:admin nickname email@email.com secretpassword
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin nickname email@email<span class="hl-delimeter">.</span>com secretpassword
 </code></pre>
 <p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
-<pre><code class="language-php">php artisan orchid:admin --id=1
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin --id=<span class="hl-number">1</span>
 </code></pre>
 <p>If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first specify Orchid to use your model by adding the following code to the service provider:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-class AppServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    public function boot()
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
     {
-        Dashboard::useModel(
-            \Orchid\Platform\Models\User::class,
-            \App\Models\User::class
+        <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
+            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+            \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
         );
     }
 }
 </code></pre>
 <p>Then override the <code>createAdmin</code> method in your <code>User</code> model:</p>
-<pre><code class="language-php">public static function createAdmin(string $name, string $email, string $password): void
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createAdmin</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name, <span class="hl-keyword">string</span> $email, <span class="hl-keyword">string</span> $password</span>): <span class="hl-keyword">void</span>
 {
-    throw_if(static::where('email', $email)-&gt;exists(), 'User already exists');
+    <span class="hl-function">throw_if</span>(<span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'email'</span>, $email)<span class="hl-delimeter">-&gt;</span><span class="hl-function">exists</span>(), <span class="hl-value">'User already exists'</span>);
 
-    static::create([
-        'name'        =&gt; $name,
-        'email'       =&gt; $email,
-        'password'    =&gt; Hash::make($password),
-        'permissions' =&gt; Dashboard::getAllowAllPermission(),
+    <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">create</span>([
+        <span class="hl-value">'name'</span>        <span class="hl-operator">=&gt;</span> $name,
+        <span class="hl-value">'email'</span>       <span class="hl-operator">=&gt;</span> $email,
+        <span class="hl-value">'password'</span>    <span class="hl-operator">=&gt;</span> <span class="hl-type">Hash</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($password),
+        <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
     ]);
 }
 </code></pre>
@@ -500,22 +500,22 @@ class AppServiceProvider extends ServiceProvider
 <p>You can define your own permissions in applications.
 Using them, you explicitly implement access to certain functions.</p>
 <p>An example of adding your own permissions using a provider:</p>
-<pre><code class="language-php">use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\ItemPermission;
-use Orchid\Platform\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
 
-class PermissionServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">PermissionServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    /**
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> <span class="hl-type">Dashboard</span> $dashboard
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>(<span class="hl-injection"><span class="hl-type">Dashboard</span> $dashboard</span>)
     {
-        $permissions = ItemPermission::group('modules')
-            -&gt;addPermission('analytics', 'Access to data analytics')
-            -&gt;addPermission('monitor', 'Access to the system monitor');
+        $permissions <span class="hl-operator">=</span> <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'modules'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'analytics'</span>, <span class="hl-value">'Access to data analytics'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'monitor'</span>, <span class="hl-value">'Access to the system monitor'</span>);
 
-        $dashboard-&gt;registerPermissions($permissions);
+        $dashboard<span class="hl-delimeter">-&gt;</span><span class="hl-function">registerPermissions</span>($permissions);
     }
 }
 </code></pre>
@@ -526,100 +526,100 @@ class PermissionServiceProvider extends ServiceProvider
 <h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>
 <p>Each created screen already has a built-in permission check set using method
 <code>permission</code>, which accepts both an array and a string value for verification:</p>
-<pre><code class="language-php">namespace App\Orchid\Screens;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
-use Orchid\Screen\Screen;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
 
-class History extends Screen
+<span class="hl-keyword">class</span> <span class="hl-type">History</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    /**
+    <span class="hl-comment">/**
      * The permissions required to access this screen.
-     */
-    public function permission(): ?iterable
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-type">iterable</span>
     {
-        return [
-            'systems.history'
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'systems.history'</span>
         ];
     }
         
-    // ...
+    <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>If several keys are listed, access will be granted if the user has at least one permission.</p>
 <p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, e.g. to redirect a payment page or return a different response:</p>
-<pre><code class="language-php">use Illuminate\Http\RedirectResponse;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">RedirectResponse</span>;
 
-/**
- * @return \Illuminate\Http\RedirectResponse
- */
-public static function unaccessed(): RedirectResponse
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">unaccessed</span>(): <span class="hl-type">RedirectResponse</span>
 {
-    return redirect('/other-screen');
+    <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>(<span class="hl-value">'/other-screen'</span>);
 }
 </code></pre>
 <h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
 <p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their availability for routes.
 To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The application's route middleware.
  *
  * These middleware may be assigned to groups or used individually.
  *
- * @var array
- */
-protected $routeMiddleware = [
-    //...
-    'access' =&gt; \Orchid\Platform\Http\Middleware\Access::class,
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $routeMiddleware <span class="hl-operator">=</span> [
+    <span class="hl-comment">//...</span>
+    <span class="hl-value">'access'</span> <span class="hl-operator">=&gt;</span> \Orchid\Platform\Http\Middleware\<span class="hl-type">Access</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
 <p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
-<pre><code class="language-php">Route::screen('/stories', StoriesScreen::class)
-    -&gt;middleware('access:systems.history');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">middleware</span>(<span class="hl-value">'access:systems.history'</span>);
 </code></pre>
 <p>You can also group them into groups:</p>
-<pre><code class="language-php">Route::middleware(['access:systems.history'])-&gt;group(function () {
-    Route::screen('/stories', StoriesScreen::class);
-    Route::get('stories/best', function () {
-        // ...
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">middleware</span>([<span class="hl-value">'access:systems.history'</span>])<span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-keyword">function</span> () {
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'stories/best'</span>, <span class="hl-keyword">function</span> () {
+        <span class="hl-comment">// ...</span>
     });
 });
 </code></pre>
 <h2><a href='#check-in-blade' id='check-in-blade'>Check-in Blade</a></h2>
 <p>For applications that rely on Blade templating to render, it will be convenient to add <a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;Custom If Statements&rdquo;</a> as follows:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Auth;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Blade</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Auth</span>;
 
-/**
+<span class="hl-comment">/**
  * Bootstrap any application services.
  *
- * @return void
- */
-public function boot()
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
 {
-    Blade::if('hasAccess', function (string $value) {
-        $user = Auth::user();
+    <span class="hl-type">Blade</span><span class="hl-delimeter">::</span><span class="hl-keyword"><span class="hl-function">if</span></span>(<span class="hl-value">'hasAccess'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-keyword">string</span> $value</span>) {
+        $user <span class="hl-operator">=</span> <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>();
 
-        if ($user === null) {
-            return false;
+        <span class="hl-keyword">if</span> ($user <span class="hl-operator">===</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>) {
+            <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
         }
 
-        return $user-&gt;hasAccess($value);
+        <span class="hl-keyword">return</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($value);
     });
 }
 </code></pre>
 <p>Once the custom conditional has been defined, you can use it within your templates:</p>
-<pre><code class="language-html">@hasAccess('platform.index')
-    &lt;!-- User has permission for the 'platform.index' action --&gt;
+<pre><code data-lang="html" class="notranslate">@hasAccess('platform.index')
+    <span class="hl-comment">&lt;!-- User has permission for the 'platform.index' action --&gt;</span>
 @elsehasAccess('platform.other')
-    &lt;!-- User doesn't have permission for 'platform.index',
-         but has permission for 'platform.other' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index',
+         but has permission for 'platform.other' --&gt;</span>
 @else
-    &lt;!-- User doesn't have permission for both 'platform.index'
-         and 'platform.other' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for both 'platform.index'
+         and 'platform.other' --&gt;</span>
 @endhasAccess
 
 @unlesshasAccess('platform.index')
-    &lt;!-- User doesn't have permission for 'platform.index' --&gt;
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index' --&gt;</span>
 @endhasAccess
 </code></pre>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
@@ -627,23 +627,23 @@ public function boot()
 It allows administrators to impersonate other users in order to view and perform actions on their behalf.
 This is useful for troubleshooting and resolving issues reported by users.</p>
 <p>To switch to another user, use the <code>loginAs()</code> method:</p>
-<pre><code class="language-php">use Orchid\Access\Impersonation;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
 
-// Login as another user
-Impersonation::loginAs($otherUser);
+<span class="hl-comment">// Login as another user</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">loginAs</span>($otherUser);
 </code></pre>
 <p>To revert back to the original user, call the <code>logout()</code> method:</p>
-<pre><code class="language-php">// Revert back to the original user
-Impersonation::logout();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Revert back to the original user</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">logout</span>();
 </code></pre>
 <p>The <code>isImpersonating()</code> method checks if the impersonation has been performed:</p>
-<pre><code class="language-php">if (Impersonation::isImpersonating()) {
-    // The user is impersonating another user
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">if</span> (<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">isImpersonating</span>()) {
+    <span class="hl-comment">// The user is impersonating another user</span>
 }
 </code></pre>
 <p>The <code>impersonator()</code> method returns information about the original user. If no impersonation has been performed, the method will return <code>null</code>:</p>
-<pre><code class="language-php">// Get information about the original user
-$impersonator = Impersonation::impersonator();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get information about the original user</span>
+$impersonator <span class="hl-operator">=</span> <span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">impersonator</span>();
 </code></pre>
 </body>
                         
@@ -715,7 +715,7 @@ $impersonator = Impersonation::impersonator();
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

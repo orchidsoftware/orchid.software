@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Layers for Grouping | Orchid - Laravel Admin Panel</title>
@@ -414,11 +414,11 @@ This layout is particularly useful when you want to display two separate pieces 
 To create a Split layout, simply pass an array of two Layout objects as the first parameter to the <code>split()</code> method.
 You can also set the ratio of the two sections using the optional <code>ratio()</code> method as the second parameter.</p>
 <p>Here&rsquo;s an example of how to create a Split layout:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">split</span>([
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'first-view'</span>),
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'second-view'</span>),
 ]);
 </code></pre>
 <h3><a href='#customizing-the-ratio' id='customizing-the-ratio'>Customizing the Ratio</a></h3>
@@ -434,47 +434,47 @@ This method takes a string argument that specifies the desired ratio. Here are t
 <li>80/20</li>
 </ul>
 <p>For example, to create a <code>Split</code> layout with a <code>40/60</code> ratio:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
-])-&gt;ratio('40/60'),
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">split</span>([
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'first-view'</span>),
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'second-view'</span>),
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">ratio</span>(<span class="hl-value">'40/60'</span>),
 </code></pre>
 <h3><a href='#reversing-the-order-on-mobile' id='reversing-the-order-on-mobile'>Reversing the Order on Mobile</a></h3>
 <p>By default, the order of the two sections in a <code>Split</code> layout is fixed.
 However, you can reverse the order of the sections on mobile devices by calling the <code>reverseOnPhone()</code> method. Here&rsquo;s an example:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
-])-&gt;ratio('40/60')-&gt;reverseOnPhone(),
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">split</span>([
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'first-view'</span>),
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'second-view'</span>),
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">ratio</span>(<span class="hl-value">'40/60'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">reverseOnPhone</span>(),
 </code></pre>
 <p>This will create a <code>Split</code> layout with a <code>40/60</code> ratio, and the order of the sections will be reversed on mobile devices.</p>
 <h2><a href='#sortable' id='sortable'>Sortable</a></h2>
 <p>Sortable in the Orchid platform simplifies managing the order of elements in your application. You will be able to easily change the order of items in your list and create interactive user interfaces through a simple drag and drop function. This significantly facilitates working with ordered elements in the user interface.</p>
 <h3><a href='#preparing-the-database' id='preparing-the-database'>Preparing the Database</a></h3>
 <p>To start using the sorting functionality, you need to prepare the database. To do this, create a migration that adds a simple integer column to the table you plan to work with. Here&rsquo;s an example migration:</p>
-<pre><code class="language-php">use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Database\Migrations\Migration;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
 
-class AddOrderColumnToTable extends Migration
+<span class="hl-keyword">class</span> <span class="hl-type">AddOrderColumnToTable</span> <span class="hl-keyword">extends</span> <span class="hl-template">Migration</span>
 {
-   /**
+   <span class="hl-comment">/**
     * Run the migrations.
     *
-    * @return void
-    */
-   public function up()
+    * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+    */</span>
+   <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">up</span>()
    {
-       Schema::table('table_name', function (Blueprint $table) {
-           $table-&gt;integer('order')-&gt;default(1);
+       <span class="hl-type">Schema</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'table_name'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Blueprint</span> $table</span>) {
+           $table<span class="hl-delimeter">-&gt;</span><span class="hl-function">integer</span>(<span class="hl-value">'order'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">default</span></span>(<span class="hl-number">1</span>);
        });
    }
 
-   // ...
+   <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>Replace <code>table_name</code> with the name of the table to which you want to add the column. You can also choose any other name for the column by replacing <code>'order'</code> with the preferred name.</p>
@@ -483,62 +483,62 @@ class AddOrderColumnToTable extends Migration
 </blockquote>
 <h3><a href='#preparing-the-eloquent-model' id='preparing-the-eloquent-model'>Preparing the Eloquent Model</a></h3>
 <p>After setting up the database and migrations, add the <code>Sortable</code> trait to your model:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Concerns\Sortable;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\Concerns\<span class="hl-type">Sortable</span>;
 
-class Idea extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use Sortable;
+    <span class="hl-keyword">use</span> <span class="hl-type">Sortable</span>;
 
-    //...
+    <span class="hl-comment">//...</span>
 }
 </code></pre>
 <blockquote>
 <p>Note: Make sure to import the Eloquent model class and then use the <code>Sortable</code> trait.</p>
 </blockquote>
 <p>If the column name is different from <code>order</code>, you can add a <code>getSortColumnName()</code> method to your model to explicitly specify the column name:</p>
-<pre><code class="language-php">use Illuminate\Database\Eloquent\Model;
-use Orchid\Platform\Concerns\Sortable;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\Concerns\<span class="hl-type">Sortable</span>;
 
-class Idea extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use Sortable;
+    <span class="hl-keyword">use</span> <span class="hl-type">Sortable</span>;
 
-    //...
+    <span class="hl-comment">//...</span>
 
-    /**
+    <span class="hl-comment">/**
      * Get the column name for sorting.
      *
-     * @return string
-     */
-    public function getSortColumnName(): string
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">getSortColumnName</span>(): <span class="hl-keyword">string</span>
     {
-        return 'sort';
+        <span class="hl-keyword">return</span> <span class="hl-value">'sort'</span>;
     }
 }
 </code></pre>
 <h3><a href='#usage-in-a-screen' id='usage-in-a-screen'>Usage in a Screen</a></h3>
 <p>Now we have a prepared model with sorting functionality. Let&rsquo;s create a graphical interface for drag and drop sorting. In the <code>query()</code> method of your screen, specify the list of models that will be displayed for sorting:</p>
-<pre><code class="language-php">use App\Models\Idea;
-use Orchid\Screen\Repository;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Idea</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
-public function query(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-   return [
-       'models' =&gt; Idea::sorted()-&gt;get(),
+   <span class="hl-keyword">return</span> [
+       <span class="hl-value">'models'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-function">sorted</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(),
    ];
 }
 </code></pre>
 <p>Here, we use the <code>sorted()</code> method provided by the <code>Sortable</code> trait to get a sorted list of models. It also has an optional argument for sorting direction (ASC &ndash; ascending, DESC &ndash; descending). By default, the value is set to ASC.</p>
 <p>In the <code>layout()</code> method of your screen, add the graphical interface using the <code>Layout::sortable()</code> layer:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
-use Orchid\Screen\Sight;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
-public function layout(): iterable
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-   return [
-       Layout::sortable('models', [
-           Sight::make('title'),
+   <span class="hl-keyword">return</span> [
+       <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">sortable</span>(<span class="hl-value">'models'</span>, [
+           <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>),
        ]),
    ];
 }
@@ -552,14 +552,14 @@ public function layout(): iterable
 <p><picture alt='Columns'><img src="/img/layouts/columns.png" alt="Columns"></picture></p>
 <p>To create columns in Orchid, you can use the <code>Layout::columns()</code> method. This method accepts an array of content, which will be displayed in the columns.</p>
 <p>Here is an example of how to create columns using the short syntax:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::columns([
-           UserProfileForm::class,
-           ContactInformationForm::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">columns</span>([
+           <span class="hl-type">UserProfileForm</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+           <span class="hl-type">ContactInformationForm</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
@@ -568,37 +568,37 @@ public function layout(): array
 <h2><a href='#tabmenu' id='tabmenu'>TabMenu</a></h2>
 <p>The <code>TabMenu</code> layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.</p>
 <p>To create a <code>TabMenu</code> layout, you can use the <code>artisan</code> command:</p>
-<pre><code class="language-bash">php artisan orchid:tab-menu ExampleNavigation
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:tab-menu ExampleNavigation
 </code></pre>
 <p>This will create a new class called <code>ExampleNavigation</code> in the <code>app/Orchid/Layouts</code> directory. You can define the navigation items in this class by implementing the <code>navigations</code> method:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Orchid\Screen\Actions\Menu;
-use Orchid\Screen\Layouts\TabMenu;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">TabMenu</span>;
 
-class ExampleNavigation extends TabMenu
+<span class="hl-keyword">class</span> <span class="hl-type">ExampleNavigation</span> <span class="hl-keyword">extends</span> <span class="hl-template">TabMenu</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Get the menu elements to be displayed.
      *
-     * @return Menu[]
-     */
-    protected function navigations(): iterable
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Menu</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">navigations</span>(): <span class="hl-type">iterable</span>
     {
-        return [
-            Menu::make('Get Started')
-                -&gt;route('platform.main'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Get Started'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.main'</span>),
         ];
     }
 }
 </code></pre>
 <p>You can specify the items in the same way as in the <a href="/en/docs/menu">Menu section</a></p>
-<pre><code class="language-php">use App\Orchid\Layouts\ExampleNavigation;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Layouts\<span class="hl-type">ExampleNavigation</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        ExampleNavigation::class
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">ExampleNavigation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
     ];
 }
 </code></pre>
@@ -606,32 +606,32 @@ public function layout(): array
 <p>Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of content:</p>
 <p><picture alt='Tabs'><img src="/img/layouts/tabs.png" alt="Tabs"></picture></p>
 <p>Tabs support short syntax by calling a static method, which does not require creating a separate class:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::tabs([
-            'Personal Information' =&gt; [
-                Layout::rows([
-                    Input::make('user.name')
-                        -&gt;type('text')
-                        -&gt;required()
-                        -&gt;title('Name')
-                        -&gt;placeholder('Name'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">tabs</span>([
+            <span class="hl-value">'Personal Information'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user.name'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Name'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Name'</span>),
 
-                    Input::make('user.email')
-                        -&gt;type('email')
-                        -&gt;required()
-                        -&gt;title('Email')
-                        -&gt;placeholder('Email'),
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user.email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Email'</span>),
                 ]),
             ],
-            'Billing Address'      =&gt; [
-                Layout::rows([
-                    Input::make('address')
-                        -&gt;type('text')
-                        -&gt;required(),
+            <span class="hl-value">'Billing Address'</span>      <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'address'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>(),
                 ]),
             ],
         ]),
@@ -640,25 +640,25 @@ public function layout(): array
 </code></pre>
 <p>Keys will be used as headers.</p>
 <p>Please note that you can specify the lowercase name of the class as values:</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::tabs([
-            'Personal Information' =&gt; PersonalInformationRow::class,
-            'Billing Address'      =&gt; BillingAddressRow::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">tabs</span>([
+            <span class="hl-value">'Personal Information'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">PersonalInformationRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+            <span class="hl-value">'Billing Address'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-type">BillingAddressRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
 </code></pre>
 <p>By default, the active tab will be either the first or the last active one.
 If you need to define the active tab explicitly, you can do this using the <code>-&gt;activeTab($key)</code> method</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::tabs([
-            'Personal Information' =&gt; PersonalInformationRow::class,
-            'Billing Address'      =&gt; BillingAddressRow::class,
-        ])-&gt;activeTab('Billing Address'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">tabs</span>([
+            <span class="hl-value">'Personal Information'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">PersonalInformationRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+            <span class="hl-value">'Billing Address'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-type">BillingAddressRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+        ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">activeTab</span>(<span class="hl-value">'Billing Address'</span>),
     ];
 }
 </code></pre>
@@ -668,32 +668,32 @@ If you need to define the active tab explicitly, you can do this using the <code
 <p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
 <p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.</p>
 <p>Here is an example of how to create an accordion using the short syntax:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function layout(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::accordion([
-            'Personal Information' =&gt; [
-                Layout::rows([
-                    Input::make('user.name')
-                        -&gt;type('text')
-                        -&gt;required()
-                        -&gt;title('Name')
-                        -&gt;placeholder('Name'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">accordion</span>([
+            <span class="hl-value">'Personal Information'</span> <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user.name'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Name'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Name'</span>),
 
-                    Input::make('user.email')
-                        -&gt;type('email')
-                        -&gt;required()
-                        -&gt;title('Email')
-                        -&gt;placeholder('Email'),
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user.email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Email'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Email'</span>),
                 ]),
             ],
-            'Billing Address'      =&gt; [
-                Layout::rows([
-                    Input::make('address')
-                        -&gt;type('text')
-                        -&gt;required(),
+            <span class="hl-value">'Billing Address'</span>      <span class="hl-operator">=&gt;</span> [
+                <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                    <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'address'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>(),
                 ]),
             ],
         ]),
@@ -702,12 +702,12 @@ public function layout(): array
 </code></pre>
 <p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address&rdquo;. The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
 <p>You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:</p>
-<pre><code class="language-php">public function layout(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Layout::accordion([
-            'Personal Information' =&gt; PersonalInformationRow::class,
-            'Billing Address'      =&gt; BillingAddressRow::class,
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">accordion</span>([
+            <span class="hl-value">'Personal Information'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">PersonalInformationRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+            <span class="hl-value">'Billing Address'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-type">BillingAddressRow</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
         ]),
     ];
 }
@@ -782,7 +782,7 @@ public function layout(): array
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

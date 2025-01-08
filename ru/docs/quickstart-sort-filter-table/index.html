@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Сортировка и фильтрация в таблице | Orchid - Laravel Admin Panel</title>
@@ -383,54 +383,54 @@
     </div>
                         <body><p>&#1069;&#1090;&#1086; &#1088;&#1091;&#1082;&#1086;&#1074;&#1086;&#1076;&#1089;&#1090;&#1074;&#1086; &#1087;&#1088;&#1086;&#1076;&#1086;&#1083;&#1078;&#1077;&#1085;&#1080;&#1077; &#1091;&#1095;&#1077;&#1073;&#1085;&#1080;&#1082;&#1072; <a href="/ru/docs/quickstart-crud">&ldquo;&#1059;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1084;&#1080;&rdquo;</a>, &#1074; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1084; &#1084;&#1099; &#1073;&#1091;&#1076;&#1077;&#1084; &#1087;&#1086;&#1084;&#1086;&#1075;&#1072;&#1090;&#1100; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1102; &#1073;&#1099;&#1089;&#1090;&#1088;&#1077;&#1077; &#1085;&#1072;&#1093;&#1086;&#1076;&#1080;&#1090;&#1100; &#1080;&#1085;&#1092;&#1086;&#1088;&#1084;&#1072;&#1094;&#1080;&#1102; &#1074; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1072;&#1093;.</p>
 <p>&#1057;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1072; &#1074; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1077; &#1087;&#1086;&#1083;&#1085;&#1086;&#1089;&#1090;&#1100;&#1102; &#1086;&#1089;&#1085;&#1086;&#1074;&#1072;&#1085;&#1072; &#1085;&#1072; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1084; &#1088;&#1072;&#1089;&#1087;&#1086;&#1079;&#1085;&#1072;&#1074;&#1072;&#1085;&#1080;&#1080; <code>Http</code> &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1072; &#1080; &#1087;&#1088;&#1080;&#1084;&#1077;&#1085;&#1103;&#1077;&#1090;&#1089;&#1103; &#1082; &#1084;&#1086;&#1076;&#1077;&#1083;&#1103;&#1084; <code>Eloquent</code>. &#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1074;&#1082;&#1083;&#1102;&#1095;&#1080;&#1090;&#1100; &#1077;&#1105;, &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090; <code>Filterable</code> &#1080; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1088;&#1072;&#1079;&#1088;&#1077;&#1096;&#1105;&#1085;&#1085;&#1099;&#1077; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080;:</p>
-<pre><code class="language-php">namespace App\Models;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
-use Orchid\Filters\Filterable;
-use Orchid\Screen\AsSource;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
+<span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">AsSource</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use AsSource, Attachable, Filterable;
+    <span class="hl-keyword">use</span> <span class="hl-type">AsSource, Attachable, Filterable</span>;
 
-    /**
+    <span class="hl-comment">/**
      * The attributes that are mass assignable.
      *
-     * @var array
-     */
-    protected $fillable = [
-        'title',
-        'description',
-        'body',
-        'author',
-        'hero'
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+        <span class="hl-value">'title'</span>,
+        <span class="hl-value">'description'</span>,
+        <span class="hl-value">'body'</span>,
+        <span class="hl-value">'author'</span>,
+        <span class="hl-value">'hero'</span>
     ];
 
-    /**
+    <span class="hl-comment">/**
      * Name of columns to which http sorting can be applied
      *
-     * @var array
-     */
-    protected $allowedSorts = [
-        'title',
-        'created_at',
-        'updated_at'
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+     */</span>
+    <span class="hl-keyword">protected</span> $allowedSorts <span class="hl-operator">=</span> [
+        <span class="hl-value">'title'</span>,
+        <span class="hl-value">'created_at'</span>,
+        <span class="hl-value">'updated_at'</span>
     ];
 }
 </code></pre>
 <p>&#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1087;&#1088;&#1080; &#1074;&#1099;&#1079;&#1086;&#1074;&#1077; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072; <code>filters</code> &#1079;&#1072;&#1087;&#1088;&#1086;&#1089; &#1082; &#1073;&#1072;&#1079;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1073;&#1091;&#1076;&#1077;&#1090; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;.
 &#1042; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; &#1080;&#1089;&#1090;&#1086;&#1095;&#1085;&#1080;&#1082;&#1072; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1091; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072; <code>PostListScreen</code>, &#1101;&#1090;&#1086;  &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1075;&#1083;&#1103;&#1076;&#1077;&#1090;&#1100; &#1089;&#1083;&#1077;&#1076;&#1091;&#1102;&#1097;&#1080;&#1084; &#1086;&#1073;&#1088;&#1072;&#1079;&#1086;&#1084;:</p>
-<pre><code class="language-php">/**
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data.
  *
- * @return array
- */
-public function query(): array
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'posts' =&gt; Post::filters()-&gt;defaultSort('id')-&gt;paginate()
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'posts'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">filters</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">defaultSort</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">paginate</span>()
     ];
 }
 </code></pre>
@@ -443,65 +443,65 @@ public function query(): array
 <p><strong>&#1054;&#1073;&#1088;&#1072;&#1090;&#1080;&#1090;&#1077; &#1074;&#1085;&#1080;&#1084;&#1072;&#1085;&#1080;&#1077;.</strong> &#1058;&#1072;&#1082;&#1080;&#1084; &#1089;&#1087;&#1086;&#1089;&#1086;&#1073;&#1086;&#1084; &#1074;&#1099; &#1085;&#1077; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1089;&#1074;&#1103;&#1079;&#1072;&#1085;&#1085;&#1099;&#1077; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;.</p>
 </blockquote>
 <p>&#1044;&#1083;&#1103; &#1090;&#1086;&#1075;&#1086; &#1095;&#1090;&#1086;&#1073;&#1099; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1079;&#1080;&#1090;&#1100; &#1074; &#1075;&#1088;&#1072;&#1092;&#1080;&#1095;&#1077;&#1089;&#1082;&#1086;&#1084; &#1080;&#1085;&#1090;&#1077;&#1088;&#1092;&#1077;&#1081;&#1089;&#1077; &#1074;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086;&#1089;&#1090;&#1100; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;, &#1084;&#1099; &#1076;&#1086;&#1083;&#1078;&#1085;&#1099; &#1074;&#1099;&#1079;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>sort</code> &#1076;&#1083;&#1103; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1099;&#1093; &#1082;&#1086;&#1083;&#1086;&#1085;&#1086;&#1082; &#1090;&#1072;&#1073;&#1083;&#1080;&#1094;&#1099; &#1074; <code>PostListLayout</code>:</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use App\Models\Post;
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Table;
+<span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Table</span>;
 
-class PostListLayout extends Table
+<span class="hl-keyword">class</span> <span class="hl-type">PostListLayout</span> <span class="hl-keyword">extends</span> <span class="hl-template">Table</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Data source.
      *
-     * @var string
-     */
-    public $target = 'posts';
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
+     */</span>
+    <span class="hl-keyword">public</span> $target <span class="hl-operator">=</span> <span class="hl-value">'posts'</span>;
 
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">TD</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">columns</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            TD::make('title')
-                -&gt;sort()
-                -&gt;render(function (Post $post) {
-                    return Link::make($post-&gt;title)
-                        -&gt;route('platform.post.edit', $post);
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>()
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Post</span> $post</span>) {
+                    <span class="hl-keyword">return</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>)
+                        <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
                 }),
 
-            TD::make('created_at', 'Created')
-                -&gt;sort(),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>, <span class="hl-value">'Created'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
 
-            TD::make('updated_at', 'Last edit')
-                -&gt;sort(),
+            <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'updated_at'</span>, <span class="hl-value">'Last edit'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(),
         ];
     }
 }
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1086;&#1082; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080; &#1073;&#1091;&#1076;&#1077;&#1090; &#1088;&#1077;&#1072;&#1075;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1085;&#1072; &#1085;&#1072;&#1078;&#1072;&#1090;&#1080;&#1077; &#1080; &#1084;&#1077;&#1085;&#1103;&#1090;&#1100; &#1087;&#1086;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1077; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1080;.</p>
 <p>&#1058;&#1088;&#1077;&#1081;&#1090; <code>Filterable</code> &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1091;&#1089;&#1090;&#1072;&#1085;&#1072;&#1074;&#1083;&#1080;&#1074;&#1072;&#1090;&#1100; &#1085;&#1077; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1089;&#1086;&#1088;&#1090;&#1080;&#1088;&#1086;&#1074;&#1082;&#1091;, &#1085;&#1086; &#1080; &#1087;&#1088;&#1086;&#1089;&#1090;&#1091;&#1102; <code>Http</code> &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1072;&#1094;&#1080;&#1102;. &#1044;&#1083;&#1103; &#1077;&#1105; &#1091;&#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1082;&#1080; &#1074;&#1077;&#1088;&#1085;&#1105;&#1084;&#1089;&#1103; &#1082; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; &#1080; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1084; &#1085;&#1086;&#1074;&#1086;&#1077; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1086;:</p>
-<pre><code class="language-php">use Orchid\Filters\Types\Like;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Like</span>;
 
-/**
+<span class="hl-comment">/**
  * Name of columns to which http filter can be applied
  *
- * @var array
- */
-protected $allowedFilters = [
-    'title' =&gt; Like::class,
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $allowedFilters <span class="hl-operator">=</span> [
+    <span class="hl-value">'title'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Like</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
 <p>&#1040; &#1079;&#1072;&#1090;&#1077;&#1084; &#1074;&#1099;&#1079;&#1086;&#1074;&#1077;&#1084; &#1085;&#1086;&#1074;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076; <code>filter</code> &#1089; &#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1099;&#1084; &#1090;&#1080;&#1087;&#1086;&#1084; &#1076;&#1083;&#1103; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080; &#1089; &#1079;&#1072;&#1075;&#1086;&#1083;&#1086;&#1074;&#1082;&#1086;&#1084;:</p>
-<pre><code class="language-php">use Orchid\Screen\Fields\Input;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
-TD::make('title')
-   -&gt;sort()
-   -&gt;filter(Input::make())
-   -&gt;render(function (Post $post) {
-       return Link::make($post-&gt;title)-&gt;route('platform.post.edit', $post);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'title'</span>)
+   <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>()
+   <span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>())
+   <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Post</span> $post</span>) {
+       <span class="hl-keyword">return</span> <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($post<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
    }),
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1088;&#1103;&#1076;&#1086;&#1084; &#1089; &#1080;&#1084;&#1077;&#1085;&#1077;&#1084; &#1082;&#1086;&#1083;&#1086;&#1085;&#1082;&#1080; &#1087;&#1086;&#1103;&#1074;&#1080;&#1090;&#1089;&#1103; &#1080;&#1082;&#1086;&#1085;&#1082;&#1072; &#1086;&#1090;&#1082;&#1088;&#1099;&#1074;&#1072;&#1102;&#1097;&#1072;&#1103; &#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077;, &#1091;&#1089;&#1090;&#1072;&#1085;&#1072;&#1074;&#1083;&#1080;&#1074;&#1072;&#1103; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1077; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1084;&#1086;&#1078;&#1085;&#1086; &#1092;&#1080;&#1083;&#1100;&#1090;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1099;.</p>
@@ -582,7 +582,7 @@ TD::make('title')
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

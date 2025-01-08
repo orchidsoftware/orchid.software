@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Upgrade Guide | Orchid - Laravel Admin Panel</title>
@@ -541,29 +541,29 @@
 <p>One of the main new features of the release is the ability to save the states of public properties between actions on the screen.</p>
 <p>Let&rsquo;s take an example. While viewing the screen in the <code>query</code> method, we can set public properties that will be accessible in the <code>name/layouts</code> methods and others.</p>
 <p>Now, these public properties will be saved and available for the execution methods.</p>
-<pre><code class="language-php">public $idea;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> $idea;
 
-public function query() : array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
-    return [
-        'idea' =&gt; Idea::first()
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'idea'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-function">first</span>()
     ];
 }
 
-public function yourMethod()
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">yourMethod</span>()
 {
-    $this-&gt;idea; 
-    // The property is not empty and contains
-    // the value that was set at the beginning.
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">idea</span>; 
+    <span class="hl-comment">// The property is not empty and contains</span>
+    <span class="hl-comment">// the value that was set at the beginning.</span>
 }
 </code></pre>
 <h3><a href='#route-binding' id='route-binding'>Route Binding</a></h3>
 <p>For a long time, Orchid has been using its own solution for defining route arguments.
 However, for the vast majority of methods (query/method), the same solution as with Controller is used.
 This allows you to define:</p>
-<pre><code class="language-php">Route::screen('/posts/{post:slug}', ExampleScreen::class);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/posts/{post:slug}'</span>, <span class="hl-type">ExampleScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 
-Route::screen('/task', ExampleScreen::class)-&gt;withTrashed();
+<span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/task'</span>, <span class="hl-type">ExampleScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withTrashed</span>();
 </code></pre>
 <p>It also provides other opportunities that were not explicitly tied to what you&rsquo;re used to.</p>
 <blockquote>
@@ -575,62 +575,62 @@ However, this now triggers a 404&nbsp;error.</p>
 Therefore, Listeners no longer have a property that specifies the screen method.
 Instead, there is a mandatory default method called <code>handler</code>.
 The current state of the screen is passed as the first argument to this method, and the <code>request</code> object is passed as the second argument.</p>
-<pre><code class="language-php">namespace App\Orchid\Layouts;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
-use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Listener;
-use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
+<span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Listener</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-class SubtractListener extends Listener
+<span class="hl-keyword">class</span> <span class="hl-type">SubtractListener</span> <span class="hl-keyword">extends</span> <span class="hl-template">Listener</span>
 {
-    /**
+    <span class="hl-comment">/**
      * List of field names for which values will be listened.
      *
-     * @var string[]
-     */
-    protected $targets = [
-        'minuend',
-        'subtrahend',
+     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> $targets <span class="hl-operator">=</span> [
+        <span class="hl-value">'minuend'</span>,
+        <span class="hl-value">'subtrahend'</span>,
     ];
 
-    /**
-     * @return Layout[]
-     */
-    protected function layouts(): iterable
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@return</span> <span class="hl-type">Layout</span>[]
+     */</span>
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">layouts</span>(): <span class="hl-type">iterable</span>
     {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    -&gt;title('First argument')
-                    -&gt;type('number'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'minuend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
 
-                Input::make('subtrahend')
-                    -&gt;title('Second argument')
-                    -&gt;type('number'),
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'subtrahend'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Second argument'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'number'</span>),
 
-                Input::make('result')
-                    -&gt;readonly()
-                    -&gt;canSee($this-&gt;query-&gt;has('result')),
+                <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'result'</span>)
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">readonly</span></span>()
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">has</span>(<span class="hl-value">'result'</span>)),
             ]),
         ];
     }
 
-    /**
-     * @param \Orchid\Screen\Repository $repository
-     * @param \Illuminate\Http\Request  $request
+    <span class="hl-comment">/**
+     * <span class="hl-keyword">@param</span> \Orchid\Screen\<span class="hl-type">Repository</span> $repository
+     * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span>  $request
      *
-     * @return \Orchid\Screen\Repository
-     */
-    public function handle(Repository $repository, Request $request): Repository
+     * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Repository</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">handle</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository, <span class="hl-type">Request</span> $request</span>): <span class="hl-type">Repository</span>
     {
-        [$minuend, $subtrahend] = $request-&gt;all();
+        [$minuend, $subtrahend] <span class="hl-operator">=</span> $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>();
 
-        return $repository
-            -&gt;set('minuend', $minuend)
-            -&gt;set('subtrahend', $subtrahend)
-            -&gt;set('result', $minuend - $subtrahend);
+        <span class="hl-keyword">return</span> $repository
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'minuend'</span>, $minuend)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'subtrahend'</span>, $subtrahend)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'result'</span>, $minuend - $subtrahend);
     }
 }
 </code></pre>
@@ -638,20 +638,20 @@ class SubtractListener extends Listener
 <p>The automatic filters were previously based on the type of data entered by the user, which often led to errors.
 For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array.
 Therefore, filters now need to specify their behavior explicitly:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
-use Orchid\Filters\Filterable;
-use Orchid\Filters\Types\Like;
-use Orchid\Filters\Types\Where;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Like</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Where</span>;
 
-class Post extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    use Filterable;
+    <span class="hl-keyword">use</span> <span class="hl-type">Filterable</span>;
 
-    protected $allowedFilters = [
-        'id' =&gt; Where::class,
-        'content' =&gt; Like::class,
+    <span class="hl-keyword">protected</span> $allowedFilters <span class="hl-operator">=</span> [
+        <span class="hl-value">'id'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Where</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+        <span class="hl-value">'content'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Like</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     ];
 }
 </code></pre>
@@ -662,70 +662,70 @@ We are working on finding a more efficient and safer way to handle JSON fields i
 Instead, it is suggested to specify the profile information in the main menu or on the screens.
 Please make sure to remove any references to the <code>Dashboard::MENU_PROFILE</code> constant and the <code>registerProfileMenu</code> method for the service provider from your code.</p>
 <p>For example, the following item will no longer work correctly:</p>
-<pre><code class="language-php">public function registerProfileMenu(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">registerProfileMenu</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Menu::make('Documentation')
-            -&gt;title('Docs')
-            -&gt;icon('docs')
-            -&gt;url('https://orchid.software/en/docs'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Documentation'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Docs'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'docs'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'https://orchid.software/en/docs'</span>),
     ];
 }
 </code></pre>
 <p>Instead, pen your menu items using the <code>registerMenu</code> method:</p>
-<pre><code class="language-php">public function registerMenu(): array
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">registerMenu</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        Menu::make('Documentation')
-            -&gt;title('Docs')
-            -&gt;icon('docs')
-            -&gt;url('https://orchid.software/en/docs'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Documentation'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Docs'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'docs'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'https://orchid.software/en/docs'</span>),
     ];
 }
 </code></pre>
 <p>All methods that depend on <code>location</code> no longer need this argument. For example, the <code>addMenuSubElements</code> method now points directly to the target slug:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Sub element item 3')-&gt;icon('badge')
+<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">addMenuSubElements</span>(<span class="hl-value">'sub-menu'</span>, [
+    <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 3'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'badge'</span>)
 ]);
 </code></pre>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
 <p>In the new version, the icons have been updated to a set from Bootstrap.
 While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
 <p>To do this, simply add the following line to your <code>composer.json</code> file:</p>
-<pre><code class="language-bash">"orchid/icons": "^2.0",
+<pre><code data-lang="shell" class="notranslate"><span class="hl-value">"orchid/icons"</span>: <span class="hl-value">"^2.0"</span>,
 </code></pre>
 <p>And then specify in your configuration file:</p>
-<pre><code class="language-php">'icons' =&gt; [
-    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'orc'</span> <span class="hl-operator">=&gt;</span> \Orchid\IconPack\<span class="hl-type">Path</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
 ],
 </code></pre>
 <p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
 <p>For the new icons to be displayed as well, add:</p>
-<pre><code class="language-php">'icons' =&gt; [
-    // ...
-    'bs' =&gt; \Orchid\Support\BootstrapIconsPath::getFolder(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-comment">// ...</span>
+    <span class="hl-value">'bs'</span> <span class="hl-operator">=&gt;</span> \Orchid\Support\<span class="hl-type">BootstrapIconsPath</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
 ],
 </code></pre>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
 <p>The behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must be explicitly defined by the developer.
 To do this, you can add button definitions to your profile screen.</p>
 <p>Here&rsquo;s an example of how you can define these buttons:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Button;
-use Orchid\Access\Impersonation;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
+<span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
 
-public function commandBar(): iterable
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        Button::make('Back to my account')
-            -&gt;canSee(Impersonation::isSwitch())
-            -&gt;icon('bs.people')
-            -&gt;route('platform.switch.logout'),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Back to my account'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">isSwitch</span>())
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.people'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.switch.logout'</span>),
 
-        Button::make('Sign out')
-            -&gt;icon('bs.box-arrow-left')
-            -&gt;route('platform.logout'),
+        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sign out'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.box-arrow-left'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.logout'</span>),
     ];
 }
 </code></pre>
@@ -739,10 +739,10 @@ public function commandBar(): iterable
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^13.0</code></p>
 <h3><a href='#jquery' id='jquery'>jQuery</a></h3>
 <p>There is no longer a default jQuery package in this release. If you need it, then you can install it separately, for example by adding a reference to it in the configuration file:</p>
-<pre><code class="language-php">'resource' =&gt; [
-    'stylesheets' =&gt; [],
-    'scripts'     =&gt; [
-        'https://code.jquery.com/jquery-3.6.0.min.js'
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
+    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'https://code.jquery.com/jquery-3.6.0.min.js'</span>
     ],
 ],
 </code></pre>
@@ -758,83 +758,83 @@ public function commandBar(): iterable
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^11.0</code></p>
 <h3><a href='#publish-assets-files' id='publish-assets-files'>Publish Assets Files</a></h3>
 <p>Instead of creating a symbolic link to download resources, there is a new command to publish them:</p>
-<pre><code class="language-bash">php artisan orchid:publish
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:publish
 </code></pre>
 <p>Which would place the <code>JS/CSS</code> files in the <code>public/vendor/orchid</code> directory. It will also be required to automate making changes to composer.json:</p>
-<pre><code class="language-json">{
-    "scripts": {
-        "post-update-cmd": [
-            "@php artisan orchid:publish --ansi"
+<pre><code data-lang="json" class="notranslate">{
+    "<span class="hl-value">scripts</span>": {
+        "<span class="hl-value">post-update-cmd</span>": [
+            "<span class="hl-value2">@php artisan orchid:publish --ansi</span>"
         ]
     }
 }
 </code></pre>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
 <p>Icons can now be completely replaced and are not forced to load. To continue using them, change the configuration file:</p>
-<pre><code class="language-php">'icons' =&gt; [
-    'orc' =&gt; \Orchid\IconPack\Path::getFolder(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'orc'</span> <span class="hl-operator">=&gt;</span> \Orchid\IconPack\<span class="hl-type">Path</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
 ],
 </code></pre>
 <h3><a href='#screen' id='screen'>Screen</a></h3>
 <p>Public screen properties are now auto-filled with values by key from the <code>query()</code> method. For instance:</p>
-<pre><code class="language-php">class IdeaScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">IdeaScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    public $name = 'Edit User';
+    <span class="hl-keyword">public</span> $name <span class="hl-operator">=</span> <span class="hl-value">'Edit User'</span>;
 
-    public function query(): array
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            'name' =&gt; 'Welcome',
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Welcome'</span>,
         ];
     }
 }
 </code></pre>
 <p>The value of the <code>name</code> property will be overwritten.
 To avoid this, change the visibility of the property to <code>protected</code></p>
-<pre><code class="language-php">class IdeaScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">IdeaScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    protected $name = 'Edit User';
+    <span class="hl-keyword">protected</span> $name <span class="hl-operator">=</span> <span class="hl-value">'Edit User'</span>;
 
-    public function query(): array
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            'name' =&gt; 'Welcome',
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Welcome'</span>,
         ];
     }
 }
 </code></pre>
 <h3><a href='#component' id='component'>Component</a></h3>
 <p>Specifying the expected argument name for components is no longer necessary:</p>
-<pre><code class="language-php">// before
-TD::make('index')-&gt;component(OrderShortInformation::class, 'order', [
-    'limit' =&gt; 100
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// before</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'index'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">OrderShortInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'order'</span>, [
+    <span class="hl-value">'limit'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">100</span>
 ]);
 
-// after
-TD::make('index')-&gt;component(OrderShortInformation::class, [
-    'limit' =&gt; 100
+<span class="hl-comment">// after</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'index'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">OrderShortInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, [
+    <span class="hl-value">'limit'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">100</span>
 ]);
 </code></pre>
 <h3><a href='#metrics' id='metrics'>Metrics</a></h3>
 <p>Instead of a separate class, the short syntax is now applied:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-public function query(): array
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
-    return [
-        'metrics' =&gt; [
-            'sales'    =&gt; ['value' =&gt; number_format(6851), 'diff' =&gt; 10.08],
-            'total'    =&gt; number_format(65661),
+    <span class="hl-keyword">return</span> [
+        <span class="hl-value">'metrics'</span> <span class="hl-operator">=&gt;</span> [
+            <span class="hl-value">'sales'</span>    <span class="hl-operator">=&gt;</span> [<span class="hl-value">'value'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">number_format</span>(<span class="hl-number">6851</span>), <span class="hl-value">'diff'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">10</span><span class="hl-delimeter">.</span><span class="hl-number">08</span>],
+            <span class="hl-value">'total'</span>    <span class="hl-operator">=&gt;</span> <span class="hl-function">number_format</span>(<span class="hl-number">65661</span>),
         ],
     ];
 }
     
-public function layout(): iterable
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
-    return [
-        Layout::metrics([
-            'Sales Today'    =&gt; 'metrics.sales',
-            'Total Earnings' =&gt; 'metrics.total',
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">metrics</span>([
+            <span class="hl-value">'Sales Today'</span>    <span class="hl-operator">=&gt;</span> <span class="hl-value">'metrics.sales'</span>,
+            <span class="hl-value">'Total Earnings'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'metrics.total'</span>,
         ]),
     ];
 }
@@ -844,82 +844,82 @@ public function layout(): iterable
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^10.0</code></p>
 <h3><a href='#menu' id='menu'>Menu</a></h3>
 <p>Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class <code>Orchid\Platform\Dashboard</code>.</p>
-<pre><code class="language-php">use Orchid\Platform\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
 
-Dashboard::MENU_MAIN;
-Dashboard::MENU_PROFILE;
+<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-constant">MENU_MAIN</span>;
+<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-constant">MENU_PROFILE</span>;
 </code></pre>
 <p>Menus are now <code>Field</code> classes and have a unified syntax. Before:</p>
-<pre><code class="language-php">ItemMenu::label('Example screen')
-    -&gt;icon('monitor')
-    -&gt;route('platform.example')
-    -&gt;title('Navigation')
-    -&gt;badge(function () {
-        return 6;
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">ItemMenu</span><span class="hl-delimeter">::</span><span class="hl-function">label</span>(<span class="hl-value">'Example screen'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'monitor'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Navigation'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">badge</span>(<span class="hl-keyword">function</span> () {
+        <span class="hl-keyword">return</span> <span class="hl-number">6</span>;
     });
 </code></pre>
 <p>After:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
-Menu::make('Example screen')
-    -&gt;icon('monitor')
-    -&gt;route('platform.example')
-    -&gt;title('Navigation')
-    -&gt;badge(function () {
-        return 6;
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example screen'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'monitor'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Navigation'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">badge</span>(<span class="hl-keyword">function</span> () {
+        <span class="hl-keyword">return</span> <span class="hl-number">6</span>;
     });
 </code></pre>
 <p>As you can see, the update should be very soft.
 But the differences will also be, for example, the writing of nested elements will be more visual:</p>
 <p>Before:</p>
-<pre><code class="language-php">ItemMenu::label('Dropdown menu')
-    -&gt;slug('example-menu')
-    -&gt;icon('code')
-    -&gt;withChildren(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">ItemMenu</span><span class="hl-delimeter">::</span><span class="hl-function">label</span>(<span class="hl-value">'Dropdown menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">slug</span>(<span class="hl-value">'example-menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">withChildren</span>(),
 
-ItemMenu::label('Sub element item 1')
-    -&gt;place('example-menu')
-    -&gt;icon('bag'),
+<span class="hl-type">ItemMenu</span><span class="hl-delimeter">::</span><span class="hl-function">label</span>(<span class="hl-value">'Sub element item 1'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">place</span>(<span class="hl-value">'example-menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bag'</span>),
 
-ItemMenu::label('Sub element item 2')
-    -&gt;place('example-menu')
-    -&gt;icon('heart'),
+<span class="hl-type">ItemMenu</span><span class="hl-delimeter">::</span><span class="hl-function">label</span>(<span class="hl-value">'Sub element item 2'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">place</span>(<span class="hl-value">'example-menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'heart'</span>),
 </code></pre>
 <p>After:</p>
-<pre><code class="language-php">Menu::make('Dropdown menu')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Sub element item 1')-&gt;icon('bag'),
-        Menu::make('Sub element item 2')-&gt;icon('heart'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Dropdown menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bag'</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'heart'</span>),
     ]),
 </code></pre>
 <p>The default for sorting has been changed from 1000&nbsp;to 0:</p>
-<pre><code class="language-php">Menu::make('Example screen')
-    -&gt;icon('monitor')
-    -&gt;route('platform.example')
-    -&gt;title('Navigation')
-    -&gt;sort(2),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example screen'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'monitor'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Navigation'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">2</span>),
 </code></pre>
 <p>This is also true for nested elements:</p>
-<pre><code class="language-php">Menu::make('Dropdown menu')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Sub element item 1')-&gt;icon('bag')-&gt;sort(2),
-        Menu::make('Sub element item 2')-&gt;icon('heart')-&gt;sort(0),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Dropdown menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bag'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">2</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'heart'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">0</span>),
     ]),
 </code></pre>
 <p>For dynamic definition, you need to add a slug method in which to pass a unique string:</p>
-<pre><code class="language-php">Menu::make('Dropdown menu')
-    -&gt;slug('sub-menu')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Sub element item 1')-&gt;icon('bag'),
-        Menu::make('Sub element item 2')-&gt;icon('heart'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Dropdown menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">slug</span>(<span class="hl-value">'sub-menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bag'</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'heart'</span>),
     ]),
 </code></pre>
 <p>And then add new items in our own packages like:</p>
-<pre><code class="language-php">Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
-   Menu::make('Sub element item 3')-&gt;icon('badge')
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">addMenuSubElements</span>(<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-constant">MENU_MAIN</span>, <span class="hl-value">'sub-menu'</span>, [
+   <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 3'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'badge'</span>)
 ]);
 </code></pre>
 <blockquote>
@@ -927,42 +927,42 @@ ItemMenu::label('Sub element item 2')
 </blockquote>
 <h3><a href='#cansee' id='cansee'>CanSee</a></h3>
 <p>Now <code>Fields/Layouts/TD</code> and have a common trait. Without any restrictions. Now you can do this:</p>
-<pre><code class="language-php">Input::make()-&gt;canSee(false);
-TD::make()-&gt;canSee(false);
-Layout::rows([])-&gt;canSee(false);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">false</span>);
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">false</span>);
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([])<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">false</span>);
 </code></pre>
 <p>But now the definition inside the layer is different</p>
-<pre><code class="language-php">// before
-public function canSee(Repository $query): bool
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// before</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">canSee</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $query</span>): <span class="hl-keyword">bool</span>
 {
-    return ...;
+    <span class="hl-keyword">return</span> <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>;
 }
 
-// after
-public function isSee(): bool
+<span class="hl-comment">// after</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">isSee</span>(): <span class="hl-keyword">bool</span>
 {
-    return ...;
+    <span class="hl-keyword">return</span> <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>;
 }
 </code></pre>
 <h3><a href='#stimulus' id='stimulus'>Stimulus</a></h3>
 <p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
-<pre><code class="language-js">&lt;!--  before: --&gt;
-&lt;div data-controller="fields--checkbox"&gt;
+<pre><code data-lang="js" class="notranslate"><span class="hl-comment">&lt;!--  before: --&gt;</span>
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"fields--checkbox"</span><span class="hl-delimeter">&gt;</span>
 
-&lt;!--  after: --&gt;
-&lt;div data-controller="checkbox"&gt;
+<span class="hl-comment">&lt;!--  after: --&gt;</span>
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"checkbox"</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <h3><a href='#turbo' id='turbo'>Turbo</a></h3>
 <p>The Turbolinks library has been updated to Turbo for more details here: <a href="https://turbo.hotwire.dev/">https://turbo.hotwire.dev/</a></p>
 <p>If you used your own js scripts, then it is recommended to read their changes. For example:</p>
-<pre><code class="language-js">// before
-document.addEventListener("turbolinks:load", function() {
-    // ...
+<pre><code data-lang="js" class="notranslate"><span class="hl-comment">// before</span>
+document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbolinks:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
+    <span class="hl-comment">// ...</span>
 })
 
-// after
-document.addEventListener("turbo:load", function() {
-  // ...
+<span class="hl-comment">// after</span>
+document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbo:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
+  <span class="hl-comment">// ...</span>
 })
 </code></pre>
 <h3><a href='#compendium' id='compendium'>Compendium</a></h3>
@@ -976,14 +976,14 @@ document.addEventListener("turbo:load", function() {
 <p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">laravel/ui</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui ha</code>s been removed. And with it, the ability to recover your password.</p>
 <p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.</p>
 <p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following <code>SQL</code> code:</p>
-<pre><code class="language-php">ALTER TABLE "users"
-    DROP COLUMN "last_login"
-    DROP COLUMN "uses_two_factor_auth"
-    DROP COLUMN "two_factor_secret_code"
-    DROP COLUMN "two_factor_recovery_code";
+<pre><code data-lang="php" class="notranslate"><span class="hl-constant">ALTER</span> <span class="hl-constant">TABLE</span> <span class="hl-value">"users"</span>
+    <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"last_login"</span>
+    <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"uses_two_factor_auth"</span>
+    <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"two_factor_secret_code"</span>
+    <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"two_factor_recovery_code"</span>;
 
-DELETE FROM migrations
-WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
+<span class="hl-constant">DELETE</span> <span class="hl-constant">FROM</span> migrations
+<span class="hl-constant">WHERE</span> migration <span class="hl-operator">=</span> <span class="hl-value">'2020_06_07_184338_added_columns_for_2fa'</span>;
 </code></pre>
 <p>After that, you need to remove the column data from your user model.
 If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in project &ndash; don&rsquo;t forget delete it.</p>
@@ -997,10 +997,10 @@ If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in 
 <p>The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following <code>SQL</code> code:</p>
 <p>If you copied migration <code>2015_12_02_181214_create_table_settings</code> in project &ndash; don&rsquo;t forget delete it.</p>
-<pre><code class="language-php">DROP TABLE settings;
+<pre><code data-lang="php" class="notranslate"><span class="hl-constant">DROP</span> <span class="hl-constant">TABLE</span> settings;
 
-DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';
+<span class="hl-constant">DELETE</span> <span class="hl-constant">FROM</span> migrations
+<span class="hl-constant">WHERE</span> migration <span class="hl-operator">=</span> <span class="hl-value">'2015_12_02_181214_create_table_settings'</span>;
 </code></pre>
 <p>The source code is available for installation as a separate <a href="https://github.com/tabuna/settings">package</a>.</p>
 <h3><a href='#bread-crumbs' id='bread-crumbs'>Bread Crumbs</a></h3>
@@ -1010,96 +1010,96 @@ and should be installed automatically when the dependencies are updated.</p>
 <p><strong>Note:</strong> It may be necessary to remove the boot cache files in the <code>bootstrap/cache</code> directory.</p>
 </blockquote>
 <p>The syntax of the new package allows you to display breadcrumbs right in the route definition:</p>
-<pre><code class="language-php">Route::screen('example', ExampleScreen::class)
-    -&gt;name('platform.example')
-    -&gt;breadcrumbs(function (Trail $trail) {
-        return $trail-&gt;parent('platform.index')-&gt;push(__('Example screen'));
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'example'</span>, <span class="hl-type">ExampleScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">breadcrumbs</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Trail</span> $trail</span>) {
+        <span class="hl-keyword">return</span> $trail<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">parent</span></span>(<span class="hl-value">'platform.index'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">push</span>(<span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Example screen'</span>));
     });
 </code></pre>
 <p>Alternatively, you can continue to use a separate file for them.
 To do this, you need to download it to the service provider:</p>
-<pre><code class="language-php">namespace App\Providers;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
 
-class AppServiceProvider extends ServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
 {
-    /**
+    <span class="hl-comment">/**
      * Bootstrap the application events.
      *
-     * @return void
-     */
-    public function boot()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
     {
-        require base_path('routes/breadcrumbs.php');
+        <span class="hl-keyword">require</span> <span class="hl-function">base_path</span>(<span class="hl-value">'routes/breadcrumbs.php'</span>);
     }
 }
 </code></pre>
 <p>If you used full class names, then you need to replace them with similar ones:</p>
-<pre><code class="language-php">use Tabuna\Breadcrumbs\Breadcrumbs;
-use Tabuna\Breadcrumbs\Trail;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Tabuna\Breadcrumbs\<span class="hl-type">Breadcrumbs</span>;
+<span class="hl-keyword">use</span> Tabuna\Breadcrumbs\<span class="hl-type">Trail</span>;
 </code></pre>
 <h3><a href='#screen-changes' id='screen-changes'>Screen Changes</a></h3>
 <h4><a href='#constructor' id='constructor'>Constructor</a></h4>
 <p>Passing a <code>Request</code> object and calling the parent class is no longer necessary. Before:</p>
-<pre><code class="language-php">class PublicationScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">PublicationScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    public function __construct(Request $request, Locator $locator)
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request, <span class="hl-type">Locator</span> $locator</span>)
     {
-        $this-&gt;request = $request;
-        $this-&gt;locator = $locator;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span> <span class="hl-operator">=</span> $request;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
     }
 }
 </code></pre>
 <p>The definition now looks like this:</p>
-<pre><code class="language-php">class PublicationScreen extends Screen
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">PublicationScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
-    public function __construct(Locator $locator)
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Locator</span> $locator</span>)
     {
-        $this-&gt;locator = $locator;
+        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
     }
 }
 </code></pre>
 <h4><a href='#route-methods' id='route-methods'>Route methods</a></h4>
 <p>Methods not used have been removed. It is no longer possible to access screens via the <code>PUT|PATCH|DELETE</code> methods, the call must use <code>GET|POSTS</code> to receive/send data.</p>
-<pre><code class="language-php">Method           | URI                                  | Name
+<pre><code data-lang="php" class="notranslate">Method           | <span class="hl-constant">URI</span>                                  | Name
 -----------------+--------------------------------------+--------------
-GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
+<span class="hl-constant">GET</span>|<span class="hl-constant">HEAD</span>|<span class="hl-constant">POST</span>    | dashboard/idea/{method?}             | platform<span class="hl-delimeter">.</span>idea
 </code></pre>
 <p>Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers. <a href="https://github.com/orchidsoftware/platform/issues/1150">More</a>.</p>
 <h4><a href='#data-spoofing-async' id='data-spoofing-async'>Data Spoofing (Async)</a></h4>
 <p>The <code>{argument?}</code> Expectation has been removed from the address bar.
 Now a separate route is used for the call:</p>
-<pre><code class="language-php">$this-&gt;router
-    -&gt;post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
-    -&gt;name('async');
+<pre><code data-lang="php" class="notranslate"><span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">router</span>
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">post</span>(<span class="hl-value">'async/{screen}/{method?}/{template?}'</span>, [<span class="hl-type">AsyncController</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'load'</span>])
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'async'</span>);
 </code></pre>
 <h3><a href='#layouts' id='layouts'>Layouts</a></h3>
 <p>Each layer now inherits from the class <code>Orchid\Screen\Layout</code>, rather than from <code>Orchid\Screen\Layouts\Base</code>.</p>
 <p>To declare layers via short syntax, the <code>Orchid\Support\Facades\Layout</code> facade should now be used instead of the <code>Orchid\Screen\Layout</code> class.</p>
 <p>It was:</p>
-<pre><code class="language-php">use Orchid\Screen\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Layout</span>;
 
-Layout::row([
-     // ...
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">row</span>([
+     <span class="hl-comment">// ...</span>
 ]);
 </code></pre>
 <p>Became:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Layout;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
-Layout::row([
-     // ...
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">row</span>([
+     <span class="hl-comment">// ...</span>
 ]);
 </code></pre>
 <h3><a href='#release-message' id='release-message'>Release Message</a></h3>
 <p>A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
 This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the <code>blade</code> template. Screen call example:</p>
-<pre><code class="language-php">return [
-    'status' =&gt; Dashboard::checkUpdate(),
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">return</span> [
+    <span class="hl-value">'status'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">checkUpdate</span>(),
 ];
 </code></pre>
 <p>Using a template in the screen:</p>
-<pre><code class="language-php">Layout::view('platform::partials.update');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'platform::partials.update'</span>);
 </code></pre>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
 <p>The icon display has been changed from <code>font</code> to <code>SVG</code> format.
@@ -1175,7 +1175,7 @@ In most cases, you only need to remove the <code>icon-</code> prefix.</p>
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

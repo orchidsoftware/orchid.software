@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Navigation | Orchid - Laravel Admin Panel</title>
@@ -401,19 +401,19 @@
                         <body><p>The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.</p>
 <h2><a href='#usage' id='usage'>Usage</a></h2>
 <p>The default menu registration takes place in the <code>app/Orchid/PlatformProvider.php</code>:</p>
-<pre><code class="language-php">namespace App\Orchid;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid;
 
-use Orchid\Screen\Actions\Menu;
-use Orchid\Platform\OrchidServiceProvider;
+<span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">OrchidServiceProvider</span>;
 
-class PlatformProvider extends OrchidServiceProvider
+<span class="hl-keyword">class</span> <span class="hl-type">PlatformProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">OrchidServiceProvider</span>
 {
-    // ...
+    <span class="hl-comment">// ...</span>
     
-    public function menu(): array
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">menu</span>(): <span class="hl-keyword">array</span>
     {
-        return [
-            Menu::make('Example')-&gt;url('https://orchid.software/'),
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'https://orchid.software/'</span>),
         ];
     }
 }
@@ -423,81 +423,81 @@ class PlatformProvider extends OrchidServiceProvider
 </blockquote>
 <h2><a href='#links' id='links'>Links</a></h2>
 <p>Create links with the <code>Menu</code> class using a URL or route. To create a link with a URL, use the <code>url</code> method:</p>
-<pre><code class="language-php">use Orchid\Screen\Actions\Menu;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
-Menu::make('Example')-&gt;url('https://orchid.software/');
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'https://orchid.software/'</span>);
 </code></pre>
 <p>To create a link with a route, use the <code>route</code> method and provide the name of the route:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;route('route.idea');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'route.idea'</span>);
 </code></pre>
 <p>Make sure the route is defined in your app&rsquo;s routes file.</p>
 <h2><a href='#active-state' id='active-state'>Active State</a></h2>
 <p>To determine the link activity, already use the <a href="https://github.com/dwightwatson/active">dwightwatson/active</a> package, when using <code>route</code> and <code>url</code> is set automatically, but it is acceptable to change with the help of explicit instructions:</p>
-<pre><code class="language-php">Menu::make('Example')
-    -&gt;route('route.idea')
-    -&gt;active('route.idea*');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'route.idea'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">active</span>(<span class="hl-value">'route.idea*'</span>);
     
-Menu::make('Example')
-    -&gt;route('route.idea')
-    -&gt;active([
-        'route.idea',
-        'route.other'
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'route.idea'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">active</span>([
+        <span class="hl-value">'route.idea'</span>,
+        <span class="hl-value">'route.other'</span>
     ]);
     
-Menu::make('Example')
-    -&gt;url('/pages/contact')
-    -&gt;active('not:pages/contact');
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>(<span class="hl-value">'/pages/contact'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">active</span>(<span class="hl-value">'not:pages/contact'</span>);
 </code></pre>
 <h2><a href='#permission-based' id='permission-based'>Permission-Based</a></h2>
 <p>Quite an expected situation when some links should be missing
 depending on the <a href="/en/docs/access">availability of rights</a> or other circumstances, for this:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;permission('platform.idea');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">permission</span>(<span class="hl-value">'platform.idea'</span>);
 </code></pre>
 <p>or any other check returning a boolean value:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;canSee(true);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">true</span>);
 </code></pre>
 <h2><a href='#appearance' id='appearance'>Appearance</a></h2>
 <p>For a menu item, you can specify a graphic icon with:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;icon('bs.heart');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>);
 </code></pre>
 <p>It is also possible to integrate into a visual group by setting the title for the first element:</p>
-<pre><code class="language-php">Menu::make('Example')-&gt;title('Analytics');
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Analytics'</span>);
 </code></pre>
 <h2><a href='#badge-notification' id='badge-notification'>Badge Notification</a></h2>
 <p>Menu items have the ability to notify the user about any events in the form of a numerical value, for this:</p>
-<pre><code class="language-php">Menu::make('Comments')
-    -&gt;icon('bubbles')
-    -&gt;route('platform.comments')
-    -&gt;badge(fn () =&gt; 10);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Comments'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bubbles'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.comments'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">badge</span>(<span class="hl-keyword">fn</span> () <span class="hl-operator">=&gt;</span> <span class="hl-number">10</span>);
 </code></pre>
 <h2><a href='#sorting-items' id='sorting-items'>Sorting Items</a></h2>
 <p>Sorting set by setting the sequence number:</p>
-<pre><code class="language-php">Menu::make('Second')-&gt;sort(5);
-Menu::make('First')-&gt;sort(4);
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">5</span>);
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'First'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">4</span>);
 </code></pre>
 <h2><a href='#creating-nested-menus' id='creating-nested-menus'>Creating Nested Menus</a></h2>
 <p>You can specify a single-level submenu as follows:</p>
-<pre><code class="language-php">Menu::make('Multi Level')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Second Level Item 1')-&gt;icon('bs.bag')-&gt;sort(2),
-        Menu::make('Second Level Item 2')-&gt;icon('bs.heart')-&gt;sort(0),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Multi Level'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.bag'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">2</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">0</span>),
     ]),
 </code></pre>
 <p>To create a submenu dynamic, you need to add the main item and specify its unique name using the <code>slug</code> method. Then you can add other elements to the new item.</p>
-<pre><code class="language-php">Menu::make('Multi Level')
-    -&gt;slug('sub-menu')
-    -&gt;icon('code')
-    -&gt;list([
-        Menu::make('Second Level Item 1')-&gt;icon('bs.bag'),
-        Menu::make('Second Level Item 2')-&gt;icon('bs.heart'),
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Multi Level'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">slug</span>(<span class="hl-value">'sub-menu'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.bag'</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>),
     ]),
 </code></pre>
 <p>And then add new items in our own packages like:</p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Second Level Item 2')-&gt;icon('badge')
+<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">addMenuSubElements</span>(<span class="hl-value">'sub-menu'</span>, [
+    <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'badge'</span>)
 ]);
 </code></pre>
 <blockquote>
@@ -573,7 +573,7 @@ Dashboard::addMenuSubElements('sub-menu', [
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

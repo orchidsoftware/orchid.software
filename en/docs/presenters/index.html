@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Presenters | Orchid - Laravel Admin Panel</title>
@@ -385,66 +385,66 @@ In Orchid, presenters are used to format and present data consistently and help 
 You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.</p>
 <h2><a href='#creating-a-presenter' id='creating-a-presenter'>Creating A Presenter</a></h2>
 <p>In this example, let&rsquo;s say we have a &ldquo;Customer&rdquo; model:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
-class Customer extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Customer</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    protected $fillable = [
-        'firstName',
-        'lastName'
+    <span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+        <span class="hl-value">'firstName'</span>,
+        <span class="hl-value">'lastName'</span>
     ];
 }
 </code></pre>
 <p>Before an instance of this class is wrapped in a representative, you must create it:</p>
-<pre><code class="language-php">namespace App\Presenters;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Presenters;
 
-use Orchid\Support\Presenter;
+<span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Presenter</span>;
 
-class CustomerPresenter extends Presenter
+<span class="hl-keyword">class</span> <span class="hl-type">CustomerPresenter</span> <span class="hl-keyword">extends</span> <span class="hl-template">Presenter</span>
 {
-    public function fullName(): string
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">fullName</span>(): <span class="hl-keyword">string</span>
     {
-        return sprintf('%s %s',
-            $this-&gt;entity-&gt;firstName,
-            $this-&gt;entity-&gt;lastName
+        <span class="hl-keyword">return</span> <span class="hl-function">sprintf</span>(<span class="hl-value">'%s %s'</span>,
+            <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">firstName</span>,
+            <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">lastName</span>
         );
     }
 }
 </code></pre>
 <p>After that, we can use it as follows:</p>
-<pre><code class="language-php">use App\Customer;
-use App\Presenters\CustomerPresenter;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\<span class="hl-type">Customer</span>;
+<span class="hl-keyword">use</span> App\Presenters\<span class="hl-type">CustomerPresenter</span>;
 
-$customer = new Customer([
-    'fistName' =&gt; 'Alexandr',
-    'lastName' =&gt; 'Chernyaev'
+$customer <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">Customer</span>([
+    <span class="hl-value">'fistName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>,
+    <span class="hl-value">'lastName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Chernyaev'</span>
 ]);
     
-$presenter = new CustomerPresenter($customer);
+$presenter <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>($customer);
 
-$presenter-&gt;fullName();
+$presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullName</span>();
 </code></pre>
 <blockquote>
 <p><strong>Note</strong> that the representative receives the <code>firstName</code> and <code>lastName</code> properties of the model because it does not have these properties.</p>
 </blockquote>
 <p>Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this creation in the model:</p>
-<pre><code class="language-php">namespace App;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
-use Illuminate\Database\Eloquent\Model;
-use App\Presenters\CustomerPresenter;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
+<span class="hl-keyword">use</span> App\Presenters\<span class="hl-type">CustomerPresenter</span>;
 
-class Customer extends Model
+<span class="hl-keyword">class</span> <span class="hl-type">Customer</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-    protected $fillable = [
-        'firstName',
-        'lastName'
+    <span class="hl-keyword">protected</span> $fillable <span class="hl-operator">=</span> [
+        <span class="hl-value">'firstName'</span>,
+        <span class="hl-value">'lastName'</span>
     ];
     
-    public function presenter(): CustomerPresenter
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>(): <span class="hl-type">CustomerPresenter</span>
     {
-        return new CustomerPresenter($this);
+        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>(<span class="hl-tag2">$this</span>);
     }
 }
 </code></pre>
@@ -452,19 +452,19 @@ class Customer extends Model
 <p><strong>Note.</strong> Many platform functions expect a representative in the <code>presenter</code> method.</p>
 </blockquote>
 <p>Now its use is becoming easier:</p>
-<pre><code class="language-php">use App\Customer;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\<span class="hl-type">Customer</span>;
 
-$customer = Customer::findOrFail(1)-&gt;presenter()-&gt;fullName();
+$customer <span class="hl-operator">=</span> <span class="hl-type">Customer</span><span class="hl-delimeter">::</span><span class="hl-function">findOrFail</span>(<span class="hl-number">1</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">presenter</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullName</span>();
 </code></pre>
 <h2><a href='#using-presenters-with-collections' id='using-presenters-with-collections'>Using Presenters with Collections</a></h2>
 <p>If you want to get a list of presenters, use collection methods, for example:</p>
-<pre><code class="language-php">use App\Customer;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\<span class="hl-type">Customer</span>;
 
-$customers = Customer::limit(10)-&gt;get()-&gt;map-&gt;presenter();
+$customers <span class="hl-operator">=</span> <span class="hl-type">Customer</span><span class="hl-delimeter">::</span><span class="hl-function">limit</span>(<span class="hl-number">10</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">map</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">presenter</span>();
 
-foreach($customers as $customer)
+<span class="hl-keyword"><span class="hl-function">foreach</span></span>($customers <span class="hl-keyword">as</span> $customer)
 {
-    $customer-&gt;fullName();
+    $customer<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullName</span>();
 }
 </code></pre>
 <p>Using representatives for models is a common practice of automatically displaying data for <code>Layouts</code>.</p>
@@ -538,7 +538,7 @@ foreach($customers as $customer)
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

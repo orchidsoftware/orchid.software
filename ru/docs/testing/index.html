@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Тестирование | Orchid - Laravel Admin Panel</title>
@@ -383,74 +383,74 @@
     </div>
                         <body><p>&#1042; &#1085;&#1072;&#1089;&#1090;&#1086;&#1103;&#1097;&#1077;&#1077; &#1074;&#1088;&#1077;&#1084;&#1103; &#1088;&#1072;&#1079;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1072; &#1082;&#1072;&#1095;&#1077;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1075;&#1086; &#1087;&#1088;&#1086;&#1075;&#1088;&#1072;&#1084;&#1084;&#1085;&#1086;&#1075;&#1086; &#1086;&#1073;&#1077;&#1089;&#1087;&#1077;&#1095;&#1077;&#1085;&#1080;&#1103; &#1090;&#1077;&#1089;&#1085;&#1086; &#1089;&#1074;&#1103;&#1079;&#1072;&#1085;&#1072; &#1089; &#1072;&#1074;&#1090;&#1086;&#1084;&#1072;&#1090;&#1080;&#1079;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1084; &#1090;&#1077;&#1089;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077;&#1084;. &#1055;&#1086;&#1101;&#1090;&#1086;&#1084;&#1091; &#1087;&#1072;&#1082;&#1077;&#1090; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1080;&#1085;&#1089;&#1090;&#1088;&#1091;&#1084;&#1077;&#1085;&#1090;&#1099; &#1090;&#1077;&#1089;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1077; &#1087;&#1086;&#1084;&#1086;&#1075;&#1091;&#1090; &#1074;&#1072;&#1084; &#1091;&#1087;&#1088;&#1086;&#1089;&#1090;&#1080;&#1090;&#1100; &#1077;&#1075;&#1086;.</p>
 <p>&#1044;&#1083;&#1103; &#1080;&#1093; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1103; &#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090; <code>ScreenTesting</code> &#1074; &#1089;&#1074;&#1086;&#1081; &#1090;&#1077;&#1089;&#1090;&#1086;&#1074;&#1099;&#1081; &#1082;&#1083;&#1072;&#1089;&#1089;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;:</p>
-<pre><code class="language-php">namespace Tests\Feature;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> Tests\Feature;
 
-use Orchid\Support\Testing\ScreenTesting;
-use Tests\TestCase;
+<span class="hl-keyword">use</span> Orchid\Support\Testing\<span class="hl-type">ScreenTesting</span>;
+<span class="hl-keyword">use</span> Tests\<span class="hl-type">TestCase</span>;
 
-class ExampleTest extends TestCase
+<span class="hl-keyword">class</span> <span class="hl-type">ExampleTest</span> <span class="hl-keyword">extends</span> <span class="hl-template">TestCase</span>
 {
-    use ScreenTesting;
-    //...
+    <span class="hl-keyword">use</span> <span class="hl-type">ScreenTesting</span>;
+    <span class="hl-comment">//...</span>
 }
 </code></pre>
 <p>&#1055;&#1086;&#1089;&#1083;&#1077; &#1101;&#1090;&#1086;&#1075;&#1086; &#1089;&#1090;&#1072;&#1085;&#1077;&#1090; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1077;&#1085; &#1085;&#1086;&#1074;&#1099;&#1081; &#1084;&#1077;&#1090;&#1086;&#1076; &#1087;&#1086;&#1083;&#1091;&#1095;&#1077;&#1085;&#1080;&#1103; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1101;&#1082;&#1088;&#1072;&#1085;&#1072; &#1087;&#1086; &#1080;&#1084;&#1077;&#1085;&#1080; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1072;:</p>
-<pre><code class="language-php">public function testExampleScreen()
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">testExampleScreen</span>()
 {
-    $screen = $this-&gt;screen('platform.example');
+    $screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>);
 
-    $screen-&gt;display()
-        -&gt;assertSee('Example screen');
-
-    $screen
-        -&gt;method('showToast')
-        -&gt;assertSee('Hello, world! This is a toast message.');
+    $screen<span class="hl-delimeter">-&gt;</span><span class="hl-function">display</span>()
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Example screen'</span>);
 
     $screen
-        -&gt;method('showToast', [
-            'toast' =&gt; 'Custom message'
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'showToast'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Hello, world! This is a toast message.'</span>);
+
+    $screen
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'showToast'</span>, [
+            <span class="hl-value">'toast'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Custom message'</span>
         ])
-        -&gt;assertSee('Custom message');
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Custom message'</span>);
 }
 </code></pre>
 <p>&#1042;&#1086; &#1084;&#1085;&#1086;&#1075;&#1080;&#1093; &#1089;&#1083;&#1091;&#1095;&#1072;&#1103;&#1093; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1099; &#1087;&#1088;&#1080;&#1085;&#1080;&#1084;&#1072;&#1102;&#1090; &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1099;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088; <code>users/{user}/edit</code>, &#1095;&#1090;&#1086;&#1073;&#1099; &#1080;&#1093; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1090;&#1100; &#1084;&#1086;&#1078;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076;:</p>
-<pre><code class="language-php">$screen = $this-&gt;screen('platform.systems.users.edit')
-    -&gt;parameters([
-        'user' =&gt; 1,
+<pre><code data-lang="php" class="notranslate">$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.systems.users.edit'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">parameters</span>([
+        <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">1</span>,
     ]);
 </code></pre>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; <code>parameters</code> &#1076;&#1086;&#1073;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1079;&#1085;&#1072;&#1095;&#1077;&#1085;&#1080;&#1103; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1082;&nbsp;GET &#1087;&#1072;&#1088;&#1072;&#1084;&#1077;&#1090;&#1088;&#1072;&#1084;.</p>
 <p>&#1057;&#1082;&#1086;&#1088;&#1077;&#1077; &#1074;&#1089;&#1077;&#1075;&#1086;, &#1074;&#1072;&#1096;&#1080; &#1084;&#1072;&#1088;&#1096;&#1088;&#1091;&#1090;&#1099; &#1079;&#1072;&#1082;&#1088;&#1099;&#1090;&#1099; &#1086;&#1090; &#1075;&#1086;&#1089;&#1090;&#1077;&#1081; &#1080; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1072;&#1074;&#1090;&#1086;&#1088;&#1080;&#1079;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1084; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103;&#1084;. &#1042; &#1101;&#1090;&#1086;&#1084; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077; &#1085;&#1091;&#1078;&#1085;&#1086; &#1074;&#1099;&#1079;&#1074;&#1072;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; <code>actingAs</code> &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1102;&#1097;&#1080;&#1081; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1076;&#1083;&#1103; &#1074;&#1093;&#1086;&#1076;&#1072; &#1074; &#1089;&#1080;&#1089;&#1090;&#1077;&#1084;&#1091;..</p>
-<pre><code class="language-php">// Create a single App\Models\User instance...
-$user = User::factory()-&gt;create();
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Create a single App\Models\User instance...</span>
+$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">factory</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">create</span>();
 
-$screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
+$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">actingAs</span>($user);
 </code></pre>
 <p>&#1055;&#1088;&#1080; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1077; &#1091; &#1074;&#1072;&#1089; &#1084;&#1086;&#1078;&#1077;&#1090; &#1074;&#1086;&#1079;&#1085;&#1080;&#1082;&#1085;&#1091;&#1090;&#1100; 403 &#1086;&#1096;&#1080;&#1073;&#1082;&#1072; &ndash; &#1082;&#1086;&#1090;&#1086;&#1088;&#1072;&#1103; &#1086;&#1079;&#1085;&#1072;&#1095;&#1072;&#1077;&#1090; &#1095;&#1090;&#1086; &#1091; &#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1077;&#1083;&#1103; &#1085;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086; &#1087;&#1088;&#1072;&#1074;.
 &#1054;&#1076;&#1080;&#1085; &#1080;&#1079; &#1074;&#1072;&#1088;&#1080;&#1072;&#1085;&#1090;&#1086;&#1074; &#1087;&#1086;&#1083;&#1091;&#1095;&#1080;&#1090;&#1100; &#1074;&#1089;&#1077; &#1076;&#1086;&#1089;&#1090;&#1091;&#1087;&#1085;&#1099;&#1077; &#1087;&#1088;&#1072;&#1074;&#1072; &#1095;&#1077;&#1088;&#1077;&#1079; &#1092;&#1072;&#1089;&#1072;&#1076; <code>Dashboard</code></p>
-<pre><code class="language-php">use Orchid\Support\Facades\Dashboard;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
-// Create a single App\Models\User instance...
-$user = User::factory()-&gt;create([
-  'permissions' =&gt; Dashboard::getAllowAllPermission(),
+<span class="hl-comment">// Create a single App\Models\User instance...</span>
+$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">factory</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">create</span>([
+  <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
 ]);
 
-$screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
+$screen <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">actingAs</span>($user);
 </code></pre>
 <p>&#1041;&#1086;&#1083;&#1077;&#1077; &#1101;&#1083;&#1077;&#1075;&#1072;&#1085;&#1090;&#1085;&#1099;&#1084; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;&#1084; &#1073;&#1091;&#1076;&#1077;&#1090; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1080;&#1090;&#1100; &#1084;&#1077;&#1090;&#1086;&#1076; &#1074; &#1089;&#1072;&#1084;&#1086;&#1081; &#1092;&#1072;&#1073;&#1088;&#1080;&#1082;&#1077;:</p>
-<pre><code class="language-php">class UserFactory extends Factory {
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">UserFactory</span> <span class="hl-keyword">extends</span> <span class="hl-template">Factory</span> {
 
-    // ...
+    <span class="hl-comment">// ...</span>
    
-    /**
+    <span class="hl-comment">/**
      * Indicate that the model's must have all permissions.
      *
-     * @return static
-     */
-    public function admin()
+     * <span class="hl-keyword">@return</span> <span class="hl-keyword">static</span>
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">admin</span>()
     {
-        return $this-&gt;state(fn (array $attributes) =&gt; [
-            'permissions' =&gt; Dashboard::getAllowAllPermission(),
+        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">state</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-keyword">array</span> $attributes</span>) <span class="hl-operator">=&gt;</span> [
+            <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
         ]);
     }
 }
@@ -528,7 +528,7 @@ $screen = $this-&gt;screen('platform.example')-&gt;actingAs($user);
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

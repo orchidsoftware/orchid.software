@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=c1ed1856afa9f701f7f34fee1b2eadf0">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=12e81f354a345f96343a9dfb627daed5">
 
 
     <title>Branding | Orchid - Laravel Admin Panel</title>
@@ -374,60 +374,60 @@
     </div>
                         <body><p>There are times when you want the visual style of the platform to match your brand.
 After installation, two settings are provided that are located in <code>config/platform.php</code>:</p>
-<pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; null,
-    'footer' =&gt; null,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
+    <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
 ],
 </code></pre>
 <p>To change the page header or footer, you must specify your own <code>blade</code> templates.</p>
 <h2><a href='#change-logo-and-name' id='change-logo-and-name'>Change Logo and Name</a></h2>
 <p>Create a new directory in the <code>brand</code> template section and the<code> header.blade.php</code> file.
 Then the full path will look like <code>/resources/views/brand/header.blade.php</code>.</p>
-<pre><code class="language-php">resources          
+<pre><code data-lang="php" class="notranslate">resources          
 └── views
     └── brand
-        └── header.blade.php
+        └── header<span class="hl-delimeter">.</span>blade<span class="hl-delimeter">.</span>php
 </code></pre>
 <p>Make changes to the file just created:</p>
-<pre><code class="language-php">@push('head')
-    &lt;link
-        href="/favicon.ico"
-        id="favicon"
-        rel="icon"
-    &gt;
-@endpush
+<pre><code data-lang="blade" class="notranslate"><span class="hl-keyword">@push</span>(<span class="hl-value"><span class="hl-value">'head'</span></span>)
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">link</span>
+        <span class="hl-attribute">href</span><span class="hl-delimeter">=</span><span class="hl-value">"/favicon.ico"</span>
+        <span class="hl-attribute">id</span><span class="hl-delimeter">=</span><span class="hl-value">"favicon"</span>
+        <span class="hl-attribute">rel</span><span class="hl-delimeter">=</span><span class="hl-value">"icon"</span>
+    <span class="hl-delimeter">&gt;</span>
+<span class="hl-keyword">@endpush</span>
 
-&lt;div class="h2 d-flex align-items-center"&gt;
-    @auth
-        &lt;x-orchid-icon path="bs.house" class="d-inline d-xl-none"/&gt;
-    @endauth
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"h2 d-flex align-items-center"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-keyword">@auth</span>
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"bs.house"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-inline d-xl-none"</span><span class="hl-delimeter">/&gt;</span>
+    <span class="hl-keyword">@endauth</span>
 
-    &lt;p class="my-0 {{ auth()-&gt;check() ? 'd-none d-xl-block' : '' }}"&gt;
-        {{ config('app.name') }}
-    &lt;/p&gt;
-&lt;/div&gt;
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">p</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"my-0 {{ <span class="hl-function">auth</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">check</span>() <span class="hl-operator">?</span> <span class="hl-value">'d-none d-xl-block'</span> : <span class="hl-value">''</span> }}"</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">{{</span> <span class="hl-function">config</span>(<span class="hl-value"><span class="hl-value">'app.name'</span></span>) <span class="hl-delimeter">}}</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">p</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>In order for the created template to be used instead of the standard one, you must specify it in the configuration file, just as if passing an argument in the <code>view('brand.header')</code> helper:</p>
-<pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; 'brand.header',
-    'footer' =&gt; null,
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'brand.header'</span>,
+    <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
 ],
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> The configuration file may be cached, and the changes will not take effect until the <code>php artisan config:clear</code> command is executed</p>
 </blockquote>
 <p>In the same way, we can change the bottom of the page, again create a new file <code>/resources/views/brand/footer.blade.php</code> with the following contents:</p>
-<pre><code class="language-php">&lt;p class="small m-n"&gt;
-    © Copyright {{date('Y')}} 
-    &lt;a href="{{ config('app.url') }}" target="_blank"&gt;
-        {{ config('app.name') }}
-    &lt;/a&gt;
-&lt;/p&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">p</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"small m-n"</span><span class="hl-delimeter">&gt;</span>
+    © Copyright <span class="hl-delimeter">{{</span><span class="hl-function">date</span>(<span class="hl-value"><span class="hl-value">'Y'</span></span>)<span class="hl-delimeter">}}</span> 
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">a</span> <span class="hl-attribute">href</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">config</span>(<span class="hl-value">'app.url'</span>) }}"</span> <span class="hl-attribute">target</span><span class="hl-delimeter">=</span><span class="hl-value">"_blank"</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">{{</span> <span class="hl-function">config</span>(<span class="hl-value"><span class="hl-value">'app.name'</span></span>) <span class="hl-delimeter">}}</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">a</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">p</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>Also making changes to the configuration file:</p>
-<pre><code class="language-php">'template' =&gt; [
-    'header' =&gt; 'brand.header',
-    'footer' =&gt; 'brand.footer',
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'brand.header'</span>,
+    <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'brand.footer'</span>,
 ],
 </code></pre>
 <blockquote>
@@ -503,7 +503,7 @@ Then the full path will look like <code>/resources/views/brand/header.blade.php<
     </div>
 </div>
 
-<script src="/js/app.js?id=9d4e86d4549e5eb343ecfbe378ddf0fb"></script>
+<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
