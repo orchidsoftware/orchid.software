@@ -75,7 +75,7 @@ $input-font-weight: 500;
 @import "~bootstrap/scss/utilities/api";
 
 // Plugins
-@import "prism";
+@import "highlight";
 @import "icons";
 
 
@@ -556,4 +556,20 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .text-balance {
     text-wrap: balance;
+}
+
+.hero-code {
+    background: #2C2939;
+
+    pre {
+        overflow: hidden;
+        user-select: none;
+        background: #2C2939;
+        margin: 0;
+        padding: 1rem 0;
+
+        code {
+            overflow: hidden;
+        }
+    }
 }

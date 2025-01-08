@@ -31,7 +31,7 @@ resources
  
 Make changes to the file just created:
 
-```php
+```blade
 @push('head')
     <link
         href="/favicon.ico"
@@ -68,7 +68,7 @@ just as if passing an argument in the `view('brand.header')` helper:
 In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php` with the following contents:
 
 
-```php
+```blade
 <p class="small m-n">
     © Copyright {{date('Y')}} 
     <a href="{{ config('app.url') }}" target="_blank">

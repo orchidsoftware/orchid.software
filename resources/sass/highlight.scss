@@ -1,0 +1,117 @@
+pre {
+    background-color: $body-bg;
+
+    code {
+        padding: 1em 1.5em;
+        overflow: auto;
+        color: #e0e0e0 !important;
+        display: block;
+        text-shadow: none;
+        font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        direction: ltr;
+        text-align: left;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        line-height: 1.5;
+        tab-size: 4;
+        hyphens: none;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+
+        .hl-attribute {
+            color: #FFCB6B;
+        }
+
+        .hl-template,
+        .hl-value {
+            color: #4bef96;
+        }
+
+        .hl-constant,
+        .hl-number,
+        .hl-property {
+            color: #b288ff;
+        }
+
+        .hl-function {
+            color: #cd82c7;
+        }
+
+        .hl-keyword,
+        .hl-operator,
+        .hl-variable,
+        .hl-property2 {
+            color: #82d4f7;
+        }
+
+        .hl-tag,
+        .hl-type,
+        .hl-literal {
+            color: #ffd06b;
+        }
+
+        .hl-comment {
+            color: #6c757d;
+            font-style: italic;
+        }
+
+        .hl-delimeter {
+            color: #d2cdea;
+        }
+
+        .hl-deletion {
+            color: #d2cdea;
+            min-width: 100%;
+            background-color: #ff000033;
+        }
+
+        .hl-addition {
+            min-width: 100%;
+            background-color: #2a4b3c;
+            color: #4bef96;
+        }
+
+        .hl-comment span {
+            opacity: 0.7;
+        }
+
+        .hl-tag2,
+        .hl-value2,
+        .hl-slug {
+            color: #f98f8c;
+        }
+
+        .hl-blur {
+            filter: blur(2px);
+        }
+
+        .hl-strong {
+            font-weight: bold;
+        }
+
+        .hl-em {
+            font-style: italic;
+        }
+
+        .hl-gutter {
+            display: inline-block;
+            font-size: 0.9em;
+            color: #555;
+            padding: 0 1ch;
+            margin-right: 1ch;
+            user-select: none;
+
+            &-addition {
+                background-color: #34a853;
+                color: #fff;
+            }
+
+            &-deletion {
+                background-color: #e94f4f;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
+use Laravelsu\Highlight\CommonMark\HighlightExtension;
 use Symfony\Component\Yaml\Yaml;
 
 class Docs
@@ -47,7 +48,9 @@ class Docs
         $variables = Yaml::parse($variables);
 
         $all = collect()->merge($variables)->merge([
-            'content' => Str::of($page)->after('---')->after('---')->markdown(),
+            'content' => Str::of($page)->after('---')->after('---')->markdown(
+                extensions: [new HighlightExtension()]
+            ),
             'edit'    => $this->editLinkGitHub(),
         ]);
 

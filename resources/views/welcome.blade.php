@@ -18,7 +18,7 @@
 
             <div class="px-3 py-md-5 my-md-5 text-md-center text-white">
                 <div class="col-lg-6 mx-auto mb-5 pb-5 pt-3 pt-md-0">
-                    <h1 class="display-5 fw-bold mb-md-5 mb-3">Enhance Your
+                    <h1 class="display-5 fw-bold mb-md-5 mb-3 text-balance">Enhance Your
                         <span class="d-block">Laravel with Orchid</span>
                     </h1>
                     <p class="lead mb-md-5 pb-md-5 mb-3 text-balance">
@@ -54,7 +54,7 @@
             </div>
         </div>
 
-        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3">
+        <div class="row g-4 g-xxl-5 g-lg-4 g-md-3 text-balance">
 
             <div class="col-12 col-xl-4">
                 <div class="card shadow-sm h-100 position-relative card-feature" style="background-image: url(/img/next/rocket.svg);
@@ -88,7 +88,7 @@
                 <div class="card shadow-sm h-100 position-relative card-feature overflow-hidden">
 
 
-                    <div class="row">
+                    <div class="row h-100">
 
                         <div class="col-12 col-md-5">
                         <div class="card-body d-flex flex-column p-5 h-100">
@@ -117,9 +117,10 @@
                     </div>
                         </div>
 
-                        <div class="col-12 col-md-7" style="background: #2C2939">
-                            <pre class="overflow-hidden user-select-none" style="background: #2C2939"><code class="language-php">
-
+                        <div class="col-12 col-md-7 hero-code">
+                            @php
+                                echo \Str::of('
+```php
 use Orchid\Screen\Screen;
 
 class Task extends Screen
@@ -127,7 +128,7 @@ class Task extends Screen
     public function query(Task $task): iterable
     {
         return [
-            'task' => $task
+            \'task\' => $task
         ];
     }
 
@@ -135,16 +136,17 @@ class Task extends Screen
     {
         return [
             Layout::rows([
-                Input::make('task.name')
-                    ->title('Name')
-                    ->placeholder('Enter task name')
-                    ->help('The name of the task to be created.'),
+                Input::make(\'task.name\')
+                    ->title(\'Name\')
+                    ->placeholder(\'Enter task name\')
+                    ->help(\'The name of the task to be created.\'),
             ]),
         ];
     }
 }
-
-</code></pre>
+```
+                                ')->trim()->markdown(extensions: [new \Laravelsu\Highlight\CommonMark\HighlightExtension()])
+                            @endphp
                         </div>
 
                     </div>
@@ -438,7 +440,7 @@ class Task extends Screen
                         <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"></path>
                     </svg>
                 </a>
-                
+
             </div>
 
             <div class="d-none d-md-block col-md-7">

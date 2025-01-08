@@ -89,7 +89,7 @@ resources
 
 Controller class with the following content:
 
-```php
+```javascript
 // hello.js
 export default class extends window.Controller {
 
@@ -106,7 +106,7 @@ export default class extends window.Controller {
 
 And the assembly point:
 
-```php
+```javascript
 // dashboard.js
 import HelloController from "./controllers/hello"
 
@@ -119,7 +119,7 @@ application.register("hello", HelloController);
 
 It remains only to describe the assembly in `webpack.mix.js`:
 
-```php
+```javascript
 let mix = require('laravel-mix');
 
 mix.js('resources/js/dashboard.js', 'public/js')
@@ -180,8 +180,8 @@ npm run build
 
 To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
 
-```php
-// hello.blade.php
+```blade
+{{-- hello.blade.php --}} 
 <div data-controller="hello">
   <input data-hello-target="name" type="text">
 
@@ -229,7 +229,7 @@ export default class extends window.Controller {
 
 Register the controller in your blade file:
 
-```html
+```blade
 <div data-controller="hello">
   @{{ message }}
 </div>

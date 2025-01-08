@@ -12,13 +12,13 @@ Before you can use the Laravel Orchid, you need to install it. This guide should
 
 Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the `composer create-project` command in your terminal:
 
-```php
+```shell
 composer create-project laravel/laravel orchid-project "11.*"
 ```
 
 Or if you would prefer Laravel Installer:
 
-```php
+```shell
 composer global require laravel/installer
 
 laravel new orchid-project
@@ -42,7 +42,7 @@ In other words, install your new framework project.
 ## Add Dependency
 
 Go to the created project directory and run the command:
-```php
+```shell
 composer require orchid/platform
 ```
 
@@ -55,7 +55,7 @@ composer require orchid/platform
 
 Run the installation process by running the command:
 
-```php
+```shell
 php artisan orchid:install
 ```
 
@@ -63,7 +63,7 @@ php artisan orchid:install
 
 To create a user with maximum permissions, you can run the following command with a username, email, and password:
 
-```php
+```shell
 php artisan orchid:admin admin admin@admin.com password
 ```
 
@@ -72,7 +72,7 @@ php artisan orchid:admin admin admin@admin.com password
 
 If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:
 
-```php
+```shell
 php artisan serve
 ```
 
@@ -85,7 +85,7 @@ Open a browser and go to `http://localhost:8000/admin`. If everything works, you
 
 While in the project directory, use `Composer` to update the package:
 
-```php
+```shell
 composer update orchid/platform --with-dependencies
 ```
 
@@ -94,7 +94,7 @@ composer update orchid/platform --with-dependencies
 
 After updating to a new release, you should be sure to update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
 
-```bash
+```shell
 php artisan orchid:publish
 php artisan view:clear
 ```
@@ -105,17 +105,19 @@ To make sure that your assets are promptly updated whenever a new version is dow
 This will automatically publish the latest assets for you:
 
 ```json
-"scripts": {
-    "post-update-cmd": [
-      "@php artisan orchid:publish --ansi"
-  ]
+{
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan orchid:publish --ansi"
+        ]
+    }
 }
 ```
 
 Once you have added this hook, you can rest assured that your assets will always be up-to-date and functioning properly.
 And if you ever want to verify that the assets are indeed current, you can simply use the `artisan` console command to check:
 
-```php
+```shell
 php artisan about
 ```
 

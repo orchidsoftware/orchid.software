@@ -17,9 +17,5 @@
         "resolve-url-loader": "^4.0.0",
         "sass": "^1.44.0",
         "sass-loader": "^12.4.0"
-    },
-    "dependencies": {
-        "babel-plugin-prismjs": "^2.1.0",
-        "prismjs": "^1.25.0"
     }
 }

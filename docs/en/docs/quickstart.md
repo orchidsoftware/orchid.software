@@ -25,7 +25,7 @@ Before beginning this tutorial, make sure that you have already installed [the f
 
 First, let's use a migration to define a database table to hold all of our tasks. 
 
-```php
+```shell
 php artisan make:migration create_tasks_table --create=tasks
 ```
 
@@ -79,7 +79,7 @@ php artisan migrate
 So, let's define a `Task` model that corresponds to our `tasks` database table we just created.
 
 
-```bash
+```shell
 php artisan make:model Task
 ```
 
