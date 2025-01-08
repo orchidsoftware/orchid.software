@@ -125,14 +125,14 @@ use Orchid\Screen\Screen;
 
 class Task extends Screen
 {
-    public function query(Task $task): iterable
+    public function query(Task $task): array
     {
         return [
             \'task\' => $task
         ];
     }
 
-    public function layout(): iterable
+    public function layout(): array
     {
         return [
             Layout::rows([
