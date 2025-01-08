@@ -25,17 +25,12 @@ php artisan orchid:screen Idea
 An `Idea` file will be created in the `app/Orchid/Screens` directory with the following contents:
 
 ```php
-namespace App\Http\Controllers\Screens;
-
-use Illuminate\Http\Request;
 use Orchid\Screen\Screen;
 
 class Idea extends Screen
 {
     /**
      * Fetch data to be displayed on the screen.
-     *
-     * @return array
      */
     public function query() : array
     {
@@ -44,8 +39,6 @@ class Idea extends Screen
 
     /**
      * The name of the screen is displayed in the header.
-     *
-     * @return string|null
      */
     public function name(): ?string
     {
