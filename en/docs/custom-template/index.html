@@ -415,9 +415,9 @@
 }
 </code></pre>
 <p>In the <code>hello.blade.php</code> template, you can display the contents of the <code>name</code> variable like this:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... /views/greeting.blade.php</span>
+<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- ... /views/greeting.blade.php --}}</span>
 
-Hello, {{ $name }}<span class="hl-delimeter">.</span>
+Hello, <span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}</span>.
 </code></pre>
 <p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
