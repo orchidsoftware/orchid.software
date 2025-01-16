@@ -667,15 +667,15 @@ All of the data that the user has seen on the screen will be available in the re
 One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
-<pre><code data-lang="php" class="notranslate">&lt;div class=<span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span>&gt;
-	&lt;span class=<span class="hl-value">"thumb-sm avatar m-r-xs"</span>&gt;
-        &lt;img src=<span class="hl-value">"/avatar/maria.jpg"</span> class=<span class="hl-value">"bg-light"</span> alt=<span class="hl-value">"Maria"</span>&gt;
-    &lt;/span&gt;
-    &lt;div class=<span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span>&gt;
-        &lt;h6 class=<span class="hl-value">"mb-0"</span>&gt;Maria&lt;/h6&gt;
-        &lt;p class=<span class="hl-value">"text-muted mb-1"</span>&gt;maria@exaple<span class="hl-delimeter">.</span>com&lt;/p&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-delimeter">&gt;</span>
+	<span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">h6</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"mb-0"</span><span class="hl-delimeter">&gt;</span>Maria<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">h6</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">p</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"text-muted mb-1"</span><span class="hl-delimeter">&gt;</span>maria@exaple.com<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">p</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in <code>React/Vue/Angular</code>.</p>
 <p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
