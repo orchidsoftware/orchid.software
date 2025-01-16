@@ -360,7 +360,7 @@ If you try to explain briefly, it turns out that this is a `view` on steroids.
 In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:
 
 
-```php
+```html
 <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
 	<span class="thumb-sm avatar m-r-xs">
         <img src="/avatar/maria.jpg" class="bg-light" alt="Maria">
