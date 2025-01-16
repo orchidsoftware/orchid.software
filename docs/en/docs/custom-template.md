@@ -42,8 +42,8 @@ public function layout(): array
 
 In the `hello.blade.php` template, you can display the contents of the `name` variable like this:
 
-```php
-// ... /views/greeting.blade.php
+```blade
+{{-- ... /views/greeting.blade.php --}}
 
 Hello, {{ $name }}.
 ```
