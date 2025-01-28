@@ -174,16 +174,6 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-You can use the configuration parameter, which allows you to define all the substitutions at once:
-
-```php
-Dashboard::configure([
-    'models' => [
-        User::class => MyCustomClass::class,
-    ],
-]);
-```
-
 
 ## Overriding Blade Templates
 
