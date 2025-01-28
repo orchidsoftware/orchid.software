@@ -172,15 +172,4 @@ class AppServiceProvider extends ServiceProvider
         );
     }
 }
-
-```
-
-Можно использовать параметр конфигурации, что позволит определить все подмены сразу:
-
-```php
-Dashboard::configure([
-    'models' => [
-        User::class => MyCustomClass::class,
-    ],
-]);
 ```
