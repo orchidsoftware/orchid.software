@@ -505,13 +505,6 @@
     }
 }
 </code></pre>
-<p>You can use the configuration parameter, which allows you to define all the substitutions at once:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">configure</span>([
-    <span class="hl-value">'models'</span> <span class="hl-operator">=&gt;</span> [
-        <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">MyCustomClass</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
-    ],
-]);
-</code></pre>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
 <p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all Laravel packages, not just Orchid);</p>
 <blockquote>
