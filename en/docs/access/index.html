@@ -437,6 +437,15 @@ due to a large number of users and permissions.</p>
     <span class="hl-comment">// Execute this code if the user has permission</span>
 }
 </code></pre>
+<p>In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAccess</span>(<span class="hl-value">'platform.systems.users'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
+
+<span class="hl-comment">// Or if the user has at least one of the passed permissions</span>
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAnyAccess</span>([
+   <span class="hl-value">'platform.systems.users'</span>,
+   <span class="hl-value">'non existent'</span>,
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
+</code></pre>
 <p>The user has several options for managing roles:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get all user roles</span>
 <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">getRoles</span>();
@@ -446,15 +455,6 @@ due to a large number of users and permissions.</p>
 
 <span class="hl-comment">// Add role to user</span>
 <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">addRole</span>($role);
-</code></pre>
-<p>In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAccess</span>(<span class="hl-value">'platform.systems.users'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
-
-<span class="hl-comment">// Or if the user has at least one of the passed permissions</span>
-<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAnyAccess</span>([
-   <span class="hl-value">'platform.systems.users'</span>,
-   <span class="hl-value">'non existent'</span>,
-])<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#roles' id='roles'>Roles</a></h2>
 <p>Roles also have procedures for:</p>
