@@ -153,7 +153,7 @@ return [
                 'Contribution'      => '/en/community/contributors',
                 'Project Promotion' => '/en/community/promote',
                 'License Agreement' => '/en/community/license',
-                'Behind the Scenes' => '/en/community/background',
+                'Under the Hood'    => '/en/community/background',
             ],
 
             /*
