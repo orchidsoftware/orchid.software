@@ -251,7 +251,7 @@ You can also group them into groups:
 ```php
 Route::middleware(['access:systems.history'])->group(function () {
     Route::screen('/stories', StoriesScreen::class);
-    Route::get('stories/best', function () {
+    Route::get('/stories/best', function () {
         // ...
     });
 });
