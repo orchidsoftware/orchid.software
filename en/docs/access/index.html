@@ -579,7 +579,7 @@ To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</cod
 <p>You can also group them into groups:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">middleware</span>([<span class="hl-value">'access:systems.history'</span>])<span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-keyword">function</span> () {
     <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
-    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'stories/best'</span>, <span class="hl-keyword">function</span> () {
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'/stories/best'</span>, <span class="hl-keyword">function</span> () {
         <span class="hl-comment">// ...</span>
     });
 });
