@@ -324,7 +324,7 @@ When working within a screen in Laravel Orchid, all UI actions have a correspond
 
 For example, to call the `hello` method on the `platform.screens.users` screen, the following code can be used:
 
-```php
+```blade
 <form action="{{ route('platform.screens.users', ['method' => 'hello']) }}"
       method="POST"
 >
