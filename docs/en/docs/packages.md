@@ -250,3 +250,43 @@ public function layout(): array
 }
 ```
 
+
+## Extending Columns
+
+When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the `TD` class using its own methods. To do this, it is necessary to register the closure function in the service provider.
+
+Registration example:
+
+```php
+// AppServiceProvider.php
+TD::macro('bool', function () {
+
+    $column = $this->column;
+
+    $this->render(function ($datum) use ($column) {
+        return view('bool',[
+            'bool' => $datum->$column
+        ]);
+    });
+
+    return $this;
+});
+```
+
+Template example:
+
+```php
+// bool.blade.php
+
+<span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>
+```
+
+Usage example:
+```php
+public function grid(): array
+{
+    return [
+        TD::make('status')->bool(),
+    ];
+}
+```
