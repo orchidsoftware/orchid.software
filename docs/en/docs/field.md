@@ -1322,7 +1322,7 @@ DropDown::make()
  
 ## NumberRange
 
-You can create ranges of numbers. Especially usefull for filters.
+You can create ranges of numbers. Especially useful for filters.
 
 ```php
 NumberRange::make();

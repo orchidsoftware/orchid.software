@@ -180,7 +180,7 @@ TD::make('last_name')->defaultHidden();
 ```php
 TD::make('full_name')
     ->render(function ($user) {
-        return $user->firt_name . ' ' . $user->last_name;
+        return $user->first_name . ' ' . $user->last_name;
     });
 ```
 > **Примечание.** Возвращаемая строка не будет экранирована! Вам нужно позаботиться об этом самостоятельно с помощью помощника `e()` помощника или использовать `Blade` представление.

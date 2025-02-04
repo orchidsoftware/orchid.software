@@ -25,7 +25,7 @@ Asking for user confirmation before executing a destructive action, such as dele
 This practice helps to:
 
 - **Prevent accidental data loss**: By requiring confirmation, users are given an opportunity to review their action and prevent
-loss of data due to mis-clicks or accidental triggers.
+loss of data due to miss-clicks or accidental triggers.
 
 - **Increase user control**: Asking for confirmation empowers users by giving them the final say in the deletion process.
 This increases their sense of control over their data and enhances the overall user experience.

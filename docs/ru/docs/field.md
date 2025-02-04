@@ -384,7 +384,7 @@ Relation::make('users.')
 
 Позволяет выбрать дату и время.
 
-![Datatime](/img/ui/datatime.png) 
+![Datetime](/img/ui/datatime.png) 
 
 
 Пример записи:
