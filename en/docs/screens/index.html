@@ -645,12 +645,12 @@ All of the data that the user has seen on the screen will be available in the re
 <h3><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h3>
 <p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
-<pre><code data-lang="php" class="notranslate">&lt;form action=<span class="hl-value">"{{ route('platform.screens.users', ['method' =&gt; 'hello']) }}"</span>
-      method=<span class="hl-value">"POST"</span>
-<span class="hl-operator">&gt;</span>
-    @csrf
-    &lt;button type=<span class="hl-value">"submit"</span>&gt;Say <span class="hl-value">"Hello, World!"</span>&lt;/button&gt;
-&lt;/form&gt;
+<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">form</span> <span class="hl-attribute">action</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [<span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>]) }}"</span>
+      <span class="hl-attribute">method</span><span class="hl-delimeter">=</span><span class="hl-value">"POST"</span>
+<span class="hl-delimeter">&gt;</span>
+    <span class="hl-keyword">@csrf</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">button</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"submit"</span><span class="hl-delimeter">&gt;</span>Say "Hello, World!"<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">button</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">form</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
