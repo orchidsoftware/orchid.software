@@ -142,7 +142,8 @@ use Orchid\Attachment\Models\Attachment;
 
 public function hero()
 {
-    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
+    return $this->hasOne(Attachment::class, 'id', 'hero')
+        ->withDefault();
 }
 ```
 
