@@ -402,6 +402,9 @@
                             <li class="anchor-h2">
                     <a href="#extending-layouts">Extending Layouts</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#extending-columns">Extending Columns</a>
+                </li>
                     </ul>
     </div>
                         <body><blockquote>
@@ -590,6 +593,36 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 {
     <span class="hl-keyword">return</span> [
         <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">hello</span>(<span class="hl-value">'Alexandr Chernyaev'</span>)
+    ];
+}
+</code></pre>
+<h2><a href='#extending-columns' id='extending-columns'>Extending Columns</a></h2>
+<p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to register the closure function in the service provider.</p>
+<p>Registration example:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// AppServiceProvider.php</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'bool'</span>, <span class="hl-keyword">function</span> () {
+
+    $column <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">column</span>;
+
+    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$datum) <span class="hl-keyword">use</span> ($column</span>) {
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'bool'</span>,[
+            <span class="hl-value">'bool'</span> <span class="hl-operator">=&gt;</span> $datum<span class="hl-delimeter">-&gt;</span>$column
+        ]);
+    });
+
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span>;
+});
+</code></pre>
+<p>Template example:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// bool.blade.php</span>
+
+&lt;span class=<span class="hl-value">"{{ $bool ? 'text-success' : 'text-danger' }}"</span>&gt;●&lt;/span&gt;
+</code></pre>
+<p>Usage example:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">grid</span>(): <span class="hl-keyword">array</span>
+{
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">bool</span></span>(),
     ];
 }
 </code></pre>
