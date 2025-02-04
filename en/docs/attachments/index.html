@@ -495,7 +495,8 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">hero</span>()
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
+    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 </code></pre>
 <p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute sql query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
