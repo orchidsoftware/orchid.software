@@ -188,7 +188,7 @@ Subscribe example model to the observer in `AppServiceProvider`
 ```php
 public function boot()
 {
-    ...
+    // ...
     
     Post::observe(PostObserver::class);
 }
