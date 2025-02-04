@@ -696,7 +696,7 @@ http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model->where('content->ru->name', 'like', 'dwqdwq');
 
 
-> **Note.** Filter accomodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
+> **Note.** Filter accommodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
 
 
 How sorting will respond:
