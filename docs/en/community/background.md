@@ -23,7 +23,7 @@ system automatically generates interfaces. This concept shaped Orchid into what 
 
 ## The Right Tool for the Right Job
 
-Orchid is designed for building intranet applications (admin panels, LOB applications, etc.).  
+Orchid is designed for building intranet applications (Admin panels, dashboards, LOB applications, etc.).
 It is not intended for developing websites or marketing landing pages but can be used as an administration panel for
 them.
 
