@@ -238,7 +238,7 @@ The `$loop` variable will be available in the second argument of the `render` cl
 TD::make()->render(fn (Model $model, object $loop) => $loop->index),
 ```
 
-The $loop variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
+The `$loop` variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
 
 ## Using Components
 
