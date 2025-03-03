@@ -27,6 +27,8 @@
         image="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg"
     />
 
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
+
     <link rel="alternate" href="{{ \App\Docs::ahref('ru') }}" hreflang="ru"/>
     <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="en"/>
     <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="x-default"/>
