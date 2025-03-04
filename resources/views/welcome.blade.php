@@ -44,12 +44,11 @@
             <div class="col-12 col-lg-6 mx-auto text-md-center">
                 <h1 class="display-5 fw-bold px-3">
                     <span class="d-block d-md-inline-block ">Say <span class="text-primary">goodbye</span></span>
-                    <small class="d-block">to tedious development</small>
+                    <small class="d-block">to Tedious Development</small>
                 </h1>
 
                 <p class="lead text-muted mb-md-5 mb-3 opacity-slow intersection px-3 text-balance">
-                    Stop wasting time and effort on developing admin panels from scratch.
-                    Orchid streamlines the process, allowing you to focus on what truly matters - creating your application's logic.
+                    Stop wasting time building admin panels from scratch. Orchid simplifies the process, letting you focus on what matters most — your application's core features.
                 </p>
             </div>
         </div>
