@@ -33,7 +33,7 @@
 
     <div class="container position-relative d-none d-md-block" style="margin-top: -13em; z-index: 3">
         <div class="col-lg-10 mx-auto">
-            <img src="/img/next/screen.png"
+            <img src="/img/next/screen.jpg"
                  class="pe-none img-fluid rounded-3">
         </div>
     </div>
