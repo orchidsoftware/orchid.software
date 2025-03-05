@@ -22,8 +22,7 @@ Reading the entire Microsoft Manual of Style or any other style guide cover to c
 and taking notes can be quite time-consuming. With the Microsoft Manual of Style alone spanning nearly 500 pages, this approach can seem overwhelming. 
 Even experienced tech writers, who may have key recommendations memorized, can still make mistakes or overlook issues during the editing process because, after all, we are all human.
 
-Fortunately, there are tools available to automate the process of checking texts against the recommendations provided in style guides such as Microsoft and Google.
-The [Vale](https://vale.sh/) linter is one such tool that assists in verifying compliance with style guide recommendations.
+> Fortunately, there are tools available to automate the process of checking texts against the recommendations provided in style guides such as Microsoft and Google. The [Vale](https://vale.sh/) linter is one such tool that assists in verifying compliance with style guide recommendations.
 
 <!--
 ## Writing Style
