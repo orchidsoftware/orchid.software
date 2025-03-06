@@ -35,7 +35,7 @@
 
 
 
-                <div class="card shadow-sm position-relative card-feature overflow-hidden card-back-rotate ">
+                <div class="card shadow-sm position-relative card-feature overflow-hidden card-back-rotate d-none d-lg-block">
                 </div>
 
 
