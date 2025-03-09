@@ -95,7 +95,7 @@ $role->getUsers();
 
 
 ```php
-php artisan orchid:admin nickname email@email.com secretpassword
+php artisan orchid:admin
 ```
 
 Чтобы дать существующему пользователю максимальные разрешения, запустите с параметром `--id` :
