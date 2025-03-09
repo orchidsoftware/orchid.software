@@ -64,7 +64,7 @@ php artisan orchid:install
 To create a user with maximum permissions, you can run the following command with a username, email, and password:
 
 ```shell
-php artisan orchid:admin admin admin@admin.com password
+php artisan orchid:admin
 ```
 
 
