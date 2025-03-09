@@ -93,7 +93,7 @@ $role->getUsers();
 To create a user with the maximum (at the time of creation) permissions, run the following command:
 
 ```php
-php artisan orchid:admin nickname email@email.com secretpassword
+php artisan orchid:admin
 ```
 
 To give the existing user the maximum permissions, run with the `--id` option:
