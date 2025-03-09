@@ -65,7 +65,7 @@ php artisan orchid:install
 имя пользователя, электронный адрес и пароль:
 
 ```php
-php artisan orchid:admin admin admin@admin.com password
+php artisan orchid:admin
 ```
 
 ## Запуск локального сервера
