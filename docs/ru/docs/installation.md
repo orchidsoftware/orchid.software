@@ -15,7 +15,7 @@ description: Это руководство по началу работы пом
 Это можно сделать с помощью инструмента управления зависимостями Composer, выполнив в терминале команду `composer create-project`:
 
 ```php
-$ composer create-project laravel/laravel orchid-project "10.*"
+$ composer create-project laravel/laravel orchid-project "12.*"
 ```
 
 Или, если вы предпочитаете установщик Laravel:
