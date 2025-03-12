@@ -576,8 +576,8 @@ Default value / result is an array with keys of `start`, `end`.
 
 ```php
 DateRange::make('open')
-                ->title('Opening between')
-                ->value(['start' => now()->subDays(30), 'end' => now()]),
+    ->title('Opening between')
+    ->value(['start' => now()->subDays(30), 'end' => now()]),
 ```
 
 ## TimeZone
