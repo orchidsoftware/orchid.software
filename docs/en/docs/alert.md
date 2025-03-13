@@ -9,7 +9,9 @@ description: The Laravel Orchid Notifications documentation page is the ultimate
 
 ## Flash Messages
 
-A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.
+A flash notification is a one-time message that is automatically deleted after the user views it. 
+Designed to inform the user of a recent event—such as the successful saving of data—flash notifications provide quick, concise feedback without cluttering the interface. 
+If you need to retain notification data, consider using persistent notifications instead.
 
 ### Alert Messages
 
@@ -65,10 +67,6 @@ The `Blade` template would look like this:
 
 Hello <strong>{{ $name }}</strong>
 ```
-
-It is important to note that flash notifications are deleted after they are viewed. If you need to retain the notification data, consider using other types of notifications, such as persistent notifications. 
-
-Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and they are easy to implement and customize to fit the needs of your app.
 
 ### Toast Messages
 
