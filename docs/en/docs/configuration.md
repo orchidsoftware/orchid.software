@@ -180,7 +180,9 @@ class AppServiceProvider extends ServiceProvider
 
 Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all Laravel packages, not just Orchid);
 
-> 🚨 **Alert!** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
+> 🚨 **Alert!** 
+> Overridden templates do not receive updates or bug fixes.
+> Think of this as turning off the autopilot.
 
 Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
 
