@@ -158,7 +158,9 @@ use Orchid\Platform\Notifications\DashboardChannel;
 
 public function via($notifiable)
 {
-    return [DashboardChannel::class];
+    return [
+        DashboardChannel::class
+    ];
 }
 ```
 
