@@ -109,7 +109,23 @@ You can view these notifications by clicking the "Notification Bell icon" in the
 
 Before using this feature, it's important to check out the [Laravel notification documentation](https://laravel.com/docs/notifications) as it provides more details and examples on how to use this feature.
 
-To create a notification, you can use the following `Artisan` command:
+
+To send a notification, you can simply pass a `DashboardMessage` instance to a user’s `notify` method.  
+Before proceeding, ensure that your user model implements the `Notifiable` trait:
+
+```php
+use Orchid\Platform\Notifications\DashboardMessage;
+use Orchid\Support\Color;
+
+$user->notify(DashboardMessage::make()
+    ->title('New Task: January Report')
+    ->message('Please review the task details and deadline.')
+    ->action('https://example.com/reports/january')
+    ->type(Color::INFO)
+);
+```
+
+You can also create a custom notification class using the following Artisan command:
 
 ```php
 php artisan make:notification TaskCompleted
