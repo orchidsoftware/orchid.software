@@ -97,12 +97,14 @@ use Orchid\Support\Facades\Toast;
 Toast::warning('Invalid input. Please check your form.')
 ```
 
-One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the `autoHide` method:
+One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the `persistent` method:
 
 ```php
 Toast::warning('Invalid input. Please check your form.')
-    ->autoHide(false);
+    ->persistent();
 ```
+To re-enable auto-hide, simply call the `autoHide` method again.
+
 
 You can also specify the delay in milliseconds before hiding the toast message by using the `delay` method. 
 This method takes one argument, which is the number of milliseconds to wait before hiding the message:
