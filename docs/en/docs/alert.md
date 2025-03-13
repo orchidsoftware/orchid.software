@@ -11,6 +11,8 @@ Notifications are a powerful tool that allows you to keep your users informed an
 
 A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.
 
+### Alert Messages
+
 To create a flash notification, you can use the following code:
 
 ```php
@@ -85,7 +87,7 @@ It is important to note that flash notifications are deleted after they are view
 
 That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.
 
-## Toast Messages
+### Toast Messages
 
 Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.
 
