@@ -450,10 +450,11 @@ Package also includes a default display for notifications, which can be included
 
 <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
 </code></pre>
-<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>autoHide</code> method:</p>
+<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>persistent</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">autoHide</span>(<span class="hl-constant">false</span>);
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">persistent</span>();
 </code></pre>
+<p>To re-enable auto-hide, simply call the <code>autoHide</code> method again.</p>
 <p>You can also specify the delay in milliseconds before hiding the toast message by using the <code>delay</code> method.
 This method takes one argument, which is the number of milliseconds to wait before hiding the message:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
