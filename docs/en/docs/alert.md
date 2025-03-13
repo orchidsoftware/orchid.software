@@ -90,7 +90,8 @@ Toast::warning('Invalid input. Please check your form.')
     ->autoHide(false);
 ```
 
-You can also specify the delay time before the toast message appears by using the `delay` method. This method takes one argument, which is the number of milliseconds to wait before showing the message:
+You can also specify the delay in milliseconds before hiding the toast message by using the `delay` method. 
+This method takes one argument, which is the number of milliseconds to wait before hiding the message:
 
 ```php
 Toast::warning('Invalid input. Please check your form.')
