@@ -486,7 +486,9 @@ $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</sp
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">via</span>(<span class="hl-injection">$notifiable</span>)
 {
-    <span class="hl-keyword">return</span> [<span class="hl-type">DashboardChannel</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>];
+    <span class="hl-keyword">return</span> [
+        <span class="hl-type">DashboardChannel</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
+    ];
 }
 </code></pre>
 <p>Before sending the notification, you must also define a <code>toDashboard</code> method in the notification class.
