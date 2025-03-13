@@ -406,7 +406,16 @@
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Please fill in all required fields.'</span>)
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Your account will be permanently deleted.'</span>)
 </code></pre>
-<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
+<p>If you want to prevent the automatic escaping of data in your alerts, you can use the <code>withoutEscaping</code> method.
+By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
+
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">withoutEscaping</span>();
+</code></pre>
+<p>This will render the HTML content in the message without escaping it.</p>
+<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method.
+This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 <span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
 
@@ -450,6 +459,14 @@ This method takes one argument, which is the number of milliseconds to wait befo
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
+<p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method.
+By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
+
+<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">withoutEscaping</span>();
+</code></pre>
+<p>This will render the HTML content in the message without escaping it.</p>
 <p>Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.</p>
 <h2><a href='#persistent-notification' id='persistent-notification'>Persistent Notification</a></h2>
 <p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline.
