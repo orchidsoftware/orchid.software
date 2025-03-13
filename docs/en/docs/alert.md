@@ -115,8 +115,6 @@ Toast::info('This is <strong>bold</strong> text.')
 
 This will render the HTML content in the message without escaping it.
 
-Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.
-
 ## Persistent Notification
 
 Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline. 
