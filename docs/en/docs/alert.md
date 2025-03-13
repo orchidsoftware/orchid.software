@@ -3,7 +3,7 @@ title: Notifications
 description: The Laravel Orchid Notifications documentation page is the ultimate resource for learning how to use the Orchid Notifications system to send real-time notifications to your users. Discover how to easily create and manage notification channels, customize notification templates, and send notifications through a variety of methods. Whether you're a beginner or an advanced developer, this page has everything you need to get started with Orchid Notifications.
 ---
 
-Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.
+**Notifications** are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.
 
 > Please take a moment to [review our recommendations for providing feedback](https://orchid.software/en/hig/providing-feedback) to ensure that your application looks exceptional.
 
@@ -30,14 +30,13 @@ alert('Your action has been completed.');
 In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:
 
 ```php
-Alert::info('Welcome to our website!')
-Alert::success('Your message has been sent.')
-Alert::error('Please fill in all required fields.')
-Alert::warning('Your account will be permanently deleted.')
+Alert::info('Welcome to our website!');
+Alert::success('Your message has been sent.');
+Alert::error('Please fill in all required fields.');
+Alert::warning('Your account will be permanently deleted.');
 ```
 
-If you want to prevent the automatic escaping of data in your alerts, you can use the `withoutEscaping` method. 
-By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior.
+If you want to prevent the automatic escaping of data in your alerts, you can use the `withoutEscaping` method. By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior:
 
 ```php
 use Orchid\Support\Facades\Alert;
@@ -48,9 +47,7 @@ Alert::info('This is <strong>bold</strong> text.')
 
 This will render the HTML content in the message without escaping it.
 
-
-If you want to use a custom template for your notifications, you can use the `view` method. 
-This method takes three arguments: the path/name of the `Blade` template, the color of the notification, and an array of variables to be passed to the template.
+If you want to use a custom template for your notifications, you can use the `view` method. This method takes three arguments: the path/name of the `Blade` template, the color of the notification, and an array of variables to be passed to the template:
 
 ```php
 use Orchid\Support\Facades\Alert;
@@ -61,7 +58,7 @@ Alert::view('alert', Color::INFO(), [
 ]);
 ```
 
-The `Blade` template would look something like this:
+The `Blade` template would look like this:
 
 ```php
 // resources/views/alert.blade.php
@@ -69,23 +66,9 @@ The `Blade` template would look something like this:
 Hello <strong>{{ $name }}</strong>
 ```
 
-<!--
+It is important to note that flash notifications are deleted after they are viewed. If you need to retain the notification data, consider using other types of notifications, such as persistent notifications. 
 
-When a notification is displayed, package sets several keys in the session:
-- 'flash_notification.message' - the message to be displayed
-- 'flash_notification.level' - a string representing the type of notification (e.g. "info", "success", "error", "warning")
-
-
-Package also includes a default display for notifications, which can be included in your blade templates by specifying:
-
-```php
-@include('platform::partials.alert')
-```
--->
-
-It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.
-
-That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.
+Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and they are easy to implement and customize to fit the needs of your app.
 
 ### Toast Messages
 
@@ -96,28 +79,26 @@ To create a toast message, you can use the following code:
 ```php
 use Orchid\Support\Facades\Toast;
 
-Toast::warning('Invalid input. Please check your form.')
+Toast::warning('Invalid input. Please check your form.');
 ```
 
-One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the `persistent` method:
+One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the `persistent` method:
 
 ```php
 Toast::warning('Invalid input. Please check your form.')
     ->persistent();
 ```
+
 To re-enable auto-hide, simply call the `autoHide` method again.
 
-
-You can also specify the delay in milliseconds before hiding the toast message by using the `delay` method. 
-This method takes one argument, which is the number of milliseconds to wait before hiding the message:
+You can also specify the delay in milliseconds before hiding the toast message by using the `delay` method. This method takes one argument, which is the number of milliseconds to wait before hiding the message:
 
 ```php
 Toast::warning('Invalid input. Please check your form.')
     ->delay(2000);
 ```
 
-If you want to prevent the automatic escaping of data in your toasts, you can use the `withoutEscaping` method. 
-By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior.
+If you want to prevent the automatic escaping of data in your toasts, you can use the `withoutEscaping` method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:
 
 ```php
 use Orchid\Support\Facades\Toast;
@@ -127,7 +108,6 @@ Toast::info('This is <strong>bold</strong> text.')
 ```
 
 This will render the HTML content in the message without escaping it.
-
 
 Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.
 
