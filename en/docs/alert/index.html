@@ -448,6 +448,11 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
+<p>The <code>seconds</code> method allows you to set the delay before hiding the toast message, but in seconds instead of milliseconds.
+This makes it easier to configure the delay in a more human-readable format:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Your data has been saved!'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">seconds</span>(<span class="hl-number">5</span>);  <span class="hl-comment">// 5 seconds delay</span>
+</code></pre>
 <p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
