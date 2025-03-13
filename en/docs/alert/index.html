@@ -394,7 +394,9 @@
 <p>Please take a moment to <a href="https://orchid.software/en/hig/providing-feedback">review our recommendations for providing feedback</a> to ensure that your application looks exceptional.</p>
 </blockquote>
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
-<p>A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.</p>
+<p>A flash notification is a one-time message that is automatically deleted after the user views it.
+Designed to inform the user of a recent event&mdash;such as the successful saving of data&mdash;flash notifications provide quick, concise feedback without cluttering the interface.
+If you need to retain notification data, consider using persistent notifications instead.</p>
 <h3><a href='#alert-messages' id='alert-messages'>Alert Messages</a></h3>
 <p>To create a flash notification, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
@@ -430,8 +432,6 @@
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
-<p>It is important to note that flash notifications are deleted after they are viewed. If you need to retain the notification data, consider using other types of notifications, such as persistent notifications.</p>
-<p>Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and they are easy to implement and customize to fit the needs of your app.</p>
 <h3><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h3>
 <p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
 <p>To create a toast message, you can use the following code:</p>
