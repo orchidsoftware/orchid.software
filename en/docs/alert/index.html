@@ -389,7 +389,7 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>Notifications are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
+                        <body><p><strong>Notifications</strong> are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
 <blockquote>
 <p>Please take a moment to <a href="https://orchid.software/en/hig/providing-feedback">review our recommendations for providing feedback</a> to ensure that your application looks exceptional.</p>
 </blockquote>
@@ -405,21 +405,19 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-function">alert</span>(<span class="hl-value">'Your action has been completed.'</span>);
 </code></pre>
 <p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Welcome to our website!'</span>)
-<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">success</span>(<span class="hl-value">'Your message has been sent.'</span>)
-<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Please fill in all required fields.'</span>)
-<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Your account will be permanently deleted.'</span>)
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Welcome to our website!'</span>);
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">success</span>(<span class="hl-value">'Your message has been sent.'</span>);
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Please fill in all required fields.'</span>);
+<span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Your account will be permanently deleted.'</span>);
 </code></pre>
-<p>If you want to prevent the automatic escaping of data in your alerts, you can use the <code>withoutEscaping</code> method.
-By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior.</p>
+<p>If you want to prevent the automatic escaping of data in your alerts, you can use the <code>withoutEscaping</code> method. By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">withoutEscaping</span>();
 </code></pre>
 <p>This will render the HTML content in the message without escaping it.</p>
-<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method.
-This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template.</p>
+<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 <span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
 
@@ -427,45 +425,30 @@ This method takes three arguments: the path/name of the <code>Blade</code> templ
     <span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>
 ]);
 </code></pre>
-<p>The <code>Blade</code> template would look something like this:</p>
+<p>The <code>Blade</code> template would look like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// resources/views/alert.blade.php</span>
 
 Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
-<!--
-
-When a notification is displayed, package sets several keys in the session:
-- 'flash_notification.message' - the message to be displayed
-- 'flash_notification.level' - a string representing the type of notification (e.g. "info", "success", "error", "warning")
-
-
-Package also includes a default display for notifications, which can be included in your blade templates by specifying:
-
-```php
-@include('platform::partials.alert')
-```
--->
-<p>It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.</p>
-<p>That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.</p>
+<p>It is important to note that flash notifications are deleted after they are viewed. If you need to retain the notification data, consider using other types of notifications, such as persistent notifications.</p>
+<p>Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and they are easy to implement and customize to fit the needs of your app.</p>
 <h3><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h3>
 <p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
 <p>To create a toast message, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
-<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
+<span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>);
 </code></pre>
-<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time or not. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>persistent</code> method:</p>
+<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>persistent</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">persistent</span>();
 </code></pre>
 <p>To re-enable auto-hide, simply call the <code>autoHide</code> method again.</p>
-<p>You can also specify the delay in milliseconds before hiding the toast message by using the <code>delay</code> method.
-This method takes one argument, which is the number of milliseconds to wait before hiding the message:</p>
+<p>You can also specify the delay in milliseconds before hiding the toast message by using the <code>delay</code> method. This method takes one argument, which is the number of milliseconds to wait before hiding the message:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
-<p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method.
-By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior.</p>
+<p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
 <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
