@@ -96,6 +96,14 @@ Toast::warning('Invalid input. Please check your form.')
     ->delay(2000);
 ```
 
+The `seconds` method allows you to set the delay before hiding the toast message, but in seconds instead of milliseconds. 
+This makes it easier to configure the delay in a more human-readable format:
+
+```php
+Toast::info('Your data has been saved!')
+    ->seconds(5);  // 5 seconds delay
+```
+
 If you want to prevent the automatic escaping of data in your toasts, you can use the `withoutEscaping` method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:
 
 ```php
