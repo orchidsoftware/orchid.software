@@ -34,7 +34,21 @@ Alert::error('Please fill in all required fields.')
 Alert::warning('Your account will be permanently deleted.')
 ```
 
-If you want to use a custom template for your notifications, you can use the `view` method. This method takes three arguments: the path/name of the `Blade` template, the color of the notification, and an array of variables to be passed to the template.
+If you want to prevent the automatic escaping of data in your alerts, you can use the `withoutEscaping` method. 
+By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior.
+
+```php
+use Orchid\Support\Facades\Alert;
+
+Alert::info('This is <strong>bold</strong> text.')
+    ->withoutEscaping();
+```
+
+This will render the HTML content in the message without escaping it.
+
+
+If you want to use a custom template for your notifications, you can use the `view` method. 
+This method takes three arguments: the path/name of the `Blade` template, the color of the notification, and an array of variables to be passed to the template.
 
 ```php
 use Orchid\Support\Facades\Alert;
@@ -97,6 +111,19 @@ This method takes one argument, which is the number of milliseconds to wait befo
 Toast::warning('Invalid input. Please check your form.')
     ->delay(2000);
 ```
+
+If you want to prevent the automatic escaping of data in your toasts, you can use the `withoutEscaping` method. 
+By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior.
+
+```php
+use Orchid\Support\Facades\Toast;
+
+Toast::info('This is <strong>bold</strong> text.')
+    ->withoutEscaping();
+```
+
+This will render the HTML content in the message without escaping it.
+
 
 Toast messages are a useful way to provide quick feedback to the user without interrupting their workflow.
 
