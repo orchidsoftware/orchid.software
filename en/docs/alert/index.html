@@ -378,7 +378,10 @@
                             <li class="anchor-h2">
                     <a href="#flash-messages">Flash Messages</a>
                 </li>
-                            <li class="anchor-h2">
+                            <li class="anchor-h3">
+                    <a href="#alert-messages">Alert Messages</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#toast-messages">Toast Messages</a>
                 </li>
                             <li class="anchor-h2">
@@ -392,6 +395,7 @@
 </blockquote>
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
 <p>A flash notification is a one-time message that will be automatically deleted after the user views it. These notifications are designed to inform the user of an event that has just occurred, such as the successful saving of data.</p>
+<h3><a href='#alert-messages' id='alert-messages'>Alert Messages</a></h3>
 <p>To create a flash notification, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
@@ -443,7 +447,7 @@ Package also includes a default display for notifications, which can be included
 -->
 <p>It is important to note that flash notifications are deleted after they are viewed, so if you need to retain the notification data, you should consider using other types of notifications such as persistent notifications.</p>
 <p>That being said, Flash notifications are a great way to provide quick and concise feedback to the user without cluttering the interface, and makes it easy to implement and customize them to fit the needs of your app.</p>
-<h2><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h2>
+<h3><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h3>
 <p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
 <p>To create a toast message, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
