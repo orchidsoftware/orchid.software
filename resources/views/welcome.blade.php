@@ -96,7 +96,7 @@
                             <p class="h2 mb-3">Screens</p>
 
                             <p>
-                                Build modern apps that are 99% in PHP, and spend less time fiddling with tools and updating incompatible libraries.
+                                Build modern apps that are 80% in PHP, and spend less time fiddling with tools and updating incompatible libraries.
                                 Focus on what matters most: creating exceptional features for your users.
                             </p>
                         </div>
