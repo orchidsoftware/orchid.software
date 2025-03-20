@@ -9,7 +9,7 @@ In most cases, access is managed through **roles**, which are groups of **permis
 
 In most applications with a large number of users and permissions, using **roles** is more efficient. It simplifies access management and reduces the risk of errors.
 
-### How Roles and Permissions Work:
+###### How Roles and Permissions Work:
 
 - **A role** is a set of permissions.
 - A **user** can be associated with one or more roles.
