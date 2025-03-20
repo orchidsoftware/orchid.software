@@ -10,6 +10,8 @@ Screens on the Orchid platform are the main element that defines the layout and 
 
 Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or any other external source. Instead, screens focus on defining the appearance of the page using provided templates (called "layouts"), and specifying which data should be displayed in each layout.
 
+It is important to note that each screen in Orchid is essentially an HTML form (`<form></form>`), enabling seamless data submission and interaction with the system in a convenient and predictable manner.  
+
 In this way, screens provide a separation of concerns between the data and the presentation, making it easy to build and maintain complex web applications.
 
 
