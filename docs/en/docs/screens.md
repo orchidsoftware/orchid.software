@@ -154,7 +154,7 @@ For example, you might use the `query` method to response simple string:
 public function query() : array
 {
     return [
-        'name'  => 'Alexandr Chernyaev',
+        'name'  => 'Alexandr',
     ];
 }
 ```
