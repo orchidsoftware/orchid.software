@@ -9,8 +9,7 @@ In most cases, access is managed through **roles**, which are groups of **permis
 
 In most applications with a large number of users and permissions, using **roles** is more efficient. It simplifies access management and reduces the risk of errors.
 
-###### How Roles and Permissions Work:
-
+How Roles and Permissions Work:
 - **A role** is a set of permissions.
 - A **user** can be associated with one or more roles.
 - A user's permissions are the union of all the permissions from their roles.
@@ -95,22 +94,23 @@ You can register permissions in your application to manage access to specific fe
 Example of registering permissions using a provider:  
 
 ```php
-use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\ItemPermission;
-use Orchid\Platform\Dashboard;
+use Orchid\Platform\OrchidServiceProvider;
 
-class PermissionServiceProvider extends ServiceProvider
+class PermissionServiceProvider extends OrchidServiceProvider
 {
     /**
-     * @param Dashboard $dashboard
+     * Register permissions for the application.
+     *
+     * @return ItemPermission[]
      */
-    public function boot(Dashboard $dashboard)
+    public function permissions(): array
     {
-        $permissions = ItemPermission::group('modules')
-            ->addPermission('analytics', 'Access to data analytics')
-            ->addPermission('monitor', 'Access to the system monitor');
-
-        $dashboard->registerPermissions($permissions);
+        return [
+            ItemPermission::group('modules')
+                ->addPermission('analytics', 'Access to data analytics')
+                ->addPermission('monitor', 'Access to the system monitor'),
+        ];
     }
 }
 ```
