@@ -388,7 +388,7 @@
                     <a href="#roles">Roles</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#add-your-own-permissions">Add Your Own Permissions</a>
+                    <a href="#registering-permissions">Registering Permissions</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#check-in-screens">Check-in Screens</a>
@@ -468,10 +468,9 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Returns all users with this role.</span>
 $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</span>();
 </code></pre>
-<h2><a href='#add-your-own-permissions' id='add-your-own-permissions'>Add Your Own Permissions</a></h2>
-<p>You can define your own permissions in applications.
-Using them, you explicitly implement access to certain functions.</p>
-<p>An example of adding your own permissions using a provider:</p>
+<h2><a href='#registering-permissions' id='registering-permissions'>Registering Permissions</a></h2>
+<p>You can register permissions in your application to manage access to specific features.</p>
+<p>Example of registering permissions using a provider:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
 <span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
 <span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
