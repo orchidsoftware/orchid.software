@@ -375,9 +375,6 @@
 
                         <div class="anchors">
             <ul>
-                            <li class="anchor-h6">
-                    <a href="#how-roles-and-permissions-work">How Roles and Permissions Work:</a>
-                </li>
                             <li class="anchor-h2">
                     <a href="#roles-vs-permissions">Roles vs Permissions</a>
                 </li>
@@ -412,7 +409,7 @@
 <p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <code>Gate</code> or <code>Policies</code> mechanisms. These mechanisms are still essential for fine-grained access control.</p>
 </blockquote>
 <p>In most applications with a large number of users and permissions, using <strong>roles</strong> is more efficient. It simplifies access management and reduces the risk of errors.</p>
-<h6><a href='#how-roles-and-permissions-work' id='how-roles-and-permissions-work'>How Roles and Permissions Work:</a></h6>
+<p>How Roles and Permissions Work:</p>
 <ul>
 <li><strong>A role</strong> is a set of permissions.</li>
 <li>A <strong>user</strong> can be associated with one or more roles.</li>
@@ -471,22 +468,23 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
 <h2><a href='#registering-permissions' id='registering-permissions'>Registering Permissions</a></h2>
 <p>You can register permissions in your application to manage access to specific features.</p>
 <p>Example of registering permissions using a provider:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
-<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
-<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">OrchidServiceProvider</span>;
 
-<span class="hl-keyword">class</span> <span class="hl-type">PermissionServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
+<span class="hl-keyword">class</span> <span class="hl-type">PermissionServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">OrchidServiceProvider</span>
 {
     <span class="hl-comment">/**
-     * <span class="hl-keyword">@param</span> <span class="hl-type">Dashboard</span> $dashboard
+     * Register permissions for the application.
+     *
+     * <span class="hl-keyword">@return</span> <span class="hl-type">ItemPermission</span>[]
      */</span>
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>(<span class="hl-injection"><span class="hl-type">Dashboard</span> $dashboard</span>)
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permissions</span>(): <span class="hl-keyword">array</span>
     {
-        $permissions <span class="hl-operator">=</span> <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'modules'</span>)
-            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'analytics'</span>, <span class="hl-value">'Access to data analytics'</span>)
-            <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'monitor'</span>, <span class="hl-value">'Access to the system monitor'</span>);
-
-        $dashboard<span class="hl-delimeter">-&gt;</span><span class="hl-function">registerPermissions</span>($permissions);
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'modules'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'analytics'</span>, <span class="hl-value">'Access to data analytics'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'monitor'</span>, <span class="hl-value">'Access to the system monitor'</span>),
+        ];
     }
 }
 </code></pre>
