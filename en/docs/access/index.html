@@ -376,9 +376,6 @@
                         <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#roles-vs-permissions">Roles vs Permissions</a>
-                </li>
-                            <li class="anchor-h2">
                     <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h2">
@@ -404,22 +401,15 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>In most cases, access is managed through <strong>roles</strong>, which are groups of <strong>permissions</strong>. Roles simplify access management by allowing you to assign roles to users instead of assigning permissions individually to each user. However, it is also possible to assign permissions directly.</p>
+                        <body><p>In Orchid, access control is managed through <strong>permissions</strong> and <strong>roles</strong>. Permissions define access rights, which can be assigned to a user either directly or through roles, simplifying access management.</p>
+<p>It is generally better to use <strong>roles</strong> to group permissions, as this makes managing user rights easier. Instead of assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if needed, permissions can also be assigned directly to the user.</p>
 <blockquote>
-<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <code>Gate</code> or <code>Policies</code> mechanisms. These mechanisms are still essential for fine-grained access control.</p>
+<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still necessary for fine-grained access control, and permissions work in conjunction with them.</p>
 </blockquote>
-<p>In most applications with a large number of users and permissions, using <strong>roles</strong> is more efficient. It simplifies access management and reduces the risk of errors.</p>
-<p>How Roles and Permissions Work:</p>
-<ul>
-<li><strong>A role</strong> is a set of permissions.</li>
-<li>A <strong>user</strong> can be associated with one or more roles.</li>
-<li>A user&rsquo;s permissions are the union of all the permissions from their roles.</li>
-</ul>
-<p><strong>Important:</strong> While roles are useful for grouping permissions, the main focus should be on <strong>permissions</strong>. The application&rsquo;s logic should check permissions using the <code>can</code> methods, not rely solely on roles. This allows Laravel&rsquo;s <code>Gate</code> system to handle access control efficiently.</p>
-<p>In summary, <strong>roles</strong> are used to group permissions, and access should always be checked based on <strong>permissions</strong>, not roles.</p>
-<h2><a href='#roles-vs-permissions' id='roles-vs-permissions'>Roles vs Permissions</a></h2>
-<p>For the best application architecture, design your app around <strong>permissions</strong>, not roles. Roles can still be used to group permissions for convenience, but the primary access control logic should use the <code>can</code> methods, which work seamlessly with Laravel&rsquo;s <code>Gate</code> system.</p>
-<p>Example: users have <strong>roles</strong>, roles contain <strong>permissions</strong>, and your app always checks <strong>permissions</strong>, not <strong>roles</strong>.</p>
+<p>Although roles simplify management, the focus should be on <strong>permissions</strong>. Application logic should check access based on permissions, not roles, using the <code>can</code> methods.</p>
+<blockquote>
+<p><strong>Important:</strong> Access should always be checked through <strong>permissions</strong>, not <strong>roles</strong>. Roles serve as a convenience for grouping permissions, but access should always be checked based on permissions, not roles.</p>
+</blockquote>
 <h2><a href='#usage' id='usage'>Usage</a></h2>
 <p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Check is carried out both for the user and for his role</span>
