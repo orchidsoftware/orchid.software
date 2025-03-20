@@ -3,26 +3,15 @@ title: Permissions
 description: Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with our open-source package for rapid development of admin panels and dashboards.
 ---
 
-In most cases, access is managed through **roles**, which are groups of **permissions**. Roles simplify access management by allowing you to assign roles to users instead of assigning permissions individually to each user. However, it is also possible to assign permissions directly.
+In Orchid, access control is managed through **permissions** and **roles**. Permissions define access rights, which can be assigned to a user either directly or through roles, simplifying access management.
 
-> **Important:** Permissions do not replace Laravel's `Gate` or `Policies` mechanisms. These mechanisms are still essential for fine-grained access control.
+It is generally better to use **roles** to group permissions, as this makes managing user rights easier. Instead of assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if needed, permissions can also be assigned directly to the user.
 
-In most applications with a large number of users and permissions, using **roles** is more efficient. It simplifies access management and reduces the risk of errors.
+> **Important:** Permissions do not replace Laravel's **Gate** or **Policies** mechanisms. These mechanisms are still necessary for fine-grained access control, and permissions work in conjunction with them.
 
-How Roles and Permissions Work:
-- **A role** is a set of permissions.
-- A **user** can be associated with one or more roles.
-- A user's permissions are the union of all the permissions from their roles.
+Although roles simplify management, the focus should be on **permissions**. Application logic should check access based on permissions, not roles, using the `can` methods.
 
-**Important:** While roles are useful for grouping permissions, the main focus should be on **permissions**. The application’s logic should check permissions using the `can` methods, not rely solely on roles. This allows Laravel’s `Gate` system to handle access control efficiently.
-
-In summary, **roles** are used to group permissions, and access should always be checked based on **permissions**, not roles.
-
-## Roles vs Permissions
-
-For the best application architecture, design your app around **permissions**, not roles. Roles can still be used to group permissions for convenience, but the primary access control logic should use the `can` methods, which work seamlessly with Laravel's `Gate` system.
-
-Example: users have **roles**, roles contain **permissions**, and your app always checks **permissions**, not **roles**.
+> **Important:** Access should always be checked through **permissions**, not **roles**. Roles serve as a convenience for grouping permissions, but access should always be checked based on permissions, not roles.
 
 ## Usage
 
