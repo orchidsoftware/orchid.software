@@ -88,12 +88,11 @@ Roles also have procedures for:
 $role->getUsers();
 ```
 
-## Add Your Own Permissions
+## Registering Permissions  
 
-You can define your own permissions in applications.
- Using them, you explicitly implement access to certain functions.
+You can register permissions in your application to manage access to specific features.  
 
-An example of adding your own permissions using a provider:
+Example of registering permissions using a provider:  
 
 ```php
 use Illuminate\Support\ServiceProvider;
