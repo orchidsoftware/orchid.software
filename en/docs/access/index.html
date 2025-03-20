@@ -375,6 +375,12 @@
 
                         <div class="anchors">
             <ul>
+                            <li class="anchor-h3">
+                    <a href="#how-roles-and-permissions-work">How Roles and Permissions Work:</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#roles-vs-permissions">Roles vs Permissions</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#usage">Usage</a>
                 </li>
@@ -386,9 +392,6 @@
                 </li>
                             <li class="anchor-h2">
                     <a href="#add-your-own-permissions">Add Your Own Permissions</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#roles-vs-permissions">Roles vs Permissions</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#check-in-screens">Check-in Screens</a>
@@ -404,21 +407,22 @@
                 </li>
                     </ul>
     </div>
-                        <body><p>Usually, users are not assigned permissions in the application (although this is available), but rather roles. The role is associated with the permission set, not with the individual user.</p>
+                        <body><p>In most cases, access is managed through <strong>roles</strong>, which are groups of <strong>permissions</strong>. Roles simplify access management by allowing you to assign roles to users instead of assigning permissions individually to each user. However, it is also possible to assign permissions directly.</p>
 <blockquote>
-<p>Permissions are not a substitute for <code>Gate</code> or <code>Policies</code> included in the framework.</p>
+<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <code>Gate</code> or <code>Policies</code> mechanisms. These mechanisms are still essential for fine-grained access control.</p>
 </blockquote>
-<p>Typically, you manage several dozen permits in a typical business process.
-You can also have, say, 10&nbsp;to 100&nbsp;users.
-Although these users are not entirely different from each other, You can divide them into logical groups according to what they do with the program.
-These groups are called roles.</p>
-<p>If you needed to manage users directly by assigning them permissions, it would be tedious and erroneous
-due to a large number of users and permissions.</p>
+<p>In most applications with a large number of users and permissions, using <strong>roles</strong> is more efficient. It simplifies access management and reduces the risk of errors.</p>
+<h3><a href='#how-roles-and-permissions-work' id='how-roles-and-permissions-work'>How Roles and Permissions Work:</a></h3>
 <ul>
-<li>You can group one, two, or more permissions in a role.</li>
-<li>The user is assigned one or more roles.</li>
-<li>A set of permissions owned by the user, calculated as a combination of permissions from each user role.</li>
+<li><strong>A role</strong> is a set of permissions.</li>
+<li>A <strong>user</strong> can be associated with one or more roles.</li>
+<li>A user&rsquo;s permissions are the union of all the permissions from their roles.</li>
 </ul>
+<p><strong>Important:</strong> While roles are useful for grouping permissions, the main focus should be on <strong>permissions</strong>. The application&rsquo;s logic should check permissions using the <code>can</code> methods, not rely solely on roles. This allows Laravel&rsquo;s <code>Gate</code> system to handle access control efficiently.</p>
+<p>In summary, <strong>roles</strong> are used to group permissions, and access should always be checked based on <strong>permissions</strong>, not roles.</p>
+<h2><a href='#roles-vs-permissions' id='roles-vs-permissions'>Roles vs Permissions</a></h2>
+<p>For the best application architecture, design your app around <strong>permissions</strong>, not roles. Roles can still be used to group permissions for convenience, but the primary access control logic should use the <code>can</code> methods, which work seamlessly with Laravel&rsquo;s <code>Gate</code> system.</p>
+<p>Example: users have <strong>roles</strong>, roles contain <strong>permissions</strong>, and your app always checks <strong>permissions</strong>, not <strong>roles</strong>.</p>
 <h2><a href='#usage' id='usage'>Usage</a></h2>
 <p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Check is carried out both for the user and for his role</span>
@@ -522,10 +526,6 @@ Using them, you explicitly implement access to certain functions.</p>
     }
 }
 </code></pre>
-<h2><a href='#roles-vs-permissions' id='roles-vs-permissions'>Roles vs Permissions</a></h2>
-<p>It is generally best to code your app around permissions only.</p>
-<p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which allows Laravel&rsquo;s Gate layer to do all the heavy lifting.</p>
-<p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not <code>roles</code>.</p>
 <h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>
 <p>Each created screen already has a built-in permission check set using method
 <code>permission</code>, which accepts both an array and a string value for verification:</p>
