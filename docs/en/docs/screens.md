@@ -12,7 +12,7 @@ Screens don't handle data fetching directly; instead, they focus on rendering th
 
 At the core, each screen is essentially an HTML `<form>`, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.  
 
-By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain complex, scalable web applications.
+By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain complex web applications.
 
 
 ## Creating Screens
