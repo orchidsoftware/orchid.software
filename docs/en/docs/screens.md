@@ -6,7 +6,7 @@ description: Laravel Orchid provides screens for building and maintaining comple
 ## Introduction
 
 
-Screens in the Orchid platform serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.  
+Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.  
 
 Screens don't handle data fetching directly; instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or external service—without affecting the screen logic.  
 
