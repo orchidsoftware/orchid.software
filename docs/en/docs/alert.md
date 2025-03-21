@@ -62,8 +62,8 @@ Alert::view('alert', Color::INFO(), [
 
 The `Blade` template would look like this:
 
-```php
-// resources/views/alert.blade.php
+```blade
+{{-- resources/views/alert.blade.php --}}
 
 Hello <strong>{{ $name }}</strong>
 ```
