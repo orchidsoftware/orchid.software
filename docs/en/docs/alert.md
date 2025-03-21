@@ -101,7 +101,7 @@ This makes it easier to configure the delay in a more human-readable format:
 
 ```php
 Toast::info('Your data has been saved!')
-    ->seconds(5);  // 5 seconds delay
+    ->seconds(5);  // 5 seconds delay before hiding
 ```
 
 If you want to prevent the automatic escaping of data in your toasts, you can use the `withoutEscaping` method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:
