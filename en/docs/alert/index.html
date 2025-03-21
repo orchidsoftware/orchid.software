@@ -428,9 +428,9 @@ If you need to retain notification data, consider using persistent notifications
 ]);
 </code></pre>
 <p>The <code>Blade</code> template would look like this:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// resources/views/alert.blade.php</span>
+<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- resources/views/alert.blade.php --}}</span>
 
-Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
+Hello <span class="hl-delimeter">&lt;</span><span class="hl-tag2">strong</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">strong</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <h3><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h3>
 <p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
