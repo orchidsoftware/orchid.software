@@ -27,7 +27,7 @@ return [
                 'Screens'       => '/en/docs/screens',
                 'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
-                'Permissions'   => '/en/docs/access',
+                'Permissions'   => '/en/docs/permissions',
                 'Filtering'     => '/en/docs/filters',
                 'Attachments'   => '/en/docs/attachments',
                 'Notifications' => '/en/docs/alert',
@@ -53,7 +53,8 @@ return [
                 'Testing'             => '/en/docs/testing',
                 'Controllers'         => '/en/docs/controllers',
                 'Authentication'      => '/en/docs/authentication',
-                'Package Development' => '/en/docs/packages'
+                'Stubs'               => '/en/docs/stubs',
+                'Package Development' => '/en/docs/packages',
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
