@@ -21,11 +21,11 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
 
 
-    <title>Use JavaScript | Orchid - Laravel Admin Panel</title>
+    <title>Permissions | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Use JavaScript | Orchid - Laravel Admin Panel">
-<meta name="description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta name="title" content="Permissions | Orchid - Laravel Admin Panel">
+<meta name="description" content="Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with our open-source package for rapid development of admin panels and dashboards.">
 
 
 
@@ -33,25 +33,25 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/docs/javascript"/>
+<meta property="og:url" content="https://orchid.software/en/docs/permissions"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Use JavaScript | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta property="og:title" content="Permissions | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with our open-source package for rapid development of admin panels and dashboards.">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/docs/javascript">
-<meta name="twitter:title" content="Use JavaScript | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.">
+<meta name="twitter:url" content="https://orchid.software/en/docs/permissions">
+<meta name="twitter:title" content="Permissions | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with our open-source package for rapid development of admin panels and dashboards.">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
     <meta name="view-transition" content="same-origin">
         
-    <link rel="alternate" href="https://orchid.software/ru/docs/javascript/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/javascript/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/javascript/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/docs/permissions/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/permissions/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/permissions/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -217,8 +217,8 @@
                         Navigation
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/permissions" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/permissions" class="text-decoration-none text-primary">
                         Permissions
                     </a>
                 </li>
@@ -305,8 +305,8 @@
                         Presenters
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/javascript" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
                         Using JS
                     </a>
                 </li>
@@ -366,9 +366,9 @@
                     <main class="py-2 px-3 py-md-2 px-md-4 px-xl-5 ms-md-4 me-md-auto order-md-first overflow-auto">
                         
                             <div class="d-flex align-items-center mb-3 mt-3">
-                                <h1 class="me-3">Use JavaScript</h1>
+                                <h1 class="me-3">Permissions</h1>
 
-                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/javascript.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/permissions.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                    title="View and edit this file on GitHub" target="_blank" rel="noopener"
                                 >
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -382,191 +382,265 @@
                             <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#working-with-vite">Working With Vite</a>
+                    <a href="#usage">Usage</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#loading-your-scripts-and-styles">Loading Your Scripts And Styles</a>
+                    <a href="#roles">Roles</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#turbo">Turbo</a>
+                    <a href="#registering-permissions">Registering Permissions</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#stimulus">Stimulus</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#compilation-with-mix">Compilation with Mix</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#compilation-with-vite">Compilation with Vite</a>
-                </li>
-                            <li class="anchor-h3">
-                    <a href="#run-controller">Run Controller</a>
+                    <a href="#check-in-screens">Check-in Screens</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#vuejs-wrapped-in-a-stimulus">Vue.js Wrapped in a Stimulus</a>
+                    <a href="#check-in-middleware">Check-in Middleware</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#check-in-blade">Check-in Blade</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#creating-an-admin-user-via-console">Creating an Admin User via Console</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#user-impersonation">User Impersonation</a>
                 </li>
                     </ul>
     </div>
-                            <body><p>The aesthetic and functional foundation of Orchid is built upon <a href="http://getbootstrap.com/">Bootstrap</a> for CSS and <a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of Orchid&rsquo;s features.</p>
+                            <body><p>In Orchid, access control is managed through <strong>permissions</strong> and <strong>roles</strong>. Permissions define access rights, which can be assigned to a user either directly or through roles, simplifying access management.</p>
+<p>It is generally better to use <strong>roles</strong> to group permissions, as this makes managing user rights easier. Instead of assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if needed, permissions can also be assigned directly to the user.</p>
 <blockquote>
-<p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
+<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still necessary for fine-grained access control, and permissions work in conjunction with them.</p>
 </blockquote>
-<h2><a href='#working-with-vite' id='working-with-vite'>Working With Vite</a></h2>
-<p>Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the official <a href="https://laravel.com/docs/vite">documentation page</a>.</p>
-<p>To successfully incorporate the acquired resources into your project, you&rsquo;ll need to specify them in the <code>config/platform.php</code> file. This file allows you to define a list of resources that should be included in your project. Here&rsquo;s an example of such configuration:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'resources/js/app.js'</span>,
-],
+<p>Although roles simplify management, the focus should be on <strong>permissions</strong>. Application logic should check access based on permissions, not roles, using the <code>can</code> methods.</p>
+<blockquote>
+<p><strong>Important:</strong> Access should always be checked through <strong>permissions</strong>, not <strong>roles</strong>. Roles serve as a convenience for grouping permissions, but access should always be checked based on permissions, not roles.</p>
+</blockquote>
+<h2><a href='#usage' id='usage'>Usage</a></h2>
+<p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Check is carried out both for the user and for his role</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($string);
 </code></pre>
-<p>This entry is equivalent to using the Blade directive <code>@vite</code>. By carefully following these steps, you can effectively integrate Vite into your Laravel project and achieve the best results from its usage.</p>
-<h2><a href='#loading-your-scripts-and-styles' id='loading-your-scripts-and-styles'>Loading Your Scripts And Styles</a></h2>
-<p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
-<p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
-        <span class="hl-comment">// Add your URLs for stylesheets here</span>
-        <span class="hl-value">'https://cdn.example.com/styles/main.css'</span>,
-    ],
-    <span class="hl-value">'scripts'</span> <span class="hl-operator">=&gt;</span> [
-        <span class="hl-comment">// Add your URLs for scripts here</span>
-        <span class="hl-value">'https://cdn.example.com/scripts/app.js'</span>,
-    ],
-],
+<p>Method <code>hasAnyAccess</code> will grant access if any permission passes the check.</p>
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
+
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAnyAccess</span>([<span class="hl-value">'user.admin'</span>, <span class="hl-value">'user.update'</span>])) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
+}
 </code></pre>
-<p>In this array, replace the placeholder URLs with the actual URLs where your stylesheet and script files are located. This way, whenever Laravel Orchid needs to load these resources, it will automatically use the URLs provided in this configuration.</p>
-<p>To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser. Look for the <code>link</code> tags for stylesheets and <code>script</code> tags for JavaScript files and ensure that the URLs match those specified in your configuration file.</p>
-<h2><a href='#turbo' id='turbo'>Turbo</a></h2>
-<p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
-<p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("load", () =&gt; {
-    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
+<blockquote>
+<p><strong>Note.</strong> Permissions can be checked based on wildcards using the <code>*</code> character to match any set of permissions.</p>
+</blockquote>
+<pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
+
+<span class="hl-keyword">if</span> ($user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>(<span class="hl-value">'user.*'</span>)) {
+    <span class="hl-comment">// Execute this code if the user has permission</span>
+}
+</code></pre>
+<p>In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAccess</span>(<span class="hl-value">'platform.systems.users'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
+
+<span class="hl-comment">// Or if the user has at least one of the passed permissions</span>
+<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">byAnyAccess</span>([
+   <span class="hl-value">'platform.systems.users'</span>,
+   <span class="hl-value">'non existent'</span>,
+])<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
+</code></pre>
+<p>The user has several options for managing roles:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get all user roles</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">getRoles</span>();
+
+<span class="hl-comment">// Check whether the user has a role</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">inRole</span>($role);
+
+<span class="hl-comment">// Add role to user</span>
+<span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">addRole</span>($role);
+</code></pre>
+<h2><a href='#roles' id='roles'>Roles</a></h2>
+<p>Roles also have procedures for:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Returns all users with this role.</span>
+$role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</span>();
+</code></pre>
+<h2><a href='#registering-permissions' id='registering-permissions'>Registering Permissions</a></h2>
+<p>You can register permissions in your application to manage access to specific features.</p>
+<p>Example of registering permissions using a provider:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
+<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">OrchidServiceProvider</span>;
+
+<span class="hl-keyword">class</span> <span class="hl-type">PermissionServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">OrchidServiceProvider</span>
+{
+    <span class="hl-comment">/**
+     * Register permissions for the application.
+     *
+     * <span class="hl-keyword">@return</span> <span class="hl-type">ItemPermission</span>[]
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permissions</span>(): <span class="hl-keyword">array</span>
+    {
+        <span class="hl-keyword">return</span> [
+            <span class="hl-type">ItemPermission</span><span class="hl-delimeter">::</span><span class="hl-function">group</span>(<span class="hl-value">'modules'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'analytics'</span>, <span class="hl-value">'Access to data analytics'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">addPermission</span>(<span class="hl-value">'monitor'</span>, <span class="hl-value">'Access to the system monitor'</span>),
+        ];
+    }
+}
+</code></pre>
+<h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>
+<p>Each created screen already has a built-in permission check set using method
+<code>permission</code>, which accepts both an array and a string value for verification:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
+
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
+
+<span class="hl-keyword">class</span> <span class="hl-type">History</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
+{
+    <span class="hl-comment">/**
+     * The permissions required to access this screen.
+     */</span>
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-type">iterable</span>
+    {
+        <span class="hl-keyword">return</span> [
+            <span class="hl-value">'systems.history'</span>
+        ];
+    }
+        
+    <span class="hl-comment">// ...</span>
+}
+</code></pre>
+<p>If several keys are listed, access will be granted if the user has at least one permission.</p>
+<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, e.g. to redirect a payment page or return a different response:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">RedirectResponse</span>;
+
+<span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> \Illuminate\Http\<span class="hl-type">RedirectResponse</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">unaccessed</span>(): <span class="hl-type">RedirectResponse</span>
+{
+    <span class="hl-keyword">return</span> <span class="hl-function">redirect</span>(<span class="hl-value">'/other-screen'</span>);
+}
+</code></pre>
+<h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
+<p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their availability for routes.
+To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * The application's route middleware.
+ *
+ * These middleware may be assigned to groups or used individually.
+ *
+ * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
+ */</span>
+<span class="hl-keyword">protected</span> $routeMiddleware <span class="hl-operator">=</span> [
+    <span class="hl-comment">//...</span>
+    <span class="hl-value">'access'</span> <span class="hl-operator">=&gt;</span> \Orchid\Platform\Http\Middleware\<span class="hl-type">Access</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+];
+</code></pre>
+<p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">middleware</span>(<span class="hl-value">'access:systems.history'</span>);
+</code></pre>
+<p>You can also group them into groups:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">middleware</span>([<span class="hl-value">'access:systems.history'</span>])<span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-keyword">function</span> () {
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
+    <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">get</span>(<span class="hl-value">'/stories/best'</span>, <span class="hl-keyword">function</span> () {
+        <span class="hl-comment">// ...</span>
+    });
 });
 </code></pre>
-<p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbo:load", () =&gt; {
-    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
-})
-</code></pre>
-<p>You can find more details on the website <a href="https://turbo.hotwire.dev">turbo.hotwire.dev</a>.</p>
-<h2><a href='#stimulus' id='stimulus'>Stimulus</a></h2>
-<p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.</p>
-<p>Let&rsquo;s build a basic example for that displays the text entered the field for this:</p>
-<p>In <code>resources/js</code>, create the following structure:</p>
-<pre><code data-lang="php" class="notranslate">resources
-├── js
-│   ├── controllers
-│   │   └── hello<span class="hl-delimeter">.</span>js
-│   └── dashboard<span class="hl-delimeter">.</span>js
-└── views
-</code></pre>
-<p>Controller class with the following content:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-comment">// hello.js</span>
-<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
+<h2><a href='#check-in-blade' id='check-in-blade'>Check-in Blade</a></h2>
+<p>For applications that rely on Blade templating to render, it will be convenient to add <a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;Custom If Statements&rdquo;</a> as follows:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Blade</span>;
+<span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Auth</span>;
 
-    <span class="hl-keyword">static</span> <span class="hl-keyword">get</span> <span class="hl-function">targets</span>() {
-        <span class="hl-keyword">return</span> [ "name", "output" ]
-    }
+<span class="hl-comment">/**
+ * Bootstrap any application services.
+ *
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+ */</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
+{
+    <span class="hl-type">Blade</span><span class="hl-delimeter">::</span><span class="hl-keyword"><span class="hl-function">if</span></span>(<span class="hl-value">'hasAccess'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-keyword">string</span> $value</span>) {
+        $user <span class="hl-operator">=</span> <span class="hl-type">Auth</span><span class="hl-delimeter">::</span><span class="hl-function">user</span>();
 
-    <span class="hl-function">greet</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
-            <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>
+        <span class="hl-keyword">if</span> ($user <span class="hl-operator">===</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>) {
+            <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
+        }
+
+        <span class="hl-keyword">return</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">hasAccess</span>($value);
+    });
+}
+</code></pre>
+<p>Once the custom conditional has been defined, you can use it within your templates:</p>
+<pre><code data-lang="html" class="notranslate">@hasAccess('platform.index')
+    <span class="hl-comment">&lt;!-- User has permission for the 'platform.index' action --&gt;</span>
+@elsehasAccess('platform.other')
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index',
+         but has permission for 'platform.other' --&gt;</span>
+@else
+    <span class="hl-comment">&lt;!-- User doesn't have permission for both 'platform.index'
+         and 'platform.other' --&gt;</span>
+@endhasAccess
+
+@unlesshasAccess('platform.index')
+    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index' --&gt;</span>
+@endhasAccess
+</code></pre>
+<h2><a href='#creating-an-admin-user-via-console' id='creating-an-admin-user-via-console'>Creating an Admin User via Console</a></h2>
+<p>To create a user with the maximum (at the time of creation) permissions, run the following command:</p>
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin
+</code></pre>
+<p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
+<pre><code data-lang="php" class="notranslate">php artisan orchid:admin --id=<span class="hl-number">1</span>
+</code></pre>
+<p>If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first specify Orchid to use your model by adding the following code to the service provider:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
+
+<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
+{
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
+    {
+        <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
+            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+            \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
+        );
     }
 }
 </code></pre>
-<p>And the assembly point:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-comment">// dashboard.js</span>
-<span class="hl-keyword">import</span> HelloController <span class="hl-keyword">from</span> "./controllers/hello"
+<p>Then override the <code>createAdmin</code> method in your <code>User</code> model:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">static</span> <span class="hl-keyword">function</span> <span class="hl-function">createAdmin</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name, <span class="hl-keyword">string</span> $email, <span class="hl-keyword">string</span> $password</span>): <span class="hl-keyword">void</span>
+{
+    <span class="hl-function">throw_if</span>(<span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'email'</span>, $email)<span class="hl-delimeter">-&gt;</span><span class="hl-function">exists</span>(), <span class="hl-value">'User already exists'</span>);
 
-application.<span class="hl-property2"><span class="hl-function">register</span></span>("hello", HelloController);
-</code></pre>
-<blockquote>
-<p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
-</blockquote>
-<h3><a href='#compilation-with-mix' id='compilation-with-mix'>Compilation with Mix</a></h3>
-<p>It remains only to describe the assembly in <code>webpack.mix.js</code>:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> mix <span class="hl-operator">=</span> <span class="hl-function">require</span>(<span class="hl-value">'laravel-mix'</span>);
-
-mix.<span class="hl-property2"><span class="hl-function">js</span></span>(<span class="hl-value">'resources/js/dashboard.js'</span>, <span class="hl-value">'public/js'</span>)
-</code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
-<span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
-    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'/js/dashboard.js'</span>
-    ],
-],
-</code></pre>
-<blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
-</blockquote>
-<p>Run to build assets:</p>
-<pre><code data-lang="shell" class="notranslate">npm run production
-</code></pre>
-<h3><a href='#compilation-with-vite' id='compilation-with-vite'>Compilation with Vite</a></h3>
-<p>For Vite, configure your <code>vite.config.js</code> like this:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-function">laravel</span>({
-    input: [<span class="hl-value">'resources/js/dashboard.js'</span>],
-    refresh: <span class="hl-slug">true</span>,
-}),
-</code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
-<span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'resources/js/app.js'</span>,
-],
-</code></pre>
-<p>Running the <code>build</code> command will version and bundle your application&rsquo;s assets and get them ready for you to deploy to production:</p>
-<pre><code data-lang="shell" class="notranslate"><span class="hl-comment"># Build and version the assets for production...</span>
-npm run build
-</code></pre>
-<blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command <code>artisan config:clear</code>.</p>
-</blockquote>
-<h3><a href='#run-controller' id='run-controller'>Run Controller</a></h3>
-<p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- hello.blade.php --}}</span> 
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
-
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">button</span> <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"click-&gt;hello#greet"</span><span class="hl-delimeter">&gt;</span>
-    Greet
-  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">button</span><span class="hl-delimeter">&gt;</span>
-
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
-</code></pre>
-<h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js Wrapped in a Stimulus</a></h2>
-<p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
-<p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> {createApp} <span class="hl-keyword">from</span> <span class="hl-value">'vue'</span>;
-
-<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
-    <span class="hl-function">connect</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span> <span class="hl-operator">=</span> <span class="hl-function">createApp</span>({
-            <span class="hl-function">data</span>() {
-                <span class="hl-keyword">return</span> {
-                    message: <span class="hl-value">'Hello, Vue.js!'</span>
-                }
-            }
-        });
-
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">mount</span></span>(<span class="hl-slug">this</span>.<span class="hl-property2">element</span>);
-    }
-
-    <span class="hl-function">disconnect</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">unmount</span></span>();
-    }
+    <span class="hl-keyword"><span class="hl-type">static</span></span><span class="hl-delimeter">::</span><span class="hl-function">create</span>([
+        <span class="hl-value">'name'</span>        <span class="hl-operator">=&gt;</span> $name,
+        <span class="hl-value">'email'</span>       <span class="hl-operator">=&gt;</span> $email,
+        <span class="hl-value">'password'</span>    <span class="hl-operator">=&gt;</span> <span class="hl-type">Hash</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>($password),
+        <span class="hl-value">'permissions'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">getAllowAllPermission</span>(),
+    ]);
 }
+</code></pre>
+<p>Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.</p>
+<h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
+<p>The <code>Orchid\Access\Impersonation</code> class provides developers with convenient functionality for logging in as another user.
+It allows administrators to impersonate other users in order to view and perform actions on their behalf.
+This is useful for troubleshooting and resolving issues reported by users.</p>
+<p>To switch to another user, use the <code>loginAs()</code> method:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
 
+<span class="hl-comment">// Login as another user</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">loginAs</span>($otherUser);
 </code></pre>
-<p>Register the controller in your blade file:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-attribute">@</span><span class="hl-delimeter">{{</span> message <span class="hl-delimeter">}}</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<p>To revert back to the original user, call the <code>logout()</code> method:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Revert back to the original user</span>
+<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">logout</span>();
 </code></pre>
-<p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
+<p>The <code>isImpersonating()</code> method checks if the impersonation has been performed:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">if</span> (<span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">isImpersonating</span>()) {
+    <span class="hl-comment">// The user is impersonating another user</span>
+}
+</code></pre>
+<p>The <code>impersonator()</code> method returns information about the original user. If no impersonation has been performed, the method will return <code>null</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get information about the original user</span>
+$impersonator <span class="hl-operator">=</span> <span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">impersonator</span>();
+</code></pre>
 </body>
 
                                                                         </main>

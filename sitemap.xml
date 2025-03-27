@@ -166,6 +166,11 @@
 
             </url>
     <url>
+        <loc>https://orchid.software/en/docs/permissions</loc>
+        <lastmod>2025-03-26T00:00:00+00:00</lastmod>
+
+            </url>
+    <url>
         <loc>https://orchid.software/en/docs/presenters</loc>
         <lastmod>2025-03-26T00:00:00+00:00</lastmod>
 
@@ -207,6 +212,11 @@
             </url>
     <url>
         <loc>https://orchid.software/en/docs/structure</loc>
+        <lastmod>2025-03-26T00:00:00+00:00</lastmod>
+
+            </url>
+    <url>
+        <loc>https://orchid.software/en/docs/stubs</loc>
         <lastmod>2025-03-26T00:00:00+00:00</lastmod>
 
             </url>
