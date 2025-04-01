@@ -86,97 +86,102 @@ $builder->setLanguage('en');
 $html = $builder->generateForm();
 ```
 
+## Создание нового поля
 
-## Представление элементов формы
+Можно сгенерировать каркас для нового поле. Он представляет собой класс, наследуемый от `Orchid\Screen\Field`, а также blade шаблон,
+содержащий в себе пустой input, к которому подключен Stimulus-контроллер. Вы можете полностью менять 
+разметку и контроллер под свои задачи, подключать сторонние библиотеки и 
+[использовать возможности Stimulus](https://stimulus.hotwired.dev/handbook/introduction) при создании и настройке своего поля.
 
-Любое поле для ввода является только настройкой над представлением, которое передает данные в шаблон. 
-
-Создадим новый класс, чтобы посмотреть из чего он состоит:
-
+Для создания поля используется команда: 
+```
+php artisan make:field ExampleField
+```
+Давайте рассмотрим класс, который сгенерирует команда: 
 ```php
 namespace App\Orchid\Fields;
 
 use Orchid\Screen\Field;
 
-class CustomField extends Field
+class ExampleField extends Field
 {
     /**
-     * Blade template
-     * 
+     * The Blade view used to render the field.
+     *
      * @var string
      */
-    protected $view = '';
+    protected $view = 'orchid.fields.example-field';
 
     /**
-     * Default attributes value.
+     * Default attributes for the field.
      *
      * @var array
      */
-    protected $attributes = [];
+    protected $attributes = [
+        'placeholder' => 'Enter text...',
+        'class'       => 'form-control',
+        'type'        => 'text',
+    ];
 
     /**
-     * Attributes available for a particular tag.
+     * List of attributes available for the HTML tag.
      *
      * @var array
      */
-    protected $inlineAttributes = [];
+    protected $inlineAttributes = [
+        'placeholder',
+        'value',
+        'type',
+    ];
 }
-```
 
+```
 Свойство `view` определяет blade шаблон, которому будут переданы данные,
 в `attributes` перечисляются значения по умолчанию, а `inlineAttributes`
 определяет ключи, необходимые для указания в формате html, например:
 
 ```html
-First name: <input type="text" name="name"><br>
+<input type="text" name="name">
 ```
-
-
-В этом примере inline-атрибутами являются type и name, указанные непосредственно в теге.
-А метод `make()` служит только для быстрой и удобной инициализации, 
-так как любая форма, которая должна добавлять или изменять данные, должна ею обладать.
-
-Обновим только что созданный класс и добавим blade шаблон, на примере указанном выше:
-
+Вот может выглядеть вызов inline-аттрибутов при использовании поля: 
 ```php
-{{ $title }}: <input {{ $attributes }}><br>
+ExampleField::make('test')
+    ->placeholder('Hello, world!')
+    ->value('Hello, world!');
 ```
 
-Для того чтобы попробовать новое поле, необходимо использовать встроенный метод `render()`:
+Рассмотрим ближе сгенерированный `view`:
+```html
+@component($typeForm, get_defined_vars())
+    <div data-controller="example-field">
+        <input
+            {{
+                $attributes->merge([
+                    'data-example-field-target' => 'name',
+                    'data-action' => 'input->example-field#greet',
+                ])
+            }}>
 
-```php
-$input = CustomField::make('name');
-    
-$html = $input->render(); // html string
+        <span data-example-field-target="output"></span>
+    </div>
+@endcomponent
+
+<script>
+    Orchid.register('example-field', class extends Controller {
+        static targets = ['name', 'output'];
+
+        connect() {
+            console.log("MyInput controller has been connected!");
+        }
+
+        greet() {
+            this.outputTarget.textContent =
+                `Hello, ${this.nameTarget.value}!`;
+        }
+    });
+</script>
 ```
 
-В переменной `html` будет содержаться только что указанный шаблон, попробуем добавить некоторые элементы:
-
-```php
-$input = CustomField::make('name')
-    ->title('How your name?')
-    ->placeholder('Sheldon Cooper')
-    ->value('Alexandr Chernyaev');
-
-$html = $input->render();
-```
-
-После обновим страницу, на ней отображается новый заголовок, 
-вместо указанного по умолчанию, но ни placeholder, ни значение не были применены. 
-Это потому, что они не были указаны в `inlineAttributes`, исправим это:
-
-```php
-/**
- * Attributes available for a particular tag.
- *
- * @var array
- */
-protected $inlineAttributes = [
-    'name',
-    'type',
-    'placeholder',
-    'value'
-];
-```
-
-После этого каждый атрибут будет отрисован в нашем шаблоне.
+Внутри блока `script` создается и сразу же регистрируется в приложении, без необходимости создания
+отдельного файла, [Stimulus](https://stimulus.hotwired.dev/handbook/introduction)-контроллер, он подключается к `html`
+с помощью аттрибута `data-controller`. Вы можете использовать все возможности Stimulus для создания своего поля.
