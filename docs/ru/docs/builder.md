@@ -117,15 +117,11 @@ class EmojiPicker extends Field
 {
     /**
      * Blade-шаблон, используемый для рендеринга поля.
-     *
-     * @var string
      */
     protected $view = 'orchid.fields.emoji-picker';
 
     /**
      * Значения атрибутов по умолчанию.
-     *
-     * @var array
      */
     protected $attributes = [
         'placeholder' => 'Введите текст...',
@@ -135,8 +131,6 @@ class EmojiPicker extends Field
 
     /**
      * Список атрибутов, которые будут передаваться в HTML-разметку.
-     *
-     * @var array
      */
     protected $inlineAttributes = [
         'placeholder',
