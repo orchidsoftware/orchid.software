@@ -88,43 +88,53 @@ $html = $builder->generateForm();
 
 ## Создание нового поля
 
-Можно сгенерировать каркас для нового поле. Он представляет собой класс, наследуемый от `Orchid\Screen\Field`, а также blade шаблон,
-содержащий в себе пустой input, к которому подключен Stimulus-контроллер. Вы можете полностью менять 
-разметку и контроллер под свои задачи, подключать сторонние библиотеки и 
-[использовать возможности Stimulus](https://stimulus.hotwired.dev/handbook/introduction) при создании и настройке своего поля.
+Orchid предоставляет широкий набор готовых полей, но иногда стандартных решений может быть недостаточно. 
+В таких случаях вы можете создать собственное поле, адаптированное под ваши задачи.
 
-Для создания поля используется команда: 
+Поле в Orchid состоит из PHP-класса, который определяет его логику, и Blade-шаблона, отвечающего за отображение.
+При необходимости можно использовать [Stimulus]((https://stimulus.hotwired.dev/handbook/introduction)), чтобы добавить интерактивное поведение.
+
+
+Для создания нового поля выполните команду:
+
+```shell
+php artisan make:field EmojiPicker
 ```
-php artisan make:field ExampleField
-```
-Давайте рассмотрим класс, который сгенерирует команда: 
+
+В результате будут созданы:  
+
+- **PHP-класс**: `app/Orchid/Fields/EmojiPicker.php`  
+- **Blade-шаблон**: `resources/views/orchid/fields/emoji-picker.blade.php`  
+
+Сгенерированные файлы можно изменить под свои нужды: обновить разметку, добавить стили, подключить сторонние библиотеки и настроить взаимодействие с пользователем. Рассмотрим созданный класс:
+
 ```php
 namespace App\Orchid\Fields;
 
 use Orchid\Screen\Field;
 
-class ExampleField extends Field
+class EmojiPicker extends Field
 {
     /**
-     * The Blade view used to render the field.
+     * Blade-шаблон, используемый для рендеринга поля.
      *
      * @var string
      */
-    protected $view = 'orchid.fields.example-field';
+    protected $view = 'orchid.fields.emoji-picker';
 
     /**
-     * Default attributes for the field.
+     * Значения атрибутов по умолчанию.
      *
      * @var array
      */
     protected $attributes = [
-        'placeholder' => 'Enter text...',
+        'placeholder' => 'Введите текст...',
         'class'       => 'form-control',
         'type'        => 'text',
     ];
 
     /**
-     * List of attributes available for the HTML tag.
+     * Список атрибутов, которые будут передаваться в HTML-разметку.
      *
      * @var array
      */
@@ -134,44 +144,44 @@ class ExampleField extends Field
         'type',
     ];
 }
-
 ```
-Свойство `view` определяет blade шаблон, которому будут переданы данные,
-в `attributes` перечисляются значения по умолчанию, а `inlineAttributes`
-определяет ключи, необходимые для указания в формате html, например:
 
-```html
-<input type="text" name="name">
-```
-Вот может выглядеть вызов inline-аттрибутов при использовании поля: 
+- **`$view`**  - указывает на Blade-шаблон, который будет использоваться для отображения поля. В данном случае, это шаблон `orchid.fields.emoji-picker`. - -- 
+- **`$attributes`**  - задает значения атрибутов по умолчанию для поля, такие как `placeholder`, `class` и `type`.
+- **`$inlineAttributes`**  - перечислены атрибуты, которые могут быть переданы непосредственно в HTML-элемент.
+
+
+Поля не нужно регистрировать, вы можете начать использовать их сразу, например:
+
 ```php
-ExampleField::make('test')
-    ->placeholder('Hello, world!')
-    ->value('Hello, world!');
+EmojiPicker::make('reaction')
+    ->placeholder('Выберите эмодзи');
 ```
+
 
 Рассмотрим ближе сгенерированный `view`:
+
 ```html
 @component($typeForm, get_defined_vars())
-    <div data-controller="example-field">
+    <div data-controller="emoji-picker">
         <input
             {{
                 $attributes->merge([
-                    'data-example-field-target' => 'name',
-                    'data-action' => 'input->example-field#greet',
+                    'data-emoji-picker-target' => 'name',
+                    'data-action' => 'input->emoji-picker#greet',
                 ])
             }}>
 
-        <span data-example-field-target="output"></span>
+        <span data-emoji-picker-target="output"></span>
     </div>
 @endcomponent
 
 <script>
-    Orchid.register('example-field', class extends Controller {
+    Orchid.register('emoji-picker', class extends Controller {
         static targets = ['name', 'output'];
 
         connect() {
-            console.log("MyInput controller has been connected!");
+            console.log("Emoji Picker controller has been connected!");
         }
 
         greet() {
