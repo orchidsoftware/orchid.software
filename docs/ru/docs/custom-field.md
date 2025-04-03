@@ -174,7 +174,7 @@ Orchid.register('controller-name', class extends Controller {
 ```js
 Orchid.register('date-picker', class extends Controller {
     connect() {
-        new ThirdPartyDatePicker(this.element, {
+        new DatePicker(this.element, {
             format: 'YYYY-MM-DD'
         });
     }
