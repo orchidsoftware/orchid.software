@@ -98,13 +98,14 @@ return [
                 'Универсальные'      => '/ru/docs/custom-template',
             ],
             'Дополнительно'      => [
-                'Иконки'           => '/ru/docs/icons',
-                'Scout поиск'      => '/ru/docs/global-search',
-                'Presenters'       => '/ru/docs/presenters',
-                'Использование JS' => '/ru/docs/javascript',
-                'Строитель форм'   => '/ru/docs/builder',
-                'Тестирование'     => '/ru/docs/testing',
-                'Контроллеры'      => '/ru/docs/controllers',
+                'Иконки'                   => '/ru/docs/icons',
+                'Scout поиск'              => '/ru/docs/global-search',
+                'Presenters'               => '/ru/docs/presenters',
+                'Использование JS'         => '/ru/docs/javascript',
+                'Строитель форм'           => '/ru/docs/builder',
+                'Тестирование'             => '/ru/docs/testing',
+                'Контроллеры'              => '/ru/docs/controllers',
+                'Пользовательское поле'    => '/ru/docs/custom-field',
                 //'Настройки'        => '/ru/docs/settings', deprecation
 
             ],
