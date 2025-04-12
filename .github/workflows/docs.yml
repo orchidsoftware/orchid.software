@@ -20,6 +20,7 @@ jobs:
       - name: markdownlint-cli2-action
         uses: DavidAnson/markdownlint-cli2-action@v9
         with:
+          fix: true
           globs: |
             *.md
             **/*.md
