@@ -8,7 +8,7 @@ on:
       - '**.md'
 
 jobs:
-  php-cs-fixer:
+  markdownlint:
     runs-on: ubuntu-latest
 
     steps:
