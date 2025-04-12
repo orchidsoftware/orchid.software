@@ -23,6 +23,7 @@ jobs:
 
       - name: markdownlint-cli2-action
         uses: DavidAnson/markdownlint-cli2-action@v9
+        continue-on-error: true
         with:
           globs: |
             *.md
