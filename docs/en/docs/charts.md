@@ -5,7 +5,7 @@ description: Learn how to easily create and customize charts in your Laravel Orc
 
 
 
-Chart layout may be generated using the `orchid:chart` Artisan command.
+Chart layout may be generated using the `orchid:chart` Artisan command. 
 By default, all new metrics will be placed in the `app/Orchid/Layouts` directory:
 
 ```php
@@ -13,6 +13,7 @@ php artisan orchid:chart ChartsLayout
 ```
 
 Once your chart class has been generated, you're ready to customize it. Example:
+
 
 ```php
 namespace App\Orchid\Layouts;
@@ -33,6 +34,7 @@ class ChartsLayout extends Chart
 ```
 
 By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
+
 
 ```php
 public function query() : array
@@ -88,6 +90,8 @@ public function layout(): iterable
 }
 ```
 
+
+
 ## Basic Configuration
 
 The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.
@@ -102,6 +106,7 @@ Set the height of the chart in pixels by specifying the property:
  */
 protected $height = 250;
 ```
+
 
 ### Customizing Colors
 
@@ -122,6 +127,7 @@ protected $colors = [
 ];
 ```
 
+
 ### Exporting Images
 
 Charts can be exported in the `SVG` format, in which they are displayed initially. To do this, specify the property:
@@ -137,7 +143,7 @@ protected $export = true;
 
 ### Adding Markers
 
-Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the `markers` method:
+Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the `markers` method: 
 
 ```php
 /**
@@ -154,6 +160,8 @@ protected function markers(): ?array
     ];
 }
 ```
+
+
 
 ## Eloquent Model
 
@@ -176,6 +184,7 @@ This will add several new methods specifically for charting:
 
 - Grouped data
 - A period of time
+
 
 ## Grouped Data
 
@@ -289,9 +298,11 @@ $end = Carbon::now()->subDay(1);
 User::countByDays($start, $end, 'updated_at')->toChart('Users')
 ```
 
+
 ### Value Query Types
 
 Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when building your metric.
+
 
 The `average` method may be used to calculate the average of a given column
 

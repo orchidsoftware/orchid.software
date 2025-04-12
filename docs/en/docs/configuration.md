@@ -23,26 +23,29 @@ To specify the address you would like to use for the platform, you can set the `
 ```php
 'domain' => 'admin.example.com',
 ```
-
+ 
 It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.
 
+
 ## Prefix
+
 
 ```php
 'prefix' => env('PLATFORM_PREFIX', 'admin'),
 ```
-
-The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `orchid` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.
-
-For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login` instead of `https://example.com/admin/login`.
-
+ 
+The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `orchid` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
+ 
+For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login` instead of `https://example.com/admin/login`. 
+ 
  To change the prefix, you can update the prefix parameter in the configuration file:
-
+ 
  ```php
  'prefix' => 'dashboard',
  ```
-
+ 
  It's worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.
+
 
 ## Middleware
 
@@ -66,6 +69,8 @@ The `public` middleware is applied to routes that can be accessed by an unauthor
 
 You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.
 
+
+
 ## Login Page
 
 ```php
@@ -73,6 +78,7 @@ You can add as many new middleware as you like. For example, you can add a middl
 ```
 
 The `auth` parameter controls whether the package uses its own simple login interface or not. By default, it is set to `true`, which means the platform will use its own login interface.
+
 
 If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like [Jetstream](https://laravel.com/docs/authentication#authentication-quickstart) or roll your own login interface.
 
@@ -100,7 +106,9 @@ You can change this to any other route you have defined in your application. For
 
 It's worth noting that you will need to create the corresponding route and controller for the new home page.
 
+
 ## Asset Resources
+
 
 ```php
 'resource' => [
@@ -138,6 +146,7 @@ To change some templates, it is unnecessary to publish the entire package; you c
 ],
 ```
 
+
 ## Model Classes
 
 The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:
@@ -165,18 +174,21 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
+
 ## Overriding Blade Templates
+
 
 Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all Laravel packages, not just Orchid);
 
-> 🚨 **Alert!**
+> 🚨 **Alert!** 
 > Overridden templates do not receive updates or bug fixes.
 > Think of this as turning off the autopilot.
 
-Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates.
+Following Laravel's mechanism for overriding templates from packages is to create the `/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the original templates. 
 
 For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
-`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example:
+`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example: 
+
 
 ```php
 your-project/

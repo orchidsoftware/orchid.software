@@ -9,9 +9,10 @@ Text is an interface element, like a button or an input box. It helps solve an i
 
 The user has no time, he is in the flow of solving his task. So he skips long and complex chunks of text. For the user to read the text, use the necessary minimum of words.
 
+
 ## Naming Screen
 
-Screen names are a vital and essential part of the user experience.
+Screen names are a vital and essential part of the user experience. 
 Not only do they play an important practical role in communicating what an app does, but they also establish app identity and character.
 
 A good screen name should:
@@ -30,11 +31,15 @@ Likewise, a good name should avoid:
 - Non-standard punctuation or whitespace (for example: SuperWriter).
 - Made-up words or word combinations.
 
+
 > As we work on various documents and collaborate in teams, we may encounter some uncertainties regarding the proper use of Title Case or the formatting of arguments. To help with these issues, try the service [titlecaseconverter.com](https://titlecaseconverter.com).
+
+
 
 For a practical example, consider the product preview screen of an online store:
 
 ![❌ This image shows an illustrative example of a bad name and description for a screen.](https://orchid.software/img/hig/screen-name-bad.png)
+
 
 Initially, the product name is set by the user, which can often contain many words for marketing purposes or to improve search engine optimization. This can result in an untidy and cluttered display.
 
@@ -44,7 +49,9 @@ By replacing the marketing name with the SKU, we can simplify the display and pr
 
 ![✅ This image shows an illustrative example of a short and clear name and description for a screen.](https://orchid.software/img/hig/screen-name-good.png)
 
+
 This approach enhances the overall readability and usability of the product preview screen, making it more efficient and effective for the intended audience.
+
 
 ## Lorem Ipsum
 
@@ -59,10 +66,15 @@ Menu items should have names that are either actions or locations, never descrip
 "Settings" is acceptable as it clearly describes the action that will be performed when the item is clicked.
 "Software Up to Date" is not acceptable. What happens if I click this item? Where will it take me? What will it do? The outcome is uncertain.
 
+
 ## Terms
 
 Use the same words for objects and actions on them. If the user reads "certificate" in one window, "electronic signature" in another, and "key" in a third, he will not make the connection between these words, he will not understand that they are the same thing.
 
+
 Although a term may be commonly used within your business circle, it's important to recognize that not everyone may be familiar with it. As such, it's recommended to include a small footnote alongside the term to provide an explanation:
 
 ![✅ This image shows an illustrative example of an auxiliary hint for abbreviations.](https://orchid.software/img/hig/term.png)
+
+
+

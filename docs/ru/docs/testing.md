@@ -22,6 +22,7 @@ class ExampleTest extends TestCase
 
 После этого станет доступен новый метод получения данных экрана по имени маршрута:
 
+
 ```php
 public function testExampleScreen()
 {
@@ -50,7 +51,6 @@ $screen = $this->screen('platform.systems.users.edit')
         'user' => 1,
     ]);
 ```
-
 Метод `parameters` добавляет значения только к GET параметрам.
 
 Скорее всего, ваши маршруты закрыты от гостей и доступны только авторизованным пользователям. В этом случае нужно вызвать метод `actingAs` передающий пользователя для входа в систему..
@@ -61,7 +61,6 @@ $user = User::factory()->create();
 
 $screen = $this->screen('platform.example')->actingAs($user);
 ```
-
 При запросе у вас может возникнуть 403 ошибка - которая означает что у пользователя недостаточно прав.
 Один из вариантов получить все доступные права через фасад `Dashboard`
 
@@ -75,7 +74,6 @@ $user = User::factory()->create([
 
 $screen = $this->screen('platform.example')->actingAs($user);
 ```
-
 Более элегантным решением будет определить метод в самой фабрике:
 
 ```php

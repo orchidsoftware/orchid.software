@@ -5,6 +5,7 @@ description: Laravel Orchid provides screens for building and maintaining comple
 
 ## Introduction
 
+
 Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.  
 
 Screens don't handle data fetching directly; instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or external service—without affecting the screen logic.  
@@ -12,6 +13,7 @@ Screens don't handle data fetching directly; instead, they focus on rendering th
 At the core, each screen is essentially an HTML `<form>`, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.  
 
 By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain complex web applications.
+
 
 ## Creating Screens
 
@@ -76,11 +78,15 @@ The screen class includes several methods that you can use to define the behavio
 
 To use the new screen in your application, you will need to register it in the route file.
 
+
 ## Routing Screens
+
 
 Before a screen can be accessed at a direct URL, it must be registered in the `routes/platform.php` routes file. Routes registered in this file will be passed through the middleware specified in the [configuration](/en/docs/configuration).
 
+
 To register a screen, you can use the screen method of the `Route` class. For example:
+
 
 ```php
 use App\Orchid\Screens\Idea;
@@ -133,9 +139,11 @@ dashboard/idea/edit/{method?} | platform.idea.edit
 Correspondingly, the name "edit" in the address falls under it.
 The result will be a redirect to "dashboard/idea/". To avoid this, make sure to order your routes correctly.
 
+
+
 ## Querying Data
 
-The `query` method of a screen is used to load data from the database or other sources.
+The `query` method of a screen is used to load data from the database or other sources. 
 This data is then passed to the screen's layouts and views as an array
 
 For example, you might use the `query` method to response simple string:
@@ -148,6 +156,7 @@ public function query() : array
     ];
 }
 ```
+
 
 You can use the `AsSource` trait to make an `Eloquent` model available as a data source for a screen. This allows you to easily access and manipulate the model's data from within the screen's query method.
 
@@ -179,6 +188,7 @@ public function query() : array
 
 In this example, the `order` key will contain a single `Order` model instance, while the `orders` key will contain a paginated list of all `Order` models in the database. These keys can then be used in the screen's layouts and views to display the data to the user.
 
+
 You can also use the `Repository` wrapper to pass an array of data to the screen's layouts and views. For example:
 
 ```php
@@ -201,7 +211,9 @@ In this example, the `order` key will contain an array of ideas with the given d
 
 The `query` method is an important part of a screen, as it is used to load the data that will be displayed to the user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.
 
+
 ## Autocompleting Public Properties
+
 
 You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the `query` method will be automatically assigned to public properties of the same name.
 
@@ -238,6 +250,7 @@ Screens include built-in commands that allow users to execute various actions. T
 
 There are several types of actions available:
 
+
 ### Button
 
 Button actions allow users to trigger a method on the screen when clicked. For example:
@@ -259,7 +272,7 @@ public function print(): void
 }
 ```
 
-In this example, when the Print button is clicked, the `print` method of the screen will be called.
+In this example, when the Print button is clicked, the `print` method of the screen will be called. 
 All of the data that the user has seen on the screen will be available in the request.
 
 ### Link
@@ -277,6 +290,7 @@ public function commandBar() : array
     ];
 }
 ```
+
 
 ### ModalToggle
 
@@ -301,9 +315,11 @@ In software development, it is common for similar actions to be performed across
 
 PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for redundant code. This not only improves the efficiency of the development process but also makes the code more maintainable and easier to understand.
 
+
 ### Calling a Screen Method
 
 When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a `POST` request must be made to a specific route. The `method` property must be specified in the attributes using the `route('platform.screen.name', ['method' => 'hello'])` helper.
+
 
 For example, to call the `hello` method on the `platform.screens.users` screen, the following code can be used:
 
@@ -318,7 +334,9 @@ For example, to call the `hello` method on the `platform.screens.users` screen, 
 
 This will send a `POST` request to the 'platform.screens.users' screen with a method attribute of `hello`, which will trigger the corresponding method on the server-side.
 
+
 You can also use this with the UI buttons:
+
 
 ```php
 use Orchid\Screen\Actions\Button;
@@ -331,6 +349,7 @@ Button::make('Say "Hello, World!"')
 
 ## Screen Layouts
 
+
 Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.
 
 Separation of logic and presentation is one of the design principles with Laravel Orchid.
@@ -339,9 +358,10 @@ If you try to explain briefly, it turns out that this is a `view` on steroids.
 
 In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:
 
+
 ```html
 <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
- <span class="thumb-sm avatar m-r-xs">
+	<span class="thumb-sm avatar m-r-xs">
         <img src="/avatar/maria.jpg" class="bg-light" alt="Maria">
     </span>
     <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
@@ -358,6 +378,7 @@ It is precisely such components that the platform layers consist of, the only di
 Each layout may include a different layout, that is, nesting.
 For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
 You can come up with your examples of attachments.
+
 
 ```php
 public function layout() : array
@@ -430,7 +451,9 @@ public function layout(): array
 }
 ```
 
+
 More details can be found in the `Layouts` section.
+
 
 ## Additional Methods
 

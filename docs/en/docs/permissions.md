@@ -146,6 +146,7 @@ public static function unaccessed(): RedirectResponse
 }
 ```
 
+
 ## Check-in Middleware
 
 Small applications may not need to define permissions for each screen or class,
@@ -167,6 +168,7 @@ protected $routeMiddleware = [
 ```
 
 After that, it can be used for any route definitions, by passing the parameter `access:my-permission`, just like in `Auth::user()->hasAccess($string);`
+
 
 ```php
 Route::screen('/stories', StoriesScreen::class)
@@ -229,6 +231,7 @@ Once the custom conditional has been defined, you can use it within your templat
 @endhasAccess
 ```
 
+
 ## Creating an Admin User via Console
 
 To create a user with the maximum (at the time of creation) permissions, run the following command:
@@ -278,9 +281,11 @@ public static function createAdmin(string $name, string $email, string $password
 
 Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.
 
+
+
 ## User Impersonation
 
-The `Orchid\Access\Impersonation` class provides developers with convenient functionality for logging in as another user.
+The `Orchid\Access\Impersonation` class provides developers with convenient functionality for logging in as another user. 
 It allows administrators to impersonate other users in order to view and perform actions on their behalf.
 This is useful for troubleshooting and resolving issues reported by users.
 

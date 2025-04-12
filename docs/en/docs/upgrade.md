@@ -18,6 +18,7 @@ We believe in keeping our package up-to-date and modern, and therefore follow a 
 
 > We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
 
+
 ## Upgrading to 14.0 from 13.x
 
 Upgrading Laravel Orchid from version `13.x` to `14.0` can be a straightforward process if done correctly.
@@ -77,7 +78,7 @@ It also provides other opportunities that were not explicitly tied to what you'r
 
 ### Listener
 
-Previously, working with Listeners could sometimes confuse users.
+Previously, working with Listeners could sometimes confuse users. 
 Therefore, Listeners no longer have a property that specifies the screen method.
 Instead, there is a mandatory default method called `handler`.
 The current state of the screen is passed as the first argument to this method, and the `request` object is passed as the second argument.
@@ -143,6 +144,7 @@ class SubtractListener extends Listener
 }
 ```
 
+
 ### Automatic HTTP Filtering and Sorting
 
 The automatic filters were previously based on the type of data entered by the user, which often led to errors.
@@ -173,8 +175,8 @@ We are working on finding a more efficient and safer way to handle JSON fields i
 
 ### Navigation
 
-In version 14.0, the profile drop-down menu has been removed.
-Instead, it is suggested to specify the profile information in the main menu or on the screens.
+In version 14.0, the profile drop-down menu has been removed. 
+Instead, it is suggested to specify the profile information in the main menu or on the screens. 
 Please make sure to remove any references to the `Dashboard::MENU_PROFILE` constant and the `registerProfileMenu` method for the service provider from your code.
 
 For example, the following item will no longer work correctly:
@@ -215,6 +217,7 @@ Dashboard::addMenuSubElements('sub-menu', [
 ]);
 ```
 
+
 ### Icons
 
 In the new version, the icons have been updated to a set from Bootstrap.
@@ -248,7 +251,7 @@ For the new icons to be displayed as well, add:
 
 ### Logout and Quit Impersonation
 
-The behavior of the "Logout" and "Quit Impersonation" actions must be explicitly defined by the developer.
+The behavior of the "Logout" and "Quit Impersonation" actions must be explicitly defined by the developer. 
 To do this, you can add button definitions to your profile screen.
 
 Here's an example of how you can define these buttons:
@@ -272,7 +275,7 @@ public function commandBar(): iterable
 }
 ```
 
-- The first button, "Back to my account", is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.
+- The first button, "Back to my account", is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account. 
 - The second button, "Sign out", is used to log out of the platform.
 
 By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.
@@ -299,6 +302,8 @@ There is no longer a default jQuery package in this release. If you need it, the
 ### Select2
 
 Since `select2` had a `jQuery` dependency, it was also replaced with the `tom-select` package. We tried to keep the behavior where possible. But `select2` special JS events are no longer available.
+
+
 
 ## Upgrading to 12.0 from 11.x
 
@@ -381,6 +386,7 @@ class IdeaScreen extends Screen
 }
 ```
 
+
 ### Component
 
 Specifying the expected argument name for components is no longer necessary:
@@ -396,6 +402,7 @@ TD::make('index')->component(OrderShortInformation::class, [
     'limit' => 100
 ]);
 ```
+
 
 ### Metrics
 
@@ -424,6 +431,7 @@ public function layout(): iterable
     ];
 }
 ```
+
 
 ## Upgrading to 10.0 from 9.x
 
@@ -455,7 +463,6 @@ ItemMenu::label('Example screen')
 ```
 
 After:
-
 ```php
 use Orchid\Screen\Actions\Menu;
 
@@ -544,6 +551,7 @@ Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
 
 ### CanSee
 
+
 Now `Fields/Layouts/TD` and have a common trait. Without any restrictions. Now you can do this:
 
 ```php
@@ -551,6 +559,7 @@ Input::make()->canSee(false);
 TD::make()->canSee(false);
 Layout::rows([])->canSee(false);
 ```
+
 
 But now the definition inside the layer is different
 
@@ -582,7 +591,7 @@ The Stimulus framework has been updated to version 2.0. Backward compatibility w
 
 ### Turbo
 
-The Turbolinks library has been updated to Turbo for more details here: <https://turbo.hotwire.dev/>
+The Turbolinks library has been updated to Turbo for more details here: https://turbo.hotwire.dev/
 
 If you used your own js scripts, then it is recommended to read their changes. For example:
 
@@ -667,6 +676,7 @@ The source code is available for installation as a separate [package](https://gi
 Package `davejamesmiller/laravel-breadcrumbs` is replaced with `tabuna/breadcrumbs`
 and should be installed automatically when the dependencies are updated.
 
+
 > **Note:** It may be necessary to remove the boot cache files in the `bootstrap/cache` directory.
 
 The syntax of the new package allows you to display breadcrumbs right in the route definition:
@@ -713,7 +723,6 @@ use Tabuna\Breadcrumbs\Trail;
 #### Constructor
 
 Passing a `Request` object and calling the parent class is no longer necessary. Before:
-
 ```php
 class PublicationScreen extends Screen
 {
@@ -741,6 +750,7 @@ class PublicationScreen extends Screen
 
 Methods not used have been removed. It is no longer possible to access screens via the `PUT|PATCH|DELETE` methods, the call must use `GET|POSTS` to receive/send data.
 
+
 ```php
 Method           | URI                                  | Name
 -----------------+--------------------------------------+--------------
@@ -767,7 +777,6 @@ Each layer now inherits from the class `Orchid\Screen\Layout`, rather than from 
 To declare layers via short syntax, the `Orchid\Support\Facades\Layout` facade should now be used instead of the `Orchid\Screen\Layout` class.
 
 It was:
-
 ```php
 use Orchid\Screen\Layout;
 
@@ -777,7 +786,6 @@ Layout::row([
 ```
 
 Became:
-
 ```php
 use Orchid\Support\Facades\Layout;
 
@@ -790,13 +798,11 @@ Layout::row([
 
 A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
 This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the `blade` template. Screen call example:
-
 ```php
 return [
     'status' => Dashboard::checkUpdate(),
 ];
 ```
-
 Using a template in the screen:
 
 ```php
@@ -808,3 +814,4 @@ Layout::view('platform::partials.update');
 The icon display has been changed from `font` to `SVG` format.
 Now the `->icon` methods do not accept the `css` value to be set, but the file name.
 In most cases, you only need to remove the `icon-` prefix.
+

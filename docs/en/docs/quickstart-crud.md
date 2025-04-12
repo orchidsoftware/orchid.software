@@ -96,6 +96,7 @@ class Post extends Model
 
 > **Note.** The model has the `AsSource` trait, for convenient handling via dot notation.
 
+
 Now we are ready for the real use of the platform.
 
 [In the previous tutorial](https://orchid.software/en/docs/quickstart) we already created our first screen for displaying posts, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:
@@ -261,6 +262,7 @@ class PostEditScreen extends Screen
     }
 }
 ```
+
 
 Now we can create, edit, and delete records. But do not browse as a list. Change it!
 

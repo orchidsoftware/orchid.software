@@ -100,7 +100,7 @@ public function layout(): array
 ### Use with presenter
 
 > In this example, [presenters](/en/docs/presenters) are used, we strongly recommend that you familiarize yourself with them.
-
+ 
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php
@@ -125,7 +125,6 @@ class Product extends Model
 ```
 
 You can record a presenter:
-
 ```php
 namespace App\Presenters;
 
@@ -190,6 +189,8 @@ public function layout(): array
 }
 ```
 
+
+
 ## Persona
 
 A person is used to visualize an avatar and describe a person.
@@ -199,7 +200,7 @@ A person is used to visualize an avatar and describe a person.
 `Persona` accepts a set of objects that implement the `Personable` interface.
 
 > This example uses [presenters](/en/docs/presenters), recommend that you familiarize yourself with them.
-
+ 
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php
@@ -288,6 +289,7 @@ public function layout(): array
 }
 ```
 
+
 ## Facepile
 
 Shows a list of avatars in horizontal view. Each circle represents a person. Use this `layout` when displaying shared access to a specific view, file or task.
@@ -295,9 +297,10 @@ Shows a list of avatars in horizontal view. Each circle represents a person. Use
 ![facepile](/img/layouts/facepile.png)
 
 `Facepile` accepts a set of objects that implement the `Personable` interface.
-
+ 
 > This example uses [presenters](/en/docs/presenters), it is recommended that you familiarize yourself with them.
-
+ 
+ 
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php

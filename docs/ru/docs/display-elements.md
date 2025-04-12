@@ -125,7 +125,6 @@ class Product extends Model
 ```
 
 Можно записать представителя:
-
 ```php
 namespace App\Presenters;
 
@@ -160,6 +159,7 @@ class ProductPresenter extends Presenter implements Cardable
 
 Тогда запись использования в экране будет краткой:
 
+
 ```php
 use Orchid\Screen\Layouts\Card;
 
@@ -189,6 +189,9 @@ public function layout(): array
     ];
 }
 ```
+
+
+
 
 ## Персона
 
@@ -287,6 +290,9 @@ public function layout(): array
     ];
 }
 ```
+
+
+
 
 ## Facepile
 

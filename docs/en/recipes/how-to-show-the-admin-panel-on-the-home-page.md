@@ -8,6 +8,7 @@ The path to the Orchid application is set by changing a parameter in the configu
 
 By default, the application is located at `/admin`, but you can change this in the following block:
 
+
 ```php
 /*
 |------------------------------------------------------------------

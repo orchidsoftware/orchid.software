@@ -4,13 +4,13 @@ description: Learn how to use Laravel Orchid's layer functionality to group and 
 ---
 
 
-## Split
+## Split 
 
-Allows you to divide the screen into two customizable sections.
+Allows you to divide the screen into two customizable sections. 
 This layout is particularly useful when you want to display two separate pieces of information side-by-side.
 
-Orchid provides a shortcut method for creating a Split layout with two views using the `Layout::split()` method.
-To create a Split layout, simply pass an array of two Layout objects as the first parameter to the `split()` method.
+Orchid provides a shortcut method for creating a Split layout with two views using the `Layout::split()` method. 
+To create a Split layout, simply pass an array of two Layout objects as the first parameter to the `split()` method. 
 You can also set the ratio of the two sections using the optional `ratio()` method as the second parameter.
 
 Here's an example of how to create a Split layout:
@@ -26,7 +26,7 @@ Layout::split([
 
 ### Customizing the Ratio
 
-By default, the Split layout divides the screen with a `50/50` ratio. However, you can easily customize this ratio using the `ratio()` method.
+By default, the Split layout divides the screen with a `50/50` ratio. However, you can easily customize this ratio using the `ratio()` method. 
 This method takes a string argument that specifies the desired ratio. Here are the valid ratios:
 
 - 20/80
@@ -48,9 +48,10 @@ Layout::split([
 ])->ratio('40/60'),
 ```
 
+
 ### Reversing the Order on Mobile
 
-By default, the order of the two sections in a `Split` layout is fixed.
+By default, the order of the two sections in a `Split` layout is fixed. 
 However, you can reverse the order of the sections on mobile devices by calling the `reverseOnPhone()` method. Here's an example:
 
 ```php
@@ -63,6 +64,7 @@ Layout::split([
 ```
 
 This will create a `Split` layout with a `40/60` ratio, and the order of the sections will be reversed on mobile devices.
+
 
 ## Sortable
 
@@ -175,6 +177,7 @@ public function layout(): iterable
 }
 ```
 
+
 ## Columns
 
 Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.
@@ -205,11 +208,14 @@ public function layout(): array
 
 In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.
 
+
+
 ## TabMenu
 
 The `TabMenu` layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.
 
 To create a `TabMenu` layout, you can use the `artisan` command:
+
 
 ```bash
 php artisan orchid:tab-menu ExampleNavigation
@@ -252,6 +258,8 @@ public function layout(): array
     ];
 }
 ```
+
+
 
 ## Tabs
 
@@ -312,7 +320,7 @@ public function layout(): array
 }
 ```
 
-By default, the active tab will be either the first or the last active one.
+By default, the active tab will be either the first or the last active one. 
 If you need to define the active tab explicitly, you can do this using the `->activeTab($key)` method
 
 ```php
@@ -338,6 +346,8 @@ Here is an example of an accordion:
 To create an accordion in Orchid, you can use the `Layout::accordion()` method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.
 
 Here is an example of how to create an accordion using the short syntax:
+
+
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -388,3 +398,5 @@ public function layout(): array
     ];
 }
 ```
+
+

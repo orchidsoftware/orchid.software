@@ -75,6 +75,7 @@ Now the data will be different depending on the parameters in the URL, for examp
 
 > **Please note.** You cannot sort related models this way.
 
+
 In order to display the sorting option in the GUI, we must add the `sort` method
 
 ```php

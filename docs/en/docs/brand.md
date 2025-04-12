@@ -15,9 +15,10 @@ After installation, two settings are provided that are located in `config/platfo
 
 To change the page header or footer, you must specify your own `blade` templates.
 
+
 ## Change Logo and Name
 
-Create a new directory in the `brand` template section and the`header.blade.php` file.
+Create a new directory in the `brand` template section and the` header.blade.php` file.
 Then the full path will look like `/resources/views/brand/header.blade.php`.
 
 ```php
@@ -27,6 +28,7 @@ resources
         └── header.blade.php
 ```
 
+ 
 Make changes to the file just created:
 
 ```blade
@@ -48,10 +50,11 @@ Make changes to the file just created:
     </p>
 </div>
 ```
-
+ 
 In order for the created template to be used instead of the standard one, you must specify it in the configuration file,
 just as if passing an argument in the `view('brand.header')` helper:
 
+  
 ```php
 'template' => [
     'header' => 'brand.header',
@@ -61,7 +64,9 @@ just as if passing an argument in the `view('brand.header')` helper:
 
 > **Note.** The configuration file may be cached, and the changes will not take effect until the `php artisan config:clear` command is executed
 
+
 In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php` with the following contents:
+
 
 ```blade
 <p class="small m-n">

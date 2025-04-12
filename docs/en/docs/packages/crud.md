@@ -19,7 +19,7 @@ All fields, filters, and traits are compatible.
 You can install the package using the Сomposer. Run this at the command line:
 
 ```php
-composer require orchid/crud
+$ composer require orchid/crud
 ```
 
 This will update `composer.json` and install the package into the `vendor/` directory.
@@ -33,7 +33,7 @@ You may generate a new resource using the `orchid:resource` Artisan command:
 php artisan orchid:resource PostResource
 ```
 
-The most fundamental property of a resource is its `model` property.
+The most fundamental property of a resource is its `model` property. 
 This property tells the generator which Eloquent model the resource corresponds to:
 
 ```php
@@ -47,10 +47,12 @@ use App\Models\Post;
 public static $model = Post::class;
 ```
 
-These classes are completely static. They don't have any state at all due to their declarative nature.
+These classes are completely static. They don't have any state at all due to their declarative nature. 
 They only tell what to do. They don't hold any data. So if you add custom methods, make sure they're static.
 
+
 Freshly created resources contain nothing. Don't worry. We'll add more fields to our resource soon.
+
 
 ## Registering Resources
 
@@ -94,9 +96,11 @@ class Post extends Model
 }
 ````
 
+
 ## Defining Fields
 
 Each resource contains a `fields` method. This method returns an array of fields, which generally extend the `Orchid\Screen\Field` class. To add a field to a resource, we can add it to the resource's `fields` method. Typically, fields may be created using their static `make` method. This method accepts several arguments; however, you usually only need to pass the field's name.
+
 
 ```php
 use Orchid\Screen\Fields\Input;
@@ -115,12 +119,12 @@ public function fields(): array
     ];
 }
 ```
-
 In the package to generate CRUD, you can use the fields Orchid platform. Review [all available fields on the documentation site](https://orchid.software/en/docs/field/).
+
 
 ## Defining Сolumns
 
-Each resource contains a `сolumns` method. To add a column to a resource, we can add it to the resource's `column` method. Typically, columns may be created using their static `make` method.
+Each resource contains a `сolumns` method. To add a column to a resource, we can add it to the resource's `column` method. Typically, columns may be created using their static `make` method. 
 
 ```php
 use Orchid\Screen\TD;
@@ -138,12 +142,11 @@ public function columns(): array
     ];
 }
 ```
-
 The CRUD generation package is entirely based on the table layer. You can [read more about this on the documentation page](https://orchid.software/en/docs/table/).
 
 ## Defining Legend
 
-Each resource contains a `legend` method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource's `legend` method. Typically, columns may be created using their static `make` method.
+Each resource contains a `legend` method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource's `legend` method. Typically, columns may be created using their static `make` method. 
 
 ```php
 use Orchid\Screen\Sight;
@@ -161,7 +164,6 @@ public function legend(): array
     ];
 }
 ```
-
 The CRUD generation package is entirely based on the legend layer. You can [read more about this on the documentation page](https://orchid.software/en/docs/legend).
 
 ## Defining Rules
@@ -186,6 +188,7 @@ public function rules(Model $model): array
 ```
 
 You can learn more on the Laravel [validation page](https://laravel.com/docs/validation#available-validation-rules).
+
 
 ## Defining Filters
 
@@ -220,10 +223,12 @@ public function filters(): array
 }
 ```
 
+
 We already offer some prepared filters:
 
 - `Orchid\Crud\Filters\DefaultSorted` - Setting default column sorting
 - `Orchid\Crud\Filters\WithTrashed` - To display deleted records
+
 
 ```php
 public function filters(): array
@@ -251,6 +256,7 @@ public static function displayInNavigation(): bool
     return false;
 }
 ```
+
 
 ## Eager Loading
 
@@ -284,6 +290,7 @@ public static function perPage(): int
 }
 ```
 
+
 ## Resource Events
 
 Each resource has two methods that do the processing, `onSave` and `onDelete`. Each of them is launched when the event is executed, and you can change or supplement the logic:
@@ -316,6 +323,7 @@ public function onDelete(Model $model)
 }
 ```
 
+
 ## Permissions Resources
 
 Each resource contains a `permission` method, which should return the string key that the user needs to access this resource. By default, all resources are available to every user.
@@ -332,7 +340,7 @@ public static function permission(): ?string
 }
 ```
 
-For each registered resource in which the method returns a non-null value, a new permission is created.
+For each registered resource in which the method returns a non-null value, a new permission is created. 
 
 ```php
 /**
@@ -347,7 +355,7 @@ public static function permission(): ?string
 ```
 
 It is necessary to give the right to manage it to the user.
-To click on the profile in the left column, go to the system page, and then to the page with users,
+To click on the profile in the left column, go to the system page, and then to the page with users, 
 you can issue them a mandate or assign a role. After that, they will be displayed in the left menu.
 
 ## Actions
@@ -400,6 +408,7 @@ Within the `handle` method, you may perform whatever tasks are necessary to comp
 
 > The handle method always receives a `Collection` of models, even if the action is only being performed against a single model.
 
+
 Once you have defined an action, you are ready to attach it to a resource. Each resource contains an actions method. To attach an action to a resource, you should add it to the array of actions returned by this method:
 
 ```php
@@ -415,6 +424,7 @@ public function actions(): array
     ];
 }
 ```
+
 
 ## Policies
 
@@ -457,7 +467,9 @@ class PostPolicy
 }
 ```
 
+
 > If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. So, if you have defined a policy, don't forget to define all of its relevant authorization methods.
+
 
 If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a `before` method on the policy. Before any other policy methods, the before method will be executed, allowing you to authorize the action before the intended policy method is actually called.
 
@@ -486,6 +498,7 @@ class PostPolicy
     }
 }
 ```
+
 
 ## Preventing Conflicts (Traffic Cop)
 

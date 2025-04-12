@@ -78,6 +78,7 @@ public function layout(): array
 
 But this is also inconvenient. Why? Now in the definition, we will think, do we need to end the prefix with a dot? And also, specify strange names through the concatenation `$this->prefix. '.address'`.
 
+
 Let's fix it! Since the main thing is to return an array of objects, you can modify the fields before returning, as well as take care of the point in the constructor:
 
 ```php

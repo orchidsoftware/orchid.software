@@ -20,16 +20,19 @@ However, it's important to keep in mind that alerts can take up valuable space a
 ## Toasts
 
 Toasts are popup banners that display a message and are always temporary and user-dismissable.
-They are best used for providing context-specific messages in response to a user action.
+They are best used for providing context-specific messages in response to a user action. 
 Because they are transient, they are most effective for communicating individual events rather than ongoing states.
 
 ![A toast that responds to a trivial user action.](https://orchid.software/img/hig/toast-example.png)
+
 
 ## Notifications
 
 Notifications in app are different from other types of feedback. They are not deleted after being viewed and can be sent to users even when they are offline. They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
+
 ![Individual messages for employees to reaction to.](https://orchid.software/img/hig/notification-example.png)
+
 
 ## Badges
 
@@ -38,3 +41,4 @@ Badges are small graphical elements that can display important information, such
 It's important to use badges sparingly, since they cannot be hidden by the user. Avoid using more than two badges at a time, as too many badges can be distracting and overwhelming for the user. Be selective and only use badges to highlight the most important information or features that the user needs to be aware of.
 
 ![Badges are an excellent method of communicating the existence of ongoing tasks, and can also be used for a variety of other purposes.](https://orchid.software/img/hig/badge-example.png)
+

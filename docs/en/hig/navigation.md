@@ -7,11 +7,13 @@ section: site.hig.
 
 ## Sidebar Menu
 
-Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for app. They provide users with a clear understanding of their current location and enable them to explore other areas of the app.
+Menus are a crucial component of the graphical user interface, serving as the primary means of navigation for app. They provide users with a clear understanding of their current location and enable them to explore other areas of the app. 
 
 Menus also indicate the user's current profile. To ensure maximum usability, the menu should always be open and not collapsible, since few icons are universally recognized by users.
 
+
 ![✅ Subheadings and separators allow you to structure navigation and improve the user experience.](https://orchid.software/img/hig/navigation-menu.png)
+
 
 To ensure that your menus are as effective and user-friendly as possible, here are some key recommendations to keep in mind:
 
@@ -25,15 +27,18 @@ To ensure that your menus are as effective and user-friendly as possible, here a
 
 - **Group items logically:** Grouping related items together in the menu can help users quickly find what they need. For instance, if you have an e-commerce app, consider grouping all product-related functions together in a "Products" or "Shop" menu. This logical grouping can greatly enhance the user experience and make your app more intuitive to use.
 
+
 ## Breadcrumbs
 
 Breadcrumbs are an important element of app design that help users navigate through nested menus and content with ease. These navigational aids appear at the top of the screen and show users their current location within the app, along with a clear path to their current page or content.
 
 ![✅ The example of appropriate use of breadcrumbs.](https://orchid.software/img/hig/breadcrumbs.png)
 
+
 In most cases, including breadcrumbs in your app design is highly recommended, as they enable users to quickly and easily navigate back to previous pages or content, without relying on the back button or other navigation tools. The only exception to this rule is the home page, where breadcrumbs aren't necessary, as there are no previous pages or content to navigate back to.
 
 That being said, there may be some instances where breadcrumbs aren't needed. For example, if your app follows a linear flow with no nested menus or pages, breadcrumbs may not add much value to the user experience. In such cases, it's important to evaluate whether breadcrumbs are truly necessary for your app's specific design and navigation patterns.
+
 
 ## Command Bar
 

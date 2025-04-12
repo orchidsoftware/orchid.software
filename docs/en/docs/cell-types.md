@@ -33,6 +33,7 @@ In the above example, we set the `upperFormat` option to `'Y-m-d'` to display th
 
 > **Note:** This documentation assumes familiarity with the PHP [Named Arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) feature.
 
+
 ## Number
 
 The `Number` component simplifies the formatting and display of numerical data. It allows you to present numbers in a desired format, such as with thousands separators for improved readability.
@@ -94,6 +95,7 @@ The `Percentage` component provides a clear and concise representation of the nu
 TD::make('value')
     ->usingComponent(Percentage::class, decimals: 2),
 ```
+
 
 ## Currency
 

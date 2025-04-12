@@ -6,14 +6,15 @@ description: Learn how to use the Laravel Orchid Table to display and organize d
 
 With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.
 
+
 To create a new table layout, you can use the following Artisan command:
 
 ```php
 php artisan orchid:table PatientListLayout
 ```
 
-Example:
 
+Example:
 ```php
 namespace App\Orchid\Layouts;
 
@@ -59,6 +60,7 @@ Layout::table('clients', [
 
 ![This image shows an illustrative table, which is a common way to display data in a structured and organized format.](/img/layouts/table.png)
 
+
 ## Introduction to Cells
 
 A table is only a general wrapper for which you need to specify `TD` classes. Designed to create a single cell.
@@ -75,7 +77,9 @@ The `make` method is the main method, sets the key name from the array and the d
 TD::make('last_name', 'Last name');
 ```
 
+
 > Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.
+
 
 ## Alignment
 
@@ -137,6 +141,7 @@ TD::make('id')->filterValue(function ($value) {
 
 The `$value` value passed to the function will contain the filter value that was applied.
 
+
 ## Width
 
 You can control the width of the cell using the `width` method:
@@ -160,16 +165,18 @@ And also hide by default, but can be shown at the request of the user.
 TD::make('last_name')->defaultHidden();
 ```
 
+
 ## Data Output
 
 In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
-
+ 
 ```php
 TD::make('full_name')
     ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
 ```
 
 > **Note.** The returned string will not be escaped! You need to take care of this yourself with the `e()` helper or use `Blade` view.
+
 
 The loopback function must return any string value:
 
@@ -223,6 +230,7 @@ TD::make('price')
 ```
 
 ## Working with the Loop Variable
+
 
 The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:
 
@@ -364,6 +372,7 @@ TD::make('price')->asComponent(Numeric::class);
 ```
 
 Also with additional parameters:
+
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [

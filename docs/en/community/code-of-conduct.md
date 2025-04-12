@@ -46,5 +46,5 @@ Failure to comply with the aforementioned rules of behavior or engaging in behav
 
 ----------
 
-_Code of Conduct is distributed under the [Creative Commons Attribution-Share Alike 3.0 license](http://creativecommons.org/licenses/by-sa/3.0/).
+_Code of Conduct is distributed under the [Creative Commons Attribution-Share Alike 3.0 license](http://creativecommons.org/licenses/by-sa/3.0/). 
 Some points were inspired by the [Ubuntu Code of Conduct](http://www.ubuntu.com/about/about-ubuntu/conduct)._

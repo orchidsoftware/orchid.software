@@ -6,21 +6,23 @@ description: Learn how to use Orchid's form elements to create custom forms and 
 
 Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.
 
+
 > Feel free to add your fields, for example, to use the convenient editor for you or any components.
+
 
 ## Introduction to Input
 
 Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:
 
 ![This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. ](/img/fields/input.png)
-
+ 
 Example:
-
 ```php
 use Orchid\Screen\Fields\Input;
 
 Input::make('name');
-```
+``` 
+
 
 ### Designing Input Interfaces
 
@@ -69,6 +71,7 @@ Input::make('name')
 
 You can also use the `required()` method on other types of form elements, such as select, radio buttons, and checkboxes.
 
+
 ### Hiding Input Fields
 
 There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the `canSee()` method and pass a value of false:
@@ -83,62 +86,59 @@ If you want to show a previously hidden form element, you can use the canSee() m
 Input::make('name')->canSee(true);
 ```
 
+
 > Note that many methods, such as `canSee`, `required`, `title`, `help`, `vertical`, `horizontal` and many others, are available in almost every `field` of the system.
 
 ### Types of Input
+ 
 
 One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
+
 
 ```php
 Input::make('name')->type('text');
 ```
 
 A field for entering the name of the file that is sent to the server.
-
 ```php
 Input::make('name')->type('file');
 ```
 
 Hidden field.
-
 ```php
 Input::make('name')->type('hidden');
 ```
 
 Widget for choosing a color.
-
 ```php
 Input::make('name')->type('color');
 ```
 
 For email addresses.
-
 ```php
 Input::make('name')->type('email');
 ```
 
 Entering numbers.
-
 ```php
 Input::make('name')->type('number');
 ```
 
 Slider to select numbers in the specified range.
-
 ```php
 Input::make('name')->type('range');
 ```
 
 To specify web addresses.
-
 ```php
 Input::make('name')->type('url');
 ```
 
 > **Please note**. Please note that support for new HTML5 attributes such as `color` and `range` is dependent on the browser being used. You can learn more about attribute types at [Mozilla's website](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input).
 
-### Masking Input Values
 
+### Masking Input Values
+ 
 A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number of decimal places.
 
 To use a mask with an input field, you can use the `mask()` method and pass a string that defines the format of the input. The string should contain placeholders for the allowed characters and any fixed characters that should be included. Here is an example of using a mask to enforce a standard phone number format:
@@ -147,7 +147,7 @@ To use a mask with an input field, you can use the `mask()` method and pass a st
 Input::make('phone')
     ->mask('(999) 999-9999')
     ->title('Phone number');
-```
+```   
 
 You can also pass an array of options to the `mask()` method to customize the behavior of the mask. For example, you can use the `numericInput` option to specify that only numeric characters should be accepted:
 
@@ -158,7 +158,7 @@ Input::make('price')
         'mask' => '999 999 999.99',
         'numericInput' => true
     ]);
-```
+```   
 
 You can also use the `alias` option to use a predefined mask, such as `currency`, which automatically formats the input as a currency value:
 
@@ -171,10 +171,12 @@ Input::make('price')
         'groupSeparator' => ' ',
         'digitsOptional' => true,
     ]);
-```
+```   
 
 You can view all of the available options for the Inputmask library [here](https://github.com/RobinHerbots/Inputmask#options).
 
+
+       
 ## TextArea
 
 The `textarea` field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.
@@ -185,7 +187,7 @@ To create a `textarea` field, you can use the `TextArea` class:
 use Orchid\Screen\Fields\TextArea;
 
 TextArea::make('description');
-```
+```    
 
 By default, the `textarea` field will expand to fit the amount of text that is entered. However, you can use the `rows` method to specify a minimum number of rows:
 
@@ -198,11 +200,13 @@ This can be useful for providing a clear visual indication of the amount of text
 
 As with other form elements, you can use methods such as `title()`, `help()`, and `popover()` to add additional context and guidance for the user. You can also use the `required()` method to mark the textarea field as `required` and the `canSee()` method to show or hide the field.
 
+ 
 ## CheckBox
 
 A checkbox is a graphical user interface element that allows the user to control a parameter with two states - checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.
 
 To create a checkbox field, you can use the `CheckBox` class:
+
 
 ```php
 use Orchid\Screen\Fields\CheckBox;
@@ -212,11 +216,13 @@ CheckBox::make('free')
     ->title('Free')
     ->placeholder('Event for free')
     ->help('Event for free');
-```
+```    
+
 
 The `value` attribute determines the value that will be sent to the server when the checkbox is checked. The `title` attribute provides a label for the checkbox, and the `placeholder` attribute can be used to provide a default value or a short description. The `help` attribute can be used to provide additional context or instructions for the user.
 
 By default, browsers do not send the value of an unchecked checkbox when the form is submitted. This can make it difficult to use checkboxes with simple Boolean values. To solve this problem, you can use the `sendTrueOrFalse()` method, which will send the value `false` to the server when the checkbox is unchecked:
+
 
 ```php
 CheckBox::make('enabled')
@@ -263,10 +269,12 @@ This will retrieve all records from the `User` model where the `balance` field i
 
 You can also specify a different field to use as the key for each option using the `fromModel()` and `fromQuery()` methods:
 
+
 ```php
 Select::make('user')
     ->fromModel(User::class, 'email', 'uuid');
 ```
+
 
 This will use the `uuid` field as the key for each option, rather than the default primary key.
 
@@ -310,6 +318,7 @@ Select::make('type')
 ```
 
 ## Relation
+
 
 Relations fields can load dynamic data, this is a good solution if you need connections.
 
@@ -371,6 +380,7 @@ Relation::make('idea')
     ->title('Choose your idea');
 ```
 
+
 You can add one or several fields, which will be additionally searched for:
 
 ```php
@@ -414,11 +424,14 @@ Relation::make('users.')
     ->title('Select users');
 ```
 
+
 ## DateTime
 
 The DateTime field provides a streamlined interface for selecting both date and time within your Laravel applications, leveraging the robust functionality of the `flatpickr` JavaScript library.
 
-![DateTime](/img/ui/datatime.png)
+
+![DateTime](/img/ui/datatime.png) 
+
 
 To create a DateTime field, utilize the `DateTimer` class:
 
@@ -472,6 +485,7 @@ DateTimer::make('open')
     ->title('Opening date')
     ->format24hr();
 ```
+
 
 ### Time Selection
 
@@ -547,16 +561,16 @@ DateTimer::make('open')
 
 ## DateRange
 
+
 Allows you to select a range of date (and time).
 
 Example:
-
 ```php
 use Orchid\Screen\Fields\DateRange;
 
 DateRange::make('open')
     ->title('Opening between');
-```
+```           
 
 Default value / result is an array with keys of `start`, `end`.
 
@@ -569,6 +583,7 @@ DateRange::make('open')
 ## TimeZone
 
 The `TimeZone` field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.
+
 
 ```php
 use Orchid\Screen\Fields\TimeZone;
@@ -605,9 +620,11 @@ DateTimeZone::PER_COUNTRY;
 
 The representation of variable zones can be found in the documentation [PHP](https://www.php.net/manual/en/class.datetimezone.php).
 
+
 ## Quill WYSIWYG Editor
 
 The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.
+
 
 To create a Quill editor instance, simply utilize the `Quill` field. Here's an example of how to implement it in your code:
 
@@ -654,7 +671,6 @@ document.addEventListener('orchid:quill', (event) => {
 Example for [quill-image-compress](https://github.com/benwinding/quill-image-compress):
 
 Add the following in `config/platform.php` into the `resource.scripts` array
-
 ```
 "https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
 "/js/admin/quill.imagecropper.js",
@@ -756,14 +772,14 @@ A field for writing program code with the ability to highlight.
 ![Code](/img/ui/code.png)
 
 Example:
-
 ```php
 use Orchid\Screen\Fields\Code;
 
 Code::make('code');
-```
+```    
 
 To specify code highlighting for a specific programming language, you can use the `language()` method.
+
 
 ```php
 Code::make('code')
@@ -772,10 +788,11 @@ Code::make('code')
 
 The following languages are available:
 
-- Markup - `markup`, `html`, `xml`, `svg`, `mathml`
-- CSS - `css`
-- C-like - `clike`
-- JavaScript - `javascript`, `js`
+* Markup - `markup`, `html`, `xml`, `svg`, `mathml`
+* CSS - `css`
+* C-like - `clike`
+* JavaScript - `javascript`, `js`
+
 
 The number of lines is supported:
 
@@ -784,12 +801,12 @@ Code::make('code')
     ->lineNumbers();
 ```
 
+
 ## Picture
 
 Allows you to upload an image.
 
 Example:
-
 ```php
 use Orchid\Screen\Fields\Picture;
 
@@ -812,6 +829,8 @@ Picture::make('picture')
     ->acceptedFiles('.jpg');
 ```
 
+
+
 ## Cropper
 
 Extends Picture and allows you to upload an image and crop to the desired format.
@@ -819,7 +838,6 @@ Extends Picture and allows you to upload an image and crop to the desired format
 ![Cropper](/img/fields/cropper.png)
 
 Example:
-
 ```php
 use Orchid\Screen\Fields\Cropper;
 
@@ -845,14 +863,16 @@ Cropper::make('picture')
     ->maxHeight(800);
 ```
 
-### File Size Limit
 
+### File Size Limit
+    
 To limit the size of the downloaded file, you must set the maximum value in `MB`.
 
 ```php
 Cropper::make('picture')
     ->maxFileSize(2);
 ```
+
 
 ### Value
 
@@ -863,21 +883,20 @@ Cropper::make('picture')
     ->targetId();
 ```
 
-The sequence number (`id`) of the`Attachment` record will be returned.
+The sequence number (`id`) of the` Attachment` record will be returned.
 
 ```php
 Cropper::make('picture')
     ->targetRelativeUrl();
 ```
-
 Will return the relative path to the image.
 
 ```php
 Cropper::make('picture')
     ->targetUrl();
 ```
-
 Will return the absolute path to the image.
+
 
 ## Attach
 
@@ -1009,6 +1028,7 @@ Attach::make('upload')
     ->errorTypeMessage("Invalid file type");
 ```
 
+
 <!--
 ## Upload
 
@@ -1084,6 +1104,7 @@ Upload::make('upload')
 ```
 
 The default storage is `public`.
+
 
 Sometimes you already know that the file was loaded earlier, then you can use the library search:
 
@@ -1185,6 +1206,8 @@ Group::make([
 ])->alignCenter();
 ```
 
+
+
 ## Button
 
 Buttons are used to submit a form filled out by the user to the server.
@@ -1231,6 +1254,7 @@ Button::make('Submit')
 Button::make('Submit')
     ->action(route('controller.method'));
 ```
+
 
 ### File Download
 
@@ -1294,6 +1318,8 @@ DropDown::make()
     ]);
 ```
 
+
+ 
 ## NumberRange
 
 You can create ranges of numbers. Especially useful for filters.
@@ -1303,7 +1329,6 @@ NumberRange::make();
 ```
 
 Usage with filters:
-
 ```php
 TD::make()->filter(NumberRange::make());
 //or
@@ -1312,8 +1337,9 @@ TD::make()->filter(TD::FILTER_NUMBER_RANGE);
 
 Result is an array with keys of `min`, `max`.  
 
+
 ## Custom Fields Creation
 
-To create custom fields, refer to the "Builder" page in the documentation.
-This page provides a straightforward guide on how to create and customize fields according to your requirements.
+To create custom fields, refer to the "Builder" page in the documentation. 
+This page provides a straightforward guide on how to create and customize fields according to your requirements. 
 Access the "Builder" page by clicking here: [Builder](/en/docs/builder).

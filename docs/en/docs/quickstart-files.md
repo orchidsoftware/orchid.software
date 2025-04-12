@@ -57,6 +57,7 @@ protected $fillable = [
 //..
 ```
 
+
 To write data to a new column, you need to add a suitable field to our create/edit screen,
 take `Cropper` to crop the image:
 
@@ -200,10 +201,10 @@ After saving, the connection with our record will be established in the table `a
 
 ```php
 id  attachmentable_type  attachmentable_id  attachment_id
-1 App\Post          3                 101
-2 App\Post          3                 102
-3 App\Post          3                 103
-4 App\Post          3                 104
+1	App\Post	         3	                101
+2	App\Post	         3	                102
+3	App\Post	         3	                103
+4	App\Post	         3	                104
 ```
 
 But when the record is accessed again, the field will be empty. This is due to the fact that `query` does not know about additional records to our model. We will fix this by adding a download:
