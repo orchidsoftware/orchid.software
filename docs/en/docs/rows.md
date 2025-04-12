@@ -4,7 +4,7 @@ description: Learn how to create short and concise forms using the Row layout in
 ---
 
 
-The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](/en/docs/field). 
+The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](/en/docs/field).
 It is useful for creating short and concise forms, such as when you want to show one or two fields.
 
 Here is an example of how to use the `Row` layout:
@@ -78,15 +78,11 @@ public function layout(): array
 
 > **Note** that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may want to consider using other layout types such as `Tabs` or `Accordion`.
 
-
 ## Accessing Screen Data
-
-
 
 The `Row` layout has access to data from the screen through the `query` property. This allows you to use data from the screen in the fields of the Row layout.
 
 For example, you can use the `query` property to conditionally show or hide a field based on the presence of a specific key:
-
 
 ```php
 namespace App\Orchid\Layouts;
@@ -140,7 +136,6 @@ The `query` method also supports dot notation for accessing nested data:
 ```php
 $this->query->get('user.name');
 ```
-
 
 ## Reusing Layouts
 

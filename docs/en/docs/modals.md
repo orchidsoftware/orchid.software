@@ -6,13 +6,11 @@ description: Learn how to use modal dialog in your Laravel Orchid projects with 
 
 Emulation of a modal dialog box that appears on top of the main page content in response to user actions.
 
-
 ## Description of Work
 
 A modal window appears on top of the page, dimming it. This helps to focus the user's attention on specific actions without losing the overall context. It is important to note that modal windows should not be used for large forms.
 
 ![This image shows an illustrative modal window.](/img/layouts/modals.png)
-
 
 ## When to Use
 
@@ -66,9 +64,7 @@ public function action(): void
 }
 ```
 
-
 It is important to note that when adding a modal window, it should be added at the top level of the array returned by the `layout()` method. It should not be added inside of another layout such as `Tabs`.
-
 
 ## Title
 
@@ -85,7 +81,6 @@ Layout::modal('exampleModals', [
 
 Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the `size` method:
 
-
 ```php
 use Orchid\Screen\Layouts\Modal;
 
@@ -101,7 +96,6 @@ A modal window has two actions:
 
 - Color button - the default action, saves the work done or confirms the previously called command.
 - Cancel button - closes the window without saving the entered data.
-
 
 You can set your own names for them:
 
@@ -124,7 +118,6 @@ Layout::modal('exampleModals', [
     ->withoutApplyButton()
     ->withoutCloseButton();
 ```
-
 
 ## Position
 
@@ -151,7 +144,6 @@ Layout::modal('exampleModals', [
 ])
     ->open();
 ```
-
 
 ## Deferred Data Loading
 
@@ -200,7 +192,6 @@ ModalToggle::make('Open Modal')
 > **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade` template engine, this might look like: `{{$variable ?? ''}}`.
 
 -->
-
 
 ## Disabling Reactive Processing
 

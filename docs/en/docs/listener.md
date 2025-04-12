@@ -15,9 +15,8 @@ To create a listener layout, you need to run the following `artisan` command in 
 php artisan orchid:listener SubtractListener
 ```
 
-Running the command above will create a new class named `SubtractListener` in the `app/Orchid/Layouts` directory. 
+Running the command above will create a new class named `SubtractListener` in the `app/Orchid/Layouts` directory.
 Once created, you can now add the required fields in the `layouts` method as shown below:
-
 
 ```php
 namespace App\Orchid\Layouts;
@@ -70,6 +69,7 @@ class SubtractListener extends Listener
 
 Here, the `targets` property takes the names of the fields that require action whenever they are changed.
 In our example, the fields with the names `minuend` and `subtrahend` are considered targets:
+
 ```php
 /**
  * List of field names for which values will be listened.
@@ -84,8 +84,7 @@ protected $targets = [
 
 > **Note**. Multiple choice fields such as `<select name="users[]">` need to indicate that they are an array by ending the target value with a dot, such as `"users."`
 
-
-Now comes the `handle` method, which is responsible for handling the target fields. The method is automatically called when the values in the target fields change. 
+Now comes the `handle` method, which is responsible for handling the target fields. The method is automatically called when the values in the target fields change.
 It takes in two arguments - `$repository` represents the current state of all the fields on the screen, while `$request` represents the new state of the screen.
 
 ```php

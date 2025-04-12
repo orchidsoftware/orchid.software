@@ -22,10 +22,9 @@ $builder = new Builder([
 $html = $builder->generateForm();
 ```
 
-
 ## Data Binding
 
-To specify the value of an element, you must specify the data source. 
+To specify the value of an element, you must specify the data source.
 By providing the specified key, the data will automatically replace the corresponding field.
 
 For example:
@@ -89,12 +88,10 @@ $builder->setLanguage('en');
 $html = $builder->generateForm();
 ```
 
-
 ## Creating a Field
 
 Every field is just a setting above the view that passes data to the template.
 Here is an example of how to create custom input fields by using the `Field` class.
-
 
 ```php
 namespace App\Orchid\Fields;
@@ -129,7 +126,6 @@ class CustomField extends Field
 The `view` property is determined by the blade.
 `attributes` lists default values, and `inlineAttributes`
 define keys in html format, for example:
-
 
 ```html
 First name: <input type="text" name="name"><br>

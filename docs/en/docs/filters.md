@@ -5,7 +5,7 @@ description: Learn how to use the Eloquent Filters feature in Laravel Orchid to 
 
 ## Introduction
 
-Eloquent Filters are powerful tools for creating complex queries in Laravel. 
+Eloquent Filters are powerful tools for creating complex queries in Laravel.
 They allow you to easily manage and customize your search criteria.
 You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.
 
@@ -74,7 +74,6 @@ use App\Model;
 Model::filters([EmailFilter::class])->simplePaginate();
 ```
 
-
 ### Using Filters for Different Models
 
 One of the great advantages of filters is that you can reuse the same filter class for different models.
@@ -93,7 +92,6 @@ Customer::filters($filters)
     ->simplePaginate();
 ```
 
-
 ### Running the Filter Always
 
 By default, filters are applied only when the corresponding parameters are specified.
@@ -105,7 +103,6 @@ public $parameters = [];
 ```
 
 Additionally, if the array returned by the `display` method is empty, the filter will not appear in the interface but will still remain functional in queries. This allows for flexible configurations where certain filters operate silently in the background.
-
 
 ### Parameter Patterns
 
@@ -124,7 +121,6 @@ public $parameters = [
 ```
 
 In the above example, the filter will match any parameter that follows the pattern `pattern.*`. This allows you to handle a wide range of dynamic parameters in your filters.
-
 
 ### Customizing Filter Display Values
 
@@ -145,7 +141,7 @@ This approach is particularly useful when using filters that rely on IDs or syst
 
 ## Selection
 
-The "Selection" layer provides a convenient way to group and organize filters for both displaying and applying them to a model. 
+The "Selection" layer provides a convenient way to group and organize filters for both displaying and applying them to a model.
 This layer acts as an intermediary between the user interface and the model, simplifying the process of managing filters.
 
 To create a "Selection" layer, you can use the following command:
@@ -155,7 +151,7 @@ php artisan orchid:selection MailingSelection
 ```
 
 This command will generate a new PHP file called `MailingSelection` in the `App\Orchid\Layouts` directory.
-Inside this class, you will find a single method called `filters()`. 
+Inside this class, you will find a single method called `filters()`.
 This method is where you should list all the filters that need to be displayed and applied.
 
 For example, let's say you want to display and apply two filters: a email filter and a created filter.
@@ -183,7 +179,6 @@ class MailingSelection extends Selection
 }
 ```
 
-
 Once you have defined your filters in the `MailingSelection` class, you can apply them to a model by using the `filters()` method. For example:
 
 ```php
@@ -194,7 +189,7 @@ By calling the `filters()` method on your model and passing `MailingSelection::c
 
 ### Displaying on a Screen
 
-The "Selection" layer can also be used to display filters on a [screen](/en/docs/screens). 
+The "Selection" layer can also be used to display filters on a [screen](/en/docs/screens).
 In the `layout()` method of your screen, you can include the `MailingSelection` class to display the filters on the screen.
 For example:
 
@@ -240,7 +235,6 @@ class MailingSelection extends Selection
 ```
 
 Moreover, you have the flexibility to define your own `Blade` template within this property.
-
 
 ## Handling HTTP Parameters
 
@@ -320,12 +314,14 @@ In order to use this feature effectively, it's important to have a solid underst
 http://example.com/demo?filter[id]=1
 $model->where('id', '=', 1)
 ```
+
 This query will apply a `where` clause to the `id` column of your model, filtering out any records that don't match the value provided by the user.
 
 ```php
 http://example.com/demo?filter[name]=A
 $model->where('name', 'like', '%A%')
 ```
+
 This query will apply a `like` clause to the `name` column of your model, searching for any records that contain the letter "A" in their name.
 
 ```php
@@ -386,14 +382,11 @@ $model->whereDate('created_at', '>=', '2023-01-01')
 
 This query will apply a single `whereDate` clause to the `created_at` column of your model, filtering for records where the `created_at` date is greater than or equal to January 1, 2023.
 
-
 <!--
 http://example.com/demo?filter[content.ru.name]=dwqdwq
 $model->where('content->ru->name', 'like', 'dwqdwq');
 
-
 > **Note.** Filter accommodates the `cast` of the model. This works with `bool`,`datetime` and `string` (and their aliases). To be able to filter for a number as substring (using `like` instead of exact match), make sure that it casts as a `string`. 
-
 
 How sorting will respond:
 
@@ -411,7 +404,6 @@ $model->orderBy('content->ru->name', 'desc');
 ### Sorting
 
 To enable sorting functionality, you need to specify a list of columns in the `allowedSorts` property. This list represents the columns in your database table that can be used for sorting. Here's an example:
-
 
 ```php
 namespace App\Models;
@@ -457,7 +449,6 @@ $model->orderBy('created_at', 'desc');
 
 ### Default Sorting
 
-
 If you want to specify a default sorting order for your data, you can use the `defaultSort` method. This method allows you to set a default column for sorting when no specific sorting parameter is provided via the HTTP request. For example:
 
 ```php
@@ -478,4 +469,3 @@ User::orderByPowerJoins('profile.city', 'desc');
 ```
 
 However, you will need to manually handle the HTTP parameters `sort` and `filter`, as the package does not automatically recognize that the `-` sign before the field name indicates descending order for sorting, and also how to apply filters. You can do this using a "Filter." Additionally, you should only use the package methods for sorting or filtering based on fields accessible through relationships.
-

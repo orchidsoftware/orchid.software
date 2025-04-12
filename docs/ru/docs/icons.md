@@ -24,7 +24,6 @@ resources
 
 Загрузите в новый каталог соответствующие значки, например, этот [значок блокнота](https://github.com/FortAwesome/Font-Awesome/blob/ce084cb3463f15fd6b001eb70622d00a0e43c56c/svgs/solid/address-book.svg). Затем укажите каталог, в котором нам нужно искать наши изображения, для этого отредактируйте файл конфигурации `config/platform.php`:
 
-
 ```php
 'icons' => [
     'fa' => resource_path('icons/fontawesome')

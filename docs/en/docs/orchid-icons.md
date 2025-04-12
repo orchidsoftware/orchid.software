@@ -6,8 +6,8 @@ description:
 
 > If you're looking for a section on how to work with icons, please [visit this page](/en/docs/icons).
 
-Starting from version 14, the Orchid Icon Pack has been replaced with a new set from Bootstrap. While replacing all icons in existing applications may present a challenge, 
-users still have the option to continue using the icons from Orchid. 
+Starting from version 14, the Orchid Icon Pack has been replaced with a new set from Bootstrap. While replacing all icons in existing applications may present a challenge,
+users still have the option to continue using the icons from Orchid.
 
 To do this, simply add the following line to your `composer.json` file:
 

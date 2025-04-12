@@ -5,9 +5,7 @@ description: Learn how to create view/custom templates and themes for your Larav
 
 ## Views
 
-
 Sometimes you may want to display your own `blade` template in your application. To do this, you can use the `Layout::view` method and pass it a string containing the name of your template.
-
 
 ```php
 use Orchid\Support\Facades\Layout;
@@ -61,12 +59,9 @@ public function layout(): array
 }
 ```
 
-
 ## Blade Components
 
-
 Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the `artisan` command:
-
 
 ```php
 php artisan make:component Hello --inline
@@ -111,7 +106,6 @@ blade;
     }
 }
 ```
-
 
 To use the component in your screens, you can pass its lowercase representation to the `Layout::component` method:
 
@@ -198,8 +192,6 @@ blade;
 
 You can learn more about blade components in the [Laravel documentation](https://laravel.com/docs/blade#components).
 
-
-
 ## Wrapper
 
 A "Wrapper" is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.
@@ -272,7 +264,6 @@ public function layout(): array
 
 You can also specify various attributes for the iframe element by chaining method calls onto the `Layout::browsing` method. For example:
 
-
 ```php
 Layout::browsing('http://127.0.0.1:8000/telescope')
     ->allow('...')
@@ -286,4 +277,3 @@ Layout::browsing('http://127.0.0.1:8000/telescope')
 ```
 
 Refer to the [HTML specification](https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element) for a complete list of available attributes.
-

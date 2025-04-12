@@ -14,8 +14,6 @@ For active development, we encourage you to use `pull requests` instead of solel
 
 [![Users who have made significant contributions to Orchid. Alone we can do so little, together we can do so much.](https://opencollective.com/orchid/contributors.svg?width=800&button=false)](https://github.com/orchidsoftware/platform)
 
-
-
 ## Writing Effective Bug Reports
 
 When submitting a bug report, it is crucial to provide concise yet comprehensive details. To ensure your report is helpful for developers, make sure they can easily reproduce the issue. Be sure to include step-by-step instructions to replicate the problem. We kindly ask you to report bugs in English, while keeping an eye on your grammar and language usage.
@@ -71,7 +69,7 @@ npm run dev --prefix platform && php artisan orchid:publish
 
 First you need to check the code style ([Laravel Pint](https://laravel.com/docs/10.x/pint) is used for this)
 
-Run check and fix: 
+Run check and fix:
 
 ```bash
 ./vendor/bin/pint
@@ -113,7 +111,7 @@ To submit your branch for review, execute the following command:
 git push origin feature/issue_001
 ```
 
-## Help Translate Orchid into Different Languages!
+## Help Translate Orchid into Different Languages
 
 We appreciate your contributions in translating Orchid into multiple languages. Visit the [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) conversation on the Discussion tab for more details. Translation files can be found in the [resources/lang](https://github.com/orchidsoftware/platform/tree/master/resources/lang) directory.
 

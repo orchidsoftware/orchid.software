@@ -10,6 +10,7 @@ description: Пример использования Stimulus JS с пакето
 Благодаря [Turbo](https://turbo.hotwire.dev) админ-панель эмулирует Single Page Application, загружая ресурсы только при первом вызове и создавая впечатление повторной отрисовки контента в браузере вместо стандартных переходов между страницами.
 
 Поскольку все ресурсы будут загружены при первом вызове, классические вызовы, подобные этому, работать не будут:
+
 ```js
 document.addEventListener("load", () => {
     console.log('Page load');
@@ -26,11 +27,9 @@ document.addEventListener("turbo:load", () => {
 
 Более подробную информацию вы можете найти на сайте [turbo.hotwire.dev](https://turbo.hotwire.dev).
 
-
 ## Stimulus
+
 [Stimulus](https://stimulus.hotwired.dev/) это фреймворк JavaScript от разработчиков Ruby on Rails. Он оснащает фронтенд-разработку новыми подходами к JavaScript, при этом не стремится контролировать все ваши действия и не навязывает отделение фронтенда от бэкенда.
-
-
 
 Построим базовый пример, который отображает текст, введённый в поле. Для этого выполним описанные ниже действия.
 
@@ -114,7 +113,6 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-
 Для отображения воспользуемся шаблоном, для которого предварительно нужно определить `Controller` и `Route` в вашем приложение:
 
 ```php
@@ -130,7 +128,6 @@ class AppServiceProvider extends ServiceProvider
   </span>
 </div>
 ```
-
 
 ## Обертка Vue.js внутри Stimulus
 
@@ -160,6 +157,7 @@ export default class extends window.Controller {
 }
 
 ```
+
 Укажите ваш контроллер во view, а конкретно в blade шаблоне:
 
 ```html
@@ -167,4 +165,5 @@ export default class extends window.Controller {
   @{{ message }}
 </div>
 ```
+
 Теперь, когда вы перезагрузите страницу, экземпляр Vue.js будет создан и мы увидим наше сообщение `Hello, Vue.js!' на экране и внутри HTML элемента. Далее вы можете использывать Vue.js как обычно в рамках контроллера Stimulus.

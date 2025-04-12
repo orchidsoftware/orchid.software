@@ -24,7 +24,7 @@ At Laravel Orchid, fostering a strong and supportive community is a top priority
 - **Create tutorials:** Regardless of your expertise level, we welcome tutorials from beginners to advanced users. Cover a range of topics, including introductory Laravel Orchid content or even more specialized development topics like creating your own extensions.
 - **Engage in forums:** Join the discussions where users ask questions, provide helpful answers, and troubleshoot issues. Share tips, tricks, and best practices. Participate in sweepstakes or contests to showcase your skills, and also expand your network by making new friends along the way.
 
-## Spread the Word!
+## Spread the Word
 
 To ensure our community remains friendly, helpful, and polite, it's crucial that we all encourage positive behavior. Here's how you can help promote Laravel Orchid:
 

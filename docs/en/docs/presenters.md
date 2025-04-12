@@ -3,10 +3,9 @@ title: Presenters
 description: Learn how to use Laravel Orchid's Presenters to format your data for display on your application's views. With Presenters, you can easily customize the appearance of your data, making your application's user interface more consistent and user-friendly.
 ---
 
-Presenters are classes that wrap objects and provide additional functionality to them. 
-In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized. 
+Presenters are classes that wrap objects and provide additional functionality to them.
+In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized.
 You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.
-
 
 ## Creating A Presenter
 
@@ -25,6 +24,7 @@ class Customer extends Model
     ];
 }
 ```
+
 Before an instance of this class is wrapped in a representative, you must create it:
 
 ```php
@@ -85,7 +85,6 @@ class Customer extends Model
 ```
 
 > **Note.** Many platform functions expect a representative in the `presenter` method.
-
 
 Now its use is becoming easier:
 

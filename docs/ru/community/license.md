@@ -3,7 +3,7 @@ title: The MIT License (MIT)
 description: Лицензионное соглашение
 ---
 
-## Лицензионное соглашение 
+## Лицензионное соглашение
 
 Copyright (c) Chernyaev Alexandr
 

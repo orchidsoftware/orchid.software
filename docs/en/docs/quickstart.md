@@ -15,22 +15,19 @@ In this tutorial, we will be creating a simple task list application to demonstr
 
 Before beginning this tutorial, make sure that you have already installed [the framework and package](/en/docs/installation), and started the web server. Let's get started!
 
-
 > To maximize your learning, we advise typing out the code yourself rather than copying and pasting. This approach helps reinforce your understanding and retention.
-
 
 ## Prepping the Database
 
 ### Database Migrations
 
-First, let's use a migration to define a database table to hold all of our tasks. 
+First, let's use a migration to define a database table to hold all of our tasks.
 
 ```shell
 php artisan make:migration create_tasks_table --create=tasks
 ```
 
 Let's edit this file and add an additional string column for the `name` and boolean column for the `active` of our tasks:
-
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -66,18 +63,15 @@ return new class extends Migration
 };
 ```
 
-To run our migration, we will use the `migrate` Artisan command. 
+To run our migration, we will use the `migrate` Artisan command.
 
 ```bash
 php artisan migrate
 ```
 
-
 ### Eloquent Models
 
-
 So, let's define a `Task` model that corresponds to our `tasks` database table we just created.
-
 
 ```shell
 php artisan make:model Task
@@ -100,9 +94,7 @@ class Task extends Model
 
 > **Note.** The model has the `AsSource` trait, for convenient handling via dot notation.
 
-
 ## Screen
-
 
 Now that we have the basic setup out of the way, it's time to add our first [screen](/en/docs/screens) to the application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to define data and events for a single page. The structure of a screen allows us to easily define the layout and behavior of the page, and helps to keep our code organized and maintainable.
 
@@ -173,7 +165,6 @@ class TaskScreen extends Screen
 
 ### Routing
 
-
 Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically `routes/platform.php`) and define a new route for the screen.
 
 To define a new route for a screen, we can use the Screen method provided by Orchid.
@@ -213,11 +204,9 @@ public function description(): ?string
 
 ### Menu
 
-
 To make it easier for users to access our screen, we can add a new menu item to the admin panel's navigation menu. This will allow users to click on a link in the menu to access the screen, rather than having to manually type the URL into the browser.
 
 To add a new menu item to the navigation menu, we will need to open the `app/Orchid/PlatformProvider.php` file and add a new declaration to the `menu()` method. This declaration will use the `Menu` method provided by Orchid to define a new menu item for our screen.
-
 
 ```php
 use Orchid\Screen\Actions\Menu;
@@ -259,16 +248,14 @@ Route::screen('task', TaskScreen::class)
     });
 ```
 
-
 ## Adding Tasks
 
 ### Adding Window Modal
 
-To display elements on the workspace, we will need to define them in the `layout` method of the screen class. 
+To display elements on the workspace, we will need to define them in the `layout` method of the screen class.
 The `layout` method is responsible for returning an array of layout definitions, which define the structure and content of the page.
 
 To add a modal window with an input field for the task name, we can update the `layout` method as follows:
-
 
 ```php
 use Orchid\Screen\Fields\Input;
@@ -304,7 +291,6 @@ To call the modal window, we can add a button to the screen that will trigger th
 
 To add a button that calls the modal window, we can update the `commandBar` method as follows:
 
-
 ```php
 use Orchid\Screen\Actions\ModalToggle;
 
@@ -324,18 +310,16 @@ public function commandBar(): iterable
 }
 ```
 
-This will create a button with the label "Add Task" and an icon of a plus sign. 
+This will create a button with the label "Add Task" and an icon of a plus sign.
 When the button is clicked, it will open the `taskModal` modal window, and when clicked again, it will close the modal.
 
 In the following sections, we will go over the details of how to define the `create` method and control the behavior of the button.
-
 
 ### Creating the Task
 
 To handle the submission of the modal window form, we will need to define a method that will be called when the form is sent to the server. This method can be used to validate the form data, save the new task to the database, and perform any other necessary actions.
 
 To define the method that will be called when the form is submitted, we can update the screen class as follows:
-
 
 ```php
 use App\Models\Task;
@@ -363,7 +347,7 @@ Great! We can now successfully create tasks. Next, let's continue adding to our 
 
 ### Displaying Existing Tasks
 
-The query method specifies what data should be shown on the screen. 
+The query method specifies what data should be shown on the screen.
 This data can be collected or generated within the method. The data is returned in an array,
 
 Let's return a simple sample with the key `tasks`:
@@ -389,7 +373,6 @@ Once the data is passed, we can spin through the tasks in our layouts and displa
 To create the task list, we will need to define a new layout for the screen. This layout will use a table component to display the list of tasks, and will include columns for the task name and actions.
 
 To define the task list layout, we can update the layouts method of the screen class as follows:
-
 
 ```php
 
@@ -423,7 +406,6 @@ The first argument points to the `tasks` key that we specified in the `query` me
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.
 
 Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
-
 
 ## Deleting Tasks
 
@@ -462,7 +444,6 @@ public function delete(Task $task)
     $task->delete();
 }
 ```
-
 
 Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.
 

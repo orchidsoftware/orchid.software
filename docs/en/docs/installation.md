@@ -31,7 +31,6 @@ For more information on how to install Laravel, follow [Official Laravel Install
 It will create a new `orchid-project` directory, load the dependencies, and generate the leading directories and files you need to get started.
 In other words, install your new framework project.
 
-
 **Do not forget**
 
 - Set “chmod -R o+w” rights to the `storage` and `bootstrap/cache` directories
@@ -42,12 +41,12 @@ In other words, install your new framework project.
 ## Add Dependency
 
 Go to the created project directory and run the command:
+
 ```shell
 composer require orchid/platform
 ```
 
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
-
 
 ## Package Installation
 
@@ -67,7 +66,6 @@ To create a user with maximum permissions, you can run the following command wit
 php artisan orchid:admin
 ```
 
-
 ## Start the Development Server
 
 If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:
@@ -80,7 +78,6 @@ Open a browser and go to `http://localhost:8000/admin`. If everything works, you
 
 > **Note.** Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file `config/platform.php` or `.env` file. It allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`.
 
-
 ## Updating
 
 While in the project directory, use `Composer` to update the package:
@@ -90,7 +87,6 @@ composer update orchid/platform --with-dependencies
 ```
 
 > **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
-
 
 After updating to a new release, you should be sure to update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
 
@@ -124,10 +120,7 @@ php artisan about
 This command will provide you with an importance of information, including some of the details about the package itself.
 It's  ensuring that your environment is correctly configured and running as expected.
 
-
-> **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
-
-
+> **Problems encountered during installation?** It is possible that someone already had this problem <https://github.com/orchidsoftware/platform/issues>. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
 
 ## What to Do Next?
 

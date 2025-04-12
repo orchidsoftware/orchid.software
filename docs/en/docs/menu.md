@@ -39,7 +39,7 @@ use Orchid\Screen\Actions\Menu;
 
 Menu::make('Example')->url('https://orchid.software/');
 ```
- 
+
 To create a link with a route, use the `route` method and provide the name of the route:
 
 ```php
@@ -99,7 +99,6 @@ It is also possible to integrate into a visual group by setting the title for th
 Menu::make('Example')->title('Analytics');
 ```
 
-
 ## Badge Notification
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
@@ -114,6 +113,7 @@ Menu::make('Comments')
 ## Sorting Items
 
 Sorting set by setting the sequence number:
+
 ```php
 Menu::make('Second')->sort(5);
 Menu::make('First')->sort(4);
@@ -153,6 +153,5 @@ Dashboard::addMenuSubElements('sub-menu', [
     Menu::make('Second Level Item 2')->icon('badge')
 ]);
 ```
-
 
 > **Note:** The graphical interface supports menu nesting up to the second level. For more details on creating effective and intuitive navigation, explore our [design guidelines](https://orchid.software/en/hig/navigation).

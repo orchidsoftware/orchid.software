@@ -7,7 +7,6 @@ The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http
 
 > **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
-
 ## Working With Vite
 
 Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the official [documentation page](https://laravel.com/docs/vite).
@@ -21,7 +20,6 @@ To successfully incorporate the acquired resources into your project, you'll nee
 ```
 
 This entry is equivalent to using the Blade directive `@vite`. By carefully following these steps, you can effectively integrate Vite into your Laravel project and achieve the best results from its usage.
-
 
 ## Loading Your Scripts And Styles
 
@@ -46,7 +44,6 @@ In this array, replace the placeholder URLs with the actual URLs where your styl
 
 To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser. Look for the `link` tags for stylesheets and `script` tags for JavaScript files and ensure that the URLs match those specified in your configuration file.
 
-
 ## Turbo
 
 Orchid's seamless administrative panel experience is powered by [Turbo](https://turbo.hotwire.dev). With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.
@@ -68,7 +65,6 @@ document.addEventListener("turbo:load", () => {
 ```
 
 You can find more details on the website [turbo.hotwire.dev](https://turbo.hotwire.dev).
-
 
 ## Stimulus
 
@@ -145,7 +141,6 @@ Run to build assets:
 npm run production
 ```
 
-
 ### Compilation with Vite
 
 For Vite, configure your `vite.config.js` like this:
@@ -175,7 +170,6 @@ npm run build
 
 > **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
 
-
 ### Run Controller
 
 To display, we will use a template for which you first need to define the `Controller` and `Route` in your application:
@@ -194,13 +188,9 @@ To display, we will use a template for which you first need to define the `Contr
 </div>
 ```
 
-
-
 ## Vue.js Wrapped in a Stimulus
 
-
 Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we'll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.
-
 
 Create a Stimulus controller file, for example `hello_controller.js`:
 

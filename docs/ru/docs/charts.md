@@ -37,11 +37,13 @@ public function query() : array
 ```
 
 Для создания выполните команду:
+
 ```php
 php artisan orchid:chart ChartsLayout
 ```
 
 Пример макета:
+
 ```php
 namespace App\Orchid\Layouts;
 
@@ -78,6 +80,7 @@ class ChartsLayout extends Chart
 ```
 
 ## Высота
+
 Установите высоту диаграммы в пикселях с помощью указания свойства:
 
 ```php
@@ -87,8 +90,8 @@ class ChartsLayout extends Chart
 protected $height = 250;
 ```
 
-
 ## Цвета
+
 Установите цвета, которые будут использоваться для каждого отдельного типа единиц измерения, в зависимости от типа диаграммы с помощью указания свойства:
 
 ```php
@@ -105,7 +108,6 @@ protected $colors = [
     '#00CC66',
 ];
 ```
-
 
 ## Экспорт изображения
 
@@ -142,7 +144,6 @@ class User extends Authenticatable
 
 - Сгруппированные данные
 - Временной период
-
 
 ### Сгруппированные данные
 
@@ -288,7 +289,6 @@ $end = Carbon::now()->subDay(1);
 
 User::countByDays($start, $end, 'updated_at')->toChart('Users');
 ```
-
 
 ## Типы запросов
 

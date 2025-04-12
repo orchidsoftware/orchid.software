@@ -9,8 +9,8 @@ description: The Laravel Orchid Notifications documentation page is the ultimate
 
 ## Flash Messages
 
-A flash notification is a one-time message that is automatically deleted after the user views it. 
-Designed to inform the user of a recent event—such as the successful saving of data—flash notifications provide quick, concise feedback without cluttering the interface. 
+A flash notification is a one-time message that is automatically deleted after the user views it.
+Designed to inform the user of a recent event—such as the successful saving of data—flash notifications provide quick, concise feedback without cluttering the interface.
 If you need to retain notification data, consider using persistent notifications instead.
 
 ### Alert Messages
@@ -96,7 +96,7 @@ Toast::warning('Invalid input. Please check your form.')
     ->delay(2000);
 ```
 
-The `seconds` method allows you to set the delay before hiding the toast message, but in seconds instead of milliseconds. 
+The `seconds` method allows you to set the delay before hiding the toast message, but in seconds instead of milliseconds.
 This makes it easier to configure the delay in a more human-readable format:
 
 ```php
@@ -117,14 +117,12 @@ This will render the HTML content in the message without escaping it.
 
 ## Persistent Notification
 
-Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline. 
+Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline.
 They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
 You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.
 
-
 Before using this feature, it's important to check out the [Laravel notification documentation](https://laravel.com/docs/notifications) as it provides more details and examples on how to use this feature.
-
 
 To send a notification, you can simply pass a `DashboardMessage` instance to a user’s `notify` method.  
 Before proceeding, ensure that your user model implements the `Notifiable` trait:
@@ -147,11 +145,9 @@ You can also create a custom notification class using the following Artisan comm
 php artisan make:notification TaskCompleted
 ```
 
-
 This command will create a new class in your `app/Notifications` directory.
 
 To send the notification, you must add the `DashboardChannel` to the `via` notification method:
-
 
 ```php
 use Orchid\Platform\Notifications\DashboardChannel;
@@ -164,7 +160,7 @@ public function via($notifiable)
 }
 ```
 
-Before sending the notification, you must also define a `toDashboard` method in the notification class. 
+Before sending the notification, you must also define a `toDashboard` method in the notification class.
 This method will receive a `$notifiable` object and must return a `DashboardMessage` object:
 
 ```php
@@ -178,7 +174,6 @@ public function toDashboard($notifiable)
         ->action(url('/'));
 }
 ```
-
 
 Notifications can be sent in two ways: by using the `notify` method in the `Notifiable` trait or by using the `Notification` facade.
 You can take a look at [Laravel Notification Documentation](https://laravel.com/docs/notifications#sending-notifications) to learn more about these two approaches to sending notifications.
