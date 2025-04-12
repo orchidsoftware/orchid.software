@@ -17,10 +17,13 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Create .markdownlint-cli2.jsonc
+        run: |
+          echo '{ "fix": true }' > .markdownlint-cli2.jsonc
+
       - name: markdownlint-cli2-action
         uses: DavidAnson/markdownlint-cli2-action@v9
         with:
-          fix: true
           globs: |
             *.md
             **/*.md
