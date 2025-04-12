@@ -1,0 +1,30 @@
+name: Docs Guidelines
+
+on:
+  pull_request:
+  push:
+    paths:
+      - '.github/workflows/**'
+      - '**.md'
+
+jobs:
+  php-cs-fixer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: markdownlint-cli2-action
+        uses: DavidAnson/markdownlint-cli2-action@v9
+        with:
+          globs: |
+            *.md
+            **/*.md
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Fixed docs style
