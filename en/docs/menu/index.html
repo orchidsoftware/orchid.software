@@ -489,8 +489,8 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Multi Level'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
-        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.bag'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">2</span>),
-        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>(<span class="hl-number">0</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.bag'</span>),
+        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>),
     ]),
 </code></pre>
 <p>To create a submenu dynamic, you need to add the main item and specify its unique name using the <code>slug</code> method. Then you can add other elements to the new item.</p>
@@ -499,14 +499,13 @@ depending on the <a href="/en/docs/access">availability of rights</a> or other c
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'code'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">list</span></span>([
         <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 1'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.bag'</span>),
-        <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>),
     ]),
 </code></pre>
 <p>And then add new items in our own packages like:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
 <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">addMenuSubElements</span>(<span class="hl-value">'sub-menu'</span>, [
-    <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'badge'</span>)
+    <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Second Level Item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.heart'</span>)
 ]);
 </code></pre>
 <blockquote>
