@@ -127,8 +127,8 @@ You can specify a single-level submenu as follows:
 Menu::make('Multi Level')
     ->icon('code')
     ->list([
-        Menu::make('Second Level Item 1')->icon('bs.bag')->sort(2),
-        Menu::make('Second Level Item 2')->icon('bs.heart')->sort(0),
+        Menu::make('Second Level Item 1')->icon('bs.bag'),
+        Menu::make('Second Level Item 2')->icon('bs.heart'),
     ]),
 ```
 
@@ -140,7 +140,6 @@ Menu::make('Multi Level')
     ->icon('code')
     ->list([
         Menu::make('Second Level Item 1')->icon('bs.bag'),
-        Menu::make('Second Level Item 2')->icon('bs.heart'),
     ]),
 ```
 
@@ -150,7 +149,7 @@ And then add new items in our own packages like:
 use Orchid\Support\Facades\Dashboard;
 
 Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Second Level Item 2')->icon('badge')
+    Menu::make('Second Level Item 2')->icon('bs.heart')
 ]);
 ```
 
