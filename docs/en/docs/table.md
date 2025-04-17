@@ -165,6 +165,7 @@ And also hide by default, but can be shown at the request of the user.
 TD::make('last_name')->defaultHidden();
 ```
 
+> **Note**: To hide the button and modal for selecting visible columns from the table footer, you need to make all table columns hidden by default.
 
 ## Data Output
 
