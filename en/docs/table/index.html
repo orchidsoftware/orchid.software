@@ -525,6 +525,9 @@ prohibit doing this by specifying:</p>
 <p>And also hide by default, but can be shown at the request of the user.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">defaultHidden</span>();
 </code></pre>
+<blockquote>
+<p><strong>Note</strong>: To hide the button and modal for selecting visible columns from the table footer, you need to make all table columns hidden by default.</p>
+</blockquote>
 <h2><a href='#data-output' id='data-output'>Data Output</a></h2>
 <p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'full_name'</span>)
