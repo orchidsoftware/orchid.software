@@ -8,10 +8,9 @@ These icons are prefixed with `bs.*` which is used as a prefix to identify the i
 
 > If you're looking for a list of icons for previous versions, please visit the [Orchid Icon Pack page](/en/docs/orchid-icons).
 
-## How to Use Icons in Orchid
+## How to Use Icons
 
-Using icons in your Laravel Orchid project is super easy.
-You can add them to buttons, menus, or anywhere else in your interface. Here's a quick example to get you started:
+You can easily add icons to elements like buttons, links, or menus in your application. Here’s a simple example to help you get started:
 
 ```php
 use Orchid\Screen\Actions\Menu;
