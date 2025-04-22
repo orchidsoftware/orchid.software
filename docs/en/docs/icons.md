@@ -8,6 +8,21 @@ These icons are prefixed with `bs.*` which is used as a prefix to identify the i
 
 > If you're looking for a list of icons for previous versions, please visit the [Orchid Icon Pack page](/en/docs/orchid-icons).
 
+## How to Use Icons in Orchid
+
+Using icons in your Laravel Orchid project is super easy.
+You can add them to buttons, menus, or anywhere else in your interface. Here's a quick example to get you started:
+
+```php
+use Orchid\Screen\Actions\Menu;
+
+Menu::make('Settings')
+    ->icon('bs.gear') // Use the 'bs.' prefix for Bootstrap Icons by default
+    ->route('platform.settings');
+```
+
+In this example, the icon `bs.gear` will show up next to the "Settings" link.
+
 ## Custom Icons
 
 In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new `icons` directory and a `fontawesome` subdirectory in your `resources` folder:
