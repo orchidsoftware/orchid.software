@@ -16,7 +16,7 @@ You can easily add icons to elements like buttons, links, or menus in your appli
 use Orchid\Screen\Actions\Menu;
 
 Menu::make('Settings')
-    ->icon('bs.gear') // Use the 'bs.' prefix for Bootstrap Icons by default
+    ->icon('bs.gear') // Use the 'bs.' prefix for Bootstrap Icons
     ->route('platform.settings');
 ```
 
