@@ -382,6 +382,9 @@
                             <div class="anchors">
             <ul>
                             <li class="anchor-h2">
+                    <a href="#how-to-use-icons-in-orchid">How to Use Icons in Orchid</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#custom-icons">Custom Icons</a>
                 </li>
                             <li class="anchor-h2">
@@ -397,6 +400,16 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
 <blockquote>
 <p>If you&rsquo;re looking for a list of icons for previous versions, please visit the <a href="/en/docs/orchid-icons">Orchid Icon Pack page</a>.</p>
 </blockquote>
+<h2><a href='#how-to-use-icons-in-orchid' id='how-to-use-icons-in-orchid'>How to Use Icons in Orchid</a></h2>
+<p>Using icons in your Laravel Orchid project is super easy.
+You can add them to buttons, menus, or anywhere else in your interface. Here&rsquo;s a quick example to get you started:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
+
+<span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Settings'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.gear'</span>) <span class="hl-comment">// Use the 'bs.' prefix for Bootstrap Icons by default</span>
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.settings'</span>);
+</code></pre>
+<p>In this example, the icon <code>bs.gear</code> will show up next to the &ldquo;Settings&rdquo; link.</p>
 <h2><a href='#custom-icons' id='custom-icons'>Custom Icons</a></h2>
 <p>In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new <code>icons</code> directory and a <code>fontawesome</code> subdirectory in your <code>resources</code> folder:</p>
 <pre><code data-lang="shell" class="notranslate">resources
