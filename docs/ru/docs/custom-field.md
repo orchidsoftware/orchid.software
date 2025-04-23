@@ -170,6 +170,9 @@ Orchid.register('controller-name', class extends Controller {
   - `this.findElement(selector)` - поиск внутри элемента
 
 ### Интеграция сторонних библиотек
+
+> Возможно потребуется компиляция, через Vite, в таком случае посмотрите раздел об использовании [JavaScript](/ru/docs/javascript/)
+
 Рассмотрим на примере DatePicker:
 
 ```js
