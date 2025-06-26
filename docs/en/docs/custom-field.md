@@ -78,14 +78,12 @@ Let's examine the generated Blade template:
 ```html
 @component($typeForm, get_defined_vars())
 <div data-controller="emoji-picker">
-    <input
-        {{
+    <input {{
         $attributes->merge([
-    'data-emoji-picker-target' => 'name',
-    'data-action' => 'input->emoji-picker#greet',
-    ])
+            'data-emoji-picker-target' => 'name',
+            'data-action' => 'input->emoji-picker#greet',
+        ])
     }}>
-
     <span data-emoji-picker-target="output"></span>
 </div>
 @endcomponent
@@ -99,8 +97,7 @@ Let's examine the generated Blade template:
         }
 
         greet() {
-            this.outputTarget.textContent =
-                `Hello, ${this.nameTarget.value}!`;
+            this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`;
         }
     });
 </script>
@@ -124,7 +121,6 @@ dynamic form fields.
 Here’s a simplified view of the `EmojiPicker` controller:
 
 ```html
-
 <script>
     Orchid.register('emoji-picker', class extends Controller {
         static targets = ['name', 'output'];
@@ -152,7 +148,6 @@ Here’s a simplified view of the `EmojiPicker` controller:
 ### Connecting to HTML
 
 ```html
-
 <div data-controller="emoji-picker">
     <input
         data-emoji-picker-target="name"
@@ -164,12 +159,9 @@ Here’s a simplified view of the `EmojiPicker` controller:
 
 - **`data-controller="emoji-picker"`** initializes the controller.
 - **Targets:**
-
     - `data-emoji-picker-target="name"` → accessed via `this.nameTarget`
     - `data-emoji-picker-target="output"` → accessed via `this.outputTarget`
-
 - **Actions:**
-
     - `data-action="input->emoji-picker#greet"` triggers `greet()` on `input` events.
 
 ### Registering a Controller
@@ -211,7 +203,6 @@ Orchid.register('date-picker', class extends Controller {
 ```
 
 ```html
-
 <div data-controller="date-picker">
     <input type="text">
 </div>
