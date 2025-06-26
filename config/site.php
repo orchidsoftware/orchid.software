@@ -55,10 +55,10 @@ return [
                 'Authentication'      => '/en/docs/authentication',
                 'Custom Fields'       => '/en/docs/custom-field',
                 'Stubs'               => '/en/docs/stubs',
-                'Package Development' => '/en/docs/packages',
                 //'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
+                'Package Development' => '/en/docs/packages',
                 'CRUD'    => '/en/docs/packages/crud',
                 'Fortify' => 'https://github.com/orchidsoftware/fortify',
             ],
