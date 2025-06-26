@@ -474,14 +474,12 @@ interactions. Here&rsquo;s a look at the generated class:</p>
 <p>Let&rsquo;s examine the generated Blade template:</p>
 <pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
 <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
-        {{
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> {{
         $attributes-&gt;merge([
-    'data-emoji-picker-target' =&gt; 'name',
-    'data-action' =&gt; 'input-&gt;emoji-picker#greet',
-    ])
+            'data-emoji-picker-target' =&gt; 'name',
+            'data-action' =&gt; 'input-&gt;emoji-picker#greet',
+        ])
     }}&gt;
-
     <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
 <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 @endcomponent
@@ -495,8 +493,7 @@ interactions. Here&rsquo;s a look at the generated class:</p>
         }
 
         <span class="hl-function">greet</span>() {
-            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
-                <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
+            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
         }
     });
 <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
@@ -512,8 +509,7 @@ This lightweight JavaScript framework connects logic to HTML via data attributes
 dynamic form fields.</p>
 <h3><a href='#controller-structure' id='controller-structure'>Controller Structure</a></h3>
 <p>Here&rsquo;s a simplified view of the <code>EmojiPicker</code> controller:</p>
-<pre><code data-lang="html" class="notranslate">
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
     Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
         <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
 
@@ -538,8 +534,7 @@ dynamic form fields.</p>
 <li><p><strong>Methods:</strong> Custom functions for handling events (like <code>greet()</code>)</p></li>
 </ul>
 <h3><a href='#connecting-to-html' id='connecting-to-html'>Connecting to HTML</a></h3>
-<pre><code data-lang="html" class="notranslate">
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
     <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
         <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span>
         <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"input-&gt;emoji-picker#greet"</span>
@@ -548,13 +543,13 @@ dynamic form fields.</p>
 <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
 <ul>
-<li><p><strong><code>data-controller="emoji-picker"</code></strong> initializes the controller.</p></li>
-<li><p><strong>Targets:</strong></p>
+<li><strong><code>data-controller="emoji-picker"</code></strong> initializes the controller.</li>
+<li><strong>Targets:</strong>
 <ul>
 <li><code>data-emoji-picker-target="name"</code> &rarr; accessed via <code>this.nameTarget</code></li>
 <li><code>data-emoji-picker-target="output"</code> &rarr; accessed via <code>this.outputTarget</code></li>
 </ul></li>
-<li><p><strong>Actions:</strong></p>
+<li><strong>Actions:</strong>
 <ul>
 <li><code>data-action="input-&gt;emoji-picker#greet"</code> triggers <code>greet()</code> on <code>input</code> events.</li>
 </ul></li>
@@ -590,8 +585,7 @@ the <a href="/ru/docs/javascript/">JavaScript documentation</a>.</p>
     }
 });
 </code></pre>
-<pre><code data-lang="html" class="notranslate">
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-delimeter">&gt;</span>
     <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
 <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 </code></pre>
