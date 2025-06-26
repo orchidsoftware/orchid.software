@@ -53,6 +53,7 @@ return [
                 'Testing'             => '/en/docs/testing',
                 'Controllers'         => '/en/docs/controllers',
                 'Authentication'      => '/en/docs/authentication',
+                'Custom Fields'       => '/en/docs/custom-field',
                 'Stubs'               => '/en/docs/stubs',
                 'Package Development' => '/en/docs/packages',
                 //'Recipes'      => '/en/recipes',
