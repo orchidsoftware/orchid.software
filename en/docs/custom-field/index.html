@@ -21,11 +21,11 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
 
 
-    <title>Configuration | Orchid - Laravel Admin Panel</title>
+    <title>Custom Fields | Orchid - Laravel Admin Panel</title>
 
 
-<meta name="title" content="Configuration | Orchid - Laravel Admin Panel">
-<meta name="description" content="Learn how to configure Laravel Orchid&amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
+<meta name="title" content="Custom Fields | Orchid - Laravel Admin Panel">
+<meta name="description" content="Creating your own custom input field in the Orchid admin panel">
 
 
 
@@ -33,25 +33,25 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://orchid.software/en/docs/configuration"/>
+<meta property="og:url" content="https://orchid.software/en/docs/custom-field"/>
 <meta property="og:locale" content="en"/>
-<meta property="og:title" content="Configuration | Orchid - Laravel Admin Panel"/>
-<meta property="og:description" content="Learn how to configure Laravel Orchid&amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
+<meta property="og:title" content="Custom Fields | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Creating your own custom input field in the Orchid admin panel">
 <meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:url" content="https://orchid.software/en/docs/configuration">
-<meta name="twitter:title" content="Configuration | Orchid - Laravel Admin Panel">
-<meta name="twitter:description" content="Learn how to configure Laravel Orchid&amp;#039;s powerful features to customize and optimize your application. Our comprehensive documentation on the Configuration page will guide you through the process.">
+<meta name="twitter:url" content="https://orchid.software/en/docs/custom-field">
+<meta name="twitter:title" content="Custom Fields | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Creating your own custom input field in the Orchid admin panel">
 <meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
 
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
     <meta name="view-transition" content="same-origin">
         
-    <link rel="alternate" href="https://orchid.software/ru/docs/configuration/" hreflang="ru"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/configuration/" hreflang="en"/>
-    <link rel="alternate" href="https://orchid.software/en/docs/configuration/" hreflang="x-default"/>
+    <link rel="alternate" href="https://orchid.software/ru/docs/custom-field/" hreflang="ru"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/custom-field/" hreflang="en"/>
+    <link rel="alternate" href="https://orchid.software/en/docs/custom-field/" hreflang="x-default"/>
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
@@ -149,8 +149,8 @@
                         Installation
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/configuration" class="text-decoration-none text-primary">
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/configuration" class="text-decoration-none ">
                         Configuration
                     </a>
                 </li>
@@ -330,8 +330,8 @@
                         Authentication
                     </a>
                 </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/custom-field" class="text-decoration-none text-primary">
                         Custom Fields
                     </a>
                 </li>
@@ -371,9 +371,9 @@
                     <main class="py-2 px-3 py-md-2 px-md-4 px-xl-5 ms-md-4 me-md-auto order-md-first overflow-auto">
                         
                             <div class="d-flex align-items-center mb-3 mt-3">
-                                <h1 class="me-3">Configuration</h1>
+                                <h1 class="me-3">Custom Fields</h1>
 
-                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/configuration.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/custom-field.md" class="btn btn-outline-dark ms-auto d-none d-md-flex align-items-center text-decoration-none text-nowrap"
                                    title="View and edit this file on GitHub" target="_blank" rel="noopener"
                                 >
                                     <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
@@ -387,157 +387,216 @@
                             <div class="anchors">
             <ul>
                             <li class="anchor-h2">
-                    <a href="#domain">Domain</a>
+                    <a href="#creating-a-new-field">Creating a New Field</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#blade-template-view">Blade Template (view)</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#prefix">Prefix</a>
+                    <a href="#stimulus-basics">Stimulus Basics</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#controller-structure">Controller Structure</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#connecting-to-html">Connecting to HTML</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#registering-a-controller">Registering a Controller</a>
+                </li>
+                            <li class="anchor-h3">
+                    <a href="#working-with-elements">Working with Elements</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#middleware">Middleware</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#login-page">Login Page</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#home-page">Home Page</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#asset-resources">Asset Resources</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#appearance-patterns">Appearance Patterns</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#model-classes">Model Classes</a>
-                </li>
-                            <li class="anchor-h2">
-                    <a href="#overriding-blade-templates">Overriding Blade Templates</a>
+                    <a href="#integrating-third-party-libraries">Integrating Third-Party Libraries</a>
                 </li>
                     </ul>
     </div>
-                            <body><p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
-<blockquote>
-<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Use the <code>php artisan config:clear</code> command to refresh it.</p>
-</blockquote>
-<p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
-<h2><a href='#domain' id='domain'>Domain</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_DOMAIN'</span>, <span class="hl-keyword"><span class="hl-constant">null</span></span>),
+                            <body><h2><a href='#creating-a-new-field' id='creating-a-new-field'>Creating a New Field</a></h2>
+<p>Orchid provides a rich set of built-in form fields, but sometimes those aren&rsquo;t enough for specific use cases.
+In such cases, you can create a custom field tailored to your needs.</p>
+<p>A field in Orchid consists of two main parts:</p>
+<ul>
+<li>A <strong>PHP class</strong> that handles its logic</li>
+<li>A <strong>Blade view</strong> that renders its appearance</li>
+</ul>
+<p>To generate a new field, use the Artisan command:</p>
+<pre><code data-lang="shell" class="notranslate">php artisan make:field EmojiPicker
 </code></pre>
-<p>For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
-<p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration file:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'admin.example.com'</span>,
-</code></pre>
-<p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
-<h2><a href='#prefix' id='prefix'>Prefix</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_PREFIX'</span>, <span class="hl-value">'admin'</span>),
-</code></pre>
-<p>The <code>prefix</code> parameter allows you to change the default <code>admin</code> prefix to any other name, such as <code>orchid</code> or <code>administrator</code>. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.</p>
-<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code> instead of <code>https://example.com/admin/login</code>.</p>
-<p>To change the prefix, you can update the prefix parameter in the configuration file:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'dashboard'</span>,
-</code></pre>
-<p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.</p>
-<h2><a href='#middleware' id='middleware'>Middleware</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'middleware'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'public'</span>  <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'web'</span>, 
-        <span class="hl-value">'cache.headers:private;must_revalidate;etag'</span>
-    ],
-    <span class="hl-value">'private'</span> <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'web'</span>,
-        <span class="hl-value">'platform'</span>,
-        <span class="hl-value">'cache.headers:private;must_revalidate;etag'</span>
-    ],
-],
-</code></pre>
-<p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
-<p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The <code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.</p>
-<p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.</p>
-<h2><a href='#login-page' id='login-page'>Login Page</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
-</code></pre>
-<p>The <code>auth</code> parameter controls whether the package uses its own simple login interface or not. By default, it is set to <code>true</code>, which means the platform will use its own login interface.</p>
-<p>If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a> or roll your own login interface.</p>
-<p>To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you roll your own login interface, you will need to create the necessary controllers, views, and routes for the login process.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">false</span>,
-</code></pre>
-<h2><a href='#home-page' id='home-page'>Home Page</a></h2>
-<p>The <code>index</code> parameter controls the main page of the admin panel that the user will see when they first log in or click on the logo or links in the navigation bar.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform.main'</span>,
-</code></pre>
-<p>The default value for this parameter is <code>platform.main</code>, which corresponds to the main dashboard page of the platform.</p>
-<p>You can change this to any other route you have defined in your application. For example, if you want to redirect users to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
-</code></pre>
-<p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
-<h2><a href='#asset-resources' id='asset-resources'>Asset Resources</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
-    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [],
-],
-</code></pre>
-<p>The <code>resource</code> parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
-<p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'/path/to/custom.css'</span>
-    ],
-    <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'/path/to/custom.js'</span>, <span class="hl-comment">// Local path in the public directory</span>
-        <span class="hl-value">'https://cdn.example.com/app.js'</span>, // <span class="hl-constant">CDN</span> path
-    ],
-],
-</code></pre>
-<p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
-<h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
-<p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
-    <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
-    <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
-],
-</code></pre>
-<h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
-<p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Providers;
+<p>This will create the following files:</p>
+<ul>
+<li><strong>PHP Class</strong>: <code>app/Orchid/Fields/EmojiPicker.php</code></li>
+<li><strong>Blade Template</strong>: <code>resources/views/orchid/fields/emoji-picker.blade.php</code></li>
+</ul>
+<p>You can modify these files as needed&mdash;update the HTML markup, apply styles, include external libraries, and define user
+interactions. Here&rsquo;s a look at the generated class:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Fields;
 
-<span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
-<span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
 
-<span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
+<span class="hl-keyword">class</span> <span class="hl-type">EmojiPicker</span> <span class="hl-keyword">extends</span> <span class="hl-template">Field</span>
 {
     <span class="hl-comment">/**
-     * Bootstrap any application services.
-     *
-     * <span class="hl-keyword">@return</span> <span class="hl-keyword">void</span>
+     * The Blade template used for rendering the field.
      */</span>
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
-    {
-        <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
-            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, 
-            \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
-        );
-    }
+    <span class="hl-keyword">protected</span> $view <span class="hl-operator">=</span> <span class="hl-value">'orchid.fields.emoji-picker'</span>;
+
+    <span class="hl-comment">/**
+     * Default attribute values.
+     */</span>
+    <span class="hl-keyword">protected</span> $attributes <span class="hl-operator">=</span> [
+        <span class="hl-value">'placeholder'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Enter text...'</span>,
+        <span class="hl-value">'class'</span>       <span class="hl-operator">=&gt;</span> <span class="hl-value">'form-control'</span>,
+        <span class="hl-value">'type'</span>        <span class="hl-operator">=&gt;</span> <span class="hl-value">'text'</span>,
+    ];
+
+    <span class="hl-comment">/**
+     * List of attributes that will be passed into the HTML markup.
+     */</span>
+    <span class="hl-keyword">protected</span> $inlineAttributes <span class="hl-operator">=</span> [
+        <span class="hl-value">'placeholder'</span>,
+        <span class="hl-value">'value'</span>,
+        <span class="hl-value">'type'</span>,
+    ];
 }
 </code></pre>
-<h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all Laravel packages, not just Orchid);</p>
-<blockquote>
-<p>&#128680; <strong>Alert!</strong>
-Overridden templates do not receive updates or bug fixes.
-Think of this as turning off the autopilot.</p>
-</blockquote>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
-<p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
-<code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
-<pre><code data-lang="php" class="notranslate">your-project/
-├─ <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
-└─ resources/
-   └─ views/
-      └─ vendor/
-         └─ platform/
-            └─ partials/
-                └─ search<span class="hl-delimeter">.</span>blade<span class="hl-delimeter">.</span>php          
+<ul>
+<li><strong><code>$view</code></strong>: Points to the Blade template that will be used for rendering the field. In this case, it&rsquo;s
+<code>orchid.fields.emoji-picker</code>.</li>
+<li><strong><code>$attributes</code></strong>: Defines default values like <code>placeholder</code>, <code>class</code>, and <code>type</code>.</li>
+<li><strong><code>$inlineAttributes</code></strong>: Lists the attributes that should be rendered as inline HTML attributes.</li>
+</ul>
+<p>You don&rsquo;t need to manually register your custom field&mdash;it&rsquo;s immediately usable. For example:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">EmojiPicker</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'reaction'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Pick an emoji'</span>);
 </code></pre>
+<h3>Blade Template (<code>view</code>)</h3>
+<p>Let&rsquo;s examine the generated Blade template:</p>
+<pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
+        {{
+        $attributes-&gt;merge([
+    'data-emoji-picker-target' =&gt; 'name',
+    'data-action' =&gt; 'input-&gt;emoji-picker#greet',
+    ])
+    }}&gt;
+
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+@endcomponent
+
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+    Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+        <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
+
+        <span class="hl-function">connect</span>() {
+            console.<span class="hl-property2"><span class="hl-function">log</span></span>("Emoji Picker controller has been connected!");
+        }
+
+        <span class="hl-function">greet</span>() {
+            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
+                <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
+        }
+    });
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+</code></pre>
+<p>Inside the <code>&lt;script&gt;</code> block, a <a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a> controller is created and
+registered on the fly using <code>Orchid.register()</code>.
+This controller is attached to the HTML via the <code>data-controller</code> attribute. You can leverage the full power of Stimulus
+to make your field interactive.</p>
+<hr>
+<h2><a href='#stimulus-basics' id='stimulus-basics'>Stimulus Basics</a></h2>
+<p>Orchid uses Stimulus to add interactivity to UI components.
+This lightweight JavaScript framework connects logic to HTML via data attributes, making it especially suitable for
+dynamic form fields.</p>
+<h3><a href='#controller-structure' id='controller-structure'>Controller Structure</a></h3>
+<p>Here&rsquo;s a simplified view of the <code>EmojiPicker</code> controller:</p>
+<pre><code data-lang="html" class="notranslate">
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+    Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+        <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
+
+        <span class="hl-function">connect</span>() {
+            console.<span class="hl-property2"><span class="hl-function">log</span></span>("Controller connected to <span class="hl-constant">DOM</span> element");
+        }
+
+        <span class="hl-function">greet</span>() {
+            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
+        }
+    });
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+</code></pre>
+<ul>
+<li><p><strong>Controller Name:</strong> Defined in <code>data-controller</code>, e.g., <code>emoji-picker</code></p></li>
+<li><p><strong>Targets:</strong> HTML elements accessible via <code>data-&lt;controller&gt;-target</code></p></li>
+<li><p><strong>Lifecycle Methods:</strong></p>
+<ul>
+<li><code>connect()</code> is called when the controller is attached to the DOM</li>
+<li><code>disconnect()</code> is triggered when it&rsquo;s removed</li>
+</ul></li>
+<li><p><strong>Methods:</strong> Custom functions for handling events (like <code>greet()</code>)</p></li>
+</ul>
+<h3><a href='#connecting-to-html' id='connecting-to-html'>Connecting to HTML</a></h3>
+<pre><code data-lang="html" class="notranslate">
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
+        <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span>
+        <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"input-&gt;emoji-picker#greet"</span>
+    <span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+</code></pre>
+<ul>
+<li><p><strong><code>data-controller="emoji-picker"</code></strong> initializes the controller.</p></li>
+<li><p><strong>Targets:</strong></p>
+<ul>
+<li><code>data-emoji-picker-target="name"</code> &rarr; accessed via <code>this.nameTarget</code></li>
+<li><code>data-emoji-picker-target="output"</code> &rarr; accessed via <code>this.outputTarget</code></li>
+</ul></li>
+<li><p><strong>Actions:</strong></p>
+<ul>
+<li><code>data-action="input-&gt;emoji-picker#greet"</code> triggers <code>greet()</code> on <code>input</code> events.</li>
+</ul></li>
+</ul>
+<h3><a href='#registering-a-controller' id='registering-a-controller'>Registering a Controller</a></h3>
+<p>Use <code>Orchid.register()</code> to define and register a controller:</p>
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'controller-name'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+    <span class="hl-comment">// Controller logic here</span>
+});
+</code></pre>
+<h3><a href='#working-with-elements' id='working-with-elements'>Working with Elements</a></h3>
+<ul>
+<li><p><strong>Single element</strong>: <code>this.&lt;target&gt;Target</code> (e.g., <code>this.nameTarget</code>)</p></li>
+<li><p><strong>Multiple elements</strong>: <code>this.&lt;target&gt;Targets</code> (array)</p></li>
+<li><p><strong>DOM Queries:</strong></p>
+<ul>
+<li><code>this.element</code> &mdash; the main controller element</li>
+<li><code>this.findElement(selector)</code> &mdash; find elements within the controller&rsquo;s scope</li>
+</ul></li>
+</ul>
+<hr>
+<h2><a href='#integrating-third-party-libraries' id='integrating-third-party-libraries'>Integrating Third-Party Libraries</a></h2>
+<blockquote>
+<p>Note: You may need to compile assets using Vite. For more, refer to
+the <a href="/ru/docs/javascript/">JavaScript documentation</a>.</p>
+</blockquote>
+<p>Example: integrating a DatePicker</p>
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'date-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+    <span class="hl-function">connect</span>() {
+        <span class="hl-keyword">new</span> <span class="hl-function">DatePicker</span>(<span class="hl-slug">this</span>.<span class="hl-property2">element</span>, {
+            format: <span class="hl-value">'YYYY-MM-DD'</span>
+        });
+    }
+});
+</code></pre>
+<pre><code data-lang="html" class="notranslate">
+<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+</code></pre>
+<p><a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a> makes it easy to integrate JavaScript libraries into
+your custom fields, keeping your code modular and maintainable.</p>
 </body>
 
                                                                         </main>
