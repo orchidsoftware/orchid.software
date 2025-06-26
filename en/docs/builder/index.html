@@ -392,9 +392,6 @@
                             <li class="anchor-h2">
                     <a href="#data-binding">Data Binding</a>
                 </li>
-                            <li class="anchor-h2">
-                    <a href="#creating-a-field">Creating a Field</a>
-                </li>
                     </ul>
     </div>
                             <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
@@ -466,75 +463,6 @@ $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">setLang
 
 $html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
-<h2><a href='#creating-a-field' id='creating-a-field'>Creating a Field</a></h2>
-<p>Every field is just a setting above the view that passes data to the template.
-Here is an example of how to create custom input fields by using the <code>Field</code> class.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Fields;
-
-<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
-
-<span class="hl-keyword">class</span> <span class="hl-type">CustomField</span> <span class="hl-keyword">extends</span> <span class="hl-template">Field</span>
-{
-    <span class="hl-comment">/**
-     * Blade template
-     * 
-     * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
-     */</span>
-    <span class="hl-keyword">protected</span> $view <span class="hl-operator">=</span> <span class="hl-value">''</span>;
-
-    <span class="hl-comment">/**
-     * Default attributes value.
-     *
-     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
-     */</span>
-    <span class="hl-keyword">protected</span> $attributes <span class="hl-operator">=</span> [];
-
-    <span class="hl-comment">/**
-     * Attributes available for a particular tag.
-     *
-     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
-     */</span>
-    <span class="hl-keyword">protected</span> $inlineAttributes <span class="hl-operator">=</span> [];
-}
-</code></pre>
-<p>The <code>view</code> property is determined by the blade.
-<code>attributes</code> lists default values, and <code>inlineAttributes</code>
-define keys in html format, for example:</p>
-<pre><code data-lang="html" class="notranslate">First name: <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span> <span class="hl-attribute">name</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;</span><span class="hl-tag2">br</span><span class="hl-delimeter">&gt;</span>
-</code></pre>
-<p>In this example, the inline attribute is type and name specified directly in the tag.
-And the <code>make()</code> method is only for quick and convenient initialization, since any form that should add or modify data must possess it.</p>
-<p>We only update that the created class and add the blade template, using the example above:</p>
-<pre><code data-lang="php" class="notranslate">{{ $title }}: &lt;input {{ $attributes }}&gt;&lt;br&gt;
-</code></pre>
-<p>In order to try a new field, you must use the built-in <code>render()</code> method:</p>
-<pre><code data-lang="php" class="notranslate">$input <span class="hl-operator">=</span> <span class="hl-type">CustomField</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>);
-    
-$html <span class="hl-operator">=</span> $input<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(); <span class="hl-comment">// html string</span>
-</code></pre>
-<p>The <code>html</code> variable will contain the template just specified, try adding some elements:</p>
-<pre><code data-lang="php" class="notranslate">$input <span class="hl-operator">=</span> <span class="hl-type">CustomField</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'How your name?'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Sheldon Cooper'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-value">'Alexandr Chernyaev'</span>);
-
-$html <span class="hl-operator">=</span> $input<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>();
-</code></pre>
-<p>After we refresh the page, a new title is displayed on it, instead of the default, but neither placeholder nor value was applied.
-It is because they were not specified in the <code>inlineAttributes</code>, fix this:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
- * Attributes available for a particular tag.
- *
- * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
- */</span>
-<span class="hl-keyword">protected</span> $inlineAttributes <span class="hl-operator">=</span> [
-    <span class="hl-value">'name'</span>,
-    <span class="hl-value">'type'</span>,
-    <span class="hl-value">'placeholder'</span>,
-    <span class="hl-value">'value'</span>
-];
-</code></pre>
-<p>After that, each attribute will be drawn in our template.</p>
 </body>
 
                                                                         </main>
