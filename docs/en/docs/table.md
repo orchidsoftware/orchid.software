@@ -116,18 +116,16 @@ To add a field, call the filter method and pass the instance of the class you wo
 
 ```php
 TD::make('SKU')->filter(Input::make()->mask('A-999999'));
+
+TD::make('color')->filter(
+    Select::make()
+        ->options(['red' => 'Red', 'green' => 'Green'])
+        ->empty()
+),
+
 ```
 
 > **Note**: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
-
-Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.
-
-```php
-TD::make('color')->filter(TD::FILTER_SELECT, [
-    'red'   => 'Red',
-    'green' => 'Green',
-]);
-```
 
 When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed filter values.
 For example, you can replace an ID value with a display name. Here is an example of using the `filterValue()` method:
