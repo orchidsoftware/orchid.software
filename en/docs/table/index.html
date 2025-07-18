@@ -500,16 +500,17 @@ Therefore, you can display the field for filtering right above the column headin
 You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&ldquo;Eloquent Filters&rdquo; page</a>.</p>
 <p>To add a field, call the filter method and pass the instance of the class you would like to display:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'SKU'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>(<span class="hl-value">'A-999999'</span>));
+
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'color'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(
+    <span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">options</span>([<span class="hl-value">'red'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Red'</span>, <span class="hl-value">'green'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Green'</span>])
+        <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">empty</span></span>()
+),
+
 </code></pre>
 <blockquote>
 <p><strong>Note</strong>: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.</p>
 </blockquote>
-<p>Filtering multiple values can be done with a Select, and with an optional second argument of filter. By default it lets filter for any/all of the given values.</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'color'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">FILTER_SELECT</span>, [
-    <span class="hl-value">'red'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-value">'Red'</span>,
-    <span class="hl-value">'green'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Green'</span>,
-]);
-</code></pre>
 <p>When working with filters, it is possible to use the <code>filterValue()</code> method, which allows you to modify the displayed filter values.
 For example, you can replace an ID value with a display name. Here is an example of using the <code>filterValue()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filterValue</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$value</span>) {
