@@ -424,7 +424,7 @@ class Task extends Screen
 
         <div class="row align-items-center my-3 py-3 my-md-5 py-md-5">
 
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6 col-xl-5">
 
                 <h2 class="display-5 fw-bold px-3">Free & <span class="text-primary">Open Source</span>
                     <span class="d-block">for any purposes</span>
@@ -442,7 +442,7 @@ class Task extends Screen
 
             </div>
 
-            <div class="d-none d-md-block col-md-7">
+            <div class="d-none d-md-block col-md-6 col-xl-7">
                 <x-contributors/>
             </div>
         </div>
