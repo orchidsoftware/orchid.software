@@ -41,7 +41,7 @@
 
     <div class="container">
         <div class="row my-3 my-md-5">
-            <div class="col-12 col-lg-6 mx-auto text-md-center">
+            <div class="col-12 col-md-9 col-xl-6 mx-auto text-md-center">
                 <h1 class="display-5 fw-bold px-3">
                     <span class="d-block d-md-inline-block ">Say <span class="text-primary">goodbye</span></span>
                     <small class="d-block">to Tedious Development</small>
