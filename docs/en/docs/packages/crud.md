@@ -257,6 +257,11 @@ public static function displayInNavigation(): bool
 }
 ```
 
+Even if the resource is hidden from the navigation, you can still reference its list page directly:
+
+```
+route('platform.resource.list', UserResource::uriKey())
+```
 
 ## Eager Loading
 
