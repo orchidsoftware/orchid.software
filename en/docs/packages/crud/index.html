@@ -638,6 +638,9 @@ You are not required to register them manually. But if this is required, for exa
     <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
 }
 </code></pre>
+<p>Even if the resource is hidden from the navigation, you can still reference its list page directly:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-function">route</span>(<span class="hl-value">'platform.resource.list'</span>, <span class="hl-type">UserResource</span><span class="hl-delimeter">::</span><span class="hl-function">uriKey</span>())
+</code></pre>
 <h2><a href='#eager-loading' id='eager-loading'>Eager Loading</a></h2>
 <p>Suppose you routinely need to access a resource&rsquo;s relationships within your fields. In that case, it may be a good idea to add the relationship to the <code>with</code> property of your resource. This property instructs to always eager to load the listed relationships when retrieving the resource.</p>
 <pre><code data-lang="php" class="notranslate"> <span class="hl-comment">/**
