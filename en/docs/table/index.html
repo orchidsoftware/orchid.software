@@ -736,6 +736,26 @@ specifying methods:</p>
     <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
 }
 </code></pre>
+<p>If you need a compact table, then you can enable
+<code>compact</code> mode:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">compact</span>(): <span class="hl-keyword">bool</span>
+{
+    <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
+}
+</code></pre>
+<p>If you need a hoverable table, then you can enable
+<code>hoverable</code> mode:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
+ * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ */</span>
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">hoverable</span>(): <span class="hl-keyword">bool</span>
+{
+    <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
+}
+</code></pre>
 <p>You can dynamically change the amount of links to display in the table pagination with the following method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The number of links to display on each side of current page link.
