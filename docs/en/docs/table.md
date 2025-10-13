@@ -426,6 +426,32 @@ protected function striped(): bool
 }
 ```
 
+If you need compact table, then you can enable
+`compact` mode:
+
+```php
+/**
+ * @return bool
+ */
+protected function compact(): bool
+{
+    return true;
+}
+```
+
+If you need hoverable table, then you can enable
+`hoverable` mode:
+
+```php
+/**
+ * @return bool
+ */
+protected function hoverable(): bool
+{
+    return true;
+}
+```
+
 You can dynamically change the amount of links to display in the table pagination with the following method:
 
 ```php
