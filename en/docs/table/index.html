@@ -703,23 +703,23 @@ blade;
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ * Icon displayed when no data is found.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">iconNotFound</span>(): <span class="hl-keyword">string</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-value">'table'</span>;
+    <span class="hl-keyword">return</span> <span class="hl-value">'bs.journal-x'</span>;
 }
 
 <span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ * Text displayed when no data is found.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">textNotFound</span>(): <span class="hl-keyword">string</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'There are no records in this view'</span>);
+    <span class="hl-keyword">return</span> <span class="hl-value">'There are no records in this view'</span>;
 }
 
 <span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>
+ * Subtext displayed when no data is found.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">subNotFound</span>(): <span class="hl-keyword">string</span>
 {
@@ -729,7 +729,7 @@ specifying methods:</p>
 <p>If the table rows do not seem contrasting to you, then you can enable
 <code>striped</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ * Usage for zebra-striping to any table row.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">striped</span>(): <span class="hl-keyword">bool</span>
 {
@@ -739,7 +739,7 @@ specifying methods:</p>
 <p>If you need a compact table, then you can enable
 <code>compact</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ * Usage for compact display of table rows.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">compact</span>(): <span class="hl-keyword">bool</span>
 {
@@ -749,7 +749,7 @@ specifying methods:</p>
 <p>If you need a hoverable table, then you can enable
 <code>hoverable</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">bool</span>
+ * Enable a hover state on table rows.
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">hoverable</span>(): <span class="hl-keyword">bool</span>
 {
@@ -759,8 +759,6 @@ specifying methods:</p>
 <p>You can dynamically change the amount of links to display in the table pagination with the following method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The number of links to display on each side of current page link.
- *
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">int</span>
  */</span>
 <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">onEachSide</span>(): <span class="hl-keyword">int</span>
 {
