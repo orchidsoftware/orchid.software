@@ -439,7 +439,7 @@ protected function compact(): bool
 }
 ```
 
-If you need hoverable table, then you can enable
+If you need a hoverable table, then you can enable
 `hoverable` mode:
 
 ```php
