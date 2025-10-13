@@ -426,7 +426,7 @@ protected function striped(): bool
 }
 ```
 
-If you need compact table, then you can enable
+If you need a compact table, then you can enable
 `compact` mode:
 
 ```php
