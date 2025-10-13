@@ -389,23 +389,23 @@ specifying methods:
 
 ```php
 /**
- * @return string
+ * Icon displayed when no data is found.
  */
 protected function iconNotFound(): string
 {
-    return 'table';
+    return 'bs.journal-x';
 }
 
 /**
- * @return string
+ * Text displayed when no data is found.
  */
 protected function textNotFound(): string
 {
-    return __('There are no records in this view');
+    return 'There are no records in this view';
 }
 
 /**
- * @return string
+ * Subtext displayed when no data is found.
  */
 protected function subNotFound(): string
 {
@@ -418,7 +418,7 @@ If the table rows do not seem contrasting to you, then you can enable
 
 ```php
 /**
- * @return bool
+ * Usage for zebra-striping to any table row.
  */
 protected function striped(): bool
 {
@@ -431,7 +431,7 @@ If you need a compact table, then you can enable
 
 ```php
 /**
- * @return bool
+ * Usage for compact display of table rows.
  */
 protected function compact(): bool
 {
@@ -444,7 +444,7 @@ If you need a hoverable table, then you can enable
 
 ```php
 /**
- * @return bool
+ * Enable a hover state on table rows.
  */
 protected function hoverable(): bool
 {
@@ -457,8 +457,6 @@ You can dynamically change the amount of links to display in the table paginatio
 ```php
 /**
  * The number of links to display on each side of current page link.
- *
- * @return int
  */
 protected function onEachSide(): int
 {
