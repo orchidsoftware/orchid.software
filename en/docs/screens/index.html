@@ -411,12 +411,15 @@
                     <a href="#link">Link</a>
                 </li>
                             <li class="anchor-h3">
+                    <a href="#toggle">Toggle</a>
+                </li>
+                            <li class="anchor-h3">
                     <a href="#modaltoggle">ModalToggle</a>
                 </li>
-                            <li class="anchor-h3">
+                            <li class="anchor-h2">
                     <a href="#duplicate-actions">Duplicate Actions</a>
                 </li>
-                            <li class="anchor-h3">
+                            <li class="anchor-h2">
                     <a href="#calling-a-screen-method">Calling a Screen Method</a>
                 </li>
                             <li class="anchor-h2">
@@ -640,6 +643,25 @@ All of the data that the user has seen on the screen will be available in the re
     ];
 }
 </code></pre>
+<h3><a href='#toggle' id='toggle'>Toggle</a></h3>
+<p>Toggle actions allow users to switch a boolean state interactively. They are designed specifically for tables and other UI elements where users need to quickly change a value. When clicked, the toggle calls a method on the screen and can update the value without leaving the context.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Toggle</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
+
+<span class="hl-comment">// Example: displaying toggle in a table column</span>
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Enabled'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">function</span></span>(<span class="hl-injection"><span class="hl-type">User</span> $user</span>) {
+    <span class="hl-keyword">return</span> <span class="hl-type">Toggle</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Enabled'</span>)
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'switch'</span>, [<span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> $user])
+        <span class="hl-delimeter">-&gt;</span><span class="hl-function">status</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">active</span>);
+});
+</code></pre>
+<p><strong>Recommendation:</strong> For the smoothest experience, use the following configuration:</p>
+<pre><code data-lang="php" class="notranslate">[
+    <span class="hl-comment">// ...</span>
+    <span class="hl-value">'refresh-method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'morph'</span>,
+    <span class="hl-value">'refresh-scroll'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'preserve'</span>,
+];
+</code></pre>
 <h3><a href='#modaltoggle' id='modaltoggle'>ModalToggle</a></h3>
 <p>Modal toggle actions allow users to open a modal window when clicked. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">ModalToggle</span>;
@@ -653,10 +675,10 @@ All of the data that the user has seen on the screen will be available in the re
     ];
 }
 </code></pre>
-<h3><a href='#duplicate-actions' id='duplicate-actions'>Duplicate Actions</a></h3>
+<h2><a href='#duplicate-actions' id='duplicate-actions'>Duplicate Actions</a></h2>
 <p>In software development, it is common for similar actions to be performed across multiple screens or classes. For example, an action such as deleting an object may be needed on both a pagination screen and a details screen. Instead of duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.</p>
 <p>PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for redundant code. This not only improves the efficiency of the development process but also makes the code more maintainable and easier to understand.</p>
-<h3><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h3>
+<h2><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h2>
 <p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
 <pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">form</span> <span class="hl-attribute">action</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [<span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>]) }}"</span>
