@@ -98,7 +98,7 @@ Layout::modal('exampleModals', [
 
 A modal window has two actions:
 
-- Color button - the default action, saves the work done or confirms the previously called command.
+- Apply button - the default action; executes the method.
 - Cancel button - closes the window without saving the entered data.
 
 
