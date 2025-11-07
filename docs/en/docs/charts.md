@@ -102,6 +102,8 @@ Set the height of the chart in pixels by specifying the property:
 
 ```php
 /**
+ * Height of the chart.
+ *
  * @var int
  */
 protected $height = 250;
