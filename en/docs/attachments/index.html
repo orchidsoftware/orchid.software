@@ -420,21 +420,21 @@
     </div>
                             <body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
 <p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachments()</code> relationship.</p>
-<p>For example, to attach files to a <code>Hostel</code> model:</p>
+<p>For example, to attach files to a <code>Post</code> model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 <span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
 
-<span class="hl-keyword">class</span> <span class="hl-type">Hostel</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
     <span class="hl-keyword">use</span> <span class="hl-type">Attachable</span>;
     <span class="hl-comment">//</span>
 }
 </code></pre>
-<p>To retrieve the attachments for a particular hostel, you can use the <code>attachments()</code> relationship:</p>
-<pre><code data-lang="php" class="notranslate">$item <span class="hl-operator">=</span> <span class="hl-type">Hostel</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">42</span>);
-$item<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
+<p>To retrieve the attachments for a particular post, you can use the <code>attachments()</code> relationship:</p>
+<pre><code data-lang="php" class="notranslate">$model <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">42</span>);
+$model<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
 <p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller method that handles file uploads:</p>
@@ -442,9 +442,13 @@ $item<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachment
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
+    <span class="hl-comment">// Create a new File instance from the uploaded photo</span>
     $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
+
+    <span class="hl-comment">// Store the file and get the attachment model</span>
     $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
+    <span class="hl-comment">// Return the attachment as JSON</span>
     <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>($attachment);
 }
 </code></pre>
@@ -480,7 +484,7 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
     $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
     $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">allowDuplicates</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
-    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>()
+    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>();
 }   
 </code></pre>
 <p>Keep in mind that allowing duplicate files may increase storage usage and affect your application&rsquo;s performance. Therefore, it should be used with caution and only when necessary.</p>
@@ -495,7 +499,7 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
     $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
     $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>($path)<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
-    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>()
+    <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>();
 }
 </code></pre>
 <p>In this example, the <code>path()</code> method is used to set the path to <code>photos</code> before loading the file. This will change the default path and all files will be uploaded to the <code>photos</code> folder.</p>
