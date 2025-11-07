@@ -394,12 +394,11 @@
 <p>This will generate a new class in the <code>app/Http/Controllers</code> directory. You can then modify the class as needed:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Controllers;
 
+<span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">View</span>;
+
 <span class="hl-keyword">class</span> <span class="hl-type">OrchidController</span> <span class="hl-keyword">extends</span> <span class="hl-template">Controller</span>
 {
-    <span class="hl-comment">/**
-     * <span class="hl-keyword">@return</span> \Illuminate\<span class="hl-type">View</span>\<span class="hl-type">View</span>
-     */</span>
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">index</span>()
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">index</span>(): <span class="hl-type">View</span>
     {
         <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'custom'</span>);
     }
