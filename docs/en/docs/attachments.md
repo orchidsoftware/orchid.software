@@ -8,7 +8,7 @@ description: Learn how to use Laravel Orchid's Attachments feature to manage and
 
 Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the `Attachable` trait to the model and using the `attachments()` relationship.
 
-For example, to attach files to a `Hostel` model:
+For example, to attach files to a `Post` model:
 
 
 ```php
@@ -17,18 +17,18 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 
-class Hostel extends Model
+class Post extends Model
 {
     use Attachable;
     //
 }
 ```
 
-To retrieve the attachments for a particular hostel, you can use the `attachments()` relationship:
+To retrieve the attachments for a particular post, you can use the `attachments()` relationship:
 
 ```php
-$item = Hostel::find(42);
-$item->attachments()->get();
+$model = Post::find(42);
+$model->attachments()->get();
 ```
 
 
@@ -42,9 +42,13 @@ use Orchid\Attachment\File;
 
 public function upload(Request $request)
 {
+    // Create a new File instance from the uploaded photo
     $file = new File($request->file('photo'));
+
+    // Store the file and get the attachment model
     $attachment = $file->load();
 
+    // Return the attachment as JSON
     return response()->json($attachment);
 }
 ```
@@ -98,7 +102,7 @@ public function upload(Request $request)
     $file = new File($request->file('photo'));
     $attachment = $file->allowDuplicates()->load();
 
-    return response()->json()
+    return response()->json();
 }   
 ```
 
@@ -120,7 +124,7 @@ public function upload(Request $request)
     $file = new File($request->file('photo'));
     $attachment = $file->path($path)->load();
 
-    return response()->json()
+    return response()->json();
 }
 ```
 
