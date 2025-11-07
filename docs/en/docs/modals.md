@@ -28,9 +28,7 @@ use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Support\Facades\Toast;
 
 /**
- * Button commands.
- *
- * @return \Orchid\Screen\Action[]
+ * The screen's action buttons.
  */
 public function commandBar(): array
 {
@@ -43,9 +41,7 @@ public function commandBar(): array
 }
 
 /**
- * Views.
- *
- * @return string[]|\Orchid\Screen\Layout[]
+ * The screen's layout elements.
  */
 public function layout(): array
 {
@@ -68,6 +64,9 @@ public function action(): void
 
 
 It is important to note that when adding a modal window, it should be added at the top level of the array returned by the `layout()` method. It should not be added inside of another layout such as `Tabs`.
+
+> **Warning**. Avoid placing tables with filters, sorting, or pagination inside modal windows.
+These components use internal links for navigation, which will cause the modal to close when interacted with.
 
 
 ## Title
