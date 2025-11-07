@@ -133,11 +133,12 @@ Before proceeding, ensure that your user model implements the `Notifiable` trait
 use Orchid\Platform\Notifications\DashboardMessage;
 use Orchid\Support\Color;
 
-$user->notify(DashboardMessage::make()
-    ->title('New Task: January Report')
-    ->message('Please review the task details and deadline.')
-    ->action('https://example.com/reports/january')
-    ->type(Color::INFO)
+$user->notify(
+    DashboardMessage::make()
+        ->title('New Task: January Report')
+        ->message('Please review the task details and deadline.')
+        ->action('https://example.com/reports/january')
+        ->type(Color::INFO)
 );
 ```
 
