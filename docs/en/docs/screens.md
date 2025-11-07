@@ -291,6 +291,32 @@ public function commandBar() : array
 }
 ```
 
+### Toggle
+
+Toggle actions allow users to switch a boolean state interactively. They are designed specifically for tables and other UI elements where users need to quickly change a value. When clicked, the toggle calls a method on the screen and can update the value without leaving the context.
+
+```php
+use Orchid\Screen\Actions\Toggle;
+use Orchid\Screen\TD;
+
+// Example: displaying toggle in a table column
+TD::make('Enabled')->render(function(User $user) {
+    return Toggle::make('Enabled')
+        ->method('switch', ['user' => $user])
+        ->status($user->active);
+});
+```
+
+**Recommendation:** For the smoothest experience, use the following configuration:
+
+```
+[
+    // ...
+    'refresh-method' => 'morph',
+    'refresh-scroll' => 'preserve',
+];
+```
+
 
 ### ModalToggle
 
@@ -309,14 +335,14 @@ public function commandBar() : array
 }
 ```
 
-### Duplicate Actions
+## Duplicate Actions
 
 In software development, it is common for similar actions to be performed across multiple screens or classes. For example, an action such as deleting an object may be needed on both a pagination screen and a details screen. Instead of duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.
 
 PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for redundant code. This not only improves the efficiency of the development process but also makes the code more maintainable and easier to understand.
 
 
-### Calling a Screen Method
+## Calling a Screen Method
 
 When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a `POST` request must be made to a specific route. The `method` property must be specified in the attributes using the `route('platform.screen.name', ['method' => 'hello'])` helper.
 
