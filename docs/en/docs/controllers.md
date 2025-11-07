@@ -19,12 +19,11 @@ This will generate a new class in the `app/Http/Controllers` directory. You can 
 ```php
 namespace App\Http\Controllers;
 
+use Illuminate\View\View;
+
 class OrchidController extends Controller
 {
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function index(): View
     {
         return view('custom');
     }
