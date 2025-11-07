@@ -434,9 +434,7 @@
 <span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
 <span class="hl-comment">/**
- * Button commands.
- *
- * <span class="hl-keyword">@return</span> \Orchid\Screen\<span class="hl-type">Action</span>[]
+ * The screen's action buttons.
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-keyword">array</span>
 {
@@ -449,9 +447,7 @@
 }
 
 <span class="hl-comment">/**
- * Views.
- *
- * <span class="hl-keyword">@return</span> <span class="hl-keyword">string</span>[]|\Orchid\Screen\<span class="hl-type">Layout</span>[]
+ * The screen's layout elements.
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
@@ -472,6 +468,10 @@
 }
 </code></pre>
 <p>It is important to note that when adding a modal window, it should be added at the top level of the array returned by the <code>layout()</code> method. It should not be added inside of another layout such as <code>Tabs</code>.</p>
+<blockquote>
+<p><strong>Warning</strong>. Avoid placing tables with filters, sorting, or pagination inside modal windows.
+These components use internal links for navigation, which will cause the modal to close when interacted with.</p>
+</blockquote>
 <h2><a href='#title' id='title'>Title</a></h2>
 <p>To set the title of the modal window, the <code>title</code> method can be used:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
