@@ -262,7 +262,8 @@ use Orchid\Support\Facades\Toast;
 public function commandBar() : array
 {
     return [
-        Button::make('Go print')->method('print'),
+        Button::make('Go print')
+            ->method('print'),
     ];
 }
 
@@ -286,7 +287,7 @@ public function commandBar() : array
 {
     return [
         Link::make('External reference')
-                ->href('http://orchid.software'),
+            ->href('http://orchid.software'),
     ];
 }
 ```
