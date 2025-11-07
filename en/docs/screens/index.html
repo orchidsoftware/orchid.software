@@ -620,7 +620,8 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>() : <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
-        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Go print'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'print'</span>),
+        <span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Go print'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'print'</span>),
     ];
 }
 
@@ -639,7 +640,7 @@ All of the data that the user has seen on the screen will be available in the re
 {
     <span class="hl-keyword">return</span> [
         <span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'External reference'</span>)
-                <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'http://orchid.software'</span>),
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'http://orchid.software'</span>),
     ];
 }
 </code></pre>
