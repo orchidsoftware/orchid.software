@@ -1,102 +1,94 @@
 ---
 title: Modal Dialogs
-description: Предназначены для кратких задач, подтверждения действий, ввода данных или уведомлений, и не подходят для сложных взаимодействий или больших объёмов информации.
+description: Used for brief tasks, confirmations, data entry, or notifications. Not suitable for complex interactions or large amounts of information.
 section: site.hig.
 ---
 
-Модальное окно (диалог) — это эмуляция диалогового окна браузера, появляющегося поверх страницы в ответ на действия пользователя
-и блокирующего доступ к основному содержимому страницы.
+A **modal dialog** is a browser-like dialog that appears on top of the page in response to user actions, blocking access to the main content until dismissed.
 
-## Когда использовать?
+## When to Use
 
-Они предназначены для временной фокусировки внимания пользователя на одной конкретной задачи.
-Типичные примеры использования:
+Modals are designed to temporarily focus the user's attention on a **single task**.
+Typical use cases include:
 
-- Подтверждения (например, «Вы уверены, что хотите удалить этот элемент?»)
-- Облегченные формы (например, ввод одного или нескольких значений)
-- Быстрая сводка информации (например, сведения или уведомления)
+* **Confirmations** (e.g., "Are you sure you want to delete this item?")
+* **Lightweight forms** (e.g., entering one or a few values)
+* **Quick information summaries** (e.g., notifications or alerts)
 
-![✅ Небольшая и понятная форма, предназначенная только для обновления статуса пользователя.](https://orchid.software/img/hig/modal-simple-form.png)
+![✅ Small, clear form intended only for updating a user's status.](https://orchid.software/img/hig/modal-simple-form.png)
 
-Модальные окна **не предназначены для сложных взаимодействий** — таких как детальный просмотр данных, отображение таблиц
-с фильтрацией, сортировкой или многостраничной навигацией. Использование модальных окон для подобных задач нарушает
-естественный рабочий процесс и создаёт избыточные неудобства для пользователя.
+**Avoid using modals for complex interactions**, such as detailed data views, tables with filtering/sorting, or multi-page navigation. Doing so disrupts natural workflows and creates unnecessary friction.
 
-Избегайте ситуаций, при которых содержимого в модальном окне становится больше, чем помещается по высоте на экране с
-минимально поддерживаемым разрешением. В таких случаях предпочтительнее вынести контент на отдельную страницу.
+Also, avoid situations where modal content exceeds the height of the screen at minimum supported resolutions. In such cases, place the content on a **separate page** instead.
 
-![❌ Сложная форма без чёткой цели — затрудняет взаимодействие пользователя](https://orchid.software/img/hig/modal-big-form.png)
+![❌ Complex form without a clear purpose — makes interaction harder for the user](https://orchid.software/img/hig/modal-big-form.png)
 
-Все ссылки, размещённые внутри модального окна, должны открываться в новой вкладке с помощью атрибута `_blank`, чтобы не
-скрывать исходный контекст и не прерывать работу пользователя.
+All links inside a modal should open in a **new tab** (`_blank`) to preserve context and prevent interrupting the user’s workflow.
 
-## Открытие модального окна
+## Opening a Modal
 
-Модальные окна должны открываться **только в ответ на явное действие пользователя**, например нажатие кнопки.
-Для автоматических уведомлений рекомендуется использовать менее навязчивые элементы интерфейса — тосты или баннеры.
+Modals should open **only in response to explicit user actions**, such as clicking a button.
+For automatic notifications, use less intrusive UI elements like **toasts** or **banners**.
 
-Не допускается **наложение модальных окон**: модальное окно — это самостоятельный диалог, и открытие другого модального
-окна поверх него приводит к путанице и снижает удобство взаимодействия.
+**Do not stack modals**: each modal should be a standalone dialog. Opening another modal on top of an existing one causes confusion and reduces usability.
 
-## Заголовок
+## Title
 
-Если модальное окно предназначено для выполнения одной конкретной задачи, она должна быть отражена в заголовке.
-Заголовок должен быть кратким (1-3 слова) и являться названием процесса или объекта.
+If a modal is intended for a **single task**, the title should reflect it.
+Keep titles short (1–3 words) and describe the process or object.
 
-## Кнопки и действия
+## Buttons and Actions
 
-Кнопки в модальных окнах определяют, как пользователь завершает или отменяет текущее действие.  
-От их названия и количества зависит скорость и уверенность, с которой пользователь принимает решение.  
-Правильно оформленные кнопки делают взаимодействие предсказуемым и интуитивным.
+Buttons in modals define how the user completes or cancels the current action.
+The **number and labeling of buttons** directly impact decision speed and confidence.
+Well-labeled buttons make interactions predictable and intuitive.
 
-### Количество действий
+### Number of Actions
 
-В каждом модальном окне должно быть **не более двух основных кнопок**:
+Each modal should have **no more than two primary buttons**:
 
-- **Подтверждение (основное действие)** — выполняет задачу или сохраняет изменения.
-- **Отмена (второстепенное действие)** — закрывает окно без сохранения.
+* **Confirm (primary action)** — performs the task or saves changes.
+* **Cancel (secondary action)** — closes the modal without saving.
 
-> Избегайте третьих и неочевидных кнопок! Модальные окна предназначены для коротких, фокусированных задач, а не для
-> сложных сценариев.
+> Avoid extra or unclear buttons! Modals are meant for short, focused tasks, not complex scenarios.
 
-### Названия действий
+### Button Labels
 
-Названия кнопок должны **четко описывать результат** их нажатия.  
-Избегайте абстрактных слов вроде «ОК» или «Да».
+Button labels should **clearly describe the result** of the action.
+Avoid abstract words like "OK" or "Yes".
 
-Используйте **глаголы в действительном наклонении**.
+Use **verbs in the imperative mood**.
 
 ```
-| ✅ Правильно   | ❌ Неправильно |
-|---------------|----------------|
-| Применить     | ОК             |
-| Сохранить     | Да / Нет       |
-| Продолжить    | Готово         |
-| Удалить       | Ввести         |
-| Отправить     | Отправка       |
-| Подтвердить   |                |
-| Повторить     |                |
+| ✅ Correct    | ❌ Incorrect |
+|--------------|--------------|
+| Apply        | OK           |
+| Save         | Yes / No     |
+| Continue     | Done         |
+| Delete       | Enter        |
+| Submit       | Submitting   |
+| Confirm      |              |
+| Retry        |              |
 ```
 
-Ниже приведены примеры удачных пар кнопок для различных сценариев:
+Examples of good button pairs for different scenarios:
 
 ```
-| Пример           | Левая кнопка | Правая кнопка |
-|------------------|--------------|---------------|
-| Подтверждение    | Отмена       | Удалить       |
-| Форма            | Закрыть      | Применить     |
-| Изменение данных | Отмена       | Сохранить     |
+| Scenario           | Left Button | Right Button |
+|-------------------|------------|--------------|
+| Confirmation      | Cancel     | Delete       |
+| Form              | Close      | Apply        |
+| Data Editing      | Cancel     | Save         |
 ```
 
-Четкие названия действий сокращают когнитивную нагрузку и помогают пользователю действовать уверенно.
+Clear button labels reduce cognitive load and help users act confidently.
 
+## Closing a Modal
 
-## Закрытие модального окна
+Provide multiple ways for the user to **close the modal**, ensuring control and ease of use:
 
-Модальное окно должно предоставлять пользователю **несколько способов закрытия**, чтобы обеспечить удобство и контроль над интерфейсом:
+* **Cancel** or **Close** button
+* **Close icon** (`✖`) in the top-right corner
+* **Escape key** on the keyboard
 
-* через кнопку «Отменить» или «Закрыть»;
-* через кнопку закрытия в виде `✖`в правом верхнем углу;
-* с помощью клавиши `Esc` на клавиатуре.
-
-Не используйте автоматическое скрытие модального окна по таймауту — есть риск, что пользователь не успеет ознакомиться с его содержимым или потеряет важную информацию.
+Avoid automatically dismissing modals with a timeout — users may not have enough time to read the content or could miss critical information.
