@@ -52,7 +52,7 @@ document.querySelectorAll('.documentation main img').forEach(function(el) {
         z-index:10000;
         top:0; left:0;
         cursor: zoom-out;
-        background-size: auto;`;
+        background-size: contain;`;
         div.addEventListener('click', function() {
             document.body.removeChild(this);
         });
