@@ -74,11 +74,11 @@ Use **verbs in the imperative mood**.
 Examples of good button pairs for different scenarios:
 
 ```
-| Scenario           | Left Button | Right Button |
-|-------------------|------------|--------------|
-| Confirmation      | Cancel     | Delete       |
-| Form              | Close      | Apply        |
-| Data Editing      | Cancel     | Save         |
+| Scenario          | Left Button | Right Button |
+|-------------------|-------------|--------------|
+| Confirmation      | Cancel      | Delete       |
+| Form              | Close       | Apply        |
+| Data Editing      | Cancel      | Save         |
 ```
 
 Clear button labels reduce cognitive load and help users act confidently.
