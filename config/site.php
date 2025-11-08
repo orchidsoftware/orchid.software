@@ -137,6 +137,7 @@ return [
                 'Navigation'            => '/en/hig/navigation',
                 'Presentation Table'    => '/en/hig/table',
                 'Providing Feedback'    => '/en/hig/providing-feedback',
+                'Modal Dialogs'         => '/en/hig/modals',
                 'Quick Response Time'   => '/en/hig/performance',
             ],
 
