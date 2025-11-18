@@ -120,7 +120,7 @@ use Orchid\Attachment\File;
 
 public function upload(Request $request)
 {
-    $path = "photos"
+    $path = "photos";
     $file = new File($request->file('photo'));
     $attachment = $file->path($path)->load();
 
