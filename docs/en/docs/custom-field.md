@@ -16,7 +16,7 @@ A field in Orchid consists of two main parts:
 To generate a new field, use the Artisan command:
 
 ```shell
-php artisan make:field EmojiPicker
+php artisan orchid:field EmojiPicker
 ```
 
 This will create the following files:
@@ -77,15 +77,17 @@ Let's examine the generated Blade template:
 
 ```html
 @component($typeForm, get_defined_vars())
-<div data-controller="emoji-picker">
-    <input {{
-        $attributes->merge([
-            'data-emoji-picker-target' => 'name',
-            'data-action' => 'input->emoji-picker#greet',
-        ])
-    }}>
-    <span data-emoji-picker-target="output"></span>
-</div>
+    <div data-controller="emoji-picker">
+        <input
+            {{
+                $attributes->merge([
+                    'data-emoji-picker-target' => 'name',
+                    'data-action' => 'input->emoji-picker#greet',
+                ])
+            }}>
+
+        <span data-emoji-picker-target="output"></span>
+    </div>
 @endcomponent
 
 <script>
