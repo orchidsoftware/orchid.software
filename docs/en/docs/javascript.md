@@ -3,7 +3,7 @@ title: Use JavaScript
 description: Learn how to use JavaScript with Laravel Orchid to enhance the functionality and interactivity of your administration-style applications. Get tips on incorporating JavaScript libraries and custom scripts, and find out how to debug and optimize your code.
 ---
 
-The aesthetic and functional foundation of Orchid is built upon [Bootstrap](http://getbootstrap.com/) for CSS and [Hotwired](https://hotwired.dev) for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project's needs, we recommend utilizing these core technologies to leverage the full potential of Orchid's features.
+The aesthetic and functional foundation of Orchid is built upon [Bootstrap](https://getbootstrap.com/) for CSS and [Hotwired](https://hotwired.dev) for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project's needs, we recommend utilizing these core technologies to leverage the full potential of Orchid's features.
 
 > **Note**: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap's styles at your disposal.
 
