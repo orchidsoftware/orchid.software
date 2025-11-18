@@ -287,7 +287,7 @@ public function commandBar() : array
 {
     return [
         Link::make('External reference')
-            ->href('http://orchid.software'),
+            ->href('https://orchid.software'),
     ];
 }
 ```

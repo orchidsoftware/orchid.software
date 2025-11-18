@@ -254,7 +254,7 @@ Button::make('Новая функция')
 use Orchid\Screen\Actions\Link;
 
 Link::make('Внешняя ссылка')
-    ->href('http://orchid.software');
+    ->href('https://orchid.software');
 
 // По нажатию будет показано модальное окно (CreateUserModal),
 // в котором можно выполнить метод "save"

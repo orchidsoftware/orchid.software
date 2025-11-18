@@ -45,5 +45,5 @@ ORCHID создается совместными усилиями многих �
 
 ----------
 
-_Кодекс поведения ORCHID распространяется под лицензией [Creative Commons Attribution-Share Alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/). 
-Некоторые пункты были вдохновлены [Ubuntu Code of Conduct](http://www.ubuntu.com/about/about-ubuntu/conduct)._
+_Кодекс поведения ORCHID распространяется под лицензией [Creative Commons Attribution-Share Alike 3.0](https://creativecommons.org/licenses/by-sa/3.0/). 
+Некоторые пункты были вдохновлены [Ubuntu Code of Conduct](https://www.ubuntu.com/about/about-ubuntu/conduct)._
