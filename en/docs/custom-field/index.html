@@ -421,7 +421,7 @@ In such cases, you can create a custom field tailored to your needs.</p>
 <li>A <strong>Blade view</strong> that renders its appearance</li>
 </ul>
 <p>To generate a new field, use the Artisan command:</p>
-<pre><code data-lang="shell" class="notranslate">php artisan make:field EmojiPicker
+<pre><code data-lang="shell" class="notranslate">php artisan orchid:field EmojiPicker
 </code></pre>
 <p>This will create the following files:</p>
 <ul>
@@ -473,15 +473,17 @@ interactions. Here&rsquo;s a look at the generated class:</p>
 <h3>Blade Template (<code>view</code>)</h3>
 <p>Let&rsquo;s examine the generated Blade template:</p>
 <pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> {{
-        $attributes-&gt;merge([
-            'data-emoji-picker-target' =&gt; 'name',
-            'data-action' =&gt; 'input-&gt;emoji-picker#greet',
-        ])
-    }}&gt;
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
+            {{
+                $attributes-&gt;merge([
+                    'data-emoji-picker-target' =&gt; 'name',
+                    'data-action' =&gt; 'input-&gt;emoji-picker#greet',
+                ])
+            }}&gt;
+
+        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
 @endcomponent
 
 <span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
