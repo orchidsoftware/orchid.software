@@ -495,7 +495,7 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    $path <span class="hl-operator">=</span> <span class="hl-value">"photos"</span>
+    $path <span class="hl-operator">=</span> <span class="hl-value">"photos"</span>;
     $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">File</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">file</span>(<span class="hl-value">'photo'</span>));
     $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>($path)<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
