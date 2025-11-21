@@ -37,19 +37,6 @@ description: Я призываю всех внести свой вклад в п
 Все обращения будут незамедлительно рассмотрены.
 
 
-## Стиль написания кода
-
-ORCHID следует [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md) и [PSR-4](Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) стандартам.
-
-
-Вы можете использовать [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer), чтобы исправить свой стиль кода перед публикацией.
-
-Чтобы приступить к работе, установите инструмент на глобальном уровне и проверьте стиль кода, выполнив следующую команду из терминала корневой директории вашего проекта:
-````bash
-php-cs-fixer fix
-````
-
-
 ## Отладка и отправка запроса на изменение
 
 
@@ -88,6 +75,32 @@ composer require orchid/platform:@dev
 
 Composer поставит пакет из хранилища который вы указали.
 Остальные действия соответствуют разделу `Установки`.
+
+### Подготовка кода к отправке
+
+ORCHID следует [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md) и [PSR-4](Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) стандартам.
+
+Для начала нужно проверить стиль кода (для этого используется [Laravel Pint](https://laravel.com/docs/10.x/pint)).
+
+Запустить проверку и исправление стиля кода:
+
+```bash
+./vendor/bin/pint
+```
+
+Проверка произвольных файлов или папок:
+
+```bash
+./vendor/bin/pint src/Platform
+ 
+./vendor/bin/pint src/Platform/Dashboard.php
+```
+
+Далее необходимо проверить выполнение unit тестов:
+
+```bash
+./vendor/bin/phpunit
+```
 
 ### Отправка запроса на изменение
 
