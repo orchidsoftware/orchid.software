@@ -79,3 +79,10 @@ Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, s
     return (new App\Docs($locale, "$type/$page"))->view('docs');
 })->where('locale', 'en|ru')
     ->where('page', '(.*)');
+
+
+Route::view('llms.txt', 'llms', [
+    'name' => config('site.name'),
+    'description' => config('site.description'),
+    'navigation' => config('site.navigation.en')
+]);
