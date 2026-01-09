@@ -1,0 +1,62 @@
+# Orchid - Laravel Admin Panel
+
+Free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.
+
+
+## Get Started
+- [Introduction](/en/docs)
+- [Installation](/en/docs/installation)
+- [Configuration](/en/docs/configuration)
+- [Directory Structure](/en/docs/structure)
+- [Basic Branding](/en/docs/brand)
+- [Upgrade Guide](/en/docs/upgrade)
+
+
+## Tutorials
+- [Quick Start](/en/docs/quickstart)
+- [State Management](/en/docs/quickstart-state)
+- [Data Management](/en/docs/quickstart-crud)
+- [Managing Attachments](/en/docs/quickstart-files)
+- [Sorting and Filtering](/en/docs/quickstart-sort-filter-table)
+
+
+## The Basics
+- [Screens](/en/docs/screens)
+- [Form Elements](/en/docs/field)
+- [Navigation](/en/docs/menu)
+- [Permissions](/en/docs/permissions)
+- [Filtering](/en/docs/filters)
+- [Attachments](/en/docs/attachments)
+- [Notifications](/en/docs/alert)
+
+
+## Layouts
+- [Rows](/en/docs/rows)
+- [Table](/en/docs/table)
+- [Legend](/en/docs/legend)
+- [Cell Types](/en/docs/cell-types)
+- [Charts](/en/docs/charts)
+- [Modals](/en/docs/modals)
+- [Listeners](/en/docs/listener)
+- [Grouping](/en/docs/grouping)
+- [Views](/en/docs/custom-template)
+
+
+## Extra
+- [Icons](/en/docs/icons)
+- [Scout Search](/en/docs/global-search)
+- [Presenters](/en/docs/presenters)
+- [Using JS](/en/docs/javascript)
+- [Testing](/en/docs/testing)
+- [Authentication](/en/docs/authentication)
+- [Custom Fields](/en/docs/custom-field)
+- [Stubs](/en/docs/stubs)
+- [Controllers](/en/docs/controllers)
+- [Form Builder](/en/docs/builder)
+
+
+## Packages
+- [Package Development](/en/docs/packages)
+- [CRUD](/en/docs/packages/crud)
+- [Fortify](https://github.com/orchidsoftware/fortify)
+
