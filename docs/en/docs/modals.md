@@ -33,8 +33,8 @@ use Orchid\Support\Facades\Toast;
 public function commandBar(): array
 {
     return [
-        ModalToggle::make('Launch demo modal')
-            ->modal('exampleModal')
+        ModalToggle::make('Create notification')
+            ->modal('toastModal')
             ->method('action')
             ->icon('full-screen'),
     ];
@@ -46,9 +46,9 @@ public function commandBar(): array
 public function layout(): array
 {
     return [
-        Layout::modal('exampleModal', [
-            Layout::rows([]),
-        ]),
+        Layout::modal('toastModal', Layout::rows([
+            // ...
+        ])),
     ];
 }
 
@@ -74,11 +74,34 @@ These components use internal links for navigation, which will cause the modal t
 To set the title of the modal window, the `title` method can be used:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
+Layout::modal('toastModal', Layout::rows([
+   // ...
+]))
     ->title('Window title');
 ```
+
+
+## Passing Multiple Layouts
+
+Sometimes a modal window may need to contain **more than one layout**. 
+In Orchid, you can pass an array of layouts directly to `Layout::modal`:
+
+```php
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Fields\Input;
+
+Layout::modal('notifModal', [
+    Layout::rows([
+        // Fields definition
+    ]),
+    
+    Layout::table('users', [
+        // Table columns definition
+    ]),
+]);
+```
+
 
 ## Window Size
 
@@ -88,9 +111,9 @@ Depending on the contents of the window, it may be necessary to resize it. This 
 ```php
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
+Layout::modal('toastModal', Layout::rows([
+   // ...
+]))
     ->size(Modal::SIZE_LG);
 ```
 
@@ -105,9 +128,9 @@ A modal window has two actions:
 You can set your own names for them:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
+Layout::modal('toastModal', Layout::rows([
+   // ...
+]))
     ->applyButton('Send')
     ->closeButton('Close');
 ```
@@ -117,7 +140,7 @@ Layout::modal('exampleModals', [
 To disable each button has its own method:
 
 ```php
-Layout::modal('exampleModals', [
+Layout::modal('toastModal', [
     Layout::rows([]),
 ])
     ->withoutApplyButton()
@@ -132,9 +155,9 @@ The modal window can be displayed, not only in the center of the screen, but als
 ```php
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
+Layout::modal('toastModal', Layout::rows([
+   // ...
+]))
     ->type(Modal::TYPE_RIGHT);
 ```
 
@@ -145,9 +168,9 @@ Sometimes you may need to open a modal window right after the page is displayed.
 ```php
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
-])
+Layout::modal('toastModal', Layout::rows([
+   // ...
+]))
     ->open();
 ```
 
@@ -207,7 +230,7 @@ By default, the result of the window action will be displayed to the user on the
 To disable response processing, you need to add a call to the `rawClick` method:
 
 ```php
-Layout::modal('exampleModals', [
+Layout::modal('toastModal', [
     Layout::rows([]),
 ])
     ->rawClick();
