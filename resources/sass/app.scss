@@ -214,6 +214,7 @@ main, main div {
         font-size: 1em;
         line-height: 1.6em;
         margin-bottom: 1.5rem;
+        text-wrap: pretty;
         @extend .text-wrap;
         @extend .text-break;
 
