@@ -304,19 +304,16 @@ Relation::make('ideas.')
 ```php
 namespace App;
 
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Idea extends Model
 {
-
-    /**
-     * @param Builder $query
-     *
-     * @return Builder
-     */
-    public function scopeActive(Builder $query)
+    #[Scope]
+    protected function active(Builder $query): void
     {
-        return $query->where('active', true);
+        $query->where('active', 1);
     }
 }
 ```
