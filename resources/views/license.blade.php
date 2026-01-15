@@ -15,7 +15,7 @@
 
 
 
-    <div class="container col-xxl-8 py-5 mb-5">
+    <div class="container px-md-4 py-md-5">
         <div class="card shadow-sm h-100 position-relative">
             <div class="overflow-hidden">
                 <div class="row pb-0 pe-lg-0 align-items-baseline">
