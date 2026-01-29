@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Глобальный поиск | Orchid - Laravel Admin Panel</title>
@@ -398,7 +398,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#ispolzovanie-polnotekstovogo-poiska' id='ispolzovanie-polnotekstovogo-poiska'>Использование полнотекстового поиска</a></h2>
+                            <head></head><body><h2><a href='#ispolzovanie-polnotekstovogo-poiska' id='ispolzovanie-polnotekstovogo-poiska'>Использование полнотекстового поиска</a></h2>
 <p>&#1055;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1072; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1089; &#1087;&#1072;&#1082;&#1077;&#1090;&#1086;&#1084; <a href="https://github.com/laravel/scout">Laravel Scout</a>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1103;&#1074;&#1083;&#1103;&#1077;&#1090;&#1089;&#1103; &#1072;&#1073;&#1089;&#1090;&#1088;&#1072;&#1082;&#1094;&#1080;&#1077;&#1081; &#1076;&#1083;&#1103; &#1087;&#1086;&#1083;&#1085;&#1086;&#1090;&#1077;&#1082;&#1089;&#1090;&#1086;&#1074;&#1086;&#1075;&#1086; &#1087;&#1086;&#1080;&#1089;&#1082;&#1072; &#1074; &#1074;&#1072;&#1096;&#1080; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>Eloquent</code>. &#1058;&#1072;&#1082; &#1082;&#1072;&#1082; <strong><code>Scout</code> &#1085;&#1077; &#1089;&#1086;&#1076;&#1077;&#1088;&#1078;&#1080;&#1090; &#1089;&#1072;&#1084;&#1086;&#1075;&#1086; &laquo;&#1076;&#1088;&#1072;&#1081;&#1074;&#1077;&#1088;&#1072;&raquo; &#1087;&#1086;&#1080;&#1089;&#1082;&#1072;</strong>, &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1087;&#1086;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1100; &#1080; &#1091;&#1082;&#1072;&#1079;&#1072;&#1090;&#1100; &#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1084;&#1086;&#1077; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1077;, &#1101;&#1090;&#1086; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; elasticsearch, algolia, sphinx &#1080;&#1083;&#1080; &#1076;&#1088;&#1091;&#1075;&#1080;&#1077; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1103;.</p>
 <blockquote>
 <p>&#1042; &#1101;&#1090;&#1086;&#1084; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1077; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1091;&#1077;&#1090;&#1089;&#1103; <a href="/ru/docs/presenters">&#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1080;</a>, &#1085;&#1072;&#1089;&#1090;&#1086;&#1103;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1088;&#1077;&#1082;&#1086;&#1084;&#1077;&#1085;&#1076;&#1091;&#1077;&#1090;&#1089;&#1103; &#1086;&#1079;&#1085;&#1072;&#1082;&#1086;&#1084;&#1080;&#1090;&#1089;&#1103; &#1089; &#1085;&#1080;&#1084;&#1080;. &#1040; &#1090;&#1072;&#1082; &#1078;&#1077; &#1087;&#1088;&#1086;&#1080;&#1079;&#1074;&#1077;&#1089;&#1090;&#1080; &#1076;&#1077;&#1081;&#1089;&#1090;&#1074;&#1080;&#1103; &#1087;&#1086; &#1085;&#1072;&#1089;&#1090;&#1088;&#1086;&#1081;&#1082;&#1080; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; &#1080;&#1079; &#1076;&#1086;&#1082;&#1091;&#1084;&#1077;&#1085;&#1090;&#1072;&#1094;&#1080;&#1080; <a href="https://github.com/laravel/scout">Laravel Scout</a>.</p>
@@ -444,7 +444,7 @@
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>()
     {
-        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">IdeaPresenter</span>(<span class="hl-tag2">$this</span>);
+        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">IdeaPresenter</span>(<span class="hl-this-keyword">$this</span>);
     }
     
     <span class="hl-comment">/**
@@ -454,7 +454,7 @@
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toSearchableArray</span>()
     {
-        $array <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
+        $array <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
 
         <span class="hl-comment">// Customize array...</span>
 
@@ -484,7 +484,7 @@
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">title</span>(): <span class="hl-keyword">string</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
+        <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
     }
 
     <span class="hl-comment">/**
@@ -518,7 +518,7 @@
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query);
+        <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query);
     }
     
     <span class="hl-comment">/**
@@ -534,7 +534,7 @@
 <p>&#1044;&#1083;&#1103; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1082;&#1072;&#1094;&#1080;&#1080; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;&#1086;&#1074;, &#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, &#1095;&#1090;&#1086;&#1073;&#1099; &#1074;&#1099;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1074; &#1088;&#1077;&#1079;&#1091;&#1083;&#1100;&#1090;&#1072;&#1090;&#1072;&#1093; &#1090;&#1086;&#1083;&#1100;&#1082;&#1086; &#1072;&#1082;&#1090;&#1091;&#1072;&#1083;&#1100;&#1085;&#1099;&#1077; &#1076;&#1072;&#1085;&#1085;&#1099;&#1077;, &#1084;&#1086;&#1078;&#1085;&#1086; &#1084;&#1086;&#1076;&#1080;&#1092;&#1080;&#1094;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1079;&#1072;&#1087;&#1088;&#1086;&#1089; &#1089; &#1087;&#1086;&#1084;&#1086;&#1097;&#1100;&#1102; &#1087;&#1077;&#1088;&#1077;&#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1077;&#1085;&#1080;&#1103; &#1084;&#1077;&#1090;&#1086;&#1076;&#1072;:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query)<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query)<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
 }
 </code></pre>
 </body>
@@ -609,7 +609,7 @@
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

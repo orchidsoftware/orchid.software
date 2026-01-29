@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Screen State | Orchid - Laravel Admin Panel</title>
@@ -386,7 +386,7 @@
 
                             <div class="anchors">
     </div>
-                            <body><p>In PHP, when we want to store intermediate results between requests, we usually use storage solutions like databases (MySQL) or fast storage systems such as Redis. For simpler cases, we can pass the state directly in the URL. You have probably seen this before, for example, <code>operation?result=success</code>. Each of these methods is suitable and widely applicable.</p>
+                            <head></head><body><p>In PHP, when we want to store intermediate results between requests, we usually use storage solutions like databases (MySQL) or fast storage systems such as Redis. For simpler cases, we can pass the state directly in the URL. You have probably seen this before, for example, <code>operation?result=success</code>. Each of these methods is suitable and widely applicable.</p>
 <p>However, in Laravel Orchid, there is a convenient solution for storing small amounts of information, such as an Eloquent model. This is made possible because each request carries the state of all public properties of the screen.</p>
 <p>Let&rsquo;s try it out and create a new screen called <code>StateScreen</code> using the Artisan command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:screen StateScreen
@@ -397,7 +397,7 @@
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'state'</span>, <span class="hl-type">StateScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'state'</span>);
 </code></pre>
 <p>A classic example is counting the number of clicks. Let&rsquo;s add the following code to the newly created screen:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-tag">&lt;?php</span>
+<pre><code data-lang="php" class="notranslate"><span class="hl-system-tag">&lt;?php</span>
 
 <span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
@@ -498,7 +498,7 @@
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">increment</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
     {
-        <span class="hl-function">dd</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span>);
+        <span class="hl-function">dd</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span>);
     }
 }
 </code></pre>
@@ -524,7 +524,7 @@
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
     {
         <span class="hl-keyword">return</span> [
-            <span class="hl-value">'clicks'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span> ?? <span class="hl-number">0</span>,
+            <span class="hl-value">'clicks'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span> ?? <span class="hl-number">0</span>,
         ];
     }
 }
@@ -535,7 +535,7 @@
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">increment</span>()
 {
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span><span class="hl-constant">++</span>;
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span><span class="hl-constant">++</span>;
 }
 </code></pre>
 <p>Now, when the user clicks the &ldquo;Increment Click&rdquo; button, the click counter will be updated. If you refresh the page, the counter will be reset.</p>
@@ -608,7 +608,7 @@
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

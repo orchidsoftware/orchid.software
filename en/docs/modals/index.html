@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Modal Dialog | Orchid - Laravel Admin Panel</title>
@@ -399,6 +399,9 @@
                     <a href="#title">Title</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#passing-multiple-layouts">Passing Multiple Layouts</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#window-size">Window Size</a>
                 </li>
                             <li class="anchor-h2">
@@ -421,7 +424,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>Emulation of a modal dialog box that appears on top of the main page content in response to user actions.</p>
+                            <head></head><body><p>Emulation of a modal dialog box that appears on top of the main page content in response to user actions.</p>
 <h2><a href='#description-of-work' id='description-of-work'>Description of Work</a></h2>
 <p>A modal window appears on top of the page, dimming it. This helps to focus the user&rsquo;s attention on specific actions without losing the overall context. It is important to note that modal windows should not be used for large forms.</p>
 <p><picture alt='This image shows an illustrative modal window.'><img src="/img/layouts/modals.png" alt="This image shows an illustrative modal window."></picture></p>
@@ -439,8 +442,8 @@
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">commandBar</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
-        <span class="hl-type">ModalToggle</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Launch demo modal'</span>)
-            <span class="hl-delimeter">-&gt;</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModal'</span>)
+        <span class="hl-type">ModalToggle</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Create notification'</span>)
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>)
             <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'action'</span>)
             <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'full-screen'</span>),
     ];
@@ -452,9 +455,9 @@
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
-        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModal'</span>, [
-            <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-        ]),
+        <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+            <span class="hl-comment">// ...</span>
+        ])),
     ];
 }
 
@@ -474,18 +477,35 @@ These components use internal links for navigation, which will cause the modal t
 </blockquote>
 <h2><a href='#title' id='title'>Title</a></h2>
 <p>To set the title of the modal window, the <code>title</code> method can be used:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
-    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-])
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+   <span class="hl-comment">// ...</span>
+]))
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Window title'</span>);
+</code></pre>
+<h2><a href='#passing-multiple-layouts' id='passing-multiple-layouts'>Passing Multiple Layouts</a></h2>
+<p>Sometimes a modal window may need to contain <strong>more than one layout</strong>.
+In Orchid, you can pass an array of layouts directly to <code>Layout::modal</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
+
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'notifModal'</span>, [
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+        <span class="hl-comment">// Fields definition</span>
+    ]),
+    
+    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'users'</span>, [
+        <span class="hl-comment">// Table columns definition</span>
+    ]),
+]);
 </code></pre>
 <h2><a href='#window-size' id='window-size'>Window Size</a></h2>
 <p>Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the <code>size</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 
-<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
-    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-])
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+   <span class="hl-comment">// ...</span>
+]))
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">size</span>(<span class="hl-type">Modal</span><span class="hl-delimeter">::</span><span class="hl-constant">SIZE_LG</span>);
 </code></pre>
 <h2><a href='#button-names' id='button-names'>Button Names</a></h2>
@@ -495,15 +515,15 @@ These components use internal links for navigation, which will cause the modal t
 <li>Cancel button &ndash; closes the window without saving the entered data.</li>
 </ul>
 <p>You can set your own names for them:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
-    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-])
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+   <span class="hl-comment">// ...</span>
+]))
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyButton</span>(<span class="hl-value">'Send'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">closeButton</span>(<span class="hl-value">'Close'</span>);
 </code></pre>
 <h2><a href='#disabling-buttons' id='disabling-buttons'>Disabling Buttons</a></h2>
 <p>To disable each button has its own method:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, [
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
 ])
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">withoutApplyButton</span>()
@@ -513,18 +533,18 @@ These components use internal links for navigation, which will cause the modal t
 <p>The modal window can be displayed, not only in the center of the screen, but also on the right side:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 
-<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
-    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-])
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+   <span class="hl-comment">// ...</span>
+]))
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-type">Modal</span><span class="hl-delimeter">::</span><span class="hl-constant">TYPE_RIGHT</span>);
 </code></pre>
 <h2><a href='#opening' id='opening'>Opening</a></h2>
 <p>Sometimes you may need to open a modal window right after the page is displayed. To do this, you can use the <code>-&gt;open</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 
-<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
-    <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
-])
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
+   <span class="hl-comment">// ...</span>
+]))
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">open</span>();
 </code></pre>
 <h2><a href='#deferred-data-loading' id='deferred-data-loading'>Deferred Data Loading</a></h2>
@@ -566,7 +586,7 @@ new content.</p>
 <h2><a href='#disabling-reactive-processing' id='disabling-reactive-processing'>Disabling Reactive Processing</a></h2>
 <p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
 To disable response processing, you need to add a call to the <code>rawClick</code> method:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'exampleModals'</span>, [
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, [
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
 ])
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">rawClick</span>();
@@ -640,7 +660,7 @@ To disable response processing, you need to add a call to the <code>rawClick</co
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

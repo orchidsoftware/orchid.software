@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Global Search | Orchid - Laravel Admin Panel</title>
@@ -394,7 +394,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#using-full-text-search' id='using-full-text-search'>Using Full-Text Search</a></h2>
+                            <head></head><body><h2><a href='#using-full-text-search' id='using-full-text-search'>Using Full-Text Search</a></h2>
 <p>Orchid provides full-text search capabilities through the <a href="https://github.com/laravel/scout">Laravel Scout</a> package.
 This package offers an abstraction for searching through your <code>Eloquent</code> models and requires that you specify the search driver that you will use for your application.
 These can be elasticsearch, algolia, sphinx, or other solutions.</p>
@@ -425,7 +425,7 @@ You can do this by adding a new entry to the 'search&rsquo; array for each model
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>()
     {
-        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">IdeaPresenter</span>(<span class="hl-tag2">$this</span>);
+        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">IdeaPresenter</span>(<span class="hl-this-keyword">$this</span>);
     }
     
     <span class="hl-comment">/**
@@ -435,7 +435,7 @@ You can do this by adding a new entry to the 'search&rsquo; array for each model
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toSearchableArray</span>()
     {
-        $array <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
+        $array <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
 
         <span class="hl-comment">// Customize array...</span>
 
@@ -465,7 +465,7 @@ You can do this by adding a new entry to the 'search&rsquo; array for each model
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">title</span>(): <span class="hl-keyword">string</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
+        <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
     }
 
     <span class="hl-comment">/**
@@ -499,7 +499,7 @@ You can do this by adding a new entry to the 'search&rsquo; array for each model
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query);
+        <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query);
     }
     
     <span class="hl-comment">/**
@@ -516,7 +516,7 @@ You can do this by adding a new entry to the 'search&rsquo; array for each model
 This method returns a <code>Builder</code> instance representing the query used to index the model.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">searchQuery</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $query <span class="hl-operator">=</span> <span class="hl-constant">null</span></span>): <span class="hl-type">Builder</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query)<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">search</span>($query)<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
 }
 </code></pre>
 <p>Here, in the <code>searchQuery()</code> method, the <code>where()</code> method was used to limit the search to only active models</p>
@@ -589,7 +589,7 @@ This method returns a <code>Builder</code> instance representing the query used 
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

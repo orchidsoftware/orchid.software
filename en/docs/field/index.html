@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Form Elements | Orchid - Laravel Admin Panel</title>
@@ -553,7 +553,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.</p>
+                            <head></head><body><p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.</p>
 <blockquote>
 <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
@@ -763,19 +763,16 @@
 <p>To modify the load, you can use the reference to the <code>scope</code> model, for example, take only active:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\Attributes\<span class="hl-type">Scope</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Builder</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">Idea</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
-
-    <span class="hl-comment">/**
-     * <span class="hl-keyword">@param</span> <span class="hl-type">Builder</span> $query
-     *
-     * <span class="hl-keyword">@return</span> <span class="hl-type">Builder</span>
-     */</span>
-    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">scopeActive</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $query</span>)
+    #[Scope]
+    <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">active</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $query</span>): <span class="hl-keyword">void</span>
     {
-        <span class="hl-keyword">return</span> $query<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-constant">true</span>);
+        $query<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'active'</span>, <span class="hl-number">1</span>);
     }
 }
 </code></pre>
@@ -810,7 +807,7 @@
 {
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">getFullAttribute</span>(): <span class="hl-keyword">string</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-function">sprintf</span>(<span class="hl-value">'%s (%s)'</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">email</span>);
+        <span class="hl-keyword">return</span> <span class="hl-function">sprintf</span>(<span class="hl-value">'%s (%s)'</span>, <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>, <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">email</span>);
     }
 }
 </code></pre>
@@ -969,12 +966,12 @@
 </code></pre>
 <h3><a href='#extensibility' id='extensibility'>Extensibility</a></h3>
 <p>One of the strengths of Quill is its extensibility through plugins. You can enhance the editor&rsquo;s functionality by installing additional plugins. This can be easily accomplished using a JavaScript file.</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
     <span class="hl-comment">// Object for registering plugins</span>
-    event.<span class="hl-property2">detail</span>.<span class="hl-property2">quill</span>;
+    event.<span class="hl-property">detail</span>.<span class="hl-property">quill</span>;
 
     <span class="hl-comment">// Parameter object for initialization</span>
-    event.<span class="hl-property2">detail</span>.<span class="hl-property2">options</span>;
+    event.<span class="hl-property">detail</span>.<span class="hl-property">options</span>;
 });
 </code></pre>
 <p><strong>Note</strong>: You can add custom scripts and stylesheets through the <code>platform.php</code> config file</p>
@@ -984,14 +981,14 @@
 <span class="hl-value">"/js/admin/quill.imagecropper.js"</span>,
 </code></pre>
 <p>create a <code>quill.imagecropper.js</code> in <code>public/js/admin</code> with the following content</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
     <span class="hl-comment">// Object for registering plugins</span>
-    event.<span class="hl-property2">detail</span>.<span class="hl-property2">quill</span>.<span class="hl-property2"><span class="hl-function">register</span></span>("modules/imageCompressor", imageCompressor);
+    event.<span class="hl-property">detail</span>.<span class="hl-property">quill</span>.<span class="hl-property"><span class="hl-function">register</span></span>("modules/imageCompressor", imageCompressor);
 
     <span class="hl-comment">// Parameter object for initialization</span>
-    event.<span class="hl-property2">detail</span>.<span class="hl-property2">options</span>.<span class="hl-property2">modules</span> <span class="hl-operator">=</span> {
+    event.<span class="hl-property">detail</span>.<span class="hl-property">options</span>.<span class="hl-property">modules</span> <span class="hl-operator">=</span> {
          imageCompressor: {
-            quality: <span class="hl-number">0</span>.<span class="hl-property2"><span class="hl-number">9</span></span>,
+            quality: <span class="hl-number">0</span>.<span class="hl-property"><span class="hl-number">9</span></span>,
             maxWidth: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
             maxHeight: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
             imageType: <span class="hl-value">'image/jpeg'</span>
@@ -1171,7 +1168,7 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">hero</span>(): <span class="hl-type">HasOne</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 
@@ -1181,7 +1178,7 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">documents</span>(): <span class="hl-type">MorphToMany</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>(<span class="hl-value">'documents'</span>);
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>(<span class="hl-value">'documents'</span>);
 }
 </code></pre>
 <h3><a href='#file-storage' id='file-storage'>File Storage</a></h3>
@@ -1515,7 +1512,7 @@ Access the &ldquo;Builder&rdquo; page by clicking here: <a href="/en/docs/builde
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

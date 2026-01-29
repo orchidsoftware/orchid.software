@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Вложения | Orchid - Laravel Admin Panel</title>
@@ -410,7 +410,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>&#1060;&#1072;&#1081;&#1083;&#1099; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1093; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1086;&#1074; &#1080; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1080;&#1081; &#1086;&#1090;&#1085;&#1086;&#1089;&#1103;&#1097;&#1080;&#1077;&#1089;&#1103; &#1082; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1103;&#1074;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; &#1074;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;&#1084;&#1080;.</p>
+                            <head></head><body><p>&#1060;&#1072;&#1081;&#1083;&#1099; &#1088;&#1072;&#1079;&#1083;&#1080;&#1095;&#1085;&#1099;&#1093; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1086;&#1074; &#1080; &#1088;&#1072;&#1089;&#1096;&#1080;&#1088;&#1077;&#1085;&#1080;&#1081; &#1086;&#1090;&#1085;&#1086;&#1089;&#1103;&#1097;&#1080;&#1077;&#1089;&#1103; &#1082; &#1079;&#1072;&#1087;&#1080;&#1089;&#1080; &#1103;&#1074;&#1083;&#1103;&#1102;&#1090;&#1089;&#1103; &#1074;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103;&#1084;&#1080;.</p>
 <p>&#1042;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1103; &#1084;&#1086;&#1075;&#1091;&#1090; &#1073;&#1099;&#1090;&#1100; &#1087;&#1088;&#1080;&#1082;&#1088;&#1077;&#1087;&#1083;&#1077;&#1085;&#1099; &#1082; &#1083;&#1102;&#1073;&#1086;&#1081; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; &#1087;&#1086;&#1089;&#1088;&#1077;&#1076;&#1089;&#1090;&#1074;&#1086;&#1084; &#1089;&#1074;&#1103;&#1079;&#1077;&#1081;, &#1076;&#1083;&#1103; &#1101;&#1090;&#1086;&#1075;&#1086; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086; &#1076;&#1086;&#1073;&#1072;&#1074;&#1080;&#1090;&#1100; &#1090;&#1088;&#1077;&#1081;&#1090;:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
@@ -469,7 +469,7 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">hero</span>()
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">hasOne</span>(<span class="hl-type">Attachment</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'id'</span>, <span class="hl-value">'hero'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 </code></pre>
 <p>&#1055;&#1088;&#1080; &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1080; &#1082; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1102; &#1082;&#1072;&#1082; &#1082; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; <code>$post-&gt;hero()</code>, &#1086;&#1085;&#1086; &#1074;&#1077;&#1088;&#1085;&#1077;&#1090; &#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072; <code>Illuminate\Database\Eloquent\Builder</code> &#1091; &#1082;&#1086;&#1090;&#1086;&#1088;&#1086;&#1075;&#1086; &#1090;&#1086;&#1078;&#1077; &#1077;&#1089;&#1090;&#1100; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1103; <code>delete()</code>, &#1086;&#1076;&#1085;&#1072;&#1082;&#1086; &#1086;&#1085;&#1072; &#1074;&#1099;&#1087;&#1086;&#1083;&#1085;&#1103;&#1077;&#1090; sql &#1079;&#1072;&#1087;&#1088;&#1086;&#1089;. &#1055;&#1088;&#1080; &#1086;&#1073;&#1088;&#1072;&#1097;&#1077;&#1085;&#1080;&#1080; &#1082; &#1086;&#1090;&#1085;&#1086;&#1096;&#1077;&#1085;&#1080;&#1102; &#1082;&#1072;&#1082; &#1082; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1091; <code>$post-&gt;hero</code>, &#1086;&#1085;&#1086; &#1074;&#1077;&#1088;&#1085;&#1077;&#1090; &#1101;&#1082;&#1079;&#1077;&#1084;&#1087;&#1083;&#1103;&#1088; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;. &#1042; &#1076;&#1072;&#1085;&#1085;&#1086;&#1084; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080; <code>Attachment</code>, &#1082;&#1086;&#1090;&#1086;&#1088;&#1072;&#1103; &#1085;&#1072;&#1084; &#1080; &#1085;&#1091;&#1078;&#1085;&#1072;.</p>
@@ -616,7 +616,7 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

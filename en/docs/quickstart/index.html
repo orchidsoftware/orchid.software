@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Quick Start for Beginners | Orchid - Laravel Admin Panel</title>
@@ -439,7 +439,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                            <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <!-- 
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
 -->
@@ -627,7 +627,7 @@ This method takes two arguments: the url of the screen, and the class name of th
     
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'task'</span>, <span class="hl-type">TaskScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.task'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">breadcrumbs</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Trail</span> $trail</span>){
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">breadcrumbs</span>(<span class="hl-keyword">function</span> (<span class="hl-injection"><span class="hl-type">Trail</span> $trail</span>) {
         <span class="hl-keyword">return</span> $trail
             <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">parent</span></span>(<span class="hl-value">'platform.index'</span>)
             <span class="hl-delimeter">-&gt;</span><span class="hl-function">push</span>(<span class="hl-value">'Task'</span>);
@@ -860,7 +860,7 @@ And the second one, we pass the set of columns we want to display. The values in
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

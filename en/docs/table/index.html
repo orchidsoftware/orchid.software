@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Table | Orchid - Laravel Admin Panel</title>
@@ -424,7 +424,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
+                            <head></head><body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
 <p>To create a new table layout, you can use the following Artisan command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:table PatientListLayout
 </code></pre>
@@ -514,8 +514,7 @@ You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering
 <p>When working with filters, it is possible to use the <code>filterValue()</code> method, which allows you to modify the displayed filter values.
 For example, you can replace an ID value with a display name. Here is an example of using the <code>filterValue()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filterValue</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$value</span>) {
-    $user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>($value);
-    <span class="hl-keyword">return</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
+    <span class="hl-keyword">return</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>($value)<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
 })
 </code></pre>
 <p>The <code>$value</code> value passed to the function will contain the filter value that was applied.</p>
@@ -576,7 +575,7 @@ prohibit doing this by specifying:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
 
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection">$product</span>) <span class="hl-operator">=&gt;</span> $product<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">price</span> <span class="hl-operator">+</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'tax'</span>)),
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection">$product</span>) <span class="hl-operator">=&gt;</span> $product<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">price</span> <span class="hl-operator">+</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'tax'</span>)),
 </code></pre>
 <h2><a href='#working-with-the-loop-variable' id='working-with-the-loop-variable'>Working with the Loop Variable</a></h2>
 <p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
@@ -605,7 +604,7 @@ It is much nicer than specifying things directly in the view or creating particu
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">status</span>(): <span class="hl-keyword">string</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-keyword">match</span> (<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">status</span>) {
+        <span class="hl-keyword">return</span> <span class="hl-keyword">match</span> (<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">status</span>) {
             <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_PROCESS</span>      <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'In the process'</span>),
             <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_PAID</span>         <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Paid'</span>),
             <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-constant">STATUS_CANCELLATION</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Cancellation'</span>),
@@ -634,7 +633,7 @@ It is much nicer than specifying things directly in the view or creating particu
 <p>Therefore, if you are using a deep injection in your component, it is essential to specify the variable&rsquo;s name.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Application</span> $application, <span class="hl-type">Order</span> $order, <span class="hl-keyword">int</span> $limit <span class="hl-operator">=</span> <span class="hl-number">300</span></span>)
 {
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span> <span class="hl-operator">=</span> $order;
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">order</span> <span class="hl-operator">=</span> $order;
     <span class="hl-comment">// ...</span>
 }
 </code></pre>
@@ -671,7 +670,7 @@ It is much nicer than specifying things directly in the view or creating particu
         ?<span class="hl-keyword">string</span> $decimal_separator <span class="hl-operator">=</span> ".",
         ?<span class="hl-keyword">string</span> $thousands_separator <span class="hl-operator">=</span> ","
     </span>) {
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">value</span> <span class="hl-operator">=</span> <span class="hl-function">number_format</span>($value, $decimals, $decimal_separator, $thousands_separator);
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">value</span> <span class="hl-operator">=</span> <span class="hl-function">number_format</span>($value, $decimals, $decimal_separator, $thousands_separator);
     }
 
     <span class="hl-comment">/**
@@ -862,7 +861,7 @@ specifying methods:</p>
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

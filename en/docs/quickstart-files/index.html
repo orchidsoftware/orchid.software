@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Manage File Attachments | Orchid - Laravel Admin Panel</title>
@@ -386,7 +386,7 @@
 
                             <div class="anchors">
     </div>
-                            <body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>,
+                            <head></head><body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>,
 in which we will analyze the work with <a href="/en/docs/attachments">&ldquo;Attached files&rdquo;</a>.</p>
 <p>Let&rsquo;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
 in which we will store information about the main image in our blog post:</p>
@@ -539,9 +539,9 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
 <p>But also describe the synchronization of dependent records by relations in our screen:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">createOrUpdate</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
 {
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">fill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'post'</span>))<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">fill</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'post'</span>))<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">syncWithoutDetaching</span>(
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">post</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">syncWithoutDetaching</span>(
         $request<span class="hl-delimeter">-&gt;</span><span class="hl-function">input</span>(<span class="hl-value">'post.attachments'</span>, [])
     );
 
@@ -638,7 +638,7 @@ For more details, see the section <a href="/en/docs/field">&ldquo;Form Elements&
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

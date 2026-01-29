@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Presenters | Orchid - Laravel Admin Panel</title>
@@ -394,7 +394,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>Presenters are classes that wrap objects and provide additional functionality to them.
+                            <head></head><body><p>Presenters are classes that wrap objects and provide additional functionality to them.
 In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized.
 You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.</p>
 <h2><a href='#creating-a-presenter' id='creating-a-presenter'>Creating A Presenter</a></h2>
@@ -421,8 +421,8 @@ You can move all of the formatting and presentation logic into the presenter cla
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">fullName</span>(): <span class="hl-keyword">string</span>
     {
         <span class="hl-keyword">return</span> <span class="hl-function">sprintf</span>(<span class="hl-value">'%s %s'</span>,
-            <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">firstName</span>,
-            <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">lastName</span>
+            <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">firstName</span>,
+            <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">entity</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">lastName</span>
         );
     }
 }
@@ -458,7 +458,7 @@ $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullN
     
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>(): <span class="hl-type">CustomerPresenter</span>
     {
-        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>(<span class="hl-tag2">$this</span>);
+        <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>(<span class="hl-this-keyword">$this</span>);
     }
 }
 </code></pre>
@@ -551,7 +551,7 @@ $customers <span class="hl-operator">=</span> <span class="hl-type">Customer</sp
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

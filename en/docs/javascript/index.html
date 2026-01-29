@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Use JavaScript | Orchid - Laravel Admin Panel</title>
@@ -412,7 +412,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>The aesthetic and functional foundation of Orchid is built upon <a href="https://getbootstrap.com/">Bootstrap</a> for CSS and <a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of Orchid&rsquo;s features.</p>
+                            <head></head><body><p>The aesthetic and functional foundation of Orchid is built upon <a href="https://getbootstrap.com/">Bootstrap</a> for CSS and <a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of Orchid&rsquo;s features.</p>
 <blockquote>
 <p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
 </blockquote>
@@ -443,13 +443,13 @@
 <h2><a href='#turbo' id='turbo'>Turbo</a></h2>
 <p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
 <p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("load", () =&gt; {
-    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("load", () =&gt; {
+    console.<span class="hl-property"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
 });
 </code></pre>
 <p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbo:load", () =&gt; {
-    console.<span class="hl-property2"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbo:load", () =&gt; {
+    console.<span class="hl-property"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
 })
 </code></pre>
 <p>You can find more details on the website <a href="https://turbo.hotwire.dev">turbo.hotwire.dev</a>.</p>
@@ -466,15 +466,15 @@
 </code></pre>
 <p>Controller class with the following content:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// hello.js</span>
-<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
+<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property">Controller</span> {
 
     <span class="hl-keyword">static</span> <span class="hl-keyword">get</span> <span class="hl-function">targets</span>() {
         <span class="hl-keyword">return</span> [ "name", "output" ]
     }
 
     <span class="hl-function">greet</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
-            <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>
+        <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span>
+            <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>
     }
 }
 </code></pre>
@@ -482,7 +482,7 @@
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// dashboard.js</span>
 <span class="hl-keyword">import</span> HelloController <span class="hl-keyword">from</span> "./controllers/hello"
 
-application.<span class="hl-property2"><span class="hl-function">register</span></span>("hello", HelloController);
+application.<span class="hl-property"><span class="hl-function">register</span></span>("hello", HelloController);
 </code></pre>
 <blockquote>
 <p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
@@ -491,7 +491,7 @@ application.<span class="hl-property2"><span class="hl-function">register</span>
 <p>It remains only to describe the assembly in <code>webpack.mix.js</code>:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> mix <span class="hl-operator">=</span> <span class="hl-function">require</span>(<span class="hl-value">'laravel-mix'</span>);
 
-mix.<span class="hl-property2"><span class="hl-function">js</span></span>(<span class="hl-value">'resources/js/dashboard.js'</span>, <span class="hl-value">'public/js'</span>)
+mix.<span class="hl-property"><span class="hl-function">js</span></span>(<span class="hl-value">'resources/js/dashboard.js'</span>, <span class="hl-value">'public/js'</span>)
 </code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
@@ -531,25 +531,25 @@ npm run build
 <h3><a href='#run-controller' id='run-controller'>Run Controller</a></h3>
 <p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
 <pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- hello.blade.php --}}</span> 
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-start-end-tag">&gt;</span>
+  <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-start-end-tag">&gt;</span>
 
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">button</span> <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"click-&gt;hello#greet"</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">button</span> <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"click-&gt;hello#greet"</span><span class="hl-start-end-tag">&gt;</span>
     Greet
-  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">button</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">button</span><span class="hl-start-end-tag">&gt;</span>
 
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+  <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span>
+  <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js Wrapped in a Stimulus</a></h2>
 <p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
 <p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> {createApp} <span class="hl-keyword">from</span> <span class="hl-value">'vue'</span>;
 
-<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property2">Controller</span> {
+<span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property">Controller</span> {
     <span class="hl-function">connect</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span> <span class="hl-operator">=</span> <span class="hl-function">createApp</span>({
+        <span class="hl-slug">this</span>.<span class="hl-property">app</span> <span class="hl-operator">=</span> <span class="hl-function">createApp</span>({
             <span class="hl-function">data</span>() {
                 <span class="hl-keyword">return</span> {
                     message: <span class="hl-value">'Hello, Vue.js!'</span>
@@ -557,19 +557,18 @@ npm run build
             }
         });
 
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">mount</span></span>(<span class="hl-slug">this</span>.<span class="hl-property2">element</span>);
+        <span class="hl-slug">this</span>.<span class="hl-property">app</span>.<span class="hl-property"><span class="hl-function">mount</span></span>(<span class="hl-slug">this</span>.<span class="hl-property">element</span>);
     }
 
     <span class="hl-function">disconnect</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property2">app</span>.<span class="hl-property2"><span class="hl-function">unmount</span></span>();
+        <span class="hl-slug">this</span>.<span class="hl-property">app</span>.<span class="hl-property"><span class="hl-function">unmount</span></span>();
     }
 }
-
 </code></pre>
 <p>Register the controller in your blade file:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="blade" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-start-end-tag">&gt;</span>
   <span class="hl-attribute">@</span><span class="hl-delimeter">{{</span> message <span class="hl-delimeter">}}</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
 </body>
@@ -641,7 +640,7 @@ npm run build
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

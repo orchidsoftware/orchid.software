@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Screens | Orchid - Laravel Admin Panel</title>
@@ -439,7 +439,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                            <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.</p>
 <p>Screens don&rsquo;t handle data fetching directly; instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or external service&mdash;without affecting the screen logic.</p>
 <p>At the core, each screen is essentially an HTML <code>&lt;form&gt;</code>, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.</p>
@@ -603,7 +603,7 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">name</span>(): ?<span class="hl-keyword">string</span>
 {
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">message</span>;
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">message</span>;
 }
 </code></pre>
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
@@ -682,12 +682,12 @@ All of the data that the user has seen on the screen will be available in the re
 <h2><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h2>
 <p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">form</span> <span class="hl-attribute">action</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [<span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>]) }}"</span>
+<pre><code data-lang="blade" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">form</span> <span class="hl-attribute">action</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [<span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>]) }}"</span>
       <span class="hl-attribute">method</span><span class="hl-delimeter">=</span><span class="hl-value">"POST"</span>
-<span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&gt;</span>
     <span class="hl-keyword">@csrf</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">button</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"submit"</span><span class="hl-delimeter">&gt;</span>Say "Hello, World!"<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">button</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">form</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">button</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"submit"</span><span class="hl-start-end-tag">&gt;</span>Say "Hello, World!"<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">button</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">form</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
@@ -704,15 +704,15 @@ All of the data that the user has seen on the screen will be available in the re
 One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-delimeter">&gt;</span>
-	<span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-delimeter">&gt;</span>
-        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span><span class="hl-delimeter">&gt;</span>
-        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">h6</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"mb-0"</span><span class="hl-delimeter">&gt;</span>Maria<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">h6</span><span class="hl-delimeter">&gt;</span>
-        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">p</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"text-muted mb-1"</span><span class="hl-delimeter">&gt;</span>maria@exaple.com<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">p</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-start-end-tag">&gt;</span>
+	<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-start-end-tag">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span><span class="hl-start-end-tag">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">h6</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"mb-0"</span><span class="hl-start-end-tag">&gt;</span>Maria<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">h6</span><span class="hl-start-end-tag">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">p</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"text-muted mb-1"</span><span class="hl-start-end-tag">&gt;</span>maria@exaple.com<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">p</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in <code>React/Vue/Angular</code>.</p>
 <p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
@@ -763,9 +763,9 @@ To pass custom parameters to your layout you can use the class constructor to ha
     {
         <span class="hl-keyword">return</span> [
             <span class="hl-constant">new</span> <span class="hl-type">Label</span>(<span class="hl-value">'label'</span>)
-                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>),
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">title</span>),
 
-            <span class="hl-constant">new</span> <span class="hl-type">Input</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-delimeter">.</span> <span class="hl-value">'.address'</span>)
+            <span class="hl-constant">new</span> <span class="hl-type">Input</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-delimeter">.</span> <span class="hl-value">'.address'</span>)
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Address'</span>)
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'177A Bleecker Street'</span>),
@@ -889,7 +889,7 @@ To pass custom parameters to your layout you can use the class constructor to ha
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

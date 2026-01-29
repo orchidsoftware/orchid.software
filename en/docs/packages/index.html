@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Package Development | Orchid - Laravel Admin Panel</title>
@@ -421,7 +421,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><blockquote>
+                            <head></head><body><blockquote>
 <p>&#9888;&#65039; <strong>Attention:</strong> This section is still a work in progress and isn&rsquo;t 100% ready for use. &#128679;</p>
 <p>It may lack complete information or contain inaccuracies. If you are not an enthusiast or experienced user, it is recommended to wait until this section is finalized and verified before relying on the information provided here. Updates will be made to ensure the section is complete and accurate as soon as possible. Thank you for your patience and understanding.</p>
 </blockquote>
@@ -596,7 +596,7 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
      */</span>
     <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">build</span>(<span class="hl-injection"><span class="hl-type">Repository</span> $repository</span>)
     {
-        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'hello'</span>, [<span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>]);
+        <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'hello'</span>, [<span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>]);
     }
 });
 </code></pre>
@@ -616,15 +616,15 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// AppServiceProvider.php</span>
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'bool'</span>, <span class="hl-keyword">function</span> () {
 
-    $column <span class="hl-operator">=</span> <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">column</span>;
+    $column <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">column</span>;
 
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$datum) <span class="hl-keyword">use</span> ($column</span>) {
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$datum) <span class="hl-keyword">use</span> ($column</span>) {
         <span class="hl-keyword">return</span> <span class="hl-function">view</span>(<span class="hl-value">'bool'</span>,[
             <span class="hl-value">'bool'</span> <span class="hl-operator">=&gt;</span> $datum<span class="hl-delimeter">-&gt;</span>$column
         ]);
     });
 
-    <span class="hl-keyword">return</span> <span class="hl-tag2">$this</span>;
+    <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span>;
 });
 </code></pre>
 <p>Template example:</p>
@@ -709,7 +709,7 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

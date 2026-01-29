@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Eloquent Filters | Orchid - Laravel Admin Panel</title>
@@ -427,7 +427,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
+                            <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>Eloquent Filters are powerful tools for creating complex queries in Laravel.
 They allow you to easily manage and customize your search criteria.
 You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.</p>
@@ -460,7 +460,7 @@ This command will generate a new filter class in the <code>app/Orchid/Filters</c
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">run</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $builder</span>): <span class="hl-type">Builder</span>
     {
-        <span class="hl-keyword">return</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'email'</span>, <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'email'</span>));
+        <span class="hl-keyword">return</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'email'</span>, <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'email'</span>));
     }
 
     <span class="hl-comment">/**
@@ -473,7 +473,7 @@ This command will generate a new filter class in the <code>app/Orchid/Filters</c
         <span class="hl-keyword">return</span> [
             <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'email'</span>)
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
-                <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'email'</span>))
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'email'</span>))
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Search...'</span>)
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Search'</span>)
         ];
@@ -843,7 +843,7 @@ $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">orderBy</
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

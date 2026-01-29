@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Upgrade Guide | Orchid - Laravel Admin Panel</title>
@@ -535,7 +535,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#support-policy' id='support-policy'>Support Policy</a></h2>
+                            <head></head><body><h2><a href='#support-policy' id='support-policy'>Support Policy</a></h2>
 <p>At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can provide efficient support, we will only provide support for the latest major release of our package. This includes bug fixes and security updates.</p>
 <p>We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest features, bug fixes, and security updates.</p>
 <p>If you have any questions or concerns about our support policy, please do not hesitate to contact us.</p>
@@ -566,7 +566,7 @@
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">yourMethod</span>()
 {
-    <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">idea</span>; 
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">idea</span>; 
     <span class="hl-comment">// The property is not empty and contains</span>
     <span class="hl-comment">// the value that was set at the beginning.</span>
 }
@@ -626,7 +626,7 @@ The current state of the screen is passed as the first argument to this method, 
 
                 <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'result'</span>)
                     <span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">readonly</span></span>()
-                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">has</span>(<span class="hl-value">'result'</span>)),
+                    <span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">has</span>(<span class="hl-value">'result'</span>)),
             ]),
         ];
     }
@@ -778,7 +778,7 @@ To do this, you can add button definitions to your profile screen.</p>
 <pre><code data-lang="json" class="notranslate">{
     "<span class="hl-value">scripts</span>": {
         "<span class="hl-value">post-update-cmd</span>": [
-            "<span class="hl-value2">@php artisan orchid:publish --ansi</span>"
+            "<span class="hl-json-value">@php artisan orchid:publish --ansi</span>"
         ]
     }
 }
@@ -961,21 +961,21 @@ But the differences will also be, for example, the writing of nested elements wi
 <h3><a href='#stimulus' id='stimulus'>Stimulus</a></h3>
 <p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">&lt;!--  before: --&gt;</span>
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"fields--checkbox"</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"fields--checkbox"</span><span class="hl-start-end-tag">&gt;</span>
 
 <span class="hl-comment">&lt;!--  after: --&gt;</span>
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"checkbox"</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"checkbox"</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <h3><a href='#turbo' id='turbo'>Turbo</a></h3>
 <p>The Turbolinks library has been updated to Turbo for more details here: <a href="https://turbo.hotwire.dev/">https://turbo.hotwire.dev/</a></p>
 <p>If you used your own js scripts, then it is recommended to read their changes. For example:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// before</span>
-document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbolinks:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
+document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbolinks:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
     <span class="hl-comment">// ...</span>
 })
 
 <span class="hl-comment">// after</span>
-document.<span class="hl-property2"><span class="hl-function">addEventListener</span></span>("turbo:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
+document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbo:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
   <span class="hl-comment">// ...</span>
 })
 </code></pre>
@@ -1060,8 +1060,8 @@ To do this, you need to download it to the service provider:</p>
 {
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request, <span class="hl-type">Locator</span> $locator</span>)
     {
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span> <span class="hl-operator">=</span> $request;
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span> <span class="hl-operator">=</span> $request;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
     }
 }
 </code></pre>
@@ -1070,7 +1070,7 @@ To do this, you need to download it to the service provider:</p>
 {
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Locator</span> $locator</span>)
     {
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">locator</span> <span class="hl-operator">=</span> $locator;
     }
 }
 </code></pre>
@@ -1084,7 +1084,7 @@ To do this, you need to download it to the service provider:</p>
 <h4><a href='#data-spoofing-async' id='data-spoofing-async'>Data Spoofing (Async)</a></h4>
 <p>The <code>{argument?}</code> Expectation has been removed from the address bar.
 Now a separate route is used for the call:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">router</span>
+<pre><code data-lang="php" class="notranslate"><span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">router</span>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">post</span>(<span class="hl-value">'async/{screen}/{method?}/{template?}'</span>, [<span class="hl-type">AsyncController</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'load'</span>])
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'async'</span>);
 </code></pre>
@@ -1188,7 +1188,7 @@ In most cases, you only need to remove the <code>icon-</code> prefix.</p>
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

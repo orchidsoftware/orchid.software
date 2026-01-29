@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Пользовательские поля | Orchid - Laravel Admin Panel</title>
@@ -413,7 +413,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#sozdanie-novogo-polia' id='sozdanie-novogo-polia'>Создание нового поля</a></h2>
+                            <head></head><body><h2><a href='#sozdanie-novogo-polia' id='sozdanie-novogo-polia'>Создание нового поля</a></h2>
 <p>Orchid &#1087;&#1088;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1074;&#1083;&#1103;&#1077;&#1090; &#1096;&#1080;&#1088;&#1086;&#1082;&#1080;&#1081; &#1085;&#1072;&#1073;&#1086;&#1088; &#1075;&#1086;&#1090;&#1086;&#1074;&#1099;&#1093; &#1087;&#1086;&#1083;&#1077;&#1081;, &#1085;&#1086; &#1080;&#1085;&#1086;&#1075;&#1076;&#1072; &#1089;&#1090;&#1072;&#1085;&#1076;&#1072;&#1088;&#1090;&#1085;&#1099;&#1093; &#1088;&#1077;&#1096;&#1077;&#1085;&#1080;&#1081; &#1084;&#1086;&#1078;&#1077;&#1090; &#1073;&#1099;&#1090;&#1100; &#1085;&#1077;&#1076;&#1086;&#1089;&#1090;&#1072;&#1090;&#1086;&#1095;&#1085;&#1086;.
 &#1042; &#1090;&#1072;&#1082;&#1080;&#1093; &#1089;&#1083;&#1091;&#1095;&#1072;&#1103;&#1093; &#1074;&#1099; &#1084;&#1086;&#1078;&#1077;&#1090;&#1077; &#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1089;&#1086;&#1073;&#1089;&#1090;&#1074;&#1077;&#1085;&#1085;&#1086;&#1077; &#1087;&#1086;&#1083;&#1077;, &#1072;&#1076;&#1072;&#1087;&#1090;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1086;&#1077; &#1087;&#1086;&#1076; &#1074;&#1072;&#1096;&#1080; &#1079;&#1072;&#1076;&#1072;&#1095;&#1080;.</p>
 <p>&#1055;&#1086;&#1083;&#1077; &#1074; Orchid &#1089;&#1086;&#1089;&#1090;&#1086;&#1080;&#1090; &#1080;&#1079; PHP-&#1082;&#1083;&#1072;&#1089;&#1089;&#1072;, &#1082;&#1086;&#1090;&#1086;&#1088;&#1099;&#1081; &#1086;&#1087;&#1088;&#1077;&#1076;&#1077;&#1083;&#1103;&#1077;&#1090; &#1077;&#1075;&#1086; &#1083;&#1086;&#1075;&#1080;&#1082;&#1091;, &#1080; Blade-&#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072;, &#1086;&#1090;&#1074;&#1077;&#1095;&#1072;&#1102;&#1097;&#1077;&#1075;&#1086; &#1079;&#1072; &#1086;&#1090;&#1086;&#1073;&#1088;&#1072;&#1078;&#1077;&#1085;&#1080;&#1077;.</p>
@@ -467,8 +467,8 @@
 </code></pre>
 <p>&#1056;&#1072;&#1089;&#1089;&#1084;&#1086;&#1090;&#1088;&#1080;&#1084; &#1073;&#1083;&#1080;&#1078;&#1077; &#1089;&#1075;&#1077;&#1085;&#1077;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1085;&#1085;&#1099;&#1081; <code>view</code>:</p>
 <pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
-        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span>
             {{
                 $attributes-&gt;merge([
                     'data-emoji-picker-target' =&gt; 'name',
@@ -476,24 +476,24 @@
                 ])
             }}&gt;
 
-        <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 @endcomponent
 
-<span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
-    Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
+    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
         <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
 
         <span class="hl-function">connect</span>() {
-            console.<span class="hl-property2"><span class="hl-function">log</span></span>("Emoji Picker controller has been connected!");
+            console.<span class="hl-property"><span class="hl-function">log</span></span>("Emoji Picker controller has been connected!");
         }
 
         <span class="hl-function">greet</span>() {
-            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span>
-                <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
+            <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span>
+                <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
         }
     });
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>&#1042;&#1085;&#1091;&#1090;&#1088;&#1080; &#1073;&#1083;&#1086;&#1082;&#1072; <code>script</code> &#1089;&#1086;&#1079;&#1076;&#1072;&#1077;&#1090;&#1089;&#1103; &#1080; &#1089;&#1088;&#1072;&#1079;&#1091; &#1078;&#1077; &#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1091;&#1077;&#1090;&#1089;&#1103; &#1074; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1080;, &#1073;&#1077;&#1079; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1089;&#1090;&#1080; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1103;
 &#1086;&#1090;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;&#1075;&#1086; &#1092;&#1072;&#1081;&#1083;&#1072;, <a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a>-&#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;, &#1086;&#1085; &#1087;&#1086;&#1076;&#1082;&#1083;&#1102;&#1095;&#1072;&#1077;&#1090;&#1089;&#1103; &#1082; <code>html</code>
@@ -503,19 +503,19 @@
 &#1069;&#1090;&#1086;&#1090; &#1083;&#1077;&#1075;&#1082;&#1086;&#1074;&#1077;&#1089;&#1085;&#1099;&#1081; &#1092;&#1088;&#1077;&#1081;&#1084;&#1074;&#1086;&#1088;&#1082; &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1089;&#1074;&#1103;&#1079;&#1099;&#1074;&#1072;&#1090;&#1100; JavaScript-&#1083;&#1086;&#1075;&#1080;&#1082;&#1091; &#1089; HTML &#1095;&#1077;&#1088;&#1077;&#1079; data-&#1072;&#1090;&#1088;&#1080;&#1073;&#1091;&#1090;&#1099;, &#1095;&#1090;&#1086; &#1086;&#1089;&#1086;&#1073;&#1077;&#1085;&#1085;&#1086; &#1091;&#1076;&#1086;&#1073;&#1085;&#1086; &#1087;&#1088;&#1080; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1080; &#1076;&#1080;&#1085;&#1072;&#1084;&#1080;&#1095;&#1077;&#1089;&#1082;&#1080;&#1093; &#1087;&#1086;&#1083;&#1077;&#1081;.</p>
 <h3><a href='#struktura-kontrollera' id='struktura-kontrollera'>Структура контроллера</a></h3>
 <p>&#1056;&#1072;&#1089;&#1089;&#1084;&#1086;&#1090;&#1088;&#1080;&#1084; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1072; &#1080;&#1079; &#1096;&#1072;&#1073;&#1083;&#1086;&#1085;&#1072; EmojiPicker:</p>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
-    Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
+    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
         <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
 
         <span class="hl-function">connect</span>() {
-            console.<span class="hl-property2"><span class="hl-function">log</span></span>("Controller connected to <span class="hl-constant">DOM</span> element");
+            console.<span class="hl-property"><span class="hl-function">log</span></span>("Controller connected to <span class="hl-constant">DOM</span> element");
         }
 
         <span class="hl-function">greet</span>() {
-            <span class="hl-slug">this</span>.<span class="hl-property2">outputTarget</span>.<span class="hl-property2">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property2">nameTarget</span>.<span class="hl-property2">value</span>}!`</span>;
+            <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
         }
     });
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">script</span><span class="hl-delimeter">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <ul>
 <li>&#1048;&#1084;&#1103; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;&#1072;: <code>emoji-picker</code> (&#1091;&#1082;&#1072;&#1079;&#1099;&#1074;&#1072;&#1077;&#1090;&#1089;&#1103; &#1074; <code>data-controller</code>).</li>
@@ -528,13 +528,13 @@
 <li><strong>&#1052;&#1077;&#1090;&#1086;&#1076;&#1099;</strong>: &#1055;&#1088;&#1086;&#1080;&#1079;&#1074;&#1086;&#1083;&#1100;&#1085;&#1099;&#1077; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1076;&#1083;&#1103; &#1086;&#1073;&#1088;&#1072;&#1073;&#1086;&#1090;&#1082;&#1080; &#1089;&#1086;&#1073;&#1099;&#1090;&#1080;&#1081; (&#1085;&#1072;&#1087;&#1088;&#1080;&#1084;&#1077;&#1088;, <code>greet()</code>).</li>
 </ul>
 <h3><a href='#sviaz-c-html' id='sviaz-c-html'>Связь c HTML</a></h3>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> 
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> 
         <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span>
         <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"input-&gt;emoji-picker#greet"</span>
-    <span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-delimeter">&gt;</span><span class="hl-delimeter">&lt;/</span><span class="hl-tag2">span</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <ul>
 <li><strong>&#1050;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088;:</strong> <code>data-controller="emoji-picker"</code> &#1080;&#1085;&#1080;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1080;&#1088;&#1091;&#1077;&#1090; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088; &#1085;&#1072; &#1101;&#1083;&#1077;&#1084;&#1077;&#1085;&#1090;&#1077;.</li>
@@ -550,7 +550,7 @@
 </ul>
 <h3><a href='#registraciia-kontrollera' id='registraciia-kontrollera'>Регистрация контроллера</a></h3>
 <p>&#1052;&#1077;&#1090;&#1086;&#1076; Orchid.register() &#1088;&#1077;&#1075;&#1080;&#1089;&#1090;&#1088;&#1080;&#1088;&#1091;&#1077;&#1090; &#1082;&#1086;&#1085;&#1090;&#1088;&#1086;&#1083;&#1083;&#1077;&#1088; &#1074; &#1087;&#1088;&#1080;&#1083;&#1086;&#1078;&#1077;&#1085;&#1080;&#1080;:</p>
-<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'controller-name'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'controller-name'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
     <span class="hl-comment">// Логика контроллера</span>
 });
 </code></pre>
@@ -569,17 +569,17 @@
 <p>&#1042;&#1086;&#1079;&#1084;&#1086;&#1078;&#1085;&#1086; &#1087;&#1086;&#1090;&#1088;&#1077;&#1073;&#1091;&#1077;&#1090;&#1089;&#1103; &#1082;&#1086;&#1084;&#1087;&#1080;&#1083;&#1103;&#1094;&#1080;&#1103;, &#1095;&#1077;&#1088;&#1077;&#1079; Vite, &#1074; &#1090;&#1072;&#1082;&#1086;&#1084; &#1089;&#1083;&#1091;&#1095;&#1072;&#1077; &#1087;&#1086;&#1089;&#1084;&#1086;&#1090;&#1088;&#1080;&#1090;&#1077; &#1088;&#1072;&#1079;&#1076;&#1077;&#1083; &#1086;&#1073; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1080; <a href="/ru/docs/javascript/">JavaScript</a></p>
 </blockquote>
 <p>&#1056;&#1072;&#1089;&#1089;&#1084;&#1086;&#1090;&#1088;&#1080;&#1084; &#1085;&#1072; &#1087;&#1088;&#1080;&#1084;&#1077;&#1088;&#1077; DatePicker:</p>
-<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property2"><span class="hl-function">register</span></span>(<span class="hl-value">'date-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'date-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
     <span class="hl-function">connect</span>() {
-        <span class="hl-keyword">new</span> <span class="hl-function">DatePicker</span>(<span class="hl-slug">this</span>.<span class="hl-property2">element</span>, {
+        <span class="hl-keyword">new</span> <span class="hl-function">DatePicker</span>(<span class="hl-slug">this</span>.<span class="hl-property">element</span>, {
             format: <span class="hl-value">'YYYY-MM-DD'</span>
         });
     }
 });
 </code></pre>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p><a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a> &#1087;&#1086;&#1079;&#1074;&#1086;&#1083;&#1103;&#1077;&#1090; &#1086;&#1088;&#1075;&#1072;&#1085;&#1080;&#1095;&#1085;&#1086; &#1080;&#1085;&#1090;&#1077;&#1075;&#1088;&#1080;&#1088;&#1086;&#1074;&#1072;&#1090;&#1100; &#1083;&#1102;&#1073;&#1099;&#1077; JavaScript-&#1073;&#1080;&#1073;&#1083;&#1080;&#1086;&#1090;&#1077;&#1082;&#1080;, &#1089;&#1086;&#1093;&#1088;&#1072;&#1085;&#1103;&#1103; &#1082;&#1086;&#1076; &#1084;&#1086;&#1076;&#1091;&#1083;&#1100;&#1085;&#1099;&#1084; &#1080; &#1083;&#1077;&#1075;&#1082;&#1086; &#1087;&#1086;&#1076;&#1076;&#1077;&#1088;&#1078;&#1080;&#1074;&#1072;&#1077;&#1084;&#1099;&#1084;.</p>
 </body>
@@ -654,7 +654,7 @@
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

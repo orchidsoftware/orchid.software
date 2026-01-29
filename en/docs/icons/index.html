@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>Icons | Orchid - Laravel Admin Panel</title>
@@ -400,7 +400,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><p>The package comes with a set of icons that can be found on the <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>.
+                            <head></head><body><p>The package comes with a set of icons that can be found on the <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>.
 These icons are prefixed with <code>bs.*</code> which is used as a prefix to identify the icons in your code.</p>
 <blockquote>
 <p>If you&rsquo;re looking for a list of icons for previous versions, please visit the <a href="/en/docs/orchid-icons">Orchid Icon Pack page</a>.</p>
@@ -439,35 +439,35 @@ These icons are prefixed with <code>bs.*</code> which is used as a prefix to ide
 </code></pre>
 <h2><a href='#using-blade-component' id='using-blade-component'>Using Blade Component</a></h2>
 <p>Icons can be easily integrated into your views using Blade components. Follow these steps to seamlessly incorporate icons in your views:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"fa.home"</span> <span class="hl-delimeter">/&gt;</span>
+<pre><code data-lang="blade" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"fa.home"</span> <span class="hl-start-end-tag">/&gt;</span>
 </code></pre>
 <p>The code above renders the icon component with the specified icon path.</p>
 <p>You can also apply additional attributes to your icon component:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> 
+<pre><code data-lang="blade" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">x-orchid-icon</span> 
     <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"fa.home"</span> 
     <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"icon-big"</span> 
     <span class="hl-attribute">width</span><span class="hl-delimeter">=</span><span class="hl-value">"2em"</span> 
-    <span class="hl-attribute">height</span><span class="hl-delimeter">=</span><span class="hl-value">"2em"</span> <span class="hl-delimeter">/&gt;</span>
+    <span class="hl-attribute">height</span><span class="hl-delimeter">=</span><span class="hl-value">"2em"</span> <span class="hl-start-end-tag">/&gt;</span>
 </code></pre>
 <p>You can also use the <code>Blade Icon Component</code> outside of the admin panel by <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
 <h2><a href='#server-side-rendering-with-templates' id='server-side-rendering-with-templates'>Server-side Rendering with Templates</a></h2>
 <p>In our application, we rely solely on server-side rendering, which means we don&rsquo;t specifically prepare icons for JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the <code>&lt;template&gt;</code> tag.</p>
 <p>To illustrate this, you can include the following code on your page:</p>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">template</span> <span class="hl-attribute">id</span><span class="hl-delimeter">=</span><span class="hl-value">"product-row"</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;</span><span class="hl-tag2">tr</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>{name}<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
-      <span class="hl-delimeter">&lt;</span><span class="hl-tag2">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"minus"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"icon-minus"</span> <span class="hl-delimeter">/&gt;</span>
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">td</span><span class="hl-delimeter">&gt;</span>
-  <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">tr</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">template</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">template</span> <span class="hl-attribute">id</span><span class="hl-delimeter">=</span><span class="hl-value">"product-row"</span><span class="hl-start-end-tag">&gt;</span>
+  <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">tr</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">td</span><span class="hl-start-end-tag">&gt;</span>{name}<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">td</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">td</span><span class="hl-start-end-tag">&gt;</span>
+      <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">x-orchid-icon</span> <span class="hl-attribute">path</span><span class="hl-delimeter">=</span><span class="hl-value">"minus"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"icon-minus"</span> <span class="hl-start-end-tag">/&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">td</span><span class="hl-start-end-tag">&gt;</span>
+  <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">tr</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">template</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here&rsquo;s an example:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> template <span class="hl-operator">=</span> document.<span class="hl-property2"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'#product-row'</span>);
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> template <span class="hl-operator">=</span> document.<span class="hl-property"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'#product-row'</span>);
 
-<span class="hl-keyword">let</span> row <span class="hl-operator">=</span> template.<span class="hl-property2">content</span>.<span class="hl-property2"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'tr'</span>).<span class="hl-property2"><span class="hl-function">cloneNode</span></span>(<span class="hl-slug"><span class="hl-constant">true</span></span>);
+<span class="hl-keyword">let</span> row <span class="hl-operator">=</span> template.<span class="hl-property">content</span>.<span class="hl-property"><span class="hl-function">querySelector</span></span>(<span class="hl-value">'tr'</span>).<span class="hl-property"><span class="hl-function">cloneNode</span></span>(<span class="hl-slug"><span class="hl-constant">true</span></span>);
 
-row.<span class="hl-property2">innerHTML</span> <span class="hl-operator">=</span> row.<span class="hl-property2">innerHTML</span>.<span class="hl-property2"><span class="hl-function">replace</span></span>(/{name}/gi, "Alexandr");
+row.<span class="hl-property">innerHTML</span> <span class="hl-operator">=</span> row.<span class="hl-property">innerHTML</span>.<span class="hl-property"><span class="hl-function">replace</span></span>(/{name}/gi, "Alexandr");
 </code></pre>
 <p>By substituting the <code>{name}</code> placeholder with the actual content, you can dynamically generate the desired element. You can then insert this element into your page wherever you need it.</p>
 </body>
@@ -539,7 +539,7 @@ row.<span class="hl-property2">innerHTML</span> <span class="hl-operator">=</spa
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 

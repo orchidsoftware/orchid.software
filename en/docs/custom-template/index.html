@@ -18,7 +18,7 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/css/app.css?id=fdf453464b364088fc4203cb77580f7f">
+    <link rel="stylesheet" type="text/css" href="/css/app.css?id=ec9fbae6f004b6c068010676afd93877">
 
 
     <title>View Template | Orchid - Laravel Admin Panel</title>
@@ -400,7 +400,7 @@
                 </li>
                     </ul>
     </div>
-                            <body><h2><a href='#views' id='views'>Views</a></h2>
+                            <head></head><body><h2><a href='#views' id='views'>Views</a></h2>
 <p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the <code>Layout::view</code> method and pass it a string containing the name of your template.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
@@ -466,7 +466,7 @@ Hello, <span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}<
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-keyword">string</span> $name</span>)
     {
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
     <span class="hl-comment">/**
@@ -538,8 +538,8 @@ blade;
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection"><span class="hl-type">Application</span> $application, <span class="hl-keyword">string</span> $name</span>)
     {
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">application</span> <span class="hl-operator">=</span> $application;
-        <span class="hl-tag2">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">application</span> <span class="hl-operator">=</span> $application;
+        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span> <span class="hl-operator">=</span> $name;
     }
 
     <span class="hl-comment">/**
@@ -576,16 +576,16 @@ blade;
 }
 </code></pre>
 <p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
-<pre><code data-lang="html" class="notranslate"><span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"row"</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-delimeter">&gt;</span>
+<pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"row"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-start-end-tag">&gt;</span>
         @foreach($foo as $row)
             {!! $row !!}
         @endforeach
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
-    <span class="hl-delimeter">&lt;</span><span class="hl-tag2">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-start-end-tag">&gt;</span>
         {!! $bar !!}
-    <span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
-<span class="hl-delimeter">&lt;/</span><span class="hl-tag2">div</span><span class="hl-delimeter">&gt;</span>
+    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
@@ -691,7 +691,7 @@ blade;
     </div>
 </div>
 
-<script src="/js/app.js?id=226a26f2e78e9e07674730e9bb9e200f"></script>
+<script src="/js/app.js?id=2a84a56ab013cace03fa4702796fee91"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
