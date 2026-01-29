@@ -44,7 +44,7 @@ use Orchid\Screen\Fields\TextArea;
 class Appointment extends Rows
 {
     /**
-     * Define the fields for the appointment form.
+     * Get the fields to be displayed.
      *
      * @return Field[]
      */
@@ -81,8 +81,6 @@ public function layout(): array
 
 ## Accessing Screen Data
 
-
-
 The `Row` layout has access to data from the screen through the `query` property. This allows you to use data from the screen in the fields of the Row layout.
 
 For example, you can use the `query` property to conditionally show or hide a field based on the presence of a specific key:
@@ -97,8 +95,9 @@ use Orchid\Screen\Fields\Input;
 
 class Appointment extends Rows
 {
-
     /**
+     * Define the fields for the appointment form.
+     *
      * @return Field[]
      */
     protected function fields(): array
