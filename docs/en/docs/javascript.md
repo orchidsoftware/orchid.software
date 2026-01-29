@@ -224,7 +224,6 @@ export default class extends window.Controller {
         this.app.unmount();
     }
 }
-
 ```
 
 Register the controller in your blade file:
