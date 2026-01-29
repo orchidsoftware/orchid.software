@@ -132,8 +132,7 @@ For example, you can replace an ID value with a display name. Here is an example
 
 ```php
 TD::make('id')->filterValue(function ($value) {
-    $user = User::find($value);
-    return $user->name;
+    return User::find($value)->name;
 })
 ```
 
