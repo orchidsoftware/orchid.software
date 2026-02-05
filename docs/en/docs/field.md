@@ -278,6 +278,36 @@ Select::make('user')
 
 This will use the `uuid` field as the key for each option, rather than the default primary key.
 
+Enum as source:
+
+```php
+namespace App\Casts;
+
+enum Type: string
+{
+    case General = 'general';
+    case Account = 'account';
+    case SecurityAndPrivacy = 'security-and-privacy';
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return match ($this) {
+            Type::General            => __('types.general.title'),
+            Type::Account            => __('types.account.title'),
+            Type::SecurityAndPrivacy => __('types.security-and-privacy.title'),
+        };
+    }
+}
+```
+
+```php
+Select::make('type')
+    ->fromEnum(Type::class);
+```
+
 If you want to provide an option that represents an unselected state, you can use the `empty()` method:
 
 ```php
@@ -316,6 +346,63 @@ Select::make('type')
         'Option 2',
     ]);
 ```
+
+
+Enum Casting
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Question extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+
+Screen
+````php
+use App\Casts\Type;
+use App\Models\Question;
+
+public function query(Question $question): array
+{
+    return [
+        'question' => $question,
+    ];
+}
+    
+    
+public function types(): array
+{
+    return collect(Type::cases())
+        ->mapWithKeys( fn ( Type $type ) => [ $type->value => $type->title() ] )
+        ->all();
+}
+````
+
+Usage:
+```php
+Select::make('question.type')
+    ->fromEnum(Type::class);
+```
+
+Or:
+
+````php
+Select::make('question.type')
+    ->options($this->types())
+    ->title('Тип'),
+````
 
 ## Relation
 
@@ -419,6 +506,73 @@ Relation::make('users.')
     ->displayAppend('full')
     ->multiple()
     ->title('Select users');
+```
+
+Enum Casting
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Section extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Question extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+
+Screen
+````php
+use App\Casts\Type;
+use App\Models\Question;
+
+public function query(Question $question): array
+{
+    return [
+        'question' => $question,
+    ];
+}
+````
+
+Usage:
+```php
+Relation::make('question.section')
+     ->fromModel(Section::class, 'type')
+
+```
+
+```php
+Relation::make('question.type')
+     ->fromModel(Section::class, 'type', 'type')
+
 ```
 
 

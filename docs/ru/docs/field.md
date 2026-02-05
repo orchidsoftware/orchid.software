@@ -245,6 +245,37 @@ Select::make('user')
     ->fromModel(User::class, 'email', 'uuid');
 ```
 
+Enum в качестве источника:
+
+```php
+namespace App\Casts;
+
+enum Type: string
+{
+    case General = 'general';
+    case Account = 'account';
+    case SecurityAndPrivacy = 'security-and-privacy';
+
+    /**
+     * @return string
+     */
+    public function title(): string
+    {
+        return match ($this) {
+            Type::General            => __('types.general.title'),
+            Type::Account            => __('types.account.title'),
+            Type::SecurityAndPrivacy => __('types.security-and-privacy.title'),
+        };
+    }
+}
+```
+
+```php
+Select::make('type')
+    ->fromEnum(Type::class);
+```
+
+
 Возможны ситуации, когда необходимо добавить некоторое значение, которое означает, что поле не выбрано. 
 Для этого можно использовать метод `empty`:
 
@@ -276,8 +307,62 @@ Select::make('user')
     ]);
 ```
 
-## Relation
+Enum Casting
+```php
+namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Question extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+
+В экране
+````php
+use App\Casts\Type;
+use App\Models\Question;
+
+public function query(Question $question): array
+{
+    return [
+        'question' => $question,
+    ];
+}
+    
+    
+public function types(): array
+{
+    return collect(Type::cases())
+        ->mapWithKeys( fn ( Type $type ) => [ $type->value => $type->title() ] )
+        ->all();
+}
+````
+Использование:
+```php
+Select::make('question.type')
+    ->fromEnum(Type::class);
+```
+
+Или
+
+````php
+Select::make('question.type')
+    ->options($this->types())
+    ->title('Тип'),
+````
+
+## Relation
 
 Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.
 
@@ -317,6 +402,7 @@ class Idea extends Model
     }
 }
 ```
+
 
 ```php
 Relation::make('idea')
@@ -376,6 +462,71 @@ Relation::make('users.')
     ->title('Select users');
 ```
 
+Enum Casting
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Section extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+```php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Casts\Type;
+
+class Question extends Model
+{
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'type' => Type::class,
+    ];
+}
+````
+
+В экране
+````php
+use App\Casts\Type;
+use App\Models\Question;
+
+public function query(Question $question): array
+{
+    return [
+        'question' => $question,
+    ];
+}
+````
+
+Использование:
+```php
+Relation::make('question.section')
+     ->fromModel(Section::class, 'type')
+
+```
+
+```php
+Relation::make('question.type')
+     ->fromModel(Section::class, 'type', 'type')
+
+```
 
 ## DateTime
 
