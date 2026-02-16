@@ -636,10 +636,9 @@ This configuration specifies the disk and generator that will be used to handle 
 <blockquote>
 <p><strong>Note.</strong> File upload validation is not enforced by default.</p>
 </blockquote>
-<p>The attachment system does not restrict file extensions or MIME types out of the box.
-Upload policies are expected to be configured at the application level.</p>
-<p>Uploaded files are stored on the configured filesystem disk (typically outside the <code>/public</code> directory) and are not intended to be executed as application code.</p>
-<p>You may define custom HTTP upload routes and use validation to enforce file size limits, extension rules, and MIME type restrictions.</p>
+<p>By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes &mdash; giving you full flexibility.</p>
+<p>Uploaded files are stored on the configured disk (typically outside <code>/public</code>) and are not meant to be executed as code.</p>
+<p>For security, define your own upload rules &mdash; for example, via Laravel validation in controllers/routes, access restrictions for trusted users only, or server-level file execution protections.</p>
 </body>
 
                                                                         </main>
