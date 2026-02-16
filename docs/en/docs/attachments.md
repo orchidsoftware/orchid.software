@@ -306,10 +306,9 @@ When the `UploadFileEvent` is triggered, the anonymous function registered with 
 
 > **Note.** File upload validation is not enforced by default.
 
-The attachment system does not restrict file extensions or MIME types out of the box. 
-Upload policies are expected to be configured at the application level.
+By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes — giving you full flexibility.
 
-Uploaded files are stored on the configured filesystem disk (typically outside the `/public` directory) and are not intended to be executed as application code.
+Uploaded files are stored on the configured disk (typically outside `/public`) and are not meant to be executed as code.
 
-You may define custom HTTP upload routes and use validation to enforce file size limits, extension rules, and MIME type restrictions.
+For security, define your own upload rules — for example, via Laravel validation in controllers/routes, access restrictions for trusted users only, or server-level file execution protections.
 
