@@ -416,6 +416,9 @@
                             <li class="anchor-h2">
                     <a href="#event-subscription">Event Subscription</a>
                 </li>
+                            <li class="anchor-h2">
+                    <a href="#security-considerations">Security Considerations</a>
+                </li>
                     </ul>
     </div>
                             <head></head><body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
@@ -629,6 +632,14 @@ This configuration specifies the disk and generator that will be used to handle 
 }
 </code></pre>
 <p>When the <code>UploadFileEvent</code> is triggered, the anonymous function registered with <code>Event::listen</code> will be called. Inside this function, you can define your logic to handle the event, such as processing the uploaded file, performing validations, or triggering additional actions.</p>
+<h2><a href='#security-considerations' id='security-considerations'>Security Considerations</a></h2>
+<blockquote>
+<p><strong>Note.</strong> File upload validation is not enforced by default.</p>
+</blockquote>
+<p>The attachment system does not restrict file extensions or MIME types out of the box.
+Upload policies are expected to be configured at the application level.</p>
+<p>Uploaded files are stored on the configured filesystem disk (typically outside the <code>/public</code> directory) and are not intended to be executed as application code.</p>
+<p>You may define custom HTTP upload routes and use validation to enforce file size limits, extension rules, and MIME type restrictions.</p>
 </body>
 
                                                                         </main>
