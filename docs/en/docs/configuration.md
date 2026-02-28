@@ -6,7 +6,7 @@ description: Learn how to configure Laravel Orchid's powerful features to custom
 
 The package uses the standard configuration system for Laravel. It stores the main parameters in the `config` directory, and the main file for the platform is the file `platform.php`. Each setting comes with a comment explaining its purpose.
 
-> **Note.** After caching your configuration files, don’t forget to clear the cache if you make changes. Use the `php artisan config:clear` command to refresh it.
+> **Note.** After caching your configuration files, don’t forget to clear the cache if you make changes. Run `php artisan config:clear` so your changes take effect. Prefer reading values via `config('platform.key')` and avoid using `env()` directly in application code.
 
 In this section, we will delve into the configuration file and provide a detailed description of each parameter.
 
@@ -29,22 +29,19 @@ It is important to note that your web server settings must be configured correct
 
 ## Prefix
 
+```php
+'prefix' => env('PLATFORM_PREFIX', '/admin'),
+```
+
+The `prefix` parameter defines the URL path segment for the admin panel. The default is `/admin`, so the login page is available at `https://example.com/admin/login`. You can change it to any path, such as `dashboard` or `panel`.
+
+For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login`:
 
 ```php
-'prefix' => env('PLATFORM_PREFIX', 'admin'),
+'prefix' => '/dashboard',
 ```
- 
-The `prefix` parameter allows you to change the default `admin` prefix to any other name, such as `orchid` or `administrator`. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application. 
- 
-For example, if you set the prefix to `dashboard`, the URL for the admin login page would be `https://example.com/dashboard/login` instead of `https://example.com/admin/login`. 
- 
- To change the prefix, you can update the prefix parameter in the configuration file:
- 
- ```php
- 'prefix' => 'dashboard',
- ```
- 
- It's worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.
+
+> **Note:** The router expects a leading slash when using the default; the config default is `/admin`. Changing the prefix affects all dashboard routes, so update any links or redirects that reference the old path.
 
 
 ## Middleware
@@ -106,6 +103,15 @@ You can change this to any other route you have defined in your application. For
 
 It's worth noting that you will need to create the corresponding route and controller for the new home page.
 
+## Profile Route
+
+The `profile` option defines the route name for the user profile page. When users click their profile or avatar, they will be sent to this route.
+
+```php
+'profile' => 'platform.profile',
+```
+
+You may change this to a custom route name if you have defined your own profile screen.
 
 ## Asset Resources
 
@@ -135,6 +141,19 @@ For example, if you want to include a custom stylesheet on every page of the adm
 
 It's worth noting that the resource file must be present in the `public` directory to be able to access it.
 
+## Vite
+
+If you use [Vite](https://laravel.com/docs/vite) for frontend assets, add the entry paths to the `vite` array so they are included on orchid pages:
+
+```php
+'vite' => [
+    'resources/js/app.js',
+    'resources/css/app.css',
+],
+```
+
+See [JavaScript and Vite](/en/docs/javascript) for details.
+
 ## Appearance Patterns
 
 To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
@@ -146,6 +165,72 @@ To change some templates, it is unnecessary to publish the entire package; you c
 ],
 ```
 
+## Attachment Defaults
+
+Orchid stores uploaded files using Laravel's filesystem. You can set the default disk and an optional custom filename generator:
+
+```php
+'attachment' => [
+    'disk'      => env('PLATFORM_FILESYSTEM_DISK', 'public'),
+    'generator' => \Orchid\Attachment\Engines\Generator::class,
+],
+```
+
+Use the `disk` key to point to any disk defined in `config/filesystems.php`. The `generator` class is used to create unique filenames for new uploads.
+
+## Notifications
+
+The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling interval:
+
+```php
+'notifications' => [
+    'enabled'  => true,
+    'interval' => 60,
+],
+```
+
+`interval` is the number of seconds between polling requests.
+
+## Turbo (Hotwire)
+
+Turbo Drive powers the smooth, app-like navigation in the dashboard. You can tune caching and how the page updates after actions:
+
+```php
+'turbo' => [
+    'cache'          => true,
+    'prefetch'       => true,
+    'refresh-method' => 'replace',
+    'refresh-scroll' => 'preserve',
+],
+```
+
+For screens that use toggles or other controls that update the DOM, `refresh-method` set to `morph` and `refresh-scroll` to `preserve` often give the best experience. See the [Screens](/en/docs/screens) and [JavaScript](/en/docs/javascript) documentation for more on Turbo.
+
+## Workspace
+
+The workspace option sets the template that wraps screen content—either a compact width or full width:
+
+```php
+'workspace' => 'platform::workspace.compact',
+```
+
+Options: `platform::workspace.compact`, `platform::workspace.full`.
+
+## Fallback Page
+
+When a request does not match any orchid route, Orchid can render its own 404 page. Set to `false` if you register your own routes under the same domain and prefix and want to handle 404s yourself:
+
+```php
+'fallback' => true,
+```
+
+## Prevents Abandonment
+
+When enabled, the orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here; individual screens can override via `needPreventsAbandonment()`:
+
+```php
+'prevents_abandonment' => true,
+```
 
 ## Model Classes
 
