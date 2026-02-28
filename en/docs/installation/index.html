@@ -463,7 +463,7 @@ In other words, install your new framework project.</p>
 </code></pre>
 <p>Open a browser and go to <code>http://localhost:8000/admin</code>. If everything works, you will see the control panel login page. Later you can stop the server by pressing <code>Ctrl + C</code> in the terminal.</p>
 <blockquote>
-<p><strong>Note.</strong> Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file <code>config/platform.php</code> or <code>.env</code> file. It allows you to make the admin panel available on another domain or subdomain, such as <code>platform.example.com</code>.</p>
+<p><strong>Note.</strong> The default URL path is <code>/admin</code>. If you change the <code>prefix</code> option in <code>config/platform.php</code>, use that path instead (e.g. <code>http://localhost:8000/dashboard</code> if prefix is <code>dashboard</code>).</p>
 </blockquote>
 <h2><a href='#updating' id='updating'>Updating</a></h2>
 <p>While in the project directory, use <code>Composer</code> to update the package:</p>
@@ -497,7 +497,7 @@ It&rsquo;s  ensuring that your environment is correctly configured and running a
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for <a href="https://github.com/orchidsoftware/platform/issues/new">help</a>.</p>
 </blockquote>
 <h2><a href='#what-to-do-next' id='what-to-do-next'>What to Do Next?</a></h2>
-<p>A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step by step examples of working with the package on the <a href="/en/docs/quickstart">&ldquo;Quick Start&rdquo; page</a> or read the <a href="/en/docs/screens">documentation</a>.</p>
+<p>A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step-by-step examples on the <a href="/en/docs/quickstart">Quick Start</a> page, or read the <a href="/en/docs/configuration">Configuration</a> and <a href="/en/docs/screens">Screens</a> documentation.</p>
 </body>
 
                                                                         </main>
