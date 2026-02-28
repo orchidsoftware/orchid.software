@@ -120,7 +120,8 @@ This will render the HTML content in the message without escaping it.
 Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline. 
 They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.
 
-You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed.
+You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there are unread notifications, a counter will be displayed. 
+You can disable the notification bell or change the polling interval in `config/platform.php` under the `notifications` key (`enabled` and `interval` in seconds).
 
 
 Before using this feature, it's important to check out the [Laravel notification documentation](https://laravel.com/docs/notifications) as it provides more details and examples on how to use this feature.
