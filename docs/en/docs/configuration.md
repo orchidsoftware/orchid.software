@@ -165,6 +165,8 @@ To change some templates, it is unnecessary to publish the entire package; you c
 ],
 ```
 
+For a full guide on customizing the logo, header, footer, and overall look of the Orchid, see [Branding](/en/docs/brand).
+
 ## Attachment Defaults
 
 Orchid stores uploaded files using Laravel's filesystem. You can set the default disk and an optional custom filename generator:
