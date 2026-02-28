@@ -78,7 +78,7 @@ php artisan serve
 
 Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
-> **Note.** Suppose your runtime uses a different domain (e.g., orchid.loc). In that case, the admin panel may not be available. You need to specify your domain in the configuration file `config/platform.php` or `.env` file. It allows you to make the admin panel available on another domain or subdomain, such as `platform.example.com`.
+> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path instead (e.g. `http://localhost:8000/dashboard` if prefix is `dashboard`).
 
 
 ## Updating
@@ -131,4 +131,4 @@ It's  ensuring that your environment is correctly configured and running as expe
 
 ## What to Do Next?
 
-A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step by step examples of working with the package on the [“Quick Start” page](/en/docs/quickstart) or read the [documentation](/en/docs/screens).
+A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step-by-step examples on the [Quick Start](/en/docs/quickstart) page, or read the [Configuration](/en/docs/configuration) and [Screens](/en/docs/screens) documentation.
