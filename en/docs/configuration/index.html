@@ -402,10 +402,34 @@
                     <a href="#home-page">Home Page</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#profile-route">Profile Route</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#asset-resources">Asset Resources</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#vite">Vite</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#appearance-patterns">Appearance Patterns</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#attachment-defaults">Attachment Defaults</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#notifications">Notifications</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#turbo-hotwire">Turbo (Hotwire)</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#workspace">Workspace</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#fallback-page">Fallback Page</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#prevents-abandonment">Prevents Abandonment</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#model-classes">Model Classes</a>
@@ -417,7 +441,7 @@
     </div>
                             <head></head><body><p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
 <blockquote>
-<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Use the <code>php artisan config:clear</code> command to refresh it.</p>
+<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Run <code>php artisan config:clear</code> so your changes take effect. Prefer reading values via <code>config('platform.key')</code> and avoid using <code>env()</code> directly in application code.</p>
 </blockquote>
 <p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
 <h2><a href='#domain' id='domain'>Domain</a></h2>
@@ -429,14 +453,15 @@
 </code></pre>
 <p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
 <h2><a href='#prefix' id='prefix'>Prefix</a></h2>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_PREFIX'</span>, <span class="hl-value">'admin'</span>),
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_PREFIX'</span>, <span class="hl-value">'/admin'</span>),
 </code></pre>
-<p>The <code>prefix</code> parameter allows you to change the default <code>admin</code> prefix to any other name, such as <code>orchid</code> or <code>administrator</code>. This is useful if you want to use a different prefix for your admin panel or if the default prefix is already in use by another part of your application.</p>
-<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code> instead of <code>https://example.com/admin/login</code>.</p>
-<p>To change the prefix, you can update the prefix parameter in the configuration file:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'dashboard'</span>,
+<p>The <code>prefix</code> parameter defines the URL path segment for the admin panel. The default is <code>/admin</code>, so the login page is available at <code>https://example.com/admin/login</code>. You can change it to any path, such as <code>dashboard</code> or <code>panel</code>.</p>
+<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'/dashboard'</span>,
 </code></pre>
-<p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make sure to update any links or redirects that reference the old prefix.</p>
+<blockquote>
+<p><strong>Note:</strong> The router expects a leading slash when using the default; the config default is <code>/admin</code>. Changing the prefix affects all dashboard routes, so update any links or redirects that reference the old path.</p>
+</blockquote>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'middleware'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'public'</span>  <span class="hl-operator">=&gt;</span> [
@@ -470,6 +495,11 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
 </code></pre>
 <p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
+<h2><a href='#profile-route' id='profile-route'>Profile Route</a></h2>
+<p>The <code>profile</code> option defines the route name for the user profile page. When users click their profile or avatar, they will be sent to this route.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'profile'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform.profile'</span>,
+</code></pre>
+<p>You may change this to a custom route name if you have defined your own profile screen.</p>
 <h2><a href='#asset-resources' id='asset-resources'>Asset Resources</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
@@ -489,12 +519,59 @@
 ],
 </code></pre>
 <p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
+<h2><a href='#vite' id='vite'>Vite</a></h2>
+<p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they are included on orchid pages:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'resources/js/app.js'</span>,
+    <span class="hl-value">'resources/css/app.css'</span>,
+],
+</code></pre>
+<p>See <a href="/en/docs/javascript">JavaScript and Vite</a> for details.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
 <p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
     <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
 ],
+</code></pre>
+<h2><a href='#attachment-defaults' id='attachment-defaults'>Attachment Defaults</a></h2>
+<p>Orchid stores uploaded files using Laravel&rsquo;s filesystem. You can set the default disk and an optional custom filename generator:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'attachment'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'disk'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_FILESYSTEM_DISK'</span>, <span class="hl-value">'public'</span>),
+    <span class="hl-value">'generator'</span> <span class="hl-operator">=&gt;</span> \Orchid\Attachment\Engines\<span class="hl-type">Generator</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+],
+</code></pre>
+<p>Use the <code>disk</code> key to point to any disk defined in <code>config/filesystems.php</code>. The <code>generator</code> class is used to create unique filenames for new uploads.</p>
+<h2><a href='#notifications' id='notifications'>Notifications</a></h2>
+<p>The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling interval:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'notifications'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'enabled'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
+    <span class="hl-value">'interval'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">60</span>,
+],
+</code></pre>
+<p><code>interval</code> is the number of seconds between polling requests.</p>
+<h2><a href='#turbo-hotwire' id='turbo-hotwire'>Turbo (Hotwire)</a></h2>
+<p>Turbo Drive powers the smooth, app-like navigation in the dashboard. You can tune caching and how the page updates after actions:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'turbo'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'cache'</span>          <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
+    <span class="hl-value">'prefetch'</span>       <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
+    <span class="hl-value">'refresh-method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'replace'</span>,
+    <span class="hl-value">'refresh-scroll'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'preserve'</span>,
+],
+</code></pre>
+<p>For screens that use toggles or other controls that update the DOM, <code>refresh-method</code> set to <code>morph</code> and <code>refresh-scroll</code> to <code>preserve</code> often give the best experience. See the <a href="/en/docs/screens">Screens</a> and <a href="/en/docs/javascript">JavaScript</a> documentation for more on Turbo.</p>
+<h2><a href='#workspace' id='workspace'>Workspace</a></h2>
+<p>The workspace option sets the template that wraps screen content&mdash;either a compact width or full width:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'workspace'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform::workspace.compact'</span>,
+</code></pre>
+<p>Options: <code>platform::workspace.compact</code>, <code>platform::workspace.full</code>.</p>
+<h2><a href='#fallback-page' id='fallback-page'>Fallback Page</a></h2>
+<p>When a request does not match any orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your own routes under the same domain and prefix and want to handle 404s yourself:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'fallback'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
+</code></pre>
+<h2><a href='#prevents-abandonment' id='prevents-abandonment'>Prevents Abandonment</a></h2>
+<p>When enabled, the orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here; individual screens can override via <code>needPreventsAbandonment()</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'prevents_abandonment'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
 <p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
