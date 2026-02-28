@@ -474,7 +474,8 @@ This makes it easier to configure the delay in a more human-readable format:</p>
 <h2><a href='#persistent-notification' id='persistent-notification'>Persistent Notification</a></h2>
 <p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline.
 They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
-<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.</p>
+<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.
+You can disable the notification bell or change the polling interval in <code>config/platform.php</code> under the <code>notifications</code> key (<code>enabled</code> and <code>interval</code> in seconds).</p>
 <p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
 <p>To send a notification, you can simply pass a <code>DashboardMessage</code> instance to a user&rsquo;s <code>notify</code> method.<br>
 Before proceeding, ensure that your user model implements the <code>Notifiable</code> trait:</p>
