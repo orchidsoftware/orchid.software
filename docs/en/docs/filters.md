@@ -21,26 +21,24 @@ php artisan orchid:filter EmailFilter
 The generated filter class will look like this:
 
 ```php
-namespace App\Http\Filters;
+namespace App\Orchid\Filters;
 
-use Orchid\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
+use Orchid\Filters\Filter;
+use Orchid\Screen\Fields\Input;
 
 class EmailFilter extends Filter
 {
     /**
      * The array of matched parameters.
-     *
-     * @var array
      */
-    public $parameters = ['email'];
+    public function parameters(): ?array
+    {
+        return ['email'];
+    }
 
     /**
-     * Apply filter if the request parameters were satisfied.
-     * 
-     * @param Builder $builder
-     *
-     * @return Builder
+     * Apply to the given Eloquent query builder.
      */
     public function run(Builder $builder): Builder
     {
@@ -59,7 +57,7 @@ class EmailFilter extends Filter
                 ->type('text')
                 ->value($this->request->get('email'))
                 ->placeholder('Search...')
-                ->title('Search')
+                ->title('Email'),
         ];
     }
 }
@@ -97,11 +95,14 @@ Customer::filters($filters)
 ### Running the Filter Always
 
 By default, filters are applied only when the corresponding parameters are specified.
-However, if you want a filter to run on every request, you can leave the `$parameters` property as an empty array in your filter class.
+However, if you want a filter to run on every request, you can return an empty array from the `parameters()` method (or set the public `$parameters` property to an empty array).
 This way, the filter will be applied to all queries. For instance:
 
 ```php
-public $parameters = [];
+public function parameters(): ?array
+{
+    return [];
+}
 ```
 
 Additionally, if the array returned by the `display` method is empty, the filter will not appear in the interface but will still remain functional in queries. This allows for flexible configurations where certain filters operate silently in the background.
