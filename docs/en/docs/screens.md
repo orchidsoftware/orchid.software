@@ -479,7 +479,7 @@ public function layout(): array
 ```
 
 
-More details can be found in the `Layouts` section.
+More details can be found in the [Layouts](/en/docs/rows) section. See also: [Rows](/en/docs/rows), [Table](/en/docs/table), [Grouping (Tabs, Split, etc.)](/en/docs/grouping), and [Modals](/en/docs/modals).
 
 
 ## Additional Methods
