@@ -405,13 +405,25 @@
                     <a href="#masking-input-values">Masking Input Values</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#range">Range</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#textarea">TextArea</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#password">Password</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#checkbox">CheckBox</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#switcher">Switcher</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#select">Select</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#radio">Radio</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#relation">Relation</a>
@@ -511,6 +523,12 @@
                 </li>
                             <li class="anchor-h3">
                     <a href="#error-handling-and-message-display">Error Handling and Message Display</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#map">Map</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#utm">UTM</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#group">Group</a>
@@ -655,6 +673,17 @@
     ]);
 </code></pre>
 <p>You can view all of the available options for the Inputmask library <a href="https://github.com/RobinHerbots/Inputmask#options">here</a>.</p>
+<h2><a href='#range' id='range'>Range</a></h2>
+<p>The Range field displays a numeric slider. Use it when the value is bounded and a visual slider is appropriate:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Range</span>;
+
+<span class="hl-type">Range</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'volume'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">min</span>(<span class="hl-number">0</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">max</span>(<span class="hl-number">100</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">step</span>(<span class="hl-number">1</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Volume'</span>);
+</code></pre>
+<p>You can also use <code>Input::make('volume')-&gt;type('range')</code> for a native HTML5&nbsp;range input; the Range field provides a consistent Orchid-style interface.</p>
 <h2><a href='#textarea' id='textarea'>TextArea</a></h2>
 <p>The <code>textarea</code> field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.</p>
 <p>To create a <code>textarea</code> field, you can use the <code>TextArea</code> class:</p>
@@ -668,6 +697,17 @@
 </code></pre>
 <p>This can be useful for providing a clear visual indication of the amount of text that is expected.</p>
 <p>As with other form elements, you can use methods such as <code>title()</code>, <code>help()</code>, and <code>popover()</code> to add additional context and guidance for the user. You can also use the <code>required()</code> method to mark the textarea field as <code>required</code> and the <code>canSee()</code> method to show or hide the field.</p>
+<h2><a href='#password' id='password'>Password</a></h2>
+<p>The Password field is a text input that masks the value for sensitive data such as passwords:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Password</span>;
+
+<span class="hl-type">Password</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'password'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Password'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Enter password'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Minimum 8 characters.'</span>);
+</code></pre>
+<p>Use <code>title()</code>, <code>placeholder()</code>, <code>help()</code>, and <code>required()</code> as with other fields.</p>
 <h2><a href='#checkbox' id='checkbox'>CheckBox</a></h2>
 <p>A checkbox is a graphical user interface element that allows the user to control a parameter with two states &ndash; checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.</p>
 <p>To create a checkbox field, you can use the <code>CheckBox</code> class:</p>
@@ -685,6 +725,19 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">sendTrueOrFalse</span>();
 </code></pre>
 <p>This can be useful for ensuring that the server receives a clear indication of the state of the checkbox.</p>
+<h2><a href='#switcher' id='switcher'>Switcher</a></h2>
+<p>The Switcher field renders a toggle ideal for boolean options such as &ldquo;Enabled&rdquo; or &ldquo;Allow notifications&rdquo;. It is well-suited for settings screens where a single on/off choice is needed.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Switcher</span>;
+
+<span class="hl-type">Switcher</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'notifications_enabled'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Email notifications'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">sendTrueOrFalse</span>()
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Receive email when someone comments.'</span>);
+</code></pre>
+<p>By default, an unchecked checkbox does not send a value. Use <code>sendTrueOrFalse()</code> so the server receives <code>true</code> or <code>false</code> for the field.</p>
+<blockquote>
+<p><strong>Note.</strong> For a list of multiple checkable options, use the <a href="#checkbox">CheckBox</a> field. For a single on/off setting, Switcher is often the better choice.</p>
+</blockquote>
 <h2><a href='#select' id='select'>Select</a></h2>
 <p>The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for presenting a limited set of options and allowing the user to make a selection.</p>
 <p>To create a select field, you can use the <code>Select</code> class:</p>
@@ -743,6 +796,20 @@
         <span class="hl-value">'Option 2'</span>,
     ]);
 </code></pre>
+<h2><a href='#radio' id='radio'>Radio</a></h2>
+<p>Use the Radio field for a single choice from a fixed set of options. Each option is displayed as a radio button:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Radio</span>;
+
+<span class="hl-type">Radio</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">options</span>([
+        <span class="hl-value">'draft'</span>   <span class="hl-operator">=&gt;</span> <span class="hl-value">'Draft'</span>,
+        <span class="hl-value">'pending'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Pending'</span>,
+        <span class="hl-value">'published'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Published'</span>,
+    ])
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-value">'draft'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Status'</span>);
+</code></pre>
+<p>For a horizontal group of radio buttons in a single row, you can use the <code>RadioButtons</code> class or place multiple <code>Radio</code> fields inside a <a href="#group">Group</a>. Use descriptive labels for accessibility.</p>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
 <p>Relations fields can load dynamic data, this is a good solution if you need connections.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Relation</span>;
@@ -1293,6 +1360,24 @@ Upload::make('upload')
 
 It will add a new button with a modal window to preview uploaded files.
 -->
+<h2><a href='#map' id='map'>Map</a></h2>
+<p>The Map field provides an interface for selecting or displaying a location (e.g. coordinates). You can set the initial zoom level and the height of the map container:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Map</span>;
+
+<span class="hl-type">Map</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'location'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Location'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">zoom</span>(<span class="hl-number">12</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-value">'400px'</span>);
+</code></pre>
+<p>The field typically stores coordinates (e.g. latitude and longitude). The Blade view may integrate with a map provider (e.g. Leaflet or Google Maps) to render the map; refer to the package resources or your custom view for provider-specific setup.</p>
+<h2><a href='#utm' id='utm'>UTM</a></h2>
+<p>The UTM field is used to capture UTM parameters (campaign, source, medium, and related marketing fields). It is useful in forms for tracking campaign and traffic source data:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-constant"><span class="hl-type">UTM</span></span>;
+
+<span class="hl-type">UTM</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'campaign'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Campaign parameters'</span>);
+</code></pre>
+<p>Use this field when you need to store or edit UTM metadata for analytics or marketing reports.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
 <p>The <code>Group</code> component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
@@ -1440,9 +1525,9 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
 </code></pre>
 <p>Result is an array with keys of <code>min</code>, <code>max</code>.</p>
 <h2><a href='#custom-fields-creation' id='custom-fields-creation'>Custom Fields Creation</a></h2>
-<p>To create custom fields, refer to the &ldquo;Builder&rdquo; page in the documentation.
+<p>To create custom fields, refer to the &ldquo;Custom Fields&rdquo; page in the documentation.
 This page provides a straightforward guide on how to create and customize fields according to your requirements.
-Access the &ldquo;Builder&rdquo; page by clicking here: <a href="/en/docs/builder">Builder</a>.</p>
+Access the &ldquo;Custom Fields&rdquo; page by clicking here: <a href="/en/docs/custom-field">Custom Fields</a>.</p>
 </body>
 
                                                                         </main>
