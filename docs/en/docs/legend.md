@@ -1,7 +1,6 @@
 ---
 title: Legend
 description: Learn how to use the Legend and Summary features in Laravel Orchid to organize and display important information in your administration-style applications. Improve the clarity and usability of your project with these easy to use tools.
-extends: _layouts.documentation
 ---
 
 The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.
