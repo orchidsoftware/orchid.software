@@ -288,7 +288,7 @@ class OrderShortInformation extends Component
 To use a component in a cell, you must pass it:
 
 ```php
-use App\View\CompochangingOrderShortInformation;
+use App\View\Components\OrderShortInformation;
 
 TD::make('status')->component(OrderShortInformation::class);
 ```
@@ -380,6 +380,8 @@ TD::make('price')->asComponent(Numeric::class, [
 ]);
 // 1 234,56
 ```
+
+For built-in cell formatters (date, number, boolean, currency, percentage), see [Cell Types](/en/docs/cell-types).
 
 ## Table Options
 
