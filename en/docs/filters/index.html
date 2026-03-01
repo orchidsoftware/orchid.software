@@ -437,26 +437,24 @@ This command will generate a new filter class in the <code>app/Orchid/Filters</c
 <pre><code data-lang="php" class="notranslate">php artisan orchid:filter EmailFilter
 </code></pre>
 <p>The generated filter class will look like this:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Filters;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Filters;
 
-<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filter</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Builder</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filter</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">EmailFilter</span> <span class="hl-keyword">extends</span> <span class="hl-template">Filter</span>
 {
     <span class="hl-comment">/**
      * The array of matched parameters.
-     *
-     * <span class="hl-keyword">@var</span> <span class="hl-keyword">array</span>
      */</span>
-    <span class="hl-keyword">public</span> $parameters <span class="hl-operator">=</span> [<span class="hl-value">'email'</span>];
+    <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">parameters</span>(): ?<span class="hl-keyword">array</span>
+    {
+        <span class="hl-keyword">return</span> [<span class="hl-value">'email'</span>];
+    }
 
     <span class="hl-comment">/**
-     * Apply filter if the request parameters were satisfied.
-     * 
-     * <span class="hl-keyword">@param</span> <span class="hl-type">Builder</span> $builder
-     *
-     * <span class="hl-keyword">@return</span> <span class="hl-type">Builder</span>
+     * Apply to the given Eloquent query builder.
      */</span>
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">run</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $builder</span>): <span class="hl-type">Builder</span>
     {
@@ -475,7 +473,7 @@ This command will generate a new filter class in the <code>app/Orchid/Filters</c
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">request</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'email'</span>))
                 <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Search...'</span>)
-                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Search'</span>)
+                <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Email'</span>),
         ];
     }
 }
@@ -501,9 +499,12 @@ Simply specify the filter class when applying filters to your models:</p>
 </code></pre>
 <h3><a href='#running-the-filter-always' id='running-the-filter-always'>Running the Filter Always</a></h3>
 <p>By default, filters are applied only when the corresponding parameters are specified.
-However, if you want a filter to run on every request, you can leave the <code>$parameters</code> property as an empty array in your filter class.
+However, if you want a filter to run on every request, you can return an empty array from the <code>parameters()</code> method (or set the public <code>$parameters</code> property to an empty array).
 This way, the filter will be applied to all queries. For instance:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> $parameters <span class="hl-operator">=</span> [];
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">parameters</span>(): ?<span class="hl-keyword">array</span>
+{
+    <span class="hl-keyword">return</span> [];
+}
 </code></pre>
 <p>Additionally, if the array returned by the <code>display</code> method is empty, the filter will not appear in the interface but will still remain functional in queries. This allows for flexible configurations where certain filters operate silently in the background.</p>
 <h3><a href='#parameter-patterns' id='parameter-patterns'>Parameter Patterns</a></h3>
