@@ -625,7 +625,7 @@ It is much nicer than specifying things directly in the view or creating particu
 }
 </code></pre>
 <p>To use a component in a cell, you must pass it:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\View\<span class="hl-type">CompochangingOrderShortInformation</span>;
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\View\Components\<span class="hl-type">OrderShortInformation</span>;
 
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'status'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">OrderShortInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 </code></pre>
@@ -698,6 +698,7 @@ blade;
 ]);
 <span class="hl-comment">// 1 234,56</span>
 </code></pre>
+<p>For built-in cell formatters (date, number, boolean, currency, percentage), see <a href="/en/docs/cell-types">Cell Types</a>.</p>
 <h2><a href='#table-options' id='table-options'>Table Options</a></h2>
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
