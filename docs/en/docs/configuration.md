@@ -67,6 +67,16 @@ The `public` middleware is applied to routes that can be accessed by an unauthor
 You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.
 
 
+## Guard
+
+```php
+'guard' => env('AUTH_GUARD', 'web'),
+```
+
+The `guard` option specifies which Laravel [authentication guard](https://laravel.com/docs/authentication) is used when accessing the dashboard. Use this when you have multiple user types (e.g. customers and admins) with separate guards. The default is `web`.
+
+For more on using a custom guard with Orchid, see [Authentication](/en/docs/authentication#guard).
+
 
 ## Login Page
 
@@ -180,6 +190,27 @@ Orchid stores uploaded files using Laravel's filesystem. You can set the default
 
 Use the `disk` key to point to any disk defined in `config/filesystems.php`. The `generator` class is used to create unique filenames for new uploads.
 
+## Icons
+
+```php
+'icons' => [
+    'bs'  => \Orchid\Support\BootstrapIconsPath::getFolder(),
+],
+```
+
+Orchid uses SVG icon sets that you can extend or override. The `icons` array maps a short name to a path where SVG files are stored. The default set `bs` points to Bootstrap Icons.
+
+To add a custom set, add an entry with the name and path:
+
+```php
+'icons' => [
+    'bs'  => \Orchid\Support\BootstrapIconsPath::getFolder(),
+    'fa'  => storage_path('app/fontawesome'),
+],
+```
+
+In layouts and actions, reference an icon by the set name and the file name (without `.svg`): for example, `->icon('bs.heart')` or `->icon('fa.user')`. For more, see [Icons](/en/docs/icons).
+
 ## Notifications
 
 The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling interval:
@@ -192,6 +223,21 @@ The notification bell in the navigation bar polls for new notifications. You can
 ```
 
 `interval` is the number of seconds between polling requests.
+
+## Search
+
+The sidebar search feature uses [Laravel Scout](https://laravel.com/docs/scout) to search through the models you list here. Each model must be searchable (using Scout's `Searchable` trait) and have a [Presenter](/en/docs/presenters) that implements the search display interface.
+
+```php
+'search' => [
+    \App\Models\User::class,
+    \App\Models\Post::class,
+],
+```
+
+After adding or removing models, run `php artisan config:clear` so the dashboard picks up the change.
+
+> **Tip.** For the full setup (Scout, Presenter, and display), see [Global Search](/en/docs/global-search).
 
 ## Turbo (Hotwire)
 
@@ -261,6 +307,17 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
+## Service Provider
+
+```php
+'provider' => \App\Orchid\PlatformProvider::class,
+```
+
+The `provider` value is the class name of the service provider where the platform registers its menu, permissions, and other bootstrap logic. By default, this is `\App\Orchid\PlatformProvider::class`.
+
+You only need to change this if you move Orchid's bootstrap (for example, the `PlatformProvider` class) to another namespace. In that case, point this option to your custom provider class.
+
+> **Note.** The provider class should extend `Orchid\Platform\OrchidServiceProvider` and implement `menu()` and, if needed, `permissions()`.
 
 ## Overriding Blade Templates
 
