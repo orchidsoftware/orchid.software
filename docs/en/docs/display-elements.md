@@ -207,7 +207,7 @@ Instead of creating a separate class, it is recommended to use representatives f
 namespace App;
 
 use App\Presenters\EmployeePresenter;
-use Illuminate\Database\Eloquent\Client;
+use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
@@ -307,7 +307,7 @@ Instead of creating a separate class, it is recommended to use representatives f
 namespace App;
 
 use App\Presenters\EmployeePresenter;
-use Illuminate\Database\Eloquent\Client;
+use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
