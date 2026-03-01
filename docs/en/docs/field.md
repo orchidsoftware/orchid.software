@@ -175,8 +175,22 @@ Input::make('price')
 
 You can view all of the available options for the Inputmask library [here](https://github.com/RobinHerbots/Inputmask#options).
 
+## Range
 
-       
+The Range field displays a numeric slider. Use it when the value is bounded and a visual slider is appropriate:
+
+```php
+use Orchid\Screen\Fields\Range;
+
+Range::make('volume')
+    ->min(0)
+    ->max(100)
+    ->step(1)
+    ->title('Volume');
+```
+
+You can also use `Input::make('volume')->type('range')` for a native HTML5 range input; the Range field provides a consistent Orchid-style interface.
+
 ## TextArea
 
 The `textarea` field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.
@@ -200,7 +214,22 @@ This can be useful for providing a clear visual indication of the amount of text
 
 As with other form elements, you can use methods such as `title()`, `help()`, and `popover()` to add additional context and guidance for the user. You can also use the `required()` method to mark the textarea field as `required` and the `canSee()` method to show or hide the field.
 
- 
+## Password
+
+The Password field is a text input that masks the value for sensitive data such as passwords:
+
+```php
+use Orchid\Screen\Fields\Password;
+
+Password::make('password')
+    ->title('Password')
+    ->required()
+    ->placeholder('Enter password')
+    ->help('Minimum 8 characters.');
+```
+
+Use `title()`, `placeholder()`, `help()`, and `required()` as with other fields.
+
 ## CheckBox
 
 A checkbox is a graphical user interface element that allows the user to control a parameter with two states - checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.
@@ -230,6 +259,23 @@ CheckBox::make('enabled')
 ```
 
 This can be useful for ensuring that the server receives a clear indication of the state of the checkbox.
+
+## Switcher
+
+The Switcher field renders a toggle ideal for boolean options such as "Enabled" or "Allow notifications". It is well-suited for settings screens where a single on/off choice is needed.
+
+```php
+use Orchid\Screen\Fields\Switcher;
+
+Switcher::make('notifications_enabled')
+    ->title('Email notifications')
+    ->sendTrueOrFalse()
+    ->help('Receive email when someone comments.');
+```
+
+By default, an unchecked checkbox does not send a value. Use `sendTrueOrFalse()` so the server receives `true` or `false` for the field.
+
+> **Note.** For a list of multiple checkable options, use the [CheckBox](#checkbox) field. For a single on/off setting, Switcher is often the better choice.
 
 ## Select
 
@@ -316,6 +362,25 @@ Select::make('type')
         'Option 2',
     ]);
 ```
+
+## Radio
+
+Use the Radio field for a single choice from a fixed set of options. Each option is displayed as a radio button:
+
+```php
+use Orchid\Screen\Fields\Radio;
+
+Radio::make('status')
+    ->options([
+        'draft'   => 'Draft',
+        'pending' => 'Pending',
+        'published' => 'Published',
+    ])
+    ->value('draft')
+    ->title('Status');
+```
+
+For a horizontal group of radio buttons in a single row, you can use the `RadioButtons` class or place multiple `Radio` fields inside a [Group](#group). Use descriptive labels for accessibility.
 
 ## Relation
 
@@ -1113,6 +1178,34 @@ Upload::make('upload')
 It will add a new button with a modal window to preview uploaded files.
 -->
 
+## Map
+
+The Map field provides an interface for selecting or displaying a location (e.g. coordinates). You can set the initial zoom level and the height of the map container:
+
+```php
+use Orchid\Screen\Fields\Map;
+
+Map::make('location')
+    ->title('Location')
+    ->zoom(12)
+    ->height('400px');
+```
+
+The field typically stores coordinates (e.g. latitude and longitude). The Blade view may integrate with a map provider (e.g. Leaflet or Google Maps) to render the map; refer to the package resources or your custom view for provider-specific setup.
+
+## UTM
+
+The UTM field is used to capture UTM parameters (campaign, source, medium, and related marketing fields). It is useful in forms for tracking campaign and traffic source data:
+
+```php
+use Orchid\Screen\Fields\UTM;
+
+UTM::make('campaign')
+    ->title('Campaign parameters');
+```
+
+Use this field when you need to store or edit UTM metadata for analytics or marketing reports.
+
 ## Group
 
 The `Group` component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.
@@ -1337,6 +1430,6 @@ Result is an array with keys of `min`, `max`.
 
 ## Custom Fields Creation
 
-To create custom fields, refer to the "Builder" page in the documentation. 
-This page provides a straightforward guide on how to create and customize fields according to your requirements. 
-Access the "Builder" page by clicking here: [Builder](/en/docs/builder).
+To create custom fields, refer to the "Custom Fields" page in the documentation.
+This page provides a straightforward guide on how to create and customize fields according to your requirements.
+Access the "Custom Fields" page by clicking here: [Custom Fields](/en/docs/custom-field).
