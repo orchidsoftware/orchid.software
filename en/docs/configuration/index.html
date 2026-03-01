@@ -396,6 +396,9 @@
                     <a href="#middleware">Middleware</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#guard">Guard</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#login-page">Login Page</a>
                 </li>
                             <li class="anchor-h2">
@@ -417,7 +420,13 @@
                     <a href="#attachment-defaults">Attachment Defaults</a>
                 </li>
                             <li class="anchor-h2">
+                    <a href="#icons">Icons</a>
+                </li>
+                            <li class="anchor-h2">
                     <a href="#notifications">Notifications</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#search">Search</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#turbo-hotwire">Turbo (Hotwire)</a>
@@ -433,6 +442,9 @@
                 </li>
                             <li class="anchor-h2">
                     <a href="#model-classes">Model Classes</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#service-provider">Service Provider</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#overriding-blade-templates">Overriding Blade Templates</a>
@@ -478,6 +490,11 @@
 <p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
 <p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The <code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.</p>
 <p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.</p>
+<h2><a href='#guard' id='guard'>Guard</a></h2>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'guard'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'AUTH_GUARD'</span>, <span class="hl-value">'web'</span>),
+</code></pre>
+<p>The <code>guard</code> option specifies which Laravel <a href="https://laravel.com/docs/authentication">authentication guard</a> is used when accessing the dashboard. Use this when you have multiple user types (e.g. customers and admins) with separate guards. The default is <code>web</code>.</p>
+<p>For more on using a custom guard with Orchid, see <a href="/en/docs/authentication#guard">Authentication</a>.</p>
 <h2><a href='#login-page' id='login-page'>Login Page</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
@@ -543,6 +560,19 @@
 ],
 </code></pre>
 <p>Use the <code>disk</code> key to point to any disk defined in <code>config/filesystems.php</code>. The <code>generator</code> class is used to create unique filenames for new uploads.</p>
+<h2><a href='#icons' id='icons'>Icons</a></h2>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'bs'</span>  <span class="hl-operator">=&gt;</span> \Orchid\Support\<span class="hl-type">BootstrapIconsPath</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
+],
+</code></pre>
+<p>Orchid uses SVG icon sets that you can extend or override. The <code>icons</code> array maps a short name to a path where SVG files are stored. The default set <code>bs</code> points to Bootstrap Icons.</p>
+<p>To add a custom set, add an entry with the name and path:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
+    <span class="hl-value">'bs'</span>  <span class="hl-operator">=&gt;</span> \Orchid\Support\<span class="hl-type">BootstrapIconsPath</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
+    <span class="hl-value">'fa'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-function">storage_path</span>(<span class="hl-value">'app/fontawesome'</span>),
+],
+</code></pre>
+<p>In layouts and actions, reference an icon by the set name and the file name (without <code>.svg</code>): for example, <code>-&gt;icon('bs.heart')</code> or <code>-&gt;icon('fa.user')</code>. For more, see <a href="/en/docs/icons">Icons</a>.</p>
 <h2><a href='#notifications' id='notifications'>Notifications</a></h2>
 <p>The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling interval:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'notifications'</span> <span class="hl-operator">=&gt;</span> [
@@ -551,6 +581,17 @@
 ],
 </code></pre>
 <p><code>interval</code> is the number of seconds between polling requests.</p>
+<h2><a href='#search' id='search'>Search</a></h2>
+<p>The sidebar search feature uses <a href="https://laravel.com/docs/scout">Laravel Scout</a> to search through the models you list here. Each model must be searchable (using Scout&rsquo;s <code>Searchable</code> trait) and have a <a href="/en/docs/presenters">Presenter</a> that implements the search display interface.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'search'</span> <span class="hl-operator">=&gt;</span> [
+    \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+    \App\Models\<span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+],
+</code></pre>
+<p>After adding or removing models, run <code>php artisan config:clear</code> so the dashboard picks up the change.</p>
+<blockquote>
+<p><strong>Tip.</strong> For the full setup (Scout, Presenter, and display), see <a href="/en/docs/global-search">Global Search</a>.</p>
+</blockquote>
 <h2><a href='#turbo-hotwire' id='turbo-hotwire'>Turbo (Hotwire)</a></h2>
 <p>Turbo Drive powers the smooth, app-like navigation in the dashboard. You can tune caching and how the page updates after actions:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'turbo'</span> <span class="hl-operator">=&gt;</span> [
@@ -597,6 +638,14 @@
     }
 }
 </code></pre>
+<h2><a href='#service-provider' id='service-provider'>Service Provider</a></h2>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'provider'</span> <span class="hl-operator">=&gt;</span> \App\Orchid\<span class="hl-type">PlatformProvider</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+</code></pre>
+<p>The <code>provider</code> value is the class name of the service provider where the platform registers its menu, permissions, and other bootstrap logic. By default, this is <code>\App\Orchid\PlatformProvider::class</code>.</p>
+<p>You only need to change this if you move Orchid&rsquo;s bootstrap (for example, the <code>PlatformProvider</code> class) to another namespace. In that case, point this option to your custom provider class.</p>
+<blockquote>
+<p><strong>Note.</strong> The provider class should extend <code>Orchid\Platform\OrchidServiceProvider</code> and implement <code>menu()</code> and, if needed, <code>permissions()</code>.</p>
+</blockquote>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
 <p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all Laravel packages, not just Orchid);</p>
 <blockquote>
