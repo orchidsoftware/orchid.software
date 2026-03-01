@@ -51,7 +51,7 @@ use App\Customer;
 use App\Presenters\CustomerPresenter;
 
 $customer = new Customer([
-    'fistName' => 'Alexandr',
+    'firstName' => 'Alexandr',
     'lastName' => 'Chernyaev'
 ]);
     
