@@ -335,6 +335,11 @@
     <changefreq>daily</changefreq>
             </url>
     <url>
+    <loc>https://orchid.software/ru/discussions</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+            </url>
+    <url>
     <loc>https://orchid.software/ru/docs/access</loc>
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -511,6 +516,11 @@
             </url>
     <url>
     <loc>https://orchid.software/ru</loc>
+    <lastmod>2026-03-19T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+            </url>
+    <url>
+    <loc>https://orchid.software/ru/license</loc>
     <lastmod>2026-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
             </url>
