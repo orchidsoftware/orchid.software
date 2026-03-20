@@ -69,7 +69,7 @@
                         <p>
                             <a href="https://github.com/orchidsoftware" class="btn btn-outline-primary mb-3">GitHub</a>
                             <a href="/{{ app()->getLocale() }}/discussions" class="btn btn-outline-primary mb-3">Discussion</a>
-                            <a href="/{{ app()->getLocale() }}/hig" class="btn btn-outline-primary mb-3">HIG</a>
+                            <a href="/en/hig" class="btn btn-outline-primary mb-3">HIG</a>
                             <a href="/{{ app()->getLocale() }}/license" class="btn btn-outline-primary mb-3">License</a>
                         </p>
                     </div>
