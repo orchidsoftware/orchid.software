@@ -1,61 +1,102 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', onLoad);
 
-    if (window.location.href.includes('#')) {
-        return false;
-    }
+function onLoad() {
+    scrollActiveMenuIntoView();
+    initIntersectionObserver();
+    initAlgoliaSearch();
+    initImageZoom();
+}
 
-    let nav = document.querySelector('.nav-docs')
-
-    if (!nav) {
+/**
+ * Прокрутка активного пункта меню, если он выходит за пределы контейнера
+ */
+function scrollActiveMenuIntoView() {
+    if (window.location.hash) {
         return;
     }
 
-    if (nav.scrollWidth <= nav.clientWidth) {
-        return false;
+    const nav = document.querySelector('.nav-docs');
+
+    if (!nav || nav.scrollWidth <= nav.clientWidth) {
+        return;
     }
 
-    document.querySelector('.active-doc-menu').scrollIntoView({
-        behavior: "auto",
-        block: "end",
-        inline: "center"
-    })
-});
+    const activeItem = document.querySelector('.active-doc-menu');
 
-document.addEventListener("DOMContentLoaded", () => {
-    let intersectionObserver = new IntersectionObserver((entries) => processIntersectionEntries(entries));
-
-
-    [...document.querySelectorAll('.intersection')].forEach(element => {
-        intersectionObserver.observe(element);
+    activeItem?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'center',
     });
+}
 
-});
+/**
+ * Инициализация IntersectionObserver для анимаций появления
+ */
+function initIntersectionObserver() {
+    const elements = document.querySelectorAll('.intersection');
 
-// Private
-function processIntersectionEntries(entries) {
-    entries.forEach((entry) => {
+    if (!elements.length) {
+        return;
+    }
+
+    const observer = new IntersectionObserver(handleIntersection);
+
+    elements.forEach(element => observer.observe(element));
+}
+
+function handleIntersection(entries) {
+    entries.forEach(entry => {
         entry.target.classList.toggle('show', entry.isIntersecting);
     });
 }
 
+/**
+ * Увеличение изображений по клику (lightbox)
+ */
+function initImageZoom() {
+    const images = document.querySelectorAll('.documentation main img');
 
-
-
-document.querySelectorAll('.documentation main img').forEach(function(el) {
-    el.addEventListener('click', function(){
-        var src = this.getAttribute('src');
-        var div = document.createElement('div');
-        div.style.cssText = `background: RGBA(0,0,0,.5) url('${src}') no-repeat center;
-        background-size: contain;
-        width:100%; height:100%;
-        position:fixed;
-        z-index:10000;
-        top:0; left:0;
-        cursor: zoom-out;
-        background-size: contain;`;
-        div.addEventListener('click', function() {
-            document.body.removeChild(this);
-        });
-        document.body.appendChild(div);
+    images.forEach(image => {
+        image.addEventListener('click', () => openImageOverlay(image.src));
     });
-});
+}
+
+function openImageOverlay(src) {
+    const overlay = document.createElement('div');
+
+    overlay.style.cssText = `
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        cursor: zoom-out;
+        background: rgba(0, 0, 0, 0.5) url('${src}') no-repeat center;
+        background-size: contain;
+    `;
+
+    overlay.addEventListener('click', () => overlay.remove());
+
+    document.body.appendChild(overlay);
+}
+
+/**
+ * Инициализация Algolia поиска
+ */
+function initAlgoliaSearch() {
+    const container = document.getElementById('docsearch');
+
+    if (!container) {
+        return;
+    }
+
+    window.docsearch({
+        container: '#docsearch',
+        appId: 'WEIYZINI7T',
+        apiKey: '9be258641d8c46c9fcc1482b3d4375a2',
+        indexName: 'orchid_software',
+        searchParameters: {
+            facetFilters: [`lang:${document.documentElement.lang}`],
+        },
+    });
+}
+

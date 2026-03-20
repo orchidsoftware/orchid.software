@@ -77,6 +77,7 @@ $input-font-weight: 500;
 // Plugins
 @import "highlight";
 @import "icons";
+@import "algolia";
 
 
 $theme-colors: (
@@ -104,6 +105,48 @@ html, body {
     background-position: bottom;
     background-size: 100vw auto;
     background-repeat: no-repeat;
+}
+
+.gradient-bg {
+    background: radial-gradient(100% 100% at 50% 0%, rgba(202, 114, 183, 0.35) 0%, rgba(63, 38, 96, 0.2) 50%, transparent 70%);
+}
+
+.section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    @include media-breakpoint-up(lg) {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+.article-body {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+        &:first-of-type {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none;
+        }
+    }
+
+    p, ul {
+        margin-bottom: 1.25rem;
+    }
+
+    ul {
+        padding-left: 1.5rem;
+    }
 }
 
 header {
