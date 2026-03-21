@@ -345,7 +345,7 @@ The `empty` method also accepts the second argument, which is responsible for th
 
 ```php
 Select::make('user')
-    ->empty('No select', 0)
+    ->empty('No select', '0')
     ->options([
         1  => 'Option 1',
         2  => 'Option 2',
