@@ -1,7 +1,7 @@
 ---
 title: Promote
 description: Explore ways to contribute to the Laravel Orchid community
-section: site.community
+section: site.community.
 ---
 
 We greatly appreciate your interest in contributing to the growth and promotion of Laravel Orchid. Even if you don't possess technical or programming skills, there are numerous ways you can still make a meaningful impact:

@@ -1,7 +1,7 @@
 ---
 title: Contributors
 description: Help improve Orchid through discussion, code, and translation.
-section: site.community
+section: site.community.
 ---
 
 ## Contribute and Collaborate
