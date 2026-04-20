@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -381,9 +381,9 @@
 
                             <div class="anchors">
     </div>
-                            <head></head><body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>, in which we will help the user find information in tables faster.</p>
+                            <head></head><body><p>This guide is a continuation of the <a href="/en/docs/quickstart-crud">Data Management</a> tutorial, in which we will help the user find information in tables faster.</p>
 <p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the <code>Eloquent</code> models.
-In order to enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
+To enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -443,7 +443,7 @@ In the data source method of the <code>PostListScreen</code> screen, it will loo
 <blockquote>
 <p><strong>Note.</strong> In this way, you cannot sort related models.</p>
 </blockquote>
-<p>In order to display the sorting feature in the graphical interface, we must call the <code>sort</code> method for the necessary table columns in the <code>PostListLayout</code>:</p>
+<p>To display the sorting feature in the graphical interface, call the <code>sort</code> method for the necessary table columns in the <code>PostListLayout</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;

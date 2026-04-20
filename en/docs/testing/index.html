@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/testing" class="text-decoration-none text-primary">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/testing" class="text-decoration-none text-primary">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -414,7 +414,7 @@
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertSee</span>(<span class="hl-value">'Custom message'</span>);
 }
 </code></pre>
-<p>In many cases, routes take parameters, for example <code>users/{user}/edit</code>, in order to transfer them, you can use the method:</p>
+<p>In many cases, routes take parameters, for example <code>users/{user}/edit</code>. To pass them, you can use the method:</p>
 <pre><code data-lang="php" class="notranslate">$screen <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'platform.systems.users.edit'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">parameters</span>([
         <span class="hl-value">'user'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">1</span>,

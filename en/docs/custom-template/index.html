@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -439,7 +439,7 @@ Hello, <span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}<
 }
 </code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
-<p>Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the <code>artisan</code> command:</p>
+<p>Blade components are a way to reuse templates in your Laravel application. To create a new Blade component, you can use the <code>Artisan</code> command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:component Hello --inline
 </code></pre>
 <p>This will create a new class called <code>Hello</code> in the <code>App\View\Components</code> namespace. The class should look something like this:</p>
@@ -504,7 +504,7 @@ blade;
     ];
 }
 </code></pre>
-<p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using blade syntax. For example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
+<p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using Blade syntax. For example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
 <pre><code data-lang="php" class="notranslate">Hello {{ $name }}!
 </code></pre>
 <p>If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as arguments. For example:</p>
@@ -553,7 +553,7 @@ blade;
     }
 }
 </code></pre>
-<p>You can learn more about blade components in the <a href="https://laravel.com/docs/blade#components">Laravel documentation</a>.</p>
+<p>You can learn more about Blade components in the <a href="https://laravel.com/docs/blade#components">Laravel documentation</a>.</p>
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
 <p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
 <p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
@@ -582,7 +582,7 @@ blade;
     <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using blade syntax.</p>
+<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using Blade syntax.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [

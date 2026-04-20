@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -479,7 +479,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 }
 </code></pre>
 <h2><a href='#basic-configuration' id='basic-configuration'>Basic Configuration</a></h2>
-<p>The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.</p>
+<p>The configuration is used to change how the chart behaves. It includes properties to control styling, height, and more.</p>
 <h3><a href='#adjusting-height' id='adjusting-height'>Adjusting Height</a></h3>
 <p>Set the height of the chart in pixels by specifying the property:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
@@ -530,7 +530,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 }
 </code></pre>
 <h2><a href='#eloquent-model' id='eloquent-model'>Eloquent Model</a></h2>
-<p>In order to use the methods of obtaining data for charts from the model, you need to add the trait <code>Chartable</code>:</p>
+<p>To use chart data methods from the model, add the trait <code>Chartable</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Orchid\Metrics\<span class="hl-type">Chartable</span>;
@@ -582,7 +582,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
     ];
 }
 </code></pre>
-<p>In order to change the text of headers, you can pass the closure function as the first argument:</p>
+<p>To change the header text, you can pass a closure as the first argument:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countForGroup</span>(<span class="hl-value">'uses_two_factor_auth'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-keyword">bool</span> $value</span>) <span class="hl-operator">=&gt;</span> $value <span class="hl-operator">?</span> <span class="hl-value">'Enabled'</span> : <span class="hl-value">'Disabled'</span>),
 </code></pre>
@@ -623,7 +623,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
     ];
 }
 </code></pre>
-<p>By default, the data will be taken for one month; to set your own period, you need to pass the arguments:</p>
+<p>By default, the data will be taken for one month. To set your own period, pass the arguments:</p>
 <pre><code data-lang="php" class="notranslate">$start <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">7</span>);
 $end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span class="hl-delimeter">::</span><span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(<span class="hl-number">1</span>);
 

@@ -1,6 +1,6 @@
 # Orchid - Laravel Admin Panel
 
-Free Laravel package that abstracts standard business logic and allows code-driven rapid application development of back office applications like admin panels and dashboards.
+Free open-source Laravel admin panel for rapid development of back-office applications, dashboards and CRUD systems. Code-driven, beautiful and powerful.
 
 
 ## Get Started
@@ -20,7 +20,7 @@ Free Laravel package that abstracts standard business logic and allows code-driv
 - [Sorting and Filtering](/en/docs/quickstart-sort-filter-table)
 
 
-## The Basics
+## Core Concepts
 - [Screens](/en/docs/screens)
 - [Form Elements](/en/docs/field)
 - [Navigation](/en/docs/menu)
@@ -32,7 +32,7 @@ Free Laravel package that abstracts standard business logic and allows code-driv
 
 ## Layouts
 - [Rows](/en/docs/rows)
-- [Table](/en/docs/table)
+- [Tables](/en/docs/table)
 - [Legend](/en/docs/legend)
 - [Cell Types](/en/docs/cell-types)
 - [Charts](/en/docs/charts)
@@ -42,17 +42,17 @@ Free Laravel package that abstracts standard business logic and allows code-driv
 - [Views](/en/docs/custom-template)
 
 
-## Extra
+## Advanced
+- [Custom Fields](/en/docs/custom-field)
+- [Presenters](/en/docs/presenters)
+- [Custom JavaScript](/en/docs/javascript)
+- [Authentication](/en/docs/authentication)
+- [Testing](/en/docs/testing)
 - [Icons](/en/docs/icons)
 - [Scout Search](/en/docs/global-search)
-- [Presenters](/en/docs/presenters)
-- [Using JS](/en/docs/javascript)
-- [Testing](/en/docs/testing)
-- [Authentication](/en/docs/authentication)
-- [Custom Fields](/en/docs/custom-field)
 - [Stubs](/en/docs/stubs)
-- [Controllers](/en/docs/controllers)
 - [Form Builder](/en/docs/builder)
+- [Controllers](/en/docs/controllers)
 
 
 ## Packages

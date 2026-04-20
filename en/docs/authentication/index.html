@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
+                    <a href="/en/docs/authentication" class="text-decoration-none text-primary">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
-                    <a href="/en/docs/authentication" class="text-decoration-none text-primary">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -390,7 +390,7 @@
                     </ul>
     </div>
                             <head></head><body><h2><a href='#guard' id='guard'>Guard</a></h2>
-<p>Orchid provides support for different types of users (e.g. customers and sellers) who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the <code>guard</code> option in the <code>config/platform.php</code> configuration file:</p>
+<p>Orchid provides support for different types of users, such as customers and sellers, who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the <code>guard</code> option in the <code>config/platform.php</code> configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'guard'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'sellers'</span>,
 </code></pre>
 <p>Keep in mind that the value of <code>guard</code> must be one of the authentication guards listed in Laravel&rsquo;s <a href="https://github.com/laravel/laravel/blob/9.x/config/auth.php">authentication configuration</a>.</p>

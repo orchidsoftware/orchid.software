@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -537,7 +537,7 @@
 <h2><a href='#release-strategy' id='release-strategy'>Release Strategy</a></h2>
 <p>We believe in keeping our package up-to-date and modern, and therefore follow a &ldquo;release early, release often&rdquo; approach for major releases. This means that we won&rsquo;t wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.</p>
 <blockquote>
-<p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.</p>
+<p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of them may affect your application.</p>
 </blockquote>
 <h2><a href='#upgrading-to-140-from-13x' id='upgrading-to-140-from-13x'>Upgrading to 14.0 from 13.x</a></h2>
 <p>Upgrading Laravel Orchid from version <code>13.x</code> to <code>14.0</code> can be a straightforward process if done correctly.</p>
@@ -739,15 +739,15 @@ To do this, you can add button definitions to your profile screen.</p>
 }
 </code></pre>
 <ul>
-<li>The first button, &ldquo;Back to my account&rdquo;, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
-<li>The second button, &ldquo;Sign out&rdquo;, is used to log out of the platform.</li>
+<li>The first button, <code>Back to my account</code>, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
+<li>The second button, <code>Sign out</code>, is used to log out of the platform.</li>
 </ul>
 <p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.</p>
 <h2><a href='#upgrading-to-130-from-12x' id='upgrading-to-130-from-12x'>Upgrading to 13.0 from 12.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^13.0</code></p>
 <h3><a href='#jquery' id='jquery'>jQuery</a></h3>
-<p>There is no longer a default jQuery package in this release. If you need it, then you can install it separately, for example by adding a reference to it in the configuration file:</p>
+<p>This release no longer includes a default jQuery package. If you need it, you can install it separately, for example by adding a reference to it in the configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
     <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
@@ -982,7 +982,7 @@ document.<span class="hl-property"><span class="hl-function">addEventListener</s
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^9.0</code></p>
 <h3><a href='#auth' id='auth'>Auth</a></h3>
-<p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">laravel/ui</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui ha</code>s been removed. And with it, the ability to recover your password.</p>
+<p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">Laravel UI</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui</code> has been removed. And with it, the ability to recover your password.</p>
 <p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.</p>
 <p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following <code>SQL</code> code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-constant">ALTER</span> <span class="hl-constant">TABLE</span> <span class="hl-value">"users"</span>

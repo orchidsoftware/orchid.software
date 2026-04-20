@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -488,7 +488,7 @@
 <h2><a href='#guard' id='guard'>Guard</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'guard'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'AUTH_GUARD'</span>, <span class="hl-value">'web'</span>),
 </code></pre>
-<p>The <code>guard</code> option specifies which Laravel <a href="https://laravel.com/docs/authentication">authentication guard</a> is used when accessing the dashboard. Use this when you have multiple user types (e.g. customers and admins) with separate guards. The default is <code>web</code>.</p>
+<p>The <code>guard</code> option specifies which Laravel <a href="https://laravel.com/docs/authentication">authentication guard</a> is used when accessing the dashboard. Use this when you have multiple user types, such as customers and admins, with separate guards. The default is <code>web</code>.</p>
 <p>For more on using a custom guard with Orchid, see <a href="/en/docs/authentication#guard">Authentication</a>.</p>
 <h2><a href='#login-page' id='login-page'>Login Page</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
@@ -518,7 +518,7 @@
     <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [],
 ],
 </code></pre>
-<p>The <code>resource</code> parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
+<p>The <code>resource</code> parameter allows you to add your own stylesheets or JavaScript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
 <p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
@@ -532,7 +532,7 @@
 </code></pre>
 <p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#vite' id='vite'>Vite</a></h2>
-<p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they are included on orchid pages:</p>
+<p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they are included on Orchid pages:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'resources/js/app.js'</span>,
     <span class="hl-value">'resources/css/app.css'</span>,
@@ -540,7 +540,7 @@
 </code></pre>
 <p>See <a href="/en/docs/javascript">JavaScript and Vite</a> for details.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
-<p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.</p>
+<p>To change some templates, you do not need to publish the entire package. You can customize a part of the user interface to specify a logo, accompanying documents, and more.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
     <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
@@ -603,11 +603,11 @@
 </code></pre>
 <p>Options: <code>platform::workspace.compact</code>, <code>platform::workspace.full</code>.</p>
 <h2><a href='#fallback-page' id='fallback-page'>Fallback Page</a></h2>
-<p>When a request does not match any orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your own routes under the same domain and prefix and want to handle 404s yourself:</p>
+<p>When a request does not match any Orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your own routes under the same domain and prefix and want to handle 404&nbsp;responses yourself:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'fallback'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#prevents-abandonment' id='prevents-abandonment'>Prevents Abandonment</a></h2>
-<p>When enabled, the orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here; individual screens can override via <code>needPreventsAbandonment()</code>:</p>
+<p>When enabled, Orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here. Individual screens can override this via <code>needPreventsAbandonment()</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'prevents_abandonment'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
@@ -642,7 +642,7 @@
 <p><strong>Note.</strong> The provider class should extend <code>Orchid\Platform\OrchidServiceProvider</code> and implement <code>menu()</code> and, if needed, <code>permissions()</code>.</p>
 </blockquote>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism (this is the same for all Laravel packages, not just Orchid);</p>
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism. This approach works the same for all Laravel packages, not just Orchid.</p>
 <blockquote>
 <p>&#128680; <strong>Alert!</strong>
 Overridden templates do not receive updates or bug fixes.

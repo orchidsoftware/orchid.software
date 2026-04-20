@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -464,7 +464,7 @@ in which we will store information about the main image in our blog post:</p>
 <blockquote>
 <p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the <code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
 </blockquote>
-<p>For such a field, the width and height were additionally indicated, in order to be sure the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
+<p>For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</span>
 </code></pre>
 <blockquote>
@@ -552,7 +552,7 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
 <span class="hl-number">3</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">103</span>
 <span class="hl-number">4</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">104</span>
 </code></pre>
-<p>But when the record is accessed again, the field will be empty. This is due to the fact that <code>query</code> does not know about additional records to our model. We will fix this by adding a download:</p>
+<p>But when the record is accessed again, the field will be empty. This happens because <code>query</code> does not know about the additional records on our model. We will fix this by adding a download:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>): <span class="hl-keyword">array</span>
 {
     $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>(<span class="hl-value">'attachments'</span>);
@@ -563,7 +563,7 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
 }
 </code></pre>
 <p>Now our attached files are downloaded and synchronized.
-For more details, see the section <a href="/en/docs/field">&ldquo;Form Elements&rdquo;</a> and <a href="/en/docs/attachments">&ldquo;Attached Files&rdquo;</a>.</p>
+For more details, see the <a href="/en/docs/field">Form Elements</a> and <a href="/en/docs/attachments">Attached Files</a> sections.</p>
 </body>
 
                                                                         </main>

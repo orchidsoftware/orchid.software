@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -614,6 +614,7 @@ The key to effectively utilizing these tools is to ensure that your model includ
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereDate</span>;
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereMaxMin</span>;
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereDateStartEnd</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereIn</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
@@ -631,6 +632,7 @@ The key to effectively utilizing these tools is to ensure that your model includ
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereDate</span>;
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereMaxMin</span>;
 <span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereDateStartEnd</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">WhereIn</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
 {
@@ -652,13 +654,24 @@ The key to effectively utilizing these tools is to ensure that your model includ
     ];
 }
 </code></pre>
+<p>For range filters on a single column (for example, &ldquo;price between 10&nbsp;and 20&rdquo;), use <code>WhereBetween</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'price'</span> <span class="hl-operator">=&gt;</span> \Orchid\Filters\Types\<span class="hl-type">WhereBetween</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+</code></pre>
+<p>Example: <code>?filter[price][]=10&amp;filter[price][]=20</code> applies <code>whereBetween('price', [10, 20])</code>.</p>
+<p>For case-insensitive search on PostgreSQL, use <code>Ilike</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-value">'title'</span> <span class="hl-operator">=&gt;</span> \Orchid\Filters\Types\<span class="hl-type">Ilike</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+</code></pre>
+<p>Example: <code>?filter[title]=hello</code> applies a case-insensitive <code>LIKE</code> on the <code>title</code> column.</p>
+<blockquote>
+<p><strong>Note.</strong> <code>Ilike</code> is intended for PostgreSQL. On MySQL, use <code>Like</code> (which is case-insensitive by default with typical collations).</p>
+</blockquote>
 <p>Once you have specified the list, using automatic filtering is straightforward. Simply call the <code>filters()</code> method, for example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">filters</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">paginate</span>();
 </code></pre>
 <p>By leveraging this approach, you can easily apply filters to your query and paginate the results.</p>
 <p>This code will automatically apply any filters or sorting rules that were included in the user&rsquo;s HTTP request.</p>
 <h4><a href='#query-examples' id='query-examples'>Query Examples</a></h4>
-<p>In order to use this feature effectively, it&rsquo;s important to have a solid understanding of how the HTTP parameters are translated into database queries. For example:</p>
+<p>To use this feature effectively, it&rsquo;s important to understand how the HTTP parameters are translated into database queries. For example:</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[id]=1</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'id'</span>, <span class="hl-value">'='</span>, <span class="hl-number">1</span>)
 </code></pre>

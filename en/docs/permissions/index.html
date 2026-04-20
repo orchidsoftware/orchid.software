@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -507,7 +507,7 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
 }
 </code></pre>
 <p>If several keys are listed, access will be granted if the user has at least one permission.</p>
-<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, e.g. to redirect a payment page or return a different response:</p>
+<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, for example, to redirect a payment page or return a different response:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">RedirectResponse</span>;
 
 <span class="hl-comment">/**
@@ -520,7 +520,7 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
 </code></pre>
 <h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
 <p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their availability for routes.
-To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</code>:</p>
+To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and the traditional structure, add it to <code>app/Http/Kernel.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The application's route middleware.
  *
@@ -533,6 +533,7 @@ To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</cod
     <span class="hl-value">'access'</span> <span class="hl-operator">=&gt;</span> \Orchid\Platform\Http\Middleware\<span class="hl-type">Access</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
+<p>If your application uses the Laravel 11+ bootstrap (with <code>bootstrap/app.php</code>), register the middleware alias there instead, using the <code>withMiddleware</code> callback.</p>
 <p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">middleware</span>(<span class="hl-value">'access:systems.history'</span>);
@@ -620,7 +621,7 @@ To do this, register a new <code>middleware</code> in <code>app/Http/Kernel</cod
 <p>Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.</p>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
 <p>The <code>Orchid\Access\Impersonation</code> class provides developers with convenient functionality for logging in as another user.
-It allows administrators to impersonate other users in order to view and perform actions on their behalf.
+It allows administrators to impersonate other users to view and perform actions on their behalf.
 This is useful for troubleshooting and resolving issues reported by users.</p>
 <p>To switch to another user, use the <code>loginAs()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;

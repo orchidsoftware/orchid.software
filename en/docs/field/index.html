@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -381,6 +381,9 @@
 
                             <div class="anchors">
             <ul>
+                            <li class="anchor-h2">
+                    <a href="#label">Label</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#introduction-to-input">Introduction to Input</a>
                 </li>
@@ -570,6 +573,14 @@
 <blockquote>
 <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
+<h2><a href='#label' id='label'>Label</a></h2>
+<p>The Label field displays read-only text or a heading. Use it for section titles, hints, or to show a value that the user cannot edit.</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Label</span>;
+
+<span class="hl-type">Label</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'section_title'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Shipping address'</span>);
+</code></pre>
+<p>You can bind a value from the screen&rsquo;s query so the label shows dynamic content (for example, a customer name). The same methods (<code>title()</code>, <code>help()</code>, <code>popover()</code>, <code>vertical()</code>) are available as on other fields. Labels are often used inside <a href="/en/docs/screens#screen-layouts">reusable row layouts</a> to separate groups of fields.</p>
 <h2><a href='#introduction-to-input' id='introduction-to-input'>Introduction to Input</a></h2>
 <p>Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:</p>
 <p><picture alt='This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. '><img src="/img/fields/input.png" alt="This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. "></picture></p>
@@ -615,7 +626,7 @@
 <p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
 </blockquote>
 <h3><a href='#types-of-input' id='types-of-input'>Types of Input</a></h3>
-<p>One of the most universal fields is the <code>input</code> field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the <code>type</code> method:</p>
+<p>The <code>input</code> field is one of the most flexible fields. You can use it for text, file, hidden, and color values. It also supports email, number, range, and URL values. The type attribute determines the kind of input field you want to create and the kind of data it accepts. Here are some examples of using the <code>type</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>);
 </code></pre>
 <p>A field for entering the name of the file that is sent to the server.</p>
@@ -678,7 +689,7 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">step</span>(<span class="hl-number">1</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Volume'</span>);
 </code></pre>
-<p>You can also use <code>Input::make('volume')-&gt;type('range')</code> for a native HTML5&nbsp;range input; the Range field provides a consistent Orchid-style interface.</p>
+<p>You can also use <code>Input::make('volume')-&gt;type('range')</code> for a native HTML5&nbsp;range input. The Range field provides a consistent Orchid-style interface.</p>
 <h2><a href='#textarea' id='textarea'>TextArea</a></h2>
 <p>The <code>textarea</code> field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.</p>
 <p>To create a <code>textarea</code> field, you can use the <code>TextArea</code> class:</p>
@@ -721,7 +732,7 @@
 </code></pre>
 <p>This can be useful for ensuring that the server receives a clear indication of the state of the checkbox.</p>
 <h2><a href='#switcher' id='switcher'>Switcher</a></h2>
-<p>The Switcher field renders a toggle ideal for boolean options such as &ldquo;Enabled&rdquo; or &ldquo;Allow notifications&rdquo;. It is well-suited for settings screens where a single on/off choice is needed.</p>
+<p>The Switcher field renders a toggle ideal for boolean options such as &ldquo;Enabled&rdquo; or &ldquo;Allow notifications.&rdquo; It is well-suited for settings screens where a single on/off choice is needed.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Switcher</span>;
 
 <span class="hl-type">Switcher</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'notifications_enabled'</span>)
@@ -820,7 +831,7 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Choose your ideas'</span>);
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were <code>HTML</code> code <code>&lt;input name='ideas[]'&gt;</code></p>
+<p><strong>Note.</strong> Note the dot at the end of the name. It is necessary to show the expected array shape, similar to the HTML code <code>&lt;input name='ideas[]'&gt;</code>.</p>
 </blockquote>
 <p>To modify the load, you can use the reference to the <code>scope</code> model, for example, take only active:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
@@ -895,7 +906,7 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">allowInput</span>();
 </code></pre>
-<p><strong>Note:</strong> Enabling direct input can also make the field mandatory:</p>
+<p><strong>Note:</strong> enabling direct input can also make the field mandatory:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimer</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'open'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Opening date'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">allowInput</span>()
@@ -1006,7 +1017,7 @@
 </code></pre>
 <p>The representation of variable zones can be found in the documentation <a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
 <h2><a href='#quill-wysiwyg-editor' id='quill-wysiwyg-editor'>Quill WYSIWYG Editor</a></h2>
-<p>The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
+<p>The Quill rich-text editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
 <p>To create a Quill editor instance, simply utilize the <code>Quill</code> field. Here&rsquo;s an example of how to implement it in your code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Quill</span>;
 
@@ -1036,7 +1047,7 @@
     event.<span class="hl-property">detail</span>.<span class="hl-property">options</span>;
 });
 </code></pre>
-<p><strong>Note</strong>: You can add custom scripts and stylesheets through the <code>platform.php</code> config file</p>
+<p><strong>Note:</strong> you can add custom scripts and stylesheets through the <code>platform.php</code> config file.</p>
 <p>Example for <a href="https://github.com/benwinding/quill-image-compress">quill-image-compress</a>:</p>
 <p>Add the following in <code>config/platform.php</code> into the <code>resource.scripts</code> array</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js"</span>,
@@ -1140,7 +1151,7 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Picture</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">storage</span>(<span class="hl-value">'s3'</span>);
 </code></pre>
-<p>Use the <code>acceptedFiles</code> method to define the types of files that the field should accept. This is done using unique <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
+<p>Use the <code>acceptedFiles</code> method to define the types of files that the field should accept. This is done using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
 <p>For example, to only allow JPEG images, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Picture</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">acceptedFiles</span>(<span class="hl-value">'.jpg'</span>);
@@ -1154,7 +1165,7 @@
 <span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>);
 </code></pre>
 <h3><a href='#width-and-height' id='width-and-height'>Width and Height</a></h3>
-<p>In order to control the format, you can specify the width and height of the desired image:</p>
+<p>To control the format, you can specify the width and height of the desired image:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">500</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">300</span>);
@@ -1356,7 +1367,7 @@ Upload::make('upload')
 It will add a new button with a modal window to preview uploaded files.
 -->
 <h2><a href='#map' id='map'>Map</a></h2>
-<p>The Map field provides an interface for selecting or displaying a location (e.g. coordinates). You can set the initial zoom level and the height of the map container:</p>
+<p>The Map field provides an interface for selecting or displaying a location (for example, coordinates). You can set the initial zoom level and the height of the map container:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Map</span>;
 
 <span class="hl-type">Map</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'location'</span>)
@@ -1364,7 +1375,7 @@ It will add a new button with a modal window to preview uploaded files.
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">zoom</span>(<span class="hl-number">12</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-value">'400px'</span>);
 </code></pre>
-<p>The field typically stores coordinates (e.g. latitude and longitude). The Blade view may integrate with a map provider (e.g. Leaflet or Google Maps) to render the map; refer to the package resources or your custom view for provider-specific setup.</p>
+<p>The field typically stores coordinates, such as latitude and longitude. The Blade view may integrate with a map provider, such as Leaflet or Google Maps, to render the map. Refer to the package resources or your custom view for provider-specific setup.</p>
 <h2><a href='#utm' id='utm'>UTM</a></h2>
 <p>The UTM field is used to capture UTM parameters (campaign, source, medium, and related marketing fields). It is useful in forms for tracking campaign and traffic source data:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-constant"><span class="hl-type">UTM</span></span>;
@@ -1404,9 +1415,9 @@ It will add a new button with a modal window to preview uploaded files.
 </code></pre>
 <p>Accepted values for <code>widthColumns()</code> include:</p>
 <ul>
-<li>Percentages (e.g., <code>30%</code>)</li>
-<li>Pixels (e.g., <code>120px</code>)</li>
-<li>Fractional units (e.g., <code>2fr</code>)</li>
+<li>Percentages (for example, <code>30%</code>)</li>
+<li>Pixels (for example, <code>120px</code>)</li>
+<li>Fractional units (for example, <code>2fr</code>)</li>
 <li>Other values such as <code>max-content</code> and <code>auto</code></li>
 </ul>
 <blockquote>
@@ -1522,7 +1533,7 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
 <h2><a href='#custom-fields-creation' id='custom-fields-creation'>Custom Fields Creation</a></h2>
 <p>To create custom fields, refer to the &ldquo;Custom Fields&rdquo; page in the documentation.
 This page provides a straightforward guide on how to create and customize fields according to your requirements.
-Access the &ldquo;Custom Fields&rdquo; page by clicking here: <a href="/en/docs/custom-field">Custom Fields</a>.</p>
+Access the <a href="/en/docs/custom-field">Custom Fields</a> page for more details.</p>
 </body>
 
                                                                         </main>

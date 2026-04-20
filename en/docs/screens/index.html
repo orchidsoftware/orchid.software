@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 border-primary active-doc-menu">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -436,7 +436,7 @@
     </div>
                             <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.</p>
-<p>Screens don&rsquo;t handle data fetching directly; instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or external service&mdash;without affecting the screen logic.</p>
+<p>Screens don&rsquo;t handle data fetching directly. Instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or external service&mdash;without affecting the screen logic.</p>
 <p>At the core, each screen is essentially an HTML <code>&lt;form&gt;</code>, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.</p>
 <p>By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain complex web applications.</p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
@@ -606,7 +606,7 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 <p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
 <p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible for defining these controls.</p>
-<p>There are several types of actions available:</p>
+<p>Several types of actions are available:</p>
 <h3><a href='#button' id='button'>Button</a></h3>
 <p>Button actions allow users to trigger a method on the screen when clicked. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
@@ -651,7 +651,7 @@ All of the data that the user has seen on the screen will be available in the re
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">status</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">active</span>);
 });
 </code></pre>
-<p><strong>Recommendation:</strong> For the smoothest experience, use the following configuration:</p>
+<p><strong>Recommendation:</strong> for the smoothest experience, use the following configuration:</p>
 <pre><code data-lang="php" class="notranslate">[
     <span class="hl-comment">// ...</span>
     <span class="hl-value">'refresh-method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'morph'</span>,
@@ -694,11 +694,11 @@ All of the data that the user has seen on the screen will be available in the re
     ]));
 </code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
-<p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
+<p>Layouts are responsible for the screen&rsquo;s appearance: how the data is displayed and in what form.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
 One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
-<p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:</p>
+<p>In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name, signature, and profile avatar:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-start-end-tag">&gt;</span>
 	<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-start-end-tag">&gt;</span>
         <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span><span class="hl-start-end-tag">&gt;</span>
@@ -777,7 +777,7 @@ To pass custom parameters to your layout you can use the class constructor to ha
     ];
 }
 </code></pre>
-<p>More details can be found in the <a href="/en/docs/rows">Layouts</a> section. See also: <a href="/en/docs/rows">Rows</a>, <a href="/en/docs/table">Table</a>, <a href="/en/docs/grouping">Grouping (Tabs, Split, etc.)</a>, and <a href="/en/docs/modals">Modals</a>.</p>
+<p>More details can be found in the <a href="/en/docs/rows">Layouts</a> section. See also <a href="/en/docs/rows">Rows</a> and <a href="/en/docs/table">Table</a>. For related layout patterns, review <a href="/en/docs/grouping">Grouping (Tabs, Split, etc.)</a> and <a href="/en/docs/modals">Modals</a>.</p>
 <h2><a href='#additional-methods' id='additional-methods'>Additional Methods</a></h2>
 <h4><a href='#validation-message' id='validation-message'>Validation Message</a></h4>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**

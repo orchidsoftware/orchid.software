@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -438,9 +438,9 @@
 <!-- 
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
 -->
-<p>Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow to manage content, users, and other data.</p>
+<p>Welcome to this tutorial on building an app with Orchid. Admin panels and line of business applications are important for many web applications as they allow you to manage content, users, and other data.</p>
 <p>In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional &ldquo;to-do list&rdquo;.</p>
-<p>Before beginning this tutorial, make sure that you have already installed <a href="/en/docs/installation">the framework and package</a>, and started the web server. Let&rsquo;s get started!</p>
+<p>Before beginning this tutorial, make sure that you have already installed <a href="/en/docs/installation">the framework and package</a> and started the web server. Let&rsquo;s get started.</p>
 <blockquote>
 <p>To maximize your learning, we advise typing out the code yourself rather than copying and pasting. This approach helps reinforce your understanding and retention.</p>
 </blockquote>
@@ -486,7 +486,7 @@
 <pre><code data-lang="shell" class="notranslate">php artisan migrate
 </code></pre>
 <h3><a href='#eloquent-models' id='eloquent-models'>Eloquent Models</a></h3>
-<p>So, let&rsquo;s define a <code>Task</code> model that corresponds to our <code>tasks</code> database table we just created.</p>
+<p>Let&rsquo;s define a <code>Task</code> model that corresponds to the <code>tasks</code> database table we just created.</p>
 <pre><code data-lang="shell" class="notranslate">php artisan make:model Task
 </code></pre>
 <p>In the <code>app/Models</code> directory, a new file <code>Task.php</code> will be created, we will describe the fields as available for filling:</p>
@@ -566,9 +566,9 @@
 }
 </code></pre>
 <h3><a href='#routing' id='routing'>Routing</a></h3>
-<p>Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically <code>routes/platform.php</code>) and define a new route for the screen.</p>
+<p>Just like a controller, a screen in Orchid needs to be registered in the route file to be accessible to the user. To register a screen, open the route file for the admin panel (typically <code>routes/platform.php</code>) and define a new route for the screen.</p>
 <p>To define a new route for a screen, we can use the Screen method provided by Orchid.
-This method takes two arguments: the url of the screen, and the class name of the screen.</p>
+This method takes two arguments: the URL of the screen, and the class name of the screen.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">TaskScreen</span>;
 
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'task'</span>, <span class="hl-type">TaskScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.task'</span>);
@@ -655,9 +655,9 @@ The <code>layout</code> method is responsible for returning an array of layout d
     ];
 }
 </code></pre>
-<p>This will create a modal window with the title &ldquo;Create Task&rdquo;. The modal will contain an input field for the task name, with the label &ldquo;Name&rdquo;.</p>
+<p>This will create a modal window with the title &ldquo;Create Task.&rdquo; The modal will contain an input field for the task name, with the label &ldquo;Name.&rdquo;</p>
 <h3><a href='#launch-modal' id='launch-modal'>Launch Modal</a></h3>
-<p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the <code>layout</code> method. This is because the modal is hidden by default, and must be called in order to be displayed.</p>
+<p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the <code>layout</code> method. This is because the modal is hidden by default and must be called before it is displayed.</p>
 <p>To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the <code>commandBar</code> method of the screen class, which defines the basic actions that are available on the screen.</p>
 <p>To add a button that calls the modal window, we can update the <code>commandBar</code> method as follows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">ModalToggle</span>;
@@ -703,7 +703,7 @@ When the button is clicked, it will open the <code>taskModal</code> modal window
     $task<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 }
 </code></pre>
-<p>Great! We can now successfully create tasks. Next, let&rsquo;s continue adding to our screen by building a list of all existing tasks.</p>
+<p>Great. We can now successfully create tasks. Next, let&rsquo;s continue adding to our screen by building a list of all existing tasks.</p>
 <h3><a href='#displaying-existing-tasks' id='displaying-existing-tasks'>Displaying Existing Tasks</a></h3>
 <p>The query method specifies what data should be shown on the screen.
 This data can be collected or generated within the method. The data is returned in an array,</p>
@@ -753,10 +753,10 @@ This data can be collected or generated within the method. The data is returned 
 </code></pre>
 <p>The first argument points to the <code>tasks</code> key that we specified in the <code>query</code> method. It is this set that will be passed to the table.
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.</p>
-<p>Our task application is almost complete. But, we have no way to delete our existing tasks when they&rsquo;re done. Let&rsquo;s add that next!</p>
+<p>Our task application is almost complete. However, we have no way to delete our existing tasks when they&rsquo;re done. Let&rsquo;s add that next.</p>
 <h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
 <h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding the Delete Button</a></h3>
-<p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
+<p>Let&rsquo;s add a delete button to each row of our task listing.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 
 <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'tasks'</span>, [
@@ -783,7 +783,7 @@ And the second one, we pass the set of columns we want to display. The values in
     $task<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 }
 </code></pre>
-<p>Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.</p>
+<p>Congratulations on completing the tutorial. You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many respects, so you should be able to apply the concepts learned in this tutorial to your future projects.</p>
 <p>To learn more about the capabilities of Orchid screens, we recommend visiting the <a href="/en/docs/screens">Screens</a> section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.</p>
 <p>We hope you find this tutorial useful and recommend that you also explore the <a href="/en/docs/quickstart-crud">CRUD quick start</a>.</p>
 </body>

@@ -194,7 +194,7 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">The Basics</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Core Concepts</p>
 
         <ul>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -243,7 +243,7 @@
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/table" class="text-decoration-none ">
-                        Table
+                        Tables
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
@@ -282,9 +282,34 @@
                     </a>
                 </li>
                     </ul>
-            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Extra</p>
+            <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">Advanced</p>
 
         <ul>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/custom-field" class="text-decoration-none ">
+                        Custom Fields
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/presenters" class="text-decoration-none ">
+                        Presenters
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/javascript" class="text-decoration-none ">
+                        Custom JavaScript
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/authentication" class="text-decoration-none ">
+                        Authentication
+                    </a>
+                </li>
+                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
+                    <a href="/en/docs/testing" class="text-decoration-none ">
+                        Testing
+                    </a>
+                </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/icons" class="text-decoration-none ">
                         Icons
@@ -296,43 +321,18 @@
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/presenters" class="text-decoration-none ">
-                        Presenters
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/javascript" class="text-decoration-none ">
-                        Using JS
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/testing" class="text-decoration-none ">
-                        Testing
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/authentication" class="text-decoration-none ">
-                        Authentication
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/custom-field" class="text-decoration-none ">
-                        Custom Fields
-                    </a>
-                </li>
-                            <li class="border-start border-3 px-2 px-lg-3 py-1 ">
                     <a href="/en/docs/stubs" class="text-decoration-none ">
                         Stubs
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/controllers" class="text-decoration-none ">
-                        Controllers
+                    <a href="/en/docs/builder" class="text-decoration-none ">
+                        Form Builder
                     </a>
                 </li>
                             <li class="border-start border-3 px-2 px-lg-3 py-1 ">
-                    <a href="/en/docs/builder" class="text-decoration-none ">
-                        Form Builder
+                    <a href="/en/docs/controllers" class="text-decoration-none ">
+                        Controllers
                     </a>
                 </li>
                     </ul>
@@ -513,9 +513,7 @@ It is useful for creating short and concise forms, such as when you want to show
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">__construct</span>(<span class="hl-injection">
         <span class="hl-keyword">private</span> readonly <span class="hl-keyword">string</span> $prefix,
         <span class="hl-keyword">private</span> readonly ?<span class="hl-keyword">string</span> $title <span class="hl-operator">=</span> <span class="hl-constant">null</span>
-    </span>) {
-        <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-operator">=</span> <span class="hl-type">Str</span><span class="hl-delimeter">::</span><span class="hl-function">finish</span>($prefix, <span class="hl-value">'.'</span>);
-    }
+    </span>) {}
 
     <span class="hl-comment">/**
      * Get the fields to be displayed.
@@ -542,7 +540,7 @@ It is useful for creating short and concise forms, such as when you want to show
     <span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">addPrefix</span>(<span class="hl-injection"><span class="hl-keyword">array</span> $fields</span>): <span class="hl-keyword">array</span>
     {
         <span class="hl-keyword">return</span> <span class="hl-function">collect</span>($fields)
-            <span class="hl-delimeter">-&gt;</span><span class="hl-function">each</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-type">Field</span> $field</span>) <span class="hl-operator">=&gt;</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'name'</span>, <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span> <span class="hl-delimeter">.</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'name'</span>)))
+            <span class="hl-delimeter">-&gt;</span><span class="hl-function">each</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection"><span class="hl-type">Field</span> $field</span>) <span class="hl-operator">=&gt;</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">set</span>(<span class="hl-value">'name'</span>, <span class="hl-type">Str</span><span class="hl-delimeter">::</span><span class="hl-function">finish</span>(<span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">prefix</span>, <span class="hl-value">'.'</span>) <span class="hl-delimeter">.</span> $field<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'name'</span>)))
             <span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>();
     }
 }
