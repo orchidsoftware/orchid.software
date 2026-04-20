@@ -94,7 +94,7 @@ public function layout(): iterable
 
 ## Basic Configuration
 
-The configuration is used to change how the chart behaves. There are properties to control styling, height, etc.
+The configuration is used to change how the chart behaves. It includes properties to control styling, height, and more.
 
 ### Adjusting Height
 
@@ -282,7 +282,7 @@ public function layout(): array
 }
 ```
 
-By default, the data will be taken for one month; to set your own period, you need to pass the arguments:
+By default, the data will be taken for one month. To set your own period, pass the arguments:
 
 ```php
 $start = Carbon::now()->subDay(7);

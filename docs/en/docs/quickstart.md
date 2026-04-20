@@ -9,11 +9,11 @@ description: The Quick Start Guide is a basic introduction to the Orchid infrast
 > **This is an updated manual.** If you need an earlier manual, it is available at [this link](/en/docs/quickstart-old).
 -->
 
-Welcome to this tutorial on building an app with Orchid! Admin panels and line of business applications are important for many web applications as they allow to manage content, users, and other data.
+Welcome to this tutorial on building an app with Orchid. Admin panels and line of business applications are important for many web applications as they allow you to manage content, users, and other data.
 
 In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This task list allows us to track all the tasks we need to complete, just like a traditional “to-do list”.
 
-Before beginning this tutorial, make sure that you have already installed [the framework and package](/en/docs/installation), and started the web server. Let's get started!
+Before beginning this tutorial, make sure that you have already installed [the framework and package](/en/docs/installation) and started the web server. Let's get started.
 
 
 > To maximize your learning, we advise typing out the code yourself rather than copying and pasting. This approach helps reinforce your understanding and retention.
@@ -76,7 +76,7 @@ php artisan migrate
 ### Eloquent Models
 
 
-So, let's define a `Task` model that corresponds to our `tasks` database table we just created.
+Let's define a `Task` model that corresponds to the `tasks` database table we just created.
 
 
 ```shell
@@ -177,7 +177,7 @@ class TaskScreen extends Screen
 Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically `routes/platform.php`) and define a new route for the screen.
 
 To define a new route for a screen, we can use the Screen method provided by Orchid.
-This method takes two arguments: the url of the screen, and the class name of the screen.
+This method takes two arguments: the URL of the screen, and the class name of the screen.
 
 ```php
 use App\Orchid\Screens\TaskScreen;
@@ -294,7 +294,7 @@ public function layout(): iterable
 }
 ```
 
-This will create a modal window with the title "Create Task". The modal will contain an input field for the task name, with the label "Name".
+This will create a modal window with the title "Create Task." The modal will contain an input field for the task name, with the label "Name."
 
 ### Launch Modal
 
@@ -359,7 +359,7 @@ public function create(Request $request)
 }
 ```
 
-Great! We can now successfully create tasks. Next, let's continue adding to our screen by building a list of all existing tasks.
+Great. We can now successfully create tasks. Next, let's continue adding to our screen by building a list of all existing tasks.
 
 ### Displaying Existing Tasks
 
@@ -422,14 +422,14 @@ public function layout(): iterable
 The first argument points to the `tasks` key that we specified in the `query` method. It is this set that will be passed to the table.
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set according to the specified property name.
 
-Our task application is almost complete. But, we have no way to delete our existing tasks when they're done. Let's add that next!
+Our task application is almost complete. However, we have no way to delete our existing tasks when they're done. Let's add that next.
 
 
 ## Deleting Tasks
 
 ### Adding the Delete Button
 
-So, let's add a delete button to each row of our task listing...
+Let's add a delete button to each row of our task listing.
 
 ```php
 use Orchid\Screen\Actions\Button;
@@ -464,7 +464,7 @@ public function delete(Task $task)
 ```
 
 
-Congratulations on completing the tutorial! You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many aspects, so you should be able to apply the concepts learned in this tutorial to your future projects.
+Congratulations on completing the tutorial. You should now have a good understanding of how to build a basic screen for an Orchid application. The development process for more complex screens will be similar in many respects, so you should be able to apply the concepts learned in this tutorial to your future projects.
 
 To learn more about the capabilities of Orchid screens, we recommend visiting the [Screens](/en/docs/screens) section of the documentation. This section covers a wide range of topics related to building and customizing screens, including layout customization, form handling, data loading, and more.
 

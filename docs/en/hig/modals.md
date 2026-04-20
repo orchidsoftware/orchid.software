@@ -11,9 +11,9 @@ A **modal dialog** is a browser-like dialog that appears on top of the page in r
 Modals are designed to temporarily focus the user's attention on a **single task**.
 Typical use cases include:
 
-* **Confirmations** (e.g., "Are you sure you want to delete this item?")
-* **Lightweight forms** (e.g., entering one or a few values)
-* **Quick information summaries** (e.g., notifications or alerts)
+* **Confirmations** (for example, "Are you sure you want to delete this item?")
+* **Lightweight forms** (for example, entering one or a few values)
+* **Quick information summaries** (for example, notifications or alerts)
 
 ![✅ Small, clear form intended only for updating a user's status.](https://orchid.software/img/hig/modal-simple-form.png)
 
@@ -50,7 +50,7 @@ Each modal should have **no more than two primary buttons**:
 * **Confirm (primary action)** — performs the task or saves changes.
 * **Cancel (secondary action)** — closes the modal without saving.
 
-> Avoid extra or unclear buttons! Modals are meant for short, focused tasks, not complex scenarios.
+> Avoid extra or unclear buttons. Modals are meant for short, focused tasks, not complex scenarios.
 
 ### Button Labels
 

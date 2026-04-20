@@ -7,7 +7,7 @@ section: main
 
 Layouts are easy to reuse when fields are related to the relations of different models. During installation, we have a layer for defining permissions, which is used immediately at the user and roles editing screen. But sometimes you want to apply the same set of fields with different values. Let's consider an example when you need to specify an address.
 
-Such a set will be both for the client, the customer, and it will appear twice on the same form (for example, in order, delivery and invoice). To solve this situation, you do not need to create and describe almost identical layouts. Instead, let's add logic to one single layer.
+Such a set can be used for both the client and the customer, and it may appear twice on the same form, for example in the order, delivery, and invoice sections. To solve this situation, you do not need to create and describe almost identical layouts. Instead, let's add logic to a single layer.
 
 ```php
 namespace App\Orchid\Layouts;
@@ -79,7 +79,7 @@ public function layout(): array
 But this is also inconvenient. Why? Now in the definition, we will think, do we need to end the prefix with a dot? And also, specify strange names through the concatenation `$this->prefix. '.address'`.
 
 
-Let's fix it! Since the main thing is to return an array of objects, you can modify the fields before returning, as well as take care of the point in the constructor:
+Let's fix it. Since the main thing is to return an array of objects, you can modify the fields before returning, as well as take care of the point in the constructor:
 
 ```php
 namespace App\Orchid\Layouts;

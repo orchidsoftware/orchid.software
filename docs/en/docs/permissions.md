@@ -132,7 +132,7 @@ class History extends Screen
 
 If several keys are listed, access will be granted if the user has at least one permission.
 
-If there is no access, the static method `unaccessed` will be called, which by default will show a `403` error. You can override this response, e.g. to redirect a payment page or return a different response:
+If there is no access, the static method `unaccessed` will be called, which by default will show a `403` error. You can override this response, for example, to redirect a payment page or return a different response:
 
 ```php
 use Illuminate\Http\RedirectResponse;
@@ -151,7 +151,7 @@ public static function unaccessed(): RedirectResponse
 
 Small applications may not need to define permissions for each screen or class,
 instead, it makes sense to check their availability for routes.
-To do this, register a new `middleware` in `app/Http/Kernel`:
+To do this, register the `access` middleware. In Laravel 10 and the traditional structure, add it to `app/Http/Kernel.php`:
 
 ```php
 /**
@@ -166,6 +166,8 @@ protected $routeMiddleware = [
     'access' => \Orchid\Platform\Http\Middleware\Access::class,
 ];
 ```
+
+If your application uses the Laravel 11+ bootstrap (with `bootstrap/app.php`), register the middleware alias there instead, using the `withMiddleware` callback.
 
 After that, it can be used for any route definitions, by passing the parameter `access:my-permission`, just like in `Auth::user()->hasAccess($string);`
 

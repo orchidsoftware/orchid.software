@@ -78,7 +78,7 @@ php artisan serve
 
 Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
-> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path instead (e.g. `http://localhost:8000/dashboard` if prefix is `dashboard`).
+> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path instead (for example, `http://localhost:8000/dashboard` if prefix is `dashboard`).
 
 
 ## Updating
@@ -92,7 +92,7 @@ composer update orchid/platform --with-dependencies
 > **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
 
 
-After updating to a new release, you should be sure to update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. It will ensure the newly-updated version is using the latest versions.
+After updating to a new release, you should update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. This ensures the newly updated version is using the latest assets.
 
 ```shell
 php artisan orchid:publish

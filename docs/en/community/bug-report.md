@@ -1,10 +1,10 @@
 ---
 title: Reporting Bugs
-description: I urge everyone to contribute to the project.
-section: site.community.
+description: A guide to reporting bugs effectively.
+section: site.community
 ---
 
-Thank you for your interest in contributing to the project! Public bug tracking is an essential part of the open development process. To ensure effective bug reporting, please follow the guidelines below:
+Thank you for your interest in contributing to the project. Public bug tracking is an essential part of the open development process. To ensure effective bug reporting, please follow the guidelines below:
 
 ## Using the GitHub Issues Tracker
 
@@ -36,4 +36,4 @@ If you accidentally report your issue against the wrong app, it may be marked as
 
 For "Wishlist" issues like feature requests, the developer may mark it as "Opinion" or "Won't Fix." Remember that developers are often open to discussing these topics, but it is essential to respect their decision and not harass them for marking your report in this way.
 
-Thank you for contributing to the project! Your bug reports are invaluable in making our software better for everyone.
+Thank you for contributing to the project. Your bug reports are invaluable in making our software better for everyone.

@@ -17,7 +17,7 @@ Good practices:
 - Use default values and placeholders to provide helpful hints and context for form fields.
 - Limit the number of required fields and provide clear error messages if a field is left blank.
 - Use input validation to prevent invalid data from being submitted.
-- Use consistent formatting for data entry fields (e.g. phone number, date, email) to reduce user confusion.
+- Use consistent formatting for data entry fields (for example, phone number, date, email) to reduce user confusion.
 
 Bad practices:
 
@@ -30,16 +30,16 @@ Bad practices:
 
 
 
-Group related fields together: Grouping related fields together can make the form easier to scan and understand. For example, if you have a form for entering personal information, group fields such as name, address, and phone number together.
+**Group related fields together.** Grouping related fields together can make the form easier to scan and understand. For example, if you have a form for entering personal information, group fields such as name, address, and phone number together.
 
-Use default values and placeholders: Default values and placeholders can help users understand what information is required for each field. For example, you can use a placeholder text in an email field to indicate the expected format ("name@example.com").
+**Use default values and placeholders.** Default values and placeholders can help users understand what information is required for each field. For example, you can use placeholder text in an email field to indicate the expected format ("name@example.com").
 
-Use visual cues to indicate required fields: Use an asterisk (`*`) or other visual cue to indicate which fields are required. This helps users understand which fields are mandatory and avoids confusion or frustration when they submit a form with missing information.
+**Use visual cues to indicate required fields.** Use an asterisk (`*`) or another visual cue to indicate which fields are required. This helps users understand which fields are mandatory and avoids confusion or frustration when they submit a form with missing information.
 
 
-Limit the number of groups: While it's important to group related elements together, too many groups can be overwhelming for users. Limit the number of groups to 3-4 and make sure they are distinct from each other.
+**Limit the number of groups.** While it's important to group related elements together, too many groups can be overwhelming for users. Limit the number of groups to 3-4 and make sure they are distinct from each other.
 
-Consider the order of groups: The order of groups can impact how users perceive and complete the form. Place the most important or commonly used groups first, followed by less important or specialized groups.
+**Consider the order of groups.** The order of groups can impact how users perceive and complete the form. Place the most important or commonly used groups first, followed by less important or specialized groups.
 
 
 > Remember, the goal of good form design is to make it as easy as possible for users to provide the information you need, while minimizing frustration and errors.

@@ -383,7 +383,7 @@ public function layout(): array
 }
 ```
 
-In the example above, the accordion has two panels: "Personal Information" and "Billing Address". The content of each panel is specified as an array of rows created using the `Layout::rows()` method.
+In the example above, the accordion has two panels: "Personal Information" and "Billing Address." The content of each panel is specified as an array of rows created using the `Layout::rows()` method.
 
 You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:
 
@@ -398,5 +398,4 @@ public function layout(): array
     ];
 }
 ```
-
 

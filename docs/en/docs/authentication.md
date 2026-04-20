@@ -7,7 +7,7 @@ description: Modify the login form, configure user portals, and personalize the 
 ## Guard
 
 
-Orchid provides support for different types of users (e.g. customers and sellers) who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the `guard` option in the `config/platform.php` configuration file:
+Orchid provides support for different types of users, such as customers and sellers, who have their own authentication portals. To configure Orchid to work with a specific type of user, you can change the value of the `guard` option in the `config/platform.php` configuration file:
 
 ```php
 'guard' => 'sellers',

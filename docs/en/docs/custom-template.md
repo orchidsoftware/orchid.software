@@ -65,7 +65,7 @@ public function layout(): array
 ## Blade Components
 
 
-Blade components are a way to reuse templates in your Laravel application. To create a new blade component, you can use the `artisan` command:
+Blade components are a way to reuse templates in your Laravel application. To create a new Blade component, you can use the `Artisan` command:
 
 
 ```php
@@ -141,7 +141,7 @@ public function layout(): array
 }
 ```
 
-The values returned by the `query` method will be passed to the component and can be accessed using blade syntax. For example, in the `Hello` component class, you can access the name variable like this:
+The values returned by the `query` method will be passed to the component and can be accessed using Blade syntax. For example, in the `Hello` component class, you can access the name variable like this:
 
 ```php
 Hello {{ $name }}!
@@ -196,7 +196,7 @@ blade;
 }
 ```
 
-You can learn more about blade components in the [Laravel documentation](https://laravel.com/docs/blade#components).
+You can learn more about Blade components in the [Laravel documentation](https://laravel.com/docs/blade#components).
 
 
 
@@ -236,7 +236,7 @@ In the `settings.blade.php` template, you can access the `foo` and `bar` variabl
 </div>
 ```
 
-Note that the variables returned by the `query` method will also be available in the template and can be accessed using blade syntax.
+Note that the variables returned by the `query` method will also be available in the template and can be accessed using Blade syntax.
 
 ```php
 public function query(): array
@@ -286,4 +286,3 @@ Layout::browsing('http://127.0.0.1:8000/telescope')
 ```
 
 Refer to the [HTML specification](https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element) for a complete list of available attributes.
-

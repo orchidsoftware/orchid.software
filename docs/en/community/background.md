@@ -1,8 +1,8 @@
-`---
+---
 title: Under the Hood
 description: "Discover the story behind Orchid—a journey from solving real-world challenges to creating a powerful tool
 for building flexible and intuitive administrative interfaces."
-section: site.community.
+section: site.community
 ---
 
 ## Orchid Wasn't Built Overnight

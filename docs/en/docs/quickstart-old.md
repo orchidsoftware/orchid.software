@@ -340,6 +340,6 @@ Route::screen('email', EmailSenderScreen::class)
 
 
 
-Congratulations, you should now understand how the platform works!
+Congratulations, you should now understand how the platform works.
 It is an elementary example, but the development process will be identical in many aspects.
 We recommend going to the [Screens](/en/docs/screens) section to learn more about the possibilities in your hands.

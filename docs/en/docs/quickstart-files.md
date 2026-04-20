@@ -221,4 +221,4 @@ public function query(Post $post): array
 ```
 
 Now our attached files are downloaded and synchronized.
-For more details, see the section ["Form Elements"](/en/docs/field) and ["Attached Files"](/en/docs/attachments).
+For more details, see the [Form Elements](/en/docs/field) and [Attached Files](/en/docs/attachments) sections.

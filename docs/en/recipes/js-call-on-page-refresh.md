@@ -6,7 +6,7 @@ section: main
 ---
 
 
-Since Orchid emulates the work of SPA using hotwire.dev, classic calls like this won't work:
+Since Orchid emulates the work of an SPA using Hotwire, classic calls like this won't work:
 
 ```js
 document.addEventListener("load", () => {
@@ -22,4 +22,4 @@ document.addEventListener("turbo:load", () => {
 })
 ```
 
-You can find out more details on the website [turbo.hotwire.dev](https://turbo.hotwire.dev).
+You can find more details on the [Hotwire Turbo website](https://turbo.hotwire.dev).

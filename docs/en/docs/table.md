@@ -109,7 +109,7 @@ TD::make('last_name')->sort();
 When building simple tables, the use of separate filters may seem overkill.
 Therefore, you can display the field for filtering right above the column heading.
 
-It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP Filtering".
+It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP Filtering."
 You can find out more on the ["Eloquent Filters" page](/en/docs/filters/#automatic-http-filtering-and-sorting).
 
 To add a field, call the filter method and pass the instance of the class you would like to display:
@@ -125,7 +125,7 @@ TD::make('color')->filter(
 
 ```
 
-> **Note**: There is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
+> **Note:** there is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
 
 When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed filter values.
 For example, you can replace an ID value with a display name. Here is an example of using the `filterValue()` method:
@@ -173,7 +173,7 @@ TD::make('full_name')
     ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
 ```
 
-> **Note.** The returned string will not be escaped! You need to take care of this yourself with the `e()` helper or use `Blade` view.
+> **Note.** The returned string will not be escaped. You need to take care of this yourself with the `e()` helper or use a `Blade` view.
 
 
 The loopback function must return any string value:
@@ -317,7 +317,7 @@ TD::make('status')->component(OrderShortInformation::class, [
 
 This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.
 
-To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, I want to display values of a specific format:
+To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, you might want to display values in a specific format:
 
 ```php
 namespace App\View\Components;

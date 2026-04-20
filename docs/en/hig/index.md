@@ -28,7 +28,7 @@ This is a living document that can and will be changed.
 Before diving into the fundamentals, it's crucial to grasp a clear definition of design. 
 However, more importantly, we must dispel two prevalent misconceptions.
 
-## Design Is Not Something You Add On After You’ve Completed a Product.
+## Design Is Not Something You Add On After You’ve Completed a Product
 
 Whether you realize it or not, you are constantly designing anything you build. It is an intrinsic part of creating something.
 Design is not just what something looks like. It's not just the colors and fonts. Design is how it works.
@@ -60,3 +60,32 @@ This guide has been influenced by the following documents:
 
 These documents offer valuable insights and best practices for designing interfaces that prioritize the user experience.
 By following the guidelines outlined in these resources, this guide aims to provide a comprehensive and well-informed approach to interface design specifically for Orchid apps.
+
+## Guidelines Overview
+
+TODO: make it better.
+
+| Topic | Description |
+|-------|-------------|
+| [Design Philosophy](/en/hig/philosophy) | Concision, avoiding feature bloat, usefulness. |
+| [Forms and Input Fields](/en/hig/forms) | Labels, grouping, validation, and form layout. |
+| [Presentation Table](/en/hig/table) | Consistency, text hierarchy, alignment, row limits. |
+| [Navigation](/en/hig/navigation) | Sidebar menu, breadcrumbs, command bar. |
+| [Modal Dialogs](/en/hig/modals) | When to use modals, titles, buttons, closing. |
+| [Providing Feedback](/en/hig/providing-feedback) | Alerts, toasts, notifications, badges. |
+| [Writing Style](/en/hig/text) | Consistent language, localization. |
+| [Naming Elements](/en/hig/naming) | Screen names, menu items, terms. |
+| [Iconography](/en/hig/icon) | Icons with labels, metaphors, recognizability. |
+| [User Workflow](/en/hig/workflow) | Confirmations, destructive actions, modular approach. |
+| [Quick Response Time](/en/hig/performance) | Defining fast vs slow, optimization tips. |
+| [Empty States](/en/hig/empty-states) | What to show when there is no data. |
+| [Accessibility](/en/hig/accessibility) | Keyboard, focus, labels, and contrast. |
+
+## See Also
+
+- [Screens](/en/docs/screens) — implementing screens in Orchid
+- [Form Elements](/en/docs/field) — fields and layouts
+- [Table](/en/docs/table) — table layout and columns
+- [Navigation (Menu)](/en/docs/menu) — dashboard menu
+- [Modal Dialog](/en/docs/modals) — modals in code
+- [Notifications](/en/docs/alert) — alerts and toasts

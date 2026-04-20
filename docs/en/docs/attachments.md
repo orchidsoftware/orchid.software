@@ -151,7 +151,7 @@ public function hero()
 }
 ```
 
-If you call your relation like function `$post->hero()` it will return `Illuminate\Database\Eloquent\Builder` class, that also has `delete()` function. But, it will execute sql query. If you call your relation like attribute `$post->hero` it will return model class. `Attachment` model class.
+If you call your relation like function `$post->hero()` it will return `Illuminate\Database\Eloquent\Builder` class, that also has `delete()` function. But, it will execute an SQL query. If you call your relation like attribute `$post->hero` it will return model class. `Attachment` model class.
 
 ```php
 $post->hero()->delete();
@@ -311,4 +311,3 @@ By design, the attachment system imposes no restrictions on file extensions, MIM
 Uploaded files are stored on the configured disk (typically outside `/public`) and are not meant to be executed as code.
 
 For security, define your own upload rules — for example, via Laravel validation in controllers/routes, access restrictions for trusted users only, or server-level file execution protections.
-

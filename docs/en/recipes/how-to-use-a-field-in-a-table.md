@@ -5,7 +5,7 @@ extends: _layouts.page
 section: main
 ---
 
-...
+Example:
 
 ```php
 use App\Models\User;
@@ -21,4 +21,4 @@ TD::make('id')->render(function (User $user){
 });
 ```
 
-...
+Result:

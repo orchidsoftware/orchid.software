@@ -5,7 +5,7 @@ extends: _layouts.page
 section: main
 ---
 
-Sometimes I get tired of specifying many fields to fill, especially when the same fields are repeated. [Collections](https://laravel.com/docs/collections) can come to our aid.
+Repeatedly specifying many fields can become tedious, especially when the same fields appear again and again. [Collections](https://laravel.com/docs/collections) can help here.
 
 
 Let's try to consider an example:

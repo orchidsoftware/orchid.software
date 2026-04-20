@@ -17,7 +17,7 @@ This approach works great with individual things that only affect you. But if in
 you were to switch the date of the press release, that would be terrible, because you could make a mistake.
 The situation is especially aggravated when the same object is opened for editing by multiple users at once.
 
-So we expect that saving information on demand requires an explicit acknowledgement, such as clicking on a button.
+We therefore expect that saving information on demand requires an explicit acknowledgement, such as clicking a button.
 
 ## Destructive of Action
 
@@ -56,6 +56,5 @@ Keep in mind that Orchid is a package for Laravel, and therefore it's advisable 
 This helps to eliminate duplication of functionality and makes these features accessible to other applications.
 
 For instance, a popular use case is to implement backups, and many users prefer to utilize 
-the package [spatie/laravel-backup](https://github.com/spatie/laravel-backup). However, you can take it a step further by building 
+the package [spatie/laravel-backup](https://github.com/spatie/laravel-backup). However, you can take it a step further by building
 a package that includes a preconfigured route and a backup screen.
-

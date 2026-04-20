@@ -3,7 +3,7 @@ title: Sorting and Filtering In a Table
 description: Laravel CRUD
 ---
 
-This guide is a continuation of the tutorial ["Data Management"](/en/docs/quickstart-crud), in which we will help the user find information in tables faster.
+This guide is a continuation of the [Data Management](/en/docs/quickstart-crud) tutorial, in which we will help the user find information in tables faster.
 
 The sorting in the table is based entirely on the automatic recognition of the `Http` request and is applicable to the `Eloquent` models. 
 In order to enable it, you need to add the `Filterable` trait and define the allowed columns:

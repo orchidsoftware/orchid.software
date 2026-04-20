@@ -73,7 +73,7 @@ You can add as many new middleware as you like. For example, you can add a middl
 'guard' => env('AUTH_GUARD', 'web'),
 ```
 
-The `guard` option specifies which Laravel [authentication guard](https://laravel.com/docs/authentication) is used when accessing the dashboard. Use this when you have multiple user types (e.g. customers and admins) with separate guards. The default is `web`.
+The `guard` option specifies which Laravel [authentication guard](https://laravel.com/docs/authentication) is used when accessing the dashboard. Use this when you have multiple user types, such as customers and admins, with separate guards. The default is `web`.
 
 For more on using a custom guard with Orchid, see [Authentication](/en/docs/authentication#guard).
 
@@ -133,7 +133,7 @@ You may change this to a custom route name if you have defined your own profile 
 ],
 ```
 
-The `resource` parameter allows you to add your own stylesheets or javascript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.
+The `resource` parameter allows you to add your own stylesheets or JavaScript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.
 
 For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the `stylesheets` array:
 
@@ -166,7 +166,7 @@ See [JavaScript and Vite](/en/docs/javascript) for details.
 
 ## Appearance Patterns
 
-To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user interface to specify a logo, accompanying documents, etc.
+To change some templates, you do not need to publish the entire package. You can customize a part of the user interface to specify a logo, accompanying documents, and more.
 
 ```php
 'template' => [
@@ -266,7 +266,7 @@ Options: `platform::workspace.compact`, `platform::workspace.full`.
 
 ## Fallback Page
 
-When a request does not match any orchid route, Orchid can render its own 404 page. Set to `false` if you register your own routes under the same domain and prefix and want to handle 404s yourself:
+When a request does not match any Orchid route, Orchid can render its own 404 page. Set to `false` if you register your own routes under the same domain and prefix and want to handle 404 responses yourself:
 
 ```php
 'fallback' => true,
@@ -274,7 +274,7 @@ When a request does not match any orchid route, Orchid can render its own 404 pa
 
 ## Prevents Abandonment
 
-When enabled, the orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here; individual screens can override via `needPreventsAbandonment()`:
+When enabled, Orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here. Individual screens can override this via `needPreventsAbandonment()`:
 
 ```php
 'prevents_abandonment' => true,
@@ -322,7 +322,7 @@ You only need to change this if you move Orchid's bootstrap (for example, the `P
 ## Overriding Blade Templates
 
 
-Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism (this is the same for all Laravel packages, not just Orchid);
+Backend pages are created using [Blade](https://laravel.com/docs/blade). You can change these using Laravel's template override mechanism. This approach works the same for all Laravel packages, not just Orchid.
 
 > 🚨 **Alert!** 
 > Overridden templates do not receive updates or bug fixes.

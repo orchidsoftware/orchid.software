@@ -1,12 +1,12 @@
 ---
 title: Contributors
-description: I urge everyone to contribute to the project.
-section: site.community.
+description: Help improve Orchid through discussion, code, and translation.
+section: site.community
 ---
 
 ## Contribute and Collaborate
 
-The Orchid project thrives on community collaboration. We invite you to participate in open discussions, ask questions, and propose ideas in our [GitHub discussions](https://github.com/orchidsoftware/platform/discussions). Your input can shape the future of Orchid!
+The Orchid project thrives on community collaboration. We invite you to participate in open discussions, ask questions, and propose ideas in our [GitHub discussions](https://github.com/orchidsoftware/platform/discussions). Your input can shape the future of Orchid.
 
 If you encounter any bugs or have specific feature requests, please check our [issues tracker](https://github.com/orchidsoftware/platform/issues). You can find unresolved issues and indicate your intention to work on a specific problem by leaving a comment on the relevant task.
 
@@ -113,7 +113,7 @@ To submit your branch for review, execute the following command:
 git push origin feature/issue_001
 ```
 
-## Help Translate Orchid into Different Languages!
+## Help Translate Orchid into Different Languages
 
 We appreciate your contributions in translating Orchid into multiple languages. Visit the [Make Orchid (more) International](https://github.com/orchidsoftware/platform/discussions/1545) conversation on the Discussion tab for more details. Translation files can be found in the [resources/lang](https://github.com/orchidsoftware/platform/tree/master/resources/lang) directory.
 
@@ -129,4 +129,4 @@ Once you've completed the translation, submit it as a change request following t
 
 We appreciate your dedication to making Orchid accessible to a broader audience. Your translations will help us reach more users around the world.
 
-We hope this detailed documentation helps you contribute effectively and participate in the growth of Orchid. We value your time and effort in making Orchid better and more user-friendly. Thank you for being part of our community!
+We hope this detailed documentation helps you contribute effectively and participate in the growth of Orchid. We value your time and effort in making Orchid better and more user-friendly. Thank you for being part of our community.

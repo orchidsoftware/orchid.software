@@ -75,7 +75,7 @@ class StateScreen extends Screen
 }
 ```
 
-Let's open the page in a browser and see how the screen looks. It should display the label "Click Count: 0". Now, let's add a simple method to the screen to see the request content:
+Let's open the page in a browser and see how the screen looks. It should display the label "Click Count: 0" Now, let's add a simple method to the screen to see the request content:
 
 ```php
 /**

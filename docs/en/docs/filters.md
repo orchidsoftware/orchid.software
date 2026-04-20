@@ -260,6 +260,7 @@ use Orchid\Filters\Types\Where;
 use Orchid\Filters\Types\WhereDate;
 use Orchid\Filters\Types\WhereMaxMin;
 use Orchid\Filters\Types\WhereDateStartEnd;
+use Orchid\Filters\Types\WhereIn;
 
 class Post extends Model
 {
@@ -281,6 +282,7 @@ use Orchid\Filters\Types\Where;
 use Orchid\Filters\Types\WhereDate;
 use Orchid\Filters\Types\WhereMaxMin;
 use Orchid\Filters\Types\WhereDateStartEnd;
+use Orchid\Filters\Types\WhereIn;
 
 class Post extends Model
 {
@@ -302,6 +304,24 @@ class Post extends Model
     ];
 }
 ```
+
+For range filters on a single column (for example, "price between 10 and 20"), use `WhereBetween`:
+
+```php
+'price' => \Orchid\Filters\Types\WhereBetween::class,
+```
+
+Example: `?filter[price][]=10&filter[price][]=20` applies `whereBetween('price', [10, 20])`.
+
+For case-insensitive search on PostgreSQL, use `Ilike`:
+
+```php
+'title' => \Orchid\Filters\Types\Ilike::class,
+```
+
+Example: `?filter[title]=hello` applies a case-insensitive `LIKE` on the `title` column.
+
+> **Note.** `Ilike` is intended for PostgreSQL. On MySQL, use `Like` (which is case-insensitive by default with typical collations).
 
 Once you have specified the list, using automatic filtering is straightforward. Simply call the `filters()` method, for example:
 

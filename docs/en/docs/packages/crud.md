@@ -1,12 +1,12 @@
 ---
 title: Orchid CRUD for Laravel
-description: Easily create a user interface for Laravel eloquent models with Orchid's new package. This simplified CRUD solution allows you to efficiently perform common database operations, including create, read, update, and delete. With seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid platform for more advanced options. Compatible with all fields, filters, and traits.
+description: Easily create a user interface for Laravel Eloquent models with Orchid's new package. This simplified CRUD solution allows you to efficiently perform common database operations, including create, read, update, and delete. With seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid platform for more advanced options. Compatible with all fields, filters, and traits.
 ---
 
 ## Introduction
 
 Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when it might seem overkill.
-Therefore, we have created a new package aimed at developers who want to quickly create a user interface for eloquent models with functions such as creating,
+Therefore, we have created a new package aimed at developers who want to quickly create a user interface for Eloquent models with functions such as creating,
 reading, updating, and deleting.
 
 You can describe the entire process using one file. And when you need more options, it's easy to switch to using the platform.
@@ -48,7 +48,7 @@ public static $model = Post::class;
 ```
 
 These classes are completely static. They don't have any state at all due to their declarative nature. 
-They only tell what to do. They don't hold any data. So if you add custom methods, make sure they're static.
+They only tell what to do. They don't hold any data. If you add custom methods, make sure they're static.
 
 
 Freshly created resources contain nothing. Don't worry. We'll add more fields to our resource soon.
@@ -99,7 +99,7 @@ class Post extends Model
 
 ## Defining Fields
 
-Each resource contains a `fields` method. This method returns an array of fields, which generally extend the `Orchid\Screen\Field` class. To add a field to a resource, we can add it to the resource's `fields` method. Typically, fields may be created using their static `make` method. This method accepts several arguments; however, you usually only need to pass the field's name.
+Each resource contains a `fields` method. This method returns an array of fields, which generally extend the `Orchid\Screen\Field` class. To add a field to a resource, we can add it to the resource's `fields` method. Typically, fields may be created using their static `make` method. This method accepts several arguments. However, you usually only need to pass the field's name.
 
 
 ```php
@@ -445,7 +445,7 @@ Typically, these policies will be registered in your application's `AuthServiceP
 - restore
 - forceDelete
 
-No additional configuration is required! So, for example, to determine which users are allowed to update a `Post` model, you need to define an `update` method on the model's corresponding policy class:
+No additional configuration is required. For example, to determine which users are allowed to update a `Post` model, you need to define an `update` method on the model's corresponding policy class:
 
 ```php
 namespace App\Policies;
@@ -473,7 +473,7 @@ class PostPolicy
 ```
 
 
-> If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. So, if you have defined a policy, don't forget to define all of its relevant authorization methods.
+> If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If you have defined a policy, don't forget to define all of its relevant authorization methods.
 
 
 If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a `before` method on the policy. Before any other policy methods, the before method will be executed, allowing you to authorize the action before the intended policy method is actually called.

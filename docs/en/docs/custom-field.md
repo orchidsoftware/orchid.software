@@ -138,7 +138,7 @@ Here’s a simplified view of the `EmojiPicker` controller:
 </script>
 ```
 
-- **Controller Name:** Defined in `data-controller`, e.g., `emoji-picker`
+- **Controller Name:** Defined in `data-controller`, for example, `emoji-picker`
 - **Targets:** HTML elements accessible via `data-<controller>-target`
 - **Lifecycle Methods:**
 
@@ -178,7 +178,7 @@ Orchid.register('controller-name', class extends Controller {
 
 ### Working with Elements
 
-- **Single element**: `this.<target>Target` (e.g., `this.nameTarget`)
+- **Single element**: `this.<target>Target` (for example, `this.nameTarget`)
 - **Multiple elements**: `this.<target>Targets` (array)
 - **DOM Queries:**
 

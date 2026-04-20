@@ -8,7 +8,7 @@ description: Laravel Orchid provides screens for building and maintaining comple
 
 Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.  
 
-Screens don't handle data fetching directly; instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or external service—without affecting the screen logic.  
+Screens don't handle data fetching directly. Instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or external service—without affecting the screen logic.  
 
 At the core, each screen is essentially an HTML `<form>`, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.  
 
@@ -248,7 +248,7 @@ Using public properties in this way is a useful way to pass data between differe
 
 Screens include built-in commands that allow users to execute various actions. The `commandBar` method is responsible for defining these controls.
 
-There are several types of actions available:
+Several types of actions are available:
 
 
 ### Button
@@ -308,7 +308,7 @@ TD::make('Enabled')->render(function(User $user) {
 });
 ```
 
-**Recommendation:** For the smoothest experience, use the following configuration:
+**Recommendation:** for the smoothest experience, use the following configuration:
 
 ```
 [
@@ -377,13 +377,13 @@ Button::make('Say "Hello, World!"')
 ## Screen Layouts
 
 
-Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.
+Layouts are responsible for the screen's appearance: how the data is displayed and in what form.
 
 Separation of logic and presentation is one of the design principles with Laravel Orchid.
 One of the elements of the presentation are "Layouts" (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a `view` on steroids.
 
-In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the name, signature and profile avatar:
+In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name, signature, and profile avatar:
 
 
 ```html
@@ -479,7 +479,7 @@ public function layout(): array
 ```
 
 
-More details can be found in the [Layouts](/en/docs/rows) section. See also: [Rows](/en/docs/rows), [Table](/en/docs/table), [Grouping (Tabs, Split, etc.)](/en/docs/grouping), and [Modals](/en/docs/modals).
+More details can be found in the [Layouts](/en/docs/rows) section. See also the [Rows](/en/docs/rows), [Table](/en/docs/table), [Grouping (Tabs, Split, etc.)](/en/docs/grouping), and [Modals](/en/docs/modals) pages.
 
 
 ## Additional Methods

@@ -161,9 +161,7 @@ class AddressLayout extends Rows
     public function __construct(
         private readonly string $prefix,
         private readonly ?string $title = null
-    ) {
-        $this->prefix = Str::finish($prefix, '.');
-    }
+    ) {}
 
     /**
      * Get the fields to be displayed.
@@ -190,7 +188,7 @@ class AddressLayout extends Rows
     protected function addPrefix(array $fields): array
     {
         return collect($fields)
-            ->each(fn(Field $field) => $field->set('name', $this->prefix . $field->get('name')))
+            ->each(fn(Field $field) => $field->set('name', Str::finish($this->prefix, '.') . $field->get('name')))
             ->all();
     }
 }

@@ -69,7 +69,7 @@ TD::make('value')
     ->usingComponent(Boolean::class),
 ```
 
-By default, the `Boolean` component will display boolean values as "true" or "false". However, you can easily customize the labels to match the semantics of your data:
+By default, the `Boolean` component will display boolean values as "true" or "false." However, you can easily customize the labels to match the semantics of your data:
 
 ```php
 TD::make('value')

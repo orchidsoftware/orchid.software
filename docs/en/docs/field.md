@@ -10,6 +10,20 @@ Fields are used to generate the output of the fill and edit form template. Form 
 > Feel free to add your fields, for example, to use the convenient editor for you or any components.
 
 
+## Label
+
+The Label field displays read-only text or a heading. Use it for section titles, hints, or to show a value that the user cannot edit.
+
+```php
+use Orchid\Screen\Fields\Label;
+
+Label::make('section_title')
+    ->title('Shipping address');
+```
+
+You can bind a value from the screen's query so the label shows dynamic content (for example, a customer name). The same methods (`title()`, `help()`, `popover()`, `vertical()`) are available as on other fields. Labels are often used inside [reusable row layouts](/en/docs/screens#screen-layouts) to separate groups of fields.
+
+
 ## Introduction to Input
 
 Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:
@@ -92,7 +106,7 @@ Input::make('name')->canSee(true);
 ### Types of Input
  
 
-One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and url. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
+One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and URL. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
 
 
 ```php
@@ -189,7 +203,7 @@ Range::make('volume')
     ->title('Volume');
 ```
 
-You can also use `Input::make('volume')->type('range')` for a native HTML5 range input; the Range field provides a consistent Orchid-style interface.
+You can also use `Input::make('volume')->type('range')` for a native HTML5 range input. The Range field provides a consistent Orchid-style interface.
 
 ## TextArea
 
@@ -262,7 +276,7 @@ This can be useful for ensuring that the server receives a clear indication of t
 
 ## Switcher
 
-The Switcher field renders a toggle ideal for boolean options such as "Enabled" or "Allow notifications". It is well-suited for settings screens where a single on/off choice is needed.
+The Switcher field renders a toggle ideal for boolean options such as "Enabled" or "Allow notifications." It is well-suited for settings screens where a single on/off choice is needed.
 
 ```php
 use Orchid\Screen\Fields\Switcher;
@@ -514,7 +528,7 @@ DateTimer::make('open')
     ->allowInput();
 ```
 
-**Note:** Enabling direct input can also make the field mandatory:
+**Note:** enabling direct input can also make the field mandatory:
 
 ```php
 DateTimer::make('open')
@@ -685,7 +699,7 @@ The representation of variable zones can be found in the documentation [PHP](htt
 
 ## Quill WYSIWYG Editor
 
-The Quill WYSIWYG (What You See Is What You Get) editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.
+The Quill rich-text editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.
 
 
 To create a Quill editor instance, simply utilize the `Quill` field. Here's an example of how to implement it in your code:
@@ -728,7 +742,7 @@ document.addEventListener('orchid:quill', (event) => {
 });
 ```
 
-**Note**: You can add custom scripts and stylesheets through the `platform.php` config file
+**Note:** you can add custom scripts and stylesheets through the `platform.php` config file.
 
 Example for [quill-image-compress](https://github.com/benwinding/quill-image-compress):
 
@@ -882,7 +896,7 @@ Picture::make('picture')
     ->storage('s3');
 ```
 
-Use the `acceptedFiles` method to define the types of files that the field should accept. This is done using unique [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
+Use the `acceptedFiles` method to define the types of files that the field should accept. This is done using [unique file type specifiers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers).
 
 For example, to only allow JPEG images, you can use the following code:
 
@@ -1180,7 +1194,7 @@ It will add a new button with a modal window to preview uploaded files.
 
 ## Map
 
-The Map field provides an interface for selecting or displaying a location (e.g. coordinates). You can set the initial zoom level and the height of the map container:
+The Map field provides an interface for selecting or displaying a location (for example, coordinates). You can set the initial zoom level and the height of the map container:
 
 ```php
 use Orchid\Screen\Fields\Map;
@@ -1191,7 +1205,7 @@ Map::make('location')
     ->height('400px');
 ```
 
-The field typically stores coordinates (e.g. latitude and longitude). The Blade view may integrate with a map provider (e.g. Leaflet or Google Maps) to render the map; refer to the package resources or your custom view for provider-specific setup.
+The field typically stores coordinates, such as latitude and longitude. The Blade view may integrate with a map provider, such as Leaflet or Google Maps, to render the map. Refer to the package resources or your custom view for provider-specific setup.
 
 ## UTM
 
@@ -1251,9 +1265,9 @@ Group::make([
 
 Accepted values for `widthColumns()` include:
 
-- Percentages (e.g., `30%`)
-- Pixels (e.g., `120px`)
-- Fractional units (e.g., `2fr`)
+- Percentages (for example, `30%`)
+- Pixels (for example, `120px`)
+- Fractional units (for example, `2fr`)
 - Other values such as `max-content` and `auto`
 
 > **Important:** The number of specified values must not be less than the number of elements in the group.
@@ -1432,4 +1446,4 @@ Result is an array with keys of `min`, `max`.
 
 To create custom fields, refer to the "Custom Fields" page in the documentation.
 This page provides a straightforward guide on how to create and customize fields according to your requirements.
-Access the "Custom Fields" page by clicking here: [Custom Fields](/en/docs/custom-field).
+Access the [Custom Fields](/en/docs/custom-field) page for more details.

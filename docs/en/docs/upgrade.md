@@ -275,8 +275,8 @@ public function commandBar(): iterable
 }
 ```
 
-- The first button, "Back to my account", is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account. 
-- The second button, "Sign out", is used to log out of the platform.
+- The first button, `Back to my account`, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account. 
+- The second button, `Sign out`, is used to log out of the platform.
 
 By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.
 
@@ -288,7 +288,7 @@ In your `composer.json` file, update the `orchid/platform` dependency to `^13.0`
 
 ### jQuery
 
-There is no longer a default jQuery package in this release. If you need it, then you can install it separately, for example by adding a reference to it in the configuration file:
+This release no longer includes a default jQuery package. If you need it, you can install it separately, for example by adding a reference to it in the configuration file:
 
 ```php
 'resource' => [
@@ -623,7 +623,7 @@ In your `composer.json` file, update the `orchid/platform` dependency to `^9.0`
 
 ### Auth
 
-The Laravel team has introduced new products [Jetstream](https://github.com/laravel/jetstream) and [Fortify](https://github.com/laravel/fortify), which replace the earlier [laravel/ui](https://github.com/laravel/ui). To ensure compatibility with various options, the dependency on `laravel/ui ha`s been removed. And with it, the ability to recover your password.
+The Laravel team has introduced new products [Jetstream](https://github.com/laravel/jetstream) and [Fortify](https://github.com/laravel/fortify), which replace the earlier [Laravel UI](https://github.com/laravel/ui). To ensure compatibility with various options, the dependency on `laravel/ui` has been removed. And with it, the ability to recover your password.
 
 New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.
 
@@ -814,4 +814,3 @@ Layout::view('platform::partials.update');
 The icon display has been changed from `font` to `SVG` format.
 Now the `->icon` methods do not accept the `css` value to be set, but the file name.
 In most cases, you only need to remove the `icon-` prefix.
-

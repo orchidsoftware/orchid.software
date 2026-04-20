@@ -27,7 +27,7 @@ This entry is equivalent to using the Blade directive `@vite`. By carefully foll
 
 Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any `<link>` or `<script>` tags. To set up the URLs for your resources, you'll need to modify the platform.php file in your Laravel application.
 
-Open your `config/platform.php` file and look for the `resource` key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public url. The configuration should resemble the following structure:
+Open your `config/platform.php` file and look for the `resource` key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public URL. The configuration should resemble the following structure:
 
 ```php
 'resource' => [
@@ -67,7 +67,7 @@ document.addEventListener("turbo:load", () => {
 })
 ```
 
-You can find more details on the website [turbo.hotwire.dev](https://turbo.hotwire.dev).
+You can find more details on the [Hotwire Turbo website](https://turbo.hotwire.dev).
 
 
 ## Stimulus
@@ -137,7 +137,7 @@ It remains only to connect the received script to the panel in the configuration
 ],
 ```
 
-> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
+> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the Artisan command `artisan config:clear`.
 
 Run to build assets:
 
@@ -173,7 +173,7 @@ Running the `build` command will version and bundle your application's assets an
 npm run build
 ```
 
-> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the artisan command `artisan config:clear`.
+> **Note**. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the Artisan command `artisan config:clear`.
 
 
 ### Run Controller
@@ -199,7 +199,7 @@ To display, we will use a template for which you first need to define the `Contr
 ## Vue.js Wrapped in a Stimulus
 
 
-Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces.  In this tutorial, we'll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.
+Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces. In this tutorial, we'll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.
 
 
 Create a Stimulus controller file, for example `hello_controller.js`:
@@ -226,7 +226,7 @@ export default class extends window.Controller {
 }
 ```
 
-Register the controller in your blade file:
+Register the controller in your Blade file:
 
 ```blade
 <div data-controller="hello">

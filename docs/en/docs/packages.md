@@ -200,7 +200,7 @@ This constant returns a string representation of the current version being used.
 
 ## Extending Layouts
 
-The `Layouts` class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:
+The `Layouts` class groups several layouts. To add a new feature to it, specify it in the service provider as follows:
 
 ```php
 use Orchid\Screen\Layout;

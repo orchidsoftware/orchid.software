@@ -8,7 +8,7 @@ This guide provides a minimal set for creating and editing models using the plat
 
 > **Note.** This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider [using a dedicated package for this](https://github.com/orchidsoftware/crud).
 
-At this stage, it is advisable that you already familiarize yourself with the basics of the concept of [screens](https://orchid.software/en/docs/screens) and watch "[Quick start for beginners](https://orchid.software/en/docs/quickstart) ".
+At this stage, it is advisable that you already familiarize yourself with the basics of the concept of [screens](https://orchid.software/en/docs/screens) and watch [Quick start for beginners](https://orchid.software/en/docs/quickstart).
 
 First, we need to create a new table. To do this, execute the command:
 
@@ -264,7 +264,7 @@ class PostEditScreen extends Screen
 ```
 
 
-Now we can create, edit, and delete records. But do not browse as a list. Change it!
+Now we can create, edit, and delete records. But the records do not appear as a list yet. Let's change that.
 
 In all previous layer definitions, only a short record of the form `Layout:rows()` was used, but to display complex or voluminous information, it is desirable to create separate classes.
 
