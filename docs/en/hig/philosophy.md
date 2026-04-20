@@ -23,7 +23,7 @@ Orchid places a strong emphasis on simplicity by being selective about adding ne
 
 By focusing on a streamlined, intuitive user experience, Orchid helps you work more efficiently and effectively.
 
-Orchid is mindful of avoiding feature bloat and excessive customizations, as they can lead to several drawbacks such as slower performance, cluttered interface, increased implementation time, increased potential for bugs, and additional documentation and translation work.
+Orchid is mindful of avoiding feature bloat and excessive customizations. They can lead to slower performance, a cluttered interface, longer implementation time, more potential bugs, and extra documentation and translation work.
 
 Therefore, before introducing any new customization, Orchid assesses its necessity in accommodating the needs of diverse user groups. This approach helps streamline the design and maintain simplicity, resulting in a more efficient and user-friendly application.
 
