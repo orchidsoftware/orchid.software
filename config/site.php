@@ -23,7 +23,7 @@ return [
                 'Managing Attachments'  => '/en/docs/quickstart-files',
                 'Sorting and Filtering' => '/en/docs/quickstart-sort-filter-table',
             ],
-            'The Basics'    => [
+            'Core Concepts'    => [
                 'Screens'       => '/en/docs/screens',
                 'Form Elements' => '/en/docs/field',
                 'Navigation'    => '/en/docs/menu',
@@ -34,7 +34,7 @@ return [
             ],
             'Layouts'     => [
                 'Rows'            => '/en/docs/rows',
-                'Table'           => '/en/docs/table',
+                'Tables'           => '/en/docs/table',
                 'Legend'          => '/en/docs/legend',
                 'Cell Types'      => '/en/docs/cell-types',
                 'Charts'          => '/en/docs/charts',
@@ -44,11 +44,11 @@ return [
                 //'Display elements' => '/en/docs/display-elements',
                 'Views'           => '/en/docs/custom-template',
             ],
-            'Extra'       => [
+            'Advanced'       => [
                 'Icons'               => '/en/docs/icons',
                 'Scout Search'        => '/en/docs/global-search',
                 'Presenters'          => '/en/docs/presenters',
-                'Using JS'            => '/en/docs/javascript',
+                'Custom JavaScript'   => '/en/docs/javascript',
                 'Testing'             => '/en/docs/testing',
                 'Authentication'      => '/en/docs/authentication',
                 'Custom Fields'       => '/en/docs/custom-field',
