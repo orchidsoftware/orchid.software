@@ -24,7 +24,7 @@ In this example, the icon `bs.gear` will show up next to the "Settings" link.
 
 ## Custom Icons
 
-In order to include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new `icons` directory and a `fontawesome` subdirectory in your `resources` folder:
+To include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons. For example, you can create a new `icons` directory and a `fontawesome` subdirectory in your `resources` folder:
 
 ```bash
 resources
@@ -51,7 +51,7 @@ Next, you need to configure the package to search for icons in the new directory
 
 In the example above, we have declared the prefix "fa" and the directory where the icons are located.
 
-In order to display the icons in the package's components, you only need to pass the prefix and the icon's name. For example, the icon definition in a menu would look like this:
+To display the icons in the package's components, you only need to pass the prefix and the icon's name. For example, the icon definition in a menu would look like this:
 
 ```php
 Menu::make('Example of custom icons')

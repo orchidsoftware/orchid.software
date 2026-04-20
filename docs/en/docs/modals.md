@@ -181,7 +181,7 @@ When working with a dataset, there is no need to create a modal window for each 
 This will replace the `query` screen data when opening the window and display
 new content.
 
-In order to declare a modal window asynchronous, you must call the `deferred` method passing in the argument the method name that should be used instead of `query`:
+To declare a modal window asynchronous, call the `deferred` method and pass the method name that should be used instead of `query`:
 
 ```php
 Layout::modal('deferredModal', Layout::rows([

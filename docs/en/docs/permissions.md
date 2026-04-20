@@ -288,7 +288,7 @@ Now you can modify this method as per your requirements, and when executing the 
 ## User Impersonation
 
 The `Orchid\Access\Impersonation` class provides developers with convenient functionality for logging in as another user. 
-It allows administrators to impersonate other users in order to view and perform actions on their behalf.
+It allows administrators to impersonate other users to view and perform actions on their behalf.
 This is useful for troubleshooting and resolving issues reported by users.
 
 To switch to another user, use the `loginAs()` method:

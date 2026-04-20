@@ -476,7 +476,7 @@ class PostPolicy
 > If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If you have defined a policy, don't forget to define all of its relevant authorization methods.
 
 
-If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a `before` method on the policy. Before any other policy methods, the before method will be executed, allowing you to authorize the action before the intended policy method is actually called.
+If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a `before` method on the policy. This method runs before any other policy methods, allowing you to authorize the action before the intended policy method is called.
 
 ```php
 namespace App\Policies;

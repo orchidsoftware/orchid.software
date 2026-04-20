@@ -44,7 +44,7 @@ public function testExampleScreen()
 }
 ```
 
-In many cases, routes take parameters, for example `users/{user}/edit`, in order to transfer them, you can use the method:
+In many cases, routes take parameters, for example `users/{user}/edit`. To pass them, you can use the method:
 
 ```php
 $screen = $this->screen('platform.systems.users.edit')
@@ -98,4 +98,3 @@ class UserFactory extends Factory
     }
 }
 ```
-

@@ -174,7 +174,7 @@ class TaskScreen extends Screen
 ### Routing
 
 
-Just like a controller, a screen in Orchid needs to be registered in the route file in order to be accessible to the user. To register a screen, we will need to open the route file for the admin panel (typically `routes/platform.php`) and define a new route for the screen.
+Just like a controller, a screen in Orchid needs to be registered in the route file to be accessible to the user. To register a screen, open the route file for the admin panel (typically `routes/platform.php`) and define a new route for the screen.
 
 To define a new route for a screen, we can use the Screen method provided by Orchid.
 This method takes two arguments: the URL of the screen, and the class name of the screen.
@@ -298,7 +298,7 @@ This will create a modal window with the title "Create Task." The modal will con
 
 ### Launch Modal
 
-If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the `layout` method. This is because the modal is hidden by default, and must be called in order to be displayed.
+If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have defined it in the `layout` method. This is because the modal is hidden by default and must be called before it is displayed.
 
 To call the modal window, we can add a button to the screen that will trigger the modal when clicked. To do this, we can use the `commandBar` method of the screen class, which defines the basic actions that are available on the screen.
 

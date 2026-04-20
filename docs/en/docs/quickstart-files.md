@@ -98,7 +98,7 @@ public function layout(): array
 > **Note.** If during the file upload, you did not see your image in the end result,
 please check the `upload_max_filesize` and `post_max_size settings`, you may need to increase these values.
 
-For such a field, the width and height were additionally indicated, in order to be sure the proportions are displayed to the user. After saving the record with the image, the full `url` address to the image will be written to the database column, for example:
+For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user. After saving the record with the image, the full `url` address to the image will be written to the database column, for example:
 
 ```php
 http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png
@@ -207,7 +207,7 @@ id  attachmentable_type  attachmentable_id  attachment_id
 4	App\Post	         3	                104
 ```
 
-But when the record is accessed again, the field will be empty. This is due to the fact that `query` does not know about additional records to our model. We will fix this by adding a download:
+But when the record is accessed again, the field will be empty. This happens because `query` does not know about the additional records on our model. We will fix this by adding a download:
 
 ```php
 public function query(Post $post): array

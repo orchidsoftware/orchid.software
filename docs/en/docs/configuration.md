@@ -153,7 +153,7 @@ It's worth noting that the resource file must be present in the `public` directo
 
 ## Vite
 
-If you use [Vite](https://laravel.com/docs/vite) for frontend assets, add the entry paths to the `vite` array so they are included on orchid pages:
+If you use [Vite](https://laravel.com/docs/vite) for frontend assets, add the entry paths to the `vite` array so they are included on Orchid pages:
 
 ```php
 'vite' => [

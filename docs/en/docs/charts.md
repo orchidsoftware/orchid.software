@@ -167,7 +167,7 @@ protected function markers(): ?array
 
 ## Eloquent Model
 
-In order to use the methods of obtaining data for charts from the model, you need to add the trait `Chartable`:
+To use chart data methods from the model, add the trait `Chartable`:
 
 ```php
 namespace App;
@@ -230,7 +230,7 @@ public function layout(): array
 }
 ```
 
-In order to change the text of headers, you can pass the closure function as the first argument:
+To change the header text, you can pass a closure as the first argument:
 
 ```php
 User::countForGroup('uses_two_factor_auth')

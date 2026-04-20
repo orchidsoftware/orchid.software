@@ -335,7 +335,7 @@ This code will automatically apply any filters or sorting rules that were includ
 
 #### Query Examples
 
-In order to use this feature effectively, it's important to have a solid understanding of how the HTTP parameters are translated into database queries. For example:
+To use this feature effectively, it's important to understand how the HTTP parameters are translated into database queries. For example:
 
 ```php
 http://example.com/demo?filter[id]=1
@@ -499,4 +499,3 @@ User::orderByPowerJoins('profile.city', 'desc');
 ```
 
 However, you will need to manually handle the HTTP parameters `sort` and `filter`, as the package does not automatically recognize that the `-` sign before the field name indicates descending order for sorting, and also how to apply filters. You can do this using a "Filter." Additionally, you should only use the package methods for sorting or filtering based on fields accessible through relationships.
-

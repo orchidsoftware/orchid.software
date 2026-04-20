@@ -106,7 +106,7 @@ Input::make('name')->canSee(true);
 ### Types of Input
  
 
-One of the most universal fields is the `input` field, which allows you to specify a variety of types such as text, file, hidden, color, email, number, range, and URL. The type attribute determines the kind of input field you want to create and the kind of data it will accept. Here are some examples of using the `type` method:
+The `input` field is one of the most flexible fields. You can use it for text, file, hidden, and color values. It also supports email, number, range, and URL values. The type attribute determines the kind of input field you want to create and the kind of data it accepts. Here are some examples of using the `type` method:
 
 
 ```php
@@ -418,7 +418,7 @@ Relation::make('ideas.')
     ->title('Choose your ideas');
 ```
 
-> **Note.** Note the dot at the end of the name. It is necessary in order to show the expectedness of the array. As if it were `HTML` code `<input name='ideas[]'>`
+> **Note.** Note the dot at the end of the name. It is necessary to show the expected array shape, similar to the HTML code `<input name='ideas[]'>`.
 
 To modify the load, you can use the reference to the `scope` model,
 for example, take only active:
@@ -922,7 +922,7 @@ Cropper::make('picture');
 
 ### Width and Height
 
-In order to control the format, you can specify the width and height of the desired image:
+To control the format, you can specify the width and height of the desired image:
 
 ```php
 Cropper::make('picture')

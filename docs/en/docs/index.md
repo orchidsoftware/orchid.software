@@ -30,7 +30,7 @@ If you're searching for a more straightforward solution for creating simple appl
 
 ## Migrating to Orchid
 
-If you currently have an admin panel based on `Blade` templates, you do not need to entirely rewrite your application in order to use package. Instead, you can gradually transition to using Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's powerful features without having to completely overhaul your existing codebase.
+If you currently have an admin panel based on `Blade` templates, you do not need to rewrite your application to use the package. Instead, you can gradually transition to Orchid by [connecting old controllers](https://orchid.software/en/docs/controllers) and integrating Orchid's features into your existing application. This way, you can take advantage of Orchid's features without completely overhauling your existing codebase.
 
 
 ## What Orchid Is Not
@@ -41,7 +41,7 @@ Furthermore, it's important to recognize that not all developers may be open to 
 
 ## What Sets Orchid Apart from Other Packages?
 
-The Laravel ecosystem offers a variety of admin panels, such as Nova, Voyager, BackPack, and QuickAdminPanel, that aim to simplify the process of working with CRUD applications. However, Laravel Orchid stands out by offering a different approach to streamlining the development process.
+The Laravel ecosystem offers a variety of admin panels, such as Nova, Voyager, BackPack, and QuickAdminPanel. Laravel Orchid stands out by offering a different approach to streamlining the development process.
 
 Unlike other packages that rely on scaffolding or visual programming, Laravel Orchid is designed to be helpful at any stage of development and can grow with your application as it becomes more complex. Instead of generating physical stubs files or dragging and dropping objects, Orchid requires developers to write code using a keyboard. And instead of providing a single god class, it offers a range of small, reusable components that can be combined in various ways to build a wide range of applications.
 
@@ -64,7 +64,7 @@ A classic web application is a subsystem with a common three-tier architecture, 
 It reduces development time, which is directly related to the distribution of responsibilities between levels. This is especially noticeable when it's necessary to create auxiliary code. At the same time, most of the useful work is done by the application layer.
 
 As various examples of conflicting tasks can be cited:
-- Generation of "HTML" using the "Blade" template engine or the "Vue" framework.
+- Generation of "HTML" using Blade or the "Vue" framework.
 - Use of ORM or stored procedures.
 
 Depending on the choice of decisions, responsibilities are assigned, each decision having both advantages and disadvantages.
@@ -87,4 +87,3 @@ Classic          |   Orchid
 ## Is Something Wrong?
 
 If you find that something is missing or unclear in our documentation, we welcome contributions to improve it. You can click on the **Suggest Edits** link on the top right side of any documentation page to suggest changes.
-

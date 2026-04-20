@@ -16,7 +16,7 @@ If you have any questions or concerns about our support policy, please do not he
 
 We believe in keeping our package up-to-date and modern, and therefore follow a "release early, release often" approach for major releases. This means that we won't wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.
 
-> We try to document all possible breaking changes. Some of these changes are internal calls, so only some of these changes may actually affect your application.
+> We try to document all possible breaking changes. Some of these changes are internal calls, so only some of them may affect your application.
 
 
 ## Upgrading to 14.0 from 13.x

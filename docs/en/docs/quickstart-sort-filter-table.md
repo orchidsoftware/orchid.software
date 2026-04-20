@@ -6,7 +6,7 @@ description: Laravel CRUD
 This guide is a continuation of the [Data Management](/en/docs/quickstart-crud) tutorial, in which we will help the user find information in tables faster.
 
 The sorting in the table is based entirely on the automatic recognition of the `Http` request and is applicable to the `Eloquent` models. 
-In order to enable it, you need to add the `Filterable` trait and define the allowed columns:
+To enable it, you need to add the `Filterable` trait and define the allowed columns:
 
 ```php
 namespace App\Models;
@@ -72,7 +72,7 @@ Now the data will be different, depending on the parameters in the `url` address
 > **Note.** In this way, you cannot sort related models.
 
 
-In order to display the sorting feature in the graphical interface, we must call the `sort` method for the necessary table columns in the `PostListLayout`:
+To display the sorting feature in the graphical interface, call the `sort` method for the necessary table columns in the `PostListLayout`:
 
 ```php
 namespace App\Orchid\Layouts;
