@@ -1,7 +1,7 @@
 ---
 title: Reporting Bugs
 description: A guide to reporting bugs effectively.
-section: site.community
+section: site.community.
 ---
 
 Thank you for your interest in contributing to the project. Public bug tracking is an essential part of the open development process. To ensure effective bug reporting, please follow the guidelines below:
