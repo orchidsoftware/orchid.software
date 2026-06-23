@@ -387,6 +387,9 @@
                             <li class="anchor-h2">
                     <a href="#datetimesplit">DateTimeSplit</a>
                 </li>
+                            <li class="anchor-h3">
+                    <a href="#nullable-dates-and-fallback-values">Nullable dates and fallback values</a>
+                </li>
                             <li class="anchor-h2">
                     <a href="#number">Number</a>
                 </li>
@@ -414,9 +417,22 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">DateTimeSplit</span>;
 
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'created_at'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-argument">upperFormat</span>: <span class="hl-value">'Y-m-d'</span>, <span class="hl-argument">lowerFormat</span>: <span class="hl-value">'H:i:s.uP'</span>, <span class="hl-argument">timeZone</span>: <span class="hl-value">'Europe/Madrid'</span>),
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">usingComponent</span>(<span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-argument">upperFormat</span>: <span class="hl-value">'Y-m-d'</span>, <span class="hl-argument">lowerFormat</span>: <span class="hl-value">'H:i:s.uP'</span>, <span class="hl-argument">tz</span>: <span class="hl-value">'Europe/Madrid'</span>),
 </code></pre>
-<p>In the above example, we set the <code>upperFormat</code> option to <code>'Y-m-d'</code> to display the date in the format 'YYYY-MM-DD&rsquo;. The <code>lowerFormat</code> option is set to <code>'H:i:s.uP'</code>, which shows the time in the format 'HH:MM:SS.microseconds+timezone&rsquo;. Feel free to adjust these formats and the <code>timeZone</code> option to suit your project&rsquo;s needs.</p>
+<p>In the above example, we set the <code>upperFormat</code> option to <code>'Y-m-d'</code> to display the date in the format 'YYYY-MM-DD&rsquo;. The <code>lowerFormat</code> option is set to <code>'H:i:s.uP'</code>, which shows the time in the format 'HH:MM:SS.microseconds+timezone&rsquo;. Feel free to adjust these formats and the <code>tz</code> option to suit your project&rsquo;s needs.</p>
+<h3><a href='#nullable-dates-and-fallback-values' id='nullable-dates-and-fallback-values'>Nullable dates and fallback values</a></h3>
+<p><code>DateTimeSplit</code> uses Carbon to parse its value. Carbon interprets a <code>null</code> value as the current date and time, so a nullable date attribute will not be displayed as an empty value automatically.</p>
+<p>If a nullable attribute should fall back to another date, calculate the <code>value</code> argument with <code>component</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Order</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">DateTimeSplit</span>;
+
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'updated_at'</span>, <span class="hl-value">'Last Updated'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(
+        <span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+        <span class="hl-argument">value</span>: <span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-type">Order</span> $order</span>) <span class="hl-operator">=&gt;</span> $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">updated_at</span> ?? $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">created_at</span>,
+    );
+</code></pre>
+<p>The fallback is application-specific. You can return another date or render the column yourself when a blank value is more appropriate.</p>
 <blockquote>
 <p><strong>Note:</strong> This documentation assumes familiarity with the PHP <a href="https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments">Named Arguments</a> feature.</p>
 </blockquote>

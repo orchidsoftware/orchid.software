@@ -409,7 +409,10 @@
                     <a href="#using-components">Using Components</a>
                 </li>
                             <li class="anchor-h2">
-                    <a href="#customizing-component-values">Customizing Component Values</a>
+                    <a href="#passing-cell-values-to-components">Passing Cell Values to Components</a>
+                </li>
+                            <li class="anchor-h2">
+                    <a href="#customizing-component-arguments">Customizing Component Arguments</a>
                 </li>
                             <li class="anchor-h2">
                     <a href="#table-options">Table Options</a>
@@ -637,9 +640,9 @@ It is much nicer than specifying things directly in the view or creating particu
     <span class="hl-value">'limit'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">100</span>
 ]);
 </code></pre>
-<h2><a href='#customizing-component-values' id='customizing-component-values'>Customizing Component Values</a></h2>
-<p>This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.</p>
-<p>To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, you might want to display values in a specific format:</p>
+<h2><a href='#passing-cell-values-to-components' id='passing-cell-values-to-components'>Passing Cell Values to Components</a></h2>
+<p>The <code>component</code> method passes the entire row to the component. When a component only needs the value of the current cell, use <code>usingComponent</code> instead.</p>
+<p>For example, you might want to display a value in a specific format:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
 <span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
@@ -694,6 +697,21 @@ blade;
 <span class="hl-comment">// 1 234,56</span>
 </code></pre>
 <p>For built-in cell formatters, see <a href="/en/docs/cell-types">Cell Types</a>. It covers date, number, boolean, currency, and percentage formats.</p>
+<h2><a href='#customizing-component-arguments' id='customizing-component-arguments'>Customizing Component Arguments</a></h2>
+<p>Arguments passed to <code>component</code> may be closures. Orchid evaluates each closure with the current row before rendering the component. This lets you calculate a component argument from one or more model attributes without adding an accessor to the model or creating another component.</p>
+<p>For example, the value displayed by <code>DateTimeSplit</code> can be selected from several date attributes:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Order</span>;
+<span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">DateTimeSplit</span>;
+
+<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_activity'</span>, <span class="hl-value">'Last Updated'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(
+        <span class="hl-type">DateTimeSplit</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
+        <span class="hl-argument">value</span>: <span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-type">Order</span> $order</span>) <span class="hl-operator">=&gt;</span> $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">shipped_at</span>
+            ?? $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">packed_at</span>
+            ?? $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">created_at</span>,
+    );
+</code></pre>
+<p>Use <code>component</code> rather than <code>usingComponent</code> when the closure needs the entire row. Closures passed to <code>usingComponent</code> receive only the value of the selected cell.</p>
 <h2><a href='#table-options' id='table-options'>Table Options</a></h2>
 <p>You can specify the text to be displayed if the table is empty
 specifying methods:</p>
