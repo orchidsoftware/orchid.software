@@ -313,11 +313,11 @@ TD::make('status')->component(OrderShortInformation::class, [
 ]);
 ```
 
-## Customizing Component Values
+## Passing Cell Values to Components
 
-This is very similar to using the component above, only the previous example gets an object. But this is not always necessary, sometimes only one value needs to be processed.
+The `component` method passes the entire row to the component. When a component only needs the value of the current cell, use `usingComponent` instead.
 
-To do this, you need to add a new method that would receive only the cell value without additional information by default. For example, you might want to display values in a specific format:
+For example, you might want to display a value in a specific format:
 
 ```php
 namespace App\View\Components;
@@ -382,6 +382,27 @@ TD::make('price')->asComponent(Numeric::class, [
 ```
 
 For built-in cell formatters, see [Cell Types](/en/docs/cell-types). It covers date, number, boolean, currency, and percentage formats.
+
+## Customizing Component Arguments
+
+Arguments passed to `component` may be closures. Orchid evaluates each closure with the current row before rendering the component. This lets you calculate a component argument from one or more model attributes without adding an accessor to the model or creating another component.
+
+For example, the value displayed by `DateTimeSplit` can be selected from several date attributes:
+
+```php
+use App\Models\Order;
+use Orchid\Screen\Components\Cells\DateTimeSplit;
+
+TD::make('last_activity', 'Last Updated')
+    ->component(
+        DateTimeSplit::class,
+        value: fn (Order $order) => $order->shipped_at
+            ?? $order->packed_at
+            ?? $order->created_at,
+    );
+```
+
+Use `component` rather than `usingComponent` when the closure needs the entire row. Closures passed to `usingComponent` receive only the value of the selected cell.
 
 ## Table Options
 

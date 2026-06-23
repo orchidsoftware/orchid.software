@@ -26,10 +26,29 @@ By default, Orchid provides sensible formatting options for the upper and lower 
 use Orchid\Screen\Components\Cells\DateTimeSplit;
 
 TD::make('created_at')
-    ->usingComponent(DateTimeSplit::class, upperFormat: 'Y-m-d', lowerFormat: 'H:i:s.uP', timeZone: 'Europe/Madrid'),
+    ->usingComponent(DateTimeSplit::class, upperFormat: 'Y-m-d', lowerFormat: 'H:i:s.uP', tz: 'Europe/Madrid'),
 ```
 
-In the above example, we set the `upperFormat` option to `'Y-m-d'` to display the date in the format 'YYYY-MM-DD'. The `lowerFormat` option is set to `'H:i:s.uP'`, which shows the time in the format 'HH:MM:SS.microseconds+timezone'. Feel free to adjust these formats and the `timeZone` option to suit your project's needs.
+In the above example, we set the `upperFormat` option to `'Y-m-d'` to display the date in the format 'YYYY-MM-DD'. The `lowerFormat` option is set to `'H:i:s.uP'`, which shows the time in the format 'HH:MM:SS.microseconds+timezone'. Feel free to adjust these formats and the `tz` option to suit your project's needs.
+
+### Nullable dates and fallback values
+
+`DateTimeSplit` uses Carbon to parse its value. Carbon interprets a `null` value as the current date and time, so a nullable date attribute will not be displayed as an empty value automatically.
+
+If a nullable attribute should fall back to another date, calculate the `value` argument with `component`:
+
+```php
+use App\Models\Order;
+use Orchid\Screen\Components\Cells\DateTimeSplit;
+
+TD::make('updated_at', 'Last Updated')
+    ->component(
+        DateTimeSplit::class,
+        value: fn (Order $order) => $order->updated_at ?? $order->created_at,
+    );
+```
+
+The fallback is application-specific. You can return another date or render the column yourself when a blank value is more appropriate.
 
 > **Note:** This documentation assumes familiarity with the PHP [Named Arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) feature.
 
