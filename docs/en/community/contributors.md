@@ -69,9 +69,11 @@ npm run dev --prefix platform && php artisan orchid:publish
 
 ### Preparing code for submitting
 
-First you need to check the code style ([Laravel Pint](https://laravel.com/docs/10.x/pint) is used for this)
+ORCHID follows [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide-meta.md) and [PSR-4](Https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md) standards.
 
-Run check and fix: 
+First you need to check the code style ([Laravel Pint](https://laravel.com/docs/10.x/pint) is used for this).
+
+Run check and fix:
 
 ```bash
 ./vendor/bin/pint
