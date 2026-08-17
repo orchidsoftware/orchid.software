@@ -239,7 +239,19 @@ Password::make('password')
     ->title('Password')
     ->required()
     ->placeholder('Enter password')
-    ->help('Minimum 8 characters.');
+    ->help('A password must be at least 8 characters. It has to have at least one letter and one digit.')
+    ->pattern('^(?=.*[0-9])(?=.*[a-zA-Z]).{8}.*$');
+```
+
+The `pattern()` method adds client-side validation using the native HTML `pattern` attribute. The example above requires at least eight characters, including one letter and one digit. Apply the same rule on the server, as browser validation can be bypassed.
+
+### Reveal button
+
+The reveal button allows users to temporarily disable masking and see the value they entered. This is especially helpful on mobile devices, where typing is more error-prone. Disable it when this is not desired:
+
+```php
+Password::make('password')
+    ->revealable(false);
 ```
 
 Use `title()`, `placeholder()`, `help()`, and `required()` as with other fields.
