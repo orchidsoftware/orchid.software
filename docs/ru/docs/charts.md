@@ -3,129 +3,184 @@ title: Графики
 extends: _layouts.documentation
 ---
 
-Макет графиков - удобный способ графически отображать динамику значений.
+Графики отображают данные, возвращённые методом `query()` экрана. Настройте их через `Layout::chart()` на PHP; платформа отрисует результат с помощью [Orchid Charts](https://charts.orchid.software/docs/getting-started.html). Собственный Blade-шаблон или JavaScript-контроллер не нужны.
 
-![Charts](/img/layouts/charts.png)
+## Создание графика
 
-Пример данных из `query`:
+Верните общие подписи `labels` и один или несколько наборов данных `datasets` из экрана:
 
 ```php
-public function query() : array
+public function query(): iterable
 {
-    $charts = [
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Some Data',
-            'values' => [25, 40, 30, 35, 8, 52, 17, -4],
-        ],
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Another Set',
-            'values' => [25, 50, -10, 15, 18, 32, 27, 14],
-        ],
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Yet Another',
-            'values' => [15, 20, -3, -15, 58, 12, -17, 37],
-        ],
-    ];
-    
     return [
-        'charts' => $charts,
+        'visits' => [
+            'labels' => ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+            'datasets' => [
+                ['name' => 'Эта неделя', 'values' => [32, 48, 43, 61, 54, 76, 68]],
+                ['name' => 'Прошлая неделя', 'values' => [28, 35, 46, 39, 48, 57, 52]],
+            ],
+        ],
     ];
 }
 ```
 
-Для создания выполните команду:
+Передайте ключ из `query()` в `Layout::chart()` внутри метода `layout()` экрана:
+
 ```php
-php artisan orchid:chart ChartsLayout
-```
+use Orchid\Support\Facades\Layout;
 
-Пример макета:
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Layouts\Chart;
-
-class ChartsLayout extends Chart
+public function layout(): iterable
 {
-    /**
-     * Add a title to the Chart.
-     * 
-     * @var string
-     */
-    protected $title = 'DemoCharts';
-
-    /**
-     * Available options:
-     * 'bar', 'line', 
-     * 'pie', 'percentage'
-     *
-     * @var string
-     */
-    protected $type = 'bar';
-
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the charts.
-     *
-     * @var string
-     */
-    protected $target = 'charts';
+    return [
+        Layout::chart('visits', 'Посещения за неделю')
+            ->description('Ежедневные посещения в сравнении с прошлой неделей.')
+            ->height(300)
+            ->smooth()
+            ->gradient(),
+    ];
 }
 ```
 
-## Высота
-Установите высоту диаграммы в пикселях с помощью указания свойства:
+Заголовок необязателен; его также можно задать через `->title('Посещения за неделю')`. Отдельный класс макета создавать необязательно.
+
+Массив `values` каждого набора должен содержать по одному числовому значению на каждую подпись в том же порядке. Используйте ноль, когда значение равно нулю; подготовьте пропущенные наблюдения до передачи данных графику. Названия наборов обозначают ряды в легенде и всплывающей подсказке.
+
+## Типы графиков
+
+По умолчанию используется `line`. Выберите другой тип с помощью `->type('bar')`:
+
+| Тип | Назначение |
+| --- | --- |
+| `line` | Динамика значений в упорядоченной последовательности |
+| `bar` | Сравнение категорий или рядов |
+| `mixed` | Совмещение рядов с разными способами отображения |
+| `pie` | Части целого в круговой диаграмме |
+| `percentage` | Доли в горизонтальной полосе |
+
+В классе `Orchid\Screen\Layouts\Chart` доступны соответствующие константы: `TYPE_LINE`, `TYPE_BAR`, `TYPE_MIXED`, `TYPE_PIE` и `TYPE_PERCENTAGE`.
+
+### Круговые и процентные диаграммы
+
+Эти типы требуют ровно один набор данных. Подписи обозначают секторы или сегменты:
 
 ```php
-/**
- * @var int
- */
-protected $height = 250;
+public function query(): iterable
+{
+    return [
+        'traffic' => [
+            'labels' => ['Поиск', 'Прямые заходы', 'Переходы по ссылкам'],
+            'datasets' => [
+                ['values' => [58, 27, 15]],
+            ],
+        ],
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Layout::chart('traffic', 'Источники трафика')->type('pie')->height(280),
+        Layout::chart('traffic', 'Доли источников')->type('percentage')->height(88),
+    ];
+}
 ```
 
+Для долей используйте неотрицательные значения. Если несколько рядов составляют общий итог, заранее агрегируйте данные: макет не суммирует несколько наборов автоматически.
 
-## Цвета
-Установите цвета, которые будут использоваться для каждого отдельного типа единиц измерения, в зависимости от типа диаграммы с помощью указания свойства:
+### Смешанные графики
+
+Укажите `chartType` у каждого набора. Например, сравните фактические значения в виде столбцов с планом в виде линии:
 
 ```php
-/**
- * Colors used.
- *
- * @var array
- */
-protected $colors = [
-    '#2274A5',
-    '#F75C03',
-    '#F1C40F',
-    '#D90368',
-    '#00CC66',
-];
+public function query(): iterable
+{
+    return [
+        'sales' => [
+            'labels' => ['Янв', 'Фев', 'Мар', 'Апр'],
+            'datasets' => [
+                ['name' => 'Факт', 'chartType' => 'bar', 'values' => [42, 48, 57, 63]],
+                ['name' => 'План', 'chartType' => 'line', 'values' => [45, 50, 55, 65], 'smooth' => true],
+            ],
+        ],
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Layout::chart('sales', 'Выполнение плана продаж')->type('mixed')->height(300),
+    ];
+}
 ```
 
+## Основные настройки
 
-## Экспорт изображения
-
-Диаграммы  можно экспортировать в формате `SVG`, в котором они отображаются изначально. Для этого необходимо указать свойство:
+Задавайте параметры отображения цепочкой методов:
 
 ```php
-/**
- * Определяет, следует ли отображать кнопку экспорта.
- *
- * @var bool
- */
-protected $export = true;
+Layout::chart('visits', 'Посещения за неделю')
+    ->height(300)
+    ->colors(['#2563eb', '#94a3b8'])
+    ->legend(false)
+    ->export();
 ```
+
+Метод `height()` задаёт высоту области графика в пикселях; по умолчанию она равна 250. Платформа резервирует эту высоту до отрисовки. Метод `colors()` задаёт палитру. Метод `export()` добавляет кнопку скачивания графика в формате SVG; по умолчанию она отключена.
+
+### Линии и градиенты
+
+Используйте `smooth()` для плавных линий, `dots()` для отображения точек и `gradient()` для затухающей заливки области:
+
+```php
+Layout::chart('visits')
+    ->smooth()
+    ->dots(false)
+    ->gradient(['fromOpacity' => 0.2, 'toOpacity' => 0]);
+```
+
+Вызов `gradient()` без аргументов использует настройки пакета по умолчанию, а `gradient(false)` отключает градиент. В смешанном графике параметры линий задаются внутри отдельных линейных наборов данных, как в примере выше.
+
+### Столбцы и ограничение секторов
+
+Используйте `stacked()` для столбцов с накоплением и `maxSlices()` для ограничения числа отображаемых секторов круговой или процентной диаграммы:
+
+```php
+Layout::chart('visits')->type('bar')->stacked();
+
+Layout::chart('traffic')->type('pie')->maxSlices(5);
+```
+
+### Добавление маркеров
+
+Добавьте контрольное значение на линейный, столбчатый или смешанный график с помощью `marker()`:
+
+```php
+Layout::chart('visits')
+    ->marker('Цель', 60, ['lineStyle' => 'dashed']);
+```
+
+Повторите вызов, чтобы добавить несколько маркеров.
+
+### Дополнительные параметры
+
+Используйте `options()` для параметров Orchid Charts, у которых нет отдельного PHP-метода:
+
+```php
+Layout::chart('visits')
+    ->type('bar')
+    ->options(['horizontal' => true, 'radius' => 4]);
+```
+
+Параметры объединяются с уже заданными; для одного параметра действует последнее значение. Параметр должен поддерживаться выбранным типом графика. Например, `smooth` относится к линейным графикам, а `stacked` — к столбчатым. Неподдерживаемое имя параметра вызывает `InvalidArgumentException` при построении макета.
+
+PHP-макет поддерживает пять типов графиков, перечисленных выше. Значения параметров описаны в [справочнике Orchid Charts](https://charts.orchid.software/docs/api-reference.html); используйте только параметры, поддерживаемые макетом платформы. PHP-конфигурация сериализуется в JSON, поэтому передать JavaScript-функции через `options()` нельзя.
 
 ## Графики для моделей
 
-Для того чтобы использовать методы получения данных для графиков у модели, необходимо добавить трейт `Chartable`:
+Добавьте трейт `Chartable` в модели, данные которых нужно агрегировать:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use Orchid\Metrics\Chartable;
 use Orchid\Platform\Models\User as Authenticatable;
@@ -133,195 +188,148 @@ use Orchid\Platform\Models\User as Authenticatable;
 class User extends Authenticatable
 {
     use Chartable;
-
-    // ...
 }
 ```
 
-Это добавит несколько новых методов именно для построения графиков:
-
-- Сгруппированные данные
-- Временной период
-
+Импортируйте модели приложения в экран. Метод `toChart()` у сгруппированных и временных коллекций возвращает готовую структуру `labels` / `datasets`; присваивайте её непосредственно ключу результата `query()`.
 
 ### Сгруппированные данные
 
-Например, нужно построить диаграмму, показывающую долю пользователей, которые включили двухфакторную аутентификацию.
+Для модели с колонкой `uses_two_factor_auth` сгруппируйте пользователей по её значению и задайте подписи:
 
 ```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Layouts\Chart;
-
-class UsageTwoFactorAuth extends Chart
-{
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'Usage two-factor authentication';
-
-    /**
-     * Available options:
-     * 'bar', 'line',
-     * 'pie', 'percentage'.
-     *
-     * @var string
-     */
-    protected $type = 'pie';
-
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'userUsageTwoFactorAuth';
-}
-```
-
-Тогда в качестве источника данных, будет служить запрос модели `countForGroup()`
-
-```php
-public function query(): array
+public function query(): iterable
 {
     return [
-        'userUsageTwoFactorAuth' => User::countForGroup('uses_two_factor_auth')->toChart(),
+        'authentication' => User::countForGroup('uses_two_factor_auth')
+            ->toChart(fn (string $value) => $value === '1' ? 'Включена' : 'Отключена'),
     ];
 }
 
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        UsageTwoFactorAuth::class,
+        Layout::chart('authentication', 'Двухфакторная аутентификация')->type('pie'),
     ];
 }
 ```
 
-Для того чтобы изменить текст заголовков, можно передать первым аргументом функцию замыкания:
-
-```php
-User::countForGroup('uses_two_factor_auth')->toChart(static function (bool $title) {
-    return $title ? 'Enabled' : 'Disabled';
-});
-```
+Необязательное замыкание форматирует подпись каждой группы, а не заголовок графика.
 
 ### Временной период
 
-Получает данные за какой-либо временной период, проставляя отсутствующие значения.
+Метод `countByDays()` группирует записи по дням и заполняет нулями дни без записей:
 
-Например, выведем график новых пользователей и ролей:
+```php
+public function query(): iterable
+{
+    return [
+        'members' => User::countByDays()->toChart('Новые пользователи'),
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Layout::chart('members', 'Новые участники')->height(300)->gradient(),
+    ];
+}
+```
+
+По умолчанию период начинается месяц назад и заканчивается сегодня. Передайте начало, конец и необязательное имя колонки с датой, чтобы изменить выборку:
+
+```php
+$start = now()->subDays(6)->startOfDay();
+$end = now()->endOfDay();
+
+User::countByDays($start, $end, 'updated_at')->toChart('Обновлённые пользователи');
+```
+
+По умолчанию используется колонка времени создания модели, обычно `created_at`.
+
+### Объединение временных рядов
+
+Для нескольких рядов запросите один и тот же период и используйте общие подписи. Обе модели в примере должны использовать `Chartable`:
+
+```php
+public function query(): iterable
+{
+    $start = now()->subDays(6)->startOfDay();
+    $end = now()->endOfDay();
+    $users = User::countByDays($start, $end);
+    $roles = Role::countByDays($start, $end);
+
+    return [
+        'members' => [
+            'labels' => $users->pluck('label')->all(),
+            'datasets' => [
+                ['name' => 'Пользователи', 'values' => $users->pluck('value')->all()],
+                ['name' => 'Роли', 'values' => $roles->pluck('value')->all()],
+            ],
+        ],
+    ];
+}
+```
+
+Подписи и их порядок должны совпадать во всех рядах. Не удаляйте дни с нулевыми значениями только из одного ряда: это нарушит соответствие значений подписям.
+
+### Типы запросов
+
+Другие агрегатные методы принимают колонку со значением, затем необязательные начало периода, конец периода и колонку с датой:
+
+```php
+Order::averageByDays('price')->toChart('Средний заказ');
+Order::sumByDays('price')->toChart('Выручка');
+Order::minByDays('price')->toChart('Минимальный заказ');
+Order::maxByDays('price')->toChart('Максимальный заказ');
+```
+
+Модель `Order` также должна использовать `Chartable`.
+
+## Повторное использование классов графиков
+
+Если несколько экранов используют одинаковые настройки, создайте макет в `app/Orchid/Layouts`:
+
+```shell
+php artisan orchid:chart VisitsChart
+```
+
+Настройте созданный класс цепочкой методов в конструкторе:
 
 ```php
 namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class Members extends Chart
+class VisitsChart extends Chart
 {
-    /**
-     * Add a title to the Chart.
-     *
-     * @var string
-     */
-    protected $title = 'New members';
-
-    /**
-     * Available options:
-     * 'bar', 'line',
-     * 'pie', 'percentage'.
-     *
-     * @var string
-     */
-    protected $type = 'line';
-
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the chart.
-     *
-     * @var string
-     */
-    protected $target = 'members';
+    public function __construct()
+    {
+        $this->type(self::TYPE_LINE)->height(300)->smooth()->gradient()->export();
+    }
 }
 ```
 
-Тогда источник данных будет:
+При использовании на экране передайте ключ данных и необязательный заголовок:
 
 ```php
-public function query(): array
-{
-    return [
-        'members' => [
-            User::countByDays()->toChart('Users'),
-            Role::countByDays()->toChart('Roles'),
-        ]
-    ];
-}
+use App\Orchid\Layouts\VisitsChart;
 
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Members::class,
+        VisitsChart::make('visits', 'Посещения за неделю'),
     ];
 }
 ```
 
-По умолчанию данные будут взяты за один месяц, для задания собственного периода необходимо передать аргументы:
+## Обновление существующих графиков
 
-```php
-$start = Carbon::now()->subDay(7);
-$end = Carbon::now()->subDay(1);
+При переходе с макета на основе Frappe:
 
-User::countByDays($start, $end)->toChart('Users');
-```
-
-По умолчанию данные группируются по колонке `created_at`. Для изменения группировки:
-
-```php
-$start = Carbon::now()->subDay(7);
-$end = Carbon::now()->subDay(1);
-
-User::countByDays($start, $end, 'updated_at')->toChart('Users');
-```
-
-
-## Типы запросов
-
-Метрики значений поставляются не только с методом  `countByDays`.Вы также можете использовать множество других агрегатных функций при построении метрики.
-
-### Среднее
-
-Метод  `average` может использоваться для вычисления среднего значения данного столбца.
-
-```php
-Order::averageByDays('price')->toChart('Order'),
-```
-
-### Сумма
-
-Метод `sum` может использоваться для вычисления суммы данного столбца:
-
-```php
-Order::sumByDays('price')->toChart('Order'),
-```
-
-### Минимум
-
-Метод `min` method may be used to calculate the min of a given column:
-
-```php
-Order::minByDays('price')->toChart('Order'),
-```
-
-### Максимум
-
-Метод `max` метод можно использовать для вычисления максимума заданного столбца:
-
-```php
-Order::maxByDays('price')->toChart('Order'),
-```
+- Перенесите подписи из отдельных наборов в общий массив `labels` рядом с `datasets`.
+- Присваивайте результат `toChart()` непосредственно ключу результата `query()`. Не оборачивайте его ещё в один массив наборов. Для нескольких временных рядов используйте структуру с общими подписями из примера выше.
+- Замените свойства вроде `$height` и `$colors`, а также переопределение `markers()`, вызовами методов. Свойства обновлённого базового класса типизированы; старые переопределения без типов несовместимы с ним.
+- Замените параметры Frappe, такие как `lineOptions`, `barOptions` и `valuesOverPoints`, поддерживаемыми параметрами Orchid Charts. Адаптера совместимости со старыми именами нет.
+- Замените `axis-mixed` / `TYPE_AXIS_MIXED` на `mixed` / `TYPE_MIXED`, сохранив `chartType` у каждого набора смешанного графика.
+- Передавайте ровно один набор данных для круговых и процентных диаграмм.
