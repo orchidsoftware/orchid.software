@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Http;
 |
 */
 
+Route::get('/design-system', function (): View {
+    app()->setLocale('ru');
+
+    return view('design-system');
+})->name('design-system');
 
 Route::get('/{locale?}', function (string $locale = 'en') {
     app()->setLocale($locale);
@@ -33,7 +39,6 @@ Route::get('/{locale?}/discussions', function (string $locale = 'en') {
     return view('discussions');
 })->where('locale', 'en|ru');
 
-
 Route::get('/{locale?}/changelog', function (string $locale = 'en') {
     app()->setLocale($locale);
 
@@ -41,7 +46,6 @@ Route::get('/{locale?}/changelog', function (string $locale = 'en') {
         ->body();
 
     $content = \Illuminate\Support\Str::of($response)->markdown();
-
 
     return view('changelog', [
         'content' => $content,
@@ -54,18 +58,17 @@ Route::get('/{locale?}/license', function (string $locale = 'en') {
     return view('license');
 })->where('locale', 'en|ru');
 
-
 Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
 
     $icons = collect(scandir(\Orchid\IconPack\Path::getFolder()))
         ->filter(function ($value) {
-            return !($value === '.' || $value === '..');
+            return ! ($value === '.' || $value === '..');
         })
         ->filter(function (string $icon) {
-            return file_exists(Orchid\IconPack\Path::getFolder() . "/$icon");
+            return file_exists(Orchid\IconPack\Path::getFolder()."/$icon");
         })
         ->mapWithKeys(function ($icon) {
-            return [str_replace('.svg', '', $icon) => file_get_contents(Orchid\IconPack\Path::getFolder() . "/$icon")];
+            return [str_replace('.svg', '', $icon) => file_get_contents(Orchid\IconPack\Path::getFolder()."/$icon")];
         });
 
     return (new App\Docs($locale, "$type/orchid-icons"))
@@ -74,15 +77,13 @@ Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $ty
 
 })->where('locale', 'en|ru');
 
-
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {
     return (new App\Docs($locale, "$type/$page"))->view('docs');
 })->where('locale', 'en|ru')
     ->where('page', '(.*)');
 
-
 Route::view('llms.txt', 'llms', [
     'name' => config('site.name'),
     'description' => config('site.description'),
-    'navigation' => config('site.navigation.en')
+    'navigation' => config('site.navigation.en'),
 ]);

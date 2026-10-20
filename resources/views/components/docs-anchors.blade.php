@@ -1,11 +1,11 @@
-<div class="anchors">
-    @if(count($anchors) > 1)
-        <ul>
+@if(count($anchors) > 1)
+    <nav class="anchors" aria-label="On this page">
+        <ul class="list">
             @foreach($anchors as $anchor)
-                <li class="anchor-{{$anchor['level']}}">
+                <li class="item" data-level="{{$anchor['level']}}">
                     <a href="#{{$anchor['id']}}">{{$anchor['text']}}</a>
                 </li>
             @endforeach
         </ul>
-    @endif
-</div>
+    </nav>
+@endif

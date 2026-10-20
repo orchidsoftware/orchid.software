@@ -1,6 +1,6 @@
-<div class="mx-auto text-center">
+<div class="avatars backers">
     @foreach($backers as $backer)
-        <img src="{{$backer['image'] ?? 'https://avatar.oxro.io/avatar.svg?name='.$backer['name'] }} "
-             width="54px" height="54px" class="rounded-circle m-2 d-inline-block shadow border border-dark" loading="lazy">
+        <img src="{{ $backer['image'] ?? 'https://avatar.oxro.io/avatar.svg?name='.$backer['name'] }}" alt="{{ $backer['name'] }}"
+             width="54" height="54" loading="lazy">
     @endforeach
 </div>

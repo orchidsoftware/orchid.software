@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="stylesheet" type="text/css" href="{{  mix('/css/app.css') }}">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <x-meta
         title="{{ View::getSection('title') ?  View::getSection('title') . ' | ' : '' }}{{ config('site.name') }}"
@@ -27,66 +27,52 @@
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
     <meta name="view-transition" content="same-origin">
 
-    <link rel="alternate" href="{{ \App\Docs::ahref('ru') }}" hreflang="ru"/>
-    <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="en"/>
-    <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="x-default"/>
+    @unless(request()->routeIs('design-system'))
+        <link rel="alternate" href="{{ \App\Docs::ahref('ru') }}" hreflang="ru"/>
+        <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="en"/>
+        <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="x-default"/>
+    @endunless
 
     <meta name="author" content="Alexandr Chernyaev">
     <meta property="og:site_name" content="{{ config('site.name') }}"/>
     <meta name="yandex-verification" content="23bb1990414a4f0e"/>
     <meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"/>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@4"/>
-    <script src="https://cdn.jsdelivr.net/npm/@docsearch/js@4"></script>
-    <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 <body>
 
 @yield('body')
 
 
-<div class="footer bg-dark">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-5 footer-tentacles"></div>
-
-            <div class="col-12 col-md-7">
-                <div class="px-md-4 py-lg-5 my-lg-5 pb-5 px-3">
-                    <h1 class="display-4 fw-bold mb-4 mb-md-5 text-balance">
-                        <span class="text-primary">Discover</span> even more.
-                    </h1>
-                    <div class="col-lg-7 me-md-auto ms-md-0 mx-auto">
-                        <p class="mb-0">
-                            <a href="/{{ app()->getLocale() }}/community/code-of-conduct"
-                               class="btn btn-outline-primary mb-3">Community Guidelines</a>
-                            {{--
-                            <a href="https://blog.orchid.software" class="btn btn-outline-primary mb-3">Blog</a>
-                            --}}
-                            <a href="https://opencollective.com/orchid"
-                               class="btn btn-outline-primary mb-3">Donation</a>
-                        </p>
-                        <p>
-                            <a href="https://github.com/orchidsoftware" class="btn btn-outline-primary mb-3">GitHub</a>
-                            <a href="/{{ app()->getLocale() }}/discussions" class="btn btn-outline-primary mb-3">Discussion</a>
-                            <a href="/en/hig" class="btn btn-outline-primary mb-3">HIG</a>
-                            <a href="/{{ app()->getLocale() }}/license" class="btn btn-outline-primary mb-3">License</a>
-                        </p>
-                    </div>
-                    <small class="mt-5 mb-0">
-                        <a href="/en/docs" class="{{ is_active(['*/en/*', '/', '/en']) ? 'text-white' : 'text-muted' }}">English</a>  /
-                        <a href="/ru/docs" class="{{ is_active(['*/ru/*', '/ru']) ? 'text-white' : 'text-muted' }}">Russian</a>
-                    </small>
-                </div>
-            </div>
-
+<footer class="footer">
+    <div class="layout shell">
+        <div class="art" aria-hidden="true"></div>
+        <div class="content">
+            <h2 class="title"><span class="text-accent">Discover</span> even more.</h2>
+            <nav class="links" aria-label="Community">
+                <p class="link-row">
+                <a href="/{{ app()->getLocale() }}/community/code-of-conduct" class="button">Community Guidelines</a>
+                <a href="https://opencollective.com/orchid" class="button">Donation</a>
+                </p>
+                <p class="link-row">
+                <a href="https://github.com/orchidsoftware" class="button">GitHub</a>
+                <a href="/{{ app()->getLocale() }}/discussions" class="button">Discussion</a>
+                <a href="/en/hig" class="button">HIG</a>
+                <a href="/{{ app()->getLocale() }}/license" class="button">License</a>
+                </p>
+            </nav>
+            <nav class="languages" aria-label="Documentation language">
+                <a href="/en/docs" @class(['link', 'is-active' => is_active(['*/en/*', '/', '/en'])])>English</a>
+                <span aria-hidden="true">/</span>
+                <a href="/ru/docs" @class(['link', 'is-active' => is_active(['*/ru/*', '/ru'])])>Russian</a>
+            </nav>
         </div>
     </div>
-</div>
+</footer>
 
 @env('production')
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" class="analytics-pixel" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
 
     <script async>

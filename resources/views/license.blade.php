@@ -5,24 +5,21 @@
 
 @section('body')
 
-    <div class="bg-dark position-relative">
-        <div class="container pt-md-4 pt-2 position-relative">
-            <header class="d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 px-4 position-relative">
+    <div class="page-masthead">
+        <div class="masthead shell">
+            <header class="header">
                 @include('header-menu')
             </header>
         </div>
     </div>
 
-
-
-    <div class="container px-md-4 py-md-5">
-        <div class="card shadow-sm h-100 position-relative">
-            <div class="overflow-hidden">
-                <div class="row pb-0 pe-lg-0 align-items-baseline">
-                    <div class="col-lg-6 p-3 ps-lg-5 pt-lg-4">
-                        <div class="px-4 py-4 text-balance">
-                            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-4">Quick Summary</h1>
-
+    <main class="license shell">
+        <div class="card license-card">
+            <div class="clip">
+                <div class="license-layout">
+                    <div class="summary">
+                        <div class="body">
+                            <h1 class="page-title">Quick Summary</h1>
 
                             <p>At our core, we value the vibrant community of individuals who make each line of code
                                possible. Behind every piece of software lies the dedication, expertise, and passion of
@@ -33,37 +30,36 @@
                                unleash their creativity, explore new possibilities, and shape their digital
                                experiences.</p>
 
-
-                            <div class="row g-4 mt-3">
-                                <div class="col-12">
+                            <div class="rights">
+                                <div class="allowed">
                                     <h4>Can</h4>
-                                    <ul class="d-flex flex-column p-0 mb-0">
-                                        <li class="d-block my-1">✅ You may use the work commercially.</li>
-                                        <li class="d-block my-1">✅ You may make changes to the work.</li>
-                                        <li class="d-block my-1">✅ You may distribute the compiled code and/or source.</li>
-                                        <li class="d-block my-1">✅ You may incorporate the work into something that has a more restrictive license.</li>
-                                        <li class="d-block my-1">✅ You may use the work for private use.</li>
+                                    <ul class="list">
+                                        <li class="item">✅ You may use the work commercially.</li>
+                                        <li class="item">✅ You may make changes to the work.</li>
+                                        <li class="item">✅ You may distribute the compiled code and/or source.</li>
+                                        <li class="item">✅ You may incorporate the work into something that has a more restrictive license.</li>
+                                        <li class="item">✅ You may use the work for private use.</li>
                                     </ul>
                                 </div>
-                                <div class="col-12 col-xl-6">
+                                <div>
                                     <h4>Must</h4>
-                                    <ul class="d-flex flex-column p-0 mb-0">
-                                        <li class="d-block my-1">✍️ You must include the copyright notice in all copies or substantial uses of the work.</li>
-                                        <li class="d-block my-1">✍️ You must include the license notice in all copies or substantial uses of the work.</li>
+                                    <ul class="list">
+                                        <li class="item">✍️ You must include the copyright notice in all copies or substantial uses of the work.</li>
+                                        <li class="item">✍️ You must include the license notice in all copies or substantial uses of the work.</li>
                                     </ul>
                                 </div>
-                                <div class="col-12 col-xl-6">
+                                <div>
                                     <h4>Cannot</h4>
-                                    <ul class="d-flex flex-column p-0 mb-0">
-                                        <li class="d-block my-1">❌ The work is provided “as is”. You may not hold the author liable.</li>
+                                    <ul class="list">
+                                        <li class="item">❌ The work is provided “as is”. You may not hold the author liable.</li>
                                     </ul>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-lg-6 p-3 pe-lg-5 pt-lg-4">
-                        <div class="text-muted px-4 py-md-4 text-balance">
+                    <div class="terms">
+                        <div class="body">
                             <h2>MIT License</h2>
                             <p>Copyright © Chernyaev Alexandr</p>
                             <p>Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -87,11 +83,10 @@
             </div>
         </div>
 
-
-        <div class="col-xxl-6 mx-auto">
-            <p class="my-3 my-md-5 text-center text-muted">Join us as we celebrate collaboration, innovation, and the boundless potential of open source. Together, we can build a future defined by limitless possibilities.</p>
+        <div class="license-outro">
+            <p class="outro">Join us as we celebrate collaboration, innovation, and the boundless potential of open source. Together, we can build a future defined by limitless possibilities.</p>
         </div>
 
-    </div>
+    </main>
 
 @endsection

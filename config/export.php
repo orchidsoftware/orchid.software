@@ -15,9 +15,10 @@ return [
      * For example: "about", "posts/featured"
      */
     'paths' => [
+        '/design-system',
         '/llms.txt',
         '/en',
-        '/ru'
+        '/ru',
     ],
 
     /*
@@ -36,7 +37,7 @@ return [
      */
     'exclude_file_patterns' => [
         '/\.php$/',
-        '/mix-manifest\.json$/',
+        '/build\/manifest\.json$/',
     ],
 
     /*
@@ -60,7 +61,6 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'before' => [
-        // 'assets' => '/usr/local/bin/yarn production',
     ],
 
     /*
@@ -70,7 +70,7 @@ return [
      * You can skip these by adding a `--skip-{name}` flag to the command.
      */
     'after' => [
-         'sitemap' => 'php artisan make:sitemap',
+        'sitemap' => 'php artisan make:sitemap',
     ],
 
 ];

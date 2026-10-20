@@ -1,0 +1,170 @@
+.DocSearch,
+.DocSearch-Button {
+    --docsearch-primary-color: var(--color-accent);
+    --docsearch-primary-dark-color: var(--color-accent-heading);
+    --docsearch-soft-primary-color: var(--color-accent-soft);
+    --docsearch-highlight-color: var(--color-accent);
+    --docsearch-focus-color: var(--color-focus);
+    --docsearch-background-color: var(--color-code);
+    --docsearch-icon-color: var(--color-ink-muted);
+    --docsearch-modal-background: var(--color-surface);
+    --docsearch-searchbox-background: var(--color-code);
+    --docsearch-searchbox-focus-background: var(--color-code);
+    --docsearch-hit-background: var(--color-surface);
+    --docsearch-hit-highlight-color: var(--color-accent-soft);
+    --docsearch-hit-focus-background: var(--color-accent-soft);
+    --docsearch-footer-background: var(--color-canvas);
+    --docsearch-text-color: var(--color-ink);
+    --docsearch-muted-color: var(--color-ink-muted);
+    --docsearch-secondary-text-color: var(--color-ink-muted);
+    --docsearch-key-background: var(--color-code);
+    --docsearch-key-color: var(--color-ink-muted);
+    --docsearch-key-pressed-shadow: none;
+    --docsearch-border-radius: var(--radius-control);
+    --docsearch-modal-radius: var(--radius-control);
+    --docsearch-font-family: var(--font-sans);
+    --docsearch-subtle-color: var(--color-border);
+    --docsearch-modal-shadow: var(--shadow-overlay);
+    --docsearch-container-background: var(--color-overlay);
+    --docsearch-search-button-background: var(--color-code);
+    --docsearch-search-button-text-color: var(--color-ink-muted);
+    --docsearch-modal-width: var(--measure-copy);
+    --docsearch-chip-text-color: var(--color-accent);
+    --docsearch-chip-background: var(--color-accent-soft);
+    --docsearch-popover-background: var(--color-surface);
+    --docsearch-popover-shadow: var(--shadow-card);
+    --docsearch-popover-arrow-color: var(--color-surface);
+    --docsearch-code-block-background: var(--color-code);
+}
+
+.DocSearch-Button {
+    margin: 0;
+    padding: 0 var(--space-2);
+    color: var(--color-nav);
+    background: var(--color-search-control);
+    border: var(--stroke) dashed var(--color-button-border);
+    border-radius: var(--radius-small);
+    font-size: var(--text-body);
+}
+
+.DocSearch-Button:hover {
+    color: var(--color-ink);
+    background: var(--color-accent-soft);
+    box-shadow: none;
+}
+
+.DocSearch-Button-Key {
+    color: var(--color-on-plum);
+    background: var(--color-search-key);
+    border-color: var(--color-search-key-border);
+    font-family: var(--font-key);
+}
+
+.docs-image-zoom {
+    cursor: zoom-in;
+}
+
+pre {
+    min-inline-size: 0;
+    max-inline-size: 100%;
+    margin: var(--code-block-margin, 0);
+    overflow: auto;
+    color: var(--color-code-ink);
+    background: var(--code-block-background, var(--color-code));
+    border-radius: var(--code-block-radius, 0);
+    tab-size: 4;
+}
+
+pre code {
+    display: block;
+    padding: var(--space-relative-unit) var(--space-code-inline);
+    overflow-wrap: normal;
+    color: inherit;
+    font-family: var(--font-code);
+    font-size: var(--text-small);
+    line-height: var(--leading-body);
+    white-space: pre;
+}
+
+.hl-attribute {
+    color: var(--syntax-attribute);
+}
+
+.hl-tag,
+.hl-type,
+.hl-literal {
+    color: var(--syntax-literal);
+}
+
+.hl-template,
+.hl-value {
+    color: var(--syntax-value);
+}
+
+.hl-constant,
+.hl-number,
+.hl-property {
+    color: var(--syntax-number);
+}
+
+.hl-function {
+    color: var(--syntax-function);
+}
+
+.hl-keyword,
+.hl-operator,
+.hl-variable,
+.hl-property2 {
+    color: var(--syntax-keyword);
+}
+
+.hl-comment,
+.hl-gutter {
+    color: var(--syntax-comment);
+}
+
+.hl-comment,
+.hl-em {
+    font-style: italic;
+}
+
+.hl-delimeter {
+    color: var(--syntax-delimiter);
+}
+
+.hl-deletion,
+.hl-gutter-deletion {
+    color: var(--syntax-delimiter);
+    background: var(--syntax-deletion);
+}
+
+.hl-comment span {
+    opacity: .7;
+}
+
+.hl-addition,
+.hl-gutter-addition {
+    color: var(--syntax-value);
+    background: var(--syntax-addition);
+}
+
+.hl-tag2,
+.hl-value2,
+.hl-slug {
+    color: var(--syntax-name);
+}
+
+.hl-blur {
+    filter: blur(var(--blur-code));
+}
+
+.hl-strong {
+    font-weight: var(--weight-bold);
+}
+
+.hl-gutter {
+    display: inline-block;
+    padding-inline: var(--space-2);
+    margin-inline-end: var(--space-2);
+    user-select: none;
+}

@@ -1,20 +1,19 @@
-<nav class="nav-docs px-lg-5 py-2 px-3">
+<nav class="docs-menu" aria-label="Documentation">
     @foreach($menu as $title => $values)
-        <p class="h5 font-weight-normal my-lg-3 my-2 me-2 me-lg-0 d-none d-md-inline-block" style="color: #22184D8C">{{ $title }}</p>
+        <div class="group">
+            <p class="title">{{ $title }}</p>
 
-        <ul>
-            @foreach($values as $title => $link)
-                <li class="border-start border-3 px-2 px-lg-3 py-1 {{ active('*'.$link, 'border-primary active-doc-menu') }}">
-                    <a href="{{$link}}" class="text-decoration-none {{ active('*'.$link, 'text-primary') }}">
-                        {!! $title !!}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
+            <ul class="list">
+                @foreach($values as $title => $link)
+                    <li class="item">
+                        <a href="{{$link}}" class="link" @if(active('*'.$link, 'is-active')) aria-current="page" @endif>
+                            {!! $title !!}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
     @endforeach
 </nav>
 
-{{-- Button: Go to top --}}
-<div class="d-none d-xl-block h-100 position-relative pt-5">
-    <a href="#" title="Scroll to the top of the page" class="stretched-link"></a>
-</div>
+<a href="#" title="Scroll to the top of the page" class="back-to-top">Back to top ↑</a>

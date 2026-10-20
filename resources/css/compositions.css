@@ -1,0 +1,51 @@
+.shell {
+    inline-size: 100%;
+    margin-inline: auto;
+    padding-inline: var(--space-3);
+}
+
+.flow {
+    --flow-space: var(--space-4);
+}
+
+.flow > * + * {
+    margin-block-start: var(--flow-space, var(--space-4));
+}
+
+.cluster {
+    --cluster-gap: var(--space-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--cluster-gap, var(--space-3));
+}
+
+@media (min-width: 36rem) {
+    .shell {
+        max-inline-size: var(--measure-shell-small);
+    }
+}
+
+@media (min-width: 48rem) {
+    .shell {
+        max-inline-size: var(--measure-shell-medium);
+    }
+}
+
+@media (min-width: 62rem) {
+    .shell {
+        max-inline-size: var(--measure-shell-large);
+    }
+}
+
+@media (min-width: 75rem) {
+    .shell {
+        max-inline-size: var(--measure-shell-wide);
+    }
+}
+
+@media (min-width: 87.5rem) {
+    .shell {
+        max-inline-size: var(--measure-shell);
+    }
+}

@@ -28,6 +28,17 @@ jobs:
         run: |
           composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Build frontend
+        run: |
+          npm ci
+          npm run build
+
       - name: Generate
         env:
           APP_NAME: Orchid

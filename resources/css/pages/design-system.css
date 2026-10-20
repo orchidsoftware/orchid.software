@@ -1,0 +1,439 @@
+.catalog {
+    min-inline-size: 0;
+    margin-block-end: var(--space-7);
+}
+
+@scope (.catalog) {
+    .intro {
+        padding: var(--space-7) var(--space-4) var(--space-5);
+        text-align: center;
+    }
+
+    .index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-2);
+        margin-block-end: var(--space-7);
+    }
+
+    .index a[aria-current="location"] {
+        background: var(--color-button-hover);
+        border-color: var(--color-ink);
+    }
+
+    .section {
+        scroll-margin-block-start: var(--space-5);
+    }
+
+    .section + .section {
+        margin-block-start: var(--space-7);
+    }
+
+    .section-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--space-2) var(--space-4);
+        padding-inline: var(--space-4);
+        margin-block-end: var(--space-5);
+    }
+
+    .section-heading h2 {
+        margin: 0;
+    }
+
+    .source {
+        margin-inline-start: auto;
+        color: var(--color-nav);
+        font-size: var(--text-small);
+        text-decoration: none;
+    }
+
+    .source:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+    }
+
+    .description {
+        max-inline-size: var(--measure-reading);
+        padding-inline: var(--space-4);
+        color: var(--color-nav);
+    }
+
+    .themes {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-5);
+    }
+
+    .palette {
+        min-inline-size: 0;
+        overflow: hidden;
+        color: var(--color-ink);
+    }
+
+    .palette.theme-paper {
+        background: var(--color-canvas);
+    }
+
+    .palette-heading {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: var(--space-2);
+        padding: var(--space-5) var(--space-5) var(--space-4);
+    }
+
+    .palette-heading h3 {
+        font-size: var(--text-lead);
+        margin: 0;
+    }
+
+    .palette-heading code {
+        color: var(--color-nav);
+        font-size: var(--text-caption);
+    }
+
+    .colors {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-5) var(--space-3);
+        margin: 0;
+        padding: 0 var(--space-5) var(--space-5);
+    }
+
+    .color {
+        min-inline-size: 0;
+    }
+
+    .swatch {
+        block-size: var(--size-avatar);
+        border: var(--stroke) solid var(--color-border);
+        border-radius: var(--radius-preview);
+        margin-block-end: var(--space-2);
+    }
+
+    .canvas {
+        background: var(--color-canvas);
+    }
+
+    .surface {
+        background: var(--color-surface);
+    }
+
+    .ink {
+        background: var(--color-ink);
+    }
+
+    .muted {
+        background: var(--color-ink-muted);
+    }
+
+    .accent {
+        background: var(--color-accent);
+    }
+
+    .code {
+        background: var(--color-code);
+    }
+
+    .color dt {
+        font-size: var(--text-small);
+        font-weight: var(--weight-medium);
+    }
+
+    .color dd {
+        margin: 0;
+        color: var(--color-nav);
+        font-size: var(--text-caption);
+    }
+
+    .color code,
+    .color output {
+        display: block;
+        overflow-wrap: anywhere;
+        font-size: inherit;
+    }
+
+    .color code {
+        color: inherit;
+        margin-block-start: var(--space-1);
+    }
+
+    :scope output {
+        font-family: var(--font-mono);
+    }
+
+    .note {
+        color: var(--color-nav);
+        font-size: var(--text-small);
+        margin: var(--space-3) var(--space-4) 0;
+    }
+
+    .table {
+        overflow: hidden;
+    }
+
+    .type-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
+        align-items: center;
+        gap: var(--space-5);
+        padding: var(--space-5);
+    }
+
+    .type-row + .type-row,
+    .action-row + .action-row,
+    .space + .space {
+        border-block-start: var(--stroke) solid var(--color-border);
+    }
+
+    .type-preview {
+        min-inline-size: 0;
+    }
+
+    .label,
+    .value,
+    .space,
+    .metrics,
+    .fonts,
+    .specimen-note {
+        color: var(--color-nav);
+        font-size: var(--text-small);
+    }
+
+    .label code,
+    .specimen-note > code,
+    .metrics dt code,
+    .space dt code {
+        color: inherit;
+        display: block;
+        margin-block-start: var(--space-1);
+        font-size: var(--text-caption);
+        overflow-wrap: anywhere;
+    }
+
+    .value {
+        text-align: end;
+        white-space: nowrap;
+    }
+
+    .fonts {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-5);
+        margin: var(--space-4) var(--space-5) 0;
+    }
+
+    .fonts p {
+        min-inline-size: 0;
+        margin: 0;
+    }
+
+    .fonts span,
+    .fonts code,
+    .fonts output {
+        display: block;
+        overflow-wrap: anywhere;
+        font-size: var(--text-caption);
+    }
+
+    .fonts code {
+        color: inherit;
+    }
+
+    .fonts span {
+        font-size: var(--text-small);
+        margin-block-end: var(--space-1);
+    }
+
+    .spaces {
+        margin: 0;
+    }
+
+    .space {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-5);
+    }
+
+    .space dd,
+    .metrics dd {
+        margin: 0;
+        min-inline-size: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .sample {
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .bar {
+        display: block;
+        flex-shrink: 0;
+        block-size: var(--space-4);
+        border-radius: var(--radius-code);
+        background: var(--color-accent);
+    }
+
+    .space-text {
+        inline-size: var(--space-2);
+    }
+
+    .space-base {
+        inline-size: var(--space-4);
+    }
+
+    .space-grid {
+        inline-size: var(--space-5);
+    }
+
+    .space-card {
+        inline-size: var(--space-7);
+    }
+
+    .metrics {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-4);
+        margin: var(--space-5) var(--space-5) 0;
+    }
+
+    .metrics dt {
+        margin-block-end: var(--space-2);
+    }
+
+    .action-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-5);
+        padding: var(--space-5);
+    }
+
+    .action-preview {
+        min-inline-size: 0;
+    }
+
+    .specimen {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+        gap: var(--space-7);
+        align-items: center;
+    }
+
+    .card-preview {
+        min-inline-size: 0;
+    }
+
+    .feature-preview {
+        grid-template-columns: minmax(0, 1fr);
+        margin: 0;
+    }
+
+    .feature-preview > .feature-item {
+        grid-column: 1 / -1;
+    }
+
+    .specimen-note {
+        max-inline-size: var(--measure-copy);
+    }
+
+    .specimen-note h3 {
+        color: var(--color-ink);
+        margin-block-end: var(--space-4);
+    }
+
+    .specimen-note > code:last-of-type {
+        margin-block-end: var(--space-4);
+    }
+
+    .docs-preview {
+        max-inline-size: var(--measure-shell);
+    }
+
+    .banner-preview {
+        max-inline-size: var(--measure-reading);
+        margin-block-start: var(--space-5);
+    }
+
+    .brand-sample {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: center;
+        gap: var(--space-5);
+        padding: var(--space-7);
+    }
+
+    .brand-logo {
+        inline-size: var(--measure-sponsors);
+        margin-block-end: var(--space-4);
+    }
+
+    .brand-sample .label {
+        margin-block: var(--space-3) 0;
+    }
+
+    .palette.theme-paper .color dd,
+    .palette.theme-paper .palette-heading code {
+        color: var(--color-docs-muted);
+    }
+}
+
+@media (max-width: 61.999rem) {
+    @scope (.catalog) {
+        .themes,
+        .specimen {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .card-preview {
+            max-inline-size: var(--measure-copy);
+        }
+
+        .type-row {
+            grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        .type-row .label {
+            grid-column: 1 / -1;
+        }
+    }
+}
+
+@media (max-width: 47.999rem) {
+    @scope (.catalog) {
+        .intro {
+            padding-block-start: var(--space-5);
+            text-align: start;
+        }
+
+        .index {
+            justify-content: start;
+            padding-inline: var(--space-4);
+        }
+
+        .type-row,
+        .space,
+        .metrics,
+        .fonts,
+        .brand-sample,
+        .action-row {
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .value {
+            text-align: start;
+        }
+
+        .brand-sample {
+            padding: var(--space-5);
+        }
+    }
+}

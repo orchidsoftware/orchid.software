@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+summary {
+    cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas {
+    display: block;
+    max-inline-size: 100%;
+}
+
+img,
+video {
+    block-size: auto;
+}
+
+svg {
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+pre,
+code {
+    font: inherit;
+}
+
+[hidden] {
+    display: none !important;
+}
