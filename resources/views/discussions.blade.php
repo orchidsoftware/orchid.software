@@ -89,10 +89,10 @@
                                     </div>
 
                                     <div class="caption">
-                                        Some great topics:
+                                        Example community questions:
                                     </div>
 
-                                    <div class="topic" aria-current="true">
+                                    <div class="topic">
                                         <img src="https://github.com/Arkokeando.png" alt="Arkokeando" width="48" height="48" class="avatar">
                                         <div class="content">
                                             <div>
@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="topic" aria-current="true">
+                                    <div class="topic">
                                         <img src="https://github.com/m-pastuszek.png" alt="m-pastuszek" width="48" height="48" class="avatar">
                                         <div class="content">
                                             <div>
@@ -110,7 +110,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="topic" aria-current="true">
+                                    <div class="topic">
                                         <img src="https://github.com/Muratcol.png" alt="Muratcol" width="48" height="48" class="avatar">
                                         <div class="content">
                                             <div>
@@ -121,8 +121,8 @@
                                     </div>
 
                                     <div class="actions">
-                                        <a href="https://github.com/orchidsoftware/platform/issues" target="_blank" class="button">New Issue</a>
-                                        <a href="https://github.com/orgs/orchidsoftware/discussions" target="_blank" class="button">New Discussion</a>
+                                        <a href="https://github.com/orchidsoftware/platform/issues" target="_blank" class="button">Browse Issues</a>
+                                        <a href="https://github.com/orgs/orchidsoftware/discussions" target="_blank" class="button">Browse Discussions</a>
                                     </div>
                                 </div>
                             </div>

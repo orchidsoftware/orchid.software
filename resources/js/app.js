@@ -19,26 +19,6 @@ function scrollActiveMenuIntoView() {
     }
 }
 
-function initReveals() {
-    if (reducedMotion.matches || !('IntersectionObserver' in window)) {
-        return;
-    }
-
-    const observer = new IntersectionObserver(entries => {
-        for (const entry of entries) {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('is-pending');
-                observer.unobserve(entry.target);
-            }
-        }
-    });
-
-    for (const element of document.querySelectorAll('.reveal')) {
-        element.classList.add('is-pending');
-        observer.observe(element);
-    }
-}
-
 function openImageDialog(image) {
     const dialog = document.createElement('dialog');
     dialog.className = 'lightbox';
@@ -107,7 +87,6 @@ function initSearch() {
 }
 
 scrollActiveMenuIntoView();
-initReveals();
 initImageZoom();
 initSearch();
 

@@ -6,6 +6,7 @@
 @section('body')
     @php
         $groups = [
+            'Назначение' => ['purpose' => 'Назначение'],
             'Основы' => ['colors' => 'Цвет', 'type' => 'Типографика', 'geometry' => 'Геометрия'],
             'Компоненты' => ['actions' => 'Действия', 'cards' => 'Карточки', 'documentation' => 'Документация', 'brand' => 'Бренд'],
         ];
@@ -20,8 +21,8 @@
         $spaces = [
             ['label' => 'Текст', 'token' => '--space-2', 'class' => 'text', 'usedAt' => 'Короткие отступы и меню'],
             ['label' => 'Базовый', 'token' => '--space-4', 'class' => 'base', 'usedAt' => 'Абзацы и шапка'],
-            ['label' => 'Сетка', 'token' => '--space-5', 'class' => 'grid', 'usedAt' => 'Карточки и баннер'],
-            ['label' => 'Компонент', 'token' => '--space-7', 'class' => 'card', 'usedAt' => 'Внутренний отступ карточки'],
+            ['label' => 'Сетка', 'token' => '--space-5', 'class' => 'grid', 'usedAt' => 'Обычный промежуток сетки'],
+            ['label' => 'Компонент', 'token' => '--space-7', 'class' => 'card', 'usedAt' => 'Отступ карточки на широком экране'],
         ];
     @endphp
 
@@ -36,10 +37,25 @@
         <nav class="index" data-catalog-nav aria-label="Разделы дизайн-системы">
             @foreach($groups as $links)
                 @foreach($links as $id => $name)
-                    <a class="button" href="#{{ $id }}" @if($id === 'colors') aria-current="location" @endif>{{ $name }}</a>
+                    <a href="#{{ $id }}" @if($id === 'purpose') aria-current="location" @endif>{{ $name }}</a>
                 @endforeach
             @endforeach
         </nav>
+        <section id="purpose" class="section" aria-labelledby="purpose-title">
+            <div class="section-heading"><h2 id="purpose-title">Назначение и приоритет</h2></div>
+            <p class="description">Сайт помогает понять Orchid и начать работу. В документации главное — чтение и поиск ответов.</p>
+            <div class="description">
+                <p><strong>Целевой переход.</strong> Documentation и Browse Issues ведут к задаче раздела.</p>
+                <p><strong>Навигация.</strong> Меню, оглавление и подвал помогают найти нужное место.</p>
+                <p><strong>Вспомогательное действие.</strong> Suggest Edit помогает исправить статью, не отвлекая от чтения.</p>
+            </div>
+            <dl class="metrics">
+                <div><dt>Мышь и трекпад</dt><dd>Спокойное наведение и отклик нажатия.</dd></div>
+                <div><dt>Касание</dt><dd>Нажатие без оставшейся подсветки наведения.</dd></div>
+                <div><dt>Клавиатура</dt><dd>Отчётливый контур текущей цели, включая внешнюю клавиатуру.</dd></div>
+                <div><dt>Поиск и текущее положение</dt><dd>Поиск документации доступен в десктопной шапке. Ввод обозначен кареткой и границей; текущий раздел отмечен постоянно.</dd></div>
+            </dl>
+        </section>
                 <section id="colors" class="section" aria-labelledby="colors-title">
                     <div class="section-heading"><h2 id="colors-title">Цвет</h2><a class="source" href="/en/docs">Сайт и документация ↗</a></div>
                     <div class="themes">
@@ -69,7 +85,10 @@
                         <div class="type-row"><div class="label">Основной текст<code>body</code></div><div class="type-preview"><p id="catalog-type-body">Build your application with Orchid.</p></div><output class="value" data-type-metric="catalog-type-body"></output></div>
                         <div class="type-row"><div class="label">Подпись<code>small</code></div><div class="type-preview"><small id="catalog-type-small">English / Russian</small></div><output class="value" data-type-metric="catalog-type-small"></output></div>
                     </div>
-                    <div class="fonts"><p><span>Интерфейс</span><code>--font-sans</code><output data-token-value="--font-sans"></output></p><p><span>Код</span><code>--font-code</code><output data-token-value="--font-code"></output></p></div>
+                    <div class="fonts">
+                        <div><span>Интерфейс</span><code>--font-sans</code><details><summary>Стек шрифтов</summary><output data-token-value="--font-sans"></output></details></div>
+                        <div><span>Код</span><code>--font-mono</code><details><summary>Стек шрифтов</summary><output data-token-value="--font-mono"></output></details></div>
+                    </div>
                 </section>
                 <section id="geometry" class="section" aria-labelledby="geometry-title">
                     <div class="section-heading"><h2 id="geometry-title">Геометрия</h2><a class="source" href="/">Сетка главной ↗</a></div>
@@ -78,15 +97,16 @@
                             <div class="space"><dt>{{ $space['label'] }}<code>{{ $space['token'] }}</code></dt><dd class="sample"><span class="bar space-{{ $space['class'] }}" aria-hidden="true"></span><output data-token-value="{{ $space['token'] }}"></output></dd><dd class="usage">{{ $space['usedAt'] }}</dd></div>
                         @endforeach
                     </dl>
+                    <p class="note">Примеры отступов. Сетка и внутренние поля адаптируются к ширине экрана.</p>
                     <dl class="metrics"><div><dt>Карточка <code>--radius-card</code></dt><dd><output data-token-value="--radius-card"></output></dd></div><div><dt>Шапка <code>--radius-header</code></dt><dd><output data-token-value="--radius-header"></output></dd></div><div><dt>Контейнер <code>--measure-shell</code></dt><dd><output data-token-value="--measure-shell"></output></dd></div><div><dt>Тень карточки <code>--shadow-card</code></dt><dd><output data-token-value="--shadow-card"></output></dd></div></dl>
                 </section>
                 <section id="actions" class="section" aria-labelledby="actions-title">
                     <div class="section-heading"><h2 id="actions-title">Действия</h2><a class="source" href="/en/discussions">В сообществе ↗</a></div>
                     <div class="card table">
-                        <div class="action-row"><div class="action-preview"><a class="button" href="/en/docs">Documentation</a></div><div class="label">Кнопка-ссылка<code>.button</code></div></div>
-                        <div class="action-row"><div class="action-preview"><a class="action" href="https://github.com/orchidsoftware/platform">Join the community</a></div><div class="label">Текстовое действие<code>.action</code></div></div>
+                        <div class="action-row"><div class="action-preview"><a class="button" href="/en/docs">Documentation</a></div><div class="label">Перейти к документации<code>.button</code><p>Основной путь из шапки к началу работы.</p></div></div>
+                        <div class="action-row"><div class="action-preview"><a class="button" href="https://github.com/orchidsoftware/platform/issues" target="_blank" rel="noopener">Browse Issues</a> <a class="button" href="https://github.com/orgs/orchidsoftware/discussions" target="_blank" rel="noopener">Browse Discussions</a></div><div class="label">Обратиться к сообществу<code>.button</code><p>Равнозначные переходы к спискам GitHub.</p></div></div>
+                        <div class="action-row"><div class="action-preview"><a class="action" href="/en/license">View License</a></div><div class="label">Текстовое действие<code>.action</code></div></div>
                     </div>
-                    <p class="note">Tab — перейти к действию. Enter — открыть. Поиск документации работает в общей шапке сайта.</p>
                     <dl class="metrics"><div><dt>Фокус <code>--focus-width</code></dt><dd><output data-token-value="--focus-width"></output></dd></div><div><dt>Отклик <code>--duration-feedback</code></dt><dd><output data-token-value="--duration-feedback"></output></dd></div></dl>
                 </section>
                 <section id="cards" class="section" aria-labelledby="cards-title">
@@ -101,7 +121,7 @@
                 </section>
                 <section id="documentation" class="section" aria-labelledby="documentation-title">
                     <div class="section-heading"><h2 id="documentation-title">Документация</h2><a class="source" href="/en/docs/screens">Страница Screens ↗</a></div>
-                    <p class="description">Светлая область чтения: меню, примечание, код и таблица. Нажмите на изображение для увеличения; Escape закрывает просмотр.</p>
+                    <p class="description">Статья: заголовок, навигация и вспомогательная ссылка Suggest Edit. На узком экране ссылка скрыта.</p>
             <div class="docs-preview docs-layout theme-paper">
                 <aside class="sidebar">
                     <nav class="docs-menu" aria-label="Пример меню документации">
@@ -117,7 +137,10 @@
                 </aside>
                 <div class="reading">
                     <article class="article">
-                        <header class="headline"><h3>Screens</h3></header>
+                        <header class="headline">
+                            <h3>Screens</h3>
+                            <x-docs-edit href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/en/docs/screens.md" />
+                        </header>
                         <p>Screens are responsible for displaying information and processing user actions. Each screen has a <code>query()</code> method and a <code>layout()</code> method.</p>
                         <blockquote><p>A screen describes the data and layout of a page.</p></blockquote>
                         <pre><code><span class="hl-keyword">public function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
@@ -136,11 +159,12 @@
                     </article>
                 </div>
             </div>
-                    <div class="banner-preview"><p class="label">Видеоуроки <code>&lt;x-docs-banner /&gt;</code></p><x-docs-banner /></div>
+                    <div class="banner-preview"><p class="label">Видеоуроки дополняют документацию. Действие относится к баннеру.<code>&lt;x-docs-banner /&gt;</code></p><x-docs-banner /></div>
                 </section>
                 <section id="brand" class="section" aria-labelledby="brand-title">
                     <div class="section-heading"><h2 id="brand-title">Бренд</h2><a class="source" href="/">На главной ↗</a></div>
                     <div class="card brand-sample"><div><img class="brand-logo" src="/img/next/logo-full.svg" alt="Orchid"><p class="label">Логотип<code>/img/next/logo-full.svg</code></p></div><div><p class="section-title">Say <span class="text-accent">goodbye</span></p><p class="label">Фирменный градиент<code>.text-accent · --gradient-accent</code></p></div></div>
+                    <p class="note"><a href="/en#product-preview" class="source">Превью интерфейса на главной ↗</a> использует реальный скриншот. Ссылка открывает исходное изображение для просмотра деталей.</p>
                 </section>
     </main>
 @endsection

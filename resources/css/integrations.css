@@ -38,19 +38,29 @@
 }
 
 .DocSearch-Button {
+    box-sizing: border-box;
+    block-size: auto;
     margin: 0;
-    padding: 0 var(--space-2);
-    color: var(--color-nav);
-    background: var(--color-search-control);
-    border: var(--stroke) dashed var(--color-button-border);
-    border-radius: var(--radius-small);
-    font-size: var(--text-body);
+    padding-inline: var(--space-2);
+    box-shadow: none;
 }
 
-.DocSearch-Button:hover {
-    color: var(--color-ink);
-    background: var(--color-accent-soft);
-    box-shadow: none;
+.DocSearch-Input:focus-visible {
+    outline: none;
+}
+
+.DocSearch-Form {
+    border-block-end-width: calc(2 * var(--stroke));
+
+    &:focus-within {
+        border-block-end-color: var(--color-accent);
+    }
+}
+
+@media (forced-colors: active) {
+    .DocSearch-Form:focus-within {
+        border-block-end-color: Highlight;
+    }
 }
 
 .DocSearch-Button-Key {
@@ -80,7 +90,7 @@ pre code {
     padding: var(--space-relative-unit) var(--space-code-inline);
     overflow-wrap: normal;
     color: inherit;
-    font-family: var(--font-code);
+    font-family: var(--font-mono);
     font-size: var(--text-small);
     line-height: var(--leading-body);
     white-space: pre;
@@ -136,10 +146,6 @@ pre code {
 .hl-gutter-deletion {
     color: var(--syntax-delimiter);
     background: var(--syntax-deletion);
-}
-
-.hl-comment span {
-    opacity: .7;
 }
 
 .hl-addition,

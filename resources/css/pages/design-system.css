@@ -1,5 +1,4 @@
 .catalog {
-    --text-caption: .8125rem;
     min-inline-size: 0;
     margin-block-end: var(--space-7);
 }
@@ -18,9 +17,26 @@
         margin-block-end: var(--space-7);
     }
 
-    .index a[aria-current="location"] {
-        background: var(--color-button-hover);
-        border-color: var(--color-ink);
+    .index a {
+        padding: var(--space-2) var(--space-3);
+        color: var(--color-nav);
+        text-decoration: none;
+        text-underline-offset: var(--space-2);
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--color-ink);
+                text-decoration: underline;
+                text-decoration-color: var(--color-accent);
+            }
+        }
+
+        &[aria-current="location"] {
+            color: var(--color-ink);
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-decoration-thickness: calc(2 * var(--stroke));
+        }
     }
 
     .section {
@@ -51,9 +67,11 @@
         text-decoration: none;
     }
 
-    .source:hover {
-        color: var(--color-accent);
-        text-decoration: underline;
+    @media (hover: hover) {
+        .source:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
     }
 
     .description {
@@ -94,7 +112,7 @@
 
     .palette-heading code {
         color: var(--color-nav);
-        font-size: var(--text-caption);
+        font-size: var(--text-small);
     }
 
     .colors {
@@ -148,7 +166,7 @@
     .color dd {
         margin: 0;
         color: var(--color-nav);
-        font-size: var(--text-caption);
+        font-size: var(--text-small);
     }
 
     .color code,
@@ -212,7 +230,7 @@
         color: inherit;
         display: block;
         margin-block-start: var(--space-1);
-        font-size: var(--text-caption);
+        font-size: var(--text-small);
         overflow-wrap: anywhere;
     }
 
@@ -228,7 +246,7 @@
         margin: var(--space-4) var(--space-5) 0;
     }
 
-    .fonts p {
+    .fonts > div {
         min-inline-size: 0;
         margin: 0;
     }
@@ -238,7 +256,11 @@
     .fonts output {
         display: block;
         overflow-wrap: anywhere;
-        font-size: var(--text-caption);
+        font-size: var(--text-small);
+    }
+
+    .fonts summary {
+        cursor: pointer;
     }
 
     .fonts code {

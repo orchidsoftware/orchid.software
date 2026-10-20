@@ -53,22 +53,35 @@
 
 .screen-preview {
     --preview-overlap: 13rem;
-    display: none;
+    display: block;
     position: relative;
     z-index: var(--z-content);
-    margin-block-start: calc(-1 * var(--preview-overlap));
+    margin-block: var(--space-5);
 }
 
 @scope (.screen-preview) {
     .frame {
+        display: block;
         inline-size: 100%;
         margin-inline: auto;
+        text-decoration: none;
+        cursor: zoom-in;
     }
 
     .image {
         display: block;
-        inline-size: auto;
+        inline-size: 100%;
+        block-size: auto;
         border-radius: var(--radius-preview);
+    }
+
+    .caption {
+        display: block;
+        margin-block-start: var(--space-2);
+        color: var(--color-ink-muted);
+        font-size: var(--text-small);
+        text-decoration: underline;
+        text-underline-offset: .2em;
     }
 }
 
@@ -264,7 +277,14 @@
     }
 
     .screen-preview {
-        display: block;
+        margin-block-start: calc(-1 * var(--preview-overlap));
+        margin-block-end: 0;
+    }
+
+    @scope (.screen-preview) {
+        .caption {
+            display: none;
+        }
     }
 
     @scope (.feature) {
@@ -398,5 +418,13 @@
 @media (min-width: 87.5rem) {
     .feature-grid {
         gap: var(--space-7);
+    }
+}
+
+@media (max-width: 47.999rem) {
+    @scope (.feature) {
+        :scope:where(.split, .framework) {
+            min-block-size: auto;
+        }
     }
 }

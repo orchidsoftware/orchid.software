@@ -56,7 +56,12 @@
         color: var(--color-nav);
         text-decoration: none;
 
-        &:hover,
+        @media (hover: hover) {
+            &:hover {
+                color: var(--color-on-plum);
+            }
+        }
+
         &.is-active {
             color: var(--color-on-plum);
         }
@@ -68,32 +73,56 @@
     }
 }
 
-.button {
-    display: inline-block;
+.button,
+.DocSearch-Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: var(--target-control);
     padding: var(--space-control-block) var(--space-3);
-    border: var(--stroke) dashed var(--color-button-border);
+    border: var(--stroke) solid var(--color-button-border);
     border-radius: var(--radius-control);
-    color: var(--color-on-plum);
+    color: var(--color-ink);
     background: var(--color-button);
+    font-size: var(--text-body);
     font-weight: var(--weight-regular);
     line-height: var(--leading-body);
     text-align: center;
     text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
-    transition: background var(--duration-feedback), color var(--duration-feedback);
+    transition: background var(--duration-feedback), border-color var(--duration-feedback);
 
-    &:hover {
-        color: var(--color-on-plum);
-        background: var(--color-button-hover);
+    @media (hover: hover) {
+        &:hover {
+            background: var(--color-button-hover);
+            border-color: var(--color-button-border-hover);
+        }
+    }
+
+    &:active {
+        background: var(--color-button-active);
+        border-color: var(--color-button-border-hover);
     }
 }
 
-@scope (.button) {
-    :scope:where(.primary) {
-        color: var(--color-canvas);
-        background: var(--color-accent);
-        border-color: var(--color-accent);
+.button.quiet {
+    text-underline-offset: .2em;
+    color: var(--color-ink-muted);
+    background: transparent;
+    border-color: transparent;
+
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-ink);
+            background: var(--color-button);
+            text-decoration: underline;
+        }
+    }
+
+    &:active {
+        color: var(--color-ink);
+        background: var(--color-button-active);
     }
 }
 
@@ -132,12 +161,35 @@
         display: block;
     }
 
-    .link-row:first-child {
-        margin-block-end: 0;
+    .link-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2) var(--space-4);
+        margin-block-end: var(--space-2);
     }
 
-    .links .button {
-        margin-block-end: var(--space-4);
+    .links .link {
+        display: inline-flex;
+        align-items: center;
+        min-block-size: var(--target-control);
+        padding-block: var(--space-control-block);
+        color: var(--color-nav);
+        text-decoration: none;
+        text-underline-offset: .2em;
+
+        @media (hover: hover) {
+            &:hover {
+                color: var(--color-ink);
+                text-decoration: underline;
+                text-decoration-color: var(--color-accent);
+            }
+        }
+
+        &:focus-visible {
+            color: var(--color-ink);
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+        }
     }
 }
 
@@ -154,7 +206,12 @@
         color: var(--color-ink-muted);
         text-decoration: underline;
 
-        &:hover,
+        @media (hover: hover) {
+            &:hover {
+                color: var(--color-on-plum);
+            }
+        }
+
         &.is-active {
             color: var(--color-on-plum);
         }
@@ -189,15 +246,6 @@
     }
 }
 
-.reveal {
-    opacity: 1;
-    transition: opacity var(--duration-reveal) var(--ease-out);
-}
-
-.reveal.is-pending {
-    opacity: 0;
-}
-
 .lightbox {
     max-inline-size: calc(100% - var(--space-6));
     max-block-size: calc(100% - var(--space-6));
@@ -229,8 +277,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-inline-size: var(--target-control);
-        min-block-size: var(--target-control);
+        min-inline-size: max(2.75rem, var(--target-control));
+        min-block-size: max(2.75rem, var(--target-control));
         margin-inline-start: auto;
         margin-block-end: var(--space-3);
         border: var(--stroke) solid var(--color-border);
@@ -238,6 +286,16 @@
         color: var(--color-ink);
         background: var(--color-surface);
         cursor: pointer;
+
+        @media (hover: hover) {
+            &:hover {
+                background: var(--color-button-hover);
+            }
+        }
+
+        &:active {
+            background: var(--color-button-active);
+        }
     }
 }
 
@@ -294,7 +352,7 @@
     }
 }
 
-@media (min-width: 87.5rem) {
+@media (min-width: 75rem) {
     @scope (.navigation) {
         .search {
             display: block;
@@ -311,14 +369,6 @@
     .lightbox::backdrop {
         background: var(--color-surface);
         backdrop-filter: none;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .reveal,
-    .reveal.is-pending {
-        opacity: 1;
-        transition: none;
     }
 }
 
@@ -351,8 +401,13 @@
 .intro-text,
 .section-description {
     font-size: var(--text-lead);
-    font-weight: var(--weight-light);
+    font-weight: var(--weight-regular);
     line-height: var(--leading-body);
+    text-wrap: pretty;
+}
+
+.intro-text {
+    font-weight: var(--weight-light);
     text-wrap: balance;
 }
 
@@ -373,8 +428,17 @@
     color: var(--color-ink);
     text-decoration: none;
     transition: color var(--duration-feedback) var(--ease-out);
+    text-underline-offset: .2em;
 
-    &:hover {
+    @media (hover: hover) {
+        &:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+    }
+
+    &:active,
+    &:focus-visible {
         color: var(--color-accent);
         text-decoration: underline;
     }
@@ -408,5 +472,26 @@
     .intro-text {
         margin-block-end: var(--space-7);
         padding-block-end: var(--space-7);
+    }
+}
+
+.feature:has(.link:focus-visible),
+.donation:has(.donate-link:focus-visible) {
+    outline: var(--focus-width) solid var(--color-focus);
+    outline-offset: var(--focus-offset);
+}
+
+@scope (.feature, .donation) {
+    .link:focus-visible,
+    .donate-link:focus-visible {
+        outline: none;
+    }
+}
+
+@media (max-width: 47.999rem) {
+    @scope (.feature, .donation) {
+        .body {
+            padding: var(--space-6);
+        }
     }
 }

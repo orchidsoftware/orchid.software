@@ -51,14 +51,14 @@
             <h2 class="title"><span class="text-accent">Discover</span> even more.</h2>
             <nav class="links" aria-label="Community">
                 <p class="link-row">
-                <a href="/{{ app()->getLocale() }}/community/code-of-conduct" class="button">Community Guidelines</a>
-                <a href="https://opencollective.com/orchid" class="button">Donation</a>
+                <a href="/{{ app()->getLocale() }}/community/code-of-conduct" class="link">Community Guidelines</a>
+                <a href="https://opencollective.com/orchid" class="link">Donation</a>
                 </p>
                 <p class="link-row">
-                <a href="https://github.com/orchidsoftware" class="button">GitHub</a>
-                <a href="/{{ app()->getLocale() }}/discussions" class="button">Discussion</a>
-                <a href="/en/hig" class="button">HIG</a>
-                <a href="/{{ app()->getLocale() }}/license" class="button">License</a>
+                <a href="https://github.com/orchidsoftware" class="link">GitHub</a>
+                <a href="/{{ app()->getLocale() }}/discussions" class="link">Discussion</a>
+                <a href="/en/hig" class="link">HIG</a>
+                <a href="/{{ app()->getLocale() }}/license" class="link">License</a>
                 </p>
             </nav>
             <nav class="languages" aria-label="Documentation language">

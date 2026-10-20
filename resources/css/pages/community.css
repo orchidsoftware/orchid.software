@@ -111,8 +111,10 @@
             content: '';
         }
 
-        &:hover {
-            text-decoration: underline;
+        @media (hover: hover) {
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         & svg {
@@ -223,7 +225,7 @@
 @scope (.channels, .topics) {
     .caption {
         font-size: var(--text-small);
-        opacity: .5;
+        color: var(--color-ink-muted);
     }
 }
 
@@ -302,7 +304,6 @@
         & .button {
             inline-size: 100%;
             padding-inline: var(--space-5);
-            background: none;
         }
     }
 }

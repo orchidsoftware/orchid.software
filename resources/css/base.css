@@ -60,7 +60,13 @@ a {
     color: var(--color-link);
 }
 
-a:hover {
+@media (hover: hover) {
+    a:hover {
+        color: var(--color-accent);
+    }
+}
+
+a:active {
     color: var(--color-accent);
 }
 
@@ -116,9 +122,9 @@ code {
 }
 
 @media (forced-colors: active) {
-    h1 .text-accent,
-    h2 .text-accent {
+    .text-accent {
         background: none;
         color: inherit;
+        text-shadow: none;
     }
 }

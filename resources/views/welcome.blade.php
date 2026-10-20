@@ -20,19 +20,20 @@
                         <span class="line">Laravel with Orchid</span>
                     </h1>
                     <p class="intro-text">
-                        Laravel Orchid is a powerful and easy-to-use solution for creating admin panel and line of business applications.
-                        With its code-driven approach, you can quickly and easily create efficient applications.
+                        Build admin panels and business applications with Laravel Orchid.
+                        Compose screens in PHP and focus on your application's features.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="screen-preview shell">
-        <div class="frame">
-            <img src="/img/next/screen.jpg"
+    <div class="screen-preview shell" id="product-preview">
+        <a href="/img/next/screen.jpg" class="frame" aria-label="View full-size screenshot of the Orchid administration screen">
+            <img src="/img/next/screen.jpg" width="2400" height="1600"
                  class="image" alt="Orchid administration screen">
-        </div>
+            <span class="caption">View full-size screenshot</span>
+        </a>
     </div>
 
     <div class="shell">
@@ -43,7 +44,7 @@
                     <small class="line">to Tedious Development</small>
                 </h2>
 
-                <p class="section-description reveal">
+                <p class="section-description">
                     Stop wasting time building admin panels from scratch. Orchid simplifies the process, letting you focus on what matters most — your application's core features.
                 </p>
             </div>
@@ -277,7 +278,7 @@ class Task extends Screen
                 </div>
             </div>
             <div class="feature-item">
-                <div class="card feature">
+                <div class="card feature framework">
 
                     <img src="/img/next/feature3-tentacli.svg" class="tentacle" alt="">
 
@@ -306,7 +307,7 @@ class Task extends Screen
                 <h2 class="section-title">Free & <span class="text-accent">Open Source</span>
                     <span class="line">for any purposes</span>
                 </h2>
-                <p class="section-description reveal">
+                <p class="section-description">
                     Everything that we do is 100% composed of open and free code, jointly developed by people from all
                     over the world.
                 </p>

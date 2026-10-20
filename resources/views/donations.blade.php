@@ -22,7 +22,7 @@
                     <span class="headline">Your Donation <span class="accent text-accent">Will Change Everything!</span></span>
                 </h1>
 
-                <p class="description section-description reveal">
+                <p class="description section-description">
                     Your contribution empowers us to continue developing and maintaining these open-source packages and provide ongoing support to the community.
                 </p>
             </div>
