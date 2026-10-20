@@ -73,6 +73,15 @@
     }
 }
 
+@media (forced-colors: active) {
+    @scope (.navigation) {
+        .link[aria-current="page"] {
+            text-decoration: underline;
+            text-underline-offset: .2em;
+        }
+    }
+}
+
 .button,
 .DocSearch-Button {
     display: inline-flex;

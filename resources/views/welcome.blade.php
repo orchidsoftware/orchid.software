@@ -213,7 +213,7 @@ class Task extends Screen
                         </div>
 
                         <div class="actions">
-                            <a href="/en/docs/access" class="action link trailing">
+                            <a href="/en/docs/permissions" class="action link trailing">
                                 Learn About Permissions
 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16">

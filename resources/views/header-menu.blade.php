@@ -25,6 +25,7 @@
     @foreach($navLinks as $link)
         <li>
             <a href="{{ $link['href'] }}"
+                @if(is_active('*'.$link['href'].'*')) aria-current="page" @endif
                 @class([
                     'link',
                     'is-active' => is_active('*'.$link['href'].'*')

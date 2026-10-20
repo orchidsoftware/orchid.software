@@ -71,10 +71,22 @@
                                         </div>
                                     @endforeach
                                 </dl>
+                                <div class="contrast">
+                                    <p class="contrast-heading">Текст на фоне карточки</p>
+                                    <dl class="contrast-list">
+                                        @foreach(['ink' => 'Основной текст', 'muted' => 'Вторичный текст', 'accent' => 'Акцентный текст'] as $role => $roleLabel)
+                                            <div class="contrast-pair">
+                                                <dt class="contrast-text contrast-{{ $role }}">{{ $roleLabel }}</dt>
+                                                <dd><output data-palette-contrast>—</output></dd>
+                                            </div>
+                                        @endforeach
+                                    </dl>
+                                </div>
                             </article>
                         @endforeach
                     </div>
                     <p class="note">Семантические имена общие. Значения меняются вместе с контекстом и читаются из CSS.</p>
+                    <p class="note">Контраст рассчитан по цветам текста и фона этих карточек. Ориентир для обычного текста — <a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" class="source">4,5:1</a>. Градиенты и состояния элементов проверяются отдельно в своём контексте.</p>
                 </section>
                 <section id="type" class="section" aria-labelledby="type-title">
                     <div class="section-heading"><h2 id="type-title">Типографика</h2><a class="source" href="/">На главной ↗</a></div>
@@ -106,8 +118,15 @@
                         <div class="action-row"><div class="action-preview"><a class="button" href="/en/docs">Documentation</a></div><div class="label">Перейти к документации<code>.button</code><p>Основной путь из шапки к началу работы.</p></div></div>
                         <div class="action-row"><div class="action-preview"><a class="button" href="https://github.com/orchidsoftware/platform/issues" target="_blank" rel="noopener">Browse Issues</a> <a class="button" href="https://github.com/orgs/orchidsoftware/discussions" target="_blank" rel="noopener">Browse Discussions</a></div><div class="label">Обратиться к сообществу<code>.button</code><p>Равнозначные переходы к спискам GitHub.</p></div></div>
                         <div class="action-row"><div class="action-preview"><a class="action" href="/en/license">View License</a></div><div class="label">Текстовое действие<code>.action</code></div></div>
+                        <div class="action-row"><div class="action-preview"><a class="action" href="#documentation">Образец в статье ↓</a></div><div class="label">Вспомогательное действие Suggest Edit<code>.button.quiet</code><code>&lt;x-docs-edit :href="$edit" /&gt;</code><p>Помогает исправить статью на GitHub. На широком экране находится рядом с заголовком; на узком экране скрыто.</p></div></div>
                     </div>
                     <dl class="metrics"><div><dt>Фокус <code>--focus-width</code></dt><dd><output data-token-value="--focus-width"></output></dd></div><div><dt>Отклик <code>--duration-feedback</code></dt><dd><output data-token-value="--duration-feedback"></output></dd></div></dl>
+                    <dl class="metrics">
+                        <div><dt>Нейтральная кнопка<code>.button</code></dt><dd>Наведение и нажатие меняют фон и границу. Клавиатурный фокус обозначен контуром.</dd></div>
+                        <div><dt>Текстовое действие<code>.action</code></dt><dd>Акцент и подчеркивание появляются при наведении, нажатии и клавиатурном фокусе.</dd></div>
+                        <div><dt>Вспомогательное действие<code>.button.quiet</code></dt><dd>Без постоянной заливки. Наведение и нажатие усиливают текст и фон; фокус обозначен контуром.</dd></div>
+                        <div><dt>Ссылка в тексте статьи<code>.article p &gt; a</code></dt><dd>Подчеркивание сохраняется. Наведение и нажатие добавляют цветовой акцент; фокус обозначен контуром.</dd></div>
+                    </dl>
                 </section>
                 <section id="cards" class="section" aria-labelledby="cards-title">
                     <div class="section-heading"><h2 id="cards-title">Карточки</h2><a class="source" href="/">На главной ↗</a></div>
@@ -117,7 +136,7 @@
                 <x-quick-start/>
                 </div>
             </div>
-                    </div><aside class="specimen-note"><h3>Quick Start</h3><p>Заголовок, описание и ссылка на всю карточку. Фирменная иллюстрация остаётся частью композиции.</p><code>.card</code><code>.feature</code><code>.quick-start</code><p>Образец использует исходные размеры и стили компонента.</p></aside></div>
+                    </div><aside class="specimen-note"><h3>Quick Start</h3><p>Заголовок, описание и ссылка на всю карточку. Фирменная иллюстрация остаётся частью композиции.</p><code>.card</code><code>.feature</code><code>.quick-start</code><code>&lt;x-quick-start /&gt;</code><p>Главная и каталог используют один Blade-компонент с его исходными размерами и стилями.</p></aside></div>
                 </section>
                 <section id="documentation" class="section" aria-labelledby="documentation-title">
                     <div class="section-heading"><h2 id="documentation-title">Документация</h2><a class="source" href="/en/docs/screens">Страница Screens ↗</a></div>

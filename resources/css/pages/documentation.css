@@ -200,7 +200,7 @@
 
     & p {
         font-size: var(--text-body);
-        line-height: calc(var(--text-body) * var(--leading-docs-copy));
+        line-height: calc(1em * var(--leading-docs-copy));
         margin-block-end: var(--space-5);
         text-wrap: pretty;
         overflow-wrap: break-word;
@@ -222,6 +222,7 @@
 
     & li {
         padding-block-end: .33em;
+        overflow-wrap: break-word;
     }
 
     & :not(pre) > code {
@@ -454,7 +455,7 @@
     }
 
     :scope .title {
-        color: var(--color-hero-start);
+        color: var(--color-accent);
         line-height: calc(var(--text-body) * var(--leading-docs));
     }
 
@@ -521,6 +522,10 @@
         .anchors .list {
             padding-inline: 0;
             padding-inline-start: var(--space-6);
+        }
+
+        :scope ul ul {
+            padding-inline-start: var(--space-4);
         }
     }
 }
@@ -639,6 +644,12 @@
         position: relative;
         padding-block-start: var(--space-7);
         font-size: 0;
+
+        &:focus-visible {
+            flex: 0;
+            padding-inline: var(--space-7);
+            font-size: var(--text-small);
+        }
     }
 
     .article {
