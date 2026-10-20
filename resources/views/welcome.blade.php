@@ -29,7 +29,7 @@
     </div>
 
     <div class="screen-preview shell" id="product-preview">
-        <a href="/img/next/screen.jpg" class="frame" aria-label="View full-size screenshot of the Orchid administration screen">
+        <a href="/img/next/screen.jpg" rel="nofollow" class="frame" aria-label="View full-size screenshot of the Orchid administration screen">
             <img src="/img/next/screen.jpg" width="2400" height="1600"
                  class="image" alt="Orchid administration screen">
             <span class="caption">View full-size screenshot</span>
