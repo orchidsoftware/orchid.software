@@ -96,14 +96,10 @@ code {
 
 .text-accent {
     color: var(--color-accent);
-    background: var(--gradient-accent-text);
+    background: var(--gradient-accent);
     background-clip: text;
     color: transparent;
     text-shadow: var(--shadow-accent-text);
-}
-
-.text-muted {
-    color: var(--color-ink-muted);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -94,22 +94,7 @@
                     <div class="specimen"><div class="card-preview">
             <div class="feature-preview feature-grid">
                 <div class="feature-item">
-                <div class="card feature quick-start">
-                    <div class="body">
-                        <div class="copy">
-                            <h3 class="heading">Quick Start</h3>
-                            <p>Orchid ship with the necessary technical documentation and examples for a quick and successful implementation</p>
-                        </div>
-                        <div class="actions">
-                            <a class="action link trailing" href="/en/docs">
-                                Documentation
-                                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <x-quick-start/>
                 </div>
             </div>
                     </div><aside class="specimen-note"><h3>Quick Start</h3><p>Заголовок, описание и ссылка на всю карточку. Фирменная иллюстрация остаётся частью композиции.</p><code>.card</code><code>.feature</code><code>.quick-start</code><p>Образец использует исходные размеры и стили компонента.</p></aside></div>
@@ -155,7 +140,7 @@
                 </section>
                 <section id="brand" class="section" aria-labelledby="brand-title">
                     <div class="section-heading"><h2 id="brand-title">Бренд</h2><a class="source" href="/">На главной ↗</a></div>
-                    <div class="card brand-sample"><div><img class="brand-logo" src="/img/next/logo-full.svg" alt="Orchid"><p class="label">Логотип<code>/img/next/logo-full.svg</code></p></div><div><p class="section-title">Say <span class="text-accent">goodbye</span></p><p class="label">Фирменный градиент<code>.text-accent · --gradient-accent-text</code></p></div></div>
+                    <div class="card brand-sample"><div><img class="brand-logo" src="/img/next/logo-full.svg" alt="Orchid"><p class="label">Логотип<code>/img/next/logo-full.svg</code></p></div><div><p class="section-title">Say <span class="text-accent">goodbye</span></p><p class="label">Фирменный градиент<code>.text-accent · --gradient-accent</code></p></div></div>
                 </section>
     </main>
 @endsection

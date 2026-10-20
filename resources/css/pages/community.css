@@ -32,32 +32,19 @@
 }
 
 @scope (.donation-intro) {
+    .title,
+    .description {
+        padding-inline: var(--space-4);
+    }
+
     .copy {
         margin-inline: auto;
         padding-inline: var(--space-3);
     }
 
-    .title {
-        margin-block-end: var(--space-2);
-        padding-inline: var(--space-4);
-        font-size: var(--text-display);
-        font-weight: var(--weight-bold);
-        line-height: var(--leading-heading);
-    }
-
     .headline,
     .accent {
         display: block;
-    }
-
-    .description {
-        margin-block-end: var(--space-4);
-        padding-inline: var(--space-4);
-        color: var(--color-ink-muted);
-        font-size: var(--text-lead);
-        font-weight: var(--weight-light);
-        line-height: var(--leading-body);
-        text-wrap: balance;
     }
 }
 
@@ -109,26 +96,8 @@
         padding-inline: var(--space-3);
     }
 
-    .body {
-        display: flex;
-        flex-direction: column;
-        block-size: 100%;
-        padding: var(--space-7);
-    }
-
-    .title {
-        margin-block-end: var(--space-4);
-        font-size: var(--text-title);
-        line-height: var(--leading-heading);
-        font-weight: var(--weight-medium);
-    }
-
     .message {
         margin-block-end: auto;
-    }
-
-    .actions {
-        margin-block-start: auto;
     }
 
     .donate-link {
@@ -173,17 +142,7 @@
     }
 
     .avatars.backers {
-        display: block;
         margin-inline: auto;
-        text-align: center;
-
-        & img {
-            display: inline-block;
-            inline-size: var(--size-backer-avatar);
-            block-size: var(--size-backer-avatar);
-            margin: var(--space-2);
-            vertical-align: middle;
-        }
     }
 }
 
@@ -259,14 +218,9 @@
     .description {
         margin-block-end: var(--space-5);
     }
-
-    .caption {
-        font-size: var(--text-small);
-        opacity: .5;
-    }
 }
 
-@scope (.topics) {
+@scope (.channels, .topics) {
     .caption {
         font-size: var(--text-small);
         opacity: .5;
@@ -365,11 +319,7 @@
     margin-inline: calc(-1 * var(--space-3));
 }
 
-.summary {
-    min-inline-size: 0;
-    padding: var(--space-4);
-}
-
+.summary,
 .terms {
     min-inline-size: 0;
     padding: var(--space-4);
@@ -552,10 +502,7 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .summary {
-        padding-block-start: var(--space-5);
-    }
-
+    .summary,
     .terms {
         padding-block-start: var(--space-5);
     }

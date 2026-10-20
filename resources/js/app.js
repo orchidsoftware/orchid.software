@@ -28,7 +28,6 @@ function initReveals() {
         for (const entry of entries) {
             if (entry.isIntersecting) {
                 entry.target.classList.remove('is-pending');
-                entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
         }

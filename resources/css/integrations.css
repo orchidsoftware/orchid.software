@@ -155,7 +155,7 @@ pre code {
 }
 
 .hl-blur {
-    filter: blur(var(--blur-code));
+    filter: blur(2px);
 }
 
 .hl-strong {

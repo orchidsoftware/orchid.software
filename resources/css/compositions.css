@@ -4,22 +4,6 @@
     padding-inline: var(--space-3);
 }
 
-.flow {
-    --flow-space: var(--space-4);
-}
-
-.flow > * + * {
-    margin-block-start: var(--flow-space, var(--space-4));
-}
-
-.cluster {
-    --cluster-gap: var(--space-3);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--cluster-gap, var(--space-3));
-}
-
 @media (min-width: 36rem) {
     .shell {
         max-inline-size: var(--measure-shell-small);

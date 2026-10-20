@@ -18,11 +18,11 @@
         <div class="donation-intro">
             <div class="copy">
 
-                <h1 class="title">
+                <h1 class="title section-title">
                     <span class="headline">Your Donation <span class="accent text-accent">Will Change Everything!</span></span>
                 </h1>
 
-                <p class="description reveal">
+                <p class="description section-description reveal">
                     Your contribution empowers us to continue developing and maintaining these open-source packages and provide ongoing support to the community.
                 </p>
             </div>
@@ -43,7 +43,7 @@
                             <div class="body">
 
                                 <div class="message">
-                                    <p class="title">Donate on OpenCollective</p>
+                                    <p class="heading">Donate on OpenCollective</p>
 
                                     <p>
                                         Contribute to Orchid for Laravel on OpenCollective to support us financially and track project expenses transparently.

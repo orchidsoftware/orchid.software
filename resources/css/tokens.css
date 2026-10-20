@@ -1,16 +1,13 @@
 :root {
     --orchid-plum: #272531;
     --orchid-surface: #312e3e;
-    --orchid-rose: #c16ebb;
     --orchid-surface-raised: #3c394a;
     --orchid-ink: #fff;
     --orchid-muted: #6c757d;
     --orchid-accent: #c16ebb;
     --orchid-heading: #ca72b7;
-    --color-brand: var(--orchid-rose);
     --color-canvas: var(--orchid-plum);
     --color-surface: var(--orchid-surface);
-    --color-surface-raised: var(--orchid-surface-raised);
     --color-code: #2c2939;
     --color-search-control: #2c2a37;
     --color-search-key: rgb(255 255 255 / 8%);
@@ -30,10 +27,8 @@
     --gradient-footer: linear-gradient(180deg, rgb(255 255 255 / 0%), rgb(0 0 0 / 25%));
     --gradient-docs-banner: radial-gradient(100% 100% at 0 0, #383546 0, #363343 23.78%, #312e3e 100%);
     --color-card-border: rgb(0 0 0 / 12.5%);
-    --opacity-control: 10%;
-    --opacity-control-hover: 20%;
-    --color-button: rgb(125 122 139 / var(--opacity-control));
-    --color-button-hover: rgb(125 122 139 / var(--opacity-control-hover));
+    --color-button: rgb(125 122 139 / 10%);
+    --color-button-hover: rgb(125 122 139 / 20%);
     --color-link-light: #f8f9fa;
     --color-button-border: rgb(255 255 255 / 20%);
     --color-nav: #e0e0e0;
@@ -61,9 +56,7 @@
     --space-6: 2rem;
     --space-7: 3rem;
     --space-8: 4rem;
-    --space-9: 6rem;
     --space-10: 8rem;
-    --text-caption: .8125rem;
     --text-small: .875rem;
     --text-body: 1rem;
     --text-lead: 1.25rem;
@@ -73,12 +66,10 @@
     --text-heading1: min(2.5rem, calc(1.375rem + 1.5vw));
     --text-heading3: min(1.75rem, calc(1.3rem + .6vw));
     --text-heading4: min(1.5rem, calc(1.275rem + .3vw));
-    --scale-small: .875;
     --text-relative-small: .875em;
     --link-icon-inset: .1em;
     --space-relative-unit: 1em;
     --space-code-inline: 1.5em;
-    --gradient-accent-text: var(--gradient-accent);
     --shadow-accent-text: 0 0 .2em rgb(0 0 0 / 5%);
     --color-link: #312e3e;
     --color-on-plum: #fff;
@@ -91,18 +82,9 @@
     --color-docs-edit-border: rgb(0 0 0 / 45%);
     --radius-docs: .8rem;
     --radius-code: .25rem;
-    --measure-docs-menu: 20rem;
-    --ratio-docs-banner: 4.5 / 1;
-    --measure-docs-sponsors: 14.375rem;
-    --size-sponsor: 9.375rem;
-    --size-sponsor-height: 2.5rem;
     --leading-docs: 1.8;
     --leading-docs-copy: 1.6;
-    --space-docs-list-item: .33em;
     --space-docs-heading: 1.5em;
-    --space-docs-heading-bottom: 15px;
-    --text-image-caption: .775em;
-    --text-note-mark: 1.5em;
     --shadow-docs-note: 16px 16px 36px rgb(24 10 90 / 5%);
     --shadow-docs-note-mark: 5px 5px 13px rgb(63 26 60 / 29%);
     --weight-light: 300;
@@ -125,7 +107,6 @@
     --focus-offset: 4px;
     --target-control: 2.75rem;
     --blur-navigation: 1rem;
-    --blur-code: 2px;
     --measure-shell: 82.5rem;
     --measure-shell-small: 33.75rem;
     --measure-shell-medium: 45rem;
@@ -133,9 +114,6 @@
     --measure-shell-wide: 71.25rem;
     --measure-reading: 45rem;
     --measure-copy: 38rem;
-    --measure-sidebar: 18.75rem;
-    --measure-feature-card: 34.375rem;
-    --measure-sponsors: 10rem;
     --size-avatar: 3rem;
     --size-backer-avatar: 3.375rem;
     --duration-feedback: 180ms;
@@ -144,7 +122,6 @@
     --z-decoration: -1;
     --z-content: 1;
     --z-navigation: 3;
-    --z-overlay: 100;
     --shadow-card: 0 .125rem .25rem rgb(0 0 0 / 7.5%);
     --shadow-avatar: 0 .5rem 1rem rgb(0 0 0 / 15%);
     --shadow-header: 7px 11px 55px rgb(0 0 0 / 30%);
@@ -154,35 +131,23 @@
 .theme-paper {
     --color-canvas: #fff;
     --color-surface: #f9f9fe;
-    --color-surface-raised: #f1eef5;
     --color-ink: var(--orchid-plum);
-    --color-ink-muted: var(--orchid-muted);
-    --color-accent: var(--orchid-accent);
     --color-accent-heading: var(--color-accent);
     --color-border: color-mix(in srgb, var(--color-ink) 16%, transparent);
-    --color-focus: var(--color-accent);
     --color-accent-soft: color-mix(in srgb, var(--color-accent) 8%, transparent);
 }
 
 .theme-dark {
     --color-canvas: var(--orchid-plum);
     --color-surface: var(--orchid-surface);
-    --color-surface-raised: var(--orchid-surface-raised);
     --color-ink: var(--orchid-ink);
-    --color-ink-muted: var(--orchid-muted);
-    --color-accent: var(--orchid-accent);
     --color-accent-heading: var(--orchid-heading);
     --color-border: color-mix(in srgb, var(--color-ink) 18%, transparent);
-    --color-focus: var(--color-accent);
     --color-accent-soft: color-mix(in srgb, var(--color-accent) 12%, transparent);
 }
 
-:root,
-.theme-paper,
-.theme-dark {
+:root {
     --color-header: linear-gradient(90deg, var(--orchid-surface), var(--orchid-surface-raised) 48.78%, var(--orchid-surface));
-    --color-control-hover: color-mix(in srgb, var(--color-accent) 20%, transparent);
-    --color-primary-hover: color-mix(in srgb, var(--color-accent) 85%, var(--color-ink));
     --color-decoration-start: color-mix(in srgb, var(--color-hero-start) 35%, transparent);
     --color-decoration-middle: color-mix(in srgb, var(--color-hero-mid) 35%, transparent);
     --color-decoration-end: color-mix(in srgb, var(--color-hero-end) 35%, transparent);

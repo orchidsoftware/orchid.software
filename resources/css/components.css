@@ -198,10 +198,6 @@
     opacity: 0;
 }
 
-.reveal.is-visible {
-    opacity: 1;
-}
-
 .lightbox {
     max-inline-size: calc(100% - var(--space-6));
     max-block-size: calc(100% - var(--space-6));
@@ -323,5 +319,94 @@
     .reveal.is-pending {
         opacity: 1;
         transition: none;
+    }
+}
+
+.display,
+.section-title {
+    font-size: var(--text-display);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+}
+
+.display {
+    margin-block-end: var(--space-4);
+}
+
+.section-title {
+    margin-block-end: var(--space-2);
+    text-wrap: wrap;
+}
+
+.section-title small {
+    font-size: var(--text-relative-small);
+}
+
+.line {
+    display: block;
+    font-size: inherit;
+}
+
+.intro-text,
+.section-description {
+    font-size: var(--text-lead);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-body);
+    text-wrap: balance;
+}
+
+.section-description {
+    color: var(--color-ink-muted);
+}
+
+.heading {
+    margin-block-end: var(--space-4);
+    font-size: var(--text-title);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-heading);
+    text-wrap: balance;
+}
+
+.action {
+    display: block;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: color var(--duration-feedback) var(--ease-out);
+
+    &:hover {
+        color: var(--color-accent);
+        text-decoration: underline;
+    }
+
+    & svg {
+        flex: none;
+        inline-size: var(--space-6);
+        block-size: var(--space-6);
+        padding-inline-end: var(--link-icon-inset);
+    }
+}
+
+@scope (.feature, .donation) {
+    .body {
+        display: flex;
+        flex-direction: column;
+        block-size: 100%;
+        padding: var(--space-7);
+    }
+
+    .actions {
+        margin-block-start: auto;
+    }
+}
+
+@media (min-width: 48rem) {
+    .display {
+        margin-block-end: var(--space-7);
+    }
+
+    .intro-text {
+        margin-block-end: var(--space-7);
+        padding-block-end: var(--space-7);
     }
 }

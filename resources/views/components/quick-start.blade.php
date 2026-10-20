@@ -1,0 +1,23 @@
+<div class="card feature quick-start">
+
+    <div class="body">
+
+        <div class="copy">
+            <h3 class="heading">Quick Start</h3>
+
+            <p>
+                Orchid ship with the necessary technical documentation and examples for a quick and
+                successful implementation
+            </p>
+        </div>
+
+        <div class="actions">
+            <a href="/en/docs" class="action link trailing">
+                Documentation
+                <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>

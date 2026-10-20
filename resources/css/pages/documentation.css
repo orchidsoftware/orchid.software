@@ -106,7 +106,7 @@
     }
 
     .link[aria-current="page"] {
-        background: var(--gradient-accent-text);
+        background: var(--gradient-accent);
         background-clip: text;
         -webkit-text-fill-color: transparent;
         text-shadow: var(--shadow-accent-text);
@@ -150,7 +150,7 @@
     }
 
     & :is(h2, h3) {
-        margin-block: var(--space-docs-heading) var(--space-docs-heading-bottom);
+        margin-block: var(--space-docs-heading) 15px;
     }
 
     & h1 {
@@ -220,7 +220,7 @@
     }
 
     & li {
-        padding-block-end: var(--space-docs-list-item);
+        padding-block-end: .33em;
     }
 
     & :not(pre) > code {
@@ -260,7 +260,7 @@
             border-radius: var(--radius-pill);
             background: var(--orchid-plum);
             color: var(--color-on-plum);
-            font-size: var(--text-note-mark);
+            font-size: 1.5em;
             font-weight: var(--weight-semibold);
             box-shadow: var(--shadow-docs-note-mark);
         }
@@ -281,7 +281,7 @@
         max-inline-size: calc(66% - var(--space-7));
         margin: var(--space-relative-unit) auto calc(2 * var(--space-relative-unit));
         color: var(--color-docs-muted);
-        font-size: var(--text-image-caption);
+        font-size: .775em;
         line-height: calc(var(--leading-body) * var(--space-relative-unit));
         text-align: center;
     }
@@ -379,7 +379,7 @@
     }
 
     .anchors [data-level="h4"] {
-        margin-inline-start: var(--size-sponsor-height);
+        margin-inline-start: 2.5rem;
         list-style-position: inside;
     }
 }
@@ -426,8 +426,8 @@
 
     .logo {
         display: block;
-        inline-size: var(--size-sponsor);
-        block-size: var(--size-sponsor-height);
+        inline-size: 9.375rem;
+        block-size: 2.5rem;
         margin: var(--space-4);
         border-radius: var(--radius-docs);
         object-fit: contain;
@@ -445,7 +445,7 @@
     background: var(--color-canvas);
     color: var(--color-ink);
     box-shadow: var(--shadow-avatar);
-    aspect-ratio: var(--ratio-docs-banner);
+    aspect-ratio: 4.5 / 1;
     background: var(--gradient-docs-banner);
 
     & .art {
@@ -607,7 +607,7 @@
     }
 
     .docs-menu {
-        max-inline-size: var(--measure-docs-menu);
+        max-inline-size: 20rem;
         padding-inline: var(--space-7);
         overflow-x: visible;
         white-space: normal;
@@ -667,6 +667,6 @@
 @media (min-width: 87.5rem) {
     .sponsors {
         display: block;
-        flex: 0 0 var(--measure-docs-sponsors);
+        flex: 0 0 14.375rem;
     }
 }

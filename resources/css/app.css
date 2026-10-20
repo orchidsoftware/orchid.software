@@ -1,23 +1,12 @@
 @layer reset, vendor, tokens, base, compositions, components, pages, integrations;
-
 @import "@docsearch/css" layer(vendor);
-
 @import "./tokens.css" layer(tokens);
-
 @import "./reset.css" layer(reset);
-
 @import "./base.css" layer(base);
-
 @import "./compositions.css" layer(compositions);
-
 @import "./components.css" layer(components);
-
 @import "./pages/home.css" layer(pages);
-
 @import "./pages/documentation.css" layer(pages);
-
 @import "./pages/community.css" layer(pages);
-
 @import "./pages/design-system.css" layer(pages);
-
 @import "./integrations.css" layer(integrations);

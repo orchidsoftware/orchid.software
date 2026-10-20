@@ -1,4 +1,5 @@
 .catalog {
+    --text-caption: .8125rem;
     min-inline-size: 0;
     margin-block-end: var(--space-7);
 }
@@ -372,7 +373,7 @@
     }
 
     .brand-logo {
-        inline-size: var(--measure-sponsors);
+        inline-size: 10rem;
         margin-block-end: var(--space-4);
     }
 
