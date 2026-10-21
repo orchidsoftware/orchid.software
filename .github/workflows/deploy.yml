@@ -6,15 +6,26 @@ on:
       - master
   schedule:
     - cron: '0 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: github-pages-deployment
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
         with:
           persist-credentials: false
+
+      - name: Check deployment access
+        timeout-minutes: 1
+        env:
+          DEPLOY_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: bash .github/scripts/check-deploy-access.sh
 
       - name: Setup PHP 🔧
         uses: shivammathur/setup-php@v2
@@ -52,8 +63,8 @@ jobs:
           php artisan make:sitemap
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: storage/app/public
+          token: ${{ secrets.ACCESS_TOKEN }}
+          branch: gh-pages
+          folder: storage/app/public
