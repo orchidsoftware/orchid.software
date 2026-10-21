@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Rows | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -382,8 +382,8 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>The <code>Row</code> layout serves as a basic layout that combines all the necessary <a href="/en/docs/field">elements of a form</a>.
-It is useful for creating short and concise forms, such as when you want to show one or two fields.</p>
+                            <head></head><body><p>The <code>Row</code> layout serves as a basic layout that combines all the necessary <a href="/en/docs/field">elements of a form</a>. It is
+useful for creating short and concise forms, such as when you want to show one or two fields.</p>
 <p>Here is an example of how to use the <code>Row</code> layout:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
@@ -442,11 +442,14 @@ It is useful for creating short and concise forms, such as when you want to show
 }
 </code></pre>
 <blockquote>
-<p><strong>Note</strong> that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may want to consider using other layout types such as <code>Tabs</code> or <code>Accordion</code>.</p>
+<p><strong>Note</strong> that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may
+want to consider using other layout types such as <code>Tabs</code> or <code>Accordion</code>.</p>
 </blockquote>
 <h2><a href='#accessing-screen-data' id='accessing-screen-data'>Accessing Screen Data</a></h2>
-<p>The <code>Row</code> layout has access to data from the screen through the <code>query</code> property. This allows you to use data from the screen in the fields of the Row layout.</p>
-<p>For example, you can use the <code>query</code> property to conditionally show or hide a field based on the presence of a specific key:</p>
+<p>The <code>Row</code> layout has access to data from the screen through the <code>query</code> property. This allows you to use data from the
+screen in the fields of the Row layout.</p>
+<p>For example, you can use the <code>query</code> property to conditionally show or hide a field based on the presence of a specific
+key:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
@@ -471,7 +474,8 @@ It is useful for creating short and concise forms, such as when you want to show
     }
 }
 </code></pre>
-<p>In this example, the <code>appointment_time</code> field will only be displayed if the screen&rsquo;s <code>query</code> method returns <code>true</code> for the <code>available</code> key:</p>
+<p>In this example, the <code>appointment_time</code> field will only be displayed if the screen&rsquo;s <code>query</code> method returns <code>true</code> for
+the <code>available</code> key:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data
  *
@@ -491,7 +495,9 @@ It is useful for creating short and concise forms, such as when you want to show
 <pre><code data-lang="php" class="notranslate"><span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'user.name'</span>);
 </code></pre>
 <h2><a href='#reusing-layouts' id='reusing-layouts'>Reusing Layouts</a></h2>
-<p>Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.</p>
+<p>Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to
+use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and
+defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.</p>
 <p>Here is an example of a reusable <code>AddressLayout</code> class that takes a prefix and title as arguments:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 

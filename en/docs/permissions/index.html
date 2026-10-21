@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Permissions | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -400,14 +400,20 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>In Orchid, access control is managed through <strong>permissions</strong> and <strong>roles</strong>. Permissions define access rights, which can be assigned to a user either directly or through roles, simplifying access management.</p>
-<p>It is generally better to use <strong>roles</strong> to group permissions, as this makes managing user rights easier. Instead of assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if needed, permissions can also be assigned directly to the user.</p>
+                            <head></head><body><p>In Orchid, access control is managed through <strong>permissions</strong> and <strong>roles</strong>. Permissions define access rights, which can
+be assigned to a user either directly or through roles, simplifying access management.</p>
+<p>It is generally better to use <strong>roles</strong> to group permissions, as this makes managing user rights easier. Instead of
+assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if
+needed, permissions can also be assigned directly to the user.</p>
 <blockquote>
-<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still necessary for fine-grained access control, and permissions work in conjunction with them.</p>
+<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still
+necessary for fine-grained access control, and permissions work in conjunction with them.</p>
 </blockquote>
-<p>Although roles simplify management, the focus should be on <strong>permissions</strong>. Application logic should check access based on permissions, not roles, using the <code>can</code> methods.</p>
+<p>Although roles simplify management, the focus should be on <strong>permissions</strong>. Application logic should check access based
+on permissions, not roles, using the <code>can</code> methods.</p>
 <blockquote>
-<p><strong>Important:</strong> Access should always be checked through <strong>permissions</strong>, not <strong>roles</strong>. Roles serve as a convenience for grouping permissions, but access should always be checked based on permissions, not roles.</p>
+<p><strong>Important:</strong> Access should always be checked through <strong>permissions</strong>, not <strong>roles</strong>. Roles serve as a convenience
+for grouping permissions, but access should always be checked based on permissions, not roles.</p>
 </blockquote>
 <h2><a href='#usage' id='usage'>Usage</a></h2>
 <p>Method <code>hasAccess</code> will strictly require passed permission to be valid to grant access.</p>
@@ -478,8 +484,8 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
 }
 </code></pre>
 <h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>
-<p>Each created screen already has a built-in permission check set using method
-<code>permission</code>, which accepts both an array and a string value for verification:</p>
+<p>Each created screen already has a built-in permission check set using method <code>permission</code>, which accepts both an array
+and a string value for verification:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Screen</span>;
@@ -495,12 +501,13 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
             <span class="hl-value">'systems.history'</span>
         ];
     }
-        
+
     <span class="hl-comment">// ...</span>
 }
 </code></pre>
 <p>If several keys are listed, access will be granted if the user has at least one permission.</p>
-<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can override this response, for example, to redirect a payment page or return a different response:</p>
+<p>If there is no access, the static method <code>unaccessed</code> will be called, which by default will show a <code>403</code> error. You can
+override this response, for example, to redirect a payment page or return a different response:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">RedirectResponse</span>;
 
 <span class="hl-comment">/**
@@ -512,8 +519,9 @@ $role<span class="hl-delimeter">-&gt;</span><span class="hl-function">getUsers</
 }
 </code></pre>
 <h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
-<p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their availability for routes.
-To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and the traditional structure, add it to <code>app/Http/Kernel.php</code>:</p>
+<p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their
+availability for routes. To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and the traditional structure, add
+it to <code>app/Http/Kernel.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The application's route middleware.
  *
@@ -526,8 +534,10 @@ To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and 
     <span class="hl-value">'access'</span> <span class="hl-operator">=&gt;</span> \Orchid\Platform\Http\Middleware\<span class="hl-type">Access</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ];
 </code></pre>
-<p>If your application uses the Laravel 11+ bootstrap (with <code>bootstrap/app.php</code>), register the middleware alias there instead, using the <code>withMiddleware</code> callback.</p>
-<p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in <code>Auth::user()-&gt;hasAccess($string);</code></p>
+<p>If your application uses the Laravel 11+ bootstrap (with <code>bootstrap/app.php</code>), register the middleware alias there
+instead, using the <code>withMiddleware</code> callback.</p>
+<p>After that, it can be used for any route definitions, by passing the parameter <code>access:my-permission</code>, just like in
+<code>Auth::user()-&gt;hasAccess($string);</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/stories'</span>, <span class="hl-type">StoriesScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">middleware</span>(<span class="hl-value">'access:systems.history'</span>);
 </code></pre>
@@ -540,7 +550,8 @@ To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and 
 });
 </code></pre>
 <h2><a href='#check-in-blade' id='check-in-blade'>Check-in Blade</a></h2>
-<p>For applications that rely on Blade templating to render, it will be convenient to add <a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;Custom If Statements&rdquo;</a> as follows:</p>
+<p>For applications that rely on Blade templating to render, it will be convenient to add
+<a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;Custom If Statements&rdquo;</a> as follows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Blade</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Auth</span>;
 
@@ -564,17 +575,15 @@ To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and 
 </code></pre>
 <p>Once the custom conditional has been defined, you can use it within your templates:</p>
 <pre><code data-lang="html" class="notranslate">@hasAccess('platform.index')
-    <span class="hl-comment">&lt;!-- User has permission for the 'platform.index' action --&gt;</span>
+<span class="hl-comment">&lt;!-- User has permission for the 'platform.index' action --&gt;</span>
 @elsehasAccess('platform.other')
-    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index',
+<span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index',
          but has permission for 'platform.other' --&gt;</span>
 @else
-    <span class="hl-comment">&lt;!-- User doesn't have permission for both 'platform.index'
+<span class="hl-comment">&lt;!-- User doesn't have permission for both 'platform.index'
          and 'platform.other' --&gt;</span>
-@endhasAccess
-
-@unlesshasAccess('platform.index')
-    <span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index' --&gt;</span>
+@endhasAccess @unlesshasAccess('platform.index')
+<span class="hl-comment">&lt;!-- User doesn't have permission for 'platform.index' --&gt;</span>
 @endhasAccess
 </code></pre>
 <h2><a href='#creating-an-admin-user-via-console' id='creating-an-admin-user-via-console'>Creating an Admin User via Console</a></h2>
@@ -584,7 +593,8 @@ To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and 
 <p>To give the existing user the maximum permissions, run with the <code>--id</code> option:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:admin --id=<span class="hl-number">1</span>
 </code></pre>
-<p>If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first specify Orchid to use your model by adding the following code to the service provider:</p>
+<p>If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first
+specify Orchid to use your model by adding the following code to the service provider:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">AppServiceProvider</span> <span class="hl-keyword">extends</span> <span class="hl-template">ServiceProvider</span>
@@ -611,11 +621,12 @@ To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and 
     ]);
 }
 </code></pre>
-<p>Now you can modify this method as per your requirements, and when executing the creation command, this method will be executed.</p>
+<p>Now you can modify this method as per your requirements, and when executing the creation command, this method will be
+executed.</p>
 <h2><a href='#user-impersonation' id='user-impersonation'>User Impersonation</a></h2>
-<p>The <code>Orchid\Access\Impersonation</code> class provides developers with convenient functionality for logging in as another user.
-It allows administrators to impersonate other users to view and perform actions on their behalf.
-This is useful for troubleshooting and resolving issues reported by users.</p>
+<p>The <code>Orchid\Access\Impersonation</code> class provides developers with convenient functionality for logging in as another
+user. It allows administrators to impersonate other users to view and perform actions on their behalf. This is useful
+for troubleshooting and resolving issues reported by users.</p>
 <p>To switch to another user, use the <code>loginAs()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
 
@@ -631,7 +642,8 @@ This is useful for troubleshooting and resolving issues reported by users.</p>
     <span class="hl-comment">// The user is impersonating another user</span>
 }
 </code></pre>
-<p>The <code>impersonator()</code> method returns information about the original user. If no impersonation has been performed, the method will return <code>null</code>:</p>
+<p>The <code>impersonator()</code> method returns information about the original user. If no impersonation has been performed, the
+method will return <code>null</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Get information about the original user</span>
 $impersonator <span class="hl-operator">=</span> <span class="hl-type">Impersonation</span><span class="hl-delimeter">::</span><span class="hl-function">impersonator</span>();
 </code></pre>

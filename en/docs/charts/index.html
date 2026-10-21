@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Charts | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -403,8 +403,8 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command.
-By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code> directory:</p>
+                            <head></head><body><p>Chart layout may be generated using the <code>orchid:chart</code> Artisan command. By default, all new metrics will be placed in
+the <code>app/Orchid/Layouts</code> directory:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:chart ChartsLayout
 </code></pre>
 <p>Once your chart class has been generated, you&rsquo;re ready to customize it. Example:</p>
@@ -416,7 +416,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 {
     <span class="hl-comment">/**
      * Available options:
-     * 'bar', 'line', 
+     * 'bar', 'line',
      * 'pie', 'percentage'
      *
      * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
@@ -424,7 +424,8 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
     <span class="hl-keyword">protected</span> $type <span class="hl-operator">=</span> <span class="hl-value">'bar'</span>;
 }
 </code></pre>
-<p>By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
+<p>By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we
+need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
     $dataset <span class="hl-operator">=</span> [
@@ -444,7 +445,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
             <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">15</span>, <span class="hl-number">20</span>, -<span class="hl-number">3</span>, -<span class="hl-number">15</span>, <span class="hl-number">58</span>, <span class="hl-number">12</span>, -<span class="hl-number">17</span>, <span class="hl-number">37</span>],
         ],
     ];
-    
+
     <span class="hl-keyword">return</span> [
         <span class="hl-value">'dataset'</span> <span class="hl-operator">=&gt;</span> $dataset,
     ];
@@ -507,7 +508,8 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 <span class="hl-keyword">protected</span> $export <span class="hl-operator">=</span> <span class="hl-constant">true</span>;
 </code></pre>
 <h3><a href='#adding-markers' id='adding-markers'>Adding Markers</a></h3>
-<p>Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the <code>markers</code> method:</p>
+<p>Some graphs are difficult to interpret without more information. For example, show the average value. For this you can
+define the <code>markers</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * To highlight certain values on the Y axis, markers can be set.
  * They will show as dashed lines on the graph.
@@ -587,7 +589,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 <span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">BasicLineChart</span> <span class="hl-keyword">extends</span> <span class="hl-template">Chart</span>
-{   
+{
     <span class="hl-comment">/**
      * Available options:
      * 'bar', 'line',
@@ -629,7 +631,8 @@ $end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span
 <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end, <span class="hl-value">'updated_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>)
 </code></pre>
 <h3><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h3>
-<p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions when building your metric.</p>
+<p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions when
+building your metric.</p>
 <p>The <code>average</code> method may be used to calculate the average of a given column</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">averageByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),
 </code></pre>

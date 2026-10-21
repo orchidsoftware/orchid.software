@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Configuration | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -441,31 +441,39 @@
     </nav>
                             <head></head><body><p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
 <blockquote>
-<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Run <code>php artisan config:clear</code> so your changes take effect. Prefer reading values via <code>config('platform.key')</code> and avoid using <code>env()</code> directly in application code.</p>
+<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Run
+<code>php artisan config:clear</code> so your changes take effect. Prefer reading values via <code>config('platform.key')</code> and avoid
+using <code>env()</code> directly in application code.</p>
 </blockquote>
 <p>In this section, we will delve into the configuration file and provide a detailed description of each parameter.</p>
 <h2><a href='#domain' id='domain'>Domain</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_DOMAIN'</span>, <span class="hl-keyword"><span class="hl-constant">null</span></span>),
 </code></pre>
-<p>For many projects, the address of the location of the administration panel plays an important role. For example, the application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
-<p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration file:</p>
+<p>For many projects, the address of the location of the administration panel plays an important role. For example, the
+application is located at <code>example.com</code>, and the platform is at <code>admin.example.com</code> or on a third-party domain.</p>
+<p>To specify the address you would like to use for the platform, you can set the <code>domain</code> parameter in the configuration
+file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'domain'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'admin.example.com'</span>,
 </code></pre>
-<p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
+<p>It is important to note that your web server settings must be configured correctly for this to work. For example, if you
+are using Apache, you will need to set up a virtual host for the domain you specified in the configuration file.</p>
 <h2><a href='#prefix' id='prefix'>Prefix</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_PREFIX'</span>, <span class="hl-value">'/admin'</span>),
 </code></pre>
-<p>The <code>prefix</code> parameter defines the URL path segment for the admin panel. The default is <code>/admin</code>, so the login page is available at <code>https://example.com/admin/login</code>. You can change it to any path, such as <code>dashboard</code> or <code>panel</code>.</p>
-<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be <code>https://example.com/dashboard/login</code>:</p>
+<p>The <code>prefix</code> parameter defines the URL path segment for the admin panel. The default is <code>/admin</code>, so the login page is
+available at <code>https://example.com/admin/login</code>. You can change it to any path, such as <code>dashboard</code> or <code>panel</code>.</p>
+<p>For example, if you set the prefix to <code>dashboard</code>, the URL for the admin login page would be
+<code>https://example.com/dashboard/login</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'/dashboard'</span>,
 </code></pre>
 <blockquote>
-<p><strong>Note:</strong> The router expects a leading slash when using the default; the config default is <code>/admin</code>. Changing the prefix affects all dashboard routes, so update any links or redirects that reference the old path.</p>
+<p><strong>Note:</strong> The router expects a leading slash when using the default; the config default is <code>/admin</code>. Changing the
+prefix affects all dashboard routes, so update any links or redirects that reference the old path.</p>
 </blockquote>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'middleware'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'public'</span>  <span class="hl-operator">=&gt;</span> [
-        <span class="hl-value">'web'</span>, 
+        <span class="hl-value">'web'</span>,
         <span class="hl-value">'cache.headers:private;must_revalidate;etag'</span>
     ],
     <span class="hl-value">'private'</span> <span class="hl-operator">=&gt;</span> [
@@ -475,33 +483,47 @@
     ],
 ],
 </code></pre>
-<p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
-<p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The <code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the dashboard page.</p>
-<p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a specific IP address range or a middleware that checks for a valid API token.</p>
+<p>The <code>middleware</code> parameter allows you to add or change the middleware (intermediate layers) used for the admin panel. By
+default, the platform comes with two groups of middleware: <code>public</code> and <code>private</code>.</p>
+<p>The <code>public</code> middleware is applied to routes that can be accessed by an unauthorized user, such as the login page. The
+<code>private</code> middleware, on the other hand, is applied to routes that can only be accessed by authorized users, such as the
+dashboard page.</p>
+<p>You can add as many new middleware as you like. For example, you can add a middleware that filters requests from a
+specific IP address range or a middleware that checks for a valid API token.</p>
 <h2><a href='#guard' id='guard'>Guard</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'guard'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'AUTH_GUARD'</span>, <span class="hl-value">'web'</span>),
 </code></pre>
-<p>The <code>guard</code> option specifies which Laravel <a href="https://laravel.com/docs/authentication">authentication guard</a> is used when accessing the dashboard. Use this when you have multiple user types, such as customers and admins, with separate guards. The default is <code>web</code>.</p>
+<p>The <code>guard</code> option specifies which Laravel <a href="https://laravel.com/docs/authentication">authentication guard</a> is used when
+accessing the dashboard. Use this when you have multiple user types, such as customers and admins, with separate guards.
+The default is <code>web</code>.</p>
 <p>For more on using a custom guard with Orchid, see <a href="/en/docs/authentication#guard">Authentication</a>.</p>
 <h2><a href='#login-page' id='login-page'>Login Page</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
-<p>The <code>auth</code> parameter controls whether the package uses its own simple login interface or not. By default, it is set to <code>true</code>, which means the platform will use its own login interface.</p>
-<p>If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false and use a package like <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a> or roll your own login interface.</p>
-<p>To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you roll your own login interface, you will need to create the necessary controllers, views, and routes for the login process.</p>
+<p>The <code>auth</code> parameter controls whether the package uses its own simple login interface or not. By default, it is set to
+<code>true</code>, which means the platform will use its own login interface.</p>
+<p>If you require more advanced features such as password recovery or two-factor authentication, you can set auth to false
+and use a package like <a href="https://laravel.com/docs/authentication#authentication-quickstart">Jetstream</a> or roll your own
+login interface.</p>
+<p>To use a package like Jetstream, you will need to install it and configure it according to its documentation. If you
+roll your own login interface, you will need to create the necessary controllers, views, and routes for the login
+process.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'auth'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">false</span>,
 </code></pre>
 <h2><a href='#home-page' id='home-page'>Home Page</a></h2>
-<p>The <code>index</code> parameter controls the main page of the admin panel that the user will see when they first log in or click on the logo or links in the navigation bar.</p>
+<p>The <code>index</code> parameter controls the main page of the admin panel that the user will see when they first log in or click
+on the logo or links in the navigation bar.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform.main'</span>,
 </code></pre>
 <p>The default value for this parameter is <code>platform.main</code>, which corresponds to the main dashboard page of the platform.</p>
-<p>You can change this to any other route you have defined in your application. For example, if you want to redirect users to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
+<p>You can change this to any other route you have defined in your application. For example, if you want to redirect users
+to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
 </code></pre>
 <p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
 <h2><a href='#profile-route' id='profile-route'>Profile Route</a></h2>
-<p>The <code>profile</code> option defines the route name for the user profile page. When users click their profile or avatar, they will be sent to this route.</p>
+<p>The <code>profile</code> option defines the route name for the user profile page. When users click their profile or avatar, they
+will be sent to this route.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'profile'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform.profile'</span>,
 </code></pre>
 <p>You may change this to a custom route name if you have defined your own profile screen.</p>
@@ -511,8 +533,10 @@
     <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [],
 ],
 </code></pre>
-<p>The <code>resource</code> parameter allows you to add your own stylesheets or JavaScript scripts to the admin panel. You can globally add paths to the corresponding arrays in the configuration file.</p>
-<p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the <code>stylesheets</code> array:</p>
+<p>The <code>resource</code> parameter allows you to add your own stylesheets or JavaScript scripts to the admin panel. You can
+globally add paths to the corresponding arrays in the configuration file.</p>
+<p>For example, if you want to include a custom stylesheet on every page of the admin panel, you can add the path to the
+<code>stylesheets</code> array:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
         <span class="hl-value">'/path/to/custom.css'</span>
@@ -525,7 +549,8 @@
 </code></pre>
 <p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#vite' id='vite'>Vite</a></h2>
-<p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they are included on Orchid pages:</p>
+<p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they
+are included on Orchid pages:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'resources/js/app.js'</span>,
     <span class="hl-value">'resources/css/app.css'</span>,
@@ -533,27 +558,32 @@
 </code></pre>
 <p>See <a href="/en/docs/javascript">JavaScript and Vite</a> for details.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
-<p>To change some templates, you do not need to publish the entire package. You can customize a part of the user interface to specify a logo, accompanying documents, and more.</p>
+<p>To change some templates, you do not need to publish the entire package. You can customize a part of the user interface
+to specify a logo, accompanying documents, and more.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'template'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'header'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
     <span class="hl-value">'footer'</span> <span class="hl-operator">=&gt;</span> <span class="hl-keyword"><span class="hl-constant">null</span></span>,
 ],
 </code></pre>
-<p>For a full guide on customizing the logo, header, footer, and overall look of the Orchid, see <a href="/en/docs/brand">Branding</a>.</p>
+<p>For a full guide on customizing the logo, header, footer, and overall look of the Orchid, see
+<a href="/en/docs/brand">Branding</a>.</p>
 <h2><a href='#attachment-defaults' id='attachment-defaults'>Attachment Defaults</a></h2>
-<p>Orchid stores uploaded files using Laravel&rsquo;s filesystem. You can set the default disk and an optional custom filename generator:</p>
+<p>Orchid stores uploaded files using Laravel&rsquo;s filesystem. You can set the default disk and an optional custom filename
+generator:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'attachment'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'disk'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_FILESYSTEM_DISK'</span>, <span class="hl-value">'public'</span>),
     <span class="hl-value">'generator'</span> <span class="hl-operator">=&gt;</span> \Orchid\Attachment\Engines\<span class="hl-type">Generator</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ],
 </code></pre>
-<p>Use the <code>disk</code> key to point to any disk defined in <code>config/filesystems.php</code>. The <code>generator</code> class is used to create unique filenames for new uploads.</p>
+<p>Use the <code>disk</code> key to point to any disk defined in <code>config/filesystems.php</code>. The <code>generator</code> class is used to create
+unique filenames for new uploads.</p>
 <h2><a href='#icons' id='icons'>Icons</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'bs'</span>  <span class="hl-operator">=&gt;</span> \Orchid\Support\<span class="hl-type">BootstrapIconsPath</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
 ],
 </code></pre>
-<p>Orchid uses SVG icon sets that you can extend or override. The <code>icons</code> array maps a short name to a path where SVG files are stored. The default set <code>bs</code> points to Bootstrap Icons.</p>
+<p>Orchid uses SVG icon sets that you can extend or override. The <code>icons</code> array maps a short name to a path where SVG files
+are stored. The default set <code>bs</code> points to Bootstrap Icons.</p>
 <p>To add a custom set, add an entry with the name and path:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'bs'</span>  <span class="hl-operator">=&gt;</span> \Orchid\Support\<span class="hl-type">BootstrapIconsPath</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
@@ -562,7 +592,8 @@
 </code></pre>
 <p>In layouts and actions, reference an icon by the set name and the file name (without <code>.svg</code>): for example, <code>-&gt;icon('bs.heart')</code> or <code>-&gt;icon('fa.user')</code>. For more, see <a href="/en/docs/icons">Icons</a>.</p>
 <h2><a href='#notifications' id='notifications'>Notifications</a></h2>
-<p>The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling interval:</p>
+<p>The notification bell in the navigation bar polls for new notifications. You can disable it or change the polling
+interval:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'notifications'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'enabled'</span>  <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
     <span class="hl-value">'interval'</span> <span class="hl-operator">=&gt;</span> <span class="hl-number">60</span>,
@@ -570,7 +601,9 @@
 </code></pre>
 <p><code>interval</code> is the number of seconds between polling requests.</p>
 <h2><a href='#search' id='search'>Search</a></h2>
-<p>The sidebar search feature uses <a href="https://laravel.com/docs/scout">Laravel Scout</a> to search through the models you list here. Each model must be searchable (using Scout&rsquo;s <code>Searchable</code> trait) and have a <a href="/en/docs/presenters">Presenter</a> that implements the search display interface.</p>
+<p>The sidebar search feature uses <a href="https://laravel.com/docs/scout">Laravel Scout</a> to search through the models you list
+here. Each model must be searchable (using Scout&rsquo;s <code>Searchable</code> trait) and have a <a href="/en/docs/presenters">Presenter</a> that
+implements the search display interface.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'search'</span> <span class="hl-operator">=&gt;</span> [
     \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
     \App\Models\<span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
@@ -581,7 +614,8 @@
 <p><strong>Tip.</strong> For the full setup (Scout, Presenter, and display), see <a href="/en/docs/global-search">Global Search</a>.</p>
 </blockquote>
 <h2><a href='#turbo-hotwire' id='turbo-hotwire'>Turbo (Hotwire)</a></h2>
-<p>Turbo Drive powers the smooth, app-like navigation in the dashboard. You can tune caching and how the page updates after actions:</p>
+<p>Turbo Drive powers the smooth, app-like navigation in the dashboard. You can tune caching and how the page updates after
+actions:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'turbo'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'cache'</span>          <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
     <span class="hl-value">'prefetch'</span>       <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
@@ -589,22 +623,27 @@
     <span class="hl-value">'refresh-scroll'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'preserve'</span>,
 ],
 </code></pre>
-<p>For screens that use toggles or other controls that update the DOM, <code>refresh-method</code> set to <code>morph</code> and <code>refresh-scroll</code> to <code>preserve</code> often give the best experience. See the <a href="/en/docs/screens">Screens</a> and <a href="/en/docs/javascript">JavaScript</a> documentation for more on Turbo.</p>
+<p>For screens that use toggles or other controls that update the DOM, <code>refresh-method</code> set to <code>morph</code> and <code>refresh-scroll</code>
+to <code>preserve</code> often give the best experience. See the <a href="/en/docs/screens">Screens</a> and <a href="/en/docs/javascript">JavaScript</a>
+documentation for more on Turbo.</p>
 <h2><a href='#workspace' id='workspace'>Workspace</a></h2>
 <p>The workspace option sets the template that wraps screen content&mdash;either a compact width or full width:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'workspace'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform::workspace.compact'</span>,
 </code></pre>
 <p>Options: <code>platform::workspace.compact</code>, <code>platform::workspace.full</code>.</p>
 <h2><a href='#fallback-page' id='fallback-page'>Fallback Page</a></h2>
-<p>When a request does not match any Orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your own routes under the same domain and prefix and want to handle 404&nbsp;responses yourself:</p>
+<p>When a request does not match any Orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your
+own routes under the same domain and prefix and want to handle 404&nbsp;responses yourself:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'fallback'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#prevents-abandonment' id='prevents-abandonment'>Prevents Abandonment</a></h2>
-<p>When enabled, Orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally here. Individual screens can override this via <code>needPreventsAbandonment()</code>:</p>
+<p>When enabled, Orchid can warn users before leaving a page if they have unsaved changes. You can disable it globally
+here. Individual screens can override this via <code>needPreventsAbandonment()</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'prevents_abandonment'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#model-classes' id='model-classes'>Model Classes</a></h2>
-<p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
+<p>The desire to change the behavior of some classes from the standard delivery is quite normal. For the platform to use
+your model classes instead of its own, it is necessary to register their substitution in advance using:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Providers;
 
 <span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
@@ -620,7 +659,7 @@
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
     {
         <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">useModel</span>(
-            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, 
+            \Orchid\Platform\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>
         );
     }
@@ -629,19 +668,23 @@
 <h2><a href='#service-provider' id='service-provider'>Service Provider</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'provider'</span> <span class="hl-operator">=&gt;</span> \App\Orchid\<span class="hl-type">PlatformProvider</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 </code></pre>
-<p>The <code>provider</code> value is the class name of the service provider where the platform registers its menu, permissions, and other bootstrap logic. By default, this is <code>\App\Orchid\PlatformProvider::class</code>.</p>
-<p>You only need to change this if you move Orchid&rsquo;s bootstrap (for example, the <code>PlatformProvider</code> class) to another namespace. In that case, point this option to your custom provider class.</p>
+<p>The <code>provider</code> value is the class name of the service provider where the platform registers its menu, permissions, and
+other bootstrap logic. By default, this is <code>\App\Orchid\PlatformProvider::class</code>.</p>
+<p>You only need to change this if you move Orchid&rsquo;s bootstrap (for example, the <code>PlatformProvider</code> class) to another
+namespace. In that case, point this option to your custom provider class.</p>
 <blockquote>
-<p><strong>Note.</strong> The provider class should extend <code>Orchid\Platform\OrchidServiceProvider</code> and implement <code>menu()</code> and, if needed, <code>permissions()</code>.</p>
+<p><strong>Note.</strong> The provider class should extend <code>Orchid\Platform\OrchidServiceProvider</code> and implement <code>menu()</code> and, if
+needed, <code>permissions()</code>.</p>
 </blockquote>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template override mechanism. This approach works the same for all Laravel packages, not just Orchid.</p>
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template
+override mechanism. This approach works the same for all Laravel packages, not just Orchid.</p>
 <blockquote>
-<p>&#128680; <strong>Alert!</strong>
-Overridden templates do not receive updates or bug fixes.
-Think of this as turning off the autopilot.</p>
+<p>&#128680; <strong>Alert!</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
 </blockquote>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the original templates.</p>
+<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the
+<code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the
+original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at
 <code>/resources/views/vendor/platform/partials/search.blade.php</code>. An illustrative example:</p>
 <pre><code data-lang="php" class="notranslate">your-project/
@@ -651,7 +694,7 @@ Think of this as turning off the autopilot.</p>
       └─ vendor/
          └─ platform/
             └─ partials/
-                └─ search<span class="hl-delimeter">.</span>blade<span class="hl-delimeter">.</span>php          
+                └─ search<span class="hl-delimeter">.</span>blade<span class="hl-delimeter">.</span>php
 </code></pre>
 </body>
 

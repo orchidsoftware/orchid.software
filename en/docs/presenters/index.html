@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Presenters | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -382,9 +382,9 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>Presenters are classes that wrap objects and provide additional functionality to them.
-In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized.
-You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.</p>
+                            <head></head><body><p>Presenters are classes that wrap objects and provide additional functionality to them. In Orchid, presenters are used to
+format and present data consistently and help keep the views clean and organized. You can move all of the formatting and
+presentation logic into the presenter class, which maintains separation of concerns.</p>
 <h2><a href='#creating-a-presenter' id='creating-a-presenter'>Creating A Presenter</a></h2>
 <p>In this example, let&rsquo;s say we have a &ldquo;Customer&rdquo; model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
@@ -423,15 +423,17 @@ $customer <span class="hl-operator">=</span> <span class="hl-constant">new</span
     <span class="hl-value">'firstName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>,
     <span class="hl-value">'lastName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Chernyaev'</span>
 ]);
-    
+
 $presenter <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>($customer);
 
 $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullName</span>();
 </code></pre>
 <blockquote>
-<p><strong>Note</strong> that the representative receives the <code>firstName</code> and <code>lastName</code> properties of the model because it does not have these properties.</p>
+<p><strong>Note</strong> that the representative receives the <code>firstName</code> and <code>lastName</code> properties of the model because it does not
+have these properties.</p>
 </blockquote>
-<p>Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this creation in the model:</p>
+<p>Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this
+creation in the model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -443,7 +445,7 @@ $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullN
         <span class="hl-value">'firstName'</span>,
         <span class="hl-value">'lastName'</span>
     ];
-    
+
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>(): <span class="hl-type">CustomerPresenter</span>
     {
         <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">CustomerPresenter</span>(<span class="hl-this-keyword">$this</span>);

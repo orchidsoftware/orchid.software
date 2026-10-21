@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Controllers | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,8 +372,12 @@
                             </div>
 
 
-                                                        <head></head><body><p>You usually do not need to create custom controllers to do anything outside the package&rsquo;s scope since you can place <a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
-<p>But if, for example, you already have an implementation of the admin panel and you already have many of your controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in small increments.</p>
+                                                        <head></head><body><p>You usually do not need to create custom controllers to do anything outside the package&rsquo;s scope since you can place
+<a href="/en/docs/custom-template/#views">your views on the screen</a>, no matter how complex they are.</p>
+<p>But if, for example, you already have an implementation of the admin panel and you already have many of your
+controllers, then rewriting the working code is not at all necessary. By following the steps below, you will understand
+how to show them in the Orchid interface. Ultimately, this will shorten the transition time and allow you to upgrade in
+small increments.</p>
 <p>To create a new controller, use the <code>make:controller</code> Artisan command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:controller OrchidController
 </code></pre>
@@ -391,7 +395,8 @@
 }
 
 </code></pre>
-<p>The <code>index</code> method of your controller should return a view template, which will be rendered using the Orchid package&rsquo;s style. Here is an example of a view template:</p>
+<p>The <code>index</code> method of your controller should return a view template, which will be rendered using the Orchid package&rsquo;s
+style. Here is an example of a view template:</p>
 <pre><code data-lang="php" class="notranslate">@<span class="hl-keyword"><span class="hl-function">extends</span></span>(<span class="hl-value">'platform::dashboard'</span>)
 
 @<span class="hl-function">section</span>(<span class="hl-value">'title'</span>,<span class="hl-value">'title'</span>)
@@ -409,7 +414,8 @@
     &lt;/div&gt;
 @stop
 </code></pre>
-<p>To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file (for example, <code>routes/platform</code>). This will ensure that common rules such as authorization apply to the controller.</p>
+<p>To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file
+(for example, <code>routes/platform</code>). This will ensure that common rules such as authorization apply to the controller.</p>
 <p>Here is an example of how to declare a route for the <code>OrchidController</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Http\Controllers\<span class="hl-type">OrchidController</span>;
 

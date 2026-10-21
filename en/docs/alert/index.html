@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Notifications | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -388,14 +388,18 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p><strong>Notifications</strong> are a powerful tool that allows you to keep your users informed and engaged with your app. They can be used to alert users of important events, such as the completion of a long process or the arrival of a new message. In this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
+                            <head></head><body><p><strong>Notifications</strong> are a powerful tool that allows you to keep your users informed and engaged with your app. They can be
+used to alert users of important events, such as the completion of a long process or the arrival of a new message. In
+this guide, we will show you how to use notifications in your app using Laravel Orchid.</p>
 <blockquote>
-<p>Please take a moment to <a href="https://orchid.software/en/hig/providing-feedback">review our recommendations for providing feedback</a> to ensure that your application looks exceptional.</p>
+<p>Please take a moment to
+<a href="https://orchid.software/en/hig/providing-feedback">review our recommendations for providing feedback</a> to ensure that
+your application looks exceptional.</p>
 </blockquote>
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
-<p>A flash notification is a one-time message that is automatically deleted after the user views it.
-Designed to inform the user of a recent event&mdash;such as the successful saving of data&mdash;flash notifications provide quick, concise feedback without cluttering the interface.
-If you need to retain notification data, consider using persistent notifications instead.</p>
+<p>A flash notification is a one-time message that is automatically deleted after the user views it. Designed to inform the
+user of a recent event&mdash;such as the successful saving of data&mdash;flash notifications provide quick, concise feedback without
+cluttering the interface. If you need to retain notification data, consider using persistent notifications instead.</p>
 <h3><a href='#alert-messages' id='alert-messages'>Alert Messages</a></h3>
 <p>To create a flash notification, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
@@ -405,20 +409,24 @@ If you need to retain notification data, consider using persistent notifications
 <p>You can also use a shorter version of this code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-function">alert</span>(<span class="hl-value">'Your action has been completed.'</span>);
 </code></pre>
-<p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using different colors. You can do this using the following methods:</p>
+<p>In addition to displaying a message, Laravel Orchid also allows you to visually indicate the type of notification using
+different colors. You can do this using the following methods:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Welcome to our website!'</span>);
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">success</span>(<span class="hl-value">'Your message has been sent.'</span>);
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">error</span>(<span class="hl-value">'Please fill in all required fields.'</span>);
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Your account will be permanently deleted.'</span>);
 </code></pre>
-<p>If you want to prevent the automatic escaping of data in your alerts, you can use the <code>withoutEscaping</code> method. By default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
+<p>If you want to prevent the automatic escaping of data in your alerts, you can use the <code>withoutEscaping</code> method. By
+default, data passed to the alert is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 
 <span class="hl-type">Alert</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">withoutEscaping</span>();
 </code></pre>
 <p>This will render the HTML content in the message without escaping it.</p>
-<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed to the template:</p>
+<p>If you want to use a custom template for your notifications, you can use the <code>view</code> method. This method takes three
+arguments: the path/name of the <code>Blade</code> template, the color of the notification, and an array of variables to be passed
+to the template:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Alert</span>;
 <span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
 
@@ -432,27 +440,33 @@ If you need to retain notification data, consider using persistent notifications
 Hello <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">strong</span><span class="hl-start-end-tag">&gt;</span><span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">strong</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <h3><a href='#toast-messages' id='toast-messages'>Toast Messages</a></h3>
-<p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages are similar to flash notifications, but have a different appearance and a few additional features.</p>
+<p>Toast messages are small pop-up notifications that appear in the upper right corner of the screen. They are designed to
+briefly notify the user of the result of an action or event, such as the successful completion of a task. Toast messages
+are similar to flash notifications, but have a different appearance and a few additional features.</p>
 <p>To create a toast message, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
 <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>);
 </code></pre>
-<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide after a certain period of time. By default, toast messages will automatically hide after a few seconds, but you can disable this behavior by using the <code>persistent</code> method:</p>
+<p>One of the additional features of toast messages is the ability to specify whether the message should automatically hide
+after a certain period of time. By default, toast messages will automatically hide after a few seconds, but you can
+disable this behavior by using the <code>persistent</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">persistent</span>();
 </code></pre>
 <p>To re-enable auto-hide, simply call the <code>autoHide</code> method again.</p>
-<p>You can also specify the delay in milliseconds before hiding the toast message by using the <code>delay</code> method. This method takes one argument, which is the number of milliseconds to wait before hiding the message:</p>
+<p>You can also specify the delay in milliseconds before hiding the toast message by using the <code>delay</code> method. This method
+takes one argument, which is the number of milliseconds to wait before hiding the message:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Invalid input. Please check your form.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">delay</span>(<span class="hl-number">2000</span>);
 </code></pre>
-<p>The <code>seconds</code> method allows you to set the delay before hiding the toast message, but in seconds instead of milliseconds.
-This makes it easier to configure the delay in a more human-readable format:</p>
+<p>The <code>seconds</code> method allows you to set the delay before hiding the toast message, but in seconds instead of
+milliseconds. This makes it easier to configure the delay in a more human-readable format:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Your data has been saved!'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">seconds</span>(<span class="hl-number">5</span>);  <span class="hl-comment">// 5 seconds delay before hiding</span>
 </code></pre>
-<p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method. By default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
+<p>If you want to prevent the automatic escaping of data in your toasts, you can use the <code>withoutEscaping</code> method. By
+default, data passed to the toast is escaped to prevent XSS attacks. Calling this method will disable that behavior:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
 
 <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'This is &lt;strong&gt;bold&lt;/strong&gt; text.'</span>)
@@ -460,11 +474,15 @@ This makes it easier to configure the delay in a more human-readable format:</p>
 </code></pre>
 <p>This will render the HTML content in the message without escaping it.</p>
 <h2><a href='#persistent-notification' id='persistent-notification'>Persistent Notification</a></h2>
-<p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to users even when they are offline.
-They are an excellent way to inform, for example, for a task manager application to notify an employee about a new task.</p>
-<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there are unread notifications, a counter will be displayed.
-You can disable the notification bell or change the polling interval in <code>config/platform.php</code> under the <code>notifications</code> key (<code>enabled</code> and <code>interval</code> in seconds).</p>
-<p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on how to use this feature.</p>
+<p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to
+users even when they are offline. They are an excellent way to inform, for example, for a task manager application to
+notify an employee about a new task.</p>
+<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there
+are unread notifications, a counter will be displayed. You can disable the notification bell or change the polling
+interval in <code>config/platform.php</code> under the <code>notifications</code> key (<code>enabled</code> and <code>interval</code> in seconds).</p>
+<p>Before using this feature, it&rsquo;s important to check out the
+<a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on
+how to use this feature.</p>
 <p>To send a notification, you can simply pass a <code>DashboardMessage</code> instance to a user&rsquo;s <code>notify</code> method.<br>
 Before proceeding, ensure that your user model implements the <code>Notifiable</code> trait:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardMessage</span>;
@@ -492,8 +510,8 @@ $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</sp
     ];
 }
 </code></pre>
-<p>Before sending the notification, you must also define a <code>toDashboard</code> method in the notification class.
-This method will receive a <code>$notifiable</code> object and must return a <code>DashboardMessage</code> object:</p>
+<p>Before sending the notification, you must also define a <code>toDashboard</code> method in the notification class. This method will
+receive a <code>$notifiable</code> object and must return a <code>DashboardMessage</code> object:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">DashboardMessage</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">toDashboard</span>(<span class="hl-injection">$notifiable</span>)
@@ -504,8 +522,10 @@ This method will receive a <code>$notifiable</code> object and must return a <co
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">url</span>(<span class="hl-value">'/'</span>));
 }
 </code></pre>
-<p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the <code>Notification</code> facade.
-You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about these two approaches to sending notifications.</p>
+<p>Notifications can be sent in two ways: by using the <code>notify</code> method in the <code>Notifiable</code> trait or by using the
+<code>Notification</code> facade. You can take a look at
+<a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about
+these two approaches to sending notifications.</p>
 <p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
 <pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 

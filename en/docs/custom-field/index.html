@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Custom Fields | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -401,8 +401,8 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#creating-a-new-field' id='creating-a-new-field'>Creating a New Field</a></h2>
-<p>Orchid provides a rich set of built-in form fields, but sometimes those aren&rsquo;t enough for specific use cases.
-In such cases, you can create a custom field tailored to your needs.</p>
+<p>Orchid provides a rich set of built-in form fields, but sometimes those aren&rsquo;t enough for specific use cases. In such
+cases, you can create a custom field tailored to your needs.</p>
 <p>A field in Orchid consists of two main parts:</p>
 <ul>
 <li>A <strong>PHP class</strong> that handles its logic</li>
@@ -461,56 +461,55 @@ interactions. Here&rsquo;s a look at the generated class:</p>
 <h3>Blade Template (<code>view</code>)</h3>
 <p>Let&rsquo;s examine the generated Blade template:</p>
 <pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
-    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
-        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span>
-            {{
-                $attributes-&gt;merge([
-                    'data-emoji-picker-target' =&gt; 'name',
-                    'data-action' =&gt; 'input-&gt;emoji-picker#greet',
-                ])
-            }}&gt;
+<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> {{ $attributes- <span class="hl-start-end-tag">/&gt;</span>merge([ 'data-emoji-picker-target' =&gt; 'name', 'data-action' =&gt; 'input-&gt;emoji-picker#greet',
+    ]) }}&gt;
 
-        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
-    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
+<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 @endcomponent
 
 <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
-    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
-        <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
+    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(
+        "emoji-picker",
+        <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+            <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> ["name", "output"];
 
-        <span class="hl-function">connect</span>() {
-            console.<span class="hl-property"><span class="hl-function">log</span></span>("Emoji Picker controller has been connected!");
-        }
+            <span class="hl-function">connect</span>() {
+                console.<span class="hl-property"><span class="hl-function">log</span></span>("Emoji Picker controller has been connected!");
+            }
 
-        <span class="hl-function">greet</span>() {
-            <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
-        }
-    });
+            <span class="hl-function">greet</span>() {
+                <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
+            }
+        },
+    );
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p>Inside the <code>&lt;script&gt;</code> block, a <a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a> controller is created and
-registered on the fly using <code>Orchid.register()</code>.
-This controller is attached to the HTML via the <code>data-controller</code> attribute. You can leverage the full power of Stimulus
-to make your field interactive.</p>
+registered on the fly using <code>Orchid.register()</code>. This controller is attached to the HTML via the <code>data-controller</code>
+attribute. You can leverage the full power of Stimulus to make your field interactive.</p>
 <hr>
 <h2><a href='#stimulus-basics' id='stimulus-basics'>Stimulus Basics</a></h2>
-<p>Orchid uses Stimulus to add interactivity to UI components.
-This lightweight JavaScript framework connects logic to HTML via data attributes, making it especially suitable for
-dynamic form fields.</p>
+<p>Orchid uses Stimulus to add interactivity to UI components. This lightweight JavaScript framework connects logic to HTML
+via data attributes, making it especially suitable for dynamic form fields.</p>
 <h3><a href='#controller-structure' id='controller-structure'>Controller Structure</a></h3>
 <p>Here&rsquo;s a simplified view of the <code>EmojiPicker</code> controller:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
-    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'emoji-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
-        <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
+    Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(
+        "emoji-picker",
+        <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+            <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> ["name", "output"];
 
-        <span class="hl-function">connect</span>() {
-            console.<span class="hl-property"><span class="hl-function">log</span></span>("Controller connected to <span class="hl-constant">DOM</span> element");
-        }
+            <span class="hl-function">connect</span>() {
+                console.<span class="hl-property"><span class="hl-function">log</span></span>("Controller connected to <span class="hl-constant">DOM</span> element");
+            }
 
-        <span class="hl-function">greet</span>() {
-            <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
-        }
-    });
+            <span class="hl-function">greet</span>() {
+                <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
+            }
+        },
+    );
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <ul>
@@ -525,10 +524,7 @@ dynamic form fields.</p>
 </ul>
 <h3><a href='#connecting-to-html' id='connecting-to-html'>Connecting to HTML</a></h3>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
-    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span>
-        <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span>
-        <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"input-&gt;emoji-picker#greet"</span>
-    <span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">data-action</span><span class="hl-delimeter">=</span><span class="hl-value">"input-&gt;emoji-picker#greet"</span> <span class="hl-start-end-tag">/&gt;</span>
     <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">data-emoji-picker-target</span><span class="hl-delimeter">=</span><span class="hl-value">"output"</span><span class="hl-start-end-tag">&gt;</span><span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
@@ -546,15 +542,18 @@ dynamic form fields.</p>
 </ul>
 <h3><a href='#registering-a-controller' id='registering-a-controller'>Registering a Controller</a></h3>
 <p>Use <code>Orchid.register()</code> to define and register a controller:</p>
-<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'controller-name'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
-    <span class="hl-comment">// Controller logic here</span>
-});
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(
+    "controller-name",
+    <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+        <span class="hl-comment">// Controller logic here</span>
+    },
+);
 </code></pre>
 <h3><a href='#working-with-elements' id='working-with-elements'>Working with Elements</a></h3>
 <ul>
-<li><p><strong>Single element</strong>: <code>this.&lt;target&gt;Target</code> (for example, <code>this.nameTarget</code>)</p></li>
-<li><p><strong>Multiple elements</strong>: <code>this.&lt;target&gt;Targets</code> (array)</p></li>
-<li><p><strong>DOM Queries:</strong></p>
+<li><strong>Single element</strong>: <code>this.&lt;target&gt;Target</code> (for example, <code>this.nameTarget</code>)</li>
+<li><strong>Multiple elements</strong>: <code>this.&lt;target&gt;Targets</code> (array)</li>
+<li><strong>DOM Queries:</strong>
 <ul>
 <li><code>this.element</code> &mdash; the main controller element</li>
 <li><code>this.findElement(selector)</code> &mdash; find elements within the controller&rsquo;s scope</li>
@@ -563,20 +562,23 @@ dynamic form fields.</p>
 <hr>
 <h2><a href='#integrating-third-party-libraries' id='integrating-third-party-libraries'>Integrating Third-Party Libraries</a></h2>
 <blockquote>
-<p>Note: You may need to compile assets using Vite. For more, refer to
-the <a href="/ru/docs/javascript/">JavaScript documentation</a>.</p>
+<p>Note: You may need to compile assets using Vite. For more, refer to the
+<a href="/ru/docs/javascript/">JavaScript documentation</a>.</p>
 </blockquote>
 <p>Example: integrating a DatePicker</p>
-<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(<span class="hl-value">'date-picker'</span>, <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
-    <span class="hl-function">connect</span>() {
-        <span class="hl-keyword">new</span> <span class="hl-function">DatePicker</span>(<span class="hl-slug">this</span>.<span class="hl-property">element</span>, {
-            format: <span class="hl-value">'YYYY-MM-DD'</span>
-        });
-    }
-});
+<pre><code data-lang="js" class="notranslate">Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(
+    "date-picker",
+    <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> Controller {
+        <span class="hl-function">connect</span>() {
+            <span class="hl-keyword">new</span> <span class="hl-function">DatePicker</span>(<span class="hl-slug">this</span>.<span class="hl-property">element</span>, {
+                format: "<span class="hl-constant">YYYY</span>-<span class="hl-constant">MM</span>-<span class="hl-constant">DD</span>",
+            });
+        }
+    },
+);
 </code></pre>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"date-picker"</span><span class="hl-start-end-tag">&gt;</span>
-    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span> <span class="hl-start-end-tag">/&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <p><a href="https://stimulus.hotwired.dev/handbook/introduction">Stimulus</a> makes it easy to integrate JavaScript libraries into

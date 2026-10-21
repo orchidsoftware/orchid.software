@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Upgrade Guide | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -524,24 +524,36 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#support-policy' id='support-policy'>Support Policy</a></h2>
-<p>At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can provide efficient support, we will only provide support for the latest major release of our package. This includes bug fixes and security updates.</p>
-<p>We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest features, bug fixes, and security updates.</p>
+<p>At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can
+provide efficient support, we will only provide support for the latest major release of our package. This includes bug
+fixes and security updates.</p>
+<p>We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest
+features, bug fixes, and security updates.</p>
 <p>If you have any questions or concerns about our support policy, please do not hesitate to contact us.</p>
 <h2><a href='#release-strategy' id='release-strategy'>Release Strategy</a></h2>
-<p>We believe in keeping our package up-to-date and modern, and therefore follow a &ldquo;release early, release often&rdquo; approach for major releases. This means that we won&rsquo;t wait an extended period of time to release a new major version. By releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be more manageable.</p>
+<p>We believe in keeping our package up-to-date and modern, and therefore follow a &ldquo;release early, release often&rdquo; approach
+for major releases. This means that we won&rsquo;t wait an extended period of time to release a new major version. By
+releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be
+more manageable.</p>
 <blockquote>
-<p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of them may affect your application.</p>
+<p>We try to document all possible breaking changes. Some of these changes are internal calls, so only some of them may
+affect your application.</p>
 </blockquote>
 <h2><a href='#upgrading-to-140-from-13x' id='upgrading-to-140-from-13x'>Upgrading to 14.0 from 13.x</a></h2>
 <p>Upgrading Laravel Orchid from version <code>13.x</code> to <code>14.0</code> can be a straightforward process if done correctly.</p>
-<p>Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting the production environment.</p>
+<p>Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in
+a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting
+the production environment.</p>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^14.0</code></p>
 <h3><a href='#laravel-10x' id='laravel-10x'>Laravel 10.x</a></h3>
-<p>Laravel 10&nbsp;is now required to install or upgrade. Update descriptions for existing projects can be found in the <a href="https://laravel.com/docs/10.x/upgrade">documentation</a>.</p>
+<p>Laravel 10&nbsp;is now required to install or upgrade. Update descriptions for existing projects can be found in the
+<a href="https://laravel.com/docs/10.x/upgrade">documentation</a>.</p>
 <h3><a href='#preserving-state' id='preserving-state'>Preserving State</a></h3>
-<p>One of the main new features of the release is the ability to save the states of public properties between actions on the screen.</p>
-<p>Let&rsquo;s take an example. While viewing the screen in the <code>query</code> method, we can set public properties that will be accessible in the <code>name/layouts</code> methods and others.</p>
+<p>One of the main new features of the release is the ability to save the states of public properties between actions on
+the screen.</p>
+<p>Let&rsquo;s take an example. While viewing the screen in the <code>query</code> method, we can set public properties that will be
+accessible in the <code>name/layouts</code> methods and others.</p>
 <p>Now, these public properties will be saved and available for the execution methods.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> $idea;
 
@@ -554,29 +566,27 @@
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">yourMethod</span>()
 {
-    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">idea</span>; 
+    <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">idea</span>;
     <span class="hl-comment">// The property is not empty and contains</span>
     <span class="hl-comment">// the value that was set at the beginning.</span>
 }
 </code></pre>
 <h3><a href='#route-binding' id='route-binding'>Route Binding</a></h3>
-<p>For a long time, Orchid has been using its own solution for defining route arguments.
-However, for the vast majority of methods (query/method), the same solution as with Controller is used.
-This allows you to define:</p>
+<p>For a long time, Orchid has been using its own solution for defining route arguments. However, for the vast majority of
+methods (query/method), the same solution as with Controller is used. This allows you to define:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/posts/{post:slug}'</span>, <span class="hl-type">ExampleScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/task'</span>, <span class="hl-type">ExampleScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">withTrashed</span>();
 </code></pre>
 <p>It also provides other opportunities that were not explicitly tied to what you&rsquo;re used to.</p>
 <blockquote>
-<p>Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an empty parameter.
-However, this now triggers a 404&nbsp;error.</p>
+<p>Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an
+empty parameter. However, this now triggers a 404&nbsp;error.</p>
 </blockquote>
 <h3><a href='#listener' id='listener'>Listener</a></h3>
-<p>Previously, working with Listeners could sometimes confuse users.
-Therefore, Listeners no longer have a property that specifies the screen method.
-Instead, there is a mandatory default method called <code>handler</code>.
-The current state of the screen is passed as the first argument to this method, and the <code>request</code> object is passed as the second argument.</p>
+<p>Previously, working with Listeners could sometimes confuse users. Therefore, Listeners no longer have a property that
+specifies the screen method. Instead, there is a mandatory default method called <code>handler</code>. The current state of the
+screen is passed as the first argument to this method, and the <code>request</code> object is passed as the second argument.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
@@ -637,9 +647,8 @@ The current state of the screen is passed as the first argument to this method, 
 }
 </code></pre>
 <h3><a href='#automatic-http-filtering-and-sorting' id='automatic-http-filtering-and-sorting'>Automatic HTTP Filtering and Sorting</a></h3>
-<p>The automatic filters were previously based on the type of data entered by the user, which often led to errors.
-For example, when the user used a comma to search for text, the filter would sometimes recognize it as an array.
-Therefore, filters now need to specify their behavior explicitly:</p>
+<p>The automatic filters were previously based on the type of data entered by the user, which often led to errors. For
+example, when the user used a comma to search for text, the filter would sometimes recognize it as an array. Therefore, filters now need to specify their behavior explicitly:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -657,12 +666,12 @@ Therefore, filters now need to specify their behavior explicitly:</p>
     ];
 }
 </code></pre>
-<p>Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for JSON fields.
-We are working on finding a more efficient and safer way to handle JSON fields in the future.</p>
+<p>Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for
+JSON fields. We are working on finding a more efficient and safer way to handle JSON fields in the future.</p>
 <h3><a href='#navigation' id='navigation'>Navigation</a></h3>
-<p>In version 14.0, the profile drop-down menu has been removed.
-Instead, it is suggested to specify the profile information in the main menu or on the screens.
-Please make sure to remove any references to the <code>Dashboard::MENU_PROFILE</code> constant and the <code>registerProfileMenu</code> method for the service provider from your code.</p>
+<p>In version 14.0, the profile drop-down menu has been removed. Instead, it is suggested to specify the profile
+information in the main menu or on the screens. Please make sure to remove any references to the
+<code>Dashboard::MENU_PROFILE</code> constant and the <code>registerProfileMenu</code> method for the service provider from your code.</p>
 <p>For example, the following item will no longer work correctly:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">registerProfileMenu</span>(): <span class="hl-keyword">array</span>
 {
@@ -685,7 +694,8 @@ Please make sure to remove any references to the <code>Dashboard::MENU_PROFILE</
     ];
 }
 </code></pre>
-<p>All methods that depend on <code>location</code> no longer need this argument. For example, the <code>addMenuSubElements</code> method now points directly to the target slug:</p>
+<p>All methods that depend on <code>location</code> no longer need this argument. For example, the <code>addMenuSubElements</code> method now
+points directly to the target slug:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Dashboard</span>;
 
 <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">addMenuSubElements</span>(<span class="hl-value">'sub-menu'</span>, [
@@ -693,8 +703,8 @@ Please make sure to remove any references to the <code>Dashboard::MENU_PROFILE</
 ]);
 </code></pre>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
-<p>In the new version, the icons have been updated to a set from Bootstrap.
-While replacing all the icons in existing applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
+<p>In the new version, the icons have been updated to a set from Bootstrap. While replacing all the icons in existing
+applications can be a challenge, you have the option to continue using the icons from Orchid.</p>
 <p>To do this, simply add the following line to your <code>composer.json</code> file:</p>
 <pre><code data-lang="shell" class="notranslate"><span class="hl-value">"orchid/icons"</span>: <span class="hl-value">"^2.0"</span>,
 </code></pre>
@@ -703,7 +713,8 @@ While replacing all the icons in existing applications can be a challenge, you h
     <span class="hl-value">'orc'</span> <span class="hl-operator">=&gt;</span> \Orchid\IconPack\<span class="hl-type">Path</span><span class="hl-delimeter">::</span><span class="hl-function">getFolder</span>(),
 ],
 </code></pre>
-<p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a lack of a designer.</p>
+<p>By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a
+lack of a designer.</p>
 <p>For the new icons to be displayed as well, add:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'icons'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-comment">// ...</span>
@@ -711,8 +722,7 @@ While replacing all the icons in existing applications can be a challenge, you h
 ],
 </code></pre>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
-<p>The behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must be explicitly defined by the developer.
-To do this, you can add button definitions to your profile screen.</p>
+<p>The behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must be explicitly defined by the developer. To do this, you can add button definitions to your profile screen.</p>
 <p>Here&rsquo;s an example of how you can define these buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 <span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
@@ -732,15 +742,18 @@ To do this, you can add button definitions to your profile screen.</p>
 }
 </code></pre>
 <ul>
-<li>The first button, <code>Back to my account</code>, is used to exit impersonation and return to the original user account. This button will only be visible if the user is currently impersonating another account.</li>
+<li>The first button, <code>Back to my account</code>, is used to exit impersonation and return to the original user account. This
+button will only be visible if the user is currently impersonating another account.</li>
 <li>The second button, <code>Sign out</code>, is used to log out of the platform.</li>
 </ul>
-<p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions in your Orchid application.</p>
+<p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions
+in your Orchid application.</p>
 <h2><a href='#upgrading-to-130-from-12x' id='upgrading-to-130-from-12x'>Upgrading to 13.0 from 12.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^13.0</code></p>
 <h3><a href='#jquery' id='jquery'>jQuery</a></h3>
-<p>This release no longer includes a default jQuery package. If you need it, you can install it separately, for example by adding a reference to it in the configuration file:</p>
+<p>This release no longer includes a default jQuery package. If you need it, you can install it separately, for example by
+adding a reference to it in the configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
     <span class="hl-value">'scripts'</span>     <span class="hl-operator">=&gt;</span> [
@@ -749,12 +762,14 @@ To do this, you can add button definitions to your profile screen.</p>
 ],
 </code></pre>
 <h3><a href='#select2' id='select2'>Select2</a></h3>
-<p>Since <code>select2</code> had a <code>jQuery</code> dependency, it was also replaced with the <code>tom-select</code> package. We tried to keep the behavior where possible. But <code>select2</code> special JS events are no longer available.</p>
+<p>Since <code>select2</code> had a <code>jQuery</code> dependency, it was also replaced with the <code>tom-select</code> package. We tried to keep the
+behavior where possible. But <code>select2</code> special JS events are no longer available.</p>
 <h2><a href='#upgrading-to-120-from-11x' id='upgrading-to-120-from-11x'>Upgrading to 12.0 from 11.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^12.0</code></p>
 <h3><a href='#laravel-9x' id='laravel-9x'>Laravel 9.x</a></h3>
-<p>Laravel 9&nbsp;is now required to install or upgrade. Update descriptions for existing projects can be found in the <a href="https://laravel.com/docs/9.x/upgrade">documentation</a>.</p>
+<p>Laravel 9&nbsp;is now required to install or upgrade. Update descriptions for existing projects can be found in the
+<a href="https://laravel.com/docs/9.x/upgrade">documentation</a>.</p>
 <h2><a href='#upgrading-to-110-from-10x' id='upgrading-to-110-from-10x'>Upgrading to 11.0 from 10.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^11.0</code></p>
@@ -762,12 +777,11 @@ To do this, you can add button definitions to your profile screen.</p>
 <p>Instead of creating a symbolic link to download resources, there is a new command to publish them:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:publish
 </code></pre>
-<p>Which would place the <code>JS/CSS</code> files in the <code>public/vendor/orchid</code> directory. It will also be required to automate making changes to composer.json:</p>
+<p>Which would place the <code>JS/CSS</code> files in the <code>public/vendor/orchid</code> directory. It will also be required to automate
+making changes to composer.json:</p>
 <pre><code data-lang="json" class="notranslate">{
     "<span class="hl-value">scripts</span>": {
-        "<span class="hl-value">post-update-cmd</span>": [
-            "<span class="hl-json-value">@php artisan orchid:publish --ansi</span>"
-        ]
+        "<span class="hl-value">post-update-cmd</span>": ["<span class="hl-json-value">@php artisan orchid:publish --ansi</span>"]
     }
 }
 </code></pre>
@@ -791,8 +805,8 @@ To do this, you can add button definitions to your profile screen.</p>
     }
 }
 </code></pre>
-<p>The value of the <code>name</code> property will be overwritten.
-To avoid this, change the visibility of the property to <code>protected</code></p>
+<p>The value of the <code>name</code> property will be overwritten. To avoid this, change the visibility of the property to
+<code>protected</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">IdeaScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
     <span class="hl-keyword">protected</span> $name <span class="hl-operator">=</span> <span class="hl-value">'Edit User'</span>;
@@ -830,7 +844,7 @@ To avoid this, change the visibility of the property to <code>protected</code></
         ],
     ];
 }
-    
+
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-type">iterable</span>
 {
     <span class="hl-keyword">return</span> [
@@ -845,7 +859,8 @@ To avoid this, change the visibility of the property to <code>protected</code></
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^10.0</code></p>
 <h3><a href='#menu' id='menu'>Menu</a></h3>
-<p>Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class <code>Orchid\Platform\Dashboard</code>.</p>
+<p>Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class
+<code>Orchid\Platform\Dashboard</code>.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">Dashboard</span>;
 
 <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-constant">MENU_MAIN</span>;
@@ -871,8 +886,8 @@ To avoid this, change the visibility of the property to <code>protected</code></
         <span class="hl-keyword">return</span> <span class="hl-number">6</span>;
     });
 </code></pre>
-<p>As you can see, the update should be very soft.
-But the differences will also be, for example, the writing of nested elements will be more visual:</p>
+<p>As you can see, the update should be very soft. But the differences will also be, for example, the writing of nested
+elements will be more visual:</p>
 <p>Before:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">ItemMenu</span><span class="hl-delimeter">::</span><span class="hl-function">label</span>(<span class="hl-value">'Dropdown menu'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">slug</span>(<span class="hl-value">'example-menu'</span>)
@@ -947,7 +962,8 @@ But the differences will also be, for example, the writing of nested elements wi
 }
 </code></pre>
 <h3><a href='#stimulus' id='stimulus'>Stimulus</a></h3>
-<p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names got rid of the prefixes:</p>
+<p>The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names
+got rid of the prefixes:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">&lt;!--  before: --&gt;</span>
 <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"fields--checkbox"</span><span class="hl-start-end-tag">&gt;</span>
 
@@ -958,14 +974,14 @@ But the differences will also be, for example, the writing of nested elements wi
 <p>The Turbolinks library has been updated to Turbo for more details here: <a href="https://turbo.hotwire.dev/">https://turbo.hotwire.dev/</a></p>
 <p>If you used your own js scripts, then it is recommended to read their changes. For example:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// before</span>
-document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbolinks:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
+document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbolinks:load", <span class="hl-keyword">function</span> () {
     <span class="hl-comment">// ...</span>
-})
+});
 
 <span class="hl-comment">// after</span>
-document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbo:load", <span class="hl-keyword"><span class="hl-function">function</span></span>() {
-  <span class="hl-comment">// ...</span>
-})
+document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbo:load", <span class="hl-keyword">function</span> () {
+    <span class="hl-comment">// ...</span>
+});
 </code></pre>
 <h3><a href='#compendium' id='compendium'>Compendium</a></h3>
 <p>The <code>Compendium</code> class has been removed. Recommend using a newer <code>Legend</code>.</p>
@@ -975,9 +991,14 @@ document.<span class="hl-property"><span class="hl-function">addEventListener</s
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^9.0</code></p>
 <h3><a href='#auth' id='auth'>Auth</a></h3>
-<p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and <a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">Laravel UI</a>. To ensure compatibility with various options, the dependency on <code>laravel/ui</code> has been removed. And with it, the ability to recover your password.</p>
-<p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to compete with them, the same features were removed from the package.</p>
-<p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss them, you need to execute the following <code>SQL</code> code:</p>
+<p>The Laravel team has introduced new products <a href="https://github.com/laravel/jetstream">Jetstream</a> and
+<a href="https://github.com/laravel/fortify">Fortify</a>, which replace the earlier <a href="https://github.com/laravel/ui">Laravel UI</a>. To
+ensure compatibility with various options, the dependency on <code>laravel/ui</code> has been removed. And with it, the ability to
+recover your password.</p>
+<p>New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to
+compete with them, the same features were removed from the package.</p>
+<p>Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss
+them, you need to execute the following <code>SQL</code> code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-constant">ALTER</span> <span class="hl-constant">TABLE</span> <span class="hl-value">"users"</span>
     <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"last_login"</span>
     <span class="hl-constant">DROP</span> <span class="hl-constant">COLUMN</span> <span class="hl-value">"uses_two_factor_auth"</span>
@@ -987,17 +1008,17 @@ document.<span class="hl-property"><span class="hl-function">addEventListener</s
 <span class="hl-constant">DELETE</span> <span class="hl-constant">FROM</span> migrations
 <span class="hl-constant">WHERE</span> migration <span class="hl-operator">=</span> <span class="hl-value">'2020_06_07_184338_added_columns_for_2fa'</span>;
 </code></pre>
-<p>After that, you need to remove the column data from your user model.
-If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in project &ndash; don&rsquo;t forget delete it.</p>
+<p>After that, you need to remove the column data from your user model. If you copied migration
+<code>2020_06_07_184338_added_columns_for_2fa</code> in project &ndash; don&rsquo;t forget delete it.</p>
 <hr>
 <h2><a href='#upgrading-to-80-from-7x' id='upgrading-to-80-from-7x'>Upgrading to 8.0 from 7.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^8.0</code></p>
 <h3><a href='#tinymce-editor' id='tinymce-editor'>TinyMCE Editor</a></h3>
-<p>The <code>HTML</code> editor has been removed from the standard distribution. The code has been moved to a separate <a href="https://github.com/orchidcommunity/TinyMCE">repository</a>.</p>
+<p>The <code>HTML</code> editor has been removed from the standard distribution. The code has been moved to a separate
+<a href="https://github.com/orchidcommunity/TinyMCE">repository</a>.</p>
 <h3><a href='#settings-model' id='settings-model'>Settings Model</a></h3>
-<p>The settings model has also been removed. Data stored in the database will not be deleted automatically.
-To remove them, you need to execute the following <code>SQL</code> code:</p>
+<p>The settings model has also been removed. Data stored in the database will not be deleted automatically. To remove them, you need to execute the following <code>SQL</code> code:</p>
 <p>If you copied migration <code>2015_12_02_181214_create_table_settings</code> in project &ndash; don&rsquo;t forget delete it.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-constant">DROP</span> <span class="hl-constant">TABLE</span> settings;
 
@@ -1006,8 +1027,8 @@ To remove them, you need to execute the following <code>SQL</code> code:</p>
 </code></pre>
 <p>The source code is available for installation as a separate <a href="https://github.com/tabuna/settings">package</a>.</p>
 <h3><a href='#bread-crumbs' id='bread-crumbs'>Bread Crumbs</a></h3>
-<p>Package <code>davejamesmiller/laravel-breadcrumbs</code> is replaced with <code>tabuna/breadcrumbs</code>
-and should be installed automatically when the dependencies are updated.</p>
+<p>Package <code>davejamesmiller/laravel-breadcrumbs</code> is replaced with <code>tabuna/breadcrumbs</code> and should be installed
+automatically when the dependencies are updated.</p>
 <blockquote>
 <p><strong>Note:</strong> It may be necessary to remove the boot cache files in the <code>bootstrap/cache</code> directory.</p>
 </blockquote>
@@ -1018,8 +1039,8 @@ and should be installed automatically when the dependencies are updated.</p>
         <span class="hl-keyword">return</span> $trail<span class="hl-delimeter">-&gt;</span><span class="hl-keyword"><span class="hl-function">parent</span></span>(<span class="hl-value">'platform.index'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">push</span>(<span class="hl-constant"><span class="hl-function">__</span></span>(<span class="hl-value">'Example screen'</span>));
     });
 </code></pre>
-<p>Alternatively, you can continue to use a separate file for them.
-To do this, you need to download it to the service provider:</p>
+<p>Alternatively, you can continue to use a separate file for them. To do this, you need to download it to the service
+provider:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Providers;
 
 <span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
@@ -1063,22 +1084,24 @@ To do this, you need to download it to the service provider:</p>
 }
 </code></pre>
 <h4><a href='#route-methods' id='route-methods'>Route methods</a></h4>
-<p>Methods not used have been removed. It is no longer possible to access screens via the <code>PUT|PATCH|DELETE</code> methods, the call must use <code>GET|POSTS</code> to receive/send data.</p>
+<p>Methods not used have been removed. It is no longer possible to access screens via the <code>PUT|PATCH|DELETE</code> methods, the
+call must use <code>GET|POSTS</code> to receive/send data.</p>
 <pre><code data-lang="php" class="notranslate">Method           | <span class="hl-constant">URI</span>                                  | Name
 -----------------+--------------------------------------+--------------
 <span class="hl-constant">GET</span>|<span class="hl-constant">HEAD</span>|<span class="hl-constant">POST</span>    | dashboard/idea/{method?}             | platform<span class="hl-delimeter">.</span>idea
 </code></pre>
-<p>Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers. <a href="https://github.com/orchidsoftware/platform/issues/1150">More</a>.</p>
+<p>Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers.
+<a href="https://github.com/orchidsoftware/platform/issues/1150">See the screen routing discussion</a>.</p>
 <h4><a href='#data-spoofing-async' id='data-spoofing-async'>Data Spoofing (Async)</a></h4>
-<p>The <code>{argument?}</code> Expectation has been removed from the address bar.
-Now a separate route is used for the call:</p>
+<p>The <code>{argument?}</code> Expectation has been removed from the address bar. Now a separate route is used for the call:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">router</span>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">post</span>(<span class="hl-value">'async/{screen}/{method?}/{template?}'</span>, [<span class="hl-type">AsyncController</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'load'</span>])
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'async'</span>);
 </code></pre>
 <h3><a href='#layouts' id='layouts'>Layouts</a></h3>
 <p>Each layer now inherits from the class <code>Orchid\Screen\Layout</code>, rather than from <code>Orchid\Screen\Layouts\Base</code>.</p>
-<p>To declare layers via short syntax, the <code>Orchid\Support\Facades\Layout</code> facade should now be used instead of the <code>Orchid\Screen\Layout</code> class.</p>
+<p>To declare layers via short syntax, the <code>Orchid\Support\Facades\Layout</code> facade should now be used instead of the
+<code>Orchid\Screen\Layout</code> class.</p>
 <p>It was:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Layout</span>;
 
@@ -1094,8 +1117,10 @@ Now a separate route is used for the call:</p>
 ]);
 </code></pre>
 <h3><a href='#release-message' id='release-message'>Release Message</a></h3>
-<p>A system message informed users that a new version of the package was released. But they have no way to update without the help of a developer.
-This was more annoying than keeping the software up to date. Therefore, it was removed, if you used it (By default only on the first screen), then you should remove its call as well as the <code>blade</code> template. Screen call example:</p>
+<p>A system message informed users that a new version of the package was released. But they have no way to update without
+the help of a developer. This was more annoying than keeping the software up to date. Therefore, it was removed, if you
+used it (By default only on the first screen), then you should remove its call as well as the <code>blade</code> template. Screen
+call example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">return</span> [
     <span class="hl-value">'status'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">checkUpdate</span>(),
 ];
@@ -1104,9 +1129,8 @@ This was more annoying than keeping the software up to date. Therefore, it was r
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'platform::partials.update'</span>);
 </code></pre>
 <h3><a href='#icons' id='icons'>Icons</a></h3>
-<p>The icon display has been changed from <code>font</code> to <code>SVG</code> format.
-Now the <code>-&gt;icon</code> methods do not accept the <code>css</code> value to be set, but the file name.
-In most cases, you only need to remove the <code>icon-</code> prefix.</p>
+<p>The icon display has been changed from <code>font</code> to <code>SVG</code> format. Now the <code>-&gt;icon</code> methods do not accept the <code>css</code> value to
+be set, but the file name. In most cases, you only need to remove the <code>icon-</code> prefix.</p>
 </body>
 
                                                                         </main>

@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Orchid CRUD for Laravel | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -440,25 +440,27 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
-<p>Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when it might seem overkill.
-Therefore, we have created a new package aimed at developers who want to quickly create a user interface for Eloquent models with functions such as creating, reading, updating, and deleting.</p>
-<p>You can describe the entire process using one file. And when you need more options, it&rsquo;s easy to switch to using the platform.
-All fields, filters, and traits are compatible.</p>
+<p>Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when
+it might seem overkill. Therefore, we have created a new package aimed at developers who want to quickly create a user
+interface for Eloquent models with functions such as creating, reading, updating, and deleting.</p>
+<p>You can describe the entire process using one file. And when you need more options, it&rsquo;s easy to switch to using the
+platform. All fields, filters, and traits are compatible.</p>
 <h2><a href='#installation' id='installation'>Installation</a></h2>
 <blockquote>
-<p>The manual assumes that you already have a copy of <a href="https://laravel.com/docs/installation">Laravel</a> with <a href="https://orchid.software/en/docs/installation/">Orchid</a></p>
+<p>The manual assumes that you already have a copy of <a href="https://laravel.com/docs/installation">Laravel</a> with
+<a href="https://orchid.software/en/docs/installation/">Orchid</a></p>
 </blockquote>
 <p>You can install the package using the &#1057;omposer. Run this at the command line:</p>
-<pre><code data-lang="php" class="notranslate">$ composer <span class="hl-keyword">require</span> orchid/crud
+<pre><code data-lang="php" class="notranslate">composer <span class="hl-keyword">require</span> orchid/crud
 </code></pre>
 <p>This will update <code>composer.json</code> and install the package into the <code>vendor/</code> directory.</p>
 <h2><a href='#defining-resources' id='defining-resources'>Defining Resources</a></h2>
-<p>Resources are stored in the <code>app/Orchid/Resources</code> directory of your application.
-You may generate a new resource using the <code>orchid:resource</code> Artisan command:</p>
+<p>Resources are stored in the <code>app/Orchid/Resources</code> directory of your application. You may generate a new resource using
+the <code>orchid:resource</code> Artisan command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:resource PostResource
 </code></pre>
-<p>The most fundamental property of a resource is its <code>model</code> property.
-This property tells the generator which Eloquent model the resource corresponds to:</p>
+<p>The most fundamental property of a resource is its <code>model</code> property. This property tells the generator which Eloquent
+model the resource corresponds to:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
 
 <span class="hl-comment">/**
@@ -468,12 +470,13 @@ This property tells the generator which Eloquent model the resource corresponds 
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">static</span> $model <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>;
 </code></pre>
-<p>These classes are completely static. They don&rsquo;t have any state at all due to their declarative nature.
-They only tell what to do. They don&rsquo;t hold any data. If you add custom methods, make sure they&rsquo;re static.</p>
+<p>These classes are completely static. They don&rsquo;t have any state at all due to their declarative nature. They only tell
+what to do. They don&rsquo;t hold any data. If you add custom methods, make sure they&rsquo;re static.</p>
 <p>Freshly created resources contain nothing. Don&rsquo;t worry. We&rsquo;ll add more fields to our resource soon.</p>
 <h2><a href='#registering-resources' id='registering-resources'>Registering Resources</a></h2>
-<p>All resources within the <code>app/Orchid/Resources</code> directory will automatically be registered by default.
-You are not required to register them manually. But if this is required, for example, when creating an additional package, then the best way would be:</p>
+<p>All resources within the <code>app/Orchid/Resources</code> directory will automatically be registered by default. You are not
+required to register them manually. But if this is required, for example, when creating an additional package, then the
+best way would be:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Resources\<span class="hl-type">UserResource</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">ServiceProvider</span>;
 <span class="hl-keyword">use</span> Orchid\Crud\<span class="hl-type">Arbitrator</span>;
@@ -494,7 +497,8 @@ You are not required to register them manually. But if this is required, for exa
 }
 </code></pre>
 <h2><a href='#expanding-of-model' id='expanding-of-model'>Expanding of Model</a></h2>
-<p>Many features of the Orchid platform relies on model customization. You can add or remove traits depending on your goals. But we will assume that you have set these for your model:</p>
+<p>Many features of the Orchid platform relies on model customization. You can add or remove traits depending on your
+goals. But we will assume that you have set these for your model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 <span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
 <span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
@@ -506,7 +510,9 @@ You are not required to register them manually. But if this is required, for exa
 }
 </code></pre>
 <h2><a href='#defining-fields' id='defining-fields'>Defining Fields</a></h2>
-<p>Each resource contains a <code>fields</code> method. This method returns an array of fields, which generally extend the <code>Orchid\Screen\Field</code> class. To add a field to a resource, we can add it to the resource&rsquo;s <code>fields</code> method. Typically, fields may be created using their static <code>make</code> method. This method accepts several arguments. However, you usually only need to pass the field&rsquo;s name.</p>
+<p>Each resource contains a <code>fields</code> method. This method returns an array of fields, which generally extend the
+<code>Orchid\Screen\Field</code> class. To add a field to a resource, we can add it to the resource&rsquo;s <code>fields</code> method. Typically, fields may be created using their static <code>make</code> method. This method accepts several arguments. However, you usually only
+need to pass the field&rsquo;s name.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
 <span class="hl-comment">/**
@@ -523,9 +529,11 @@ You are not required to register them manually. But if this is required, for exa
     ];
 }
 </code></pre>
-<p>In the package to generate CRUD, you can use the fields Orchid platform. Review <a href="https://orchid.software/en/docs/field/">all available fields on the documentation site</a>.</p>
+<p>In the package to generate CRUD, you can use the fields Orchid platform. Review
+<a href="https://orchid.software/en/docs/field/">all available fields on the documentation site</a>.</p>
 <h2><a href='#defining-solumns' id='defining-solumns'>Defining Сolumns</a></h2>
-<p>Each resource contains a <code>&#1089;olumns</code> method. To add a column to a resource, we can add it to the resource&rsquo;s <code>column</code> method. Typically, columns may be created using their static <code>make</code> method.</p>
+<p>Each resource contains a <code>&#1089;olumns</code> method. To add a column to a resource, we can add it to the resource&rsquo;s <code>column</code>
+method. Typically, columns may be created using their static <code>make</code> method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
 <span class="hl-comment">/**
@@ -541,9 +549,11 @@ You are not required to register them manually. But if this is required, for exa
     ];
 }
 </code></pre>
-<p>The CRUD generation package is entirely based on the table layer. You can <a href="https://orchid.software/en/docs/table/">read more about this on the documentation page</a>.</p>
+<p>The CRUD generation package is entirely based on the table layer. You can
+<a href="https://orchid.software/en/docs/table/">read more about this on the documentation page</a>.</p>
 <h2><a href='#defining-legend' id='defining-legend'>Defining Legend</a></h2>
-<p>Each resource contains a <code>legend</code> method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource&rsquo;s <code>legend</code> method. Typically, columns may be created using their static <code>make</code> method.</p>
+<p>Each resource contains a <code>legend</code> method. It determines how the model will look when viewed. To add to a resource, we
+can add it to the resource&rsquo;s <code>legend</code> method. Typically, columns may be created using their static <code>make</code> method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
 <span class="hl-comment">/**
@@ -559,9 +569,11 @@ You are not required to register them manually. But if this is required, for exa
     ];
 }
 </code></pre>
-<p>The CRUD generation package is entirely based on the legend layer. You can <a href="https://orchid.software/en/docs/legend">read more about this on the documentation page</a>.</p>
+<p>The CRUD generation package is entirely based on the legend layer. You can
+<a href="https://orchid.software/en/docs/legend">read more about this on the documentation page</a>.</p>
 <h2><a href='#defining-rules' id='defining-rules'>Defining Rules</a></h2>
-<p>Each resource contains a <code>rules</code> method. When submitting a create or update form, the data can be validated, which is described in the <code>rules</code> method:</p>
+<p>Each resource contains a <code>rules</code> method. When submitting a create or update form, the data can be validated, which is
+described in the <code>rules</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the validation rules that apply to save/update.
  *
@@ -579,7 +591,8 @@ You are not required to register them manually. But if this is required, for exa
 </code></pre>
 <p>You can learn more on the Laravel <a href="https://laravel.com/docs/validation#available-validation-rules">validation page</a>.</p>
 <h2><a href='#defining-filters' id='defining-filters'>Defining Filters</a></h2>
-<p>Each resource contains a <code>filters</code> method. Which expects you to return a list of class names that should be rendered and, if necessary, swapped out for the viewed model.</p>
+<p>Each resource contains a <code>filters</code> method. Which expects you to return a list of class names that should be rendered
+and, if necessary, swapped out for the viewed model.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the filters available for the resource.
  *
@@ -615,7 +628,8 @@ You are not required to register them manually. But if this is required, for exa
 </code></pre>
 <p>You can learn more on the Orchid <a href="https://orchid.software/en/docs/filters/#eloquent-filter">filtration page</a>.</p>
 <h2><a href='#navigation' id='navigation'>Navigation</a></h2>
-<p>If you do not want a resource to appear in the navigation, you may override the <code>displayInNavigation</code> method of your resource class:</p>
+<p>If you do not want a resource to appear in the navigation, you may override the <code>displayInNavigation</code> method of your
+resource class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the resource should be displayed in the navigation
  *
@@ -630,7 +644,9 @@ You are not required to register them manually. But if this is required, for exa
 <pre><code data-lang="php" class="notranslate"><span class="hl-function">route</span>(<span class="hl-value">'platform.resource.list'</span>, <span class="hl-type">UserResource</span><span class="hl-delimeter">::</span><span class="hl-function">uriKey</span>())
 </code></pre>
 <h2><a href='#eager-loading' id='eager-loading'>Eager Loading</a></h2>
-<p>Suppose you routinely need to access a resource&rsquo;s relationships within your fields. In that case, it may be a good idea to add the relationship to the <code>with</code> property of your resource. This property instructs to always eager to load the listed relationships when retrieving the resource.</p>
+<p>Suppose you routinely need to access a resource&rsquo;s relationships within your fields. In that case, it may be a good idea
+to add the relationship to the <code>with</code> property of your resource. This property instructs to always eager to load the
+listed relationships when retrieving the resource.</p>
 <pre><code data-lang="php" class="notranslate"> <span class="hl-comment">/**
  * Get relationships that should be eager loaded when performing an index query.
  *
@@ -654,7 +670,8 @@ You are not required to register them manually. But if this is required, for exa
 }
 </code></pre>
 <h2><a href='#resource-events' id='resource-events'>Resource Events</a></h2>
-<p>Each resource has two methods that do the processing, <code>onSave</code> and <code>onDelete</code>. Each of them is launched when the event is executed, and you can change or supplement the logic:</p>
+<p>Each resource has two methods that do the processing, <code>onSave</code> and <code>onDelete</code>. Each of them is launched when the event
+is executed, and you can change or supplement the logic:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Crud\<span class="hl-type">ResourceRequest</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 
@@ -682,7 +699,8 @@ You are not required to register them manually. But if this is required, for exa
 }
 </code></pre>
 <h2><a href='#permissions-resources' id='permissions-resources'>Permissions Resources</a></h2>
-<p>Each resource contains a <code>permission</code> method, which should return the string key that the user needs to access this resource. By default, all resources are available to every user.</p>
+<p>Each resource contains a <code>permission</code> method, which should return the string key that the user needs to access this
+resource. By default, all resources are available to every user.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the permission key for the resource.
  *
@@ -704,13 +722,16 @@ You are not required to register them manually. But if this is required, for exa
     <span class="hl-keyword">return</span> <span class="hl-value">'private-post-resource'</span>;
 }
 </code></pre>
-<p>It is necessary to give the right to manage it to the user.
-To click on the profile in the left column, go to the system page, and then to the page with users, you can issue them a mandate or assign a role. After that, they will be displayed in the left menu.</p>
+<p>It is necessary to give the right to manage it to the user. To click on the profile in the left column, go to the system
+page, and then to the page with users, you can issue them a mandate or assign a role. After that, they will be displayed
+in the left menu.</p>
 <h2><a href='#actions' id='actions'>Actions</a></h2>
 <p>Actions may be generated using the <code>orchid:action</code> Artisan command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:action CustomAction
 </code></pre>
-<p>By default, all actions are placed in the <code>app/Orchid/Actions</code> directory. The action necessarily consists of two methods. Method <code>button</code> defines name, icon, dialog box, etc. And the <code>handler</code> method directly handles the action with the models.</p>
+<p>By default, all actions are placed in the <code>app/Orchid/Actions</code> directory. The action necessarily consists of two
+methods. Method <code>button</code> defines name, icon, dialog box, etc. And the <code>handler</code> method directly handles the action with
+the models.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Actions;
 
 <span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">Collection</span>;
@@ -747,9 +768,11 @@ To click on the profile in the left column, go to the system page, and then to t
 </code></pre>
 <p>Within the <code>handle</code> method, you may perform whatever tasks are necessary to complete the action.</p>
 <blockquote>
-<p>The handle method always receives a <code>Collection</code> of models, even if the action is only being performed against a single model.</p>
+<p>The handle method always receives a <code>Collection</code> of models, even if the action is only being performed against a
+single model.</p>
 </blockquote>
-<p>Once you have defined an action, you are ready to attach it to a resource. Each resource contains an actions method. To attach an action to a resource, you should add it to the array of actions returned by this method:</p>
+<p>Once you have defined an action, you are ready to attach it to a resource. Each resource contains an actions method. To
+attach an action to a resource, you should add it to the array of actions returned by this method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the actions available for the resource.
  *
@@ -763,8 +786,13 @@ To click on the profile in the left column, go to the system page, and then to t
 }
 </code></pre>
 <h2><a href='#policies' id='policies'>Policies</a></h2>
-<p>To limit which users may view, create, update, or delete resources leverages Laravel&rsquo;s <a href="https://laravel.com/docs/authorization#creating-policies">authorization policies</a>. Policies are simple PHP classes that organize authorization logic for a particular model or resource. For example, if your application is a blog, you may have a <code>Post</code> model and a corresponding <code>PostPolicy</code> within your application.</p>
-<p>Typically, these policies will be registered in your application&rsquo;s <code>AuthServiceProvider</code>. If CRUD detects a policy has been registered for the model, it will automatically check that policy&rsquo;s relevant authorization methods before performing their respective actions, such as:</p>
+<p>To limit which users may view, create, update, or delete resources leverages Laravel&rsquo;s
+<a href="https://laravel.com/docs/authorization#creating-policies">authorization policies</a>. Policies are simple PHP classes that
+organize authorization logic for a particular model or resource. For example, if your application is a blog, you may
+have a <code>Post</code> model and a corresponding <code>PostPolicy</code> within your application.</p>
+<p>Typically, these policies will be registered in your application&rsquo;s <code>AuthServiceProvider</code>. If CRUD detects a policy has
+been registered for the model, it will automatically check that policy&rsquo;s relevant authorization methods before
+performing their respective actions, such as:</p>
 <ul>
 <li>viewAny</li>
 <li>view</li>
@@ -774,7 +802,8 @@ To click on the profile in the left column, go to the system page, and then to t
 <li>restore</li>
 <li>forceDelete</li>
 </ul>
-<p>No additional configuration is required. For example, to determine which users are allowed to update a <code>Post</code> model, you need to define an <code>update</code> method on the model&rsquo;s corresponding policy class:</p>
+<p>No additional configuration is required. For example, to determine which users are allowed to update a <code>Post</code> model, you
+need to define an <code>update</code> method on the model&rsquo;s corresponding policy class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
@@ -799,9 +828,11 @@ To click on the profile in the left column, go to the system page, and then to t
 }
 </code></pre>
 <blockquote>
-<p>If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If you have defined a policy, don&rsquo;t forget to define all of its relevant authorization methods.</p>
+<p>If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If
+you have defined a policy, don&rsquo;t forget to define all of its relevant authorization methods.</p>
 </blockquote>
-<p>If you don&rsquo;t want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a <code>before</code> method on the policy. This method runs before any other policy methods, allowing you to authorize the action before the intended policy method is called.</p>
+<p>If you don&rsquo;t want the policy to affect CRUD generation users, you may wish to authorize all actions within a given
+policy. To accomplish this, define a <code>before</code> method on the policy. This method runs before any other policy methods, allowing you to authorize the action before the intended policy method is called.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
@@ -827,7 +858,8 @@ To click on the profile in the left column, go to the system page, and then to t
 }
 </code></pre>
 <h2><a href='#preventing-conflicts-traffic-cop' id='preventing-conflicts-traffic-cop'>Preventing Conflicts (Traffic Cop)</a></h2>
-<p>If this option is active, the model will be checked for the last change if it was updated after the edit form was opened. A validation error will be thrown. Feature Traffic Cop is disabled by default.</p>
+<p>If this option is active, the model will be checked for the last change if it was updated after the edit form was
+opened. A validation error will be thrown. Feature Traffic Cop is disabled by default.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Indicates whether should check for modifications
  * between viewing and updating a resource.

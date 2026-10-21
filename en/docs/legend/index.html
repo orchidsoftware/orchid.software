@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Legend | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,7 +372,9 @@
                             </div>
 
 
-                                                        <head></head><body><p>The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of individual data points using closures or Blade components.</p>
+                                                        <head></head><body><p>The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports
+short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of
+individual data points using closures or Blade components.</p>
 <p>Here is an example of how to use the Legend layout:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
@@ -401,24 +403,30 @@
     ];
 }
 </code></pre>
-<p>In the example above, the first argument passed to the <code>Layout::legend()</code> method is the key for the data to be displayed. This key should correspond to an array or model that has been passed to the screen&rsquo;s <code>query</code> method. The second argument is an array of <code>Sight</code> objects, each representing a data point to be displayed.</p>
+<p>In the example above, the first argument passed to the <code>Layout::legend()</code> method is the key for the data to be
+displayed. This key should correspond to an array or model that has been passed to the screen&rsquo;s <code>query</code> method. The
+second argument is an array of <code>Sight</code> objects, each representing a data point to be displayed.</p>
 <p><picture alt='This image shows an illustrative legend for a User model.'><img src="/img/layouts/legend.png" alt="This image shows an illustrative legend for a User model."></picture></p>
-<p>Many methods of the <code>Sight</code> class are similar to those of the <code>TD</code> class used in the <a href="/en/docs/table">Table</a> layout. For example, you can add a popover to provide additional information about a data point:</p>
+<p>Many methods of the <code>Sight</code> class are similar to those of the <code>TD</code> class used in the <a href="/en/docs/table">Table</a> layout. For
+example, you can add a popover to provide additional information about a data point:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
     <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">popover</span>(<span class="hl-value">'Unique number in the system'</span>),
 ]),
 </code></pre>
-<p>If you need to perform additional processing or rendering for a particular data point, you can use the <code>render</code> method and pass in a closure function:</p>
+<p>If you need to perform additional processing or rendering for a particular data point, you can use the <code>render</code> method
+and pass in a closure function:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
     <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>() <span class="hl-operator">=&gt;</span> <span class="hl-value">'Any html'</span>),
 ]),
 </code></pre>
-<p>If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a Blade component and specify it using the <code>component</code> method:</p>
+<p>If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a
+Blade component and specify it using the <code>component</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">legend</span>(<span class="hl-value">'user'</span>, [
     <span class="hl-type">Sight</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">component</span>(<span class="hl-type">IdInformation</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>),
 ]),
 </code></pre>
-<p>Blade components work in a similar way to those used in the <a href="/en/docs/table">Table</a> layout. You can find more examples and information about using Blade components <a href="https://laravel.com/docs/blade#components">here</a>.</p>
+<p>Blade components work in a similar way to those used in the <a href="/en/docs/table">Table</a> layout. You can find more examples
+and information about using Blade components <a href="https://laravel.com/docs/blade#components">in the Blade components documentation</a>.</p>
 </body>
 
                                                                         </main>

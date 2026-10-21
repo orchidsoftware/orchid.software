@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>View Template | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -389,7 +389,8 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#views' id='views'>Views</a></h2>
-<p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the <code>Layout::view</code> method and pass it a string containing the name of your template.</p>
+<p>Sometimes you may want to display your own <code>blade</code> template in your application. To do this, you can use the
+<code>Layout::view</code> method and pass it a string containing the name of your template.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
@@ -399,7 +400,8 @@
     ];
 }
 </code></pre>
-<p>Any data returned by the <code>query</code> method will be passed to your template and can be accessed using Blade syntax. For example:</p>
+<p>Any data returned by the <code>query</code> method will be passed to your template and can be accessed using Blade syntax. For
+example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// ... Screen</span>
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
@@ -421,7 +423,8 @@
 
 Hello, <span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}</span>.
 </code></pre>
-<p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to include multiple custom templates, you can add them to the array like this:</p>
+<p>Note that the <code>layout</code> method should return an array of views to be displayed in the final layout. If you want to
+include multiple custom templates, you can add them to the array like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -432,10 +435,12 @@ Hello, <span class="hl-delimeter">{{</span> $name <span class="hl-delimeter">}}<
 }
 </code></pre>
 <h2><a href='#blade-components' id='blade-components'>Blade Components</a></h2>
-<p>Blade components are a way to reuse templates in your Laravel application. To create a new Blade component, you can use the <code>Artisan</code> command:</p>
+<p>Blade components are a way to reuse templates in your Laravel application. To create a new Blade component, you can use
+the <code>Artisan</code> command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:component Hello --inline
 </code></pre>
-<p>This will create a new class called <code>Hello</code> in the <code>App\View\Components</code> namespace. The class should look something like this:</p>
+<p>This will create a new class called <code>Hello</code> in the <code>App\View\Components</code> namespace. The class should look something like
+this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
 <span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
@@ -497,10 +502,12 @@ blade;
     ];
 }
 </code></pre>
-<p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using Blade syntax. For example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
+<p>The values returned by the <code>query</code> method will be passed to the component and can be accessed using Blade syntax. For
+example, in the <code>Hello</code> component class, you can access the name variable like this:</p>
 <pre><code data-lang="php" class="notranslate">Hello {{ $name }}!
 </code></pre>
-<p>If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as arguments. For example:</p>
+<p>If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as
+arguments. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
 <span class="hl-keyword">use</span> Illuminate\Contracts\Foundation\<span class="hl-type">Application</span>;
@@ -548,8 +555,11 @@ blade;
 </code></pre>
 <p>You can learn more about Blade components in the <a href="https://laravel.com/docs/blade#components">Laravel documentation</a>.</p>
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
-<p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify where other layout layers should be displayed within your custom template.</p>
-<p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom template. The array should contain keys representing the variables that will be available in the template, and the values should be the views to be rendered.</p>
+<p>A &ldquo;Wrapper&rdquo; is an intermediate link between a custom template and the standard layout layers. It allows you to specify
+where other layout layers should be displayed within your custom template.</p>
+<p>To use a wrapper, you can pass an array of views to the <code>Layout::wrapper</code> method, along with the name of your custom
+template. The array should contain keys representing the variables that will be available in the template, and the
+values should be the views to be rendered.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -563,19 +573,15 @@ blade;
     ];
 }
 </code></pre>
-<p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain like this:</p>
+<p>In the <code>settings.blade.php</code> template, you can access the <code>foo</code> and <code>bar</code> variables and display the views they contain
+like this:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"row"</span><span class="hl-start-end-tag">&gt;</span>
-    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-start-end-tag">&gt;</span>
-        @foreach($foo as $row)
-            {!! $row !!}
-        @endforeach
-    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
-    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-start-end-tag">&gt;</span>
-        {!! $bar !!}
-    <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-7 border-right"</span><span class="hl-start-end-tag">&gt;</span>@foreach($foo as $row) {!! $row !!} @endforeach<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"col-5 no-gutter"</span><span class="hl-start-end-tag">&gt;</span>{!! $bar !!}<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using Blade syntax.</p>
+<p>Note that the variables returned by the <code>query</code> method will also be available in the template and can be accessed using
+Blade syntax.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -587,7 +593,8 @@ blade;
 <pre><code data-lang="php" class="notranslate">Hello, {{ $name }}<span class="hl-delimeter">.</span>
 </code></pre>
 <h2><a href='#browsing' id='browsing'>Browsing</a></h2>
-<p>Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this, you can use the <code>Layout::browsing</code> method to display the contents of a different web page within an iframe in your application.</p>
+<p>Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this, you can use the <code>Layout::browsing</code> method to display the contents of a different web page within an iframe in your
+application.</p>
 <p>For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
@@ -598,7 +605,8 @@ blade;
     ];
 }
 </code></pre>
-<p>You can also specify various attributes for the iframe element by chaining method calls onto the <code>Layout::browsing</code> method. For example:</p>
+<p>You can also specify various attributes for the iframe element by chaining method calls onto the <code>Layout::browsing</code>
+method. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">browsing</span>(<span class="hl-value">'http://127.0.0.1:8000/telescope'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">allow</span>(<span class="hl-value">'...'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">loading</span>(<span class="hl-value">'...'</span>)
@@ -609,7 +617,8 @@ blade;
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">src</span>(<span class="hl-value">'...'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">srcdoc</span>(<span class="hl-value">'...'</span>);
 </code></pre>
-<p>Refer to the <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">HTML specification</a> for a complete list of available attributes.</p>
+<p>Refer to the <a href="https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element">HTML specification</a>
+for a complete list of available attributes.</p>
 </body>
 
                                                                         </main>

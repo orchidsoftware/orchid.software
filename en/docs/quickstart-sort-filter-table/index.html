@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Sorting and Filtering In a Table | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,9 +372,10 @@
                             </div>
 
 
-                                                        <head></head><body><p>This guide is a continuation of the <a href="/en/docs/quickstart-crud">Data Management</a> tutorial, in which we will help the user find information in tables faster.</p>
-<p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the <code>Eloquent</code> models.
-To enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
+                                                        <head></head><body><p>This guide is a continuation of the <a href="/en/docs/quickstart-crud">Data Management</a> tutorial, in which we will help the user
+find information in tables faster.</p>
+<p>The sorting in the table is based entirely on the automatic recognition of the <code>Http</code> request and is applicable to the
+<code>Eloquent</code> models. To enable it, you need to add the <code>Filterable</code> trait and define the allowed columns:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -412,8 +413,8 @@ To enable it, you need to add the <code>Filterable</code> trait and define the a
     ];
 }
 </code></pre>
-<p>Now, when calling the <code>filters</code> method, the database query will be modified.
-In the data source method of the <code>PostListScreen</code> screen, it will look like this:</p>
+<p>Now, when calling the <code>filters</code> method, the database query will be modified. In the data source method of the
+<code>PostListScreen</code> screen, it will look like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data.
  *
@@ -434,7 +435,8 @@ In the data source method of the <code>PostListScreen</code> screen, it will loo
 <blockquote>
 <p><strong>Note.</strong> In this way, you cannot sort related models.</p>
 </blockquote>
-<p>To display the sorting feature in the graphical interface, call the <code>sort</code> method for the necessary table columns in the <code>PostListLayout</code>:</p>
+<p>To display the sorting feature in the graphical interface, call the <code>sort</code> method for the necessary table columns in the
+<code>PostListLayout</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
@@ -474,7 +476,8 @@ In the data source method of the <code>PostListScreen</code> screen, it will loo
 }
 </code></pre>
 <p>After that, the column heading will respond to clicking and change the sorting position.</p>
-<p>The trait <code>Filterable</code>, allows you to set not only sorting. But also simple <code>Http</code> filtering, to set it back to the model and add a new property:</p>
+<p>The trait <code>Filterable</code>, allows you to set not only sorting. But also simple <code>Http</code> filtering, to set it back to the
+model and add a new property:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Like</span>;
 
 <span class="hl-comment">/**
@@ -497,11 +500,14 @@ In the data source method of the <code>PostListScreen</code> screen, it will loo
             <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.post.edit'</span>, $post);
     }),
 </code></pre>
-<p>After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter the results.</p>
+<p>After that, an icon will open next to the column name, opening the text field, setting its value in which you can filter
+the results.</p>
 <blockquote>
-<p><strong>Please note.</strong> Such an expression will be performed by <code>sql</code> with <code>like</code> filtering. In order for the search to be case-insensitive, you need to check the database encoding.</p>
+<p><strong>Please note.</strong> Such an expression will be performed by <code>sql</code> with <code>like</code> filtering. In order for the search to be
+case-insensitive, you need to check the database encoding.</p>
 </blockquote>
-<p>Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to <strong>create complex filters</strong>, it is necessary to familiarize yourself with the <a href="/en/docs/filters">Filtering</a> section.</p>
+<p>Now our table has some interactivity and helps the user find information faster. For a detailed acquaintance and to
+<strong>create complex filters</strong>, it is necessary to familiarize yourself with the <a href="/en/docs/filters">Filtering</a> section.</p>
 </body>
 
                                                                         </main>

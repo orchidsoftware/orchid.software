@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Layers for Grouping | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -410,11 +410,11 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#split' id='split'>Split</a></h2>
-<p>Allows you to divide the screen into two customizable sections.
-This layout is particularly useful when you want to display two separate pieces of information side-by-side.</p>
-<p>Orchid provides a shortcut method for creating a Split layout with two views using the <code>Layout::split()</code> method.
-To create a Split layout, simply pass an array of two Layout objects as the first parameter to the <code>split()</code> method.
-You can also set the ratio of the two sections using the optional <code>ratio()</code> method as the second parameter.</p>
+<p>Allows you to divide the screen into two customizable sections. This layout is particularly useful when you want to
+display two separate pieces of information side-by-side.</p>
+<p>Orchid provides a shortcut method for creating a Split layout with two views using the <code>Layout::split()</code> method. To
+create a Split layout, simply pass an array of two Layout objects as the first parameter to the <code>split()</code> method. You
+can also set the ratio of the two sections using the optional <code>ratio()</code> method as the second parameter.</p>
 <p>Here&rsquo;s an example of how to create a Split layout:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
@@ -424,8 +424,8 @@ You can also set the ratio of the two sections using the optional <code>ratio()<
 ]);
 </code></pre>
 <h3><a href='#customizing-the-ratio' id='customizing-the-ratio'>Customizing the Ratio</a></h3>
-<p>By default, the Split layout divides the screen with a <code>50/50</code> ratio. However, you can easily customize this ratio using the <code>ratio()</code> method.
-This method takes a string argument that specifies the desired ratio. Here are the valid ratios:</p>
+<p>By default, the Split layout divides the screen with a <code>50/50</code> ratio. However, you can easily customize this ratio using
+the <code>ratio()</code> method. This method takes a string argument that specifies the desired ratio. Here are the valid ratios:</p>
 <ul>
 <li>20/80</li>
 <li>30/70</li>
@@ -444,8 +444,8 @@ This method takes a string argument that specifies the desired ratio. Here are t
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">ratio</span>(<span class="hl-value">'40/60'</span>),
 </code></pre>
 <h3><a href='#reversing-the-order-on-mobile' id='reversing-the-order-on-mobile'>Reversing the Order on Mobile</a></h3>
-<p>By default, the order of the two sections in a <code>Split</code> layout is fixed.
-However, you can reverse the order of the sections on mobile devices by calling the <code>reverseOnPhone()</code> method. Here&rsquo;s an example:</p>
+<p>By default, the order of the two sections in a <code>Split</code> layout is fixed. However, you can reverse the order of the
+sections on mobile devices by calling the <code>reverseOnPhone()</code> method. Here&rsquo;s an example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
 <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">split</span>([
@@ -453,11 +453,15 @@ However, you can reverse the order of the sections on mobile devices by calling 
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">view</span>(<span class="hl-value">'second-view'</span>),
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">ratio</span>(<span class="hl-value">'40/60'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">reverseOnPhone</span>(),
 </code></pre>
-<p>This will create a <code>Split</code> layout with a <code>40/60</code> ratio, and the order of the sections will be reversed on mobile devices.</p>
+<p>This will create a <code>Split</code> layout with a <code>40/60</code> ratio, and the order of the sections will be reversed on mobile
+devices.</p>
 <h2><a href='#sortable' id='sortable'>Sortable</a></h2>
-<p>Sortable in the Orchid platform simplifies managing the order of elements in your application. You will be able to easily change the order of items in your list and create interactive user interfaces through a simple drag and drop function. This significantly facilitates working with ordered elements in the user interface.</p>
+<p>Sortable in the Orchid platform simplifies managing the order of elements in your application. You will be able to
+easily change the order of items in your list and create interactive user interfaces through a simple drag and drop
+function. This significantly facilitates working with ordered elements in the user interface.</p>
 <h3><a href='#preparing-the-database' id='preparing-the-database'>Preparing the Database</a></h3>
-<p>To start using the sorting functionality, you need to prepare the database. To do this, create a migration that adds a simple integer column to the table you plan to work with. Here&rsquo;s an example migration:</p>
+<p>To start using the sorting functionality, you need to prepare the database. To do this, create a migration that adds a
+simple integer column to the table you plan to work with. Here&rsquo;s an example migration:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
@@ -479,7 +483,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
    <span class="hl-comment">// ...</span>
 }
 </code></pre>
-<p>Replace <code>table_name</code> with the name of the table to which you want to add the column. You can also choose any other name for the column by replacing <code>'order'</code> with the preferred name.</p>
+<p>Replace <code>table_name</code> with the name of the table to which you want to add the column. You can also choose any other name
+for the column by replacing <code>'order'</code> with the preferred name.</p>
 <blockquote>
 <p>Don&rsquo;t forget to run the migration using the <code>php artisan migrate</code> command to add the new column to the database.</p>
 </blockquote>
@@ -498,7 +503,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
 <blockquote>
 <p>Note: Make sure to import the Eloquent model class and then use the <code>Sortable</code> trait.</p>
 </blockquote>
-<p>If the column name is different from <code>order</code>, you can add a <code>getSortColumnName()</code> method to your model to explicitly specify the column name:</p>
+<p>If the column name is different from <code>order</code>, you can add a <code>getSortColumnName()</code> method to your model to explicitly
+specify the column name:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 <span class="hl-keyword">use</span> Orchid\Platform\Concerns\<span class="hl-type">Sortable</span>;
 
@@ -520,7 +526,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
 }
 </code></pre>
 <h3><a href='#usage-in-a-screen' id='usage-in-a-screen'>Usage in a Screen</a></h3>
-<p>Now we have a prepared model with sorting functionality. Let&rsquo;s create a graphical interface for drag and drop sorting. In the <code>query()</code> method of your screen, specify the list of models that will be displayed for sorting:</p>
+<p>Now we have a prepared model with sorting functionality. Let&rsquo;s create a graphical interface for drag and drop sorting.
+In the <code>query()</code> method of your screen, specify the list of models that will be displayed for sorting:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Idea</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
@@ -531,7 +538,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
    ];
 }
 </code></pre>
-<p>Here, we use the <code>sorted()</code> method provided by the <code>Sortable</code> trait to get a sorted list of models. It also has an optional argument for sorting direction (ASC &ndash; ascending, DESC &ndash; descending). By default, the value is set to ASC.</p>
+<p>Here, we use the <code>sorted()</code> method provided by the <code>Sortable</code> trait to get a sorted list of models. It also has an
+optional argument for sorting direction (ASC &ndash; ascending, DESC &ndash; descending). By default, the value is set to ASC.</p>
 <p>In the <code>layout()</code> method of your screen, add the graphical interface using the <code>Layout::sortable()</code> layer:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
@@ -546,13 +554,15 @@ However, you can reverse the order of the sections on mobile devices by calling 
 }
 </code></pre>
 <h2><a href='#columns' id='columns'>Columns</a></h2>
-<p>Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple columns of equal width, which can be used to display content side by side.</p>
+<p>Columns are useful when you want to group content horizontally. They allow you to divide the layout into multiple
+columns of equal width, which can be used to display content side by side.</p>
 <blockquote>
 <p>Columns differ from <code>Split</code> in that they always have the same width and there can be many of them.</p>
 </blockquote>
 <p>Here is an example of columns:</p>
 <p><picture alt='Columns'><img src="/img/layouts/columns.png" alt="Columns"></picture></p>
-<p>To create columns in Orchid, you can use the <code>Layout::columns()</code> method. This method accepts an array of content, which will be displayed in the columns.</p>
+<p>To create columns in Orchid, you can use the <code>Layout::columns()</code> method. This method accepts an array of content, which
+will be displayed in the columns.</p>
 <p>Here is an example of how to create columns using the short syntax:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
@@ -566,13 +576,16 @@ However, you can reverse the order of the sections on mobile devices by calling 
     ];
 }
 </code></pre>
-<p>In the example above, the layout is divided into two columns, and the content of each column is specified as the lowercase name of a class.</p>
+<p>In the example above, the layout is divided into two columns, and the content of each column is specified as the
+lowercase name of a class.</p>
 <h2><a href='#tabmenu' id='tabmenu'>TabMenu</a></h2>
-<p>The <code>TabMenu</code> layout allows you to display navigation items visually similar to tabs, but instead of switching between tabs, clicking on an item will navigate to a different screen.</p>
+<p>The <code>TabMenu</code> layout allows you to display navigation items visually similar to tabs, but instead of switching between
+tabs, clicking on an item will navigate to a different screen.</p>
 <p>To create a <code>TabMenu</code> layout, you can use the <code>artisan</code> command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:tab-menu ExampleNavigation
 </code></pre>
-<p>This will create a new class called <code>ExampleNavigation</code> in the <code>app/Orchid/Layouts</code> directory. You can define the navigation items in this class by implementing the <code>navigations</code> method:</p>
+<p>This will create a new class called <code>ExampleNavigation</code> in the <code>app/Orchid/Layouts</code> directory. You can define the
+navigation items in this class by implementing the <code>navigations</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
@@ -605,7 +618,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
 }
 </code></pre>
 <h2><a href='#tabs' id='tabs'>Tabs</a></h2>
-<p>Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of content:</p>
+<p>Tabs group content and help with navigation. Useful when you want to switch between hiding and displaying a some of
+content:</p>
 <p><picture alt='Tabs'><img src="/img/layouts/tabs.png" alt="Tabs"></picture></p>
 <p>Tabs support short syntax by calling a static method, which does not require creating a separate class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
@@ -652,8 +666,8 @@ However, you can reverse the order of the sections on mobile devices by calling 
     ];
 }
 </code></pre>
-<p>By default, the active tab will be either the first or the last active one.
-If you need to define the active tab explicitly, you can do this using the <code>-&gt;activeTab($key)</code> method</p>
+<p>By default, the active tab will be either the first or the last active one. If you need to define the active tab
+explicitly, you can do this using the <code>-&gt;activeTab($key)</code> method</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -665,10 +679,14 @@ If you need to define the active tab explicitly, you can do this using the <code
 }
 </code></pre>
 <h2><a href='#accordion' id='accordion'>Accordion</a></h2>
-<p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content becomes visible, while the other panels are collapsed.</p>
+<p>Accordions are useful when you want to switch between hiding and displaying a lot of content in a compact space. They
+consist of a series of collapsible panels, each containing a header and content. When a panel is expanded, its content
+becomes visible, while the other panels are collapsed.</p>
 <p>Here is an example of an accordion:</p>
 <p><picture alt='Accordion'><img src="/img/layouts/accordion.png" alt="Accordion"></picture></p>
-<p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel names and content, where the keys of the array will be used as the panel headers and the values will be used as the panel content.</p>
+<p>To create an accordion in Orchid, you can use the <code>Layout::accordion()</code> method. This method accepts an array of panel
+names and content, where the keys of the array will be used as the panel headers and the values will be used as the
+panel content.</p>
 <p>Here is an example of how to create an accordion using the short syntax:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 
@@ -702,7 +720,8 @@ If you need to define the active tab explicitly, you can do this using the <code
     ];
 }
 </code></pre>
-<p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address.&rdquo; The content of each panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
+<p>In the example above, the accordion has two panels: &ldquo;Personal Information&rdquo; and &ldquo;Billing Address.&rdquo; The content of each
+panel is specified as an array of rows created using the <code>Layout::rows()</code> method.</p>
 <p>You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {

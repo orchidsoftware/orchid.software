@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Modal Dialogs | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link is-active">
+                 aria-current="page"                 class="link is-active">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -234,31 +234,34 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>A <strong>modal dialog</strong> is a browser-like dialog that appears on top of the page in response to user actions, blocking access to the main content until dismissed.</p>
+                            <head></head><body><p>A <strong>modal dialog</strong> is a browser-like dialog that appears on top of the page in response to user actions, blocking access
+to the main content until dismissed.</p>
 <h2><a href='#when-to-use' id='when-to-use'>When to Use</a></h2>
-<p>Modals are designed to temporarily focus the user&rsquo;s attention on a <strong>single task</strong>.
-Typical use cases include:</p>
+<p>Modals are designed to temporarily focus the user&rsquo;s attention on a <strong>single task</strong>. Typical use cases include:</p>
 <ul>
 <li><strong>Confirmations</strong> (for example, &ldquo;Are you sure you want to delete this item?&rdquo;)</li>
 <li><strong>Lightweight forms</strong> (for example, entering one or a few values)</li>
 <li><strong>Quick information summaries</strong> (for example, notifications or alerts)</li>
 </ul>
 <p><picture alt='✅ Small, clear form intended only for updating a user's status.'><img src="https://orchid.software/img/hig/modal-simple-form.png" alt="&#9989; Small, clear form intended only for updating a user's status."></picture></p>
-<p><strong>Avoid using modals for complex interactions</strong>, such as detailed data views, tables with filtering/sorting, or multi-page navigation. Doing so disrupts natural workflows and creates unnecessary friction.</p>
-<p>Also, avoid situations where modal content exceeds the height of the screen at minimum supported resolutions. In such cases, place the content on a <strong>separate page</strong> instead.</p>
+<p><strong>Avoid using modals for complex interactions</strong>, such as detailed data views, tables with filtering/sorting, or
+multi-page navigation. Doing so disrupts natural workflows and creates unnecessary friction.</p>
+<p>Also, avoid situations where modal content exceeds the height of the screen at minimum supported resolutions. In such
+cases, place the content on a <strong>separate page</strong> instead.</p>
 <p><picture alt='❌ Complex form without a clear purpose — makes interaction harder for the user'><img src="https://orchid.software/img/hig/modal-big-form.png" alt="&#10060; Complex form without a clear purpose &mdash; makes interaction harder for the user"></picture></p>
-<p>All links inside a modal should open in a <strong>new tab</strong> (<code>_blank</code>) to preserve context and prevent interrupting the user&rsquo;s workflow.</p>
+<p>All links inside a modal should open in a <strong>new tab</strong> (<code>_blank</code>) to preserve context and prevent interrupting the user&rsquo;s
+workflow.</p>
 <h2><a href='#opening-a-modal' id='opening-a-modal'>Opening a Modal</a></h2>
-<p>Modals should open <strong>only in response to explicit user actions</strong>, such as clicking a button.
-For automatic notifications, use less intrusive UI elements like <strong>toasts</strong> or <strong>banners</strong>.</p>
-<p><strong>Do not stack modals</strong>: each modal should be a standalone dialog. Opening another modal on top of an existing one causes confusion and reduces usability.</p>
+<p>Modals should open <strong>only in response to explicit user actions</strong>, such as clicking a button. For automatic
+notifications, use less intrusive UI elements like <strong>toasts</strong> or <strong>banners</strong>.</p>
+<p><strong>Do not stack modals</strong>: each modal should be a standalone dialog. Opening another modal on top of an existing one
+causes confusion and reduces usability.</p>
 <h2><a href='#title' id='title'>Title</a></h2>
-<p>If a modal is intended for a <strong>single task</strong>, the title should reflect it.
-Keep titles short (1&ndash;3&nbsp;words) and describe the process or object.</p>
+<p>If a modal is intended for a <strong>single task</strong>, the title should reflect it. Keep titles short (1&ndash;3&nbsp;words) and describe
+the process or object.</p>
 <h2><a href='#buttons-and-actions' id='buttons-and-actions'>Buttons and Actions</a></h2>
-<p>Buttons in modals define how the user completes or cancels the current action.
-The <strong>number and labeling of buttons</strong> directly impact decision speed and confidence.
-Well-labeled buttons make interactions predictable and intuitive.</p>
+<p>Buttons in modals define how the user completes or cancels the current action. The <strong>number and labeling of buttons</strong>
+directly impact decision speed and confidence. Well-labeled buttons make interactions predictable and intuitive.</p>
 <h3><a href='#number-of-actions' id='number-of-actions'>Number of Actions</a></h3>
 <p>Each modal should have <strong>no more than two primary buttons</strong>:</p>
 <ul>
@@ -269,12 +272,11 @@ Well-labeled buttons make interactions predictable and intuitive.</p>
 <p>Avoid extra or unclear buttons. Modals are meant for short, focused tasks, not complex scenarios.</p>
 </blockquote>
 <h3><a href='#button-labels' id='button-labels'>Button Labels</a></h3>
-<p>Button labels should <strong>clearly describe the result</strong> of the action.
-Avoid abstract words like &ldquo;OK&rdquo; or &ldquo;Yes&rdquo;.</p>
+<p>Button labels should <strong>clearly describe the result</strong> of the action. Avoid abstract words like &ldquo;OK&rdquo; or &ldquo;Yes&rdquo;.</p>
 <p>Use <strong>verbs in the imperative mood</strong>.</p>
-<pre><code data-lang="php" class="notranslate">| ✅ Correct    | ❌ Incorrect |
+<pre><code data-lang="txt" class="notranslate">| ✅ Correct    | ❌ Incorrect |
 |--------------|--------------|
-| Apply        | <span class="hl-constant">OK</span>           |
+| Apply        | OK           |
 | Save         | Yes / No     |
 | Continue     | Done         |
 | Delete       | Enter        |
@@ -283,7 +285,7 @@ Avoid abstract words like &ldquo;OK&rdquo; or &ldquo;Yes&rdquo;.</p>
 | Retry        |              |
 </code></pre>
 <p>Examples of good button pairs for different scenarios:</p>
-<pre><code data-lang="php" class="notranslate">| Scenario          | Left Button | Right Button |
+<pre><code data-lang="txt" class="notranslate">| Scenario          | Left Button | Right Button |
 |-------------------|-------------|--------------|
 | Confirmation      | Cancel      | Delete       |
 | Form              | Close       | Apply        |
@@ -297,7 +299,8 @@ Avoid abstract words like &ldquo;OK&rdquo; or &ldquo;Yes&rdquo;.</p>
 <li><strong>Close icon</strong> (<code>&#10006;</code>) in the top-right corner</li>
 <li><strong>Escape key</strong> on the keyboard</li>
 </ul>
-<p>Avoid automatically dismissing modals with a timeout &mdash; users may not have enough time to read the content or could miss critical information.</p>
+<p>Avoid automatically dismissing modals with a timeout &mdash; users may not have enough time to read the content or could miss
+critical information.</p>
 </body>
 
                                                                         </main>

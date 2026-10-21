@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Use JavaScript | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -400,21 +400,33 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>The aesthetic and functional foundation of Orchid is built upon <a href="https://getbootstrap.com/">Bootstrap</a> for CSS and <a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of Orchid&rsquo;s features.</p>
+                            <head></head><body><p>The aesthetic and functional foundation of Orchid is built upon <a href="https://getbootstrap.com/">Bootstrap</a> for CSS and
+<a href="https://hotwired.dev">Hotwired</a> for JavaScript functionality. While Orchid allows the integration of additional
+libraries to meet your project&rsquo;s needs, we recommend utilizing these core technologies to leverage the full potential of
+Orchid&rsquo;s features.</p>
 <blockquote>
-<p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at your disposal.</p>
+<p><strong>Note</strong>: Orchid includes a raw Bootstrap stylesheet, which means you have the full spectrum of Bootstrap&rsquo;s styles at
+your disposal.</p>
 </blockquote>
 <h2><a href='#working-with-vite' id='working-with-vite'>Working With Vite</a></h2>
-<p>Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the official <a href="https://laravel.com/docs/vite">documentation page</a>.</p>
-<p>To successfully incorporate the acquired resources into your project, you&rsquo;ll need to specify them in the <code>config/platform.php</code> file. This file allows you to define a list of resources that should be included in your project. Here&rsquo;s an example of such configuration:</p>
+<p>Laravel comes with the powerful front-end build tool called Vite by default. To harness the full potential of this tool, make sure Vite is installed and configured correctly. You can find installation and configuration instructions in the
+official <a href="https://laravel.com/docs/vite">documentation page</a>.</p>
+<p>To successfully incorporate the acquired resources into your project, you&rsquo;ll need to specify them in the
+<code>config/platform.php</code> file. This file allows you to define a list of resources that should be included in your project.
+Here&rsquo;s an example of such configuration:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'resources/js/app.js'</span>,
 ],
 </code></pre>
-<p>This entry is equivalent to using the Blade directive <code>@vite</code>. By carefully following these steps, you can effectively integrate Vite into your Laravel project and achieve the best results from its usage.</p>
+<p>This entry is equivalent to using the Blade directive <code>@vite</code>. By carefully following these steps, you can effectively
+integrate Vite into your Laravel project and achieve the best results from its usage.</p>
 <h2><a href='#loading-your-scripts-and-styles' id='loading-your-scripts-and-styles'>Loading Your Scripts And Styles</a></h2>
-<p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or <code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel application.</p>
-<p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your stylesheets and scripts that are hosted on a CDN or public URL. The configuration should resemble the following structure:</p>
+<p>Laravel Orchid facilitates efficient delivery of your stylesheets and scripts by allowing the use of any <code>&lt;link&gt;</code> or
+<code>&lt;script&gt;</code> tags. To set up the URLs for your resources, you&rsquo;ll need to modify the platform.php file in your Laravel
+application.</p>
+<p>Open your <code>config/platform.php</code> file and look for the <code>resource</code> key. Here, you can specify the URLs for your
+stylesheets and scripts that are hosted on a CDN or public URL. The configuration should resemble the following
+structure:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [
         <span class="hl-comment">// Add your URLs for stylesheets here</span>
@@ -426,23 +438,33 @@
     ],
 ],
 </code></pre>
-<p>In this array, replace the placeholder URLs with the actual URLs where your stylesheet and script files are located. This way, whenever Laravel Orchid needs to load these resources, it will automatically use the URLs provided in this configuration.</p>
-<p>To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser. Look for the <code>link</code> tags for stylesheets and <code>script</code> tags for JavaScript files and ensure that the URLs match those specified in your configuration file.</p>
+<p>In this array, replace the placeholder URLs with the actual URLs where your stylesheet and script files are located.
+This way, whenever Laravel Orchid needs to load these resources, it will automatically use the URLs provided in this
+configuration.</p>
+<p>To verify that the URLs is being used correctly, you can inspect the page source of your application in the browser.
+Look for the <code>link</code> tags for stylesheets and <code>script</code> tags for JavaScript files and ensure that the URLs match those
+specified in your configuration file.</p>
 <h2><a href='#turbo' id='turbo'>Turbo</a></h2>
-<p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request. This approach minimizes page load time, resulting in content being updated within the browser in real time. The transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
+<p>Orchid&rsquo;s seamless administrative panel experience is powered by <a href="https://turbo.hotwire.dev">Turbo</a>. With Turbo, we
+replicate the dynamics of a Single Page Application (SPA), where resources are loaded once during the initial request.
+This approach minimizes page load time, resulting in content being updated within the browser in real time. The
+transition between pages is replaced by a swift, in-browser content refresh, which substantially improves interaction, making it smoother and more engaging for users.</p>
 <p>Since all resources will be loaded on the first call, classic calls like this will not work:</p>
 <pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("load", () =&gt; {
-    console.<span class="hl-property"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
+    console.<span class="hl-property"><span class="hl-function">log</span></span>("Page load");
 });
 </code></pre>
-<p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo events:</p>
+<p>It will be executed only once and will not be called again during transitions. To avoid this, you need to use Turbo
+events:</p>
 <pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("turbo:load", () =&gt; {
-    console.<span class="hl-property"><span class="hl-function">log</span></span>(<span class="hl-value">'Page load'</span>);
-})
+    console.<span class="hl-property"><span class="hl-function">log</span></span>("Page load");
+});
 </code></pre>
 <p>You can find more details on the <a href="https://turbo.hotwire.dev">Hotwire Turbo website</a>.</p>
 <h2><a href='#stimulus' id='stimulus'>Stimulus</a></h2>
-<p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not impose a separation of frontend from backend.</p>
+<p><a href="https://stimulus.hotwired.dev/">Stimulus</a> is a JavaScript framework from the Ruby on Rails developers. It equips
+frontend development using new approaches to JavaScript, while it does not seek to control all your actions and does not
+impose a separation of frontend from backend.</p>
 <p>Let&rsquo;s build a basic example for that displays the text entered the field for this:</p>
 <p>In <code>resources/js</code>, create the following structure:</p>
 <pre><code data-lang="php" class="notranslate">resources
@@ -455,31 +477,30 @@
 <p>Controller class with the following content:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// hello.js</span>
 <span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property">Controller</span> {
-
     <span class="hl-keyword">static</span> <span class="hl-keyword">get</span> <span class="hl-function">targets</span>() {
-        <span class="hl-keyword">return</span> [ "name", "output" ]
+        <span class="hl-keyword">return</span> ["name", "output"];
     }
 
     <span class="hl-function">greet</span>() {
-        <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span>
-            <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>
+        <span class="hl-slug">this</span>.<span class="hl-property">outputTarget</span>.<span class="hl-property">textContent</span> <span class="hl-operator">=</span> <span class="hl-value">`Hello, ${<span class="hl-slug">this</span>.<span class="hl-property">nameTarget</span>.<span class="hl-property">value</span>}!`</span>;
     }
 }
 </code></pre>
 <p>And the assembly point:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// dashboard.js</span>
-<span class="hl-keyword">import</span> HelloController <span class="hl-keyword">from</span> "./controllers/hello"
+<span class="hl-keyword">import</span> HelloController <span class="hl-keyword">from</span> "./controllers/hello";
 
 application.<span class="hl-property"><span class="hl-function">register</span></span>("hello", HelloController);
 </code></pre>
 <blockquote>
-<p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build: Angular/React/Vue, etc.</p>
+<p>Note: Such a structure will not prevent your application, no matter what kind of front-end to build:
+Angular/React/Vue, etc.</p>
 </blockquote>
 <h3><a href='#compilation-with-mix' id='compilation-with-mix'>Compilation with Mix</a></h3>
 <p>It remains only to describe the assembly in <code>webpack.mix.js</code>:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> mix <span class="hl-operator">=</span> <span class="hl-function">require</span>(<span class="hl-value">'laravel-mix'</span>);
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> mix <span class="hl-operator">=</span> <span class="hl-function">require</span>("laravel-mix");
 
-mix.<span class="hl-property"><span class="hl-function">js</span></span>(<span class="hl-value">'resources/js/dashboard.js'</span>, <span class="hl-value">'public/js'</span>)
+mix.<span class="hl-property"><span class="hl-function">js</span></span>("resources/js/dashboard.<span class="hl-property">js</span>", "public/js");
 </code></pre>
 <p>It remains only to connect the received script to the panel in the configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
@@ -491,7 +512,8 @@ mix.<span class="hl-property"><span class="hl-function">js</span></span>(<span c
 ],
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the Artisan command <code>artisan config:clear</code>.</p>
+<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It
+can be done using the Artisan command <code>artisan config:clear</code>.</p>
 </blockquote>
 <p>Run to build assets:</p>
 <pre><code data-lang="shell" class="notranslate">npm run production
@@ -503,22 +525,25 @@ mix.<span class="hl-property"><span class="hl-function">js</span></span>(<span c
     refresh: <span class="hl-slug">true</span>,
 }),
 </code></pre>
-<p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module injection.</p>
+<p>It remains only to connect the received script to the panel in the configuration file. This handles the necessary module
+injection.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// config/platform.php</span>
 <span class="hl-value">'vite'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'resources/js/app.js'</span>,
 ],
 </code></pre>
-<p>Running the <code>build</code> command will version and bundle your application&rsquo;s assets and get them ready for you to deploy to production:</p>
+<p>Running the <code>build</code> command will version and bundle your application&rsquo;s assets and get them ready for you to deploy to
+production:</p>
 <pre><code data-lang="shell" class="notranslate"><span class="hl-comment"># Build and version the assets for production...</span>
 npm run build
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It can be done using the Artisan command <code>artisan config:clear</code>.</p>
+<p><strong>Note</strong>. To apply changes to the configuration file, you may need to clear the cache if it was created earlier. It
+can be done using the Artisan command <code>artisan config:clear</code>.</p>
 </blockquote>
 <h3><a href='#run-controller' id='run-controller'>Run Controller</a></h3>
 <p>To display, we will use a template for which you first need to define the <code>Controller</code> and <code>Route</code> in your application:</p>
-<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- hello.blade.php --}}</span> 
+<pre><code data-lang="blade" class="notranslate"><span class="hl-comment">{{-- hello.blade.php --}}</span>
 <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"hello"</span><span class="hl-start-end-tag">&gt;</span>
   <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> <span class="hl-attribute">data-hello-target</span><span class="hl-delimeter">=</span><span class="hl-value">"name"</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"text"</span><span class="hl-start-end-tag">&gt;</span>
 
@@ -531,18 +556,19 @@ npm run build
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
 <h2><a href='#vuejs-wrapped-in-a-stimulus' id='vuejs-wrapped-in-a-stimulus'>Vue.js Wrapped in a Stimulus</a></h2>
-<p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces. In this tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
+<p>Many developers love the simplicity and power of Vue.js for building interactive and responsive user interfaces. In this
+tutorial, we&rsquo;ll show you how to wrap Vue components within a Stimulus controller so you can easily integrate them.</p>
 <p>Create a Stimulus controller file, for example <code>hello_controller.js</code>:</p>
-<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> {createApp} <span class="hl-keyword">from</span> <span class="hl-value">'vue'</span>;
+<pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> { createApp } <span class="hl-keyword">from</span> "vue";
 
 <span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property">Controller</span> {
     <span class="hl-function">connect</span>() {
         <span class="hl-slug">this</span>.<span class="hl-property">app</span> <span class="hl-operator">=</span> <span class="hl-function">createApp</span>({
             <span class="hl-function">data</span>() {
                 <span class="hl-keyword">return</span> {
-                    message: <span class="hl-value">'Hello, Vue.js!'</span>
-                }
-            }
+                    message: "Hello, Vue.<span class="hl-property">js</span>!",
+                };
+            },
         });
 
         <span class="hl-slug">this</span>.<span class="hl-property">app</span>.<span class="hl-property"><span class="hl-function">mount</span></span>(<span class="hl-slug">this</span>.<span class="hl-property">element</span>);
@@ -558,7 +584,8 @@ npm run build
   <span class="hl-attribute">@</span><span class="hl-delimeter">{{</span> message <span class="hl-delimeter">}}</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
+<p>Now, when the page loads, the Vue.js instance will be created and the message will be displayed in the HTML element. You
+can then use Vue.js as you normally would within the scope of the Stimulus controller.</p>
 </body>
 
                                                                         </main>

@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Listener | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,13 +372,16 @@
                             </div>
 
 
-                                                        <head></head><body><p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and behavior based on user actions.</p>
-<p>In this example, we have a screen with two input fields for numbers that must be subtracted from each other. We can do this by using a listener layout.</p>
+                                                        <head></head><body><p>The <code>Listener</code> layout is a special type of layout that is used to update the displayed data on a screen in response to
+user input. This is useful when you want to create dynamic and interactive screens that can change their appearance and
+behavior based on user actions.</p>
+<p>In this example, we have a screen with two input fields for numbers that must be subtracted from each other. We can do
+this by using a listener layout.</p>
 <p>To create a listener layout, you need to run the following <code>artisan</code> command in your terminal:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:listener SubtractListener
 </code></pre>
-<p>Running the command above will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory.
-Once created, you can now add the required fields in the <code>layouts</code> method as shown below:</p>
+<p>Running the command above will create a new class named <code>SubtractListener</code> in the <code>app/Orchid/Layouts</code> directory. Once
+created, you can now add the required fields in the <code>layouts</code> method as shown below:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
@@ -413,7 +416,7 @@ Once created, you can now add the required fields in the <code>layouts</code> me
             ]),
         ];
     }
-    
+
     <span class="hl-comment">/**
      * <span class="hl-keyword">@param</span> \Orchid\Screen\<span class="hl-type">Repository</span> $repository
      * <span class="hl-keyword">@param</span> \Illuminate\Http\<span class="hl-type">Request</span>  $request
@@ -426,8 +429,8 @@ Once created, you can now add the required fields in the <code>layouts</code> me
     }
 }
 </code></pre>
-<p>Here, the <code>targets</code> property takes the names of the fields that require action whenever they are changed.
-In our example, the fields with the names <code>minuend</code> and <code>subtrahend</code> are considered targets:</p>
+<p>Here, the <code>targets</code> property takes the names of the fields that require action whenever they are changed. In our
+example, the fields with the names <code>minuend</code> and <code>subtrahend</code> are considered targets:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * List of field names for which values will be listened.
  *
@@ -439,10 +442,12 @@ In our example, the fields with the names <code>minuend</code> and <code>subtrah
 ];
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending the target value with a dot, such as <code>"users."</code></p>
+<p><strong>Note</strong>. Multiple choice fields such as <code>&lt;select name="users[]"&gt;</code> need to indicate that they are an array by ending
+the target value with a dot, such as <code>"users."</code></p>
 </blockquote>
-<p>Now comes the <code>handle</code> method, which is responsible for handling the target fields. The method is automatically called when the values in the target fields change.
-It takes in two arguments &ndash; <code>$repository</code> represents the current state of all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
+<p>Now comes the <code>handle</code> method, which is responsible for handling the target fields. The method is automatically called
+when the values in the target fields change. It takes in two arguments &ndash; <code>$repository</code> represents the current state of
+all the fields on the screen, while <code>$request</code> represents the new state of the screen.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">Request</span>;
@@ -503,7 +508,10 @@ It takes in two arguments &ndash; <code>$repository</code> represents the curren
     }
 }
 </code></pre>
-<p>The codes above show an updated version of the <code>SubtractListener</code> class. To handle the values in the target fields, we destructured the <code>$request</code> object, assigning the values in the fields <code>minuend</code> and <code>subtrahend</code> to variables with same names. We then updated the <code>$repository</code> object with these values as well as with the result of the subtraction of the two values which is reflected in the <code>result</code> field.</p>
+<p>The codes above show an updated version of the <code>SubtractListener</code> class. To handle the values in the target fields, we
+destructured the <code>$request</code> object, assigning the values in the fields <code>minuend</code> and <code>subtrahend</code> to variables with same
+names. We then updated the <code>$repository</code> object with these values as well as with the result of the subtraction of the
+two values which is reflected in the <code>result</code> field.</p>
 </body>
 
                                                                         </main>

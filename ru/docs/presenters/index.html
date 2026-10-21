@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Представители | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -413,13 +413,14 @@ $client <span class="hl-operator">=</span> <span class="hl-constant">new</span> 
         <span class="hl-value">'fistName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Alexandr'</span>,
         <span class="hl-value">'lastName'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Chernyaev'</span>
     ]);
-    
+
 $presenter <span class="hl-operator">=</span> <span class="hl-constant">new</span> <span class="hl-type">ClientPresenter</span>($client);
 
 $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullName</span>();
 </code></pre>
 <blockquote>
-<p><strong>&#1047;&#1072;&#1084;&#1077;&#1090;&#1100;&#1090;&#1077;</strong>, &#1095;&#1090;&#1086; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1077;&#1090; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; <code>firstName</code> &#1080; <code>lastName</code> &#1091; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;, &#1087;&#1086;&#1090;&#1086;&#1084;&#1091; &#1095;&#1090;&#1086; &#1101;&#1090;&#1080;&#1093; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074; &#1091; &#1085;&#1077;&#1075;&#1086; &#1085;&#1077;&#1090;.</p>
+<p><strong>&#1047;&#1072;&#1084;&#1077;&#1090;&#1100;&#1090;&#1077;</strong>, &#1095;&#1090;&#1086; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1100; &#1087;&#1086;&#1083;&#1091;&#1095;&#1072;&#1077;&#1090; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074;&#1072; <code>firstName</code> &#1080; <code>lastName</code> &#1091; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;, &#1087;&#1086;&#1090;&#1086;&#1084;&#1091; &#1095;&#1090;&#1086; &#1101;&#1090;&#1080;&#1093; &#1089;&#1074;&#1086;&#1081;&#1089;&#1090;&#1074; &#1091; &#1085;&#1077;&#1075;&#1086;
+&#1085;&#1077;&#1090;.</p>
 </blockquote>
 <p>&#1054;&#1073;&#1099;&#1095;&#1085;&#1086; &#1085;&#1077;&#1090; &#1085;&#1077;&#1086;&#1073;&#1093;&#1086;&#1076;&#1080;&#1084;&#1086;&#1089;&#1090;&#1080; &#1089;&#1086;&#1079;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1080; &#1087;&#1077;&#1088;&#1077;&#1076;&#1072;&#1074;&#1072;&#1090;&#1100; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; &#1082;&#1072;&#1078;&#1076;&#1099;&#1081; &#1088;&#1072;&#1079; &#1086;&#1090;&#1076;&#1077;&#1083;&#1100;&#1085;&#1086;, &#1087;&#1086;&#1101;&#1090;&#1086;&#1084;&#1091; &#1091;&#1082;&#1072;&#1078;&#1077;&#1084; &#1101;&#1090;&#1086; &#1089;&#1086;&#1079;&#1076;&#1072;&#1085;&#1080;&#1077; &#1074; &#1084;&#1086;&#1076;&#1077;&#1083;&#1080;:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
@@ -433,7 +434,7 @@ $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullN
         <span class="hl-value">'firstName'</span>,
         <span class="hl-value">'lastName'</span>
     ];
-    
+
     <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">presenter</span>(): <span class="hl-type">ClientPresenter</span>
     {
         <span class="hl-keyword">return</span> <span class="hl-constant">new</span> <span class="hl-type">ClientPresenter</span>(<span class="hl-this-keyword">$this</span>);
@@ -441,7 +442,8 @@ $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullN
 }
 </code></pre>
 <blockquote>
-<p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1052;&#1085;&#1086;&#1075;&#1080;&#1077; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1099; &#1086;&#1078;&#1080;&#1076;&#1072;&#1102;&#1090; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; <code>presenter</code>, &#1085;&#1086; &#1074;&#1072;&#1084; &#1085;&#1077;&#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100; &#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1077;&#1075;&#1086;.</p>
+<p><strong>&#1055;&#1088;&#1080;&#1084;&#1077;&#1095;&#1072;&#1085;&#1080;&#1077;.</strong> &#1052;&#1085;&#1086;&#1075;&#1080;&#1077; &#1092;&#1091;&#1085;&#1082;&#1094;&#1080;&#1080; &#1087;&#1083;&#1072;&#1090;&#1092;&#1086;&#1088;&#1084;&#1099; &#1086;&#1078;&#1080;&#1076;&#1072;&#1102;&#1090; &#1087;&#1088;&#1077;&#1076;&#1089;&#1090;&#1072;&#1074;&#1080;&#1090;&#1077;&#1083;&#1103; &#1074; &#1084;&#1077;&#1090;&#1086;&#1076;&#1077; <code>presenter</code>, &#1085;&#1086; &#1074;&#1072;&#1084; &#1085;&#1077;&#1086;&#1073;&#1103;&#1079;&#1072;&#1090;&#1077;&#1083;&#1100;&#1085;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1090;&#1100;
+&#1080;&#1084;&#1077;&#1085;&#1085;&#1086; &#1077;&#1075;&#1086;.</p>
 </blockquote>
 <p>&#1058;&#1077;&#1087;&#1077;&#1088;&#1100; &#1077;&#1075;&#1086; &#1080;&#1089;&#1087;&#1086;&#1083;&#1100;&#1079;&#1086;&#1074;&#1072;&#1085;&#1080;&#1077; &#1089;&#1090;&#1072;&#1085;&#1086;&#1074;&#1080;&#1090;&#1089;&#1103; &#1087;&#1088;&#1086;&#1097;&#1077;:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\<span class="hl-type">Client</span>;

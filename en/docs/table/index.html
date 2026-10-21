@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Table | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -415,7 +415,9 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
+                            <head></head><body><p>With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify
+the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the
+table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.</p>
 <p>To create a new table layout, you can use the following Artisan command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:table PatientListLayout
 </code></pre>
@@ -469,7 +471,9 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>, <span class="hl-value">'Last name'</span>);
 </code></pre>
 <blockquote>
-<p>Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.</p>
+<p>Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or
+special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to
+maintain a secure and polished interface.</p>
 </blockquote>
 <h2><a href='#alignment' id='alignment'>Alignment</a></h2>
 <p>Content alignment control can be controlled using the <code>align</code> method:</p>
@@ -478,17 +482,17 @@
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">align</span>(<span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-constant">ALIGN_RIGHT</span>);
 </code></pre>
 <h2><a href='#sorting' id='sorting'>Sorting</a></h2>
-<p>Sorting the selection should be done in the <code>query</code> screen, for models, you can use automatic <code>http</code> <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">sorting and
-filtering</a></p>
-<p>To enable active sorting by this column
-you must specify the <code>sort</code> method:</p>
+<p>Sorting the selection should be done in the <code>query</code> screen, for models, you can use automatic <code>http</code>
+<a href="/en/docs/filters/#automatic-http-filtering-and-sorting">sorting and filtering</a></p>
+<p>To enable active sorting by this column you must specify the <code>sort</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">sort</span>();
 </code></pre>
 <h2><a href='#filtration' id='filtration'>Filtration</a></h2>
-<p>When building simple tables, the use of separate filters may seem overkill.
-Therefore, you can display the field for filtering right above the column heading.</p>
-<p>It will only define the visible part. You can specify the filtering logic yourself or rely on &ldquo;Automatic HTTP Filtering.&rdquo;
-You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&ldquo;Eloquent Filters&rdquo; page</a>.</p>
+<p>When building simple tables, the use of separate filters may seem overkill. Therefore, you can display the field for
+filtering right above the column heading.</p>
+<p>It will only define the visible part. You can specify the filtering logic yourself or rely on &ldquo;Automatic HTTP
+Filtering.&rdquo; You can find out more on the
+<a href="/en/docs/filters/#automatic-http-filtering-and-sorting">&ldquo;Eloquent Filters&rdquo; page</a>.</p>
 <p>To add a field, call the filter method and pass the instance of the class you would like to display:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'SKU'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filter</span>(<span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>(<span class="hl-value">'A-999999'</span>));
 
@@ -500,10 +504,12 @@ You can find out more on the <a href="/en/docs/filters/#automatic-http-filtering
 
 </code></pre>
 <blockquote>
-<p><strong>Note:</strong> there is no need to specify the field name. It will be delivered and overwritten automatically by the column name.</p>
+<p><strong>Note:</strong> there is no need to specify the field name. It will be delivered and overwritten automatically by the column
+name.</p>
 </blockquote>
-<p>When working with filters, it is possible to use the <code>filterValue()</code> method, which allows you to modify the displayed filter values.
-For example, you can replace an ID value with a display name. Here is an example of using the <code>filterValue()</code> method:</p>
+<p>When working with filters, it is possible to use the <code>filterValue()</code> method, which allows you to modify the displayed
+filter values. For example, you can replace an ID value with a display name. Here is an example of using the
+<code>filterValue()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'id'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">filterValue</span>(<span class="hl-keyword">function</span> (<span class="hl-injection">$value</span>) {
     <span class="hl-keyword">return</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>($value)<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">name</span>;
 })
@@ -514,23 +520,25 @@ For example, you can replace an ID value with a display name. Here is an example
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-value">'100px'</span>);
 </code></pre>
 <h2><a href='#showhide' id='showhide'>Show/Hide</a></h2>
-<p>By default, the user can hide any column for himself, but you can
-prohibit doing this by specifying:</p>
+<p>By default, the user can hide any column for himself, but you can prohibit doing this by specifying:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">cantHide</span>();
 </code></pre>
 <p>And also hide by default, but can be shown at the request of the user.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">defaultHidden</span>();
 </code></pre>
 <blockquote>
-<p><strong>Note</strong>: To hide the button and modal for selecting visible columns from the table footer, you need to make all table columns hidden by default.</p>
+<p><strong>Note</strong>: To hide the button and modal for selecting visible columns from the table footer, you need to make all table
+columns hidden by default.</p>
 </blockquote>
 <h2><a href='#data-output' id='data-output'>Data Output</a></h2>
-<p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements the ability to generate cells according to the function:</p>
+<p>In some cases, you may need to display combined data, the <code>render</code> method is for this purpose intended. It implements
+the ability to generate cells according to the function:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'full_name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword"><span class="hl-function">fn</span></span>(<span class="hl-injection">$user</span>) <span class="hl-operator">=&gt;</span> <span class="hl-function">e</span>($user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">first_name</span> <span class="hl-delimeter">.</span> <span class="hl-value">' '</span> <span class="hl-delimeter">.</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">last_name</span>)),
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> The returned string will not be escaped. You need to take care of this yourself with the <code>e()</code> helper or use a <code>Blade</code> view.</p>
+<p><strong>Note.</strong> The returned string will not be escaped. You need to take care of this yourself with the <code>e()</code> helper or use
+a <code>Blade</code> view.</p>
 </blockquote>
 <p>The loopback function must return any string value:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'full_name'</span>)
@@ -562,21 +570,28 @@ prohibit doing this by specifying:</p>
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">checked</span>(<span class="hl-constant">false</span>)
     ),
 </code></pre>
-<p>Sometimes it may be necessary to get the value from the <code>query</code> screen, rather than relying only on the <code>target</code>. You can get the value as follows:</p>
+<p>Sometimes it may be necessary to get the value from the <code>query</code> screen, rather than relying only on the <code>target</code>. You
+can get the value as follows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
 
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection">$product</span>) <span class="hl-operator">=&gt;</span> $product<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">price</span> <span class="hl-operator">+</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">query</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>(<span class="hl-value">'tax'</span>)),
 </code></pre>
 <h2><a href='#working-with-the-loop-variable' id='working-with-the-loop-variable'>Working with the Loop Variable</a></h2>
-<p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:</p>
+<p>The <code>$loop</code> variable will be available in the second argument of the <code>render</code> closure function. This variable provides
+access to some useful bits of information such as the current loop index and whether this is the first or last iteration
+through the loop:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">render</span>(<span class="hl-keyword">fn</span> (<span class="hl-injection"><span class="hl-type">Model</span> $model, <span class="hl-keyword">object</span> $loop</span>) <span class="hl-operator">=&gt;</span> $loop<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">index</span>),
 </code></pre>
-<p>The <code>$loop</code> variable contains a variety of other useful properties which you can find in the <a href="https://laravel.com/docs/9.x/blade#loops">Laravel documentation</a>.</p>
+<p>The <code>$loop</code> variable contains a variety of other useful properties which you can find in the
+<a href="https://laravel.com/docs/9.x/blade#loops">Laravel documentation</a>.</p>
 <h2><a href='#using-components' id='using-components'>Using Components</a></h2>
-<p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display logic, as well as reuse.</p>
-<p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our components.
-It is much nicer than specifying things directly in the view or creating particular areas for such processing.</p>
+<p>Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support
+rendering using <a href="https://laravel.com/docs/blade#components">Laravel components</a>. It allows you to take out the display
+logic, as well as reuse.</p>
+<p>For example, there is an <code>Order</code> model, and depending on the status, we can show different descriptions in our
+components. It is much nicer than specifying things directly in the view or creating particular areas for such
+processing.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
 <span class="hl-keyword">use</span> Illuminate\View\<span class="hl-type">Component</span>;
@@ -634,7 +649,8 @@ It is much nicer than specifying things directly in the view or creating particu
 ]);
 </code></pre>
 <h2><a href='#passing-cell-values-to-components' id='passing-cell-values-to-components'>Passing Cell Values to Components</a></h2>
-<p>The <code>component</code> method passes the entire row to the component. When a component only needs the value of the current cell, use <code>usingComponent</code> instead.</p>
+<p>The <code>component</code> method passes the entire row to the component. When a component only needs the value of the current
+cell, use <code>usingComponent</code> instead.</p>
 <p>For example, you might want to display a value in a specific format:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\View\Components;
 
@@ -689,9 +705,12 @@ blade;
 ]);
 <span class="hl-comment">// 1 234,56</span>
 </code></pre>
-<p>For built-in cell formatters, see <a href="/en/docs/cell-types">Cell Types</a>. It covers date, number, boolean, currency, and percentage formats.</p>
+<p>For built-in cell formatters, see <a href="/en/docs/cell-types">Cell Types</a>. It covers date, number, boolean, currency, and
+percentage formats.</p>
 <h2><a href='#customizing-component-arguments' id='customizing-component-arguments'>Customizing Component Arguments</a></h2>
-<p>Arguments passed to <code>component</code> may be closures. Orchid evaluates each closure with the current row before rendering the component. This lets you calculate a component argument from one or more model attributes without adding an accessor to the model or creating another component.</p>
+<p>Arguments passed to <code>component</code> may be closures. Orchid evaluates each closure with the current row before rendering the
+component. This lets you calculate a component argument from one or more model attributes without adding an accessor to
+the model or creating another component.</p>
 <p>For example, the value displayed by <code>DateTimeSplit</code> can be selected from several date attributes:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Order</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Components\Cells\<span class="hl-type">DateTimeSplit</span>;
@@ -704,10 +723,10 @@ blade;
             ?? $order<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">created_at</span>,
     );
 </code></pre>
-<p>Use <code>component</code> rather than <code>usingComponent</code> when the closure needs the entire row. Closures passed to <code>usingComponent</code> receive only the value of the selected cell.</p>
+<p>Use <code>component</code> rather than <code>usingComponent</code> when the closure needs the entire row. Closures passed to <code>usingComponent</code>
+receive only the value of the selected cell.</p>
 <h2><a href='#table-options' id='table-options'>Table Options</a></h2>
-<p>You can specify the text to be displayed if the table is empty
-specifying methods:</p>
+<p>You can specify the text to be displayed if the table is empty specifying methods:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Icon displayed when no data is found.
  */</span>
@@ -732,8 +751,7 @@ specifying methods:</p>
     <span class="hl-keyword">return</span> <span class="hl-value">''</span>;
 }
 </code></pre>
-<p>If the table rows do not seem contrasting to you, then you can enable
-<code>striped</code> mode:</p>
+<p>If the table rows do not seem contrasting to you, then you can enable <code>striped</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Usage for zebra-striping to any table row.
  */</span>
@@ -742,8 +760,7 @@ specifying methods:</p>
     <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
 }
 </code></pre>
-<p>If you need a compact table, then you can enable
-<code>compact</code> mode:</p>
+<p>If you need a compact table, then you can enable <code>compact</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Usage for compact display of table rows.
  */</span>
@@ -752,8 +769,7 @@ specifying methods:</p>
     <span class="hl-keyword">return</span> <span class="hl-constant">true</span>;
 }
 </code></pre>
-<p>If you need a hoverable table, then you can enable
-<code>hoverable</code> mode:</p>
+<p>If you need a hoverable table, then you can enable <code>hoverable</code> mode:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Enable a hover state on table rows.
  */</span>
@@ -772,7 +788,8 @@ specifying methods:</p>
 }
 </code></pre>
 <h2><a href='#adding-a-total-row' id='adding-a-total-row'>Adding a Total Row</a></h2>
-<p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required cells. For example:</p>
+<p>Adds a summary row at the bottom of the table, for this you need to define the <code>total</code> method and describe the required
+cells. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">total</span>():<span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [

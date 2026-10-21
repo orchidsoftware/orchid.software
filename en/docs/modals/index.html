@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Modal Dialog | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -414,12 +414,16 @@
     </nav>
                             <head></head><body><p>Emulation of a modal dialog box that appears on top of the main page content in response to user actions.</p>
 <h2><a href='#description-of-work' id='description-of-work'>Description of Work</a></h2>
-<p>A modal window appears on top of the page, dimming it. This helps to focus the user&rsquo;s attention on specific actions without losing the overall context. It is important to note that modal windows should not be used for large forms.</p>
+<p>A modal window appears on top of the page, dimming it. This helps to focus the user&rsquo;s attention on specific actions
+without losing the overall context. It is important to note that modal windows should not be used for large forms.</p>
 <p><picture alt='This image shows an illustrative modal window.'><img src="/img/layouts/modals.png" alt="This image shows an illustrative modal window."></picture></p>
 <h2><a href='#when-to-use' id='when-to-use'>When to Use</a></h2>
-<p>Modal windows are best used for secondary content that is only needed in certain situations. This content may include settings, creating new documents, filling out small forms. For example, clicking on a link may open a modal window to enter an address.</p>
+<p>Modal windows are best used for secondary content that is only needed in certain situations. This content may include
+settings, creating new documents, filling out small forms. For example, clicking on a link may open a modal window to
+enter an address.</p>
 <h2><a href='#using' id='using'>Using</a></h2>
-<p>Modal windows can be implemented using a short syntax by calling a static method, which eliminates the need to create a separate class. The following example demonstrates how to create a modal window:</p>
+<p>Modal windows can be implemented using a short syntax by calling a static method, which eliminates the need to create a
+separate class. The following example demonstrates how to create a modal window:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Layout</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">ModalToggle</span>;
 <span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Toast</span>;
@@ -458,10 +462,11 @@
     <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">info</span>(<span class="hl-value">'Hello, world! This is a toast message.'</span>);
 }
 </code></pre>
-<p>It is important to note that when adding a modal window, it should be added at the top level of the array returned by the <code>layout()</code> method. It should not be added inside of another layout such as <code>Tabs</code>.</p>
+<p>It is important to note that when adding a modal window, it should be added at the top level of the array returned by
+the <code>layout()</code> method. It should not be added inside of another layout such as <code>Tabs</code>.</p>
 <blockquote>
-<p><strong>Warning</strong>. Avoid placing tables with filters, sorting, or pagination inside modal windows.
-These components use internal links for navigation, which will cause the modal to close when interacted with.</p>
+<p><strong>Warning</strong>. Avoid placing tables with filters, sorting, or pagination inside modal windows. These components use
+internal links for navigation, which will cause the modal to close when interacted with.</p>
 </blockquote>
 <h2><a href='#title' id='title'>Title</a></h2>
 <p>To set the title of the modal window, the <code>title</code> method can be used:</p>
@@ -471,8 +476,8 @@ These components use internal links for navigation, which will cause the modal t
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Window title'</span>);
 </code></pre>
 <h2><a href='#passing-multiple-layouts' id='passing-multiple-layouts'>Passing Multiple Layouts</a></h2>
-<p>Sometimes a modal window may need to contain <strong>more than one layout</strong>.
-In Orchid, you can pass an array of layouts directly to <code>Layout::modal</code>:</p>
+<p>Sometimes a modal window may need to contain <strong>more than one layout</strong>. In Orchid, you can pass an array of layouts
+directly to <code>Layout::modal</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Rows</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
@@ -481,14 +486,15 @@ In Orchid, you can pass an array of layouts directly to <code>Layout::modal</cod
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
         <span class="hl-comment">// Fields definition</span>
     ]),
-    
+
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'users'</span>, [
         <span class="hl-comment">// Table columns definition</span>
     ]),
 ]);
 </code></pre>
 <h2><a href='#window-size' id='window-size'>Window Size</a></h2>
-<p>Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the <code>size</code> method:</p>
+<p>Depending on the contents of the window, it may be necessary to resize it. This can be done by specifying the <code>size</code>
+method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 
 <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
@@ -527,7 +533,8 @@ In Orchid, you can pass an array of layouts directly to <code>Layout::modal</cod
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-type">Modal</span><span class="hl-delimeter">::</span><span class="hl-constant">TYPE_RIGHT</span>);
 </code></pre>
 <h2><a href='#opening' id='opening'>Opening</a></h2>
-<p>Sometimes you may need to open a modal window right after the page is displayed. To do this, you can use the <code>-&gt;open</code> method:</p>
+<p>Sometimes you may need to open a modal window right after the page is displayed. To do this, you can use the <code>-&gt;open</code>
+method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Modal</span>;
 
 <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
@@ -536,10 +543,10 @@ In Orchid, you can pass an array of layouts directly to <code>Layout::modal</cod
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">open</span>();
 </code></pre>
 <h2><a href='#deferred-data-loading' id='deferred-data-loading'>Deferred Data Loading</a></h2>
-<p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use deferred loading.
-This will replace the <code>query</code> screen data when opening the window and display
-new content.</p>
-<p>To declare a modal window asynchronous, call the <code>deferred</code> method and pass the method name that should be used instead of <code>query</code>:</p>
+<p>When working with a dataset, there is no need to create a modal window for each value. Instead, you can use deferred
+loading. This will replace the <code>query</code> screen data when opening the window and display new content.</p>
+<p>To declare a modal window asynchronous, call the <code>deferred</code> method and pass the method name that should be used instead
+of <code>query</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'deferredModal'</span>, <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([
     <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'welcome'</span>)
 ]))<span class="hl-delimeter">-&gt;</span><span class="hl-function">deferred</span>(<span class="hl-value">'loadDataOnOpen'</span>),
@@ -568,12 +575,15 @@ new content.</p>
 </code></pre>
 <!--
 
-> **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade` template engine, this might look like: `{{$variable ?? ''}}`.
+> **Please note**, when using your own templates, the content of the window uses dynamic data that is not in the initial
+> loading. To eliminate possible errors, it is necessary to check for the existence of variables. In the `Blade`
+> template engine, this might look like: `{{$variable ?? ''}}`.
 
 -->
 <h2><a href='#disabling-reactive-processing' id='disabling-reactive-processing'>Disabling Reactive Processing</a></h2>
-<p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be suitable if you need to perform complex processing or download a file.
-To disable response processing, you need to add a call to the <code>rawClick</code> method:</p>
+<p>By default, the result of the window action will be displayed to the user on the screen, but this approach may not be
+suitable if you need to perform complex processing or download a file. To disable response processing, you need to add a
+call to the <code>rawClick</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'toastModal'</span>, [
     <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">rows</span>([]),
 ])

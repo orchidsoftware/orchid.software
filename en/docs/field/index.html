@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Form Elements | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -562,20 +562,26 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a user interface, and they allow you to create different parts of the interface and provide interaction with the user. In this section, we will cover of the most common form elements and their usage.</p>
+                            <head></head><body><p>Fields are used to generate the output of the fill and edit form template. Form elements are the building blocks of a
+user interface, and they allow you to create different parts of the interface and provide interaction with the user. In
+this section, we will cover of the most common form elements and their usage.</p>
 <blockquote>
 <p>Feel free to add your fields, for example, to use the convenient editor for you or any components.</p>
 </blockquote>
 <h2><a href='#label' id='label'>Label</a></h2>
-<p>The Label field displays read-only text or a heading. Use it for section titles, hints, or to show a value that the user cannot edit.</p>
+<p>The Label field displays read-only text or a heading. Use it for section titles, hints, or to show a value that the user
+cannot edit.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Label</span>;
 
 <span class="hl-type">Label</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'section_title'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Shipping address'</span>);
 </code></pre>
-<p>You can bind a value from the screen&rsquo;s query so the label shows dynamic content (for example, a customer name). The same methods (<code>title()</code>, <code>help()</code>, <code>popover()</code>, <code>vertical()</code>) are available as on other fields. Labels are often used inside <a href="/en/docs/screens#screen-layouts">reusable row layouts</a> to separate groups of fields.</p>
+<p>You can bind a value from the screen&rsquo;s query so the label shows dynamic content (for example, a customer name). The same
+methods (<code>title()</code>, <code>help()</code>, <code>popover()</code>, <code>vertical()</code>) are available as on other fields. Labels are often used inside
+<a href="/en/docs/screens#screen-layouts">reusable row layouts</a> to separate groups of fields.</p>
 <h2><a href='#introduction-to-input' id='introduction-to-input'>Introduction to Input</a></h2>
-<p>Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input such as number, email, password, etc. Here is an example of creating a simple text input field:</p>
+<p>Input is one of the most versatile form elements. It allows you to create text fields, as well as other types of input
+such as number, email, password, etc. Here is an example of creating a simple text input field:</p>
 <p><picture alt='This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. '><img src="/img/fields/input.png" alt="This image shows a simple text input box. It is a common user interface element that allows users to enter text or other data into a web form. "></picture></p>
 <p>Example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
@@ -583,15 +589,22 @@
 <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>);
 </code></pre>
 <h3><a href='#designing-input-interfaces' id='designing-input-interfaces'>Designing Input Interfaces</a></h3>
-<p>Empty and expressionless input fields can confuse the user, but you can help by specifying a title. The title should be a short and descriptive label that clearly communicates the purpose of the field. Here is an example of how to add a title to an input field:</p>
+<p>Empty and expressionless input fields can confuse the user, but you can help by specifying a title. The title should be
+a short and descriptive label that clearly communicates the purpose of the field. Here is an example of how to add a
+title to an input field:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'First name'</span>);
 </code></pre>
-<p>If you need to provide additional context or instructions for the field, you can use the <code>help</code> method to add a hint or brief description. The hint should be a short and concise message that helps the user understand the purpose or format of the field. Here is an example of how to add a hint to an input field:</p>
+<p>If you need to provide additional context or instructions for the field, you can use the <code>help</code> method to add a hint or
+brief description. The hint should be a short and concise message that helps the user understand the purpose or format
+of the field. Here is an example of how to add a hint to an input field:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'What is your name?'</span>);
 </code></pre>
-<p>If the field requires a more detailed explanation or guidance, you can use the <code>popover</code> method to add a tooltip that will be displayed as a pop-up when the user hovers over the field. The tooltip should provide additional information or instructions that help the user complete the field correctly. Here is an example of how to add a tooltip to an input field:</p>
+<p>If the field requires a more detailed explanation or guidance, you can use the <code>popover</code> method to add a tooltip that
+will be displayed as a pop-up when the user hovers over the field. The tooltip should provide additional information or
+instructions that help the user complete the field correctly. Here is an example of how to add a tooltip to an input
+field:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">popover</span>(<span class="hl-value">'Tooltip - hint that user opens himself.'</span>);
 </code></pre>
@@ -602,24 +615,29 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">horizontal</span>();
 </code></pre>
 <h3><a href='#required-fields' id='required-fields'>Required Fields</a></h3>
-<p>Sometimes you may need to specify that a field is required, meaning that the user must enter a value in the field before they can submit the form. To mark a field as required, you can use the <code>required()</code> method:</p>
+<p>Sometimes you may need to specify that a field is required, meaning that the user must enter a value in the field before
+they can submit the form. To mark a field as required, you can use the <code>required()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">required</span>();
 </code></pre>
 <p>You can also use the <code>required()</code> method on other types of form elements, such as select, radio buttons, and checkboxes.</p>
 <h3><a href='#hiding-input-fields' id='hiding-input-fields'>Hiding Input Fields</a></h3>
-<p>There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To hide a form element, you can use the <code>canSee()</code> method and pass a value of false:</p>
+<p>There may be times when you want to hide a form element from the user interface, either temporarily or permanently. To
+hide a form element, you can use the <code>canSee()</code> method and pass a value of false:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">false</span>);
 </code></pre>
 <p>If you want to show a previously hidden form element, you can use the canSee() method and pass a value of true:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">canSee</span>(<span class="hl-constant">true</span>);
 </code></pre>
 <blockquote>
-<p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are available in almost every <code>field</code> of the system.</p>
+<p>Note that many methods, such as <code>canSee</code>, <code>required</code>, <code>title</code>, <code>help</code>, <code>vertical</code>, <code>horizontal</code> and many others, are
+available in almost every <code>field</code> of the system.</p>
 </blockquote>
 <h3><a href='#types-of-input' id='types-of-input'>Types of Input</a></h3>
-<p>The <code>input</code> field is one of the most flexible fields. You can use it for text, file, hidden, and color values. It also supports email, number, range, and URL values. The type attribute determines the kind of input field you want to create and the kind of data it accepts. Here are some examples of using the <code>type</code> method:</p>
+<p>The <code>input</code> field is one of the most flexible fields. You can use it for text, file, hidden, and color values. It also
+supports email, number, range, and URL values. The type attribute determines the kind of input field you want to create
+and the kind of data it accepts. Here are some examples of using the <code>type</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>);
 </code></pre>
 <p>A field for entering the name of the file that is sent to the server.</p>
@@ -644,16 +662,23 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'url'</span>);
 </code></pre>
 <blockquote>
-<p><strong>Please note</strong>. Please note that support for new HTML5&nbsp;attributes such as <code>color</code> and <code>range</code> is dependent on the browser being used. You can learn more about attribute types at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla&rsquo;s website</a>.</p>
+<p><strong>Please note</strong>. Please note that support for new HTML5&nbsp;attributes such as <code>color</code> and <code>range</code> is dependent on the
+browser being used. You can learn more about attribute types at
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla&rsquo;s website</a>.</p>
 </blockquote>
 <h3><a href='#masking-input-values' id='masking-input-values'>Masking Input Values</a></h3>
-<p>A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number of decimal places.</p>
-<p>To use a mask with an input field, you can use the <code>mask()</code> method and pass a string that defines the format of the input. The string should contain placeholders for the allowed characters and any fixed characters that should be included. Here is an example of using a mask to enforce a standard phone number format:</p>
+<p>A mask is a useful tool for enforcing a specific format for user input. For example, you might want to use a mask to
+ensure that phone numbers are entered in a standard format, or that currency values are entered with the correct number
+of decimal places.</p>
+<p>To use a mask with an input field, you can use the <code>mask()</code> method and pass a string that defines the format of the
+input. The string should contain placeholders for the allowed characters and any fixed characters that should be
+included. Here is an example of using a mask to enforce a standard phone number format:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'phone'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>(<span class="hl-value">'(999) 999-9999'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Phone number'</span>);
 </code></pre>
-<p>You can also pass an array of options to the <code>mask()</code> method to customize the behavior of the mask. For example, you can use the <code>numericInput</code> option to specify that only numeric characters should be accepted:</p>
+<p>You can also pass an array of options to the <code>mask()</code> method to customize the behavior of the mask. For example, you can
+use the <code>numericInput</code> option to specify that only numeric characters should be accepted:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Price'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>([
@@ -661,7 +686,8 @@
         <span class="hl-value">'numericInput'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>
     ]);
 </code></pre>
-<p>You can also use the <code>alias</code> option to use a predefined mask, such as <code>currency</code>, which automatically formats the input as a currency value:</p>
+<p>You can also use the <code>alias</code> option to use a predefined mask, such as <code>currency</code>, which automatically formats the input
+as a currency value:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'price'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Price'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">mask</span>([
@@ -671,7 +697,8 @@
         <span class="hl-value">'digitsOptional'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
     ]);
 </code></pre>
-<p>You can view all of the available options for the Inputmask library <a href="https://github.com/RobinHerbots/Inputmask#options">here</a>.</p>
+<p>You can view all of the available options for the Inputmask library
+<a href="https://github.com/RobinHerbots/Inputmask#options">in the Inputmask options reference</a>.</p>
 <h2><a href='#range' id='range'>Range</a></h2>
 <p>The Range field displays a numeric slider. Use it when the value is bounded and a visual slider is appropriate:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Range</span>;
@@ -682,20 +709,25 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">step</span>(<span class="hl-number">1</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Volume'</span>);
 </code></pre>
-<p>You can also use <code>Input::make('volume')-&gt;type('range')</code> for a native HTML5&nbsp;range input. The Range field provides a consistent Orchid-style interface.</p>
+<p>You can also use <code>Input::make('volume')-&gt;type('range')</code> for a native HTML5&nbsp;range input. The Range field provides a
+consistent Orchid-style interface.</p>
 <h2><a href='#textarea' id='textarea'>TextArea</a></h2>
-<p>The <code>textarea</code> field is a form element that allows the user to enter multiple lines of text. It is similar to the input field, but it is designed to accept longer pieces of text and to preserve line breaks.</p>
+<p>The <code>textarea</code> field is a form element that allows the user to enter multiple lines of text. It is similar to the input
+field, but it is designed to accept longer pieces of text and to preserve line breaks.</p>
 <p>To create a <code>textarea</code> field, you can use the <code>TextArea</code> class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">TextArea</span>;
 
 <span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'description'</span>);
 </code></pre>
-<p>By default, the <code>textarea</code> field will expand to fit the amount of text that is entered. However, you can use the <code>rows</code> method to specify a minimum number of rows:</p>
+<p>By default, the <code>textarea</code> field will expand to fit the amount of text that is entered. However, you can use the <code>rows</code>
+method to specify a minimum number of rows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">TextArea</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'description'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">5</span>);
 </code></pre>
 <p>This can be useful for providing a clear visual indication of the amount of text that is expected.</p>
-<p>As with other form elements, you can use methods such as <code>title()</code>, <code>help()</code>, and <code>popover()</code> to add additional context and guidance for the user. You can also use the <code>required()</code> method to mark the textarea field as <code>required</code> and the <code>canSee()</code> method to show or hide the field.</p>
+<p>As with other form elements, you can use methods such as <code>title()</code>, <code>help()</code>, and <code>popover()</code> to add additional context
+and guidance for the user. You can also use the <code>required()</code> method to mark the textarea field as <code>required</code> and the
+<code>canSee()</code> method to show or hide the field.</p>
 <h2><a href='#password' id='password'>Password</a></h2>
 <p>The Password field is a text input that masks the value for sensitive data such as passwords:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Password</span>;
@@ -708,7 +740,9 @@
 </code></pre>
 <p>Use <code>title()</code>, <code>placeholder()</code>, <code>help()</code>, and <code>required()</code> as with other fields.</p>
 <h2><a href='#checkbox' id='checkbox'>CheckBox</a></h2>
-<p>A checkbox is a graphical user interface element that allows the user to control a parameter with two states &ndash; checked and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or disabled.</p>
+<p>A checkbox is a graphical user interface element that allows the user to control a parameter with two states &ndash; checked
+and unchecked. Checkboxes are often used to represent binary choices, such as whether a particular feature is enabled or
+disabled.</p>
 <p>To create a checkbox field, you can use the <code>CheckBox</code> class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">CheckBox</span>;
 
@@ -718,14 +752,19 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Event for free'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Event for free'</span>);
 </code></pre>
-<p>The <code>value</code> attribute determines the value that will be sent to the server when the checkbox is checked. The <code>title</code> attribute provides a label for the checkbox, and the <code>placeholder</code> attribute can be used to provide a default value or a short description. The <code>help</code> attribute can be used to provide additional context or instructions for the user.</p>
-<p>By default, browsers do not send the value of an unchecked checkbox when the form is submitted. This can make it difficult to use checkboxes with simple Boolean values. To solve this problem, you can use the <code>sendTrueOrFalse()</code> method, which will send the value <code>false</code> to the server when the checkbox is unchecked:</p>
+<p>The <code>value</code> attribute determines the value that will be sent to the server when the checkbox is checked. The <code>title</code>
+attribute provides a label for the checkbox, and the <code>placeholder</code> attribute can be used to provide a default value or a
+short description. The <code>help</code> attribute can be used to provide additional context or instructions for the user.</p>
+<p>By default, browsers do not send the value of an unchecked checkbox when the form is submitted. This can make it
+difficult to use checkboxes with simple Boolean values. To solve this problem, you can use the <code>sendTrueOrFalse()</code>
+method, which will send the value <code>false</code> to the server when the checkbox is unchecked:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">CheckBox</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'enabled'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">sendTrueOrFalse</span>();
 </code></pre>
 <p>This can be useful for ensuring that the server receives a clear indication of the state of the checkbox.</p>
 <h2><a href='#switcher' id='switcher'>Switcher</a></h2>
-<p>The Switcher field renders a toggle ideal for boolean options such as &ldquo;Enabled&rdquo; or &ldquo;Allow notifications.&rdquo; It is well-suited for settings screens where a single on/off choice is needed.</p>
+<p>The Switcher field renders a toggle ideal for boolean options such as &ldquo;Enabled&rdquo; or &ldquo;Allow notifications.&rdquo; It is
+well-suited for settings screens where a single on/off choice is needed.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Switcher</span>;
 
 <span class="hl-type">Switcher</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'notifications_enabled'</span>)
@@ -733,12 +772,14 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">sendTrueOrFalse</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Receive email when someone comments.'</span>);
 </code></pre>
-<p>By default, an unchecked checkbox does not send a value. Use <code>sendTrueOrFalse()</code> so the server receives <code>true</code> or <code>false</code> for the field.</p>
+<p>By default, an unchecked checkbox does not send a value. Use <code>sendTrueOrFalse()</code> so the server receives <code>true</code> or
+<code>false</code> for the field.</p>
 <blockquote>
 <p><strong>Note.</strong> For a list of multiple checkable options, use the <a href="#checkbox">CheckBox</a> field. For a single on/off setting, Switcher is often the better choice.</p>
 </blockquote>
 <h2><a href='#select' id='select'>Select</a></h2>
-<p>The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for presenting a limited set of options and allowing the user to make a selection.</p>
+<p>The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for
+presenting a limited set of options and allowing the user to make a selection.</p>
 <p>To create a select field, you can use the <code>Select</code> class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Select</span>;
 
@@ -750,17 +791,23 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Select tags'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">help</span>(<span class="hl-value">'Allow search bots to index'</span>);
 </code></pre>
-<p>The <code>options</code> attribute is an array that defines the options that will be presented in the dropdown list. The keys of the array are the values that will be sent to the server, and the values are the labels that will be displayed to the user.</p>
-<p>In addition to using an array of options, you can also use a data source to populate the options of a select field. For example, you can use a model to retrieve the options:</p>
+<p>The <code>options</code> attribute is an array that defines the options that will be presented in the dropdown list. The keys of
+the array are the values that will be sent to the server, and the values are the labels that will be displayed to the
+user.</p>
+<p>In addition to using an array of options, you can also use a data source to populate the options of a select field. For
+example, you can use a model to retrieve the options:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'email'</span>);
 </code></pre>
-<p>This will retrieve all records from the <code>User</code> model and use the email field as the label for each option. You can also use a custom query to retrieve the options:</p>
+<p>This will retrieve all records from the <code>User</code> model and use the email field as the label for each option. You can also
+use a custom query to retrieve the options:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromQuery</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'balance'</span>, <span class="hl-value">'!='</span>, <span class="hl-value">'0'</span>), <span class="hl-value">'email'</span>);
 </code></pre>
-<p>This will retrieve all records from the <code>User</code> model where the <code>balance</code> field is not equal to <code>0</code>, and use the <code>email</code> field as the label for each option.</p>
-<p>You can also specify a different field to use as the key for each option using the <code>fromModel()</code> and <code>fromQuery()</code> methods:</p>
+<p>This will retrieve all records from the <code>User</code> model where the <code>balance</code> field is not equal to <code>0</code>, and use the <code>email</code>
+field as the label for each option.</p>
+<p>You can also specify a different field to use as the key for each option using the <code>fromModel()</code> and <code>fromQuery()</code>
+methods:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'email'</span>, <span class="hl-value">'uuid'</span>);
 </code></pre>
@@ -808,7 +855,8 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-value">'draft'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Status'</span>);
 </code></pre>
-<p>For a horizontal group of radio buttons in a single row, you can use the <code>RadioButtons</code> class or place multiple <code>Radio</code> fields inside a <a href="#group">Group</a>. Use descriptive labels for accessibility.</p>
+<p>For a horizontal group of radio buttons in a single row, you can use the <code>RadioButtons</code> class or place multiple <code>Radio</code>
+fields inside a <a href="#group">Group</a>. Use descriptive labels for accessibility.</p>
 <h2><a href='#relation' id='relation'>Relation</a></h2>
 <p>Relations fields can load dynamic data, this is a good solution if you need connections.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Relation</span>;
@@ -824,7 +872,8 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Choose your ideas'</span>);
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> Note the dot at the end of the name. It is necessary to show the expected array shape, similar to the HTML code <code>&lt;input name='ideas[]'&gt;</code>.</p>
+<p><strong>Note.</strong> Note the dot at the end of the name. It is necessary to show the expected array shape, similar to the HTML
+code <code>&lt;input name='ideas[]'&gt;</code>.</p>
 </blockquote>
 <p>To modify the load, you can use the reference to the <code>scope</code> model, for example, take only active:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
@@ -859,12 +908,14 @@
      <span class="hl-delimeter">-&gt;</span><span class="hl-function">searchColumns</span>(<span class="hl-value">'author'</span>, <span class="hl-value">'description'</span>)
      <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Choose your idea'</span>);
 </code></pre>
-<p>To set the number of items that will be listed as a result of a search, you can chain the method chunk, passing the number of search results as a param:</p>
+<p>To set the number of items that will be listed as a result of a search, you can chain the method chunk, passing the
+number of search results as a param:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Relation</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users.'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">chunk</span>(<span class="hl-number">20</span>);
 </code></pre>
-<p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one column in the database. To do this, use the <code>displayAppend</code> method.</p>
+<p>Selection options can work with calculated fields, but only to display the result, the search will occur only on one
+column in the database. To do this, use the <code>displayAppend</code> method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -939,7 +990,7 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">format</span>(<span class="hl-value">'Y-m-d H:i'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">enableTime</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">format24hr</span>()
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">range</span>(); 
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">range</span>();
 </code></pre>
 <h3><a href='#quick-date-selection' id='quick-date-selection'>Quick Date Selection</a></h3>
 <p>Facilitate easy selection with predefined quick date options:</p>
@@ -947,7 +998,7 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">format</span>(<span class="hl-value">'Y-m-d H:i'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">enableTime</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">format24hr</span>()
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">range</span>() 
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">range</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">withQuickDates</span>([
         <span class="hl-value">'Today'</span>     <span class="hl-operator">=&gt;</span> <span class="hl-function">now</span>(),
         <span class="hl-value">'Yesterday'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDay</span>(),
@@ -982,18 +1033,21 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>([<span class="hl-value">'start'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDays</span>(<span class="hl-number">30</span>), <span class="hl-value">'end'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">now</span>()]),
 </code></pre>
 <h2><a href='#timezone' id='timezone'>TimeZone</a></h2>
-<p>The <code>TimeZone</code> field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for selecting the time zone in which an event or action will take place.</p>
+<p>The <code>TimeZone</code> field is a form element that allows the user to choose a time zone from a dropdown list. It is useful for
+selecting the time zone in which an event or action will take place.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">TimeZone</span>;
 
 <span class="hl-type">TimeZone</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'time'</span>);
 </code></pre>
-<p>This will create a dropdown list of all available time zones. You can also specify a specific set of time zones to include in the list using the <code>listIdentifiers()</code> method:</p>
+<p>This will create a dropdown list of all available time zones. You can also specify a specific set of time zones to
+include in the list using the <code>listIdentifiers()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> <span class="hl-type">DateTimeZone</span>;
 
 <span class="hl-type">TimeZone</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'time'</span>)
-    <span class="hl-delimeter">-&gt;</span><span class="hl-function">listIdentifiers</span>(<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ALL</span>); 
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">listIdentifiers</span>(<span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ALL</span>);
 </code></pre>
-<p>The <code>listIdentifiers()</code> method takes a constant from the DateTimeZone class as an argument. The default value is <code>DateTimeZone::ALL</code>, which includes all available time zones. Other possible values are:</p>
+<p>The <code>listIdentifiers()</code> method takes a constant from the DateTimeZone class as an argument. The default value is
+<code>DateTimeZone::ALL</code>, which includes all available time zones. Other possible values are:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">AFRICA</span>;
 <span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">AMERICA</span>;
 <span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ANTARCTICA</span>;
@@ -1008,16 +1062,20 @@
 <span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">ALL_WITH_BC</span>;
 <span class="hl-type">DateTimeZone</span><span class="hl-delimeter">::</span><span class="hl-constant">PER_COUNTRY</span>;
 </code></pre>
-<p>The representation of variable zones can be found in the documentation <a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
+<p>The representation of variable zones can be found in the documentation
+<a href="https://www.php.net/manual/en/class.datetimezone.php">PHP</a>.</p>
 <h2><a href='#quill-wysiwyg-editor' id='quill-wysiwyg-editor'>Quill WYSIWYG Editor</a></h2>
-<p>The Quill rich-text editor offers a seamless solution for integrating rich text editing capabilities into your web applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
-<p>To create a Quill editor instance, simply utilize the <code>Quill</code> field. Here&rsquo;s an example of how to implement it in your code:</p>
+<p>The Quill rich-text editor offers a seamless solution for integrating rich text editing capabilities into your web
+applications. With Quill, users can effortlessly insert images, apply text styling, embed videos, and more.</p>
+<p>To create a Quill editor instance, simply utilize the <code>Quill</code> field. Here&rsquo;s an example of how to implement it in your
+code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Quill</span>;
 
 <span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>);
 </code></pre>
 <h3><a href='#toolbar-controls' id='toolbar-controls'>Toolbar Controls</a></h3>
-<p>Quill provides a comprehensive set of controls organized into six groups, empowering users with diverse editing functionalities. These groups include:</p>
+<p>Quill provides a comprehensive set of controls organized into six groups, empowering users with diverse editing
+functionalities. These groups include:</p>
 <ul>
 <li><strong>Text</strong>: Tools for basic text formatting such as bold, italic, underline, and strikethrough.</li>
 <li><strong>Color</strong>: Options for adjusting text and background color.</li>
@@ -1026,13 +1084,15 @@
 <li><strong>Format</strong>: Additional formatting options like alignment and indentation.</li>
 <li><strong>Media</strong>: Features for inserting multimedia content such as images and videos.</li>
 </ul>
-<p>You can customize the toolbar by specifying which groups of controls to display. Here&rsquo;s how you can configure the toolbar in your code:</p>
+<p>You can customize the toolbar by specifying which groups of controls to display. Here&rsquo;s how you can configure the
+toolbar in your code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">toolbar</span>([<span class="hl-value">"text"</span>, <span class="hl-value">"color"</span>, <span class="hl-value">"header"</span>, <span class="hl-value">"list"</span>, <span class="hl-value">"format"</span>, <span class="hl-value">"media"</span>]);
 </code></pre>
 <h3><a href='#extensibility' id='extensibility'>Extensibility</a></h3>
-<p>One of the strengths of Quill is its extensibility through plugins. You can enhance the editor&rsquo;s functionality by installing additional plugins. This can be easily accomplished using a JavaScript file.</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+<p>One of the strengths of Quill is its extensibility through plugins. You can enhance the editor&rsquo;s functionality by
+installing additional plugins. This can be easily accomplished using a JavaScript file.</p>
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("orchid:quill", (<span class="hl-constant">event</span>) =&gt; {
     <span class="hl-comment">// Object for registering plugins</span>
     event.<span class="hl-property">detail</span>.<span class="hl-property">quill</span>;
 
@@ -1043,37 +1103,41 @@
 <p><strong>Note:</strong> you can add custom scripts and stylesheets through the <code>platform.php</code> config file.</p>
 <p>Example for <a href="https://github.com/benwinding/quill-image-compress">quill-image-compress</a>:</p>
 <p>Add the following in <code>config/platform.php</code> into the <code>resource.scripts</code> array</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-value">"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js"</span>,
-<span class="hl-value">"/js/admin/quill.imagecropper.js"</span>,
+<pre><code data-lang="txt" class="notranslate">"https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
+"/js/admin/quill.imagecropper.js",
 </code></pre>
 <p>create a <code>quill.imagecropper.js</code> in <code>public/js/admin</code> with the following content</p>
-<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>(<span class="hl-value">'orchid:quill'</span>, (<span class="hl-constant">event</span>) =&gt; {
+<pre><code data-lang="js" class="notranslate">document.<span class="hl-property"><span class="hl-function">addEventListener</span></span>("orchid:quill", (<span class="hl-constant">event</span>) =&gt; {
     <span class="hl-comment">// Object for registering plugins</span>
     event.<span class="hl-property">detail</span>.<span class="hl-property">quill</span>.<span class="hl-property"><span class="hl-function">register</span></span>("modules/imageCompressor", imageCompressor);
 
     <span class="hl-comment">// Parameter object for initialization</span>
     event.<span class="hl-property">detail</span>.<span class="hl-property">options</span>.<span class="hl-property">modules</span> <span class="hl-operator">=</span> {
-         imageCompressor: {
+        imageCompressor: {
             quality: <span class="hl-number">0</span>.<span class="hl-property"><span class="hl-number">9</span></span>,
             maxWidth: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
             maxHeight: <span class="hl-number">1000</span>, <span class="hl-comment">// default</span>
-            imageType: <span class="hl-value">'image/jpeg'</span>
-        }
+            imageType: "image/jpeg",
+        },
     };
 });
 </code></pre>
 <h2><a href='#markdown-editor' id='markdown-editor'>Markdown Editor</a></h2>
-<p>The Markdown editor field is a powerful tool for creating and editing text using the Markdown markup language. Markdown offers a simple and intuitive syntax that allows users to focus on content creation without getting bogged down by complex formatting.</p>
-<p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture>
-<picture alt='Markdown Editor Preview'><img src="/img/ui/markdown2.png" alt="Markdown Editor Preview"></picture></p>
+<p>The Markdown editor field is a powerful tool for creating and editing text using the Markdown markup language. Markdown
+offers a simple and intuitive syntax that allows users to focus on content creation without getting bogged down by
+complex formatting.</p>
+<p><picture alt='Markdown'><img src="/img/ui/markdown.png" alt="Markdown"></picture> <picture alt='Markdown Editor Preview'><img src="/img/ui/markdown2.png" alt="Markdown Editor Preview"></picture></p>
 <p>To create a Markdown editor field, you can use the <code>SimpleMDE</code> class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">SimpleMDE</span>;
 
 <span class="hl-type">SimpleMDE</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'markdown'</span>);
 </code></pre>
 <h2><a href='#matrix' id='matrix'>Matrix</a></h2>
-<p>The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It&rsquo;s particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing information in a JSON column type.</p>
-<p>You can easily create a Matrix field by specifying the column headers. Here&rsquo;s an example of how to define a Matrix field with columns:</p>
+<p>The Matrix field provides a user-friendly interface for editing tabular data, offering flexibility and convenience. It&rsquo;s
+particularly useful for scenarios where you need to manage structured data within a flat table format, such as storing
+information in a JSON column type.</p>
+<p>You can easily create a Matrix field by specifying the column headers. Here&rsquo;s an example of how to define a Matrix field
+with columns:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Matrix</span>;
 
 <span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'options'</span>)
@@ -1084,7 +1148,8 @@
     ]);
 </code></pre>
 <h3><a href='#customizing-column-headers' id='customizing-column-headers'>Customizing Column Headers</a></h3>
-<p>In some cases, the values of the columns may differ from what needs to be displayed in the headers. You can address this by specifying keys for the columns:</p>
+<p>In some cases, the values of the columns may differ from what needs to be displayed in the headers. You can address this
+by specifying keys for the columns:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'options'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([
         <span class="hl-value">'Attribute'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'attr'</span>,
@@ -1098,7 +1163,8 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxRows</span>(<span class="hl-number">10</span>);
 </code></pre>
 <h3><a href='#custom-fields' id='custom-fields'>Custom Fields</a></h3>
-<p>By default, each cell in the Matrix field contains a textarea element. However, you can customize the field types according to your requirements:</p>
+<p>By default, each cell in the Matrix field contains a textarea element. However, you can customize the field types
+according to your requirements:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Matrix</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'users'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">title</span>(<span class="hl-value">'Users list'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">columns</span>([<span class="hl-value">'id'</span>, <span class="hl-value">'name'</span>])
@@ -1108,7 +1174,8 @@
     ]);
 </code></pre>
 <blockquote>
-<p>It&rsquo;s important to note that the Matrix field performs field copying on the client side. While this works seamlessly for simple input and select fields, it may encounter limitations with complex or compound fields.</p>
+<p>It&rsquo;s important to note that the Matrix field performs field copying on the client side. While this works seamlessly
+for simple input and select fields, it may encounter limitations with complex or compound fields.</p>
 </blockquote>
 <h2><a href='#code-editor' id='code-editor'>Code editor</a></h2>
 <p>A field for writing program code with the ability to highlight.</p>
@@ -1144,7 +1211,8 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Picture</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">storage</span>(<span class="hl-value">'s3'</span>);
 </code></pre>
-<p>Use the <code>acceptedFiles</code> method to define the types of files that the field should accept. This is done using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
+<p>Use the <code>acceptedFiles</code> method to define the types of files that the field should accept. This is done using
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>.</p>
 <p>For example, to only allow JPEG images, you can use the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Picture</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">acceptedFiles</span>(<span class="hl-value">'.jpg'</span>);
@@ -1163,7 +1231,8 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">width</span>(<span class="hl-number">500</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">300</span>);
 </code></pre>
-<p>Or you can impose specific limits using <code>minWidth</code> / <code>maxWidth</code> or <code>minHeight</code> / <code>maxHeight</code> or use convenience methods <code>minCanvas</code> / <code>maxCanvas</code></p>
+<p>Or you can impose specific limits using <code>minWidth</code> / <code>maxWidth</code> or <code>minHeight</code> / <code>maxHeight</code> or use convenience methods
+<code>minCanvas</code> / <code>maxCanvas</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">minCanvas</span>(<span class="hl-number">500</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxWidth</span>(<span class="hl-number">1000</span>)
@@ -1179,7 +1248,7 @@
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetId</span>();
 </code></pre>
-<p>The sequence number (<code>id</code>) of the<code> Attachment</code> record will be returned.</p>
+<p>The sequence number (<code>id</code>) of the<code>Attachment</code> record will be returned.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'picture'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetRelativeUrl</span>();
 </code></pre>
@@ -1189,7 +1258,8 @@
 </code></pre>
 <p>Will return the absolute path to the image.</p>
 <h2><a href='#attach' id='attach'>Attach</a></h2>
-<p>The <code>Attach</code> field provides an intuitive interface for uploading images and files, including support for grouping and sorting.</p>
+<p>The <code>Attach</code> field provides an intuitive interface for uploading images and files, including support for grouping and
+sorting.</p>
 <p>To create a file upload element, use the <code>make</code> method of the <code>Attach</code> class and specify the field name:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Attach</span>;
 
@@ -1210,16 +1280,19 @@
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">maxSize</span>(<span class="hl-number">1024</span>); <span class="hl-comment">// Size in MB</span>
 </code></pre>
 <blockquote>
-<p><strong>Maximum file upload size:</strong>
-By default, the values for <code>upload_max_filesize</code> and <code>post_max_size</code> are set to 2M. You can change these settings in <code>php.ini</code> to allow file uploads larger than 2M.</p>
+<p><strong>Maximum file upload size:</strong> By default, the values for <code>upload_max_filesize</code> and <code>post_max_size</code> are set to 2M. You
+can change these settings in <code>php.ini</code> to allow file uploads larger than 2M.</p>
 </blockquote>
 <p>Use the <code>accept</code> method to specify which file types the field should accept, for example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">accept</span>(<span class="hl-value">'image/*,application/pdf,.psd'</span>);
 </code></pre>
-<p>The provided string is a list of <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>, separated by commas.</p>
+<p>The provided string is a list of
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers">unique file type specifiers</a>,
+separated by commas.</p>
 <h3><a href='#file-grouping' id='file-grouping'>File Grouping</a></h3>
-<p>You can group files by different categories using the <code>group</code> method. This is particularly useful if you need to upload different types of files, such as documents and images.</p>
+<p>You can group files by different categories using the <code>group</code> method. This is particularly useful if you need to upload
+different types of files, such as documents and images.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'docs'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">group</span>(<span class="hl-value">'documents'</span>);
 
@@ -1248,7 +1321,8 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
 }
 </code></pre>
 <h3><a href='#file-storage' id='file-storage'>File Storage</a></h3>
-<p>The upload field can work with different repositories. To do this, specify the repository key defined in <code>config/filesystems.php</code>:</p>
+<p>The upload field can work with different repositories. To do this, specify the repository key defined in
+<code>config/filesystems.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">storage</span>(<span class="hl-value">'s3'</span>);
 </code></pre>
@@ -1259,7 +1333,8 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">path</span>(<span class="hl-value">'/custom/path'</span>);
 </code></pre>
 <h3><a href='#file-validation-and-sorting-on-the-server' id='file-validation-and-sorting-on-the-server'>File Validation and Sorting on the Server</a></h3>
-<p>It&rsquo;s important to validate files on the server side. For example, check that the file is an image with a specific aspect ratio or file type. To do this, use the <code>uploadUrl</code> method to specify the endpoint for file uploads:</p>
+<p>It&rsquo;s important to validate files on the server side. For example, check that the file is an image with a specific aspect
+ratio or file type. To do this, use the <code>uploadUrl</code> method to specify the endpoint for file uploads:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">uploadUrl</span>(<span class="hl-function">route</span>(<span class="hl-value">'my.upload.endpoint'</span>));
 </code></pre>
@@ -1268,7 +1343,8 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">sortUrl</span>(<span class="hl-function">route</span>(<span class="hl-value">'my.sort.endpoint'</span>));
 </code></pre>
 <h3><a href='#error-handling-and-message-display' id='error-handling-and-message-display'>Error Handling and Message Display</a></h3>
-<p>To ensure that users don&rsquo;t encounter unclear errors, it&rsquo;s important to provide clear and informative error messages. Use the <code>errorMaxSizeMessage</code> and <code>errorTypeMessage</code> methods to specify custom messages:</p>
+<p>To ensure that users don&rsquo;t encounter unclear errors, it&rsquo;s important to provide clear and informative error messages. Use
+the <code>errorMaxSizeMessage</code> and <code>errorTypeMessage</code> methods to specify custom messages:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Attach</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'upload'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">errorMaxSizeMessage</span>(<span class="hl-value">"File size is too large"</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">errorTypeMessage</span>(<span class="hl-value">"Invalid file type"</span>);
@@ -1276,15 +1352,17 @@ By default, the values for <code>upload_max_filesize</code> and <code>post_max_s
 <!--
 ## Upload
 
-This field provides an intuitive interface for uploading images and files, including support for grouping and processing various file types.
+This field provides an intuitive interface for uploading images and files, including support for grouping and processing
+various file types.
 
 To create a file upload element, use the `make` method of the `Upload` class and specify the field name:
 
 ```php
 Upload::make('upload');
-```  
+```
 
-You can group files by different categories using the `groups` method. This is especially useful if you need to upload different types of files, such as documents and images.
+You can group files by different categories using the `groups` method. This is especially useful if you need to upload
+different types of files, such as documents and images.
 
 ```php
 Upload::make('docs')
@@ -1292,7 +1370,7 @@ Upload::make('docs')
 
 Upload::make('images')
     ->groups('photo');
-```  
+```
 
 To get specific files via Model relation
 
@@ -1326,14 +1404,16 @@ Upload::make('upload')
 ```
 
 > **Maximum upload file size:**
-> Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max file size to be more than 2M
+> Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max
+> file size to be more than 2M
 
 ```php
 Upload::make('upload')
-    ->maxFileSize(1024); // Size in MB 
+    ->maxFileSize(1024); // Size in MB
 ```
 
-The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a comma-separated list of MIME types or file extensions.
+The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a
+comma-separated list of MIME types or file extensions.
 
 ```php
 Upload::make('upload')
@@ -1349,7 +1429,6 @@ Upload::make('upload')
 
 The default storage is `public`.
 
-
 Sometimes you already know that the file was loaded earlier, then you can use the library search:
 
 ```php
@@ -1360,7 +1439,8 @@ Upload::make('upload')
 It will add a new button with a modal window to preview uploaded files.
 -->
 <h2><a href='#map' id='map'>Map</a></h2>
-<p>The Map field provides an interface for selecting or displaying a location (for example, coordinates). You can set the initial zoom level and the height of the map container:</p>
+<p>The Map field provides an interface for selecting or displaying a location (for example, coordinates). You can set the
+initial zoom level and the height of the map container:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Map</span>;
 
 <span class="hl-type">Map</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'location'</span>)
@@ -1368,9 +1448,12 @@ It will add a new button with a modal window to preview uploaded files.
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">zoom</span>(<span class="hl-number">12</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-value">'400px'</span>);
 </code></pre>
-<p>The field typically stores coordinates, such as latitude and longitude. The Blade view may integrate with a map provider, such as Leaflet or Google Maps, to render the map. Refer to the package resources or your custom view for provider-specific setup.</p>
+<p>The field typically stores coordinates, such as latitude and longitude. The Blade view may integrate with a map
+provider, such as Leaflet or Google Maps, to render the map. Refer to the package resources or your custom view for
+provider-specific setup.</p>
 <h2><a href='#utm' id='utm'>UTM</a></h2>
-<p>The UTM field is used to capture UTM parameters (campaign, source, medium, and related marketing fields). It is useful in forms for tracking campaign and traffic source data:</p>
+<p>The UTM field is used to capture UTM parameters (campaign, source, medium, and related marketing fields). It is useful
+in forms for tracking campaign and traffic source data:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-constant"><span class="hl-type">UTM</span></span>;
 
 <span class="hl-type">UTM</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'campaign'</span>)
@@ -1378,19 +1461,22 @@ It will add a new button with a modal window to preview uploaded files.
 </code></pre>
 <p>Use this field when you need to store or edit UTM metadata for analytics or marketing reports.</p>
 <h2><a href='#group' id='group'>Group</a></h2>
-<p>The <code>Group</code> component is used to combine multiple fields into a single line, allowing for more compact and organized interfaces. This is especially useful for grouping related data, such as first and last names.</p>
+<p>The <code>Group</code> component is used to combine multiple fields into a single line, allowing for more compact and organized
+interfaces. This is especially useful for grouping related data, such as first and last names.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'first_name'</span>),
     <span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'last_name'</span>),
 ]),
 </code></pre>
 <h3><a href='#column-width' id='column-width'>Column Width</a></h3>
-<p>By default, fields will take up the full available width of the screen when you use the <code>fullWidth</code> method. This option is suitable for most scenarios where you need elements to fill the entire space:</p>
+<p>By default, fields will take up the full available width of the screen when you use the <code>fullWidth</code> method. This option
+is suitable for most scenarios where you need elements to fill the entire space:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-comment">// ...</span>
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullWidth</span>();
 </code></pre>
-<p>However, there may be cases where you want fields to occupy only the necessary space. The <code>autoWidth</code> method is perfect for situations where fields contain varying amounts of data. For example, when using radio buttons:</p>
+<p>However, there may be cases where you want fields to occupy only the necessary space. The <code>autoWidth</code> method is perfect
+for situations where fields contain varying amounts of data. For example, when using radio buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-type">Radio</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'agreement'</span>)
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Yes'</span>)
@@ -1401,7 +1487,8 @@ It will add a new button with a modal window to preview uploaded files.
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-number">0</span>),
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">autoWidth</span>();
 </code></pre>
-<p>For greater flexibility in configuring column widths, you can use the <code>widthColumns()</code> method, which supports CSS Grid. This method allows you to specify column widths using values for the <code>grid-template-columns</code> property:</p>
+<p>For greater flexibility in configuring column widths, you can use the <code>widthColumns()</code> method, which supports CSS Grid.
+This method allows you to specify column widths using values for the <code>grid-template-columns</code> property:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-comment">// ...</span>
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">widthColumns</span>(<span class="hl-value">'2fr 1fr'</span>);
@@ -1418,8 +1505,10 @@ It will add a new button with a modal window to preview uploaded files.
 </blockquote>
 <p>The width settings apply only on desktop devices. On mobile devices, each field will be displayed on a new line, enhancing the responsiveness of the interface and improving user experience.</p>
 <h3><a href='#column-alignment' id='column-alignment'>Column Alignment</a></h3>
-<p>Columns within a group can have different heights, especially when a header is present in only one of them. To create a more visually appealing interface, it is essential to utilize column alignment.</p>
-<p>When one of the columns has a header, aligning all columns to the bottom of the parent container will create a more harmonious look. To achieve this, use the <code>alignEnd</code> method:</p>
+<p>Columns within a group can have different heights, especially when a header is present in only one of them. To create a
+more visually appealing interface, it is essential to utilize column alignment.</p>
+<p>When one of the columns has a header, aligning all columns to the bottom of the parent container will create a more
+harmonious look. To achieve this, use the <code>alignEnd</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-comment">// ...</span>
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignEnd</span>();
@@ -1429,7 +1518,8 @@ It will add a new button with a modal window to preview uploaded files.
     <span class="hl-comment">// ...</span>
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignStart</span>();
 </code></pre>
-<p>To ensure that the columns are aligned along the baseline of the text for consistency in content display, use the <code>alignBaseLine</code> method:</p>
+<p>To ensure that the columns are aligned along the baseline of the text for consistency in content display, use the
+<code>alignBaseLine</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Group</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([
     <span class="hl-comment">// ...</span>
 ])<span class="hl-delimeter">-&gt;</span><span class="hl-function">alignBaseLine</span>();
@@ -1455,8 +1545,8 @@ It will add a new button with a modal window to preview uploaded files.
     ]);
 </code></pre>
 <h3><a href='#action-confirmation' id='action-confirmation'>Action Confirmation</a></h3>
-<p>To prevent accidental actions, add the <code>confirm()</code> method. This will display a confirmation dialog before executing the action.
-It is particularly useful for irreversible actions, such as data deletion.</p>
+<p>To prevent accidental actions, add the <code>confirm()</code> method. This will display a confirmation dialog before executing the
+action. It is particularly useful for irreversible actions, such as data deletion.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Delete'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'deleteItem'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">confirm</span>(<span class="hl-value">'You will lose access to this item.'</span>);
@@ -1465,7 +1555,8 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
 <p><strong>Tip:</strong> Use clear and concise messaging in <code>confirm()</code> so the user understands the consequences.</p>
 </blockquote>
 <h3><a href='#submission-url' id='submission-url'>Submission URL</a></h3>
-<p>To specify the URL where the form data should be sent, use the <code>action()</code> method. Typically, this will be the URL of a controller within your application where the request is processed after the button is clicked.</p>
+<p>To specify the URL where the form data should be sent, use the <code>action()</code> method. Typically, this will be the URL of a
+controller within your application where the request is processed after the button is clicked.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Submit'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-value">'https://orchid.software'</span>);
 
@@ -1473,7 +1564,8 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">action</span>(<span class="hl-function">route</span>(<span class="hl-value">'controller.method'</span>));
 </code></pre>
 <h3><a href='#file-download' id='file-download'>File Download</a></h3>
-<p>To initiate a file download when clicking a button, use the <code>download()</code> method. This signals the system that the result of the method execution will be a downloadable file rather than simply displaying it in the browser.</p>
+<p>To initiate a file download when clicking a button, use the <code>download()</code> method. This signals the system that the result
+of the method execution will be a downloadable file rather than simply displaying it in the browser.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Button</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Download Report'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">method</span>(<span class="hl-value">'export'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">download</span>();
@@ -1485,13 +1577,15 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'https://orchid.software'</span>);
 </code></pre>
 <h3><a href='#opening-link-in-a-new-tab' id='opening-link-in-a-new-tab'>Opening Link in a New Tab</a></h3>
-<p>To open a link in a new tab, add the <code>target('_blank')</code> method. This is useful for external sites or resources you want to open alongside the current page.</p>
+<p>To open a link in a new tab, add the <code>target('_blank')</code> method. This is useful for external sites or resources you want
+to open alongside the current page.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Documentation'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'https://orchid.software/docs'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">target</span>(<span class="hl-value">'_blank'</span>);
 </code></pre>
 <h3><a href='#file-download' id='file-download'>File Download</a></h3>
-<p>If the link should initiate a file download, use the <code>download()</code> method. This informs the browser that the link points to a downloadable file.</p>
+<p>If the link should initiate a file download, use the <code>download()</code> method. This informs the browser that the link points
+to a downloadable file.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Link</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Download Report'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">href</span>(<span class="hl-value">'/path/to/report.pdf'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">download</span>();
@@ -1500,7 +1594,8 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
 <p><strong>Note:</strong> Ensure the file is accessible at the specified path to avoid download errors.</p>
 </blockquote>
 <h2><a href='#dropdown-menu' id='dropdown-menu'>Dropdown Menu</a></h2>
-<p>The <code>Dropdown</code> component allows you to create a button with a dropdown list of actions, which is convenient for grouping related actions, such as a three-dot menu for managing an item.</p>
+<p>The <code>Dropdown</code> component allows you to create a button with a dropdown list of actions, which is convenient for grouping
+related actions, such as a three-dot menu for managing an item.</p>
 <p>To create a dropdown menu, list all actions in the <code>list()</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">DropDown</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.options-vertical'</span>)
@@ -1524,9 +1619,9 @@ It is particularly useful for irreversible actions, such as data deletion.</p>
 </code></pre>
 <p>Result is an array with keys of <code>min</code>, <code>max</code>.</p>
 <h2><a href='#custom-fields-creation' id='custom-fields-creation'>Custom Fields Creation</a></h2>
-<p>To create custom fields, refer to the &ldquo;Custom Fields&rdquo; page in the documentation.
-This page provides a straightforward guide on how to create and customize fields according to your requirements.
-Access the <a href="/en/docs/custom-field">Custom Fields</a> page for more details.</p>
+<p>To create custom fields, refer to the &ldquo;Custom Fields&rdquo; page in the documentation. This page provides a straightforward
+guide on how to create and customize fields according to your requirements. Access the
+<a href="/en/docs/custom-field">Custom Fields</a> page for more details.</p>
 </body>
 
                                                                         </main>

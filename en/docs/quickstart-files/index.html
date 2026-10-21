@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Manage File Attachments | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,10 +372,10 @@
                             </div>
 
 
-                                                        <head></head><body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>,
-in which we will analyze the work with <a href="/en/docs/attachments">&ldquo;Attached files&rdquo;</a>.</p>
-<p>Let&rsquo;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>,
-in which we will store information about the main image in our blog post:</p>
+                                                        <head></head><body><p>This guide is a continuation of the tutorial <a href="/en/docs/quickstart-crud">&ldquo;Data Management&rdquo;</a>, in which we will analyze the
+work with <a href="/en/docs/attachments">&ldquo;Attached files&rdquo;</a>.</p>
+<p>Let&rsquo;s go back to the previously created <code>Post</code> model and add a new column <code>hero</code>, in which we will store information
+about the main image in our blog post:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Schema</span>;
@@ -419,7 +419,8 @@ in which we will store information about the main image in our blog post:</p>
 ];
 <span class="hl-comment">//..</span>
 </code></pre>
-<p>To write data to a new column, you need to add a suitable field to our create/edit screen, take <code>Cropper</code> to crop the image:</p>
+<p>To write data to a new column, you need to add a suitable field to our create/edit screen, take <code>Cropper</code> to crop the
+image:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Orchid/Screens/PostEditScreen.php</span>
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
@@ -453,16 +454,20 @@ in which we will store information about the main image in our blog post:</p>
 }
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the <code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
+<p><strong>Note.</strong> If during the file upload, you did not see your image in the end result, please check the
+<code>upload_max_filesize</code> and <code>post_max_size settings</code>, you may need to increase these values.</p>
 </blockquote>
-<p>For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user. After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for example:</p>
+<p>For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user.
+After saving the record with the image, the full <code>url</code> address to the image will be written to the database column, for
+example:</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png</span>
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file, that for local development through the built-in web server, a port indication is required.</p>
+<p><strong>Note.</strong> The link to the image is formed from the <code>url</code> address specified in your configuration file, that for local
+development through the built-in web server, a port indication is required.</p>
 </blockquote>
-<p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain?
-To do this, it is better to use a relative notation:</p>
+<p>This is the easiest entry, but what if you decide to use <code>https</code> or change the domain? To do this, it is better to use a
+relative notation:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Cropper</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'post.hero'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">targetRelativeUrl</span>(),
 </code></pre>
@@ -510,7 +515,8 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
     ];
 }
 </code></pre>
-<p>The field will differ from the previous ones because the data does not apply explicitly to the <code>Post</code> model, but will be loaded and saved due to the connection, for this we must indicate the <code>Attachable</code> trait:</p>
+<p>The field will differ from the previous ones because the data does not apply explicitly to the <code>Post</code> model, but will be
+loaded and saved due to the connection, for this we must indicate the <code>Attachable</code> trait:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
 <span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">Attachable</span>;
 <span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
@@ -538,12 +544,13 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
 </code></pre>
 <p>After saving, the connection with our record will be established in the table <code>attachmentable</code>:</p>
 <pre><code data-lang="php" class="notranslate">id  attachmentable_type  attachmentable_id  attachment_id
-<span class="hl-number">1</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">101</span>
-<span class="hl-number">2</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">102</span>
-<span class="hl-number">3</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">103</span>
-<span class="hl-number">4</span>	App\Post	         <span class="hl-number">3</span>	                <span class="hl-number">104</span>
+<span class="hl-number">1</span> App\Post          <span class="hl-number">3</span>                 <span class="hl-number">101</span>
+<span class="hl-number">2</span> App\Post          <span class="hl-number">3</span>                 <span class="hl-number">102</span>
+<span class="hl-number">3</span> App\Post          <span class="hl-number">3</span>                 <span class="hl-number">103</span>
+<span class="hl-number">4</span> App\Post          <span class="hl-number">3</span>                 <span class="hl-number">104</span>
 </code></pre>
-<p>But when the record is accessed again, the field will be empty. This happens because <code>query</code> does not know about the additional records on our model. We will fix this by adding a download:</p>
+<p>But when the record is accessed again, the field will be empty. This happens because <code>query</code> does not know about the
+additional records on our model. We will fix this by adding a download:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(<span class="hl-injection"><span class="hl-type">Post</span> $post</span>): <span class="hl-keyword">array</span>
 {
     $post<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>(<span class="hl-value">'attachments'</span>);
@@ -553,8 +560,8 @@ the <code>Cropper</code> field will record the number of the downloaded file:</p
     ];
 }
 </code></pre>
-<p>Now our attached files are downloaded and synchronized.
-For more details, see the <a href="/en/docs/field">Form Elements</a> and <a href="/en/docs/attachments">Attached Files</a> sections.</p>
+<p>Now our attached files are downloaded and synchronized. For more details, see the <a href="/en/docs/field">Form Elements</a> and
+<a href="/en/docs/attachments">Attached Files</a> sections.</p>
 </body>
 
                                                                         </main>

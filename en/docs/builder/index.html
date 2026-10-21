@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Form Builder | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -383,7 +383,8 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
-<p>Describing form fields can be a challenging task, but with <code>Orchid\Screen\Builder</code>, you can easily modify and reuse form fields using a single builder that generates <code>HTML</code> code.</p>
+<p>Describing form fields can be a challenging task, but with <code>Orchid\Screen\Builder</code>, you can easily modify and reuse form
+fields using a single builder that generates <code>HTML</code> code.</p>
 <p>To build a form, you need to provide the field definitions and possibly a data source:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Builder</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
@@ -397,8 +398,8 @@ $builder <span class="hl-operator">=</span> <span class="hl-constant">new</span>
 $html <span class="hl-operator">=</span> $builder<span class="hl-delimeter">-&gt;</span><span class="hl-function">generateForm</span>();
 </code></pre>
 <h2><a href='#data-binding' id='data-binding'>Data Binding</a></h2>
-<p>To specify the value of an element, you must specify the data source.
-By providing the specified key, the data will automatically replace the corresponding field.</p>
+<p>To specify the value of an element, you must specify the data source. By providing the specified key, the data will
+automatically replace the corresponding field.</p>
 <p>For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Builder</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;

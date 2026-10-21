@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Attachments | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -410,7 +410,8 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#attachments' id='attachments'>Attachments</a></h2>
-<p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachments()</code> relationship.</p>
+<p>Attachments are files of various formats and extensions that are related to a specific record. They can be attached to
+any model in your application by adding the <code>Attachable</code> trait to the model and using the <code>attachments()</code> relationship.</p>
 <p>For example, to attach files to a <code>Post</code> model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
@@ -428,7 +429,8 @@
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
-<p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller method that handles file uploads:</p>
+<p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller
+method that handles file uploads:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
@@ -443,7 +445,8 @@ $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachmen
     <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>($attachment);
 }
 </code></pre>
-<p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the database.</p>
+<p>This will automatically upload the file to the default repository (usually <code>public</code>) and create an entry in the
+database.</p>
 <p>To retrieve the URL of an attachment, you can use the <code>url()</code> method:</p>
 <pre><code data-lang="php" class="notranslate">$image <span class="hl-operator">=</span> $item<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">first</span>();
 
@@ -451,10 +454,14 @@ $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachmen
 $image<span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span>();
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> The <code>url()</code> method will first check for the path existence, and then get the URL. When using external storage like <code>s3</code>, this will make two calls. To improve performance you can use the <a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve performance. You can also simply override this method and adjust to your needs.</p>
+<p><strong>Note.</strong> The <code>url()</code> method will first check for the path existence, and then get the URL. When using external
+storage like <code>s3</code>, this will make two calls. To improve performance you can use the
+<a href="https://laravel.com/docs/filesystem#driver-prerequisites">caching adapter</a> recommended by <code>Laravel</code> to improve
+performance. You can also simply override this method and adjust to your needs.</p>
 </blockquote>
 <h2><a href='#uploading-a-file-via-the-console' id='uploading-a-file-via-the-console'>Uploading a File via the Console</a></h2>
-<p>Sometimes the necessary files are already on the server, and you can use the following code to upload them to the desired storage:</p>
+<p>Sometimes the necessary files are already on the server, and you can use the following code to upload them to the
+desired storage:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Http\<span class="hl-type">UploadedFile</span>;
 <span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
@@ -463,11 +470,19 @@ $file <span class="hl-operator">=</span> <span class="hl-constant">new</span> <s
 $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</span> <span class="hl-type">File</span>($file))<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 </code></pre>
 <h2><a href='#duplicate-uploaded-files' id='duplicate-uploaded-files'>Duplicate Uploaded Files</a></h2>
-<p>To prevent unnecessary duplication and save resources, Laravel Orchid uses a hashing algorithm to check for existing files before uploading a new attachment. If a file with the same hash already exists in storage, a link to the existing file is created in the database instead of uploading a duplicate copy. This allows for efficient storage and management of attachments.</p>
-<p>The file will only be deleted from storage when all links to it are destroyed. This means that if multiple records are associated with the same attachment, the file will not be deleted until all records are deleted or the attachment is removed from all of them.</p>
-<p>This feature not only improves the performance and reduces the storage space, but also eliminates the chance of having multiple copies of the same file in the storage.</p>
+<p>To prevent unnecessary duplication and save resources, Laravel Orchid uses a hashing algorithm to check for existing
+files before uploading a new attachment. If a file with the same hash already exists in storage, a link to the existing
+file is created in the database instead of uploading a duplicate copy. This allows for efficient storage and management
+of attachments.</p>
+<p>The file will only be deleted from storage when all links to it are destroyed. This means that if multiple records are
+associated with the same attachment, the file will not be deleted until all records are deleted or the attachment is
+removed from all of them.</p>
+<p>This feature not only improves the performance and reduces the storage space, but also eliminates the chance of having
+multiple copies of the same file in the storage.</p>
 <h3><a href='#allowing-duplicate-files' id='allowing-duplicate-files'>Allowing Duplicate Files</a></h3>
-<p>While the hashing algorithm in Laravel Orchid is designed to prevent the duplication of files, in some cases, you may want to keep duplicate files and generate different links to request different physical files. To do this, you can use the <code>allowDuplicates()</code> method.</p>
+<p>While the hashing algorithm in Laravel Orchid is designed to prevent the duplication of files, in some cases, you may
+want to keep duplicate files and generate different links to request different physical files. To do this, you can use
+the <code>allowDuplicates()</code> method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">upload</span>(<span class="hl-injection"><span class="hl-type">Request</span> $request</span>)
@@ -476,11 +491,14 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
     $attachment <span class="hl-operator">=</span> $file<span class="hl-delimeter">-&gt;</span><span class="hl-function">allowDuplicates</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">load</span>();
 
     <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>();
-}   
+}
 </code></pre>
-<p>Keep in mind that allowing duplicate files may increase storage usage and affect your application&rsquo;s performance. Therefore, it should be used with caution and only when necessary.</p>
+<p>Keep in mind that allowing duplicate files may increase storage usage and affect your application&rsquo;s performance.
+Therefore, it should be used with caution and only when necessary.</p>
 <h2><a href='#customizing-the-upload-path' id='customizing-the-upload-path'>Customizing the Upload Path</a></h2>
-<p>By default, Laravel Orchid uses a default upload path for all files of <code>Y/m/d</code>, for example: <code>2022/06/11</code>. This path is used to organize and structure the uploaded files in the storage. However, you may want to customize the path to suit your specific needs.</p>
+<p>By default, Laravel Orchid uses a default upload path for all files of <code>Y/m/d</code>, for example: <code>2022/06/11</code>. This path is
+used to organize and structure the uploaded files in the storage. However, you may want to customize the path to suit
+your specific needs.</p>
 <p>You can change the default path by using the <code>path(string $path)</code> method:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
@@ -493,10 +511,17 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
     <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>();
 }
 </code></pre>
-<p>In this example, the <code>path()</code> method is used to set the path to <code>photos</code> before loading the file. This will change the default path and all files will be uploaded to the <code>photos</code> folder.</p>
-<p>You can also use dynamic parameters like <code>path('photos/'.$user-&gt;id)</code> or <code>path('photos/'.$file-&gt;name)</code> to create specific folders for each user or file type.</p>
+<p>In this example, the <code>path()</code> method is used to set the path to <code>photos</code> before loading the file. This will change the
+default path and all files will be uploaded to the <code>photos</code> folder.</p>
+<p>You can also use dynamic parameters like <code>path('photos/'.$user-&gt;id)</code> or <code>path('photos/'.$file-&gt;name)</code> to create specific
+folders for each user or file type.</p>
 <h2><a href='#remove' id='remove'>Remove</a></h2>
-<p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
+<p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a
+model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the
+file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that
+case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using
+<a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and
+<a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
 <p>Let&rsquo;s come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&ldquo;Manage file attachments&rdquo;</a></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Post.php</span>
 
@@ -508,7 +533,8 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">withDefault</span>();
 }
 </code></pre>
-<p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute an SQL query. If you call your relation like attribute <code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
+<p>If you call your relation like function <code>$post-&gt;hero()</code> it will return <code>Illuminate\Database\Eloquent\Builder</code> class, that also has <code>delete()</code> function. But, it will execute an SQL query. If you call your relation like attribute
+<code>$post-&gt;hero</code> it will return model class. <code>Attachment</code> model class.</p>
 <pre><code data-lang="php" class="notranslate">$post<span class="hl-delimeter">-&gt;</span><span class="hl-function">hero</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">delete</span>();
 </code></pre>
 <blockquote>
@@ -531,17 +557,22 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 }
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done to access the filesystem to delete a file (The database won&rsquo;t do it for us).</p>
+<p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done to
+access the filesystem to delete a file (The database won&rsquo;t do it for us).</p>
 </blockquote>
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
 {
     <span class="hl-comment">// ...</span>
-    
+
     <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">observe</span>(<span class="hl-type">PostObserver</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 }
 </code></pre>
-<p>Occasionally, users may upload image files without properly establishing a relationship with them. These models and files may end up remaining in the system indefinitely, taking up valuable storage space. To address this issue, you can create a console command that clears out any unassociated image files on a set schedule. For example, you might schedule the command to run once a week or once a month, depending on the frequency of uploads and the amount of storage space available.</p>
+<p>Occasionally, users may upload image files without properly establishing a relationship with them. These models and
+files may end up remaining in the system indefinitely, taking up valuable storage space. To address this issue, you can
+create a console command that clears out any unassociated image files on a set schedule. For example, you might schedule
+the command to run once a week or once a month, depending on the frequency of uploads and the amount of storage space
+available.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Console\Commands;
 
 <span class="hl-keyword">use</span> Illuminate\Console\<span class="hl-type">Command</span>;
@@ -577,8 +608,8 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 }
 </code></pre>
 <h2><a href='#default-configuration' id='default-configuration'>Default Configuration</a></h2>
-<p>When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the <code>config/platform.php</code> file.
-This configuration specifies the disk and generator that will be used to handle the files.</p>
+<p>When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the
+<code>config/platform.php</code> file. This configuration specifies the disk and generator that will be used to handle the files.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/*
 |------------------------------------------------------------------
 | Default configuration for attachments.
@@ -594,16 +625,28 @@ This configuration specifies the disk and generator that will be used to handle 
 ],
 </code></pre>
 <ul>
-<li><p><strong>disk</strong> &ndash;  The name of the storage disk that will be used to store the files. The disk should be defined in the <code>/config/filesystems.php</code> file.</p></li>
-<li><p><strong>generator</strong> &ndash; The generator class that defines how the files will be named, where they will be located in the storage, and how to avoid duplicating them. By default, Orchid uses the <code>\Orchid\Attachment\Engines\Generator</code> class, which uses a hash of the file&rsquo;s contents to avoid duplicating files.</p></li>
+<li><p><strong>disk</strong> &ndash; The name of the storage disk that will be used to store the files. The disk should be defined in the
+<code>/config/filesystems.php</code> file.</p></li>
+<li><p><strong>generator</strong> &ndash; The generator class that defines how the files will be named, where they will be located in the
+storage, and how to avoid duplicating them. By default, Orchid uses the <code>\Orchid\Attachment\Engines\Generator</code> class, which uses a hash of the file&rsquo;s contents to avoid duplicating files.</p></li>
 </ul>
-<p>You can modify these settings to suit your needs, for example, you can change the disk and generator to customize the way files are handled and stored.</p>
+<p>You can modify these settings to suit your needs, for example, you can change the disk and generator to customize the
+way files are handled and stored.</p>
 <h2><a href='#optimizing-images' id='optimizing-images'>Optimizing Images</a></h2>
-<p>Optimizing images can be an important step in improving the performance and user experience of your application. However, it is important to be mindful of how and when images are optimized. Modifying the original images can lead to a loss of quality, especially if the images are modified multiple times with different resolutions or quality settings.</p>
-<p>One way to optimize images on demand is to use a third-party package such as <a href="https://github.com/Intervention/image">https://github.com/Intervention/image</a> or its alternatives. This approach allows you to optimize images only when necessary and keep the original images in their original quality, which can be useful in situations where the image requirements change over time or if you want to keep the original image for other purposes.</p>
+<p>Optimizing images can be an important step in improving the performance and user experience of your application.
+However, it is important to be mindful of how and when images are optimized. Modifying the original images can lead to a
+loss of quality, especially if the images are modified multiple times with different resolutions or quality settings.</p>
+<p>One way to optimize images on demand is to use a third-party package such as
+<a href="https://github.com/Intervention/image">https://github.com/Intervention/image</a> or its alternatives. This approach allows
+you to optimize images only when necessary and keep the original images in their original quality, which can be useful
+in situations where the image requirements change over time or if you want to keep the original image for other
+purposes.</p>
 <h2><a href='#event-subscription' id='event-subscription'>Event Subscription</a></h2>
-<p>Orchid allows you to subscribe to event that are triggered when a file is uploaded. This feature enables you to execute additional tasks like video compression, image optimization, or other file processing operations.</p>
-<p>To subscribe to an event, you can use <a href="https://laravel.com/docs/11.x/events#defining-listeners">Laravel&rsquo;s event listening mechanism</a>. In the example below, an anonymous function is registered to listen for the <code>UploadFileEvent</code>:</p>
+<p>Orchid allows you to subscribe to event that are triggered when a file is uploaded. This feature enables you to execute
+additional tasks like video compression, image optimization, or other file processing operations.</p>
+<p>To subscribe to an event, you can use
+<a href="https://laravel.com/docs/11.x/events#defining-listeners">Laravel&rsquo;s event listening mechanism</a>. In the example below, an
+anonymous function is registered to listen for the <code>UploadFileEvent</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Events\<span class="hl-type">UploadFileEvent</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Event</span>;
 
@@ -619,14 +662,18 @@ This configuration specifies the disk and generator that will be used to handle 
     });
 }
 </code></pre>
-<p>When the <code>UploadFileEvent</code> is triggered, the anonymous function registered with <code>Event::listen</code> will be called. Inside this function, you can define your logic to handle the event, such as processing the uploaded file, performing validations, or triggering additional actions.</p>
+<p>When the <code>UploadFileEvent</code> is triggered, the anonymous function registered with <code>Event::listen</code> will be called. Inside
+this function, you can define your logic to handle the event, such as processing the uploaded file, performing
+validations, or triggering additional actions.</p>
 <h2><a href='#security-considerations' id='security-considerations'>Security Considerations</a></h2>
 <blockquote>
 <p><strong>Note.</strong> File upload validation is not enforced by default.</p>
 </blockquote>
-<p>By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes &mdash; giving you full flexibility.</p>
+<p>By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes &mdash; giving you full
+flexibility.</p>
 <p>Uploaded files are stored on the configured disk (typically outside <code>/public</code>) and are not meant to be executed as code.</p>
-<p>For security, define your own upload rules &mdash; for example, via Laravel validation in controllers/routes, access restrictions for trusted users only, or server-level file execution protections.</p>
+<p>For security, define your own upload rules &mdash; for example, via Laravel validation in controllers/routes, access
+restrictions for trusted users only, or server-level file execution protections.</p>
 </body>
 
                                                                         </main>

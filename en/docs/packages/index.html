@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Package Development | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -411,21 +411,27 @@
     </nav>
                             <head></head><body><blockquote>
 <p>&#9888;&#65039; <strong>Attention:</strong> This section is still a work in progress and isn&rsquo;t 100% ready for use. &#128679;</p>
-<p>It may lack complete information or contain inaccuracies. If you are not an enthusiast or experienced user, it is recommended to wait until this section is finalized and verified before relying on the information provided here. Updates will be made to ensure the section is complete and accurate as soon as possible. Thank you for your patience and understanding.</p>
+<p>It may lack complete information or contain inaccuracies. If you are not an enthusiast or experienced user, it is
+recommended to wait until this section is finalized and verified before relying on the information provided here.
+Updates will be made to ensure the section is complete and accurate as soon as possible. Thank you for your patience
+and understanding.</p>
 </blockquote>
 <h2><a href='#package-service-providers' id='package-service-providers'>Package Service Providers</a></h2>
-<p>In Laravel, a service provider is a crucial component that sets up and configures the various features and functionality of a package.
-The Orchid package also requires a service provider to integrate with your Laravel application.</p>
+<p>In Laravel, a service provider is a crucial component that sets up and configures the various features and functionality
+of a package. The Orchid package also requires a service provider to integrate with your Laravel application.</p>
 <blockquote>
-<p><strong>Note for beginners:</strong> Please be aware that the Orchid documentation page primarily focuses on demonstrating the usage and features of the Orchid platform.
-It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development.
-If you are new to PHP and Laravel, it is recommended to consult other beginner-friendly resources that specifically address those topics before diving into the Orchid documentation. &#8617;</p>
+<p><strong>Note for beginners:</strong> Please be aware that the Orchid documentation page primarily focuses on demonstrating the
+usage and features of the Orchid platform. It does not cover more fundamental topics like creating a Composer package, registering it on Packagist, or basic Laravel package development. If you are new to PHP and Laravel, it is
+recommended to consult other beginner-friendly resources that specifically address those topics before diving into the
+Orchid documentation. &#8617;</p>
 </blockquote>
-<p>To learn more about service providers in Laravel and how they work, you can refer to the <a href="https://laravel.com/docs/providers">official Laravel documentation on service providers</a>.</p>
-<p>The Orchid package provides its own service provider called <code>Orchid\Platform\OrchidServiceProvider</code>.
-This service provider extends the core Laravel <code>ServiceProvider</code> class and provides additional functionality specific to the Orchid package.
-It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.</p>
-<p>To create a custom service provider for your package that extends the functionality of the <code>OrchidServiceProvider</code>, you can follow this example:</p>
+<p>To learn more about service providers in Laravel and how they work, you can refer to the
+<a href="https://laravel.com/docs/providers">official Laravel documentation on service providers</a>.</p>
+<p>The Orchid package provides its own service provider called <code>Orchid\Platform\OrchidServiceProvider</code>. This service
+provider extends the core Laravel <code>ServiceProvider</code> class and provides additional functionality specific to the Orchid
+package. It allows you to register menus, permissions, routes, and other features within the Orchid dashboard.</p>
+<p>To create a custom service provider for your package that extends the functionality of the <code>OrchidServiceProvider</code>, you
+can follow this example:</p>
 <ul>
 <li>Create a new file called <code>MyPackageServiceProvider.php</code> in your package directory.</li>
 <li>In the <code>MyPackageServiceProvider</code> class, extend the <code>OrchidServiceProvider</code> class provided by Orchid:</li>
@@ -437,10 +443,11 @@ It allows you to register menus, permissions, routes, and other features within 
    <span class="hl-comment">// Your package-specific code here</span>
 }
 </code></pre>
-<p>This will allow you to utilize the features and methods provided by the <code>OrchidServiceProvider</code> class while also adding your own customizations and configurations specific to your package.</p>
+<p>This will allow you to utilize the features and methods provided by the <code>OrchidServiceProvider</code> class while also adding
+your own customizations and configurations specific to your package.</p>
 <h2><a href='#define-routes' id='define-routes'>Define Routes</a></h2>
-<p>To define routes in your package, create a <code>routes</code> method within your service provider.
-You can use the standard Laravel routing mechanisms to register your routes with the <code>Router</code> instance.</p>
+<p>To define routes in your package, create a <code>routes</code> method within your service provider. You can use the standard
+Laravel routing mechanisms to register your routes with the <code>Router</code> instance.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Routing\<span class="hl-type">Router</span>;
 
 <span class="hl-comment">/**
@@ -458,9 +465,9 @@ You can use the standard Laravel routing mechanisms to register your routes with
 }
 </code></pre>
 <h2><a href='#define-permissions' id='define-permissions'>Define Permissions</a></h2>
-<p>Laravel Orchid provides a flexible permission system to control access to different parts of your package.
-To define permissions, override the <code>permissions</code> method in your service provider.
-This method should return an array of <code>ItemPermission</code> instances provided by the Orchid package.</p>
+<p>Laravel Orchid provides a flexible permission system to control access to different parts of your package. To define
+permissions, override the <code>permissions</code> method in your service provider. This method should return an array of
+<code>ItemPermission</code> instances provided by the Orchid package.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">ItemPermission</span>;
 
 <span class="hl-comment">/**
@@ -480,8 +487,8 @@ This method should return an array of <code>ItemPermission</code> instances prov
 </code></pre>
 <p>Specify the group name, permission key, and description for each permission.</p>
 <h2><a href='#define-navigation' id='define-navigation'>Define Navigation</a></h2>
-<p>To define navigation menus for your package, override the <code>menu</code> method in your service provider.
-This method should return an array of <code>Menu</code> instances provided by the Orchid package.</p>
+<p>To define navigation menus for your package, override the <code>menu</code> method in your service provider. This method should
+return an array of <code>Menu</code> instances provided by the Orchid package.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
 <span class="hl-comment">/**
@@ -500,9 +507,12 @@ This method should return an array of <code>Menu</code> instances provided by th
 }
 </code></pre>
 <h2><a href='#define-resources' id='define-resources'>Define Resources</a></h2>
-<p>Laravel Orchid allows you to register custom resources like stylesheets and scripts that can be included in the dashboard. To register these resources, you need to define them in your service provider by overriding the appropriate methods.</p>
+<p>Laravel Orchid allows you to register custom resources like stylesheets and scripts that can be included in the
+dashboard. To register these resources, you need to define them in your service provider by overriding the appropriate
+methods.</p>
 <h3><a href='#stylesheets' id='stylesheets'>Stylesheets</a></h3>
-<p>To define the stylesheets to be registered, override the <code>stylesheets</code> method in your service provider. This method should return an array of strings, where each string represents the path to a stylesheet that you want to include.</p>
+<p>To define the stylesheets to be registered, override the <code>stylesheets</code> method in your service provider. This method
+should return an array of strings, where each string represents the path to a stylesheet that you want to include.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Define the stylesheets to be registered.
  *
@@ -518,7 +528,8 @@ This method should return an array of <code>Menu</code> instances provided by th
 }
 </code></pre>
 <h3><a href='#scripts' id='scripts'>Scripts</a></h3>
-<p>To define the scripts to be registered, override the <code>scripts</code> method in your service provider. This method should return an array of strings, where each string represents the path to a JavaScript file that you want to include.</p>
+<p>To define the scripts to be registered, override the <code>scripts</code> method in your service provider. This method should
+return an array of strings, where each string represents the path to a JavaScript file that you want to include.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Define the scripts to be registered.
  *
@@ -534,7 +545,8 @@ This method should return an array of <code>Menu</code> instances provided by th
 }
 </code></pre>
 <h2><a href='#define-icons' id='define-icons'>Define Icons</a></h2>
-<p>To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the <code>icons</code> method of your service provider.</p>
+<p>To utilize icons from different icon sets in your package, you can specify the icon paths and prefixes within the
+<code>icons</code> method of your service provider.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the icon paths and prefixes.
  *
@@ -546,10 +558,12 @@ This method should return an array of <code>Menu</code> instances provided by th
     <span class="hl-keyword">return</span> [<span class="hl-value">'fa'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'/path/to/fontawesome'</span>];
 }
 </code></pre>
-<p>In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons within your package&rsquo;s views or components.</p>
+<p>In this example, you can define the paths and prefixes for different icon sets. Once registered, you can use the icons
+within your package&rsquo;s views or components.</p>
 <h2><a href='#versioning' id='versioning'>Versioning</a></h2>
 <p>When developing a package that supports multiple versions, it is advised to utilize Composer for version management.
-Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for your project, you can consider using the following constant:</p>
+Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for
+your project, you can consider using the following constant:</p>
 <pre><code data-lang="php" class="notranslate">Orchid\Platform\<span class="hl-type">Dashboard</span><span class="hl-delimeter">::</span><span class="hl-function">version</span>()
 </code></pre>
 <p>This constant returns a string representation of the current version being used.</p>
@@ -599,7 +613,9 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 }
 </code></pre>
 <h2><a href='#extending-columns' id='extending-columns'>Extending Columns</a></h2>
-<p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to register the closure function in the service provider.</p>
+<p>When working with the same type of data, it is often required to process it in the same way, in order not to duplicate
+the code in the layers, it is possible to extend the <code>TD</code> class using its own methods. To do this, it is necessary to
+register the closure function in the service provider.</p>
 <p>Registration example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// AppServiceProvider.php</span>
 <span class="hl-type">TD</span><span class="hl-delimeter">::</span><span class="hl-function">macro</span>(<span class="hl-value">'bool'</span>, <span class="hl-keyword">function</span> () {

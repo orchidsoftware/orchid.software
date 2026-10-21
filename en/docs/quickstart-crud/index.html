@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Data Management | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -372,15 +372,20 @@
                             </div>
 
 
-                                                        <head></head><body><p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.</p>
+                                                        <head></head><body><p>This guide provides a minimal set for creating and editing models using the platform. In the current example, we will
+create admin pages for the blog.</p>
 <blockquote>
-<p><strong>Note.</strong> This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider <a href="https://github.com/orchidsoftware/crud">using a dedicated package for this</a>.</p>
+<p><strong>Note.</strong> This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider
+<a href="https://github.com/orchidsoftware/crud">using a dedicated package for this</a>.</p>
 </blockquote>
-<p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of <a href="https://orchid.software/en/docs/screens">screens</a> and watch <a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a>.</p>
+<p>At this stage, it is advisable that you already familiarize yourself with the basics of the concept of
+<a href="https://orchid.software/en/docs/screens">screens</a> and watch
+<a href="https://orchid.software/en/docs/quickstart">Quick start for beginners</a>.</p>
 <p>First, we need to create a new table. To do this, execute the command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:migration create_posts_table
 </code></pre>
-<p>A new migration file will be created in the <code>database/migrations</code> directory, we will add a description of the required columns to it.</p>
+<p>A new migration file will be created in the <code>database/migrations</code> directory, we will add a description of the required
+columns to it.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// `****_**_**_create_posts_table.php</span>
 
 <span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
@@ -450,7 +455,9 @@
 <p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
 </blockquote>
 <p>Now we are ready for the real use of the platform.</p>
-<p><a href="https://orchid.software/en/docs/quickstart">In the previous tutorial</a> we already created our first screen for displaying posts, but now we need to both display the records and edit them, so we&rsquo;ll add two new screens for each action, alternately executing the commands:</p>
+<p><a href="https://orchid.software/en/docs/quickstart">In the previous tutorial</a> we already created our first screen for
+displaying posts, but now we need to both display the records and edit them, so we&rsquo;ll add two new screens for each
+action, alternately executing the commands:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen
 </code></pre>
@@ -469,8 +476,9 @@ php artisan orchid:screen PostListScreen
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'posts'</span>, <span class="hl-type">PostListScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.post.list'</span>);
 </code></pre>
-<p>Now the screens are available for viewing at the address <code>/admin/post</code> and <code>/admin/posts</code>.
-The resulting screens currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required fields:</p>
+<p>Now the screens are available for viewing at the address <code>/admin/post</code> and <code>/admin/posts</code>. The resulting screens
+currently have no data, no actions, edit the <code>PostEditScreen</code> for viewing by adding the name, description and required
+fields:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">Post</span>;
@@ -607,7 +615,8 @@ The resulting screens currently have no data, no actions, edit the <code>PostEdi
 }
 </code></pre>
 <p>Now we can create, edit, and delete records. But the records do not appear as a list yet. Let&rsquo;s change that.</p>
-<p>In all previous layer definitions, only a short record of the form <code>Layout:rows()</code> was used, but to display complex or voluminous information, it is desirable to create separate classes.</p>
+<p>In all previous layer definitions, only a short record of the form <code>Layout:rows()</code> was used, but to display complex or
+voluminous information, it is desirable to create separate classes.</p>
 <p>Add a new <code>Layout</code> class by running the command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:table PostListLayout
 </code></pre>
@@ -648,7 +657,8 @@ The resulting screens currently have no data, no actions, edit the <code>PostEdi
 </code></pre>
 <p>The <code>target</code> property indicates the key will be the source for our table on the screen.</p>
 <blockquote>
-<p><strong>Note.</strong> Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code> templates.</p>
+<p><strong>Note.</strong> Generating <code>HTML</code> directly in the class is an example only and is bad practice. Please use the <code>Blade</code>
+templates.</p>
 </blockquote>
 <p>Having defined the table layer, we return to the view screen, change it:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Screens;
@@ -715,7 +725,8 @@ The resulting screens currently have no data, no actions, edit the <code>PostEdi
     }
 }
 </code></pre>
-<p>Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>
+<p>Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of
+the convenience of navigation from the previous material by adding menu items and breadcrumbs.</p>
 </body>
 
                                                                         </main>

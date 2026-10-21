@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#272531">
     <meta name="theme-color" content="#272531">
 
-    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-zYGMst26.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-CihbqhTm.css" /><script type="module" src="https://orchid.software/build/assets/app-zYGMst26.js"></script>
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-BBS5BhWB.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
     <title>Screens | Orchid - Laravel Admin Panel</title>
 
 
@@ -69,19 +69,19 @@
 
             <li>
             <a href="/en/donations"
-                class="link">
+                                class="link">
                 Donation
             </a>
         </li>
             <li>
             <a href="/en/hig"
-                class="link">
+                                class="link">
                 Design
             </a>
         </li>
             <li>
             <a href="/en/discussions"
-                class="link">
+                                class="link">
                 Discussion
             </a>
         </li>
@@ -416,7 +416,7 @@
                             <li class="item" data-level="h2">
                     <a href="#additional-methods">Additional Methods</a>
                 </li>
-                            <li class="item" data-level="h4">
+                            <li class="item" data-level="h3">
                     <a href="#validation-message">Validation Message</a>
                 </li>
                             <li class="item" data-level="h4">
@@ -428,10 +428,15 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
-<p>Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a class that defines the UI components, their properties, and how they interact with one another.</p>
-<p>Screens don&rsquo;t handle data fetching directly. Instead, they focus on rendering the UI using predefined templates (layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or external service&mdash;without affecting the screen logic.</p>
-<p>At the core, each screen is essentially an HTML <code>&lt;form&gt;</code>, which streamlines handling user input, submitting data, and managing interactions in a standardized way. This ensures a predictable and consistent user experience.</p>
-<p>By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain complex web applications.</p>
+<p>Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a
+class that defines the UI components, their properties, and how they interact with one another.</p>
+<p>Screens don&rsquo;t handle data fetching directly. Instead, they focus on rendering the UI using predefined templates
+(layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or
+external service&mdash;without affecting the screen logic.</p>
+<p>At the core, each screen is essentially an HTML <code>&lt;form&gt;</code>, which streamlines handling user input, submitting data, and
+managing interactions in a standardized way. This ensures a predictable and consistent user experience.</p>
+<p>By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain
+complex web applications.</p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
 <p>You can create a new screen by running the command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:screen Idea
@@ -478,22 +483,27 @@
     }
 }
 </code></pre>
-<p>The screen class includes several methods that you can use to define the behavior and appearance of the screen. These include:</p>
+<p>The screen class includes several methods that you can use to define the behavior and appearance of the screen. These
+include:</p>
 <ul>
-<li><p><strong>query</strong>: This method loads data from the database or other sources. It should return an array of data that will be available to the screen&rsquo;s layouts and views.</p></li>
+<li><p><strong>query</strong>: This method loads data from the database or other sources. It should return an array of data that will be
+available to the screen&rsquo;s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
-<li><p><strong>layout</strong>: This method is used to define the structure and content of the screen. It should return an array of layout objects, which can be used to display data, forms, and other elements on the screen.</p></li>
+<li><p><strong>layout</strong>: This method is used to define the structure and content of the screen. It should return an array of layout
+objects, which can be used to display data, forms, and other elements on the screen.</p></li>
 </ul>
 <p>To use the new screen in your application, you will need to register it in the route file.</p>
 <h2><a href='#routing-screens' id='routing-screens'>Routing Screens</a></h2>
-<p>Before a screen can be accessed at a direct URL, it must be registered in the <code>routes/platform.php</code> routes file. Routes registered in this file will be passed through the middleware specified in the <a href="/en/docs/configuration">configuration</a>.</p>
+<p>Before a screen can be accessed at a direct URL, it must be registered in the <code>routes/platform.php</code> routes file. Routes
+registered in this file will be passed through the middleware specified in the <a href="/en/docs/configuration">configuration</a>.</p>
 <p>To register a screen, you can use the screen method of the <code>Route</code> class. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Screens\<span class="hl-type">Idea</span>;
 
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.idea'</span>);
 </code></pre>
 <p>This will register a new route for the Idea screen, accessible at the URL <code>/idea</code>.</p>
-<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
+<p>Adding a screen is slightly different from the usual registration, for example, a <code>GET</code> request. Instead of a single
+address, a whole group registered. For clarity, you can run the <code>route:list</code> command by Artisan:</p>
 <pre><code data-lang="php" class="notranslate">Method   | <span class="hl-constant">URI</span>                      | Name
 ---------+--------------------------+--------------
 <span class="hl-constant">GET</span>|<span class="hl-constant">POST</span> | dashboard/idea/{method?} | platform<span class="hl-delimeter">.</span>idea
@@ -521,12 +531,11 @@
 dashboard/idea/{method?}      | platform<span class="hl-delimeter">.</span>idea
 dashboard/idea/edit/{method?} | platform<span class="hl-delimeter">.</span>idea<span class="hl-delimeter">.</span>edit
 </code></pre>
-<p><code>{method?}</code> &ndash; means an optional argument that may go further.
-Correspondingly, the name &ldquo;edit&rdquo; in the address falls under it.
-The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, make sure to order your routes correctly.</p>
+<p><code>{method?}</code> &ndash; means an optional argument that may go further. Correspondingly, the name &ldquo;edit&rdquo; in the address falls
+under it. The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, make sure to order your routes correctly.</p>
 <h2><a href='#querying-data' id='querying-data'>Querying Data</a></h2>
-<p>The <code>query</code> method of a screen is used to load data from the database or other sources.
-This data is then passed to the screen&rsquo;s layouts and views as an array</p>
+<p>The <code>query</code> method of a screen is used to load data from the database or other sources. This data is then passed to the
+screen&rsquo;s layouts and views as an array</p>
 <p>For example, you might use the <code>query</code> method to response simple string:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
@@ -535,7 +544,8 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
     ];
 }
 </code></pre>
-<p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows you to easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
+<p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows you to
+easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
 <p>To use the <code>AsSource</code> trait, you need to include it in your model class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
@@ -556,9 +566,11 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
     ];
 }
 </code></pre>
-<p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain a paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and views to display the data to the user.</p>
+<p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain a
+paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and views to
+display the data to the user.</p>
 <p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen&rsquo;s layouts and views. For example:</p>
-<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;    
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
 {
@@ -573,9 +585,12 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 }
 </code></pre>
 <p>In this example, the <code>order</code> key will contain an array of ideas with the given data.</p>
-<p>The <code>query</code> method is an important part of a screen, as it is used to load the data that will be displayed to the user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.</p>
+<p>The <code>query</code> method is an important part of a screen, as it is used to load the data that will be displayed to the user.
+Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.</p>
 <h2><a href='#autocompleting-public-properties' id='autocompleting-public-properties'>Autocompleting Public Properties</a></h2>
-<p>You can use public properties in your screen class to store and access data within different methods of the class. When a screen is displayed, the data returned from the <code>query</code> method will be automatically assigned to public properties of the same name.</p>
+<p>You can use public properties in your screen class to store and access data within different methods of the class. When
+a screen is displayed, the data returned from the <code>query</code> method will be automatically assigned to public properties of
+the same name.</p>
 <p>For example, consider the following code:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * <span class="hl-keyword">@var</span> <span class="hl-keyword">string</span>
@@ -594,11 +609,15 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
     <span class="hl-keyword">return</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">message</span>;
 }
 </code></pre>
-<p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code> property.</p>
+<p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the
+<code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code>
+property.</p>
 <p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &ldquo;Hello World!&rdquo;</p>
-<p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be especially helpful when building complex screens with multiple layouts and views.</p>
+<p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be
+especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
-<p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible for defining these controls.</p>
+<p>Screens include built-in commands that allow users to execute various actions. The <code>commandBar</code> method is responsible
+for defining these controls.</p>
 <p>Several types of actions are available:</p>
 <h3><a href='#button' id='button'>Button</a></h3>
 <p>Button actions allow users to trigger a method on the screen when clicked. For example:</p>
@@ -618,8 +637,8 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
    <span class="hl-type">Toast</span><span class="hl-delimeter">::</span><span class="hl-function">warning</span>(<span class="hl-value">'Hello, world! This is a toast message.'</span>);
 }
 </code></pre>
-<p>In this example, when the Print button is clicked, the <code>print</code> method of the screen will be called.
-All of the data that the user has seen on the screen will be available in the request.</p>
+<p>In this example, when the Print button is clicked, the <code>print</code> method of the screen will be called. All of the data that
+the user has seen on the screen will be available in the request.</p>
 <h3><a href='#link' id='link'>Link</a></h3>
 <p>Link actions allow users to navigate to a different URL when clicked. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Link</span>;
@@ -633,7 +652,9 @@ All of the data that the user has seen on the screen will be available in the re
 }
 </code></pre>
 <h3><a href='#toggle' id='toggle'>Toggle</a></h3>
-<p>Toggle actions allow users to switch a boolean state interactively. They are designed specifically for tables and other UI elements where users need to quickly change a value. When clicked, the toggle calls a method on the screen and can update the value without leaving the context.</p>
+<p>Toggle actions allow users to switch a boolean state interactively. They are designed specifically for tables and other
+UI elements where users need to quickly change a value. When clicked, the toggle calls a method on the screen and can
+update the value without leaving the context.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Toggle</span>;
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
@@ -665,10 +686,18 @@ All of the data that the user has seen on the screen will be available in the re
 }
 </code></pre>
 <h2><a href='#duplicate-actions' id='duplicate-actions'>Duplicate Actions</a></h2>
-<p>In software development, it is common for similar actions to be performed across multiple screens or classes. For example, an action such as deleting an object may be needed on both a pagination screen and a details screen. Instead of duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.</p>
-<p>PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for redundant code. This not only improves the efficiency of the development process but also makes the code more maintainable and easier to understand.</p>
+<p>In software development, it is common for similar actions to be performed across multiple screens or classes. For
+example, an action such as deleting an object may be needed on both a pagination screen and a details screen. Instead of
+duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.</p>
+<p>PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined access
+rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing the need for
+redundant code. This not only improves the efficiency of the development process but also makes the code more
+maintainable and easier to understand.</p>
 <h2><a href='#calling-a-screen-method' id='calling-a-screen-method'>Calling a Screen Method</a></h2>
-<p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called. To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific route. The <code>method</code> property must be specified in the attributes using the <code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
+<p>When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called.
+To explicitly call a desired method from JavaScript or a Blade template, a <code>POST</code> request must be made to a specific
+route. The <code>method</code> property must be specified in the attributes using the
+<code>route('platform.screen.name', ['method' =&gt; 'hello'])</code> helper.</p>
 <p>For example, to call the <code>hello</code> method on the <code>platform.screens.users</code> screen, the following code can be used:</p>
 <pre><code data-lang="blade" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">form</span> <span class="hl-attribute">action</span><span class="hl-delimeter">=</span><span class="hl-value">"{{ <span class="hl-function">route</span>(<span class="hl-value">'platform.screens.users'</span>, [<span class="hl-value">'method'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'hello'</span>]) }}"</span>
       <span class="hl-attribute">method</span><span class="hl-delimeter">=</span><span class="hl-value">"POST"</span>
@@ -677,7 +706,8 @@ All of the data that the user has seen on the screen will be available in the re
     <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">button</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"submit"</span><span class="hl-start-end-tag">&gt;</span>Say "Hello, World!"<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">button</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">form</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will trigger the corresponding method on the server-side.</p>
+<p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will
+trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 
@@ -688,13 +718,13 @@ All of the data that the user has seen on the screen will be available in the re
 </code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
 <p>Layouts are responsible for the screen&rsquo;s appearance: how the data is displayed and in what form.</p>
-<p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
-One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
-If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
+<p>Separation of logic and presentation is one of the design principles with Laravel Orchid. One of the elements of the
+presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations. If you try to explain briefly, it
+turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name, signature, and profile avatar:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-start-end-tag">&gt;</span>
-	<span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-start-end-tag">&gt;</span>
-        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span><span class="hl-start-end-tag">&gt;</span>
+    <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">span</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"thumb-sm avatar m-r-xs"</span><span class="hl-start-end-tag">&gt;</span>
+        <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">img</span> <span class="hl-attribute">src</span><span class="hl-delimeter">=</span><span class="hl-value">"/avatar/maria.jpg"</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"bg-light"</span> <span class="hl-attribute">alt</span><span class="hl-delimeter">=</span><span class="hl-value">"Maria"</span> <span class="hl-start-end-tag">/&gt;</span>
     <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">span</span><span class="hl-start-end-tag">&gt;</span>
     <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0"</span><span class="hl-start-end-tag">&gt;</span>
         <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">h6</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"mb-0"</span><span class="hl-start-end-tag">&gt;</span>Maria<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">h6</span><span class="hl-start-end-tag">&gt;</span>
@@ -702,11 +732,16 @@ If you try to explain briefly, it turns out that this is a <code>view</code> on 
     <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">div</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in <code>React/Vue/Angular</code>.</p>
-<p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
-<p>Each layout may include a different layout, that is, nesting.
-For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a reference table and a graph.
-You can come up with your examples of attachments.</p>
+<p>A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their
+appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component
+approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in
+<code>React/Vue/Angular</code>.</p>
+<p>It is precisely such components that the platform layers consist of, the only difference is that it is necessary to
+operate with the classes, creating which you explicitly determine that the accepted parameter <code>avatar</code> will be inserted
+in the <code>&lt;img&gt;</code> tag, without having to edit the source code every time.</p>
+<p>Each layout may include a different layout, that is, nesting. For example, the screen is divided into two columns. In
+the left-field for filling, on the right, there are a reference table and a graph. You can come up with your examples of
+attachments.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>() : <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -718,7 +753,7 @@ You can come up with your examples of attachments.</p>
                 <span class="hl-type">SecondRows</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
             ],
         ]),
-        
+
         <span class="hl-comment">// Modal window</span>
         <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">modal</span>(<span class="hl-value">'Appointments'</span>, [
             <span class="hl-type">ThirdRows</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
@@ -726,8 +761,8 @@ You can come up with your examples of attachments.</p>
     ];
 }
 </code></pre>
-<p>Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a configurable design.
-To pass custom parameters to your layout you can use the class constructor to handle them:</p>
+<p>Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a
+configurable design. To pass custom parameters to your layout you can use the class constructor to handle them:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
@@ -770,9 +805,11 @@ To pass custom parameters to your layout you can use the class constructor to ha
     ];
 }
 </code></pre>
-<p>More details can be found in the <a href="/en/docs/rows">Layouts</a> section. See also <a href="/en/docs/rows">Rows</a> and <a href="/en/docs/table">Table</a>. For related layout patterns, review <a href="/en/docs/grouping">Grouping (Tabs, Split, etc.)</a> and <a href="/en/docs/modals">Modals</a>.</p>
+<p>More details can be found in the <a href="/en/docs/rows">Layouts</a> section. See also <a href="/en/docs/rows">Rows</a> and
+<a href="/en/docs/table">Table</a>. For related layout patterns, review <a href="/en/docs/grouping">Grouping (Tabs, Split, etc.)</a> and
+<a href="/en/docs/modals">Modals</a>.</p>
 <h2><a href='#additional-methods' id='additional-methods'>Additional Methods</a></h2>
-<h4><a href='#validation-message' id='validation-message'>Validation Message</a></h4>
+<h3><a href='#validation-message' id='validation-message'>Validation Message</a></h3>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Message if the form is not valid.
  */</span>
@@ -791,7 +828,8 @@ To pass custom parameters to your layout you can use the class constructor to ha
     <span class="hl-keyword">return</span> <span class="hl-constant">false</span>;
 }
 </code></pre>
-<p>No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks refreshing or navigating away from the current page if changes have been made to the data on it.</p>
+<p>No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks
+refreshing or navigating away from the current page if changes have been made to the data on it.</p>
 <h4><a href='#stimulus-controller' id='stimulus-controller'>Stimulus Controller</a></h4>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Returns the name of the base Stimulus controller for the frontend.
@@ -807,7 +845,8 @@ To pass custom parameters to your layout you can use the class constructor to ha
     <span class="hl-keyword">return</span> <span class="hl-value">'base'</span>;
 }
 </code></pre>
-<p>This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior of UI elements and interacting with other components via Hotwire.</p>
+<p>This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior
+of UI elements and interacting with other components via Hotwire.</p>
 </body>
 
                                                                         </main>
