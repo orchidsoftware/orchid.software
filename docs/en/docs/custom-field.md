@@ -5,8 +5,8 @@ description: Creating your own custom input field in the Orchid admin panel
 
 ## Creating a New Field
 
-Orchid provides a rich set of built-in form fields, but sometimes those aren't enough for specific use cases.
-In such cases, you can create a custom field tailored to your needs.
+Orchid provides a rich set of built-in form fields, but sometimes those aren't enough for specific use cases. In such
+cases, you can create a custom field tailored to your needs.
 
 A field in Orchid consists of two main parts:
 
@@ -77,46 +77,42 @@ Let's examine the generated Blade template:
 
 ```html
 @component($typeForm, get_defined_vars())
-    <div data-controller="emoji-picker">
-        <input
-            {{
-                $attributes->merge([
-                    'data-emoji-picker-target' => 'name',
-                    'data-action' => 'input->emoji-picker#greet',
-                ])
-            }}>
+<div data-controller="emoji-picker">
+    <input {{ $attributes- />merge([ 'data-emoji-picker-target' => 'name', 'data-action' => 'input->emoji-picker#greet',
+    ]) }}>
 
-        <span data-emoji-picker-target="output"></span>
-    </div>
+    <span data-emoji-picker-target="output"></span>
+</div>
 @endcomponent
 
 <script>
-    Orchid.register('emoji-picker', class extends Controller {
-        static targets = ['name', 'output'];
+    Orchid.register(
+        "emoji-picker",
+        class extends Controller {
+            static targets = ["name", "output"];
 
-        connect() {
-            console.log("Emoji Picker controller has been connected!");
-        }
+            connect() {
+                console.log("Emoji Picker controller has been connected!");
+            }
 
-        greet() {
-            this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`;
-        }
-    });
+            greet() {
+                this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`;
+            }
+        },
+    );
 </script>
 ```
 
 Inside the `<script>` block, a [Stimulus](https://stimulus.hotwired.dev/handbook/introduction) controller is created and
-registered on the fly using `Orchid.register()`.
-This controller is attached to the HTML via the `data-controller` attribute. You can leverage the full power of Stimulus
-to make your field interactive.
+registered on the fly using `Orchid.register()`. This controller is attached to the HTML via the `data-controller`
+attribute. You can leverage the full power of Stimulus to make your field interactive.
 
 ---
 
 ## Stimulus Basics
 
-Orchid uses Stimulus to add interactivity to UI components.
-This lightweight JavaScript framework connects logic to HTML via data attributes, making it especially suitable for
-dynamic form fields.
+Orchid uses Stimulus to add interactivity to UI components. This lightweight JavaScript framework connects logic to HTML
+via data attributes, making it especially suitable for dynamic form fields.
 
 ### Controller Structure
 
@@ -124,26 +120,28 @@ Here’s a simplified view of the `EmojiPicker` controller:
 
 ```html
 <script>
-    Orchid.register('emoji-picker', class extends Controller {
-        static targets = ['name', 'output'];
+    Orchid.register(
+        "emoji-picker",
+        class extends Controller {
+            static targets = ["name", "output"];
 
-        connect() {
-            console.log("Controller connected to DOM element");
-        }
+            connect() {
+                console.log("Controller connected to DOM element");
+            }
 
-        greet() {
-            this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`;
-        }
-    });
+            greet() {
+                this.outputTarget.textContent = `Hello, ${this.nameTarget.value}!`;
+            }
+        },
+    );
 </script>
 ```
 
 - **Controller Name:** Defined in `data-controller`, for example, `emoji-picker`
 - **Targets:** HTML elements accessible via `data-<controller>-target`
 - **Lifecycle Methods:**
-
-    - `connect()` is called when the controller is attached to the DOM
-    - `disconnect()` is triggered when it’s removed
+  - `connect()` is called when the controller is attached to the DOM
+  - `disconnect()` is triggered when it’s removed
 
 - **Methods:** Custom functions for handling events (like `greet()`)
 
@@ -151,29 +149,29 @@ Here’s a simplified view of the `EmojiPicker` controller:
 
 ```html
 <div data-controller="emoji-picker">
-    <input
-        data-emoji-picker-target="name"
-        data-action="input->emoji-picker#greet"
-    >
+    <input data-emoji-picker-target="name" data-action="input->emoji-picker#greet" />
     <span data-emoji-picker-target="output"></span>
 </div>
 ```
 
 - **`data-controller="emoji-picker"`** initializes the controller.
 - **Targets:**
-    - `data-emoji-picker-target="name"` → accessed via `this.nameTarget`
-    - `data-emoji-picker-target="output"` → accessed via `this.outputTarget`
+  - `data-emoji-picker-target="name"` → accessed via `this.nameTarget`
+  - `data-emoji-picker-target="output"` → accessed via `this.outputTarget`
 - **Actions:**
-    - `data-action="input->emoji-picker#greet"` triggers `greet()` on `input` events.
+  - `data-action="input->emoji-picker#greet"` triggers `greet()` on `input` events.
 
 ### Registering a Controller
 
 Use `Orchid.register()` to define and register a controller:
 
 ```js
-Orchid.register('controller-name', class extends Controller {
-    // Controller logic here
-});
+Orchid.register(
+    "controller-name",
+    class extends Controller {
+        // Controller logic here
+    },
+);
 ```
 
 ### Working with Elements
@@ -181,32 +179,34 @@ Orchid.register('controller-name', class extends Controller {
 - **Single element**: `this.<target>Target` (for example, `this.nameTarget`)
 - **Multiple elements**: `this.<target>Targets` (array)
 - **DOM Queries:**
-
-    - `this.element` — the main controller element
-    - `this.findElement(selector)` — find elements within the controller's scope
+  - `this.element` — the main controller element
+  - `this.findElement(selector)` — find elements within the controller's scope
 
 ---
 
 ## Integrating Third-Party Libraries
 
-> Note: You may need to compile assets using Vite. For more, refer to
-> the [JavaScript documentation](/ru/docs/javascript/).
+> Note: You may need to compile assets using Vite. For more, refer to the
+> [JavaScript documentation](/ru/docs/javascript/).
 
 Example: integrating a DatePicker
 
 ```js
-Orchid.register('date-picker', class extends Controller {
-    connect() {
-        new DatePicker(this.element, {
-            format: 'YYYY-MM-DD'
-        });
-    }
-});
+Orchid.register(
+    "date-picker",
+    class extends Controller {
+        connect() {
+            new DatePicker(this.element, {
+                format: "YYYY-MM-DD",
+            });
+        }
+    },
+);
 ```
 
 ```html
 <div data-controller="date-picker">
-    <input type="text">
+    <input type="text" />
 </div>
 ```
 

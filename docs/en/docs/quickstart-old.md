@@ -3,16 +3,21 @@ title: Quick Start (Old)
 description: The Quick Start Guide is a basic introduction to the Orchid infrastructure.
 ---
 
-> **You're reading a version that was in the past.** It is still up-to-date, [but we have created a newer version that is even better for beginners](/en/docs/quickstart). 
+> **You're reading a version that was in the past.** It is still up-to-date,
+> [but we have created a newer version that is even better for beginners](/en/docs/quickstart).
 
+Admin panels are an essential part of many web applications. They provide a way for administrators to manage content,
+users, and other data. In this quick tutorial, we'll learn how to create screens and use form elements by creating a
+simple utility for sending emails.
 
-Admin panels are an essential part of many web applications. They provide a way for administrators to manage content, users, and other data. In this quick tutorial, we'll learn how to create screens and use form elements by creating a simple utility for sending emails.
+At this point you should have already installed [the framework and package](/en/docs/installation) and started the web
+server.
 
-At this point you should have already installed [the framework and package](/en/docs/installation) and started the web server. 
+> Before we begin, we strongly recommend that you don't copy and paste. Typing each piece of code will help you practice
+> and remember it.
 
-> Before we begin, we strongly recommend that you don't copy and paste. Typing each piece of code will help you practice and remember it.
-
-First you need to create a [screen](/en/docs/screens) to display the login form: to display the submission form, using the command:
+First you need to create a [screen](/en/docs/screens) to display the login form: to display the submission form, using
+the command:
 
 ```bash
 php artisan orchid:screen EmailSenderScreen
@@ -54,7 +59,7 @@ class EmailSenderScreen extends Screen
     {
         return "EmailSenderScreen";
     }
-    
+
     /**
      * Identifies control buttons and events.
      * which will have to happen by pressing
@@ -76,11 +81,11 @@ class EmailSenderScreen extends Screen
 }
 ```
 
-The screen's main difference from the controller is the structure defined in advance,
-which serves only one-page defining data and events.
+The screen's main difference from the controller is the structure defined in advance, which serves only one-page
+defining data and events.
 
-Like the controller, the screen needs to register in the route file.
-Define it in the file for the admin panel `routes/platform.php`:
+Like the controller, the screen needs to register in the route file. Define it in the file for the admin panel
+`routes/platform.php`:
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
@@ -88,8 +93,8 @@ use App\Orchid\Screens\EmailSenderScreen;
 Route::screen('email', EmailSenderScreen::class)->name('platform.email');
 ```
 
-After we have registered a new route, you can go to the browser at `/admin/email`,
-to look at the empty screen, fill it with the elements.
+After we have registered a new route, you can go to the browser at `/admin/email`, to look at the empty screen, fill it
+with the elements.
 
 Add a name and description:
 
@@ -154,8 +159,8 @@ public function layout(): array
 }
 ```
 
-Now our page has some elements but does not produce any action.
-To define them, you need to create a new public method and specify a link to it in `commandBar`:
+Now our page has some elements but does not produce any action. To define them, you need to create a new public method
+and specify a link to it in `commandBar`:
 
 ```php
 namespace App\Orchid\Screens;
@@ -191,7 +196,7 @@ class EmailSenderScreen extends Screen
     {
         return "Email sender";
     }
-    
+
     /**
      * The description is displayed on the user's screen under the heading
      */
@@ -277,11 +282,11 @@ class EmailSenderScreen extends Screen
 
 After that, can to send email messages to addresses.
 
-> **Note** that by default, the `SMTP` driver enabled for sending mail,
-You can change it in the `.env` file to `log` for verification.
+> **Note** that by default, the `SMTP` driver enabled for sending mail, You can change it in the `.env` file to `log`
+> for verification.
 
-We can dream up and imagine that our boss asked us to put our messages like “Campaign news for July” but change it. To do this, 
-add the key to the `query` method with the name of our element:
+We can dream up and imagine that our boss asked us to put our messages like “Campaign news for July” but change it. To
+do this, add the key to the `query` method with the name of our element:
 
 ```php
 /**
@@ -299,8 +304,8 @@ public function query(): array
 
 Now the field with the name `subject` automatically fits the value from the result.
 
-All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the menu, for this
-in the file at `app/Orchid/PlatformProvider.php` we add the declaration:
+All this time, to display the screen, it was necessary to specify an explicit page in the browser, add a new item to the
+menu, for this in the file at `app/Orchid/PlatformProvider.php` we add the declaration:
 
 ```php
 use Orchid\Screen\Actions\Menu;
@@ -312,7 +317,7 @@ public function registerMainMenu(): array
 {
     return [
         // Other items...
-    
+
         Menu::make('Email sender')
             ->icon('envelope-letter')
             ->route('platform.email')
@@ -321,9 +326,9 @@ public function registerMainMenu(): array
 }
 ```
 
-Now our utility is displayed on the left menu and is active when visiting. 
-Navigation is carried out not only through transitions from the menu but also through breadcrumbs,
-to add them to our screen, you need to append your route with `->breadcrumbs(...)` in `routes/platform.php`.
+Now our utility is displayed on the left menu and is active when visiting. Navigation is carried out not only through
+transitions from the menu but also through breadcrumbs, to add them to our screen, you need to append your route with
+`->breadcrumbs(...)` in `routes/platform.php`.
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
@@ -338,8 +343,6 @@ Route::screen('email', EmailSenderScreen::class)
     });
 ```
 
-
-
-Congratulations, you should now understand how the platform works.
-It is an elementary example, but the development process will be identical in many aspects.
-We recommend going to the [Screens](/en/docs/screens) section to learn more about the possibilities in your hands.
+Congratulations, you should now understand how the platform works. It is an elementary example, but the development
+process will be identical in many aspects. We recommend going to the [Screens](/en/docs/screens) section to learn more
+about the possibilities in your hands.

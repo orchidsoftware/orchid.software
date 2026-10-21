@@ -24,7 +24,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -36,7 +36,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -48,7 +48,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
 
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -62,7 +62,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
 
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -101,7 +101,7 @@
                                             Как использовать сортировку в таблице?
                                         </a>
                                     </li>
-                                    <li><a href="#">Basic knowledge requirments. </a></li>
+                                    <li><a href="#">Basic knowledge requirements. </a></li>
                                     <li><a href="#">Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -117,7 +117,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -129,7 +129,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
                                     
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>
@@ -141,7 +141,7 @@
                                     <li><a href="#"> How to use this documentation? </a></li>
 
                                     <li><a href="#"> What is included and why? </a></li>
-                                    <li><a href="#"> Basic knowledge requirments. </a></li>
+                                    <li><a href="#"> Basic knowledge requirements. </a></li>
                                     <li><a href="#"> Getting Started &amp; What is next. </a></li>
                                 </ul>
                             </div>

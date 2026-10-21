@@ -1,11 +1,13 @@
 ---
 title: Rows
-description: Learn how to create short and concise forms using the Row layout in Orchid. The Row layout combines necessary form elements and is perfect for displaying one or two fields. Find out how to create reusable Row classes and access screen data for conditional field display.
+description:
+    Learn how to create short and concise forms using the Row layout in Orchid. The Row layout combines necessary form
+    elements and is perfect for displaying one or two fields. Find out how to create reusable Row classes and access
+    screen data for conditional field display.
 ---
 
-
-The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](/en/docs/field). 
-It is useful for creating short and concise forms, such as when you want to show one or two fields.
+The `Row` layout serves as a basic layout that combines all the necessary [elements of a form](/en/docs/field). It is
+useful for creating short and concise forms, such as when you want to show one or two fields.
 
 Here is an example of how to use the `Row` layout:
 
@@ -76,15 +78,16 @@ public function layout(): array
 }
 ```
 
-> **Note** that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may want to consider using other layout types such as `Tabs` or `Accordion`.
-
+> **Note** that the Row layout is only intended for displaying a small number of fields. For more complex forms, you may
+> want to consider using other layout types such as `Tabs` or `Accordion`.
 
 ## Accessing Screen Data
 
-The `Row` layout has access to data from the screen through the `query` property. This allows you to use data from the screen in the fields of the Row layout.
+The `Row` layout has access to data from the screen through the `query` property. This allows you to use data from the
+screen in the fields of the Row layout.
 
-For example, you can use the `query` property to conditionally show or hide a field based on the presence of a specific key:
-
+For example, you can use the `query` property to conditionally show or hide a field based on the presence of a specific
+key:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -112,7 +115,8 @@ class Appointment extends Rows
 }
 ```
 
-In this example, the `appointment_time` field will only be displayed if the screen's `query` method returns `true` for the `available` key:
+In this example, the `appointment_time` field will only be displayed if the screen's `query` method returns `true` for
+the `available` key:
 
 ```php
 /**
@@ -140,10 +144,11 @@ The `query` method also supports dot notation for accessing nested data:
 $this->query->get('user.name');
 ```
 
-
 ## Reusing Layouts
 
-Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.
+Layouts can be easily reused when the fields they contain are related to different models. For example, you may want to
+use the same set of fields to capture an address for a client, a customer, and an order. Instead of creating and
+defining multiple almost identical layouts, you can add logic to a single layout to handle this situation.
 
 Here is an example of a reusable `AddressLayout` class that takes a prefix and title as arguments:
 

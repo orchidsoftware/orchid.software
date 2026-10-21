@@ -5,19 +5,21 @@ extends: _layouts.documentation
 section: main
 ---
 
-The appearance of the user interface display elements in the application is of great importance. It makes the application
-easier to use and helps users to intuitively display screen elements to complete their tasks.
+The appearance of the user interface display elements in the application is of great importance. It makes the
+application easier to use and helps users to intuitively display screen elements to complete their tasks.
 
-The separation of logic and presentation is one of the fundamental principles of the Orchid platform.
-One of the presentation element called "Layouts" (layouts), can be displayed in different variations and is a typical `view` but on steroids.
+The separation of logic and presentation is one of the fundamental principles of the Orchid platform. One of the
+presentation element called "Layouts" (layouts), can be displayed in different variations and is a typical `view` but on
+steroids.
 
 ## Approach through layouts
 
-For the formation of a page, we, in most cases use the same type of elements. For example, we will present a block that displays the name, signature, and avatar of the profile:
+For the formation of a page, we, in most cases use the same type of elements. For example, we will present a block that
+displays the name, signature, and avatar of the profile:
 
 ```php
 <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
-	<span class="thumb-sm avatar m-r-xs">
+ <span class="thumb-sm avatar m-r-xs">
         <img src="/avatar/maria.jpg" class="bg-light" alt="Maria">
     </span>
     <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
@@ -27,9 +29,14 @@ For the formation of a page, we, in most cases use the same type of elements. Fo
 </div>
 ```
 
-A simple display of a block with a profile can appear on dozens of pages and, if they are copied, it can take a long time to maintain their appearance; therefore, various reuse options are worked out. This is called the component approach, regardless of the delivery method and level of responsibility, practiced in both `Blade` and `React/Vue/Angular`.
+A simple display of a block with a profile can appear on dozens of pages and, if they are copied, it can take a long
+time to maintain their appearance; therefore, various reuse options are worked out. This is called the component
+approach, regardless of the delivery method and level of responsibility, practiced in both `Blade` and
+`React/Vue/Angular`.
 
-It is from these components that the layers of the platform are made up, the only difference is that it is necessary to operate with classes, creating which you explicitly determine that the adopted parameter `avatar` will be inserted in the `<img>` tag without having to edit the source code each time.
+It is from these components that the layers of the platform are made up, the only difference is that it is necessary to
+operate with classes, creating which you explicitly determine that the adopted parameter `avatar` will be inserted in
+the `<img>` tag without having to edit the source code each time.
 
 ## Table
 
@@ -40,6 +47,7 @@ php artisan orchid:table PatientListLayout
 ```
 
 Example:
+
 ```php
 namespace App\Layouts\Clinic\Patient;
 
@@ -103,9 +111,11 @@ class PatientListLayout extends Table
 
 - `set($key, $name)` the main method sets the name of the key from the array, and the display name.
 
-- `render(function ($item) { return $item->id})` possibility of cell generation according to function. The data of the current line transferred to $item.
+- `render(function ($item) { return $item->id})` possibility of cell generation according to function. The data of the
+  current line transferred to $item.
 
-- `sort()` Adds the ability to sort by this column ([See HTTP filtering and sorting](https://orchid.software/en/docs/filters)) in the header.
+- `sort()` Adds the ability to sort by this column
+  ([See HTTP filtering and sorting](https://orchid.software/en/docs/filters)) in the header.
 
 - `width()` explicitly sets the width of the column `width('100px')`
 
@@ -113,10 +123,11 @@ class PatientListLayout extends Table
 
 - `defaultHidden` - the column hidden by default, but can be found at the request of the user.
 
-
 ### Column Extension
 
-Working with the same type of data, it is often required to process them in the same way, in order not to duplicate the code in the layers, it is possible to extend the `TD` class using own methods, for this you need to register the closure function in the service provider.
+Working with the same type of data, it is often required to process them in the same way, in order not to duplicate the
+code in the layers, it is possible to extend the `TD` class using own methods, for this you need to register the closure
+function in the service provider.
 
 Registration example:
 
@@ -137,6 +148,7 @@ TD::macro('bool', function () {
 ```
 
 Template example:
+
 ```php
 // bool.blade.php
 
@@ -148,6 +160,7 @@ Template example:
 ```
 
 Example of use:
+
 ```php
 public function grid(): array
 {
@@ -157,11 +170,9 @@ public function grid(): array
 }
 ```
 
-
 ## Rows
 
-Line layout is the minimum set that is most commonly used.
-His goal is to combine all the required fields.
+Line layout is the minimum set that is most commonly used. His goal is to combine all the required fields.
 
 To create, execute the command:
 
@@ -170,6 +181,7 @@ php artisan orchid:rows PatientFirstRows
 ```
 
 Example:
+
 ```php
 namespace App\Layouts\Clinic\Patient;
 
@@ -212,8 +224,8 @@ class Appointment extends Rows
 }
 ```
 
-The strings support short writing without creating a separate class,
-for example, when you want to show one or two fields
+The strings support short writing without creating a separate class, for example, when you want to show one or two
+fields
 
 ```php
 public function layout(): array
@@ -235,7 +247,7 @@ protected function layout(): array
 {
     return [
         Layout::modal('exampleModal', [
-	        Layout::rows([]),
+         Layout::rows([]),
         ]),
     ];
 }
@@ -255,8 +267,8 @@ Layout::modal('exampleModals', [
 
 ## Charts
 
-A graphic layout is a convenient way to graphically display the dynamics of values, but it requires some
-data processing example data from `query`
+A graphic layout is a convenient way to graphically display the dynamics of values, but it requires some data processing
+example data from `query`
 
 ```php
 public function query() : array
@@ -275,7 +287,7 @@ public function query() : array
             'values' => [15, 20, -3, -15, 58, 12, -17, 37],
         ],
     ];
-    
+
     return [
         'charts' => $charts,
     ];
@@ -283,11 +295,13 @@ public function query() : array
 ```
 
 To create, run the command:
+
 ```php
 php artisan orchid:chart ChartsLayout
 ```
 
 Example:
+
 ```php
 namespace App\Layouts\Clinic\Patient;
 
@@ -308,7 +322,7 @@ class ChartsLayout extends Chart
 
     /**
      * Available options:
-     * 'bar', 'line', 
+     * 'bar', 'line',
      * 'pie', 'percentage'
      *
      * @var string
@@ -336,11 +350,9 @@ class ChartsLayout extends Chart
 }
 ```
 
-
 ## Filter Set
 
-To group filters, their demand and use, there is a separate layer `Selection`,
-in which they are listed.
+To group filters, their demand and use, there is a separate layer `Selection`, in which they are listed.
 
 To create, execute the command:
 
@@ -349,6 +361,7 @@ php artisan orchid:selection MySelection
 ```
 
 Пример класса:
+
 ```php
 namespace App\Orchid\Layouts;
 
@@ -372,11 +385,9 @@ class MySelection extends Selection
 }
 ```
 
-
 ## Tabs
 
-Tabs support short syntax by calling a static method,
-which does not require the creation of a separate class:
+Tabs support short syntax by calling a static method, which does not require the creation of a separate class:
 
 ```php
 public function layout(): array
@@ -408,9 +419,7 @@ public function layout(): array
 }
 ```
 
-
 ## Drop-down list
-
 
 ```php
 public function layout(): array
@@ -461,10 +470,7 @@ public function layout(): array
 
 ## Custom Template
 
-
-It is an expected situation when you need to display your template,
-for this:
-
+It is an expected situation when you need to display your template, for this:
 
 ```php
 public function layout(): array
@@ -504,11 +510,10 @@ Hello {{ $name }}!
 
 ```
 
-
 ## Wrapper
 
-The “Wrap” can serve as an intermediary between the “User Pattern” and standard layers, with which
-available indicate exactly where the other layers should be displayed.
+The “Wrap” can serve as an intermediary between the “User Pattern” and standard layers, with which available indicate
+exactly where the other layers should be displayed.
 
 ```php
 public function layout(): array
@@ -525,27 +530,22 @@ public function layout(): array
 }
 ```
 
-In the `myTemplate` template, the variables` foo` and `bar` will be transferred, which contain the already compiled `View`, which can be displayed:
+In the `myTemplate` template, the variables`foo` and `bar` will be transferred, which contain the already compiled
+`View`, which can be displayed:
 
 ```html
 <div class="row">
-    <div class="col-7 border-right">
-        @foreach($foo as $row)
-            {!! $row !!}
-        @endforeach
-    </div>
-    <div class="col-5 no-gutter">
-        {!! $bar !!}
-    </div>
+    <div class="col-7 border-right">@foreach($foo as $row) {!! $row !!} @endforeach</div>
+    <div class="col-5 no-gutter">{!! $bar !!}</div>
 </div>
 ```
 
 Variables from `query` are also available in the template.
 
-
 ## Layer Expansion
 
-The `Layouts` class is grouping several ones; to add a new feature to it, it is enough to specify it in the service provider as:
+The `Layouts` class is grouping several ones; to add a new feature to it, it is enough to specify it in the service
+provider as:
 
 ```php
 use Orchid\Screen\Layouts\Base;

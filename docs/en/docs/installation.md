@@ -1,16 +1,19 @@
 ---
 title: Installation
-description: Learn how to install and set up Laravel Orchid in your project with our comprehensive installation guide. Step-by-step instructions and helpful tips make it easy to get started with Orchid.
+description:
+    Learn how to install and set up Laravel Orchid in your project with our comprehensive installation guide.
+    Step-by-step instructions and helpful tips make it easy to get started with Orchid.
 ---
 
-
-Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation to start the project.
+Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation
+to start the project.
 
 ## Create a New Laravel Project
 
 > **Note.** If you already have Laravel installation, you can skip this step.
 
-Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency management tool by running the `composer create-project` command in your terminal:
+Being a package for the framework, you must first install Laravel. This can be done using the Composer dependency
+management tool by running the `composer create-project` command in your terminal:
 
 ```shell
 composer create-project laravel/laravel orchid-project "13.*"
@@ -24,15 +27,16 @@ composer global require laravel/installer
 laravel new orchid-project
 ```
 
-For more information on how to install Laravel, follow [Official Laravel Installation Guide](https://laravel.com/docs/installation).
+For more information on how to install Laravel, follow
+[Official Laravel Installation Guide](https://laravel.com/docs/installation).
 
-> **Don’t you have Composer?** It’s easy to install by following the instructions on the [download page](https://getcomposer.org/download/).
+> **Don’t you have Composer?** It’s easy to install by following the instructions on the
+> [download page](https://getcomposer.org/download/).
 
-It will create a new `orchid-project` directory, load the dependencies, and generate the leading directories and files you need to get started.
-In other words, install your new framework project.
+It will create a new `orchid-project` directory, load the dependencies, and generate the leading directories and files
+you need to get started. In other words, install your new framework project.
 
-
-**Do not forget**
+**Do not forget:**
 
 - Set “chmod -R o+w” rights to the `storage` and `bootstrap/cache` directories
 - Edit the `.env` file
@@ -42,16 +46,20 @@ In other words, install your new framework project.
 ## Add Dependency
 
 Go to the created project directory and run the command:
+
 ```shell
 composer require orchid/platform
 ```
 
-> **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's URL to the variable `APP_URL`.
-
+> **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's
+> URL to the variable `APP_URL`.
 
 ## Package Installation
 
-> **Note:** During the installation process, the package will overwrite the `app/Models/User` model. However, it is important to note that replacing the model is not mandatory. You have the flexibility to customize the model according to your preferences. The package automatically applies certain configurations, such as `hidden` and `casts`, to the Eloquent model.
+> **Note:** During the installation process, the package will overwrite the `app/Models/User` model. However, it is
+> important to note that replacing the model is not mandatory. You have the flexibility to customize the model according
+> to your preferences. The package automatically applies certain configurations, such as `hidden` and `casts`, to the
+> Eloquent model.
 
 Run the installation process by running the command:
 
@@ -67,7 +75,6 @@ To create a user with maximum permissions, you can run the following command wit
 php artisan orchid:admin
 ```
 
-
 ## Start the Development Server
 
 If you haven't installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:
@@ -76,10 +83,11 @@ If you haven't installed a server (Nginx, Apache, etc.) to run the project, you 
 php artisan serve
 ```
 
-Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page. Later you can stop the server by pressing `Ctrl + C` in the terminal.
+Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page.
+Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
-> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path instead (for example, `http://localhost:8000/dashboard` if prefix is `dashboard`).
-
+> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path
+> instead (for example, `http://localhost:8000/dashboard` if prefix is `dashboard`).
 
 ## Updating
 
@@ -91,8 +99,8 @@ composer update orchid/platform --with-dependencies
 
 > **Note.** You can also update all your dependencies listed in the `composer.json` file by running `composer update`.
 
-
-After updating to a new release, you should update JavaScript and CSS assets using `orchid:publish` and clear any cached views with `view:clear`. This ensures the newly updated version is using the latest assets.
+After updating to a new release, you should update JavaScript and CSS assets using `orchid:publish` and clear any cached
+views with `view:clear`. This ensures the newly updated version is using the latest assets.
 
 ```shell
 php artisan orchid:publish
@@ -101,34 +109,35 @@ php artisan view:clear
 
 ## Keeping Assets Updated
 
-To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer hook to your project's `composer.json` file.
-This will automatically publish the latest assets for you:
+To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer
+hook to your project's `composer.json` file. This will automatically publish the latest assets for you:
 
 ```json
 {
     "scripts": {
-        "post-update-cmd": [
-            "@php artisan orchid:publish --ansi"
-        ]
+        "post-update-cmd": ["@php artisan orchid:publish --ansi"]
     }
 }
 ```
 
 Once you have added this hook, you can rest assured that your assets will always be up-to-date and functioning properly.
-And if you ever want to verify that the assets are indeed current, you can simply use the `artisan` console command to check:
+And if you ever want to verify that the assets are indeed current, you can simply use the `artisan` console command to
+check:
 
 ```shell
 php artisan about
 ```
 
 This command will provide you with an importance of information, including some of the details about the package itself.
-It's  ensuring that your environment is correctly configured and running as expected.
+It's ensuring that your environment is correctly configured and running as expected.
 
-
-> **Problems encountered during installation?** It is possible that someone already had this problem https://github.com/orchidsoftware/platform/issues. If not, you can send a message or ask for [help](https://github.com/orchidsoftware/platform/issues/new).
-
-
+> **Problems encountered during installation?** It is possible that someone already had this problem
+> <https://github.com/orchidsoftware/platform/issues>. If not, you can send a message or ask for
+> [help](https://github.com/orchidsoftware/platform/issues/new).
 
 ## What to Do Next?
 
-A newly installed package already has several screens that show various input fields, masks, states, as well as some interface layout. You can try them out or go directly to the step-by-step examples on the [Quick Start](/en/docs/quickstart) page, or read the [Configuration](/en/docs/configuration) and [Screens](/en/docs/screens) documentation.
+A newly installed package already has several screens that show various input fields, masks, states, as well as some
+interface layout. You can try them out or go directly to the step-by-step examples on the
+[Quick Start](/en/docs/quickstart) page, or read the [Configuration](/en/docs/configuration) and
+[Screens](/en/docs/screens) documentation.

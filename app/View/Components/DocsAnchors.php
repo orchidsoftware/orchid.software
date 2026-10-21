@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Illuminate\View\Component;
 use Symfony\Component\DomCrawler\Crawler;
@@ -26,8 +27,9 @@ class DocsAnchors extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
      * @throws \DOMException
+     *
+     * @return View|\Closure|string
      */
     public function render()
     {
@@ -36,12 +38,12 @@ class DocsAnchors extends Component
         ]);
     }
 
-
     /**
      * @param $contents
      *
-     * @return array
      * @throws \DOMException
+     *
+     * @return array
      */
     private function findAnchors()
     {
@@ -67,12 +69,10 @@ class DocsAnchors extends Component
                     $node->removeChild($node->firstChild);
                 }
                 $node->appendChild(new \DOMElement('a', $text));
-                $node->firstChild->setAttribute('href', '#' . $id);
+                $node->firstChild->setAttribute('href', '#'.$id);
                 $node->firstChild->setAttribute('name', $id);
             });
 
-
         return $anchors;
     }
-
 }

@@ -1,19 +1,19 @@
 ---
 title: Charts
-description: Learn how to easily create and customize charts in your Laravel Orchid project with our comprehensive documentation on Charts. Explore options for pie charts, line graphs, bar charts and more, all within the powerful Orchid platform.
+description:
+    Learn how to easily create and customize charts in your Laravel Orchid project with our comprehensive documentation
+    on Charts. Explore options for pie charts, line graphs, bar charts and more, all within the powerful Orchid
+    platform.
 ---
 
-
-
-Chart layout may be generated using the `orchid:chart` Artisan command. 
-By default, all new metrics will be placed in the `app/Orchid/Layouts` directory:
+Chart layout may be generated using the `orchid:chart` Artisan command. By default, all new metrics will be placed in
+the `app/Orchid/Layouts` directory:
 
 ```php
 php artisan orchid:chart ChartsLayout
 ```
 
 Once your chart class has been generated, you're ready to customize it. Example:
-
 
 ```php
 namespace App\Orchid\Layouts;
@@ -24,7 +24,7 @@ class ChartsLayout extends Chart
 {
     /**
      * Available options:
-     * 'bar', 'line', 
+     * 'bar', 'line',
      * 'pie', 'percentage'
      *
      * @var string
@@ -33,8 +33,8 @@ class ChartsLayout extends Chart
 }
 ```
 
-By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
-
+By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we
+need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
 
 ```php
 public function query() : array
@@ -56,7 +56,7 @@ public function query() : array
             'values' => [15, 20, -3, -15, 58, 12, -17, 37],
         ],
     ];
-    
+
     return [
         'dataset' => $dataset,
     ];
@@ -90,8 +90,6 @@ public function layout(): iterable
 }
 ```
 
-
-
 ## Basic Configuration
 
 The configuration is used to change how the chart behaves. It includes properties to control styling, height, and more.
@@ -108,7 +106,6 @@ Set the height of the chart in pixels by specifying the property:
  */
 protected $height = 250;
 ```
-
 
 ### Customizing Colors
 
@@ -129,7 +126,6 @@ protected $colors = [
 ];
 ```
 
-
 ### Exporting Images
 
 Charts can be exported in the `SVG` format, in which they are displayed initially. To do this, specify the property:
@@ -145,7 +141,8 @@ protected $export = true;
 
 ### Adding Markers
 
-Some graphs are difficult to interpret without more information. For example, show the average value. For this you can define the `markers` method: 
+Some graphs are difficult to interpret without more information. For example, show the average value. For this you can
+define the `markers` method:
 
 ```php
 /**
@@ -162,8 +159,6 @@ protected function markers(): ?array
     ];
 }
 ```
-
-
 
 ## Eloquent Model
 
@@ -186,7 +181,6 @@ This will add several new methods specifically for charting:
 
 - Grouped data
 - A period of time
-
 
 ## Grouped Data
 
@@ -249,7 +243,7 @@ namespace App\Orchid\Layouts;
 use Orchid\Screen\Layouts\Chart;
 
 class BasicLineChart extends Chart
-{   
+{
     /**
      * Available options:
      * 'bar', 'line',
@@ -300,11 +294,10 @@ $end = Carbon::now()->subDay(1);
 User::countByDays($start, $end, 'updated_at')->toChart('Users')
 ```
 
-
 ### Value Query Types
 
-Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when building your metric.
-
+Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when
+building your metric.
 
 The `average` method may be used to calculate the average of a given column
 

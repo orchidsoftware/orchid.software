@@ -1,11 +1,15 @@
 ---
 title: Table
-description: Learn how to use the Laravel Orchid Table to display and organize data in your application. Discover various customization options and integrations with other Orchid features.
+description:
+    Learn how to use the Laravel Orchid Table to display and organize data in your application. Discover various
+    customization options and integrations with other Orchid features.
 ---
 
-
-With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify the fields you want to include in the table, and the table layout will take care of the rest, including sorting, filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data, the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.
-
+With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify
+the fields you want to include in the table, and the table layout will take care of the rest, including sorting,
+filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the
+table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data,
+the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.
 
 To create a new table layout, you can use the following Artisan command:
 
@@ -13,8 +17,8 @@ To create a new table layout, you can use the following Artisan command:
 php artisan orchid:table PatientListLayout
 ```
 
-
 Example:
+
 ```php
 namespace App\Orchid\Layouts;
 
@@ -60,7 +64,6 @@ Layout::table('clients', [
 
 ![This image shows an illustrative table, which is a common way to display data in a structured and organized format.](/img/layouts/table.png)
 
-
 ## Introduction to Cells
 
 A table is only a general wrapper for which you need to specify `TD` classes. Designed to create a single cell.
@@ -77,9 +80,9 @@ The `make` method is the main method, sets the key name from the array and the d
 TD::make('last_name', 'Last name');
 ```
 
-
-> Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to maintain a secure and polished interface.
-
+> Column headers are rendered with their raw HTML content. This gives you the flexibility to include rich formatting or
+> special characters directly in the header. Just remember to ensure that any dynamic content is safe and sanitized to
+> maintain a secure and polished interface.
 
 ## Alignment
 
@@ -93,12 +96,10 @@ TD::make('last_name')->align(TD::ALIGN_RIGHT);
 
 ## Sorting
 
-Sorting the selection should be done in the `query` screen,
-for models, you can use automatic `http` [sorting and
-filtering](/en/docs/filters/#automatic-http-filtering-and-sorting)
+Sorting the selection should be done in the `query` screen, for models, you can use automatic `http`
+[sorting and filtering](/en/docs/filters/#automatic-http-filtering-and-sorting)
 
-To enable active sorting by this column
-you must specify the `sort` method:
+To enable active sorting by this column you must specify the `sort` method:
 
 ```php
 TD::make('last_name')->sort();
@@ -106,11 +107,12 @@ TD::make('last_name')->sort();
 
 ## Filtration
 
-When building simple tables, the use of separate filters may seem overkill.
-Therefore, you can display the field for filtering right above the column heading.
+When building simple tables, the use of separate filters may seem overkill. Therefore, you can display the field for
+filtering right above the column heading.
 
-It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP Filtering."
-You can find out more on the ["Eloquent Filters" page](/en/docs/filters/#automatic-http-filtering-and-sorting).
+It will only define the visible part. You can specify the filtering logic yourself or rely on "Automatic HTTP
+Filtering." You can find out more on the
+["Eloquent Filters" page](/en/docs/filters/#automatic-http-filtering-and-sorting).
 
 To add a field, call the filter method and pass the instance of the class you would like to display:
 
@@ -125,10 +127,12 @@ TD::make('color')->filter(
 
 ```
 
-> **Note:** there is no need to specify the field name. It will be delivered and overwritten automatically by the column name.
+> **Note:** there is no need to specify the field name. It will be delivered and overwritten automatically by the column
+> name.
 
-When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed filter values.
-For example, you can replace an ID value with a display name. Here is an example of using the `filterValue()` method:
+When working with filters, it is possible to use the `filterValue()` method, which allows you to modify the displayed
+filter values. For example, you can replace an ID value with a display name. Here is an example of using the
+`filterValue()` method:
 
 ```php
 TD::make('id')->filterValue(function ($value) {
@@ -137,7 +141,6 @@ TD::make('id')->filterValue(function ($value) {
 ```
 
 The `$value` value passed to the function will contain the filter value that was applied.
-
 
 ## Width
 
@@ -149,8 +152,7 @@ TD::make('last_name')->width('100px');
 
 ## Show/Hide
 
-By default, the user can hide any column for himself, but you can
-prohibit doing this by specifying:
+By default, the user can hide any column for himself, but you can prohibit doing this by specifying:
 
 ```php
 TD::make('last_name')->cantHide();
@@ -162,19 +164,21 @@ And also hide by default, but can be shown at the request of the user.
 TD::make('last_name')->defaultHidden();
 ```
 
-> **Note**: To hide the button and modal for selecting visible columns from the table footer, you need to make all table columns hidden by default.
+> **Note**: To hide the button and modal for selecting visible columns from the table footer, you need to make all table
+> columns hidden by default.
 
 ## Data Output
 
-In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements the ability to generate cells according to the function:
- 
+In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements
+the ability to generate cells according to the function:
+
 ```php
 TD::make('full_name')
     ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
 ```
 
-> **Note.** The returned string will not be escaped. You need to take care of this yourself with the `e()` helper or use a `Blade` view.
-
+> **Note.** The returned string will not be escaped. You need to take care of this yourself with the `e()` helper or use
+> a `Blade` view.
 
 The loopback function must return any string value:
 
@@ -218,7 +222,8 @@ TD::make()
     ),
 ```
 
-Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You can get the value as follows:
+Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You
+can get the value as follows:
 
 ```php
 use Orchid\Screen\Actions\Link;
@@ -229,21 +234,26 @@ TD::make('price')
 
 ## Working with the Loop Variable
 
-
-The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides access to some useful bits of information such as the current loop index and whether this is the first or last iteration through the loop:
+The `$loop` variable will be available in the second argument of the `render` closure function. This variable provides
+access to some useful bits of information such as the current loop index and whether this is the first or last iteration
+through the loop:
 
 ```php
 TD::make()->render(fn (Model $model, object $loop) => $loop->index),
 ```
 
-The `$loop` variable contains a variety of other useful properties which you can find in the [Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
+The `$loop` variable contains a variety of other useful properties which you can find in the
+[Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
 
 ## Using Components
 
-Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display logic, as well as reuse.
+Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support
+rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display
+logic, as well as reuse.
 
-For example, there is an `Order` model, and depending on the status, we can show different descriptions in our components.
-It is much nicer than specifying things directly in the view or creating particular areas for such processing.
+For example, there is an `Order` model, and depending on the status, we can show different descriptions in our
+components. It is much nicer than specifying things directly in the view or creating particular areas for such
+processing.
 
 ```php
 namespace App\View\Components;
@@ -315,7 +325,8 @@ TD::make('status')->component(OrderShortInformation::class, [
 
 ## Passing Cell Values to Components
 
-The `component` method passes the entire row to the component. When a component only needs the value of the current cell, use `usingComponent` instead.
+The `component` method passes the entire row to the component. When a component only needs the value of the current
+cell, use `usingComponent` instead.
 
 For example, you might want to display a value in a specific format:
 
@@ -371,7 +382,6 @@ TD::make('price')->asComponent(Numeric::class);
 
 Also with additional parameters:
 
-
 ```php
 TD::make('price')->asComponent(Numeric::class, [
     'decimals' => 2,
@@ -381,11 +391,14 @@ TD::make('price')->asComponent(Numeric::class, [
 // 1 234,56
 ```
 
-For built-in cell formatters, see [Cell Types](/en/docs/cell-types). It covers date, number, boolean, currency, and percentage formats.
+For built-in cell formatters, see [Cell Types](/en/docs/cell-types). It covers date, number, boolean, currency, and
+percentage formats.
 
 ## Customizing Component Arguments
 
-Arguments passed to `component` may be closures. Orchid evaluates each closure with the current row before rendering the component. This lets you calculate a component argument from one or more model attributes without adding an accessor to the model or creating another component.
+Arguments passed to `component` may be closures. Orchid evaluates each closure with the current row before rendering the
+component. This lets you calculate a component argument from one or more model attributes without adding an accessor to
+the model or creating another component.
 
 For example, the value displayed by `DateTimeSplit` can be selected from several date attributes:
 
@@ -402,12 +415,12 @@ TD::make('last_activity', 'Last Updated')
     );
 ```
 
-Use `component` rather than `usingComponent` when the closure needs the entire row. Closures passed to `usingComponent` receive only the value of the selected cell.
+Use `component` rather than `usingComponent` when the closure needs the entire row. Closures passed to `usingComponent`
+receive only the value of the selected cell.
 
 ## Table Options
 
-You can specify the text to be displayed if the table is empty
-specifying methods:
+You can specify the text to be displayed if the table is empty specifying methods:
 
 ```php
 /**
@@ -435,8 +448,7 @@ protected function subNotFound(): string
 }
 ```
 
-If the table rows do not seem contrasting to you, then you can enable
-`striped` mode:
+If the table rows do not seem contrasting to you, then you can enable `striped` mode:
 
 ```php
 /**
@@ -448,8 +460,7 @@ protected function striped(): bool
 }
 ```
 
-If you need a compact table, then you can enable
-`compact` mode:
+If you need a compact table, then you can enable `compact` mode:
 
 ```php
 /**
@@ -461,8 +472,7 @@ protected function compact(): bool
 }
 ```
 
-If you need a hoverable table, then you can enable
-`hoverable` mode:
+If you need a hoverable table, then you can enable `hoverable` mode:
 
 ```php
 /**
@@ -488,7 +498,8 @@ protected function onEachSide(): int
 
 ## Adding a Total Row
 
-Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required cells. For example:
+Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required
+cells. For example:
 
 ```php
 public function total():array

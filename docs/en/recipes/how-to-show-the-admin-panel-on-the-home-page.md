@@ -4,10 +4,10 @@ extends: _layouts.page
 section: main
 ---
 
-The path to the Orchid application is set by changing a parameter in the configuration file located at the following path: `config/platform.php`.
+The path to the Orchid application is set by changing a parameter in the configuration file located at the following
+path: `config/platform.php`.
 
 By default, the application is located at `/admin`, but you can change this in the following block:
-
 
 ```php
 /*
@@ -26,9 +26,11 @@ By default, the application is located at `/admin`, but you can change this in t
 'prefix' => env('DASHBOARD_PREFIX', '/admin'),
 ```
 
-Change this address to your liking. For example, `/` - will mean no prefix, but make sure there are no other declared routes with the same parameter.
+Change this address to your liking. For example, `/` - will mean no prefix, but make sure there are no other declared
+routes with the same parameter.
 
-Please note that after updating the configuration files, you may need to clear the application cache using the Artisan commands:
+Please note that after updating the configuration files, you may need to clear the application cache using the Artisan
+commands:
 
 ```php
 php artisan config:clear

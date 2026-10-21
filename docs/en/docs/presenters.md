@@ -1,12 +1,14 @@
 ---
 title: Presenters
-description: Learn how to use Laravel Orchid's Presenters to format your data for display on your application's views. With Presenters, you can easily customize the appearance of your data, making your application's user interface more consistent and user-friendly.
+description:
+    Learn how to use Laravel Orchid's Presenters to format your data for display on your application's views. With
+    Presenters, you can easily customize the appearance of your data, making your application's user interface more
+    consistent and user-friendly.
 ---
 
-Presenters are classes that wrap objects and provide additional functionality to them. 
-In Orchid, presenters are used to format and present data consistently and help keep the views clean and organized. 
-You can move all of the formatting and presentation logic into the presenter class, which maintains separation of concerns.
-
+Presenters are classes that wrap objects and provide additional functionality to them. In Orchid, presenters are used to
+format and present data consistently and help keep the views clean and organized. You can move all of the formatting and
+presentation logic into the presenter class, which maintains separation of concerns.
 
 ## Creating A Presenter
 
@@ -25,6 +27,7 @@ class Customer extends Model
     ];
 }
 ```
+
 Before an instance of this class is wrapped in a representative, you must create it:
 
 ```php
@@ -54,15 +57,17 @@ $customer = new Customer([
     'firstName' => 'Alexandr',
     'lastName' => 'Chernyaev'
 ]);
-    
+
 $presenter = new CustomerPresenter($customer);
 
 $presenter->fullName();
 ```
 
-> **Note** that the representative receives the `firstName` and `lastName` properties of the model because it does not have these properties.
+> **Note** that the representative receives the `firstName` and `lastName` properties of the model because it does not
+> have these properties.
 
-Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this creation in the model:
+Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this
+creation in the model:
 
 ```php
 namespace App;
@@ -76,7 +81,7 @@ class Customer extends Model
         'firstName',
         'lastName'
     ];
-    
+
     public function presenter(): CustomerPresenter
     {
         return new CustomerPresenter($this);
@@ -85,7 +90,6 @@ class Customer extends Model
 ```
 
 > **Note.** Many platform functions expect a representative in the `presenter` method.
-
 
 Now its use is becoming easier:
 

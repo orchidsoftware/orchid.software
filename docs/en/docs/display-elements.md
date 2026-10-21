@@ -1,6 +1,8 @@
 ---
 title: Display elements
-description: Learn how to use Laravel Orchid's display elements to enhance the appearance and functionality of your application's frontend. With customizable templates, card, and more, you can take your app to the next level.
+description:
+    Learn how to use Laravel Orchid's display elements to enhance the appearance and functionality of your application's
+    frontend. With customizable templates, card, and more, you can take your app to the next level.
 ---
 
 ## Cards
@@ -32,9 +34,9 @@ public function query(): array
 
             public function description(): string
             {
-                return 'This is a wider card with supporting text below as a natural lead-in to additional content. 
-                        This content is a little bit longer. This is a wider card with supporting text below as 
-                        a natural lead-in to additional content. This content is a little bit longer. 
+                return 'This is a wider card with supporting text below as a natural lead-in to additional content.
+                        This content is a little bit longer. This is a wider card with supporting text below as
+                        a natural lead-in to additional content. This content is a little bit longer.
                         This is a wider card with supporting text below as a natural lead-in to additional content.
                         This content is a little bit longer.';
             }
@@ -99,8 +101,9 @@ public function layout(): array
 
 ### Use with presenter
 
-> In this example, [presenters](/en/docs/presenters) are used, we strongly recommend that you familiarize yourself with them.
- 
+> In this example, [presenters](/en/docs/presenters) are used, we strongly recommend that you familiarize yourself with
+> them.
+
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php
@@ -125,6 +128,7 @@ class Product extends Model
 ```
 
 You can record a presenter:
+
 ```php
 namespace App\Presenters;
 
@@ -189,8 +193,6 @@ public function layout(): array
 }
 ```
 
-
-
 ## Persona
 
 A person is used to visualize an avatar and describe a person.
@@ -200,7 +202,7 @@ A person is used to visualize an avatar and describe a person.
 `Persona` accepts a set of objects that implement the `Personable` interface.
 
 > This example uses [presenters](/en/docs/presenters), recommend that you familiarize yourself with them.
- 
+
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php
@@ -289,18 +291,17 @@ public function layout(): array
 }
 ```
 
-
 ## Facepile
 
-Shows a list of avatars in horizontal view. Each circle represents a person. Use this `layout` when displaying shared access to a specific view, file or task.
+Shows a list of avatars in horizontal view. Each circle represents a person. Use this `layout` when displaying shared
+access to a specific view, file or task.
 
 ![facepile](/img/layouts/facepile.png)
 
 `Facepile` accepts a set of objects that implement the `Personable` interface.
- 
+
 > This example uses [presenters](/en/docs/presenters), it is recommended that you familiarize yourself with them.
- 
- 
+
 Instead of creating a separate class, it is recommended to use representatives for `Eloquent` models, for example:
 
 ```php

@@ -8,7 +8,7 @@ class BladeFormatter
     private $indentChar;
     private $newLineChar;
 
-    public function __construct($indentation = 4, $indentChar = " ", $newLineChar = "\n")
+    public function __construct($indentation = 4, $indentChar = ' ', $newLineChar = "\n")
     {
         $this->indentation = $indentation;
         $this->indentChar = $indentChar;
@@ -24,6 +24,7 @@ class BladeFormatter
             // Handle Blade directives
             if (preg_match("/^\s*@/", $line)) {
                 $formattedLines[] = $line;
+
                 continue;
             }
 
@@ -34,25 +35,25 @@ class BladeFormatter
                     $formattedLines[] = $line;
                 } else {
                     // Split the line into opening and closing tags and content
-                    $parts = preg_split("/(<[^>]+>)/", $line, -1, PREG_SPLIT_DELIM_CAPTURE);
+                    $parts = preg_split('/(<[^>]+>)/', $line, -1, PREG_SPLIT_DELIM_CAPTURE);
                     foreach ($parts as $part) {
                         if (preg_match("/<\/?[a-z][^>]*>/i", $part)) {
-                            $formattedLines[] = str_repeat($this->indentChar, $indentLevel) . $part;
+                            $formattedLines[] = str_repeat($this->indentChar, $indentLevel).$part;
                             if (preg_match("/^\s*<[^>]+[^\/]>\s*$/", $part)) {
                                 $indentLevel += $this->indentation;
-                            } else if (preg_match("/^\s*<\/[^>]+>\s*$/", $part)) {
+                            } elseif (preg_match("/^\s*<\/[^>]+>\s*$/", $part)) {
                                 $indentLevel -= $this->indentation;
                             }
                         } else {
-                            $formattedLines[] = str_repeat($this->indentChar, $indentLevel) . $part;
+                            $formattedLines[] = str_repeat($this->indentChar, $indentLevel).$part;
                         }
                     }
                 }
             } else {
-                $formattedLines[] = str_repeat($this->indentChar, $indentLevel) . $line;
+                $formattedLines[] = str_repeat($this->indentChar, $indentLevel).$line;
             }
         }
+
         return implode($this->newLineChar, $formattedLines);
     }
 }
-

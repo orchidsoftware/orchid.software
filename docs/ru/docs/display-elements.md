@@ -5,7 +5,8 @@ extends: _layouts.documentation
 
 ## Карточки
 
-Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки управления.
+Карточки используются для упаковки небольшого количества контента. Обычно содержат заголовок, короткий абзац и кнопки
+управления.
 
 ![Cards](/img/layouts/cards.png)
 
@@ -32,9 +33,9 @@ public function query(): array
 
             public function description(): string
             {
-                return 'This is a wider card with supporting text below as a natural lead-in to additional content. 
-                        This content is a little bit longer. This is a wider card with supporting text below as 
-                        a natural lead-in to additional content. This content is a little bit longer. 
+                return 'This is a wider card with supporting text below as a natural lead-in to additional content.
+                        This content is a little bit longer. This is a wider card with supporting text below as
+                        a natural lead-in to additional content. This content is a little bit longer.
                         This is a wider card with supporting text below as a natural lead-in to additional content.
                         This content is a little bit longer.';
             }
@@ -125,6 +126,7 @@ class Product extends Model
 ```
 
 Можно записать представителя:
+
 ```php
 namespace App\Presenters;
 
@@ -159,7 +161,6 @@ class ProductPresenter extends Presenter implements Cardable
 
 Тогда запись использования в экране будет краткой:
 
-
 ```php
 use Orchid\Screen\Layouts\Card;
 
@@ -189,9 +190,6 @@ public function layout(): array
     ];
 }
 ```
-
-
-
 
 ## Персона
 
@@ -291,12 +289,10 @@ public function layout(): array
 }
 ```
 
-
-
-
 ## Facepile
 
-Показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот `layout` при отображении совместного доступа к определённому представлению, файлу или задаче.
+Показывает список аватаров в горизонтальном виде. Каждый круг представляет человека. Используйте этот `layout` при
+отображении совместного доступа к определённому представлению, файлу или задаче.
 
 ![facepile](/img/layouts/facepile.png)
 

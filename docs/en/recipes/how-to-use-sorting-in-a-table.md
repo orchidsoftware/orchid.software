@@ -1,10 +1,9 @@
 ---
 title: How to use sorting on a table?
-description: 
+description:
 extends: _layouts.page
 section: main
 ---
-
 
 Sorting in a table is entirely based on the automatic recognition of an HTTP request and applies to Eloquent models.
 
@@ -39,7 +38,7 @@ class Idea extends Model
 
     /**
      * Name of columns to which http sorting can be applied
-     * 
+     *
      * @var array
      */
     protected $allowedSorts = [
@@ -51,8 +50,8 @@ class Idea extends Model
 }
 ```
 
-Now, when calling the `filters` method, the database query will be modified.
-In the data source method at the screen, it might look like this:
+Now, when calling the `filters` method, the database query will be modified. In the data source method at the screen, it
+might look like this:
 
 ```php
 /**
@@ -70,11 +69,10 @@ public function query() : array
 
 Now the data will be different depending on the parameters in the URL, for example:
 
-* `http://example.com/yourScreen?sort=id` - the result will be records in ascending order of the identifying number
-* `http://example.com/yourScreen?sort=-id` - Sort descending
+- `http://example.com/yourScreen?sort=id` - the result will be records in ascending order of the identifying number
+- `http://example.com/yourScreen?sort=-id` - Sort descending
 
 > **Please note.** You cannot sort related models this way.
-
 
 In order to display the sorting option in the GUI, we must add the `sort` method
 

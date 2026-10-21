@@ -1,8 +1,11 @@
 <?php
 
+use App\Docs;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Orchid\IconPack\Path;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +48,7 @@ Route::get('/{locale?}/changelog', function (string $locale = 'en') {
     $response = Http::get('https://raw.githubusercontent.com/orchidsoftware/platform/master/CHANGELOG.md')
         ->body();
 
-    $content = \Illuminate\Support\Str::of($response)->markdown();
+    $content = Str::of($response)->markdown();
 
     return view('changelog', [
         'content' => $content,
@@ -60,30 +63,30 @@ Route::get('/{locale?}/license', function (string $locale = 'en') {
 
 Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
 
-    $icons = collect(scandir(\Orchid\IconPack\Path::getFolder()))
+    $icons = collect(scandir(Path::getFolder()))
         ->filter(function ($value) {
             return ! ($value === '.' || $value === '..');
         })
         ->filter(function (string $icon) {
-            return file_exists(Orchid\IconPack\Path::getFolder()."/$icon");
+            return file_exists(Path::getFolder()."/$icon");
         })
         ->mapWithKeys(function ($icon) {
-            return [str_replace('.svg', '', $icon) => file_get_contents(Orchid\IconPack\Path::getFolder()."/$icon")];
+            return [str_replace('.svg', '', $icon) => file_get_contents(Path::getFolder()."/$icon")];
         });
 
-    return (new App\Docs($locale, "$type/orchid-icons"))
+    return (new Docs($locale, "$type/orchid-icons"))
         ->view('icons')
         ->with('icons', $icons);
 
 })->where('locale', 'en|ru');
 
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {
-    return (new App\Docs($locale, "$type/$page"))->view('docs');
+    return (new Docs($locale, "$type/$page"))->view('docs');
 })->where('locale', 'en|ru')
     ->where('page', '(.*)');
 
 Route::view('llms.txt', 'llms', [
-    'name' => config('site.name'),
+    'name'        => config('site.name'),
     'description' => config('site.description'),
-    'navigation' => config('site.navigation.en'),
+    'navigation'  => config('site.navigation.en'),
 ]);

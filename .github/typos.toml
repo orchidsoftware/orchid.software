@@ -1,0 +1,6 @@
+# Preserve the token emitted by laravelsu/highlight.
+[default]
+extend-ignore-re = ['\bhl-delimeter\b']
+
+[default.extend-identifiers]
+datatime = "datatime" # Existing public/img/ui/datatime.png and its published links.

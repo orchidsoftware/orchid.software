@@ -5,8 +5,8 @@ extends: _layouts.page
 section: main
 ---
 
-Repeatedly specifying many fields can become tedious, especially when the same fields appear again and again. [Collections](https://laravel.com/docs/collections) can help here.
-
+Repeatedly specifying many fields can become tedious, especially when the same fields appear again and again.
+[Collections](https://laravel.com/docs/collections) can help here.
 
 Let's try to consider an example:
 
@@ -37,8 +37,8 @@ class ClientEditLayout extends Rows
 }
 ```
 
-
-The method for defining fields must return a list of them, and so on every time. Why don't we define it just once, by analogy with the model?
+The method for defining fields must return a list of them, and so on every time. Why don't we define it just once, by
+analogy with the model?
 
 ```php
 namespace App\Models;
@@ -59,7 +59,7 @@ class Client extends Model
                 ->required()
                 ->title('Name')
                 ->placeholder('Name'),
-                
+
             'email' => Input::make('client.email')
                 ->type('email')
                 ->required()
@@ -70,8 +70,8 @@ class Client extends Model
 }
 ```
 
-
-We have created a static method that will return us a collection of our fields, but this will help us with the addition of keys. In cases where we need to display only a part of the properties, we will use the collections' capabilities.
+We have created a static method that will return us a collection of our fields, but this will help us with the addition
+of keys. In cases where we need to display only a part of the properties, we will use the collections' capabilities.
 
 All available fields:
 
@@ -90,7 +90,6 @@ class ClientEditLayout extends Rows
     }
 }
 ```
-
 
 Return only the specified ones:
 
@@ -112,9 +111,7 @@ class ClientEditLayout extends Rows
 }
 ```
 
-
 Return everything except the specified ones:
-
 
 ```php
 namespace App\Orchid\Layouts\User;
@@ -133,6 +130,5 @@ class ClientEditLayout extends Rows
     }
 }
 ```
-
 
 And so on, such simple examples may not duplicate field descriptions every time it is required.

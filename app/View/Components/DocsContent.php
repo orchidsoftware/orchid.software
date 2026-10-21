@@ -29,8 +29,9 @@ class DocsContent extends Component implements Htmlable
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \App\View\Components\DocsContent
      * @throws \DOMException
+     *
+     * @return DocsContent
      */
     public function render()
     {
@@ -40,8 +41,9 @@ class DocsContent extends Component implements Htmlable
     /**
      * @param $contents
      *
-     * @return string
      * @throws \DOMException
+     *
+     * @return string
      */
     private function detectAnchors()
     {
@@ -105,14 +107,13 @@ class DocsContent extends Component implements Htmlable
                 $this->content = Str::of($this->content)->replace($content, $paragraph);
             });
 
-
         return $this->content;
     }
 
-
     /**
-     * @return string
      * @throws \DOMException
+     *
+     * @return string
      */
     public function toHtml(): string
     {

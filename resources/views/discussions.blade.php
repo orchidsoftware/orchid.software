@@ -27,7 +27,7 @@
                             <p>
                                 Join our user groups, where community members have created vibrant and
                                 interactive spaces for discussions. Don't hesitate to actively participate and feel free
-                                to share your thoughts, ask questions, or even engage in some friendly banter or "flud"
+                                to share your thoughts, ask questions, or even engage in some friendly banter or casual conversation
                                 with fellow Orchid enthusiasts.
                             </p>
 

@@ -5,12 +5,15 @@ description:
 
 ## Использование полнотекстового поиска
 
-Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout), который является абстракцией для полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.
+Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout), который является абстракцией для
+полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется
+поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.
 
-> В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуется ознакомится с ними. А так же произвести действия по настройки модели из документации [Laravel Scout](https://github.com/laravel/scout).
+> В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуется ознакомится с ними. А так
+> же произвести действия по настройки модели из документации [Laravel Scout](https://github.com/laravel/scout).
 
-
-Для того чтобы приложение имело информацию о том, какие модели должны участвовать в поиске, необходимо зарегистрировать их в сервис провайдере:
+Для того чтобы приложение имело информацию о том, какие модели должны участвовать в поиске, необходимо зарегистрировать
+их в сервис провайдере:
 
 ```php
 namespace App\Providers;
@@ -36,7 +39,6 @@ class AppServiceProvider extends ServiceProvider
 }
 ```
 
-
 Отображение результатов осуществляется с помощью вызова `presenter()` у объекта.
 
 ```php
@@ -59,7 +61,7 @@ class Idea extends Model
     {
         return new IdeaPresenter($this);
     }
-    
+
     /**
      * Get the indexable data array for the model.
      *
@@ -76,7 +78,8 @@ class Idea extends Model
 }
 ```
 
-В представителе укажем интерфейс `Searchable` и определим методы, которые будут возвращать значения для показа пользователю, например так:
+В представителе укажем интерфейс `Searchable` и определим методы, которые будут возвращать значения для показа
+пользователю, например так:
 
 ```php
 namespace App\Orchid\Presenters;
@@ -126,7 +129,7 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return null;
     }
-    
+
     /**
      * @param string|null $query
      *
@@ -136,7 +139,7 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return $this->entity->search($query);
     }
-    
+
     /**
      * @return int
      */
@@ -149,8 +152,8 @@ class IdeaPresenter extends Presenter implements Searchable
 
 ## Модификация результатов
 
-
-Для модификации запросов, например, чтобы выдавать в результатах только актуальные данные, можно модифицировать запрос с помощью переопределения метода:
+Для модификации запросов, например, чтобы выдавать в результатах только актуальные данные, можно модифицировать запрос с
+помощью переопределения метода:
 
 ```php
 public function searchQuery(string $query = null): Builder

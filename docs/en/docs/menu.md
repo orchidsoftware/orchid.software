@@ -1,9 +1,13 @@
 ---
 title: Navigation
-description: Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and functions you need to effectively navigate your application.
+description:
+    Learn how to use Laravel Orchid to create powerful and dynamic navigation menus for your application. From
+    customizing the main menu to creating multi-level dropdown menus, our documentation covers all the features and
+    functions you need to effectively navigate your application.
 ---
 
-The platform panel menu is an important element of the graphical user interface because it is the main navigation through the project.
+The platform panel menu is an important element of the graphical user interface because it is the main navigation
+through the project.
 
 ## Usage
 
@@ -18,7 +22,7 @@ use Orchid\Platform\OrchidServiceProvider;
 class PlatformProvider extends OrchidServiceProvider
 {
     // ...
-    
+
     public function menu(): array
     {
         return [
@@ -28,7 +32,8 @@ class PlatformProvider extends OrchidServiceProvider
 }
 ```
 
-> **Note:** When creating each element, a unique key is automatically generated, which should not be repeated. However, you can manually change the key using the `slug` method.
+> **Note:** When creating each element, a unique key is automatically generated, which should not be repeated. However,
+> you can manually change the key using the `slug` method.
 
 ## Links
 
@@ -39,7 +44,7 @@ use Orchid\Screen\Actions\Menu;
 
 Menu::make('Example')->url('https://orchid.software/');
 ```
- 
+
 To create a link with a route, use the `route` method and provide the name of the route:
 
 ```php
@@ -51,20 +56,21 @@ Make sure the route is defined in your app's routes file.
 ## Active State
 
 To determine the link activity, already use the [dwightwatson/active](https://github.com/dwightwatson/active) package,
-when using `route` and `url` is set automatically, but it is acceptable to change with the help of explicit instructions:
+when using `route` and `url` is set automatically, but it is acceptable to change with the help of explicit
+instructions:
 
 ```php
 Menu::make('Example')
     ->route('route.idea')
     ->active('route.idea*');
-    
+
 Menu::make('Example')
     ->route('route.idea')
     ->active([
         'route.idea',
         'route.other'
     ]);
-    
+
 Menu::make('Example')
     ->url('/pages/contact')
     ->active('not:pages/contact');
@@ -72,8 +78,8 @@ Menu::make('Example')
 
 ## Permission-Based
 
-Quite an expected situation when some links should be missing
-depending on the [availability of rights](/en/docs/access) or other circumstances, for this:
+Quite an expected situation when some links should be missing depending on the [availability of rights](/en/docs/access)
+or other circumstances, for this:
 
 ```php
 Menu::make('Example')->permission('platform.idea');
@@ -99,7 +105,6 @@ It is also possible to integrate into a visual group by setting the title for th
 Menu::make('Example')->title('Analytics');
 ```
 
-
 ## Badge Notification
 
 Menu items have the ability to notify the user about any events in the form of a numerical value, for this:
@@ -114,6 +119,7 @@ Menu::make('Comments')
 ## Sorting Items
 
 Sorting set by setting the sequence number:
+
 ```php
 Menu::make('Second')->sort(5);
 Menu::make('First')->sort(4);
@@ -132,7 +138,8 @@ Menu::make('Multi Level')
     ]),
 ```
 
-To create a submenu dynamic, you need to add the main item and specify its unique name using the `slug` method. Then you can add other elements to the new item.
+To create a submenu dynamic, you need to add the main item and specify its unique name using the `slug` method. Then you
+can add other elements to the new item.
 
 ```php
 Menu::make('Multi Level')
@@ -153,5 +160,5 @@ Dashboard::addMenuSubElements('sub-menu', [
 ]);
 ```
 
-
-> **Note:** The graphical interface supports menu nesting up to the second level. For more details on creating effective and intuitive navigation, explore our [design guidelines](https://orchid.software/en/hig/navigation).
+> **Note:** The graphical interface supports menu nesting up to the second level. For more details on creating effective
+> and intuitive navigation, explore our [design guidelines](https://orchid.software/en/hig/navigation).

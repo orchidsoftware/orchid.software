@@ -2,7 +2,8 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\Blade;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -36,8 +37,9 @@ class Docs
     /**
      * @param string $view
      *
-     * @return \Illuminate\Contracts\View\View
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws FileNotFoundException
+     *
+     * @return View
      */
     public function view(string $view)
     {
@@ -75,15 +77,15 @@ class Docs
         $pattern = "/$locale/";
 
         $url = str_ireplace([
-            config('app.url') . '/ru',
-            config('app.url') . '/en',
+            config('app.url').'/ru',
+            config('app.url').'/en',
         ], $pattern, URL::current());
 
-        if (!Str::contains($url, $pattern)) {
+        if (! Str::contains($url, $pattern)) {
             $url .= $pattern;
         }
 
-        $url = config('app.url') . str_replace('//', '/', parse_url($url, PHP_URL_PATH));
+        $url = config('app.url').str_replace('//', '/', parse_url($url, PHP_URL_PATH));
 
         return Str::finish($url, '/');
     }

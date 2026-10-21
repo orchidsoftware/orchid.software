@@ -1,10 +1,9 @@
 ---
 title: How to use multiple elements in a single column
-description: 
+description:
 extends: _layouts.page
 section: main
 ---
-
 
 Sometimes you want to show more elements in a single column, for example more buttons.
 

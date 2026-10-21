@@ -1,40 +1,45 @@
 ---
 title: Orchid CRUD for Laravel
-description: Easily create a user interface for Laravel Eloquent models with Orchid's new package. This simplified CRUD solution allows you to efficiently perform common database operations, including create, read, update, and delete. With seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid platform for more advanced options. Compatible with all fields, filters, and traits.
+description:
+    Easily create a user interface for Laravel Eloquent models with Orchid's new package. This simplified CRUD solution
+    allows you to efficiently perform common database operations, including create, read, update, and delete. With
+    seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid
+    platform for more advanced options. Compatible with all fields, filters, and traits.
 ---
 
 ## Introduction
 
-Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when it might seem overkill.
-Therefore, we have created a new package aimed at developers who want to quickly create a user interface for Eloquent models with functions such as creating,
-reading, updating, and deleting.
+Orchid has provided a unique experience for writing applications. Still, sometimes a simple CRUD needs to be done when
+it might seem overkill. Therefore, we have created a new package aimed at developers who want to quickly create a user
+interface for Eloquent models with functions such as creating, reading, updating, and deleting.
 
-You can describe the entire process using one file. And when you need more options, it's easy to switch to using the platform.
-All fields, filters, and traits are compatible.
+You can describe the entire process using one file. And when you need more options, it's easy to switch to using the
+platform. All fields, filters, and traits are compatible.
 
 ## Installation
 
-> The manual assumes that you already have a copy of [Laravel](https://laravel.com/docs/installation) with [Orchid](https://orchid.software/en/docs/installation/)
+> The manual assumes that you already have a copy of [Laravel](https://laravel.com/docs/installation) with
+> [Orchid](https://orchid.software/en/docs/installation/)
 
 You can install the package using the Сomposer. Run this at the command line:
 
 ```php
-$ composer require orchid/crud
+composer require orchid/crud
 ```
 
 This will update `composer.json` and install the package into the `vendor/` directory.
 
 ## Defining Resources
 
-Resources are stored in the `app/Orchid/Resources` directory of your application.
-You may generate a new resource using the `orchid:resource` Artisan command:
+Resources are stored in the `app/Orchid/Resources` directory of your application. You may generate a new resource using
+the `orchid:resource` Artisan command:
 
 ```bash
 php artisan orchid:resource PostResource
 ```
 
-The most fundamental property of a resource is its `model` property. 
-This property tells the generator which Eloquent model the resource corresponds to:
+The most fundamental property of a resource is its `model` property. This property tells the generator which Eloquent
+model the resource corresponds to:
 
 ```php
 use App\Models\Post;
@@ -47,17 +52,16 @@ use App\Models\Post;
 public static $model = Post::class;
 ```
 
-These classes are completely static. They don't have any state at all due to their declarative nature. 
-They only tell what to do. They don't hold any data. If you add custom methods, make sure they're static.
-
+These classes are completely static. They don't have any state at all due to their declarative nature. They only tell
+what to do. They don't hold any data. If you add custom methods, make sure they're static.
 
 Freshly created resources contain nothing. Don't worry. We'll add more fields to our resource soon.
 
-
 ## Registering Resources
 
-All resources within the `app/Orchid/Resources` directory will automatically be registered by default.
-You are not required to register them manually. But if this is required, for example, when creating an additional package, then the best way would be:
+All resources within the `app/Orchid/Resources` directory will automatically be registered by default. You are not
+required to register them manually. But if this is required, for example, when creating an additional package, then the
+best way would be:
 
 ```php
 use App\Orchid\Resources\UserResource;
@@ -82,7 +86,8 @@ class CrudServiceProvider extends ServiceProvider
 
 ## Expanding of Model
 
-Many features of the Orchid platform relies on model customization. You can add or remove traits depending on your goals. But we will assume that you have set these for your model:
+Many features of the Orchid platform relies on model customization. You can add or remove traits depending on your
+goals. But we will assume that you have set these for your model:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -94,13 +99,14 @@ class Post extends Model
 {
     use AsSource, Filterable, Attachable;
 }
-````
-
+```
 
 ## Defining Fields
 
-Each resource contains a `fields` method. This method returns an array of fields, which generally extend the `Orchid\Screen\Field` class. To add a field to a resource, we can add it to the resource's `fields` method. Typically, fields may be created using their static `make` method. This method accepts several arguments. However, you usually only need to pass the field's name.
-
+Each resource contains a `fields` method. This method returns an array of fields, which generally extend the
+`Orchid\Screen\Field` class. To add a field to a resource, we can add it to the resource's `fields` method. Typically,
+fields may be created using their static `make` method. This method accepts several arguments. However, you usually only
+need to pass the field's name.
 
 ```php
 use Orchid\Screen\Fields\Input;
@@ -119,12 +125,14 @@ public function fields(): array
     ];
 }
 ```
-In the package to generate CRUD, you can use the fields Orchid platform. Review [all available fields on the documentation site](https://orchid.software/en/docs/field/).
 
+In the package to generate CRUD, you can use the fields Orchid platform. Review
+[all available fields on the documentation site](https://orchid.software/en/docs/field/).
 
 ## Defining Сolumns
 
-Each resource contains a `сolumns` method. To add a column to a resource, we can add it to the resource's `column` method. Typically, columns may be created using their static `make` method. 
+Each resource contains a `сolumns` method. To add a column to a resource, we can add it to the resource's `column`
+method. Typically, columns may be created using their static `make` method.
 
 ```php
 use Orchid\Screen\TD;
@@ -142,11 +150,14 @@ public function columns(): array
     ];
 }
 ```
-The CRUD generation package is entirely based on the table layer. You can [read more about this on the documentation page](https://orchid.software/en/docs/table/).
+
+The CRUD generation package is entirely based on the table layer. You can
+[read more about this on the documentation page](https://orchid.software/en/docs/table/).
 
 ## Defining Legend
 
-Each resource contains a `legend` method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource's `legend` method. Typically, columns may be created using their static `make` method. 
+Each resource contains a `legend` method. It determines how the model will look when viewed. To add to a resource, we
+can add it to the resource's `legend` method. Typically, columns may be created using their static `make` method.
 
 ```php
 use Orchid\Screen\Sight;
@@ -164,13 +175,16 @@ public function legend(): array
     ];
 }
 ```
-The CRUD generation package is entirely based on the legend layer. You can [read more about this on the documentation page](https://orchid.software/en/docs/legend).
+
+The CRUD generation package is entirely based on the legend layer. You can
+[read more about this on the documentation page](https://orchid.software/en/docs/legend).
 
 ## Defining Rules
 
-Each resource contains a `rules` method. When submitting a create or update form, the data can be validated, which is described in the `rules` method:
+Each resource contains a `rules` method. When submitting a create or update form, the data can be validated, which is
+described in the `rules` method:
 
-``` php
+```php
 /**
  * Get the validation rules that apply to save/update.
  *
@@ -189,12 +203,12 @@ public function rules(Model $model): array
 
 You can learn more on the Laravel [validation page](https://laravel.com/docs/validation#available-validation-rules).
 
-
 ## Defining Filters
 
-Each resource contains a `filters` method. Which expects you to return a list of class names that should be rendered and, if necessary, swapped out for the viewed model.
+Each resource contains a `filters` method. Which expects you to return a list of class names that should be rendered
+and, if necessary, swapped out for the viewed model.
 
-``` php
+```php
 /**
  * Get the filters available for the resource.
  *
@@ -223,12 +237,10 @@ public function filters(): array
 }
 ```
 
-
 We already offer some prepared filters:
 
 - `Orchid\Crud\Filters\DefaultSorted` - Setting default column sorting
 - `Orchid\Crud\Filters\WithTrashed` - To display deleted records
-
 
 ```php
 public function filters(): array
@@ -243,7 +255,8 @@ You can learn more on the Orchid [filtration page](https://orchid.software/en/do
 
 ## Navigation
 
-If you do not want a resource to appear in the navigation, you may override the `displayInNavigation` method of your resource class:
+If you do not want a resource to appear in the navigation, you may override the `displayInNavigation` method of your
+resource class:
 
 ```php
 /**
@@ -259,13 +272,15 @@ public static function displayInNavigation(): bool
 
 Even if the resource is hidden from the navigation, you can still reference its list page directly:
 
-```
+```php
 route('platform.resource.list', UserResource::uriKey())
 ```
 
 ## Eager Loading
 
-Suppose you routinely need to access a resource's relationships within your fields. In that case, it may be a good idea to add the relationship to the `with` property of your resource. This property instructs to always eager to load the listed relationships when retrieving the resource.
+Suppose you routinely need to access a resource's relationships within your fields. In that case, it may be a good idea
+to add the relationship to the `with` property of your resource. This property instructs to always eager to load the
+listed relationships when retrieving the resource.
 
 ```php
  /**
@@ -295,12 +310,12 @@ public static function perPage(): int
 }
 ```
 
-
 ## Resource Events
 
-Each resource has two methods that do the processing, `onSave` and `onDelete`. Each of them is launched when the event is executed, and you can change or supplement the logic:
+Each resource has two methods that do the processing, `onSave` and `onDelete`. Each of them is launched when the event
+is executed, and you can change or supplement the logic:
 
-``` php
+```php
 use Orchid\Crud\ResourceRequest;
 use Illuminate\Database\Eloquent\Model;
 
@@ -328,10 +343,10 @@ public function onDelete(Model $model)
 }
 ```
 
-
 ## Permissions Resources
 
-Each resource contains a `permission` method, which should return the string key that the user needs to access this resource. By default, all resources are available to every user.
+Each resource contains a `permission` method, which should return the string key that the user needs to access this
+resource. By default, all resources are available to every user.
 
 ```php
 /**
@@ -345,7 +360,7 @@ public static function permission(): ?string
 }
 ```
 
-For each registered resource in which the method returns a non-null value, a new permission is created. 
+For each registered resource in which the method returns a non-null value, a new permission is created.
 
 ```php
 /**
@@ -359,9 +374,9 @@ public static function permission(): ?string
 }
 ```
 
-It is necessary to give the right to manage it to the user.
-To click on the profile in the left column, go to the system page, and then to the page with users, 
-you can issue them a mandate or assign a role. After that, they will be displayed in the left menu.
+It is necessary to give the right to manage it to the user. To click on the profile in the left column, go to the system
+page, and then to the page with users, you can issue them a mandate or assign a role. After that, they will be displayed
+in the left menu.
 
 ## Actions
 
@@ -371,7 +386,9 @@ Actions may be generated using the `orchid:action` Artisan command:
 php artisan orchid:action CustomAction
 ```
 
-By default, all actions are placed in the `app/Orchid/Actions` directory. The action necessarily consists of two methods. Method `button` defines name, icon, dialog box, etc. And the `handler` method directly handles the action with the models.
+By default, all actions are placed in the `app/Orchid/Actions` directory. The action necessarily consists of two
+methods. Method `button` defines name, icon, dialog box, etc. And the `handler` method directly handles the action with
+the models.
 
 ```php
 namespace App\Orchid\Actions;
@@ -411,10 +428,11 @@ class CustomAction extends Action
 
 Within the `handle` method, you may perform whatever tasks are necessary to complete the action.
 
-> The handle method always receives a `Collection` of models, even if the action is only being performed against a single model.
+> The handle method always receives a `Collection` of models, even if the action is only being performed against a
+> single model.
 
-
-Once you have defined an action, you are ready to attach it to a resource. Each resource contains an actions method. To attach an action to a resource, you should add it to the array of actions returned by this method:
+Once you have defined an action, you are ready to attach it to a resource. Each resource contains an actions method. To
+attach an action to a resource, you should add it to the array of actions returned by this method:
 
 ```php
 /**
@@ -430,12 +448,16 @@ public function actions(): array
 }
 ```
 
-
 ## Policies
 
-To limit which users may view, create, update, or delete resources leverages Laravel's [authorization policies](https://laravel.com/docs/authorization#creating-policies). Policies are simple PHP classes that organize authorization logic for a particular model or resource. For example, if your application is a blog, you may have a `Post` model and a corresponding `PostPolicy` within your application.
+To limit which users may view, create, update, or delete resources leverages Laravel's
+[authorization policies](https://laravel.com/docs/authorization#creating-policies). Policies are simple PHP classes that
+organize authorization logic for a particular model or resource. For example, if your application is a blog, you may
+have a `Post` model and a corresponding `PostPolicy` within your application.
 
-Typically, these policies will be registered in your application's `AuthServiceProvider`. If CRUD detects a policy has been registered for the model, it will automatically check that policy's relevant authorization methods before performing their respective actions, such as:
+Typically, these policies will be registered in your application's `AuthServiceProvider`. If CRUD detects a policy has
+been registered for the model, it will automatically check that policy's relevant authorization methods before
+performing their respective actions, such as:
 
 - viewAny
 - view
@@ -445,7 +467,8 @@ Typically, these policies will be registered in your application's `AuthServiceP
 - restore
 - forceDelete
 
-No additional configuration is required. For example, to determine which users are allowed to update a `Post` model, you need to define an `update` method on the model's corresponding policy class:
+No additional configuration is required. For example, to determine which users are allowed to update a `Post` model, you
+need to define an `update` method on the model's corresponding policy class:
 
 ```php
 namespace App\Policies;
@@ -472,11 +495,12 @@ class PostPolicy
 }
 ```
 
+> If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If
+> you have defined a policy, don't forget to define all of its relevant authorization methods.
 
-> If a policy exists but is missing a particular action method, the user will not be allowed to perform that action. If you have defined a policy, don't forget to define all of its relevant authorization methods.
-
-
-If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given policy. To accomplish this, define a `before` method on the policy. This method runs before any other policy methods, allowing you to authorize the action before the intended policy method is called.
+If you don't want the policy to affect CRUD generation users, you may wish to authorize all actions within a given
+policy. To accomplish this, define a `before` method on the policy. This method runs before any other policy methods,
+allowing you to authorize the action before the intended policy method is called.
 
 ```php
 namespace App\Policies;
@@ -504,10 +528,10 @@ class PostPolicy
 }
 ```
 
-
 ## Preventing Conflicts (Traffic Cop)
 
-If this option is active, the model will be checked for the last change if it was updated after the edit form was opened. A validation error will be thrown. Feature Traffic Cop is disabled by default.
+If this option is active, the model will be checked for the last change if it was updated after the edit form was
+opened. A validation error will be thrown. Feature Traffic Cop is disabled by default.
 
 ```php
 /**
@@ -578,7 +602,7 @@ public static function editBreadcrumbsMessage(): string
 
 Resource names may be localized by overriding the `label` and `singularLabel` methods on the resource class:
 
-``` php
+```php
 /**
  * Get the displayable label of the resource.
  *

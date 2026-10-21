@@ -3,12 +3,15 @@ title: Data Management
 description: Laravel CRUD
 ---
 
+This guide provides a minimal set for creating and editing models using the platform. In the current example, we will
+create admin pages for the blog.
 
-This guide provides a minimal set for creating and editing models using the platform. In the current example, we will create admin pages for the blog.
+> **Note.** This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider
+> [using a dedicated package for this](https://github.com/orchidsoftware/crud).
 
-> **Note.** This tutorial is an important part of the tutorial, but if your application needs a simple CRUD, consider [using a dedicated package for this](https://github.com/orchidsoftware/crud).
-
-At this stage, it is advisable that you already familiarize yourself with the basics of the concept of [screens](https://orchid.software/en/docs/screens) and watch [Quick start for beginners](https://orchid.software/en/docs/quickstart).
+At this stage, it is advisable that you already familiarize yourself with the basics of the concept of
+[screens](https://orchid.software/en/docs/screens) and watch
+[Quick start for beginners](https://orchid.software/en/docs/quickstart).
 
 First, we need to create a new table. To do this, execute the command:
 
@@ -16,7 +19,8 @@ First, we need to create a new table. To do this, execute the command:
 php artisan make:migration create_posts_table
 ```
 
-A new migration file will be created in the `database/migrations` directory, we will add a description of the required columns to it.
+A new migration file will be created in the `database/migrations` directory, we will add a description of the required
+columns to it.
 
 ```php
 // `****_**_**_create_posts_table.php
@@ -96,10 +100,11 @@ class Post extends Model
 
 > **Note.** The model has the `AsSource` trait, for convenient handling via dot notation.
 
-
 Now we are ready for the real use of the platform.
 
-[In the previous tutorial](https://orchid.software/en/docs/quickstart) we already created our first screen for displaying posts, but now we need to both display the records and edit them, so we’ll add two new screens for each action, alternately executing the commands:
+[In the previous tutorial](https://orchid.software/en/docs/quickstart) we already created our first screen for
+displaying posts, but now we need to both display the records and edit them, so we’ll add two new screens for each
+action, alternately executing the commands:
 
 ```php
 php artisan orchid:screen PostEditScreen
@@ -123,8 +128,9 @@ Route::screen('posts', PostListScreen::class)
     ->name('platform.post.list');
 ```
 
-Now the screens are available for viewing at the address `/admin/post` and `/admin/posts`.
-The resulting screens currently have no data, no actions, edit the `PostEditScreen` for viewing by adding the name, description and required fields:
+Now the screens are available for viewing at the address `/admin/post` and `/admin/posts`. The resulting screens
+currently have no data, no actions, edit the `PostEditScreen` for viewing by adding the name, description and required
+fields:
 
 ```php
 namespace App\Orchid\Screens;
@@ -263,10 +269,10 @@ class PostEditScreen extends Screen
 }
 ```
 
-
 Now we can create, edit, and delete records. But the records do not appear as a list yet. Let's change that.
 
-In all previous layer definitions, only a short record of the form `Layout:rows()` was used, but to display complex or voluminous information, it is desirable to create separate classes.
+In all previous layer definitions, only a short record of the form `Layout:rows()` was used, but to display complex or
+voluminous information, it is desirable to create separate classes.
 
 Add a new `Layout` class by running the command:
 
@@ -314,7 +320,8 @@ class PostListLayout extends Table
 
 The `target` property indicates the key will be the source for our table on the screen.
 
-> **Note.** Generating `HTML` directly in the class is an example only and is bad practice. Please use the `Blade` templates.
+> **Note.** Generating `HTML` directly in the class is an example only and is bad practice. Please use the `Blade`
+> templates.
 
 Having defined the table layer, we return to the view screen, change it:
 
@@ -384,4 +391,5 @@ class PostListScreen extends Screen
 }
 ```
 
-Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of the convenience of navigation from the previous material by adding menu items and breadcrumbs.
+Now we are a set for managing (creating, viewing, editing, and deleting entries) a blog, do not forget to take care of
+the convenience of navigation from the previous material by adding menu items and breadcrumbs.

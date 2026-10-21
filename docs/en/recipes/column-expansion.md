@@ -1,11 +1,13 @@
 ---
 title: How to re-use the column?
-description: 
+description:
 extends: _layouts.page
 section: main
 ---
 
-Working with the same type of data, you often need to process them in the same way. To duplicate the code, it is possible in the layers to extend the `TD` class with their own methods. For this, it is necessary to register the closure function in the service provider.
+Working with the same type of data, you often need to process them in the same way. To duplicate the code, it is
+possible in the layers to extend the `TD` class with their own methods. For this, it is necessary to register the
+closure function in the service provider.
 
 Registration example:
 

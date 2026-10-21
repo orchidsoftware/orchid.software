@@ -1,10 +1,12 @@
 ---
 title: Branding
-description: Learn how to customize the look and feel of your Laravel Orchid application with the Branding documentation page. Discover how to set your own logo, choose custom colors, and more to make your application truly your own.
+description:
+    Learn how to customize the look and feel of your Laravel Orchid application with the Branding documentation page.
+    Discover how to set your own logo, choose custom colors, and more to make your application truly your own.
 ---
 
-Sometimes you may want the visual style of the platform to match your brand.
-After installation, two settings are provided that are located in `config/platform.php`:
+Sometimes you may want the visual style of the platform to match your brand. After installation, two settings are
+provided that are located in `config/platform.php`:
 
 ```php
 'template' => [
@@ -15,20 +17,18 @@ After installation, two settings are provided that are located in `config/platfo
 
 To change the page header or footer, you must specify your own `blade` templates.
 
-
 ## Change Logo and Name
 
-Create a new directory in the `brand` template section and the` header.blade.php` file.
-Then the full path will look like `/resources/views/brand/header.blade.php`.
+Create a new directory in the `brand` template section and the`header.blade.php` file. Then the full path will look like
+`/resources/views/brand/header.blade.php`.
 
 ```php
-resources          
+resources
 └── views
     └── brand
         └── header.blade.php
 ```
 
- 
 Make changes to the file just created:
 
 ```blade
@@ -50,11 +50,10 @@ Make changes to the file just created:
     </p>
 </div>
 ```
- 
+
 In order for the created template to be used instead of the standard one, you must specify it in the configuration file,
 just as if passing an argument in the `view('brand.header')` helper:
 
-  
 ```php
 'template' => [
     'header' => 'brand.header',
@@ -62,15 +61,15 @@ just as if passing an argument in the `view('brand.header')` helper:
 ],
 ```
 
-> **Note.** The configuration file may be cached, and the changes will not take effect until the `php artisan config:clear` command is executed
+> **Note.** The configuration file may be cached, and the changes will not take effect until the
+> `php artisan config:clear` command is executed
 
-
-In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php` with the following contents:
-
+In the same way, we can change the bottom of the page, again create a new file `/resources/views/brand/footer.blade.php`
+with the following contents:
 
 ```blade
 <p class="small m-n">
-    © Copyright {{date('Y')}} 
+    © Copyright {{date('Y')}}
     <a href="{{ config('app.url') }}" target="_blank">
         {{ config('app.name') }}
     </a>
@@ -86,4 +85,5 @@ Also making changes to the configuration file:
 ],
 ```
 
-> **Note**. If you want the text or images to be different for the login and panel pages, you can use [Authentication Directives](https://laravel.com/docs/blade#authentication-directives).
+> **Note**. If you want the text or images to be different for the login and panel pages, you can use
+> [Authentication Directives](https://laravel.com/docs/blade#authentication-directives).

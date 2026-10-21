@@ -2,17 +2,17 @@
 
 return [
 
-    'name' => 'Orchid - Laravel Admin Panel',
+    'name'        => 'Orchid - Laravel Admin Panel',
     'description' => 'Free open-source Laravel admin panel for rapid development of back-office applications, dashboards and CRUD systems. Code-driven, beautiful and powerful.',
-    'navigation' => [
+    'navigation'  => [
         'en' => [
             'Get Started' => [
-                'Introduction'  => '/en/docs',
-                'Installation'  => '/en/docs/installation',
-                'Configuration' => '/en/docs/configuration',
+                'Introduction'        => '/en/docs',
+                'Installation'        => '/en/docs/installation',
+                'Configuration'       => '/en/docs/configuration',
                 'Directory Structure' => '/en/docs/structure',
                 'Basic Branding'      => '/en/docs/brand',
-                'Upgrade Guide' => '/en/docs/upgrade',
+                'Upgrade Guide'       => '/en/docs/upgrade',
             ],
             'Tutorials'   => [
                 'Quick Start'           => '/en/docs/quickstart',
@@ -31,15 +31,15 @@ return [
                 'Notifications' => '/en/docs/alert',
             ],
             'Layouts'     => [
-                'Rows'            => '/en/docs/rows',
+                'Rows'             => '/en/docs/rows',
                 'Tables'           => '/en/docs/table',
-                'Legend'          => '/en/docs/legend',
-                'Cell Types'      => '/en/docs/cell-types',
-                'Charts'          => '/en/docs/charts',
-                'Modals'          => '/en/docs/modals',
-                'Listeners'       => '/en/docs/listener',
-                'Grouping'        => '/en/docs/grouping',
-                //'Display elements' => '/en/docs/display-elements',
+                'Legend'           => '/en/docs/legend',
+                'Cell Types'       => '/en/docs/cell-types',
+                'Charts'           => '/en/docs/charts',
+                'Modals'           => '/en/docs/modals',
+                'Listeners'        => '/en/docs/listener',
+                'Grouping'         => '/en/docs/grouping',
+                // 'Display elements' => '/en/docs/display-elements',
                 'Views'           => '/en/docs/custom-template',
             ],
 
@@ -54,12 +54,12 @@ return [
                 'Stubs'             => '/en/docs/stubs',
                 'Form Builder'      => '/en/docs/builder',
                 'Controllers'       => '/en/docs/controllers',
-                  //'Recipes'      => '/en/recipes',
+                // 'Recipes'      => '/en/recipes',
             ],
             'Packages'    => [
                 'Package Development' => '/en/docs/packages',
-                'CRUD'    => '/en/docs/packages/crud',
-                'Fortify' => 'https://github.com/orchidsoftware/fortify',
+                'CRUD'                => '/en/docs/packages/crud',
+                'Fortify'             => 'https://github.com/orchidsoftware/fortify',
             ],
         ],
         'ru' => [
@@ -94,7 +94,7 @@ return [
                 'Модальные окна'     => '/ru/docs/modals',
                 'Слушатель'          => '/ru/docs/listener',
                 'Макеты группировки' => '/ru/docs/grouping',
-                //'Макеты отображения' => '/ru/docs/display-elements',
+                // 'Макеты отображения' => '/ru/docs/display-elements',
                 'Универсальные'      => '/ru/docs/custom-template',
             ],
             'Дополнительно'      => [
@@ -106,7 +106,7 @@ return [
                 'Тестирование'             => '/ru/docs/testing',
                 'Контроллеры'              => '/ru/docs/controllers',
                 'Пользовательское поле'    => '/ru/docs/custom-field',
-                //'Настройки'        => '/ru/docs/settings', deprecation
+                // 'Настройки'        => '/ru/docs/settings', deprecation
 
             ],
             'Packages'           => [
@@ -147,7 +147,6 @@ return [
         ],
     ],
 
-
     'community' => [
         'en' => [
             'Community' => [
@@ -160,7 +159,7 @@ return [
 
             'About' => [
                 'Under the Hood'    => '/en/community/background',
-            ]
+            ],
 
             /*
             'Discussions' => [

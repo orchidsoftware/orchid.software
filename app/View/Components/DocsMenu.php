@@ -2,9 +2,9 @@
 
 namespace App\View\Components;
 
-
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Config\Repository;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class DocsMenu extends Component
@@ -29,12 +29,12 @@ class DocsMenu extends Component
     /**
      * Get the view / contents that represent the component.
      *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
+     * @return View|\Closure|string
      */
     public function render()
     {
         return view('components.docs-menu', [
-            'menu' => $this->menu
+            'menu' => $this->menu,
         ]);
     }
 }

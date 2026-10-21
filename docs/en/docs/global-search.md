@@ -1,16 +1,19 @@
 ---
 title: Global Search
-description: Learn how to use Laravel Orchid's global search feature powered by Laravel Scout to easily search and filter through large amounts of data in your administration-style applications.
+description:
+    Learn how to use Laravel Orchid's global search feature powered by Laravel Scout to easily search and filter through
+    large amounts of data in your administration-style applications.
 ---
 
 ## Using Full-Text Search
 
 Orchid provides full-text search capabilities through the [Laravel Scout](https://github.com/laravel/scout) package.
-This package offers an abstraction for searching through your `Eloquent` models and requires that you specify the search driver that you will use for your application. 
-These can be elasticsearch, algolia, sphinx, or other solutions.
+This package offers an abstraction for searching through your `Eloquent` models and requires that you specify the search
+driver that you will use for your application. These can be elasticsearch, algolia, sphinx, or other solutions.
 
-To make your models searchable within the application, you must register them in the Orchid [configuration file](/en/docs/configuration). 
-You can do this by adding a new entry to the 'search' array for each model you want to make searchable. For example:
+To make your models searchable within the application, you must register them in the Orchid
+[configuration file](/en/docs/configuration). You can do this by adding a new entry to the 'search' array for each model
+you want to make searchable. For example:
 
 ```php
 'search' => [
@@ -18,11 +21,11 @@ You can do this by adding a new entry to the 'search' array for each model you w
 ],
 ```
 
-> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them. And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
+> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them.
+> And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
 
-
-The [Presenter](/en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the model:
-
+The [Presenter](/en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the
+model:
 
 ```php
 namespace App;
@@ -44,7 +47,7 @@ class Idea extends Model
     {
         return new IdeaPresenter($this);
     }
-    
+
     /**
      * Get the indexable data array for the model.
      *
@@ -61,8 +64,8 @@ class Idea extends Model
 }
 ```
 
-In the representatives, we indicate the `Searchable` interface and define methods that will return values for a display to the user, for example like this:
-
+In the representatives, we indicate the `Searchable` interface and define methods that will return values for a display
+to the user, for example like this:
 
 ```php
 namespace App\Orchid\Presenters;
@@ -112,7 +115,7 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return null;
     }
-    
+
     /**
      * @param string|null $query
      *
@@ -122,7 +125,7 @@ class IdeaPresenter extends Presenter implements Searchable
     {
         return $this->entity->search($query);
     }
-    
+
     /**
      * @return int
      */
@@ -133,12 +136,10 @@ class IdeaPresenter extends Presenter implements Searchable
 }
 ```
 
-
 ## Customizing Search Queries
 
-To customize search queries, you can override the default `searchQuery()` method. 
-This method returns a `Builder` instance representing the query used to index the model.
-
+To customize search queries, you can override the default `searchQuery()` method. This method returns a `Builder`
+instance representing the query used to index the model.
 
 ```php
 public function searchQuery(string $query = null): Builder

@@ -1,9 +1,12 @@
 ---
 title: Testing
-description: Learn how to test your Laravel Orchid applications with our comprehensive documentation on testing. From unit tests to browser tests, we cover it all.
+description:
+    Learn how to test your Laravel Orchid applications with our comprehensive documentation on testing. From unit tests
+    to browser tests, we cover it all.
 ---
 
-Nowadays, the development of high-quality software is intertwined with automated testing. Therefore, the package contains testing tools to help you make it easy.
+Nowadays, the development of high-quality software is intertwined with automated testing. Therefore, the package
+contains testing tools to help you make it easy.
 
 To use them, it is enough to add the `ScreenTesting` trait to your testing class, for example:
 
@@ -21,7 +24,6 @@ class ExampleTest extends TestCase
 ```
 
 After that, a new method for obtaining screen data by route name will be available:
-
 
 ```php
 public function testExampleScreen()
@@ -53,10 +55,11 @@ $screen = $this->screen('platform.systems.users.edit')
     ]);
 ```
 
-> Note. If your action relies on GET parameters, for example for action `/admin/orders/approve?order=1`, then this value must also be set, using method `parameters`. 
+> Note. If your action relies on GET parameters, for example for action `/admin/orders/approve?order=1`, then this value
+> must also be set, using method `parameters`.
 
-
-Most likely, your routes are closed from guests and are available only for users. You need to call the `actingAs` method passing the user to log in.
+Most likely, your routes are closed from guests and are available only for users. You need to call the `actingAs` method
+passing the user to log in.
 
 ```php
 // Create a single App\Models\User instance...
@@ -65,8 +68,8 @@ $user = User::factory()->create();
 $screen = $this->screen('platform.example')->actingAs($user);
 ```
 
-You may get a `403|401 Error` when prompted - which means that the user does not have enough rights.
-One option is to get all available permissions through the `Dashboard` facade.
+You may get a `403|401 Error` when prompted - which means that the user does not have enough rights. One option is to
+get all available permissions through the `Dashboard` facade.
 
 ```php
 use Orchid\Support\Facades\Dashboard;
@@ -81,7 +84,7 @@ $screen = $this->screen('platform.example')->actingAs($user);
 A more elegant solution is to define a method in the factory:
 
 ```php
-class UserFactory extends Factory 
+class UserFactory extends Factory
 {
     // ...
 

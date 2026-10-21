@@ -5,7 +5,8 @@ extends: _layouts.page
 section: main
 ---
 
-Every time a layer is displayed, it is passed data from the screen to use its data through the `query` property. For example:
+Every time a layer is displayed, it is passed data from the screen to use its data through the `query` property. For
+example:
 
 ```php
 namespace App\Orchid\Layouts;

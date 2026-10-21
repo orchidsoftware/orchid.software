@@ -1,10 +1,9 @@
 ---
 title: Change the appearance of a table
-description: 
+description:
 extends: _layouts.page
 section: main
 ---
-
 
 There should be a story about additional methods for the table:
 

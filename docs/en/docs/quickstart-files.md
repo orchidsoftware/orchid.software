@@ -3,11 +3,11 @@ title: Manage File Attachments
 description: Laravel File Manager
 ---
 
-This guide is a continuation of the tutorial ["Data Management"](/en/docs/quickstart-crud),
-in which we will analyze the work with ["Attached files"](/en/docs/attachments).
+This guide is a continuation of the tutorial ["Data Management"](/en/docs/quickstart-crud), in which we will analyze the
+work with ["Attached files"](/en/docs/attachments).
 
-Let's go back to the previously created `Post` model and add a new column `hero`,
-in which we will store information about the main image in our blog post:
+Let's go back to the previously created `Post` model and add a new column `hero`, in which we will store information
+about the main image in our blog post:
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -57,9 +57,8 @@ protected $fillable = [
 //..
 ```
 
-
-To write data to a new column, you need to add a suitable field to our create/edit screen,
-take `Cropper` to crop the image:
+To write data to a new column, you need to add a suitable field to our create/edit screen, take `Cropper` to crop the
+image:
 
 ```php
 // app/Orchid/Screens/PostEditScreen.php
@@ -95,20 +94,22 @@ public function layout(): array
 }
 ```
 
-> **Note.** If during the file upload, you did not see your image in the end result,
-please check the `upload_max_filesize` and `post_max_size settings`, you may need to increase these values.
+> **Note.** If during the file upload, you did not see your image in the end result, please check the
+> `upload_max_filesize` and `post_max_size settings`, you may need to increase these values.
 
-For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user. After saving the record with the image, the full `url` address to the image will be written to the database column, for example:
+For such a field, the width and height were additionally indicated to ensure the proportions are displayed to the user.
+After saving the record with the image, the full `url` address to the image will be written to the database column, for
+example:
 
 ```php
 http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png
 ```
 
-> **Note.** The link to the image is formed from the `url` address specified in your configuration file,
-that for local development through the built-in web server, a port indication is required.
+> **Note.** The link to the image is formed from the `url` address specified in your configuration file, that for local
+> development through the built-in web server, a port indication is required.
 
-This is the easiest entry, but what if you decide to use `https` or change the domain?
-To do this, it is better to use a relative notation:
+This is the easiest entry, but what if you decide to use `https` or change the domain? To do this, it is better to use a
+relative notation:
 
 ```php
 Cropper::make('post.hero')
@@ -165,7 +166,8 @@ public function layout(): array
 }
 ```
 
-The field will differ from the previous ones because the data does not apply explicitly to the `Post` model, but will be loaded and saved due to the connection, for this we must indicate the `Attachable` trait:
+The field will differ from the previous ones because the data does not apply explicitly to the `Post` model, but will be
+loaded and saved due to the connection, for this we must indicate the `Attachable` trait:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
@@ -201,13 +203,14 @@ After saving, the connection with our record will be established in the table `a
 
 ```php
 id  attachmentable_type  attachmentable_id  attachment_id
-1	App\Post	         3	                101
-2	App\Post	         3	                102
-3	App\Post	         3	                103
-4	App\Post	         3	                104
+1 App\Post          3                 101
+2 App\Post          3                 102
+3 App\Post          3                 103
+4 App\Post          3                 104
 ```
 
-But when the record is accessed again, the field will be empty. This happens because `query` does not know about the additional records on our model. We will fix this by adding a download:
+But when the record is accessed again, the field will be empty. This happens because `query` does not know about the
+additional records on our model. We will fix this by adding a download:
 
 ```php
 public function query(Post $post): array
@@ -220,5 +223,5 @@ public function query(Post $post): array
 }
 ```
 
-Now our attached files are downloaded and synchronized.
-For more details, see the [Form Elements](/en/docs/field) and [Attached Files](/en/docs/attachments) sections.
+Now our attached files are downloaded and synchronized. For more details, see the [Form Elements](/en/docs/field) and
+[Attached Files](/en/docs/attachments) sections.
