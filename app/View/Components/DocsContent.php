@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Documentation;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
@@ -21,7 +22,7 @@ class DocsContent extends Component implements Htmlable
      *
      * @return void
      */
-    public function __construct(string $content)
+    public function __construct(string $content, protected ?Documentation $documentation = null)
     {
         $this->content = $content;
     }
@@ -49,6 +50,25 @@ class DocsContent extends Component implements Htmlable
     {
         $crawler = new Crawler();
         $crawler->addContent($this->content);
+
+        if ($this->documentation) {
+            $crawler->filter('a[href]')->each(function (Crawler $link) {
+                $url = $this->documentation->rewriteUrl($link->attr('href'));
+                $prefix = $this->documentation->url().'/';
+                $path = parse_url($url, PHP_URL_PATH) ?: '';
+                $node = $link->getNode(0);
+                $page = trim(substr($path, strlen($prefix)), '/');
+
+                if (str_starts_with($path, $prefix) && ! preg_match('~^\d+\.x(?:/|$)~', $page) && ! $this->documentation->hasPage($page)) {
+                    $node->removeAttribute('href');
+                    $node->appendChild($node->ownerDocument->createTextNode($this->documentation->locale === 'ru'
+                        ? ' (статья не сохранилась в архиве)'
+                        : ' (page unavailable in this archive)'));
+                } else {
+                    $node->setAttribute('href', $url);
+                }
+            });
+        }
 
         $this->content = $crawler->html();
 

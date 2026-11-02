@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\DocumentationDestination;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Spatie\Export\Destination;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->extend(Destination::class, fn ($destination) => new DocumentationDestination($destination));
+
         $this->routes(function () {
             Route::middleware('web')
                 ->namespace($this->namespace)

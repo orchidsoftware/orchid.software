@@ -1,0 +1,131 @@
+{
+    "en": {
+        "Get started": {
+            "Introduction project": "/en/docs",
+            "Installation platform": "/en/docs/installation",
+            "Configuration": "/en/docs/configuration",
+            "Upgrade Guide": "/en/docs/upgrade"
+        },
+        "Tutorials": {
+            "Quick start": "/en/docs/quickstart",
+            "Data management": "/en/docs/quickstart-crud",
+            "Manage attachments": "/en/docs/quickstart-files",
+            "Sorting and filtering in a table": "/en/docs/quickstart-sort-filter-table"
+        },
+        "Core concepts": {
+            "Screens": "/en/docs/screens",
+            "Screen layouts": "/en/docs/layouts/index",
+            "Form elements": "/en/docs/field",
+            "Panel menu": "/en/docs/menu",
+            "Permissions": "/en/docs/access",
+            "Filtration": "/en/docs/filters",
+            "Attachments": "/en/docs/attachments",
+            "Notifications": "/en/docs/alert"
+        },
+        "Extra": {
+            "Presenters": "/en/docs/presenters",
+            "Scout search": "/en/docs/global-search",
+            "Icons": "/en/docs/icons",
+            "Controllers": "/en/docs/controllers",
+            "Using JS": "/en/docs/javascript",
+            "Form builder": "/en/docs/builder",
+            "Branding": "/en/docs/brand"
+        },
+        "Main": {
+            "Come back": "/en/docs/screens",
+            "Screen layouts": "/en/docs/layouts/index"
+        },
+        "Layers for grouping": {
+            "Accordion": "/en/docs/layouts/accordion",
+            "Columns": "/en/docs/layouts/columns",
+            "Drop-down list": "/en/docs/layouts/drop-down-list",
+            "Modals": "/en/docs/layouts/modals",
+            "Rows": "/en/docs/layouts/rows",
+            "Selection": "/en/docs/layouts/selection",
+            "Tabs": "/en/docs/layouts/tabs"
+        },
+        "Layers to display": {
+            "Charts": "/en/docs/layouts/charts",
+            "Table": "/en/docs/layouts/table",
+            "Cards": "/en/docs/layouts/cards",
+            "Facepile": "/en/docs/layouts/facepile",
+            "Persona": "/en/docs/layouts/persona"
+        },
+        "Universal": {
+            "Listener": "/en/docs/layouts/listener",
+            "Custom template": "/en/docs/layouts/custom-template",
+            "Extension": "/en/docs/layouts/extension",
+            "Wrapper": "/en/docs/layouts/wrapper",
+            "Components": "/en/docs/layouts/components"
+        },
+        "Additional articles": {
+            "Сompact": "/en/docs/layouts/compact",
+            "Сompendium": "/en/docs/layouts/compendium"
+        }
+    },
+    "ru": {
+        "Начало работы": {
+            "Введение в проект": "/ru/docs",
+            "Установка платформы": "/ru/docs/installation",
+            "Обзор параметров": "/ru/docs/configuration",
+            "Руководство по обновлению": "/ru/docs/upgrade"
+        },
+        "Учебные пособия": {
+            "Быстрый старт": "/ru/docs/quickstart",
+            "Управление данными": "/ru/docs/quickstart-crud",
+            "Работа с файлами": "/ru/docs/quickstart-files",
+            "Сортировка и фильтрация": "/ru/docs/quickstart-sort-filter-table"
+        },
+        "Основные концепции": {
+            "Экраны": "/ru/docs/screens",
+            "Макеты экрана": "/ru/docs/layouts/index",
+            "Элементы формы": "/ru/docs/field",
+            "Меню панели": "/ru/docs/menu",
+            "Права доступа": "/ru/docs/access",
+            "Фильтрация": "/ru/docs/filters",
+            "Вложенные файлы": "/ru/docs/attachments",
+            "Уведомления": "/ru/docs/alert"
+        },
+        "Дополнительно": {
+            "Представители": "/ru/docs/presenters",
+            "Scout поиск": "/ru/docs/global-search",
+            "Иконки": "/ru/docs/icons",
+            "Контроллеры": "/ru/docs/controllers",
+            "Использование JS": "/ru/docs/javascript",
+            "Строитель форм": "/ru/docs/builder",
+            "Брендирование": "/ru/docs/brand"
+        },
+        "Основное": {
+            "Вернуться назад": "/ru/docs/screens",
+            "Макеты экрана": "/ru/docs/layouts/index"
+        },
+        "Макеты группировки": {
+            "Аккордеон": "/ru/docs/layouts/accordion",
+            "Колонки": "/ru/docs/layouts/columns",
+            "Раскрывающийся список": "/ru/docs/layouts/drop-down-list",
+            "Модальные окна": "/ru/docs/layouts/modals",
+            "Строки": "/ru/docs/layouts/rows",
+            "Набор фильтров": "/ru/docs/layouts/selection",
+            "Табы": "/ru/docs/layouts/tabs"
+        },
+        "Макеты отображения": {
+            "Графики": "/ru/docs/layouts/charts",
+            "Таблицы": "/ru/docs/layouts/table",
+            "Карточки": "/ru/docs/layouts/cards",
+            "Facepile": "/ru/docs/layouts/facepile",
+            "Persona": "/ru/docs/layouts/persona"
+        },
+        "Универсальные": {
+            "Слушатель": "/ru/docs/layouts/listener",
+            "Пользовательский шаблон": "/ru/docs/layouts/custom-template",
+            "Расширение слоёв": "/ru/docs/layouts/extension",
+            "Обертка": "/ru/docs/layouts/wrapper",
+            "Компоненты": "/ru/docs/layouts/components"
+        },
+        "Другие статьи": {
+            "Cropper": "/ru/docs/fields/cropper",
+            "Сompact": "/ru/docs/layouts/compact",
+            "Сompendium": "/ru/docs/layouts/compendium"
+        }
+    }
+}

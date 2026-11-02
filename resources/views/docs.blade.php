@@ -19,10 +19,53 @@
 
             <div class="docs-layout theme-paper">
                 <aside class="sidebar">
-                    <x-docs-menu :section="$section ?? 'site.navigation.'"/>
+                    <x-docs-menu :section="$section ?? 'site.navigation.'" :documentation="$documentation ?? null">
+                        @if($documentation ?? null)
+                            <div class="docs-version">
+                                <svg class="symbol" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M6 7v10m12-10a10 10 0 0 1-10 10H6"/>
+                                </svg>
+                                <select id="docs-version" aria-label="{{ app()->getLocale() === 'ru' ? 'Версия Orchid' : 'Orchid version' }}" onchange="window.location.href = this.value">
+                                    @foreach(collect($documentation->switcher($docPage))->groupBy(fn ($link, $version) => (int) $version < 14 ? 'Legacy' : 'Current', preserveKeys: true) as $group => $options)
+                                        <optgroup label="{{ $group }}">
+                                            @foreach($options as $version => $link)
+                                                <option value="{{ $link }}" @selected($version === $documentation->version)>{{ $version }}{{ $version === \App\Documentation::latest() ? (app()->getLocale() === 'ru' ? ' (актуальная)' : ' (latest)') : (version_compare($version, \App\Documentation::latest(), '>') ? (app()->getLocale() === 'ru' ? ' (в разработке)' : ' (development)') : '') }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                    @endforeach
+                                </select>
+                                <svg class="chevron" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 4.5 3 3 3-3"/></svg>
+                                <noscript>
+                                    <ul >
+                                        @foreach($documentation->switcher($docPage) as $version => $link)
+                                            <li><a href="{{ $link }}" @if($version === $documentation->version) aria-current="true" @endif>{{ $version }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </noscript>
+                            </div>
+                        @endif
+                    </x-docs-menu>
                 </aside>
                 <div class="reading">
                     <main class="article">
+                        @if(($documentation ?? null) && $documentation->version !== \App\Documentation::latest())
+                            <aside class="docs-archive alert-warning" role="note" aria-label="{{ $documentation->isDevelopment() ? (app()->getLocale() === 'ru' ? 'Документация в разработке' : 'Development documentation') : (app()->getLocale() === 'ru' ? 'Архивная документация' : 'Archived documentation') }}">
+                                <svg class="symbol" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 7h16v13H4zM3 3h18v4H3zM9 11h6"/>
+                                </svg>
+                                <div class="message">
+                                    <div class="heading">
+                                        <strong>{{ $documentation->isDevelopment() ? (app()->getLocale() === 'ru' ? 'Документация в разработке' : 'Development documentation') : (app()->getLocale() === 'ru' ? 'Архивная документация' : 'Archived documentation') }}</strong>
+                                        <span class="version">{{ $documentation->version }}</span>
+                                    </div>
+                                    <p class="copy">{{ $documentation->isDevelopment() ? (app()->getLocale() === 'ru' ? 'Orchid '.$documentation->version.' находится в разработке. API может измениться до релиза.' : 'Orchid '.$documentation->version.' is in development. APIs may change before release.') : (app()->getLocale() === 'ru' ? 'Это руководство относится к одной из предыдущих версий Orchid.' : 'This guide covers an earlier version of Orchid.') }}</p>
+                                    <a class="action" href="{{ $documentation->switcher($docPage)[\App\Documentation::latest()] }}">
+                                        {{ $documentation->isDevelopment() ? (app()->getLocale() === 'ru' ? 'Открыть стабильную версию' : 'Read the stable version') : (app()->getLocale() === 'ru' ? 'Открыть актуальную версию' : 'Read the latest version') }}
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </aside>
+                        @endif
                         @isset($redirect)
                             <script>
                                 setTimeout( () => {
@@ -49,7 +92,7 @@
 
 
                             <x-docs-anchors :content="$content"/>
-                            <x-docs-content :content="$content"/>
+                            <x-docs-content :content="$content" :documentation="$documentation ?? null"/>
 
 
                             @yield('sub-main')

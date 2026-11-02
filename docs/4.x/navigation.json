@@ -1,0 +1,65 @@
+{
+    "en": {
+        "Prologue": {
+            "Introduction project": "/en/docs",
+            "Installation platform": "/en/docs/installation",
+            "Contribution": "/en/docs/contributors",
+            "Licensing": "/en/docs/license"
+        },
+        "Platform": {
+            "Configuration": "/en/docs/configuration",
+            "Panel menu": "/en/docs/panel_menu",
+            "Screens": "/en/docs/screens",
+            "Layouts": "/en/docs/layouts",
+            "Filters": "/en/docs/filters",
+            "Fields": "/en/docs/field",
+            "Widgets": "/en/docs/widget",
+            "Access rights": "/en/docs/access",
+            "Settings": "/en/docs/settings",
+            "Notifications": "/en/docs/alert",
+            "Extension": "/en/docs/extension"
+        },
+        "Content control": {
+            "Entities": "/en/docs/entities",
+            "Posts": "/en/docs/post",
+            "Tags": "/en/docs/tags",
+            "Commentaries": "/en/docs/comments",
+            "Menu": "/en/docs/menu"
+        }
+    },
+    "ru": {
+        "Пролог": {
+            "Предисловие": "/ru/docs/preface",
+            "Введение в проект": "/ru/docs",
+            "Кодекс поведения": "/ru/docs/code-of-conduct",
+            "Участие в разработке": "/ru/docs/contributors",
+            "Содействие проекту": "/ru/docs/promote",
+            "Лицензия": "/ru/docs/license"
+        },
+        "Начало работы": {
+            "Установка платформы": "/ru/docs/installation",
+            "Обзор параметров": "/ru/docs/configuration"
+        },
+        "Платформа": {
+            "Меню панели": "/ru/docs/panel-menu",
+            "Экраны": "/ru/docs/screens",
+            "Макеты экрана": "/ru/docs/layouts",
+            "Фильтрация": "/ru/docs/filters",
+            "Элементы формы": "/ru/docs/field",
+            "Глобальный поиск": "/ru/docs/global-search",
+            "Права доступа": "/ru/docs/access",
+            "Виджеты": "/ru/docs/widget",
+            "Вложения": "/ru/docs/attachments",
+            "Настройки": "/ru/docs/settings",
+            "Уведомления": "/ru/docs/alert",
+            "Расширение": "/ru/docs/extension"
+        },
+        "Управление содержимым": {
+            "Сущности": "/ru/docs/entities",
+            "Записи": "/ru/docs/post",
+            "Теги": "/ru/docs/tags",
+            "Комментарии": "/ru/docs/comments",
+            "Меню": "/ru/docs/menu"
+        }
+    }
+}

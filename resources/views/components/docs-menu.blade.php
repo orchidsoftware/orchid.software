@@ -16,4 +16,6 @@
     @endforeach
 </nav>
 
+{{ $slot }}
+
 <a href="#" title="Scroll to the top of the page" class="back-to-top">Back to top ↑</a>

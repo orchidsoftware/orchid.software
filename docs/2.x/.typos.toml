@@ -1,0 +1,5 @@
+# Portuguese translation label in the archived navigation metadata.
+[type.navigation]
+extend-glob = ["navigation.json"]
+[type.navigation.extend-words]
+instrumentos = "instrumentos"

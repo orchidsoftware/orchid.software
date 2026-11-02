@@ -59,8 +59,9 @@ jobs:
           APP_URL: https://orchid.software
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |
+          php tests/documentation.php
           php artisan export
-          php artisan make:sitemap
+          php tests/static-documentation.php
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0

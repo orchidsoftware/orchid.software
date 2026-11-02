@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use Symfony\Component\DomCrawler\Crawler;
 
 class GenerateSiteMap extends Command
 {
@@ -36,17 +36,27 @@ class GenerateSiteMap extends Command
 
         $sitemap = Sitemap::create();
 
-        collect($files)->filter(function (string $file) {
-            return Str::of($file)->endsWith('.html');
-        })->map(function (string $file) {
-            return (string) Str::of($file)->remove('index.html');
-        })->map(function ($path) {
-            return Url::create($path)
-                ->setLastModificationDate(Carbon::yesterday())
-                ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY);
-        })->each(function (Url $url) use ($sitemap) {
-            $sitemap->add($url);
-        });
+        collect($files)->filter(fn (string $file) => Str::endsWith($file, '.html'))
+            ->map(function (string $file) use ($disk) {
+                $crawler = new Crawler(\Storage::disk($disk)->get($file));
+                $robots = $crawler->filter('meta[name="robots"]');
+
+                if ($robots->count() && str_contains(strtolower($robots->attr('content')), 'noindex')) {
+                    return null;
+                }
+
+                $canonical = $crawler->filter('link[rel="canonical"]');
+                $path = '/'.Str::beforeLast($file, 'index.html');
+                $url = $canonical->count() ? $canonical->attr('href') : url($path);
+
+                if ($crawler->filter('meta[http-equiv="refresh"]')->count()) {
+                    return null;
+                }
+
+                return $url;
+            })->filter()->unique()->each(function (string $url) use ($sitemap) {
+                $sitemap->add(Url::create($url));
+            });
 
         $sitemap->writeToDisk($disk, 'sitemap.xml');
 

@@ -20,6 +20,13 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
-      - uses: crate-ci/typos@v1.50.0
+      - name: Install typos and check the current introduction
+        uses: crate-ci/typos@v1.50.0
         with:
           config: ./.github/typos.toml
+          files: docs/14.x/en/index.md
+      - name: Check every file with its scoped dictionary
+        shell: bash
+        run: |
+          "${RUNNER_TEMP}/typos" --config .github/typos.toml --files |
+            "${RUNNER_TEMP}/typos" --config .github/typos.toml --file-list -

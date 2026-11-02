@@ -1,0 +1,12 @@
+{
+    "en": {
+        "Get started": {
+            "Introduction": "/en/docs"
+        }
+    },
+    "ru": {
+        "Начало работы": {
+            "Введение": "/ru/docs"
+        }
+    }
+}

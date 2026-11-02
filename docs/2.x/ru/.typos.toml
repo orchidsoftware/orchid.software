@@ -1,0 +1,11 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.legacy_menu]
+extend-glob = ["panel_menu.md", "tutorial_profile.md"]
+[type.legacy_menu.extend-identifiers]
+"childs" = "childs"
+
+[type.legacy_image_size]
+extend-glob = ["post.md"]
+[type.legacy_image_size.extend-identifiers]
+"standart" = "standart"

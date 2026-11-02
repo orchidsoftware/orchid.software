@@ -1,5 +1,7 @@
 <?php
 
+use App\Documentation;
+
 return [
 
     /*
@@ -14,12 +16,12 @@ return [
      *
      * For example: "about", "posts/featured"
      */
-    'paths' => [
+    'paths' => array_merge([
         '/design-system',
         '/llms.txt',
         '/en',
         '/ru',
-    ],
+    ], Documentation::exportPaths()),
 
     /*
      * Files and folders that should be included in the build. Expects

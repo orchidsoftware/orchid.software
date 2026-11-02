@@ -1,0 +1,16 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.md.extend-words]
+"aling" = "aling"
+"ba" = "ba"
+"dito" = "dito"
+"grap" = "grap"
+"lokal" = "lokal"
+"maka" = "maka"
+"namin" = "namin"
+"opinyon" = "opinyon"
+"posible" = "posible"
+"programa" = "programa"
+"responsable" = "responsable"
+"rin" = "rin"
+"sintaks" = "sintaks"

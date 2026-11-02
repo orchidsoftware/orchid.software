@@ -1,0 +1,63 @@
+{
+    "en": {
+        "Get started": {
+            "Introduction project": "/en/docs",
+            "Installation platform": "/en/docs/installation",
+            "Configuration": "/en/docs/configuration"
+        },
+        "Tutorials": {
+            "Quick start": "/en/docs/quickstart",
+            "Data management": "/en/docs/quickstart-crud"
+        },
+        "Core concepts": {
+            "Screens": "/en/docs/screens",
+            "Layouts": "/en/docs/layouts",
+            "Form": "/en/docs/field",
+            "Menu": "/en/docs/menu",
+            "Permissions": "/en/docs/access"
+        },
+        "Extra": {
+            "Filtration": "/en/docs/filters",
+            "Global search": "/en/docs/global-search",
+            "Attachments": "/en/docs/attachments",
+            "Settings": "/en/docs/settings",
+            "Notifications": "/en/docs/alert",
+            "Controllers": "/en/docs/controllers",
+            "Using JS": "/en/docs/javascript"
+        }
+    },
+    "ru": {
+        "Начало работы": {
+            "Введение в проект": "/ru/docs",
+            "Установка платформы": "/ru/docs/installation",
+            "Обзор параметров": "/ru/docs/configuration"
+        },
+        "Учебные пособия": {
+            "Быстрый старт": "/ru/docs/quickstart",
+            "Управление данными": "/ru/docs/quickstart-crud",
+            "Работа с файлами": "/ru/docs/quickstart-files"
+        },
+        "Основные концепции": {
+            "Экраны": "/ru/docs/screens",
+            "Макеты экрана": "/ru/docs/layouts",
+            "Элементы формы": "/ru/docs/field",
+            "Меню панели": "/ru/docs/menu",
+            "Права доступа": "/ru/docs/access"
+        },
+        "Дополнительно": {
+            "Фильтрация": "/ru/docs/filters",
+            "Глобальный поиск": "/ru/docs/global-search",
+            "Вложенные файлы": "/ru/docs/attachments",
+            "Настройки": "/ru/docs/settings",
+            "Уведомления": "/ru/docs/alert",
+            "Контроллеры": "/ru/docs/controllers",
+            "Использование JS": "/ru/docs/javascript"
+        },
+        "Сообщество": {
+            "Кодекс поведения": "/ru/docs/code-of-conduct",
+            "Участие в разработке": "/ru/docs/contributors",
+            "Содействие проекту": "/ru/docs/promote",
+            "Лицензия": "/ru/docs/license"
+        }
+    }
+}

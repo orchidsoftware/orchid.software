@@ -1,0 +1,87 @@
+---
+title: Permissions
+description: 'Typically, you manage several dozen permits in a typical business process.'
+---
+
+Usually, users are not assigned permissions in the ORCHID application (although this is available), but rather
+roles. The role associated with the permission set, not with the individual user.
+
+Typically, you manage several dozen permits in a typical business.
+process.
+You can also have, say, 10 to 100 users.
+Although these users are not completely different from each other,
+You can divide them into logical groups according to what they do with the program.
+These groups are called roles.
+
+If you needed to manage users directly by assigning them permissions,
+it would be tedious and erroneous
+due to the large number of users and permissions.
+
+- You can group one, two or more permissions in a role.
+- The user is assigned one or more roles.
+- A set of permissions owned by the user,
+ calculated as a combination of permissions from each user role.
+
+The user has several options for managing roles:
+
+```php
+// Check whether the user has permissions
+// Check is carried out both for the user and for his role
+Auth:user()->hasAccess($string);
+
+// Get all user roles
+Auth::user()->getRoles();
+
+// Check whether the user has a role
+Auth::user()->inRole($role)
+
+// Add role to user
+Auth::user()->addRole($role)
+```
+
+> **Note.** Permissions are not a substitute for `Gate` or`Policies` included in the framework frame.
+
+## Roles
+
+Roles also have procedures for:
+
+```php
+// Returns all users with this role.
+$role->getUsers();
+```
+
+## Admin Creation
+
+To create a user with the maximum (at the time of creation) rights, run the following command:
+
+```php
+php artisan orchid:admin nickname email@email.com secretpassword
+```
+
+## Add your own permissions
+
+You can define your own permissions in applications.
+  Using them, you explicitly implement access to certain functions.
+
+An example of adding your own permissions using a provider:
+
+```php
+use Illuminate\Support\ServiceProvider;
+use Orchid\Platform\ItemPermission;
+use Orchid\Platform\Dashboard;
+
+class PermissionServiceProvider extends ServiceProvider
+{
+    /**
+     * @param Dashboard $dashboard
+     */
+    public function boot(Dashboard $dashboard)
+    {
+        $permissions = ItemPermission::group('modules')
+            ->addPermission('analytics', 'Access to data analytics')
+            ->addPermission('monitor', 'Access to the system monitor');
+
+        $dashboard->registerPermissions($permissions);
+    }
+}
+```

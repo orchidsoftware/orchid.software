@@ -1,0 +1,157 @@
+{
+    "en": {
+        "Where to start": {
+            "Introduction": "/en/docs",
+            "Requirements": "/en/docs/requirements",
+            "Installation": "/en/docs/installation",
+            "Upgrade": "/en/docs/upgrade",
+            "Contribution": "/en/docs/contributors",
+            "Licensing": "/en/docs/license"
+        },
+        "Guide": {
+            "Configuration": "/en/docs/configuration",
+            "Authentication": "/en/docs/authentication",
+            "Blog creation": "/en/docs/tutorial_blog",
+            "Form expansion": "/en/docs/tutorial_phpinfo",
+            "Profile creation": "/en/docs/tutorial_profile"
+        },
+        "Platform": {
+            "Panel menu": "/en/docs/panel_menu",
+            "Screens": "/en/docs/screens",
+            "Layouts": "/en/docs/layouts",
+            "Filters": "/en/docs/filters",
+            "Fields": "/en/docs/field",
+            "Widgets": "/en/docs/widget",
+            "Forms": "/en/docs/form",
+            "Extension": "/en/docs/extension"
+        },
+        "Dashboard": {
+            "Access rights": "/en/docs/access",
+            "Settings": "/en/docs/settings",
+            "Active links": "/en/docs/active",
+            "Notifications": "/en/docs/alert"
+        },
+        "Content control": {
+            "Behaviors": "/en/docs/behaviors",
+            "Posts": "/en/docs/post",
+            "Tags": "/en/docs/tags",
+            "Commentaries": "/en/docs/comments",
+            "Menu": "/en/docs/menu"
+        },
+        "Additional articles": {
+            "Backups": "/en/docs/packages/backups",
+            "Defender": "/en/docs/packages/defender",
+            "Error log": "/en/docs/packages/logs",
+            "System Monitor": "/en/docs/packages/monitor",
+            "Schema": "/en/docs/packages/schema",
+            "Socket": "/en/docs/packages/socket",
+            "Step-by-step guide. Create an application": "/en/docs/tutorial_clinic",
+            "Create a package": "/en/docs/tutorial_monitor"
+        }
+    },
+    "ph": {
+        "Additional articles": {
+            "Mga Pahintulot": "/ph/docs/access",
+            "Mga Reaktibong Link": "/ph/docs/active",
+            "Mga Paalala": "/ph/docs/alert",
+            "Awtorisasyon": "/ph/docs/authorization",
+            "Behaviors": "/ph/docs/behaviors",
+            "Mga Komento": "/ph/docs/comments",
+            "Partisipasyon sa pagbubuo": "/ph/docs/contributors",
+            "Idagdag ang admin na panel": "/ph/docs/extensions",
+            "Mga Field": "/ph/docs/fields",
+            "Mga Filter": "/ph/docs/filters",
+            "Mga Form": "/ph/docs/form",
+            "Dokumentasyon": "/ph/docs",
+            "Instalasyon": "/ph/docs/installation",
+            "Mga Layout ng Screen": "/ph/docs/layouts",
+            "Ang MIT na Lisensya (MIT)": "/ph/docs/license",
+            "Ang Menu": "/ph/docs/menu",
+            "Mga Lathala": "/ph/docs/post",
+            "Mga Kinakailangan ng Sistema": "/ph/docs/requirements",
+            "Ang Screen": "/ph/docs/screens",
+            "Mga Setting": "/ph/docs/settings",
+            "Mga tag": "/ph/docs/tags",
+            "Paglilikha ng isang blog": "/ph/docs/tutorial_blog",
+            "Paglalahad ng mga impormasyon tungkol sa PHP": "/ph/docs/tutorial_phpinfo",
+            "Gabay sa Pag-upgrade": "/ph/docs/upgrade",
+            "Ang Widget": "/ph/docs/widget"
+        }
+    },
+    "ptpt": {
+        "Additional articles": {
+            "Direitos de acesso": "/ptpt/docs/acess",
+            "Links ativos": "/ptpt/docs/active",
+            "Notificações": "/ptpt/docs/alert",
+            "Autenticação": "/ptpt/docs/authentication",
+            "Comportamentos": "/ptpt/docs/behaviors",
+            "Comentários": "/ptpt/docs/comments",
+            "Arquivo de configuração": "/ptpt/docs/configuration",
+            "Extensão do painel de instrumentos": "/ptpt/docs/extension",
+            "Campos": "/ptpt/docs/field",
+            "Filtros": "/ptpt/docs/filters",
+            "Formulários": "/ptpt/docs/form"
+        }
+    },
+    "ru": {
+        "C чего начать": {
+            "Введение": "/ru/docs",
+            "Требования": "/ru/docs/requirements",
+            "Установка": "/ru/docs/installation",
+            "Обновление": "/ru/docs/upgrade",
+            "Кодекс поведения": "/ru/docs/code-of-conduct",
+            "Участие в разработке": "/ru/docs/contributors",
+            "Содействие проекту": "/ru/docs/promote",
+            "Лицензия": "/ru/docs/license"
+        },
+        "Руководство": {
+            "Обзор параметров": "/ru/docs/configuration",
+            "Авторизация": "/ru/docs/authentication",
+            "Создание блога": "/ru/docs/tutorial_blog",
+            "Расширение формы": "/ru/docs/tutorial_phpinfo",
+            "Создание экрана": "/ru/docs/tutorial_profile"
+        },
+        "Платформа": {
+            "Меню панели": "/ru/docs/panel_menu",
+            "Экраны": "/ru/docs/screens",
+            "Макеты": "/ru/docs/layouts",
+            "Фильтры": "/ru/docs/filters",
+            "Поля": "/ru/docs/field",
+            "Виджеты": "/ru/docs/widget",
+            "Формы": "/ru/docs/form",
+            "Расширение": "/ru/docs/extension"
+        },
+        "Панель управления": {
+            "Права доступа": "/ru/docs/access",
+            "Настройки": "/ru/docs/settings",
+            "Активные ссылки": "/ru/docs/active",
+            "Уведомления": "/ru/docs/alert"
+        },
+        "Управление содержимым": {
+            "Поведения": "/ru/docs/behaviors",
+            "Записи": "/ru/docs/post",
+            "Теги": "/ru/docs/tags",
+            "Комментарии": "/ru/docs/comments",
+            "Меню": "/ru/docs/menu"
+        },
+        "Другие статьи": {
+            "Резервные копии": "/ru/docs/packages/backups",
+            "Защитник": "/ru/docs/packages/defender",
+            "Журнал ошибок": "/ru/docs/packages/logs",
+            "Системный Монитор": "/ru/docs/packages/monitor",
+            "Schema": "/ru/docs/packages/schema",
+            "Socket": "/ru/docs/packages/socket",
+            "Пошаговое руководство. Создание приложения": "/ru/docs/tutorial_clinic",
+            "Создание пакета": "/ru/docs/tutorial_monitor"
+        }
+    },
+    "es": {
+        "Additional articles": {
+            "Derechos de Acceso": "/es/docs/access",
+            "Enlaces activos": "/es/docs/active",
+            "Notificaciones": "/es/docs/alert",
+            "Autenticación": "/es/docs/athentication",
+            "Comportamientos": "/es/docs/behaviors"
+        }
+    }
+}

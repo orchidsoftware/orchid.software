@@ -25,12 +25,20 @@
     />
 
     <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
+    <link rel="canonical" href="{{ isset($canonical) ? url(rtrim($canonical, '/')).'/' : url()->current() }}">
+
+    @if(($documentation ?? null) && $documentation->version !== \App\Documentation::latest())
+        <meta name="robots" content="noindex, follow">
+    @endif
+
     <meta name="view-transition" content="same-origin">
 
-    @unless(request()->routeIs('design-system'))
-        <link rel="alternate" href="{{ \App\Docs::ahref('ru') }}" hreflang="ru"/>
-        <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="en"/>
-        <link rel="alternate" href="{{ \App\Docs::ahref('en') }}" hreflang="x-default"/>
+    @unless(request()->routeIs('design-system') || (($documentation ?? null) && $documentation->version !== \App\Documentation::latest()))
+        @foreach(['ru' => 'ru', 'en' => 'en', 'x-default' => 'en'] as $language => $locale)
+            @if($alternate = \App\Docs::ahref($locale, false))
+                <link rel="alternate" href="{{ $alternate }}" hreflang="{{ $language }}"/>
+            @endif
+        @endforeach
     @endunless
 
     <meta name="author" content="Alexandr Chernyaev">
@@ -62,9 +70,9 @@
                 </p>
             </nav>
             <nav class="languages" aria-label="Documentation language">
-                <a href="/en/docs" @class(['link', 'is-active' => is_active(['*/en/*', '/', '/en'])])>English</a>
+                <a href="{{ ($documentation ?? null) ? \App\Docs::ahref('en') : '/en/docs' }}" @class(['link', 'is-active' => is_active(['*/en/*', '/', '/en'])])>English</a>
                 <span aria-hidden="true">/</span>
-                <a href="/ru/docs" @class(['link', 'is-active' => is_active(['*/ru/*', '/ru'])])>Russian</a>
+                <a href="{{ ($documentation ?? null) ? \App\Docs::ahref('ru') : '/ru/docs' }}" @class(['link', 'is-active' => is_active(['*/ru/*', '/ru'])])>Russian</a>
             </nav>
         </div>
     </div>

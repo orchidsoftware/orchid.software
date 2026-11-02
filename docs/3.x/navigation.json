@@ -1,0 +1,121 @@
+{
+    "en": {
+        "Where to start": {
+            "Introduction": "/en/docs",
+            "Installation": "/en/docs/installation",
+            "Contribution": "/en/docs/contributors",
+            "Licensing": "/en/docs/license"
+        },
+        "Platform": {
+            "Configuration": "/en/docs/configuration",
+            "Authentication": "/en/docs/authentication",
+            "Panel menu": "/en/docs/panel_menu",
+            "Screens": "/en/docs/screens",
+            "Layouts": "/en/docs/layouts",
+            "Filters": "/en/docs/filters",
+            "Fields": "/en/docs/field",
+            "Widgets": "/en/docs/widget",
+            "Extension": "/en/docs/extension",
+            "Access rights": "/en/docs/access",
+            "Settings": "/en/docs/settings",
+            "Active links": "/en/docs/active",
+            "Notifications": "/en/docs/alert"
+        },
+        "Content control": {
+            "Entities": "/en/docs/entities",
+            "Posts": "/en/docs/post",
+            "Tags": "/en/docs/tags",
+            "Commentaries": "/en/docs/comments",
+            "Menu": "/en/docs/menu"
+        },
+        "Additional articles": {
+            "Blog creation": "/en/docs/tutorial_blog"
+        }
+    },
+    "ph": {
+        "Additional articles": {
+            "Mga Pahintulot": "/ph/docs/access",
+            "Mga Reaktibong Link": "/ph/docs/active",
+            "Mga Paalala": "/ph/docs/alert",
+            "Awtorisasyon": "/ph/docs/authorization",
+            "Mga Komento": "/ph/docs/comments",
+            "Partisipasyon sa pagbubuo": "/ph/docs/contributors",
+            "Entities": "/ph/docs/entities",
+            "Idagdag ang admin na panel": "/ph/docs/extensions",
+            "Mga Field": "/ph/docs/fields",
+            "Mga Filter": "/ph/docs/filters",
+            "Dokumentasyon": "/ph/docs",
+            "Instalasyon": "/ph/docs/installation",
+            "Mga Layout ng Screen": "/ph/docs/layouts",
+            "Ang MIT na Lisensya (MIT)": "/ph/docs/license",
+            "Ang Menu": "/ph/docs/menu",
+            "Mga Lathala": "/ph/docs/post",
+            "Mga Kinakailangan ng Sistema": "/ph/docs/requirements",
+            "Ang Screen": "/ph/docs/screens",
+            "Mga Setting": "/ph/docs/settings",
+            "Mga tag": "/ph/docs/tags",
+            "Paglilikha ng isang blog": "/ph/docs/tutorial_blog",
+            "Paglalahad ng mga impormasyon tungkol sa PHP": "/ph/docs/tutorial_phpinfo",
+            "Gabay sa Pag-upgrade": "/ph/docs/upgrade",
+            "Ang Widget": "/ph/docs/widget"
+        }
+    },
+    "ptpt": {
+        "Additional articles": {
+            "Direitos de acesso": "/ptpt/docs/acess",
+            "Links ativos": "/ptpt/docs/active",
+            "Notificações": "/ptpt/docs/alert",
+            "Autenticação": "/ptpt/docs/authentication",
+            "Comentários": "/ptpt/docs/comments",
+            "Arquivo de configuração": "/ptpt/docs/configuration",
+            "Comportamentos": "/ptpt/docs/entities",
+            "Extensão do painel de instrumentos": "/ptpt/docs/extension",
+            "Campos": "/ptpt/docs/field",
+            "Filtros": "/ptpt/docs/filters"
+        }
+    },
+    "ru": {
+        "Пролог": {
+            "Предисловие": "/ru/docs/preface",
+            "Введение": "/ru/docs",
+            "Установка": "/ru/docs/installation",
+            "Кодекс поведения": "/ru/docs/code-of-conduct",
+            "Участие в разработке": "/ru/docs/contributors",
+            "Содействие проекту": "/ru/docs/promote",
+            "Лицензия": "/ru/docs/license"
+        },
+        "Платформа": {
+            "Обзор параметров": "/ru/docs/configuration",
+            "Авторизация": "/ru/docs/authentication",
+            "Меню панели": "/ru/docs/panel_menu",
+            "Экраны": "/ru/docs/screens",
+            "Макеты": "/ru/docs/layouts",
+            "Фильтры": "/ru/docs/filters",
+            "Поля": "/ru/docs/field",
+            "Виджеты": "/ru/docs/widget",
+            "Поиск": "/ru/docs/global_search",
+            "Права доступа": "/ru/docs/access",
+            "Настройки": "/ru/docs/settings",
+            "Активные ссылки": "/ru/docs/active",
+            "Уведомления": "/ru/docs/alert",
+            "Расширение": "/ru/docs/extension"
+        },
+        "Управление содержимым": {
+            "Сущности": "/ru/docs/entities",
+            "Записи": "/ru/docs/post",
+            "Теги": "/ru/docs/tags",
+            "Комментарии": "/ru/docs/comments",
+            "Меню": "/ru/docs/menu",
+            "Вложения": "/ru/docs/attachments"
+        }
+    },
+    "es": {
+        "Additional articles": {
+            "Derechos de Acceso": "/es/docs/access",
+            "Enlaces activos": "/es/docs/active",
+            "Notificaciones": "/es/docs/alert",
+            "Autenticación": "/es/docs/athentication",
+            "Comportamientos": "/es/docs/behaviors"
+        }
+    }
+}

@@ -61,7 +61,7 @@ Route::get('/{locale?}/license', function (string $locale = 'en') {
     return view('license');
 })->where('locale', 'en|ru');
 
-Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $type) {
+$showIcons = function (string $locale, ?string $version = null) {
 
     $icons = collect(scandir(Path::getFolder()))
         ->filter(function ($value) {
@@ -74,11 +74,20 @@ Route::get('/{locale}/{type}/orchid-icons', function (string $locale, string $ty
             return [str_replace('.svg', '', $icon) => file_get_contents(Path::getFolder()."/$icon")];
         });
 
-    return (new Docs($locale, "$type/orchid-icons"))
+    return (new Docs($locale, 'docs/orchid-icons', $version))
         ->view('icons')
         ->with('icons', $icons);
 
-})->where('locale', 'en|ru');
+};
+
+Route::get('/{locale}/docs/{version}/orchid-icons', $showIcons)
+    ->where(['locale' => 'en|ru', 'version' => '\d+\.x']);
+
+Route::get('/{locale}/docs/orchid-icons', $showIcons)->where('locale', 'en|ru');
+
+Route::get('/{locale}/docs/{version}/{page?}', function (string $locale, string $version, string $page = 'index') {
+    return (new Docs($locale, "docs/$page", $version))->view('docs');
+})->where(['locale' => 'en|ru', 'version' => '\d+\.x', 'page' => '.*']);
 
 Route::get('/{locale}/{type}/{page?}', function (string $locale, string $type, string $page = 'index') {
     return (new Docs($locale, "$type/$page"))->view('docs');

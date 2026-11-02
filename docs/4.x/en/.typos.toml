@@ -1,0 +1,6 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.legacy_menu]
+extend-glob = ["panel_menu.md"]
+[type.legacy_menu.extend-identifiers]
+"childs" = "childs"

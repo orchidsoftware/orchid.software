@@ -1,0 +1,18 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.md.extend-words]
+"argumentos" = "argumentos"
+"comando" = "comando"
+"inicial" = "inicial"
+"momento" = "momento"
+"pase" = "pase"
+"posible" = "posible"
+"preste" = "preste"
+"programa" = "programa"
+"requiere" = "requiere"
+"ser" = "ser"
+"utiliza" = "utiliza"
+"varios" = "varios"
+
+[type.md.extend-identifiers]
+"athentication" = "athentication"

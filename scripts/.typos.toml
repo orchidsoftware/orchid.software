@@ -1,0 +1,5 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.archive_formatter]
+extend-glob = ["format-archive-docs.py"]
+extend-ignore-re = ["'[A-Za-z]+'\\s*:"]

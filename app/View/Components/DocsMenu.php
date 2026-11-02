@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Documentation;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\View;
@@ -19,11 +20,11 @@ class DocsMenu extends Component
      *
      * @return void
      */
-    public function __construct(Application $application, Repository $config, string $section = 'site.navigation.')
+    public function __construct(Application $application, Repository $config, string $section = 'site.navigation.', ?Documentation $documentation = null)
     {
         $locale = $application->getLocale();
 
-        $this->menu = $config->get($section.$locale);
+        $this->menu = $documentation?->navigation() ?? $config->get($section.$locale, []);
     }
 
     /**

@@ -1,0 +1,29 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.md.extend-words]
+"atual" = "atual"
+"autor" = "autor"
+"classe" = "classe"
+"comando" = "comando"
+"comandos" = "comandos"
+"comercial" = "comercial"
+"componente" = "componente"
+"controle" = "controle"
+"eles" = "eles"
+"erro" = "erro"
+"importante" = "importante"
+"independente" = "independente"
+"individuais" = "individuais"
+"inicial" = "inicial"
+"instrumentos" = "instrumentos"
+"momento" = "momento"
+"nomes" = "nomes"
+"problemas" = "problemas"
+"proceder" = "proceder"
+"programa" = "programa"
+"queres" = "queres"
+"ser" = "ser"
+"vai" = "vai"
+
+[type.md.extend-identifiers]
+"acess" = "acess"

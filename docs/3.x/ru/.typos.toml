@@ -1,0 +1,6 @@
+# Scoped spellings preserve native words and published historical API names.
+
+[type.legacy_image_size]
+extend-glob = ["attachments.md"]
+[type.legacy_image_size.extend-identifiers]
+"standart" = "standart"

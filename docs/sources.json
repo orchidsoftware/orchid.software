@@ -1,0 +1,427 @@
+{
+    "2.x": {
+        "repository": "orchidsoftware/platform",
+        "commit": "a61e0f36d45555eb8388b886c5090f391a9a61df",
+        "original_root": "docs",
+        "evidence": "2.2.7 tag",
+        "pages": {
+            "en": 37,
+            "es": 5,
+            "ph": 26,
+            "ptpt": 12,
+            "ru": 39
+        },
+        "supplementary_pages": {
+            "en/tutorial_clinic": {
+                "repository": "orchidsoftware/platform",
+                "commit": "5e26dfe0c1cad3c97799701d70af3ab40d4753fb",
+                "path": "docs/en/tutorial_clinic.md",
+                "incomplete_original": true
+            },
+            "en/tutorial_monitor": {
+                "repository": "orchidsoftware/platform",
+                "commit": "5e26dfe0c1cad3c97799701d70af3ab40d4753fb",
+                "path": "docs/en/tutorial_monitor.md",
+                "incomplete_original": true
+            },
+            "ru/tutorial_monitor": {
+                "repository": "orchidsoftware/platform",
+                "commit": "b5bab646f22a4f15e44e0f2287a5b07ef3bbcb7c",
+                "path": "docs/ru/tutorial_monitor.md",
+                "incomplete_original": true
+            }
+        },
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "6aab6f6bb54ed769f1caffa34eed1c526a79af81",
+        "assets": {
+            "https://orchid.software/img/scheme/behaviors.jpg": "/img/docs-archive/025b4dd732afbf46-behaviors.jpg",
+            "https://orchid.software/img/scheme/forms.jpg": "/img/scheme/forms.jpg",
+            "https://orchid.software/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "3.x": {
+        "repository": "orchidsoftware/platform",
+        "commit": "568c81fdc352301dd601f16723be10ffab267754",
+        "original_root": "docs",
+        "evidence": "3.11.0 tag",
+        "pages": {
+            "en": 24,
+            "es": 5,
+            "ph": 25,
+            "ptpt": 11,
+            "ru": 28
+        },
+        "supplementary_pages": {
+            "en/tutorial_blog": {
+                "repository": "orchidsoftware/platform",
+                "commit": "df0160a7ed4ad9ae011e90594a78754abfedf3ef",
+                "path": "docs/en/tutorial_blog.md",
+                "incomplete_original": false
+            }
+        },
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "2363e7ab246da19bbb995157eb4f5fbf5cbc41b2",
+        "assets": {
+            "https://orchid.software/img/ui/auth.png": "/img/ui/auth.png",
+            "https://orchid.software/img/scheme/entities.jpg": "/img/scheme/entities.jpg",
+            "https://orchid.software/img/ui/input.png": "/img/ui/input.png",
+            "https://orchid.software/img/ui/wysing.png": "/img/ui/wysing.png",
+            "https://orchid.software/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "https://orchid.software/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/img/ui/code.png": "/img/ui/code.png",
+            "https://orchid.software/img/ui/index.png": "/img/ui/index.png",
+            "https://orchid.software/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "https://orchid.software/img/scheme/behaviors.jpg": "/img/docs-archive/025b4dd732afbf46-behaviors.jpg"
+        },
+        "asset_fallbacks": {
+            "https://orchid.software/img/scheme/behaviors.jpg": "de6d63c9897405a2ca000143542d261662ad6edc:public/img/scheme/behaviors.jpg"
+        },
+        "unavailable_assets": []
+    },
+    "4.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "a5d9ba60d70343780c39d09951928aebb58bd533",
+        "original_root": "source",
+        "evidence": "Last snapshot before the explicit 5.0 documentation update 5e53fe3d7",
+        "pages": {
+            "en": 20,
+            "ru": 25
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [
+            "en/tutorial_blog"
+        ],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "a5d9ba60d70343780c39d09951928aebb58bd533",
+        "assets": {
+            "https://orchid.software/assets/img/scheme/entities.jpg": "/img/scheme/entities.jpg",
+            "https://orchid.software/assets/img/ui/input.png": "/img/ui/input.png",
+            "https://orchid.software/assets/img/ui/wysing.png": "/img/ui/wysing.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/ui/code.png": "/img/ui/code.png",
+            "https://orchid.software/assets/img/ui/index.png": "/img/ui/index.png",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "5.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "06a0014ab00db98dad70b5d707e6351171ceb5f0",
+        "original_root": "source",
+        "evidence": "Last snapshot before the explicit 6.0 documentation update 3cb8459be",
+        "pages": {
+            "en": 17,
+            "ru": 22
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "06a0014ab00db98dad70b5d707e6351171ceb5f0",
+        "assets": {
+            "https://orchid.software/assets/img/ui/input.png": "/img/ui/input.png",
+            "https://orchid.software/assets/img/ui/wysing.png": "/img/ui/wysing.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "https://orchid.software/assets/img/ui/code.png": "/img/ui/code.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "6.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "2f38e303b75b21307a05dd9a95f19ef0bace939d",
+        "original_root": "source",
+        "evidence": "Explicit 6.4.0 documentation update",
+        "pages": {
+            "en": 22,
+            "ru": 22
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "2f38e303b75b21307a05dd9a95f19ef0bace939d",
+        "assets": {
+            "https://orchid.software/assets/img/ui/input.png": "/img/ui/input.png",
+            "https://orchid.software/assets/img/ui/wysing.png": "/img/ui/wysing.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "https://orchid.software/assets/img/ui/code.png": "/img/ui/code.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "7.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "fc12a71435ed8f43f48467ef9c63b3959d95518d",
+        "original_root": "source",
+        "evidence": "7.0 tag",
+        "pages": {
+            "en": 42,
+            "ru": 45
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [
+            "en/icons",
+            "ru/icons"
+        ],
+        "asset_commit": "fc12a71435ed8f43f48467ef9c63b3959d95518d",
+        "assets": {
+            "/assets/img/fields/input.png": "/img/fields/input.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/assets/img/ui/code.png": "/img/ui/code.png",
+            "/assets/img/fields/cropper.png": "/img/fields/cropper.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/assets/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/assets/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/assets/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/assets/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/assets/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/assets/img/layouts/modals.png": "/img/layouts/modals.png",
+            "/assets/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/assets/img/layouts/table.png": "/img/layouts/table.png",
+            "/assets/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "8.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "9a3e807f2a52d85a852eb3df32a851a64344c4f6",
+        "original_root": "source",
+        "evidence": "8.0 tag",
+        "pages": {
+            "en": 42,
+            "ru": 43
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [
+            "en/icons",
+            "ru/icons"
+        ],
+        "asset_commit": "9a3e807f2a52d85a852eb3df32a851a64344c4f6",
+        "assets": {
+            "/assets/img/fields/input.png": "/img/fields/input.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/assets/img/ui/code.png": "/img/ui/code.png",
+            "/assets/img/fields/cropper.png": "/img/fields/cropper.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/assets/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/assets/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/assets/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/assets/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/assets/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/assets/img/layouts/modals.png": "/img/layouts/modals.png",
+            "/assets/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/assets/img/layouts/table.png": "/img/layouts/table.png",
+            "/assets/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "9.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "3f1ac70f0d22301327eae33e3c62f8c5b54989bb",
+        "original_root": "source",
+        "evidence": "9.0 tag",
+        "pages": {
+            "en": 30,
+            "ru": 30
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [
+            "ru/icons"
+        ],
+        "asset_commit": "3f1ac70f0d22301327eae33e3c62f8c5b54989bb",
+        "assets": {
+            "/assets/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/assets/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/assets/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/assets/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/assets/img/fields/input.png": "/img/fields/input.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/assets/img/ui/code.png": "/img/ui/code.png",
+            "/assets/img/fields/cropper.png": "/img/fields/cropper.png",
+            "/assets/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/assets/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/assets/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/assets/img/layouts/modals.png": "/img/layouts/modals.png",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "/assets/img/layouts/table.png": "/img/layouts/table.png"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "10.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "be2e6c5bacfcbaad657809fbe09c2040d65c4fe2",
+        "original_root": "source",
+        "evidence": "10.0 tag",
+        "pages": {
+            "en": 32,
+            "ru": 30
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [
+            "ru/icons"
+        ],
+        "asset_commit": "be2e6c5bacfcbaad657809fbe09c2040d65c4fe2",
+        "assets": {
+            "/assets/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/assets/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/assets/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/assets/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/assets/img/fields/input.png": "/img/fields/input.png",
+            "https://orchid.software/assets/img/ui/datatime.png": "/img/ui/datatime.png",
+            "https://orchid.software/assets/img/ui/markdown.png": "/img/ui/markdown.png",
+            "https://orchid.software/assets/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/assets/img/ui/code.png": "/img/ui/code.png",
+            "/assets/img/fields/cropper.png": "/img/fields/cropper.png",
+            "/assets/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/assets/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/assets/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "https://orchid.software/assets/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/assets/img/layouts/legend.png": "/img/layouts/legend.png",
+            "/assets/img/layouts/modals.png": "/img/layouts/modals.png",
+            "https://orchid.software/assets/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "/assets/img/layouts/table.png": "/img/layouts/table.png"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "11.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "47bacaba29bef3149c29ec7d07080b5ec55b1b02",
+        "original_root": "docs",
+        "evidence": "Last snapshot before the 12.0 upgrade guide update 2a85d1c5c",
+        "pages": {
+            "en": 33,
+            "ru": 30
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "47bacaba29bef3149c29ec7d07080b5ec55b1b02",
+        "assets": {
+            "/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/img/fields/input.png": "/img/fields/input.png",
+            "/img/ui/datatime.png": "/img/ui/datatime.png",
+            "/img/ui/markdown.png": "/img/ui/markdown.png",
+            "/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/img/ui/code.png": "/img/ui/code.png",
+            "/img/fields/cropper.png": "/img/fields/cropper.png",
+            "/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/img/layouts/legend.png": "/img/layouts/legend.png",
+            "/img/layouts/modals.png": "/img/layouts/modals.png",
+            "/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "/img/layouts/table.png": "/img/layouts/table.png"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "12.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "dee09768ed08fe453eb0a76eb23e0393cf514e60",
+        "original_root": "docs",
+        "evidence": "Last snapshot before the 13.0 upgrade guide update 11d1e92fc",
+        "pages": {
+            "en": 33,
+            "ru": 33
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "dee09768ed08fe453eb0a76eb23e0393cf514e60",
+        "assets": {
+            "/img/layouts/charts.png": "/img/layouts/charts.png",
+            "/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/img/fields/input.png": "/img/fields/input.png",
+            "/img/ui/datatime.png": "/img/ui/datatime.png",
+            "/img/ui/markdown.png": "/img/ui/markdown.png",
+            "/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/img/ui/code.png": "/img/ui/code.png",
+            "/img/fields/cropper.png": "/img/fields/cropper.png",
+            "/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "/img/scheme/architecture.jpg": "/img/docs-archive/17bed5f36394b4ca-architecture.jpg",
+            "/img/layouts/legend.png": "/img/layouts/legend.png",
+            "/img/layouts/modals.png": "/img/layouts/modals.png",
+            "/img/scheme/screens.jpg": "/img/docs-archive/9da4398f0689ed84-screens.jpg",
+            "/img/layouts/table.png": "/img/layouts/table.png"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    },
+    "13.x": {
+        "repository": "orchidsoftware/orchid.software",
+        "commit": "b57c9c40725afae2e52a702b2cd800a99214df7d",
+        "original_root": "docs",
+        "evidence": "13.0 tag",
+        "pages": {
+            "en": 35,
+            "ru": 34
+        },
+        "supplementary_pages": [],
+        "unavailable_articles": [],
+        "icon_catalogs_without_dynamic_loop": [],
+        "asset_commit": "b57c9c40725afae2e52a702b2cd800a99214df7d",
+        "assets": {
+            "/img/layouts/cards.png": "/img/layouts/cards.png",
+            "/img/layouts/persona.png": "/img/layouts/persona.png",
+            "/img/layouts/facepile.png": "/img/layouts/facepile.png",
+            "/img/fields/input.png": "/img/fields/input.png",
+            "/img/ui/datatime.png": "/img/ui/datatime.png",
+            "/img/ui/markdown.png": "/img/ui/markdown.png",
+            "/img/ui/markdown2.png": "/img/ui/markdown2.png",
+            "/img/ui/code.png": "/img/ui/code.png",
+            "/img/fields/cropper.png": "/img/fields/cropper.png",
+            "/img/layouts/accordion.png": "/img/layouts/accordion.png",
+            "/img/layouts/columns.png": "/img/layouts/columns.png",
+            "/img/layouts/tabs.png": "/img/layouts/tabs.png",
+            "/img/scheme/architecture.jpg": "/img/scheme/architecture.jpg",
+            "/img/layouts/legend.png": "/img/layouts/legend.png",
+            "/img/layouts/modals.png": "/img/layouts/modals.png",
+            "/img/scheme/screens.jpg": "/img/scheme/screens.jpg",
+            "/img/layouts/table.png": "/img/layouts/table.png",
+            "/img/layouts/charts.png": "/img/layouts/charts.png"
+        },
+        "asset_fallbacks": [],
+        "unavailable_assets": []
+    }
+}

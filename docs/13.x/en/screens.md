@@ -1,0 +1,501 @@
+---
+title: Screens
+description: 'Laravel Orchid provides screens for building and maintaining complex web applications, allowing for
+  separation of concerns between data and presentation through the use of layouts and data retrieval from various
+  sources.'
+---
+
+## Introduction
+
+Screens on the Orchid platform are the main element that defines the layout and behavior of a page. Each screen is
+described by a class that specifies the components that should be displayed, as well as their properties and
+interactions.
+
+Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or
+any other external source. Instead, screens focus on defining the appearance of the page using provided templates
+(called "layouts"), and specifying which data should be displayed in each layout.
+
+In this way, screens provide a separation of concerns between the data and the presentation, making it easy to
+build and maintain complex web applications.
+
+## Creating Screens
+
+You can create a new screen by running the command:
+
+```php
+php artisan orchid:screen Idea
+```
+
+An `Idea` file will be created in the `app/Orchid/Screens` directory with the following contents:
+
+```php
+namespace App\Http\Controllers\Screens;
+
+use Illuminate\Http\Request;
+use Orchid\Screen\Screen;
+
+class Idea extends Screen
+{
+    /**
+     * Query data
+     *
+     * @return array
+     */
+    public function query() : array
+    {
+        return [];
+    }
+
+    /**
+     * The name is displayed on the user's screen and in the headers
+     */
+    public function name(): ?string
+    {
+        return "Idea Screen";
+    }
+
+    /**
+     * The description is displayed on the user's screen under the heading
+     */
+    public function description(): ?string
+    {
+        return "Idea Screen";
+    }
+
+    /**
+     * Button commands
+     *
+     * @return array
+     */
+    public function commandBar() : array
+    {
+        return [];
+    }
+
+    /**
+     * Views
+     *
+     * @return array
+     */
+    public function layout() : array
+    {
+        return [];
+    }
+}
+```
+
+The screen class includes several methods that you can use to define the behavior and appearance of the screen.
+These include:
+
+![This schematic illustrates how screens work in Orchid.](/img/scheme/screens.jpg)
+
+- **query**: This method is used to load data from the database or other sources. It should return an array of data
+  that will be available to the screen's layouts and views.
+
+- **commandBar**: This method is used to define buttons and other actions that will be displayed on the screen.
+
+- **layout**: This method is used to define the structure and content of the screen. It should return an array of
+  layout objects, which can be used to display data, forms, and other elements on the screen.
+
+To use the new screen in your application, you will need to register it in the route file.
+
+## Routing Screens
+
+Before a screen can be accessed at a direct URL, it must be registered in the routes/platform.php routes file.
+Routes registered in this file will be passed through the middleware specified in the
+[configuration](/en/docs/configuration).
+
+To register a screen, you can use the screen method of the `Route` class. For example:
+
+```php
+use App\Orchid\Screens\Idea;
+
+Route::screen('/idea', Idea::class)->name('platform.idea');
+```
+
+This will register a new route for the Idea screen, accessible at the URL `/idea`.
+
+Adding a screen is slightly different from the usual registration, for example, a `GET` request. Instead of a
+single address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
+
+```php
+Method   | URI                      | Name
+---------+--------------------------+--------------
+GET|POST | dashboard/idea/{method?} | platform.idea
+```
+
+If you have multiple screens, you can register them in the same way. For example:
+
+```php
+use App\Orchid\Screens\Idea;
+use App\Orchid\Screens\IdeaEdit;
+
+Route::screen('/idea/edit', IdeaEdit::class)->name('platform.idea.edit');
+Route::screen('/idea', Idea::class)->name('platform.idea');
+```
+
+> It's important to note that when registering multiple routes, Laravel will choose the first matching route.
+
+By writing the following routes:
+
+```php
+Route::screen('/idea', ...
+Route::screen('/idea/edit',...
+```
+
+We get:
+
+```php
+URI                           | Name
+------------------------------+---------------------
+dashboard/idea/{method?}      | platform.idea
+dashboard/idea/edit/{method?} | platform.idea.edit
+```
+
+`{method?}` - means an optional argument that may go further.
+Correspondingly, the name "edit" in the address falls under it.
+The result will be a redirect to "dashboard/idea/". To avoid this, make sure to order your routes correctly.
+
+## Querying Data
+
+The `query` method of a screen is used to load data from the database or other sources.
+This data is then passed to the screen's layouts and views as an array
+
+For example, you might use the `query` method to response simple string:
+
+```php
+public function query() : array
+{
+    return [
+        'name'  => 'Alexandr Chernyaev',
+    ];
+}
+```
+
+You can use the `AsSource` trait to make an `Eloquent` model available as a data source for a screen. This allows
+you to easily access and manipulate the model's data from within the screen's query method.
+
+To use the `AsSource` trait, you need to include it in your model class:
+
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Screen\AsSource;
+
+class Order extends Model
+{
+    use AsSource;
+}
+```
+
+Then, in your screen's `query` method, you can access the model's data like this:
+
+```php
+public function query() : array
+{
+    return [
+        'order'  => Order::find(1),
+        'orders' => Order::paginate(),
+    ];
+}
+```
+
+In this example, the `order` key will contain a single `Order` model instance, while the `orders` key will contain
+a paginated list of all `Order` models in the database. These keys can then be used in the screen's layouts and
+views to display the data to the user.
+
+You can also use the `Repository` wrapper to pass an array of data to the screen's layouts and views. For example:
+
+```php
+use Orchid\Screen\Repository;
+
+public function query() : array
+{
+    return [
+        'order'      => new Repository([
+            'product_id' => 'prod-100',
+            'name'       => 'Desk',
+            'price'      => 10.24,
+            'created_at' => '01.01.2020',
+      ]),
+    ];
+}
+```
+
+In this example, the `order` key will contain an array of ideas with the given data.
+
+The `query` method is an important part of a screen, as it is used to load the data that will be displayed to the
+user. Be sure to carefully consider the data that you need to load and how it will be used in your layouts and
+views.
+
+## Autocompleting Public Properties
+
+You can use public properties in your screen class to store and access data within different methods of the class.
+When a screen is displayed, the data returned from the `query` method will be automatically assigned to public
+properties of the same name.
+
+For example, consider the following code:
+
+```php
+/**
+ * @var string
+ */
+public $message;
+
+public function query() : array
+{
+    return [
+        'message'  => 'Hello World!',
+    ];
+}
+
+public function name(): ?string
+{
+    return $this->message;
+}
+```
+
+In this example, we have declared a public property called $message. When a `GET` request is made to the screen,
+the `query` method is executed, and the value of the message key in the returned array is assigned to the `message`
+property.
+
+Then, in the `name` method, we return the value of the $message property. This means that when the screen is
+displayed, the page title will contain the words "Hello World!"
+
+Using public properties in this way is a useful way to pass data between different methods of a screen class, and
+can be especially helpful when building complex screens with multiple layouts and views.
+
+## Screen Actions
+
+Screens include built-in commands that allow users to execute various actions. The `commandBar` method is
+responsible for defining these controls.
+
+There are several types of actions available:
+
+### Button
+
+Button actions allow users to trigger a method on the screen when clicked. For example:
+
+```php
+use Orchid\Screen\Actions\Button;
+use Orchid\Support\Facades\Toast;
+
+public function commandBar() : array
+{
+    return [
+        Button::make('Go print')->method('print'),
+    ];
+}
+
+public function print(): void
+{
+   Toast::warning('Hello, world! This is a toast message.');
+}
+```
+
+In this example, when the Print button is clicked, the `print` method of the screen will be called.
+All of the data that the user has seen on the screen will be available in the request.
+
+### Link
+
+Link actions allow users to navigate to a different URL when clicked. For example:
+
+```php
+use Orchid\Screen\Actions\Link;
+
+public function commandBar() : array
+{
+    return [
+        Link::make('External reference')->href('http://orchid.software'),
+    ];
+}
+```
+
+### ModalToggle
+
+Modal toggle actions allow users to open a modal window when clicked. For example:
+
+```php
+use Orchid\Screen\Actions\ModalToggle;
+
+public function commandBar() : array
+{
+    return [
+        ModalToggle::make('Modal window')
+            ->modal('CreateUserModal')
+            ->method('save'),
+    ];
+}
+```
+
+### Duplicate Actions
+
+In software development, it is common for similar actions to be performed across multiple screens or classes. For
+example, an action such as deleting an object may be needed on both a pagination screen and a details screen.
+Instead of duplicating the method in both classes, it is more efficient to utilize the concept of inheritance.
+
+PHP offers the powerful feature of inheritance, where a base class can be created for an entity, with defined
+access rights and methods. These can then be inherited by specific screens, allowing for reusability and reducing
+the need for redundant code. This not only improves the efficiency of the development process but also makes the
+code more maintainable and easier to understand.
+
+### Calling a Screen Method
+
+When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when
+called. To explicitly call a desired method from JavaScript or a Blade template, a `POST` request must be made to a
+specific route. The `method` property must be specified in the attributes using the `route('platform.screen.name',
+['method' => 'hello'])` helper.
+
+For example, to call the `hello` method on the `platform.screens.users` screen, the following code can be used:
+
+```php
+<form action="{{ route('platform.screens.users', ['method' => 'hello']) }}"
+      method="POST"
+>
+    @csrf
+    <button type="submit">Say "Hello, World!"</button>
+</form>
+```
+
+This will send a `POST` request to the 'platform.screens.users' screen with a method attribute of `hello`, which
+will trigger the corresponding method on the server-side.
+
+You can also use this with the UI buttons:
+
+```php
+use Orchid\Screen\Actions\Button;
+
+Button::make('Say "Hello, World!"')
+    ->action(route('platform.screens.users', [
+        'method' => 'hello',
+    ]));
+```
+
+## Screen Layouts
+
+Layouts are responsible for the screen's appearance, that is, how and in what form the data will be displayed.
+
+Separation of logic and presentation is one of the design principles with Laravel Orchid.
+One of the elements of the presentation are "Layouts" (layouts), which can be displayed in various variations.
+If you try to explain briefly, it turns out that this is a `view` on steroids.
+
+In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the
+name, signature and profile avatar:
+
+```php
+<div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
+ <span class="thumb-sm avatar m-r-xs">
+        <img src="/avatar/maria.jpg" class="bg-light" alt="Maria">
+    </span>
+    <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
+        <h6 class="mb-0">Maria</h6>
+        <p class="text-muted mb-1">maria@exaple.com</p>
+    </div>
+</div>
+```
+
+A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining
+their appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a
+component approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade
+and in `React/Vue/Angular`.
+
+It is precisely such components that the platform layers consist of, the only difference is that it is necessary to
+operate with the classes, creating which you explicitly determine that the accepted parameter `avatar` will be
+inserted in the `<img>` tag, without having to edit the source code every time.
+
+Each layout may include a different layout, that is, nesting.
+For example, the screen is divided into two columns. In the left-field for filling, on the right, there are a
+reference table and a graph.
+You can come up with your examples of attachments.
+
+```php
+public function layout() : array
+{
+    return [
+        Layout::columns([
+            'Left column' => [
+                FirstRows::class,
+            ],
+            'Right column' => [
+                SecondRows::class,
+            ],
+        ]),
+
+        // Modal window
+        Layout::modal('Appointments', [
+            ThirdRows::class,
+        ]),
+    ];
+}
+```
+
+Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a
+configurable design.
+To pass custom parameters to your layout you can use the class constructor to handle them:
+
+```php
+namespace App\Orchid\Layouts;
+
+use Orchid\Screen\Field;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Rows;
+
+class ReusableEditLayout extends Rows
+{
+    /**
+     * @var string
+     */
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $prefix;
+
+    /**
+     * ReusableEditLayout constructor.
+     *
+     * @param string $prefix
+     * @param string $title
+     */
+    public function __construct(string $prefix, string $title)
+    {
+        $this->prefix = $prefix;
+        $this->title = $title;
+    }
+
+    /**
+     * Views.
+     *
+     * @return Field[]
+     */
+    protected function fields(): array
+    {
+        return [
+            Label::make('label')
+                ->title($this->title),
+
+            Input::make($this->prefix . '.address')
+                ->required()
+                ->title('Address')
+                ->placeholder('177A Bleecker Street'),
+        ];
+    }
+}
+```
+
+Instances can be used in the same way, but they can accept parameters
+
+```php
+public function layout(): array
+{
+    return [
+        new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
+        new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+    ];
+}
+```
+
+More details can be found in the `Layouts` section.
