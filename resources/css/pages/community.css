@@ -420,11 +420,6 @@
         }
     }
 
-    .discussions,
-    .license {
-        padding: var(--space-7) var(--space-5);
-    }
-
     @scope (.discussion) {
         .tentacle {
             display: block;
