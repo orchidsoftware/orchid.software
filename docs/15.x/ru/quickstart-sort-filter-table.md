@@ -69,31 +69,18 @@ public function query(): array
 > **Обратите внимание.** Таким способом вы не можете сортировать связанные модели.
 
 Для того чтобы отобразить в графическом интерфейсе возможность сортировки, мы должны вызвать метод `sort` для
-необходимых колонок таблицы в `PostListLayout`:
+необходимых колонок таблицы в `PostListScreen::layout()`:
 
 ```php
-namespace App\Orchid\Layouts;
-
 use App\Models\Post;
-use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
-class PostListLayout extends Table
+public function layout(): iterable
 {
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    public $target = 'posts';
-
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
-    {
-        return [
+    return [
+        Table::make([
             TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
@@ -106,8 +93,8 @@ class PostListLayout extends Table
 
             TD::make('updated_at', 'Last edit')
                 ->sort(),
-        ];
-    }
+        ])->target('posts'),
+    ];
 }
 ```
 

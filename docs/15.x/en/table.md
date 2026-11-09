@@ -5,64 +5,27 @@ description:
     customization options and integrations with other Orchid features.
 ---
 
-With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify
-the fields you want to include in the table, and the table layout will take care of the rest, including sorting,
-filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the
-table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data,
-the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.
-
-To create a new table layout, you can use the following Artisan command:
+A Table displays records from a screen repository. Pass its columns to `make()` and set the data key with `target()`.
+`Layout::table()` is an alias for the same object. No subclass or generator is required.
 
 ```php
-php artisan orchid:table PatientListLayout
-```
-
-Example:
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\TD;
 use Orchid\Screen\Layouts\Table;
-
-class PatientListLayout extends Table
-{
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the table.
-     *
-     * @var string
-     */
-    protected $target = 'patients';
-
-    /**
-     * @return TD[]
-     */
-    protected function columns() : iterable
-    {
-        return [
-            TD::make('name'),
-            TD::make('created_at')->sort(),
-        ];
-    }
-}
-```
-
-Tables also support writing through short syntax without creating a class:
-
-```php
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
+use Orchid\Support\Facades\Layout;
 
-Layout::table('clients', [
+Table::make([
     TD::make('name'),
     TD::make('created_at')->sort(),
-]);
+])->target('patients')->title('Patients');
+
+Layout::table([
+    TD::make('name'),
+    TD::make('created_at')->sort(),
+])->target('patients');
 ```
 
-![This image shows an illustrative table, which is a common way to display data in a structured and organized format.](/img/layouts/table.png)
+Return a collection, array, paginator, or cursor paginator under `patients` from the screen's `query()` method.
+Table and Sortable require an explicit nonempty target before rendering.
 
 ## Introduction to Cells
 
@@ -418,150 +381,61 @@ TD::make('last_activity', 'Last Updated')
 Use `component` rather than `usingComponent` when the closure needs the entire row. Closures passed to `usingComponent`
 receive only the value of the selected cell.
 
-## Table Options
+## Table options
 
-You can specify the text to be displayed if the table is empty specifying methods:
+Configure presentation through fluent methods:
 
 ```php
-/**
- * Icon displayed when no data is found.
- */
-protected function iconNotFound(): string
-{
-    return 'bs.journal-x';
-}
-
-/**
- * Text displayed when no data is found.
- */
-protected function textNotFound(): string
-{
-    return 'There are no records in this view';
-}
-
-/**
- * Subtext displayed when no data is found.
- */
-protected function subNotFound(): string
-{
-    return '';
-}
+Table::make([
+    TD::make('name'),
+    TD::make('email'),
+])->target('users')
+    ->striped()
+    ->compact()
+    ->bordered()
+    ->hoverable()
+    ->onEachSide(2);
 ```
 
-If the table rows do not seem contrasting to you, then you can enable `striped` mode:
+These methods enable a presentation option and do not take boolean flags.
+`onEachSide()` controls pagination links around the current page.
+
+## Add totals
+
+Use `totals()` for the footer cells. Their values come from the root query repository, rather than the table target:
 
 ```php
-/**
- * Usage for zebra-striping to any table row.
- */
-protected function striped(): bool
-{
-    return true;
-}
+Table::make([
+    TD::make('name'),
+    TD::make('price'),
+])->target('orders')->totals([
+    TD::make('label')->render(fn () => 'Total:'),
+    TD::make('total_price'),
+]);
+
+// In query():
+return [
+    'orders' => $orders,
+    'total_price' => $orders->sum('price'),
+];
 ```
 
-If you need a compact table, then you can enable `compact` mode:
+## Empty states
+
+The default empty state distinguishes an empty collection from a filtered query with no matches.
+When filters are active, it offers an action that removes `filter`, `page`, and `cursor` parameters.
+Override only the pieces your application needs:
 
 ```php
-/**
- * Usage for compact display of table rows.
- */
-protected function compact(): bool
-{
-    return true;
-}
-```
-
-If you need a hoverable table, then you can enable `hoverable` mode:
-
-```php
-/**
- * Enable a hover state on table rows.
- */
-protected function hoverable(): bool
-{
-    return true;
-}
-```
-
-You can dynamically change the amount of links to display in the table pagination with the following method:
-
-```php
-/**
- * The number of links to display on each side of current page link.
- */
-protected function onEachSide(): int
-{
-    return 3;
-}
-```
-
-## Adding a Total Row
-
-Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required
-cells. For example:
-
-```php
-public function total():array
-{
-    return [
-        TD::make('total')
-            ->align(TD::ALIGN_RIGHT)
-            ->colspan(2)
-            ->render(fn () => 'Total:'),
-
-        TD::make('total_count')
-            ->align(TD::ALIGN_RIGHT),
-
-        TD::make('total_active_count')
-            ->align(TD::ALIGN_RIGHT),
-    ];
-}
-```
-
-This line will ignore the specified `target` based on the result of the `query` screen:
-
-```php
-public function query(): array
-{
-    return [
-        'total_active_count' => '$93 960',
-        'total_count' => '$103 783',
-        // ...
-    ];
-}
-```
-
-## Empty states and presentation
-
-An empty table distinguishes an empty collection from a filtered query with no matches.
-The filtered state offers a link that clears `filter`, `page`, and `cursor` parameters.
-To customize a table subclass, override `iconNotFound(): string`, `textNotFound(): string`,
-`subNotFound(): string`, or `actionNotFound(): ?Action`:
-
-```php
-use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 
-protected function actionNotFound(): ?Action
-{
-    return Link::make('Create order')->route('orchid.orders.create');
-}
-
-protected function hoverable(): bool
-{
-    return true;
-}
+Table::make([TD::make('name')])->target('orders')
+    ->emptyIcon('bs.inbox')
+    ->emptyTitle('No orders')
+    ->emptyDescription('New orders will appear here.')
+    ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Define the example's `orchid.orders.create` route in your application.
-The `striped(): bool`, `compact(): bool`, `bordered(): bool`, and `hoverable(): bool` hooks control table presentation.
-Keep the parent empty-state behavior if users need its clear-filters action.
-
-For an empty state in a custom view, use the shared Blade component:
-
-```blade
-<x-orchid-empty-state icon="bs.inbox" title="No orders" description="New orders will appear here.">
-    <a href="{{ route('orchid.orders.create') }}">Create order</a>
-</x-orchid-empty-state>
-```
+Define the example's create route in your application. Omitting `emptyAction()` preserves the default clear-filters action;
+`emptyAction(null)` explicitly removes it. No protected-method overrides are needed.
+Existing named table classes remain available for reusable definitions. The `orchid:table` generator is removed.

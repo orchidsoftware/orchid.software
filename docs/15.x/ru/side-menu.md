@@ -6,6 +6,17 @@ description: Контекстная навигация между связанн
 SideMenu выводит вертикальную навигацию внутри экрана. Используйте его для ссылок, общих для группы экранов,
 например настроек. Главное меню приложения по-прежнему определяется в поставщике сервисов.
 
+Для одного экрана создавайте объект напрямую. Именованный класс удобен для общего меню нескольких экранов:
+
+```php
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\SideMenu;
+
+SideMenu::make([
+    Menu::make('Profile')->route('orchid.profile'),
+])->label('Account navigation');
+```
+
 ## Создание меню
 
 Создайте макет, задайте ссылки и доступное имя навигации:
@@ -22,10 +33,7 @@ use Orchid\Screen\Layouts\SideMenu;
 
 class SettingsMenu extends SideMenu
 {
-    protected function label(): string
-    {
-        return 'Settings';
-    }
+    protected string $label = 'Settings';
 
     protected function navigations(): iterable
     {

@@ -2,92 +2,27 @@
 title: Таблицы
 ---
 
-## Таблицы
-
-Макет таблицы используется для вывода минимальной информации для просмотра и выборки.
-
-![Table](/img/layouts/table.png)
-
-Для создания выполните команду:
+Table выводит записи из репозитория экрана. Передайте колонки в `make()`, а ключ данных задайте через `target()`.
+`Layout::table()` создаёт такой же объект. Подкласс и генератор для этого не нужны.
 
 ```php
-php artisan orchid:table PatientListLayout
-```
-
-Пример:
-
-```php
-namespace App\Layouts\Clinic\Patient;
-
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-use App\Orchid\Filters\SearchFilter;
-use App\Http\Filters\LastNamePatient;
-
-class PatientListLayout extends Table
-{
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the table.
-     *
-     * @var string
-     */
-    protected $target = 'patients';
-
-    /**
-     * @return TD[]
-     */
-    protected function columns() : array
-    {
-        return [
-            TD::make('last_name','Last name')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($patient) {
-                    return Link::make($patient->last_name)
-                        ->route('orchid.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('first_name', 'First Name')
-                ->sort()
-                ->render(function ($patient) {
-                    return Link::make($patient->first_name)
-                        ->route('orchid.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('phone','Phone')
-                ->render(function ($patient){
-                    return ModalToggle::make($patient->phone)
-                        ->modal('oneAsyncModal')
-                        ->modalTitle('Phone')
-                        ->method('saveUser')
-                        ->asyncParameters([
-                            'id' => $patient->id,
-                        ]);
-                }),
-
-            TD::make('email','Email'),
-            TD::make('created_at','Date of publication'),
-        ];
-    }
-}
-```
-
-Таблицы так же поддерживают запись через короткий синтаксис без создания класса:
-
-```php
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\TD;
+use Orchid\Support\Facades\Layout;
 
-Layout::table('clients', [
+Table::make([
     TD::make('name'),
     TD::make('created_at')->sort(),
-]);
+])->target('patients')->title('Patients');
+
+Layout::table([
+    TD::make('name'),
+    TD::make('created_at')->sort(),
+])->target('patients');
 ```
+
+Верните коллекцию, массив или paginator под ключом `patients` из `query()` экрана.
+Для Table и Sortable непустой `target()` обязателен перед выводом.
 
 ## Ячейки
 
@@ -415,174 +350,60 @@ TD::make('price')->asComponent(Numeric::class, [
 // 1 234,56
 ```
 
-## Параметры таблицы
+## Настройка таблицы
 
-Вы можете указать текст, который будет отображён если таблица пуста, дополнительно указав методы:
+Оформление задаётся цепочкой методов:
 
 ```php
-/**
- * @return string
- */
-protected function iconNotFound(): string
-{
-    return 'icon-table';
-}
-
-/**
- * @return string
- */
-protected function textNotFound(): string
-{
-    return __('There are no records in this view');
-}
-
-/**
- * @return string
- */
-protected function subNotFound(): string
-{
-    return '';
-}
+Table::make([
+    TD::make('name'),
+    TD::make('email'),
+])->target('users')
+    ->striped()
+    ->compact()
+    ->bordered()
+    ->hoverable()
+    ->onEachSide(2);
 ```
 
-Если строки таблицы кажутся вам не контрастными, то Вы можете включить `striped` режим:
+Эти методы включают оформление без boolean-флагов. `onEachSide()` задаёт число ссылок рядом с текущей страницей пагинации.
+
+## Итоговая строка
+
+Передайте ячейки подвала в `totals()`. Значения берутся из корня репозитория, а не из `target()` таблицы:
 
 ```php
-/**
- * @return bool
- */
-protected function striped(): bool
-{
-    return true;
-}
+Table::make([
+    TD::make('name'),
+    TD::make('price'),
+])->target('orders')->totals([
+    TD::make('label')->render(fn () => 'Total:'),
+    TD::make('total_price'),
+]);
+
+// In query():
+return [
+    'orders' => $orders,
+    'total_price' => $orders->sum('price'),
+];
 ```
 
-Вы можете динамически изменять количество навигационных ссылок, отображаемых в постраничной навигации таблицы, следующим
-способом:
+## Пустые состояния
+
+По умолчанию таблица различает отсутствие записей и отсутствие совпадений после фильтрации.
+При активных фильтрах доступно действие сброса параметров `filter`, `page` и `cursor`.
+Настраивайте только необходимые части:
 
 ```php
-/**
- * Количество ссылок, отображаемых с каждой стороны от ссылки на текущую страницу.
- *
- * @return int
- */
-protected function onEachSide(): int
-{
-    return 3;
-}
-```
-
-## Строка итога
-
-Добавляет итоговую строку внизу таблицы, для этого необходимо определить метод `total` и описать требуемые ячейки.
-Например:
-
-```php
-public function total():array
-{
-    return [
-        TD::make('total')
-            ->align(TD::ALIGN_RIGHT)
-            ->colspan(2)
-            ->render(function () {
-                return 'Total:';
-            }),
-
-        TD::make('total_count')
-            ->align(TD::ALIGN_RIGHT),
-
-        TD::make('total_active_count')
-            ->align(TD::ALIGN_RIGHT),
-    ];
-}
-```
-
-Данная строка будет игнорировать указанный `target` смотря на результат `query` экрана:
-
-```php
-public function query(): array
-{
-    return [
-        'total_active_count' => '$93 960',
-        'total_count' => '$103 783',
-        // ...
-    ];
-}
-```
-
-## Расширение колонок
-
-Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код,
-в слоях имеется возможность расширять класс `TD` собственными методами. Для этого необходимо в сервис-провайдере
-зарегистрировать функцию замыкания.
-
-Пример регистрации:
-
-```php
-// AppServiceProvider.php
-TD::macro('bool', function () {
-
-    $column = $this->column;
-
-    $this->render(function ($datum) use ($column) {
-        return view('bool',[
-            'bool' => $datum->$column
-        ]);
-    });
-
-    return $this;
-});
-```
-
-Пример шаблона:
-
-```php
-// bool.blade.php
-
-<span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>
-```
-
-Пример использования:
-
-```php
-public function grid(): array
-{
-    return [
-        TD::make('status')->bool(),
-    ];
-}
-```
-
-## Пустые состояния и оформление
-
-Пустая таблица различает отсутствие записей и отсутствие совпадений после фильтрации.
-Во втором случае доступна ссылка сброса параметров `filter`, `page` и `cursor`.
-В подклассе таблицы можно переопределить `iconNotFound(): string`, `textNotFound(): string`,
-`subNotFound(): string` или `actionNotFound(): ?Action`:
-
-```php
-use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 
-protected function actionNotFound(): ?Action
-{
-    return Link::make('Create order')->route('orchid.orders.create');
-}
-
-protected function hoverable(): bool
-{
-    return true;
-}
+Table::make([TD::make('name')])->target('orders')
+    ->emptyIcon('bs.inbox')
+    ->emptyTitle('No orders')
+    ->emptyDescription('New orders will appear here.')
+    ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Маршрут `orchid.orders.create` из примера нужно определить в приложении.
-Методы `striped(): bool`, `compact(): bool`, `bordered(): bool` и `hoverable(): bool` управляют оформлением таблицы.
-Сохраните родительское пустое состояние, если пользователю нужна встроенная ссылка сброса фильтров.
-
-В своём шаблоне используйте общий компонент:
-
-```blade
-<x-orchid-empty-state icon="bs.inbox" title="Нет заказов" description="Здесь появятся новые заказы.">
-    <a href="{{ route('orchid.orders.create') }}">Создать заказ</a>
-</x-orchid-empty-state>
-```
+Определите маршрут создания из примера в приложении. Без `emptyAction()` сохраняется стандартный сброс фильтров;
+`emptyAction(null)` явно убирает действие. Переопределять protected-методы не нужно.
+Именованные классы таблиц остаются доступны для повторного использования. Генератор `orchid:table` удалён.

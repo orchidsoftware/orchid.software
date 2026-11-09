@@ -271,64 +271,13 @@ class PostEditScreen extends Screen
 
 Now we can create, edit, and delete records. But the records do not appear as a list yet. Let's change that.
 
-In all previous layer definitions, only a short record of the form `Layout:rows()` was used, but to display complex or
-voluminous information, it is desirable to create separate classes.
-
-Add a new `Layout` class by running the command:
-
-```php
-php artisan orchid:table PostListLayout
-```
-
-We indicate what data we want to see:
-
-```php
-namespace App\Orchid\Layouts;
-
-use App\Models\Post;
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Table;
-
-class PostListLayout extends Table
-{
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    public $target = 'posts';
-
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
-    {
-        return [
-            TD::make('title', 'Title')
-                ->render(function (Post $post) {
-                    return Link::make($post->title)
-                        ->route('orchid.post.edit', $post);
-                }),
-
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
-        ];
-    }
-}
-```
-
-The `target` property indicates the key will be the source for our table on the screen.
-
-> **Note.** Generating `HTML` directly in the class is an example only and is bad practice. Please use the `Blade`
-> templates.
-
-Having defined the table layer, we return to the view screen, change it:
+Build the list directly in `PostListScreen::layout()`. No generated table class is needed.
 
 ```php
 namespace App\Orchid\Screens;
 
-use App\Orchid\Layouts\PostListLayout;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 use App\Models\Post;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -385,7 +334,16 @@ class PostListScreen extends Screen
     public function layout(): array
     {
         return [
-            PostListLayout::class
+            Table::make([
+            TD::make('title', 'Title')
+                ->render(function (Post $post) {
+                    return Link::make($post->title)
+                        ->route('orchid.post.edit', $post);
+                }),
+
+            TD::make('created_at', 'Created'),
+            TD::make('updated_at', 'Last edit'),
+        ])->target('posts')
         ];
     }
 }

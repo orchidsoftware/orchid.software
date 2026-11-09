@@ -230,3 +230,20 @@ Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
 Перемещённые трейты доступны как `Orchid\Screen\Concerns\CanSee` и `Orchid\Screen\Concerns\HasCommandBar`.
 В новых примерах используйте варианты enum, например `Color::INFO`, вместо старого вызова `Color::INFO()`.
 Перед обновлением проверьте совместимость сторонних пакетов Orchid с 15.x.
+
+## Fluent-объекты макетов
+
+Объявляйте стандартные макеты через `Rows::make()`, `Table::make()` и другие фабрики из
+[обзора макетов](/ru/docs/layouts). Методы фасада Layout возвращают те же конкретные объекты.
+
+Замените `Layout::table('users', $columns)` на `Layout::table($columns)->target('users')`.
+Так же изменяются `legend()` и `sortable()`. Table и Sortable не допускают отсутствующий или пустой источник данных.
+
+Вместо переопределений оформления таблицы используйте `striped()`, `compact()`, `bordered()`, `hoverable()`
+и `onEachSide($count)`. Итоговые ячейки задаются через `totals($columns)`, пустые состояния через
+`emptyTitle()`, `emptyDescription()`, `emptyIcon()` и `emptyAction()`.
+Старый метод SideMenu `label(): string` заменяется на `->label('Settings')` или защищённое строковое свойство `$label`.
+
+Команды `orchid:rows` и `orchid:table` и их публикуемые stubs удалены.
+Именованные классы меню и их генераторы сохранены. Классовый обработчик Listener не изменяется.
+Если подкласс задаёт свой конструктор, сохраните сигнатуру родителя или вынесите создание в фабрику объекта.

@@ -309,9 +309,9 @@ use Orchid\Screen\Sight;
 public function layout(): iterable
 {
    return [
-       Layout::sortable('models', [
+       Layout::sortable([
            Sight::make('title'),
-       ]),
+       ])->target('models'),
    ];
 }
 ```

@@ -422,9 +422,9 @@ use Orchid\Screen\TD;
 public function layout(): iterable
 {
     return [
-        Layout::table('tasks', [
+        Layout::table([
             TD::make('name'),
-        ]),
+        ])->target('tasks'),
 
         Layout::modal('taskModal', Layout::rows([
             Input::make('task.name')
@@ -438,9 +438,8 @@ public function layout(): iterable
 }
 ```
 
-The first argument points to the `tasks` key that we specified in the `query` method. It is this set that will be passed
-to the table. And the second one, we pass the set of columns we want to display. The values in them will be
-automatically set according to the specified property name.
+`target('tasks')` selects the dataset returned under `tasks` by `query()`.
+The array passed to `Layout::table()` defines the columns.
 
 Our task application is almost complete. However, we have no way to delete our existing tasks when they're done. Let's
 add that next.
@@ -454,7 +453,7 @@ Let's add a delete button to each row of our task listing.
 ```php
 use Orchid\Screen\Actions\Button;
 
-Layout::table('tasks', [
+Layout::table([
     TD::make('name'),
 
     TD::make('Actions')
@@ -464,7 +463,7 @@ Layout::table('tasks', [
                 ->confirm('After deleting, the task will be gone forever.')
                 ->method('delete', ['task' => $task->id]);
         }),
-]),
+])->target('tasks'),
 ```
 
 ### Deleting the Task

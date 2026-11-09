@@ -446,59 +446,29 @@ public function layout() : array
 }
 ```
 
-Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a
-configurable design. To pass custom parameters to your layout you can use the class constructor to handle them:
+Reuse a configured object factory when the same fields appear more than once:
 
 ```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableLayout extends Rows
+private function address(string $prefix, string $title): Rows
 {
-    public function __construct(
-        private readonly string $prefix,
-        private readonly string $title
-    ) {}
-
-    /**
-     * Define the fields for the layout.
-     *
-     * @return Field[]
-     */
-    protected function fields(): array
-    {
-        return [
-            new Label('label')
-                ->title($this->title),
-
-            new Input($this->prefix . '.address')
-                ->required()
-                ->title('Address')
-                ->placeholder('177A Bleecker Street'),
-        ];
-    }
+    return Rows::make([
+        Input::make($prefix.'.address')->title('Address')->required(),
+    ])->title($title);
 }
-```
 
-Instances can be used in the same way, but they can accept parameters
-
-```php
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        new ReusableLayout('order.shipping_address', 'Shipping Address'),
-        new ReusableLayout('order.invoice_address', 'Invoice Address'),
+        $this->address('order.shipping_address', 'Shipping address'),
+        $this->address('order.invoice_address', 'Invoice address'),
     ];
 }
 ```
 
-More details can be found in the [Layouts](/en/docs/rows) section. See also [Rows](/en/docs/rows) and
-[Table](/en/docs/table). For related layout patterns, review [Grouping (Tabs, Split, etc.)](/en/docs/grouping) and
-[Modals](/en/docs/modals).
+See [layout objects](/en/docs/layouts) for direct construction and facade aliases.
 
 ## Additional Methods
 

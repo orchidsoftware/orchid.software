@@ -97,9 +97,9 @@ Layout::modal('notifModal', [
         // Fields definition
     ]),
 
-    Layout::table('users', [
+    Layout::table([
         // Table columns definition
-    ]),
+    ])->target('users'),
 ]);
 ```
 

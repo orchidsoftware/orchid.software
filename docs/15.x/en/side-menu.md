@@ -6,6 +6,17 @@ description: Add contextual navigation to a group of related screens.
 SideMenu displays vertical navigation inside a screen. Use it for links shared by related screens, such as settings.
 The main application menu remains in the service provider.
 
+For a menu used once, create it directly. Keep a named class when several screens share its navigation:
+
+```php
+use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Layouts\SideMenu;
+
+SideMenu::make([
+    Menu::make('Profile')->route('orchid.profile'),
+])->label('Account navigation');
+```
+
 ## Create a side menu
 
 Generate a layout and define its links and accessible navigation label:
@@ -22,10 +33,7 @@ use Orchid\Screen\Layouts\SideMenu;
 
 class SettingsMenu extends SideMenu
 {
-    protected function label(): string
-    {
-        return 'Settings';
-    }
+    protected string $label = 'Settings';
 
     protected function navigations(): iterable
     {

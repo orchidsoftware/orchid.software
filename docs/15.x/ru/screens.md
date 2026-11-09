@@ -382,60 +382,29 @@ public function layout(): array
 }
 ```
 
-Иногда Вы захотите использовать один и тот же макет для разных целей. Чтобы уменьшить дублирование кода, Вы можете
-создать настраиваемый дизайн. Чтобы передать пользовательские параметры в ваш макет, вы можете использовать конструктор
-класса для их обработки::
+Если поля используются несколько раз, вынесите их создание в обычный метод:
 
 ```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Layouts\Rows;
 
-class ReusableLayout extends Rows
+private function address(string $prefix, string $title): Rows
 {
-    public function __construct(
-        private readonly string $prefix,
-        private readonly string $title
-    ) {}
-
-    /**
-     * Define the fields for the layout.
-     *
-     * @return Field[]
-     */
-    protected function fields(): array
-    {
-        return [
-            new Label('label')
-                ->title($this->title),
-
-            new Input($this->prefix . '.address')
-                ->required()
-                ->title('Address')
-                ->placeholder('177A Bleecker Street'),
-        ];
-    }
+    return Rows::make([
+        Input::make($prefix.'.address')->title('Address')->required(),
+    ])->title($title);
 }
-```
 
-Экземпляры могут быть использованы таким же образом, принимая параметры
-
-```php
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::columns([
-            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
-        ]),
+        $this->address('order.shipping_address', 'Shipping address'),
+        $this->address('order.invoice_address', 'Invoice address'),
     ];
 }
 ```
 
-Более подробно можно прочитать в разделе "Макеты".
+Прямое создание и фасады описаны в [обзоре макетов](/ru/docs/layouts).
 
 ## Дополнительные методы
 

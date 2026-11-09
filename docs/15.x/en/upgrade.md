@@ -228,3 +228,19 @@ Use `Orchid::permissionGroups()` instead of `Dashboard::getPermission()` when re
 Use `Orchid\Screen\Concerns\CanSee` and `Orchid\Screen\Concerns\HasCommandBar` for the moved screen traits.
 Prefer enum cases such as `Color::INFO` to the legacy `Color::INFO()` calls in new examples.
 Check third-party Orchid packages for 15.x compatibility before upgrading them with the platform.
+
+## Fluent layout objects
+
+Declare standard layouts with `Rows::make()`, `Table::make()`, and the other factories listed in
+[layout objects](/en/docs/layouts). Layout facade methods return those same concrete objects.
+
+Change target-based calls from `Layout::table('users', $columns)` to `Layout::table($columns)->target('users')`.
+The same change applies to `legend()` and `sortable()`. Table and Sortable reject a missing or empty data source.
+
+Replace table presentation overrides with `striped()`, `compact()`, `bordered()`, `hoverable()`, and `onEachSide($count)`.
+Use `totals($columns)` for footer cells and `emptyTitle()`, `emptyDescription()`, `emptyIcon()`, and `emptyAction()`
+for empty states. SideMenu's old `label(): string` override becomes `->label('Settings')` or a protected string `$label`.
+
+The `orchid:rows` and `orchid:table` commands and their published stubs are removed.
+Named menu classes and their generators remain supported. Listener's class-based request handler is unchanged.
+If a layout subclass defines a custom constructor, keep the parent signature or extract a factory that returns an object.
