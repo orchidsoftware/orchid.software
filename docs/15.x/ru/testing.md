@@ -138,7 +138,6 @@ $this->screen()
 
 Эти команды выполняются в checkout platform, а не в приложении, которое подключает Orchid как зависимость.
 Пакет использует Testbench Workbench, PHPStan уровня 3 с Larastan и Rector. Psalm больше не используется.
-Набор strict rules и собственный временный каталог PHPStan не требуются.
 
 ```shell
 composer install

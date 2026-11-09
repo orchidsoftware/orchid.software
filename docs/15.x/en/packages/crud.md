@@ -4,7 +4,7 @@ description:
     Easily create a user interface for Laravel Eloquent models with Orchid's new package. This simplified CRUD solution
     allows you to efficiently perform common database operations, including create, read, update, and delete. With
     seamless integration, you can describe the entire process using a single file and easily switch to using the Orchid
-    platform for more advanced options. Compatible with all fields, filters, and traits.
+    platform for more advanced options.
 ---
 
 ## Introduction
@@ -14,7 +14,10 @@ it might seem overkill. Therefore, we have created a new package aimed at develo
 interface for Eloquent models with functions such as creating, reading, updating, and deleting.
 
 You can describe the entire process using one file. And when you need more options, it's easy to switch to using the
-platform. All fields, filters, and traits are compatible.
+platform. Use a CRUD release that supports your installed platform version.
+
+15.x changes public APIs used by extensions. Check the package's Composer constraints and 15.x compatibility
+before adding it to a development installation.
 
 ## Installation
 

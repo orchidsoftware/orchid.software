@@ -140,7 +140,6 @@ $this->screen()
 
 These commands run in a platform checkout, not in an application that merely requires Orchid.
 The package uses Testbench Workbench, PHPStan level 3 with Larastan, and Rector. Psalm is no longer used.
-Strict rules and a custom PHPStan temporary directory are not required.
 
 ```shell
 composer install
