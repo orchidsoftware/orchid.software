@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" sizes="any"   href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="64x64" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="16x16" href="/favicon.svg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#272531">
+    <meta name="msapplication-TileColor" content="#272531">
+    <meta name="theme-color" content="#272531">
+
+    <link rel="preload" as="style" href="https://orchid.software/build/assets/app-Bi1igz88.css" /><link rel="modulepreload" as="script" href="https://orchid.software/build/assets/app-hUWZtGpR.js" /><link rel="stylesheet" href="https://orchid.software/build/assets/app-Bi1igz88.css" /><script type="module" src="https://orchid.software/build/assets/app-hUWZtGpR.js"></script>
+    <title>Upgrade to 15.x | Orchid - Laravel Admin Panel</title>
+
+
+<meta name="title" content="Upgrade to 15.x | Orchid - Laravel Admin Panel">
+<meta name="description" content="Migrate a 14.x application to the current 15.x API.">
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orchid.software/en/docs/15.x/upgrade"/>
+<meta property="og:locale" content="en"/>
+<meta property="og:title" content="Upgrade to 15.x | Orchid - Laravel Admin Panel"/>
+<meta property="og:description" content="Migrate a 14.x application to the current 15.x API.">
+<meta property="og:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://orchid.software/en/docs/15.x/upgrade">
+<meta name="twitter:title" content="Upgrade to 15.x | Orchid - Laravel Admin Panel">
+<meta name="twitter:description" content="Migrate a 14.x application to the current 15.x API.">
+<meta name="twitter:image" content="https://github.com/orchidsoftware/art/raw/master/orchid-share.jpg">
+
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors metrika.yandex.ru metrika.yandex.by metrica.yandex.com metrica.yandex.com.tr webvisor.com *.webvisor.com;">
+    <link rel="canonical" href="https://orchid.software/en/docs/15.x/upgrade/">
+
+            <meta name="robots" content="noindex, follow">
+    
+    <meta name="view-transition" content="same-origin">
+
+    
+    <meta name="author" content="Alexandr Chernyaev">
+    <meta property="og:site_name" content="Orchid - Laravel Admin Panel"/>
+    <meta name="yandex-verification" content="23bb1990414a4f0e"/>
+    <meta name="google-site-verification" content="EWv-U0_XG4_ck_eYWIAhKzyZeHWvow4EsYexXE1q0mc"/>
+
+</head>
+<body>
+
+
+    <div class="masthead shell">
+        <header class="header">
+            <a href="/" class="brand" aria-label="Orchid home">
+    <img src="/img/next/logo-full.svg" class="logo" alt="Orchid">
+</a>
+
+<nav class="navigation" aria-label="Main navigation">
+<ul class="links">
+
+            <li>
+            <a href="/en/donations"
+                                class="link">
+                Donation
+            </a>
+        </li>
+            <li>
+            <a href="/en/hig"
+                                class="link">
+                Design
+            </a>
+        </li>
+            <li>
+            <a href="/en/discussions"
+                                class="link">
+                Discussion
+            </a>
+        </li>
+    
+    <li>
+        <a href="https://github.com/orchidsoftware" class="link" aria-label="Orchid on GitHub">
+            <svg width="1.5em" height="1.5em" viewBox="0 0 30 29" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.1367 23.0703C10.1367 22.9531 10.0195 22.8359 9.84375 22.8359C9.66797 22.8359 9.55078 22.9531 9.55078 23.0703C9.55078 23.1875 9.66797 23.3047 9.84375 23.2461C10.0195 23.2461 10.1367 23.1875 10.1367 23.0703ZM8.32031 22.7773C8.32031 22.8945 8.4375 23.0703 8.61328 23.0703C8.73047 23.1289 8.90625 23.0703 8.96484 22.9531C8.96484 22.8359 8.90625 22.7188 8.73047 22.6602C8.55469 22.6016 8.37891 22.6602 8.32031 22.7773ZM10.957 22.7188C10.7812 22.7188 10.6641 22.8359 10.6641 23.0117C10.6641 23.1289 10.8398 23.1875 11.0156 23.1289C11.1914 23.0703 11.3086 23.0117 11.25 22.8945C11.25 22.7773 11.0742 22.6602 10.957 22.7188ZM14.7656 0.21875C6.67969 0.21875 0.46875 6.42969 0.46875 14.5156C0.46875 21.0195 4.51172 26.5859 10.3711 28.5781C11.1328 28.6953 11.3672 28.2266 11.3672 27.875C11.3672 27.4648 11.3672 25.4727 11.3672 24.2422C11.3672 24.2422 7.26562 25.1211 6.38672 22.4844C6.38672 22.4844 5.74219 20.7852 4.80469 20.375C4.80469 20.375 3.45703 19.4375 4.86328 19.4375C4.86328 19.4375 6.32812 19.5547 7.14844 20.9609C8.4375 23.2461 10.5469 22.6016 11.4258 22.1914C11.543 21.2539 11.8945 20.6094 12.3633 20.1992C9.08203 19.8477 5.74219 19.3789 5.74219 13.7539C5.74219 12.1133 6.21094 11.3516 7.14844 10.2969C6.97266 9.88672 6.50391 8.36328 7.32422 6.3125C8.49609 5.96094 11.3672 7.89453 11.3672 7.89453C12.5391 7.54297 13.7695 7.42578 15 7.42578C16.2891 7.42578 17.5195 7.54297 18.6914 7.89453C18.6914 7.89453 21.5039 5.90234 22.7344 6.3125C23.5547 8.36328 23.0273 9.88672 22.9102 10.2969C23.8477 11.3516 24.4336 12.1133 24.4336 13.7539C24.4336 19.3789 20.9766 19.8477 17.6953 20.1992C18.2227 20.668 18.6914 21.5469 18.6914 22.9531C18.6914 24.8867 18.6328 27.3477 18.6328 27.8164C18.6328 28.2266 18.9258 28.6953 19.6875 28.5195C25.5469 26.5859 29.5312 21.0195 29.5312 14.5156C29.5312 6.42969 22.9102 0.21875 14.7656 0.21875ZM6.15234 20.4336C6.03516 20.4922 6.09375 20.668 6.15234 20.7852C6.26953 20.8438 6.38672 20.9023 6.50391 20.8438C6.5625 20.7852 6.5625 20.6094 6.44531 20.4922C6.32812 20.4336 6.21094 20.375 6.15234 20.4336ZM5.50781 19.9648C5.44922 20.082 5.50781 20.1406 5.625 20.1992C5.74219 20.2578 5.85938 20.2578 5.91797 20.1406C5.91797 20.082 5.85938 20.0234 5.74219 19.9648C5.625 19.9062 5.56641 19.9062 5.50781 19.9648ZM7.38281 22.0742C7.32422 22.1328 7.32422 22.3086 7.5 22.4258C7.61719 22.543 7.79297 22.6016 7.85156 22.4844C7.91016 22.4258 7.91016 22.25 7.79297 22.1328C7.67578 22.0156 7.5 21.957 7.38281 22.0742ZM6.73828 21.1953C6.62109 21.2539 6.62109 21.4297 6.73828 21.5469C6.85547 21.6641 6.97266 21.7227 7.08984 21.6641C7.14844 21.6055 7.14844 21.4297 7.08984 21.3125C6.97266 21.1953 6.85547 21.1367 6.73828 21.1953Z"/>
+            </svg>
+        </a>
+    </li>
+
+    <li class="search">
+        <div id="docsearch"></div>
+    </li>
+
+</ul>
+</nav>
+
+<div class="cta">
+    <a href="https://orchid.software/en/docs" class="button">Documentation</a>
+</div>
+        </header>
+    </div>
+
+    <div class="documentation">
+        <div class="shell frame" id="docs">
+            <img src="/img/next/docs-left-tentacli.svg" class="art left" alt="" aria-hidden="true">
+            <img src="/img/next/docs-right-tentacli.svg" class="art right" alt="" aria-hidden="true">
+
+            <div class="docs-layout theme-paper">
+                <aside class="sidebar">
+                    <nav class="docs-menu" aria-label="Documentation">
+            <div class="group">
+            <p class="title">Get Started</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x" class="link" >
+                            Introduction
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/installation" class="link" >
+                            Installation
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/configuration" class="link" >
+                            Configuration
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/structure" class="link" >
+                            Directory Structure
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/brand" class="link" >
+                            Basic Branding
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/upgrade" class="link"  aria-current="page" >
+                            Upgrade Guide
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+            <div class="group">
+            <p class="title">Tutorials</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x/quickstart" class="link" >
+                            Quick Start
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/quickstart-state" class="link" >
+                            State Management
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/quickstart-crud" class="link" >
+                            Data Management
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/quickstart-files" class="link" >
+                            Managing Attachments
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/quickstart-sort-filter-table" class="link" >
+                            Sorting and Filtering
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+            <div class="group">
+            <p class="title">Core Concepts</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x/screens" class="link" >
+                            Screens
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/field" class="link" >
+                            Form Elements
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/menu" class="link" >
+                            Navigation
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/permissions" class="link" >
+                            Permissions
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/filters" class="link" >
+                            Filtering
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/attachments" class="link" >
+                            Attachments
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/alert" class="link" >
+                            Notifications
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+            <div class="group">
+            <p class="title">Layouts</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x/rows" class="link" >
+                            Rows
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/table" class="link" >
+                            Tables
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/legend" class="link" >
+                            Legend
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/cell-types" class="link" >
+                            Cell Types
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/charts" class="link" >
+                            Charts
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/modals" class="link" >
+                            Modals
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/listener" class="link" >
+                            Listeners
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/grouping" class="link" >
+                            Grouping
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/custom-template" class="link" >
+                            Views
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/side-menu" class="link" >
+                            Side Menu
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+            <div class="group">
+            <p class="title">Advanced</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x/custom-field" class="link" >
+                            Custom Fields
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/presenters" class="link" >
+                            Presenters
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/javascript" class="link" >
+                            Custom JavaScript
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/authentication" class="link" >
+                            Authentication
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/testing" class="link" >
+                            Testing
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/icons" class="link" >
+                            Icons
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/global-search" class="link" >
+                            Scout Search
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/stubs" class="link" >
+                            Stubs
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/builder" class="link" >
+                            Form Builder
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/controllers" class="link" >
+                            Controllers
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+            <div class="group">
+            <p class="title">Packages</p>
+
+            <ul class="list">
+                                    <li class="item">
+                        <a href="/en/docs/15.x/packages" class="link" >
+                            Package Development
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="/en/docs/15.x/packages/crud" class="link" >
+                            CRUD
+                        </a>
+                    </li>
+                                    <li class="item">
+                        <a href="https://github.com/orchidsoftware/fortify" class="link" >
+                            Fortify
+                        </a>
+                    </li>
+                            </ul>
+        </div>
+    </nav>
+
+<div class="docs-version">
+                                <svg class="symbol" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M6 7v10m12-10a10 10 0 0 1-10 10H6"/>
+                                </svg>
+                                <select id="docs-version" aria-label="Orchid version" onchange="window.location.href = this.value">
+                                                                            <optgroup label="Current">
+                                                                                            <option value="/en/docs/15.x/upgrade" selected>15.x (development)</option>
+                                                                                            <option value="/en/docs/upgrade" >14.x (latest)</option>
+                                                                                    </optgroup>
+                                                                            <optgroup label="Legacy">
+                                                                                            <option value="/en/docs/13.x/upgrade" >13.x</option>
+                                                                                            <option value="/en/docs/12.x/upgrade" >12.x</option>
+                                                                                            <option value="/en/docs/11.x/upgrade" >11.x</option>
+                                                                                            <option value="/en/docs/10.x/upgrade" >10.x</option>
+                                                                                            <option value="/en/docs/9.x/upgrade" >9.x</option>
+                                                                                            <option value="/en/docs/8.x/upgrade" >8.x</option>
+                                                                                            <option value="/en/docs/7.x" >7.x</option>
+                                                                                            <option value="/en/docs/6.x" >6.x</option>
+                                                                                            <option value="/en/docs/5.x" >5.x</option>
+                                                                                            <option value="/en/docs/4.x" >4.x</option>
+                                                                                            <option value="/en/docs/3.x" >3.x</option>
+                                                                                            <option value="/en/docs/2.x/upgrade" >2.x</option>
+                                                                                    </optgroup>
+                                                                    </select>
+                                <svg class="chevron" aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 4.5 3 3 3-3"/></svg>
+                                <noscript>
+                                    <ul >
+                                                                                    <li><a href="/en/docs/15.x/upgrade"  aria-current="true" >15.x</a></li>
+                                                                                    <li><a href="/en/docs/upgrade" >14.x</a></li>
+                                                                                    <li><a href="/en/docs/13.x/upgrade" >13.x</a></li>
+                                                                                    <li><a href="/en/docs/12.x/upgrade" >12.x</a></li>
+                                                                                    <li><a href="/en/docs/11.x/upgrade" >11.x</a></li>
+                                                                                    <li><a href="/en/docs/10.x/upgrade" >10.x</a></li>
+                                                                                    <li><a href="/en/docs/9.x/upgrade" >9.x</a></li>
+                                                                                    <li><a href="/en/docs/8.x/upgrade" >8.x</a></li>
+                                                                                    <li><a href="/en/docs/7.x" >7.x</a></li>
+                                                                                    <li><a href="/en/docs/6.x" >6.x</a></li>
+                                                                                    <li><a href="/en/docs/5.x" >5.x</a></li>
+                                                                                    <li><a href="/en/docs/4.x" >4.x</a></li>
+                                                                                    <li><a href="/en/docs/3.x" >3.x</a></li>
+                                                                                    <li><a href="/en/docs/2.x/upgrade" >2.x</a></li>
+                                                                            </ul>
+                                </noscript>
+                            </div>
+
+<a href="#" title="Scroll to the top of the page" class="back-to-top">Back to top ↑</a>
+                </aside>
+                <div class="reading">
+                    <main class="article">
+                                                    <aside class="docs-archive alert-warning" role="note" aria-label="Development documentation">
+                                <svg class="symbol" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 7h16v13H4zM3 3h18v4H3zM9 11h6"/>
+                                </svg>
+                                <div class="message">
+                                    <div class="heading">
+                                        <strong>Development documentation</strong>
+                                        <span class="version">15.x</span>
+                                    </div>
+                                    <p class="copy">Orchid 15.x is in development. APIs may change before release.</p>
+                                    <a class="action" href="/en/docs/upgrade">
+                                        Read the stable version
+                                        <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </aside>
+                                                
+                            <div class="headline">
+                                <h1>Upgrade to 15.x</h1>
+
+                                <a href="https://github.com/orchidsoftware/orchid.software/edit/master/docs/15.x/en/upgrade.md" class="button quiet edit"
+   title="View and edit this file on GitHub" target="_blank" rel="noopener"
+>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M30.133 1.552c-1.090-1.044-2.291-1.573-3.574-1.573-2.006 0-3.47 1.296-3.87 1.693-0.564 0.558-19.786 19.788-19.786 19.788-0.126 0.126-0.217 0.284-0.264 0.456-0.433 1.602-2.605 8.71-2.627 8.782-0.112 0.364-0.012 0.761 0.256 1.029 0.193 0.192 0.45 0.295 0.713 0.295 0.104 0 0.208-0.016 0.31-0.049 0.073-0.024 7.41-2.395 8.618-2.756 0.159-0.048 0.305-0.134 0.423-0.251 0.763-0.754 18.691-18.483 19.881-19.712 1.231-1.268 1.843-2.59 1.819-3.925-0.025-1.319-0.664-2.589-1.901-3.776zM22.37 4.87c0.509 0.123 1.711 0.527 2.938 1.765 1.24 1.251 1.575 2.681 1.638 3.007-3.932 3.912-12.983 12.867-16.551 16.396-0.329-0.767-0.862-1.692-1.719-2.555-1.046-1.054-2.111-1.649-2.932-1.984 3.531-3.532 12.753-12.757 16.625-16.628zM4.387 23.186c0.55 0.146 1.691 0.57 2.854 1.742 0.896 0.904 1.319 1.9 1.509 2.508-1.39 0.447-4.434 1.497-6.367 2.121 0.573-1.886 1.541-4.822 2.004-6.371zM28.763 7.824c-0.041 0.042-0.109 0.11-0.19 0.192-0.316-0.814-0.87-1.86-1.831-2.828-0.981-0.989-1.976-1.572-2.773-1.917 0.068-0.067 0.12-0.12 0.141-0.14 0.114-0.113 1.153-1.106 2.447-1.106 0.745 0 1.477 0.34 2.175 1.010 0.828 0.795 1.256 1.579 1.27 2.331 0.014 0.768-0.404 1.595-1.24 2.458z"></path>
+    </svg>
+    Suggest Edit
+</a>
+                            </div>
+
+
+                            <nav class="anchors" aria-label="On this page">
+        <ul class="list">
+                            <li class="item" data-level="h2">
+                    <a href="#upgrade-from-14x-to-15x">Upgrade from 14.x to 15.x</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#requirements-and-dependencies">Requirements and dependencies</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#database-schema-and-identifiers">Database schema and identifiers</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#configuration-facade-and-routes">Configuration, facade, and routes</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#presenters">Presenters</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#url-filters-and-sort-columns">URL filters and sort columns</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#local-scopes">Local scopes</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#model-casts-and-permission-values">Model casts and permission values</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#select-replaces-relation">Select replaces Relation</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#editors-and-collection-fields">Editors and collection fields</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#charts">Charts</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#navigation-dialogs-and-notifications">Navigation, dialogs, and notifications</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#screen-state-and-tests">Screen state and tests</a>
+                </li>
+                            <li class="item" data-level="h2">
+                    <a href="#other-public-api-changes">Other public API changes</a>
+                </li>
+                    </ul>
+    </nav>
+                            <head></head><body><h2><a href='#upgrade-from-14x-to-15x' id='upgrade-from-14x-to-15x'>Upgrade from 14.x to 15.x</a></h2>
+<p>15.x is in development. Keep production applications on a released version until you have verified the changes below.
+Back up your database and test the upgrade in a separate environment.</p>
+<h2><a href='#requirements-and-dependencies' id='requirements-and-dependencies'>Requirements and dependencies</a></h2>
+<p>Use PHP 8.3&nbsp;or later and Laravel <code>^12.4 || ^13.0</code>. Laravel 10&nbsp;and 11&nbsp;are no longer supported.
+When 15.0&nbsp;is released, require <code>orchid/platform:^15.0</code> and update related dependencies together.
+For a development installation, use the current development source rather than an unavailable stable tag.</p>
+<h2><a href='#database-schema-and-identifiers' id='database-schema-and-identifiers'>Database schema and identifiers</a></h2>
+<p>Existing 14.x databases require an application-specific data migration before they can use the new default models.
+Changed package create-table migrations do not run again after Laravel has recorded them as applied.
+<code>orchid:install</code> is not a converter for existing production data.</p>
+<p>The new schema uses UUID primary keys for <code>roles</code> and <code>attachments</code>. <code>role_users.role_id</code> is a string, <code>attachmentable.attachment_id</code> is a UUID foreign key, and <code>attachmentable.attachmentable_id</code> is a string.
+The attachment pivot no longer needs its own <code>id</code>. Role <code>name</code> is unique and replaces the old <code>slug</code> field.</p>
+<p>Plan and test forward migrations in your application:</p>
+<ol>
+<li>Back up the database and inventory every reference to role and attachment IDs, including custom tables.</li>
+<li>Create mappings from existing numeric IDs to UUIDs. Update the records, pivots, and application foreign keys together.</li>
+<li>Resolve duplicate role names before adding their unique constraint. Replace code that depends on role slugs.</li>
+<li>Check attachment names and paths before changing old text columns to strings. Preserve application metadata that
+previously used <code>description</code> or <code>alt</code>; those columns are absent from the new default create-table migration.</li>
+<li>Verify role assignments, attachment ownership, uploads, downloads, and removals on a copy of production data.</li>
+</ol>
+<p>Do not discard existing migrations, run <code>migrate:fresh</code>, or truncate identifiers to make the schema match.
+If you retain custom key types, configure compatible custom models and relations before creating new records.</p>
+<h2><a href='#configuration-facade-and-routes' id='configuration-facade-and-routes'>Configuration, facade, and routes</a></h2>
+<table>
+<thead>
+<tr>
+<th>14.x</th>
+<th>15.x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config/platform.php</code></td>
+<td><code>config/orchid.php</code></td>
+</tr>
+<tr>
+<td><code>routes/platform.php</code></td>
+<td><code>routes/orchid.php</code></td>
+</tr>
+<tr>
+<td><code>platform</code> middleware group</td>
+<td><code>orchid</code> middleware group</td>
+</tr>
+<tr>
+<td><code>Orchid\Support\Facades\Dashboard</code></td>
+<td><code>Orchid\Support\Facades\Orchid</code></td>
+</tr>
+<tr>
+<td><code>Orchid\Platform\Dashboard</code></td>
+<td><code>Orchid\Platform\Orchid</code> for container injection</td>
+</tr>
+<tr>
+<td><code>platform.main</code></td>
+<td><code>orchid.main</code></td>
+</tr>
+<tr>
+<td><code>platform.profile</code></td>
+<td><code>orchid.profile</code></td>
+</tr>
+<tr>
+<td><code>platform.systems.users</code></td>
+<td><code>orchid.users</code></td>
+</tr>
+<tr>
+<td><code>platform.systems.roles</code></td>
+<td><code>orchid.roles</code></td>
+</tr>
+<tr>
+<td><code>platform::</code> views</td>
+<td><code>orchid::</code> views</td>
+</tr>
+</tbody>
+</table>
+<p>Use <code>Orchid::</code> through the facade for static calls. Inject <code>Orchid\Platform\Orchid</code> when you need the kernel instance.
+Update route declarations, menu links, authorization middleware, policies, stored permission keys, and custom templates.
+Built-in user and role permissions use <code>orchid.users</code> and <code>orchid.roles</code>. File management uses <code>orchid.attachment</code>.
+Custom permission slugs remain application-defined. Rename existing assignments together with their registrations.
+The <code>PLATFORM_DOMAIN</code>, <code>PLATFORM_PREFIX</code>, and <code>PLATFORM_FILESYSTEM_DISK</code> environment names remain supported.</p>
+<p>Republish resources with <code>php artisan orchid:publish</code>. Compare published views with the new package views before
+restoring customizations. The old build output and manifest are not compatible with the new Vite assets.</p>
+<h2><a href='#presenters' id='presenters'>Presenters</a></h2>
+<p>Use <code>Orchid\Presenter\Presenter</code>, <code>Presentable</code>, and <code>UsePresenter</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Presenters\<span class="hl-type">PostPresenter</span>;
+<span class="hl-keyword">use</span> Orchid\Presenter\<span class="hl-type">Presentable</span>;
+<span class="hl-keyword">use</span> Orchid\Presenter\<span class="hl-type">UsePresenter</span>;
+
+#[<span class="hl-function">UsePresenter</span>(<span class="hl-type">PostPresenter</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)]
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
+{
+    <span class="hl-keyword">use</span> <span class="hl-type">Presentable</span>;
+}
+</code></pre>
+<p>A child inherits the nearest presenter declaration. <code>presenter(OtherPresenter::class)</code> overrides one call.
+Without either declaration or override, <code>presenter()</code> throws. Review presenters that depended on forwarding model
+method calls. See <a href="/en/docs/15.x/presenters">presenters</a> and the updated <a href="/en/docs/15.x/global-search">search contract</a>.</p>
+<h2><a href='#url-filters-and-sort-columns' id='url-filters-and-sort-columns'>URL filters and sort columns</a></h2>
+<p>Replace <code>$allowedFilters</code> and <code>$allowedSorts</code> with class attributes:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">AllowedFilters</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">AllowedSorts</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\<span class="hl-type">Filterable</span>;
+<span class="hl-keyword">use</span> Orchid\Filters\Types\<span class="hl-type">Like</span>;
+
+#[<span class="hl-function">AllowedFilters</span>([<span class="hl-value">'title'</span> <span class="hl-operator">=&gt;</span> <span class="hl-type">Like</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>])]
+#[<span class="hl-function">AllowedSorts</span>([<span class="hl-value">'title'</span>, <span class="hl-value">'created_at'</span>])]
+<span class="hl-keyword">class</span> <span class="hl-type">Post</span> <span class="hl-keyword">extends</span> <span class="hl-template">Model</span>
+{
+    <span class="hl-keyword">use</span> <span class="hl-type">Filterable</span>;
+}
+</code></pre>
+<p>The old properties are no longer read. Migrate overrides on child models as well, or the parent&rsquo;s attribute applies.
+Each list inherits independently. A child attribute replaces the complete list, and <code>[]</code> disables it.
+See <a href="/en/docs/15.x/filters">URL filters</a> for supported filter classes and examples.</p>
+<h2><a href='#local-scopes' id='local-scopes'>Local scopes</a></h2>
+<p>Orchid&rsquo;s local scopes now use Laravel&rsquo;s <code>Scope</code> attribute. Keep calls such as <code>Post::filters()</code> and
+<code>User::countByDays()</code> unchanged. Migrate custom <code>scope...</code> overrides and direct parent calls to the new method names:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\Attributes\<span class="hl-type">Scope</span>;
+<span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Builder</span>;
+
+#[Scope]
+<span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">published</span>(<span class="hl-injection"><span class="hl-type">Builder</span> $query</span>): <span class="hl-keyword">void</span>
+{
+    $query<span class="hl-delimeter">-&gt;</span><span class="hl-function">whereNotNull</span>(<span class="hl-value">'published_at'</span>);
+}
+</code></pre>
+<p>A child overriding an Orchid scope must keep <code>#[Scope]</code> and call the corresponding unprefixed parent method.</p>
+<h2><a href='#model-casts-and-permission-values' id='model-casts-and-permission-values'>Model casts and permission values</a></h2>
+<p>User, Role, and Attachment declare casts through <code>casts()</code>. Extend them with <code>parent::casts()</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">protected</span> <span class="hl-keyword">function</span> <span class="hl-function">casts</span>(): <span class="hl-keyword">array</span>
+{
+    <span class="hl-keyword">return</span> [<span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-keyword"><span class="hl-type">parent</span></span><span class="hl-delimeter">::</span><span class="hl-function">casts</span>(), <span class="hl-value">'settings'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'array'</span>];
+}
+</code></pre>
+<p>A legacy child <code>$casts</code> property does not override the same key returned by the parent&rsquo;s <code>casts()</code>.
+Move such overrides to the method. User and Role permissions now use <code>Orchid\Access\Permissions</code>:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Permissions</span>;
+<span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Orchid</span>;
+
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">permissions</span> <span class="hl-operator">=</span> <span class="hl-type">Orchid</span><span class="hl-delimeter">::</span><span class="hl-function">allowedPermissions</span>();
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
+
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">permissions</span> <span class="hl-operator">=</span> <span class="hl-type">Permissions</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>([<span class="hl-value">'orchid.users'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>]);
+$user<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
+
+$states <span class="hl-operator">=</span> $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">permissions</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">toArray</span>();
+</code></pre>
+<p>Use <code>allows()</code> to check a value object, <code>toArray()</code> for an array, and <code>PermissionGroup::make()-&gt;add()</code> to register groups.
+<code>Orchid::allowedPermissions()</code> replaces <code>Dashboard::getAllowAllPermission()</code>.
+Use <code>Permissions::fromEncodedForm()</code> for Orchid&rsquo;s encoded permission checkbox input.
+The removed <code>Orchid\Access\UserInterface</code> and <code>RoleInterface</code> contracts must not remain on custom models.
+Extend the package models or use the relevant current access traits. See <a href="/en/docs/15.x/permissions">permissions</a>.</p>
+<h2><a href='#select-replaces-relation' id='select-replaces-relation'>Select replaces Relation</a></h2>
+<p>Replace <code>Relation</code> with <code>Select</code> and opt into lazy model choices:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-type">Select</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'user_id'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">lazy</span>(<span class="hl-number">20</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">fromModel</span>(<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>, <span class="hl-value">'name'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">searchColumns</span>(<span class="hl-value">'name'</span>, <span class="hl-value">'email'</span>)
+    <span class="hl-delimeter">-&gt;</span><span class="hl-function">applyScope</span>(<span class="hl-value">'active'</span>);
+</code></pre>
+<p><code>lazy($chunk)</code> controls the remote page size. <code>max($count)</code> now limits the number of selected items.
+Keep scopes that restrict tenant access. Existing selections are resolved for display.
+<code>allowCreate()</code> is the preferred replacement for the deprecated <code>allowAdd()</code> name.
+The old relation endpoint is replaced by choices handled by the field. See <a href="/en/docs/15.x/field#select">Select</a>.</p>
+<h2><a href='#editors-and-collection-fields' id='editors-and-collection-fields'>Editors and collection fields</a></h2>
+<p><code>Markdown</code> replaces the SimpleMDE implementation. <code>SimpleMDE</code> remains a deprecated PHP alias.
+Code and Markdown use CodeMirror. Remove old client-side editor plugins and unsupported configuration.
+TextArea remains a native multiline input. The removed <code>Upload</code> field is replaced by <code>Attach</code>.</p>
+<p><a href="/en/docs/15.x/field#keyvalue">KeyValue</a>, <a href="/en/docs/15.x/field#blockeditor">BlockEditor</a>, and
+<a href="/en/docs/15.x/field#repeater">Repeater</a> provide map, structured document, and row-list editing.
+Check their submitted data shapes before saving. Keep validation and authorization on the server.</p>
+<h2><a href='#charts' id='charts'>Charts</a></h2>
+<p>Orchid Charts replaces Frappe. Provide shared labels and datasets:</p>
+<pre><code data-lang="php" class="notranslate"><span class="hl-keyword">return</span> [
+    <span class="hl-value">'visits'</span> <span class="hl-operator">=&gt;</span> [
+        <span class="hl-value">'labels'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-value">'Mon'</span>, <span class="hl-value">'Tue'</span>],
+        <span class="hl-value">'datasets'</span> <span class="hl-operator">=&gt;</span> [[<span class="hl-value">'name'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'Visits'</span>, <span class="hl-value">'values'</span> <span class="hl-operator">=&gt;</span> [<span class="hl-number">12</span>, <span class="hl-number">18</span>]]],
+    ],
+];
+
+<span class="hl-comment">// In layout():</span>
+<span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">chart</span>(<span class="hl-value">'visits'</span>, <span class="hl-value">'Visits'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-type">Chart</span><span class="hl-delimeter">::</span><span class="hl-constant">TYPE_LINE</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">height</span>(<span class="hl-number">300</span>);
+</code></pre>
+<p><code>Chartable</code> collections now return this complete shape from <code>toChart()</code>.
+Move presentation properties to fluent methods or supported options. Frappe options and JavaScript APIs are removed.
+Use <a href="/en/docs/15.x/charts">the chart reference</a> to migrate mixed charts, markers, gradients, and generated subclasses.</p>
+<h2><a href='#navigation-dialogs-and-notifications' id='navigation-dialogs-and-notifications'>Navigation, dialogs, and notifications</a></h2>
+<p>Use <a href="/en/docs/15.x/side-menu">SideMenu</a> for contextual navigation between related screens.
+Dialog layouts support <code>Modal::SIZE_COMPACT</code> and <code>scrollable()</code>.
+The notification panel operates through its dialog and read-state endpoints, not the old notification screen.
+Use <code>OrchidMessage</code> and <code>OrchidChannel</code>. <code>DashboardMessage</code> and <code>DashboardChannel</code> remain deprecated aliases for
+compatibility with stored notifications. Existing database notification records do not need to be rewritten.</p>
+<p>Global search also uses a dialog. Remove links to the old search screen.
+Review custom Stimulus controllers for <code>connect()</code> and <code>disconnect()</code> cleanup under Turbo.
+The field and navigation controls now expose keyboard and focus behavior. Preserve that behavior in custom views.</p>
+<h2><a href='#screen-state-and-tests' id='screen-state-and-tests'>Screen state and tests</a></h2>
+<p>Screen state signs ordinary values and closures. Saved Eloquent models use model identifiers and reload from the
+database. Keep <code>APP_KEY</code> stable across requests. The signed state is not an authorization decision: authorize actions
+and validate submitted data on every request.</p>
+<p>Update tests for the new route names and Permissions object. For package contributors, the test environment now uses
+Testbench Workbench, PHPStan, and Rector. See <a href="/en/docs/15.x/testing">testing</a>.</p>
+<h2><a href='#other-public-api-changes' id='other-public-api-changes'>Other public API changes</a></h2>
+<p>Use <code>Orchid::permissionGroups()</code> instead of <code>Dashboard::getPermission()</code> when reading the permission catalog.
+<code>Screen::asyncParticalLayout()</code> has been corrected to <code>asyncPartialLayout()</code>; update custom calls or overrides.
+Use <code>Orchid\Screen\Concerns\CanSee</code> and <code>Orchid\Screen\Concerns\HasCommandBar</code> for the moved screen traits.
+Prefer enum cases such as <code>Color::INFO</code> to the legacy <code>Color::INFO()</code> calls in new examples.
+Check third-party Orchid packages for 15.x compatibility before upgrading them with the platform.</p>
+</body>
+
+                                                                        </main>
+                </div>
+
+                <aside class="sponsors" aria-label="Our Friends">
+                    <div class="content">
+                        <p class="title">
+                            Our Friends
+                        </p>
+
+                        <div class="links">
+                            <a href="https://github.com/Assisted-Mindfulness?utm_source=orchid&utm_medium=docs&utm_campaign=friends" class="link" target="_blank" rel="noopener">
+                                <img src="/img/sponsors/assisted-mindfulness-logo.svg" alt="Assisted Mindfulness" class="logo">
+                            </a>
+
+                            <a href="https://sajya.github.io?utm_source=orchid&utm_medium=docs&utm_campaign=friends" class="link" target="_blank" rel="noopener">
+                                <img src="/img/sponsors/sajya.svg" alt="Sajya" class="logo">
+                            </a>
+
+                                                    </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<footer class="footer">
+    <div class="layout shell">
+        <div class="art" aria-hidden="true"></div>
+        <div class="content">
+            <h2 class="title"><span class="text-accent">Discover</span> even more.</h2>
+            <nav class="links" aria-label="Community">
+                <p class="link-row">
+                <a href="/en/community/code-of-conduct" class="link">Community Guidelines</a>
+                <a href="https://opencollective.com/orchid" class="link">Donation</a>
+                </p>
+                <p class="link-row">
+                <a href="https://github.com/orchidsoftware" class="link">GitHub</a>
+                <a href="/en/discussions" class="link">Discussion</a>
+                <a href="/en/hig" class="link">HIG</a>
+                <a href="/en/license" class="link">License</a>
+                </p>
+            </nav>
+            <nav class="languages" aria-label="Documentation language">
+                <a href="https://orchid.software/en/docs/15.x/upgrade/" class="link is-active">English</a>
+                <span aria-hidden="true">/</span>
+                <a href="https://orchid.software/ru/docs/15.x/upgrade/" class="link">Russian</a>
+            </nav>
+        </div>
+    </div>
+</footer>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(42925369, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/42925369" class="analytics-pixel" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <script async>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-39757298-4', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+</body>
+</html>
