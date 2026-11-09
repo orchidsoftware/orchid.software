@@ -4,3 +4,4 @@ extend-ignore-re = ['\bhl-delimeter\b']
 
 [default.extend-identifiers]
 datatime = "datatime" # Existing public/img/ui/datatime.png and its published links.
+asyncParticalLayout = "asyncParticalLayout" # Old API name quoted in the 15.x migration guide.
