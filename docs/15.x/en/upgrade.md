@@ -244,3 +244,6 @@ for empty states. SideMenu's old `label(): string` override becomes `->label('Se
 The `orchid:rows` and `orchid:table` commands and their published stubs are removed.
 Named menu classes and their generators remain supported. Listener's class-based request handler is unchanged.
 If a layout subclass defines a custom constructor, keep the parent signature or extract a factory that returns an object.
+
+The constructors store `fields`, `columns`, `filters`, and `navigations` as protected arrays where applicable.
+If a custom subclass already declares one of those properties, match the array type and visibility or rename its storage.
