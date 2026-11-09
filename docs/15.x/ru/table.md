@@ -23,7 +23,7 @@ use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-use Orchid\Platform\Http\Filters\SearchFilter;
+use App\Orchid\Filters\SearchFilter;
 use App\Http\Filters\LastNamePatient;
 
 class PatientListLayout extends Table
@@ -49,14 +49,14 @@ class PatientListLayout extends Table
                 ->width('100px')
                 ->render(function ($patient) {
                     return Link::make($patient->last_name)
-                        ->route('platform.clinic.patient.edit', $patient);
+                        ->route('orchid.clinic.patient.edit', $patient);
                 }),
 
             TD::make('first_name', 'First Name')
                 ->sort()
                 ->render(function ($patient) {
                     return Link::make($patient->first_name)
-                        ->route('platform.clinic.patient.edit', $patient);
+                        ->route('orchid.clinic.patient.edit', $patient);
                 }),
 
             TD::make('phone','Phone')
@@ -141,7 +141,6 @@ TD::make('last_name')->sort();
 ```php
 TD::make('SKU')->filter(Input::make()->mask('A-999999'));
 
-
 TD::make('color')->filter(
     Select::make()
         ->options(['red' => 'Red', 'green' => 'Green'])
@@ -211,7 +210,7 @@ use Orchid\Screen\Actions\Link;
 TD::make('full_name')
     ->render(function ($user) {
         return Link::make($user->last_name)
-               ->route('platform.user.edit', $user);
+               ->route('orchid.user.edit', $user);
     });
 ```
 
@@ -225,8 +224,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     ->render(function ($user) {
         return Group::make([
-            Link::make('Show')->route('platform.user.show', $user);
-            Link::make('Edit')->route('platform.user.edit', $user);
+            Link::make('Show')->route('orchid.user.show', $user);
+            Link::make('Edit')->route('orchid.user.edit', $user);
         ]);
     });
 ```
@@ -268,7 +267,7 @@ TD::make()->render(function (Model $model, object $loop) {
 ```
 
 Переменная `$loop` содержит множество полезных параметров, подробнее можно ознакомиться в
-[Документации Laravel](https://laravel.com/docs/9.x/blade#loops).
+[Документации Laravel](https://laravel.com/docs/12.x/blade#loops).
 
 ## Компоненты
 
@@ -552,4 +551,38 @@ public function grid(): array
         TD::make('status')->bool(),
     ];
 }
+```
+
+## Пустые состояния и оформление
+
+Пустая таблица различает отсутствие записей и отсутствие совпадений после фильтрации.
+Во втором случае доступна ссылка сброса параметров `filter`, `page` и `cursor`.
+В подклассе таблицы можно переопределить `iconNotFound(): string`, `textNotFound(): string`,
+`subNotFound(): string` или `actionNotFound(): ?Action`:
+
+```php
+use Orchid\Screen\Action;
+use Orchid\Screen\Actions\Link;
+
+protected function actionNotFound(): ?Action
+{
+    return Link::make('Create order')->route('orchid.orders.create');
+}
+
+protected function hoverable(): bool
+{
+    return true;
+}
+```
+
+Маршрут `orchid.orders.create` из примера нужно определить в приложении.
+Методы `striped(): bool`, `compact(): bool`, `bordered(): bool` и `hoverable(): bool` управляют оформлением таблицы.
+Сохраните родительское пустое состояние, если пользователю нужна встроенная ссылка сброса фильтров.
+
+В своём шаблоне используйте общий компонент:
+
+```blade
+<x-orchid-empty-state icon="bs.inbox" title="Нет заказов" description="Здесь появятся новые заказы.">
+    <a href="{{ route('orchid.orders.create') }}">Создать заказ</a>
+</x-orchid-empty-state>
 ```

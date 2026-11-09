@@ -41,7 +41,7 @@ Alert::warning('Message')
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Color;
 
-Alert::view('alert', Color::INFO(), [
+Alert::view('alert', Color::INFO, [
     'name' => 'Alexandr'
 ]);
 ```
@@ -63,7 +63,7 @@ Hello <strong>{{ $name }}</strong>
 указать:
 
 ```php
-@include('platform::partials.alert')
+@include('orchid::partials.alert')
 ```
 
 ## Тост сообщения
@@ -106,27 +106,27 @@ Toast::warning('Lorem ipsum dolor sit amet.')
 php artisan make:notification TaskCompleted
 ```
 
-Эта команда создаст новый класс в вашем каталоге `app/Notifications`. Необходимо добавить канал `DashboardChannel` в
+Эта команда создаст новый класс в вашем каталоге `app/Notifications`. Необходимо добавить канал `OrchidChannel` в
 `via` методе уведомления:
 
 ```php
-use Orchid\Platform\Notifications\DashboardChannel;
+use Orchid\Platform\Notifications\OrchidChannel;
 
 public function via($notifiable)
 {
-    return [DashboardChannel::class];
+    return [OrchidChannel::class];
 }
 ```
 
-Перед использованием `DashboardChannel` необходимо определить метод `toDashboard` в классе уведомлений. Этот метод
-получит объект `$notifiable` и должен вернуть объект `DashboardMessage`:
+Перед использованием `OrchidChannel` необходимо определить метод `toOrchid` в классе уведомлений. Этот метод
+получит объект `$notifiable` и должен вернуть объект `OrchidMessage`:
 
 ```php
-use Orchid\Platform\Notifications\DashboardMessage;
+use Orchid\Platform\Notifications\OrchidMessage;
 
-public function toDashboard($notifiable)
+public function toOrchid($notifiable)
 {
-    return (new DashboardMessage)
+    return (new OrchidMessage)
         ->title('Hello Word')
         ->message('New post!')
         ->action(url('/'));
@@ -145,3 +145,9 @@ $user = User::find(1);
 
 $user->notify(new TaskCompleted);
 ```
+
+## Обновление интеграции уведомлений
+
+Кнопка уведомлений открывает диалог с действиями отметки прочитанного. Удалите ссылки на старый экран уведомлений.
+В новом коде используйте `OrchidMessage`, `OrchidChannel` и `toOrchid()`.
+Старые имена Dashboard сохранены как устаревшие псевдонимы для чтения уже записанных уведомлений.

@@ -7,6 +7,9 @@ description:
     global search with Scout, layers for grouping, and using icons and SVG icons in your project.
 ---
 
+15.x is in development and targets PHP 8.3+ and Laravel `^12.4 || ^13.0`.
+Start with the [upgrade guide](/en/docs/upgrade) for changes from 14.x.
+
 ## Introduction to Laravel Orchid
 
 **Laravel Orchid** is a powerful open-source package that simplifies the development and creation of

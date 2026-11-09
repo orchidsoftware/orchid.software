@@ -177,7 +177,7 @@ class TaskScreen extends Screen
 ### Routing
 
 Just like a controller, a screen in Orchid needs to be registered in the route file to be accessible to the user. To
-register a screen, open the route file for the admin panel (typically `routes/platform.php`) and define a new route for
+register a screen, open the route file for the admin panel (typically `routes/orchid.php`) and define a new route for
 the screen.
 
 To define a new route for a screen, we can use the Screen method provided by Orchid. This method takes two arguments:
@@ -186,7 +186,7 @@ the URL of the screen, and the class name of the screen.
 ```php
 use App\Orchid\Screens\TaskScreen;
 
-Route::screen('task', TaskScreen::class)->name('platform.task');
+Route::screen('task', TaskScreen::class)->name('orchid.task');
 ```
 
 Now that we have registered a new route for our screen, we can visit the screen in the browser by navigating to the
@@ -242,7 +242,7 @@ public function menu(): array
 
         Menu::make('Tasks')
             ->icon('bag')
-            ->route('platform.task')
+            ->route('orchid.task')
             ->title('Tools')
     ];
 }
@@ -259,17 +259,17 @@ return to previous screens. They are typically displayed as a series of links at
 screen being the last link in the series.
 
 To add breadcrumbs to our screen, we will need to update the route definition for the screen in the
-`routes/platform.php` file. Specifically, we will need to append the route with the `->breadcrumbs()` method:
+`routes/orchid.php` file. Specifically, we will need to append the route with the `->breadcrumbs()` method:
 
 ```php
 use App\Orchid\Screens\TaskScreen;
 use Tabuna\Breadcrumbs\Trail;
 
 Route::screen('task', TaskScreen::class)
-    ->name('platform.task')
+    ->name('orchid.task')
     ->breadcrumbs(function (Trail $trail) {
         return $trail
-            ->parent('platform.index')
+            ->parent('orchid.index')
             ->push('Task');
     });
 ```

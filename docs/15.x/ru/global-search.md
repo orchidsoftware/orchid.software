@@ -1,163 +1,98 @@
 ---
 title: Глобальный поиск
-description:
+description: Поиск по зарегистрированным моделям Scout через presenter.
 ---
 
-## Использование полнотекстового поиска
+Глобальный поиск выводит результаты в диалоге верхней панели. Сначала настройте Laravel Scout и его драйвер.
+Отдельный экран поиска и его старый маршрут больше не используются.
 
-Платформа поставляется с пакетом [Laravel Scout](https://github.com/laravel/scout), который является абстракцией для
-полнотекстового поиска в ваши модели `Eloquent`. Так как **`Scout` не содержит самого «драйвера» поиска**, требуется
-поставить и указать требуемое решение, это могут быть elasticsearch, algolia, sphinx или другие решения.
+## Зарегистрируйте модель
 
-> В этом примере используется [представители](/ru/docs/presenters), настоятельно рекомендуется ознакомится с ними. А так
-> же произвести действия по настройки модели из документации [Laravel Scout](https://github.com/laravel/scout).
-
-Для того чтобы приложение имело информацию о том, какие модели должны участвовать в поиске, необходимо зарегистрировать
-их в сервис провайдере:
+Добавьте модели в `config/orchid.php`:
 
 ```php
-namespace App\Providers;
-
-use App\Idea;
-use Orchid\Platform\Dashboard;
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Boot the application events.
-     *
-     * @param Dashboard $dashboard
-     */
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerSearch([
-          Idea::class,
-          //...Models
-        ]);
-    }
-}
+'search' => [App\Models\Idea::class],
 ```
 
-Отображение результатов осуществляется с помощью вызова `presenter()` у объекта.
+Подключите трейт Scout `Searchable` и объявите presenter модели:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use App\Orchid\Presenters\IdeaPresenter;
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 
+#[UsePresenter(IdeaPresenter::class)]
 class Idea extends Model
 {
-    use Searchable;
+    use Presentable, Searchable;
 
-    /**
-     * Get the presenter for the model.
-     *
-     * @return IdeaPresenter
-     */
-    public function presenter()
+    public function toSearchableArray(): array
     {
-        return new IdeaPresenter($this);
-    }
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        // Customize array...
-
-        return $array;
+        return ['name' => $this->name, 'active' => (bool) $this->active];
     }
 }
 ```
 
-В представителе укажем интерфейс `Searchable` и определим методы, которые будут возвращать значения для показа
-пользователю, например так:
+## Опишите результат поиска
+
+Presenter реализует `Orchid\Screen\Contracts\Searchable`. Маршрут `orchid.ideas.edit` из примера
+нужно объявить в `routes/orchid.php` приложения.
 
 ```php
 namespace App\Orchid\Presenters;
 
 use Laravel\Scout\Builder;
+use Orchid\Presenter\Presenter;
 use Orchid\Screen\Contracts\Searchable;
-use Orchid\Support\Presenter;
 
 class IdeaPresenter extends Presenter implements Searchable
 {
-    /**
-     * @return string
-     */
     public function label(): string
     {
         return 'Ideas';
     }
 
-    /**
-     * @return string
-     */
     public function title(): string
     {
         return $this->entity->name;
     }
 
-    /**
-     * @return string
-     */
     public function subTitle(): string
     {
-        return 'Small descriptions';
+        return $this->entity->description ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function url(): string
     {
-        return url('/');
+        return route('orchid.ideas.edit', $this->entity);
     }
 
-    /**
-     * @return string
-     */
     public function image(): ?string
     {
         return null;
     }
 
-    /**
-     * @param string|null $query
-     *
-     * @return Builder
-     */
-    public function searchQuery(string $query = null): Builder
+    public function searchQuery(?string $query = null): Builder
     {
-        return $this->entity->search($query);
+        return $this->entity->search($query)->where('active', true);
     }
 
-    /**
-     * @return int
-     */
     public function perSearchShow(): int
     {
-        return 3;
+        return 5;
     }
 }
 ```
 
-## Модификация результатов
+`perSearchShow()` ограничивает число результатов в группе модели. `image()` может вернуть `null`.
+В `searchQuery()` добавьте ограничения доступа и текущего клиента.
+Регистрация модели в поиске не предоставляет пользователю права на её записи.
 
-Для модификации запросов, например, чтобы выдавать в результатах только актуальные данные, можно модифицировать запрос с
-помощью переопределения метода:
+Результаты появляются в диалоге. Пользователь может выбрать их с клавиатуры и перейти по `url()` presenter.
+Не создавайте ссылки на удалённый отдельный экран поиска.
 
-```php
-public function searchQuery(string $query = null): Builder
-{
-    return $this->entity->search($query)->where('active', true);
-}
-```
+Пример предполагает колонку `active`. Если драйвер Scout требует настройки фильтруемых атрибутов, добавьте её туда.

@@ -195,7 +195,7 @@ Please note that you can use fields and actions:
 use Orchid\Screen\Actions\Link;
 
 TD::make()
-    ->render(fn ($user) => Link::make($user->last_name)->route('platform.user.edit', $user)),
+    ->render(fn ($user) => Link::make($user->last_name)->route('orchid.user.edit', $user)),
 ```
 
 Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a `Group`:
@@ -206,8 +206,8 @@ use Orchid\Screen\Fields\Group;
 
 TD::make()
     ->render(fn($user) => Group::make([
-        Link::make('Show')->route('platform.user.show', $user),
-        Link::make('Edit')->route('platform.user.edit', $user),
+        Link::make('Show')->route('orchid.user.show', $user),
+        Link::make('Edit')->route('orchid.user.edit', $user),
     ])),
 ```
 
@@ -243,7 +243,7 @@ TD::make()->render(fn (Model $model, object $loop) => $loop->index),
 ```
 
 The `$loop` variable contains a variety of other useful properties which you can find in the
-[Laravel documentation](https://laravel.com/docs/9.x/blade#loops).
+[Laravel documentation](https://laravel.com/docs/12.x/blade#loops).
 
 ## Using Components
 
@@ -530,4 +530,38 @@ public function query(): array
         // ...
     ];
 }
+```
+
+## Empty states and presentation
+
+An empty table distinguishes an empty collection from a filtered query with no matches.
+The filtered state offers a link that clears `filter`, `page`, and `cursor` parameters.
+To customize a table subclass, override `iconNotFound(): string`, `textNotFound(): string`,
+`subNotFound(): string`, or `actionNotFound(): ?Action`:
+
+```php
+use Orchid\Screen\Action;
+use Orchid\Screen\Actions\Link;
+
+protected function actionNotFound(): ?Action
+{
+    return Link::make('Create order')->route('orchid.orders.create');
+}
+
+protected function hoverable(): bool
+{
+    return true;
+}
+```
+
+Define the example's `orchid.orders.create` route in your application.
+The `striped(): bool`, `compact(): bool`, `bordered(): bool`, and `hoverable(): bool` hooks control table presentation.
+Keep the parent empty-state behavior if users need its clear-filters action.
+
+For an empty state in a custom view, use the shared Blade component:
+
+```blade
+<x-orchid-empty-state icon="bs.inbox" title="No orders" description="New orders will appear here.">
+    <a href="{{ route('orchid.orders.create') }}">Create order</a>
+</x-orchid-empty-state>
 ```

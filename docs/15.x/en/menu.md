@@ -82,7 +82,7 @@ Quite an expected situation when some links should be missing depending on the [
 or other circumstances, for this:
 
 ```php
-Menu::make('Example')->permission('platform.idea');
+Menu::make('Example')->permission('orchid.idea');
 ```
 
 or any other check returning a boolean value:
@@ -112,7 +112,7 @@ Menu items have the ability to notify the user about any events in the form of a
 ```php
 Menu::make('Comments')
     ->icon('bubbles')
-    ->route('platform.comments')
+    ->route('orchid.comments')
     ->badge(fn () => 10);
 ```
 
@@ -153,9 +153,9 @@ Menu::make('Multi Level')
 And then add new items in our own packages like:
 
 ```php
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Support\Facades\Orchid;
 
-Dashboard::addMenuSubElements('sub-menu', [
+Orchid::addMenuSubElements('sub-menu', [
     Menu::make('Second Level Item 2')->icon('bs.heart')
 ]);
 ```

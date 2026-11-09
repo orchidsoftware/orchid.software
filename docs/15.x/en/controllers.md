@@ -40,7 +40,7 @@ The `index` method of your controller should return a view template, which will 
 style. Here is an example of a view template:
 
 ```php
-@extends('platform::dashboard')
+@extends('orchid::dashboard')
 
 @section('title','title')
 @section('description', 'description')
@@ -59,7 +59,7 @@ style. Here is an example of a view template:
 ```
 
 To make the controller accessible through the Orchid interface, you need to declare a route for it in the route file
-(for example, `routes/platform`). This will ensure that common rules such as authorization apply to the controller.
+(for example, `routes/orchid`). This will ensure that common rules such as authorization apply to the controller.
 
 Here is an example of how to declare a route for the `OrchidController`:
 

@@ -85,6 +85,8 @@ Let's open the page in a browser and see how the screen looks. It should display
 add a simple method to the screen to see the request content:
 
 ```php
+
+use Orchid\Support\Color;
 /**
  * The screen's layout elements.
  *

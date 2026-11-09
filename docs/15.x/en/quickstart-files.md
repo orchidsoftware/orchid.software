@@ -82,7 +82,7 @@ public function layout(): array
                 ->maxlength(200)
                 ->placeholder('Brief description for preview'),
 
-            Relation::make('post.author')
+            Select::make('post.author')->lazy()
                 ->title('Author')
                 ->fromModel(User::class, 'name'),
 
@@ -128,7 +128,7 @@ Cropper::make('post.hero')
 
 Let us dwell on the records of the number, but first, delete all existing records.
 
-Most often, some files are combined, for example, for display in whole groups, the `Upload` field is suitable for this.
+Most often, some files are combined, for example, for display in whole groups, the `Attach` field is suitable for this.
 
 ```php
 public function layout(): array
@@ -151,14 +151,14 @@ public function layout(): array
                 ->maxlength(200)
                 ->placeholder('Brief description for preview'),
 
-            Relation::make('post.author')
+            Select::make('post.author')->lazy()
                 ->title('Author')
                 ->fromModel(User::class, 'name'),
 
             Quill::make('post.body')
                 ->title('Main text'),
 
-            Upload::make('post.attachments')
+            Attach::make('post.attachments')
                 ->title('All files')
 
         ])
@@ -187,7 +187,7 @@ But also describe the synchronization of dependent records by relations in our s
 ```php
 public function createOrUpdate(Request $request)
 {
-    $this->post->fill($request->get('post'))->save();
+    $this->post->fill($request->input('post'))->save();
 
     $this->post->attachments()->syncWithoutDetaching(
         $request->input('post.attachments', [])
@@ -195,18 +195,16 @@ public function createOrUpdate(Request $request)
 
     Alert::info('You have successfully created a post.');
 
-    return redirect()->route('platform.post.list');
+    return redirect()->route('orchid.post.list');
 }
 ```
 
 After saving, the connection with our record will be established in the table `attachmentable`:
 
-```php
-id  attachmentable_type  attachmentable_id  attachment_id
-1 App\Post          3                 101
-2 App\Post          3                 102
-3 App\Post          3                 103
-4 App\Post          3                 104
+```text
+attachmentable_type  attachmentable_id  attachment_id
+App\Models\Post      3                  5b3fcd1d-3d6b-4a74-bad4-2e17ef5d8814
+App\Models\Post      3                  74b79d2b-972c-4cb3-a9ba-1d09fb8369e0
 ```
 
 But when the record is accessed again, the field will be empty. This happens because `query` does not know about the

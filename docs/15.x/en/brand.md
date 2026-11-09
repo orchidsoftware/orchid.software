@@ -6,7 +6,7 @@ description:
 ---
 
 Sometimes you may want the visual style of the platform to match your brand. After installation, two settings are
-provided that are located in `config/platform.php`:
+provided that are located in `config/orchid.php`:
 
 ```php
 'template' => [

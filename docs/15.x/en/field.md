@@ -277,6 +277,11 @@ Password::make('password')
 
 Use `title()`, `placeholder()`, `help()`, and `required()` as with other fields.
 
+### Password visibility
+
+Password includes a reveal control by default. Hide it with `Password::make('password')->revealable(false)`.
+The control respects disabled fields and does not submit the form.
+
 ## CheckBox
 
 A checkbox is a graphical user interface element that allows the user to control a parameter with two states - checked
@@ -332,103 +337,81 @@ By default, an unchecked checkbox does not send a value. Use `sendTrueOrFalse()`
 
 ## Select
 
-The select field is a form element that allows the user to choose an option from a dropdown list. It is useful for
-presenting a limited set of options and allowing the user to make a selection.
-
-To create a select field, you can use the `Select` class:
+Use Select for fixed options, Eloquent choices, enums, and remote model search.
 
 ```php
 use Orchid\Screen\Fields\Select;
 
-Select::make('select')
-    ->options([
-        'index'   => 'Index',
-        'noindex' => 'No index',
-    ])
-    ->title('Select tags')
-    ->help('Allow search bots to index');
+Select::make('status')->options([
+    'draft' => 'Draft',
+    'published' => 'Published',
+]);
+
+Select::make('user_id')->fromModel(User::class, 'email');
+Select::make('user_id')->fromQuery(User::where('active', true), 'name', 'id');
 ```
 
-The `options` attribute is an array that defines the options that will be presented in the dropdown list. The keys of
-the array are the values that will be sent to the server, and the values are the labels that will be displayed to the
-user.
+`fromModel()` loads choices eagerly by default. `fromQuery()` always loads choices immediately;
+use lazy `fromModel()` for remote searches.
+The optional third argument selects the key column. Without it, the model's primary key is used, including UUID keys.
 
-In addition to using an array of options, you can also use a data source to populate the options of a select field. For
-example, you can use a model to retrieve the options:
-
-```php
-Select::make('user')
-    ->fromModel(User::class, 'email');
-```
-
-This will retrieve all records from the `User` model and use the email field as the label for each option. You can also
-use a custom query to retrieve the options:
+### Lazy model choices
 
 ```php
-Select::make('user')
-    ->fromQuery(User::where('balance', '!=', '0'), 'email');
-```
-
-This will retrieve all records from the `User` model where the `balance` field is not equal to `0`, and use the `email`
-field as the label for each option.
-
-You can also specify a different field to use as the key for each option using the `fromModel()` and `fromQuery()`
-methods:
-
-```php
-Select::make('user')
-    ->fromModel(User::class, 'email', 'uuid');
-```
-
-This will use the `uuid` field as the key for each option, rather than the default primary key.
-
-If you want to provide an option that represents an unselected state, you can use the `empty()` method:
-
-```php
-// For array
-Select::make('user')
-    ->options([
-        1  => 'Option 1',
-        2  => 'Option 2',
-    ])
-    ->empty('No select');
-
-// For model
-Select::make('user')
+Select::make('user_id')
+    ->lazy(20)
     ->fromModel(User::class, 'name')
-    ->empty('No select');
+    ->searchColumns('name', 'email')
+    ->applyScope('active')
+    ->allowEmpty();
 ```
 
-The `empty` method also accepts the second argument, which is responsible for the value:
+Call `lazy()` before `fromModel()` to avoid eager loading. The default chunk size is 10.
+`searchColumns()` sets the database columns searched by the remote endpoint.
+`applyScope()` accepts the local scope name and optional arguments, for example `applyScope('forTenant', $tenantId)`.
+Use a scope to restrict accessible choices. Encryption of the payload does not replace authorization.
+
+Define scopes using Laravel's attribute syntax:
 
 ```php
-Select::make('user')
-    ->empty('No select', 0)
-    ->options([
-        1  => 'Option 1',
-        2  => 'Option 2',
-    ]);
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
+
+#[Scope]
+protected function active(Builder $query): void
+{
+    $query->where('active', true);
+}
 ```
 
-Allow custom values with the `allowAdd` method:
+`displayAppend('display_name')` can use a model accessor for the label in lazy mode.
+Keep `searchColumns()` pointed at actual searchable database columns.
+Existing selected values are resolved when the field is displayed.
+
+### Selection options
 
 ```php
-Select::make('type')
-    ->allowAdd()
-    ->options([
-        'Option 1',
-        'Option 2',
-    ]);
+Select::make('assignees')->lazy()->fromModel(User::class, 'name')->multiple()->max(5);
+Select::make('status')->fromEnum(Status::class, 'label');
+Select::make('tags')->options(['laravel' => 'Laravel'])->multiple()->allowCreate();
+Select::make('category')->options(['news' => 'News'])->empty('Choose a category', '');
 ```
+
+`max()` limits selected items, while `lazy($chunk)` controls the remote result count.
+The `Status` enum in the example must provide a `label()` method. Omit the second argument to use case names.
+`allowCreate()` permits new values and replaces the deprecated `allowAdd()` name.
+Validate submitted values on the server, including their ownership and existence.
+
+The removed Relation field is replaced by `Select::make(...)->lazy()->fromModel(...)`.
 
 ## Radio
 
 Use the Radio field for a single choice from a fixed set of options. Each option is displayed as a radio button:
 
 ```php
-use Orchid\Screen\Fields\Radio;
+use Orchid\Screen\Fields\RadioButtons;
 
-Radio::make('status')
+RadioButtons::make('status')
     ->options([
         'draft'   => 'Draft',
         'pending' => 'Pending',
@@ -440,110 +423,6 @@ Radio::make('status')
 
 For a horizontal group of radio buttons in a single row, you can use the `RadioButtons` class or place multiple `Radio`
 fields inside a [Group](#group). Use descriptive labels for accessibility.
-
-## Relation
-
-Relations fields can load dynamic data, this is a good solution if you need connections.
-
-```php
-use Orchid\Screen\Fields\Relation;
-
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->title('Choose your idea');
-```
-
-For multiple selections, use the `multiple()` method.
-
-```php
-Relation::make('ideas.')
-    ->fromModel(Idea::class, 'name')
-    ->multiple()
-    ->title('Choose your ideas');
-```
-
-> **Note.** Note the dot at the end of the name. It is necessary to show the expected array shape, similar to the HTML
-> code `<input name='ideas[]'>`.
-
-To modify the load, you can use the reference to the `scope` model, for example, take only active:
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Attributes\Scope;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-
-class Idea extends Model
-{
-    #[Scope]
-    protected function active(Builder $query): void
-    {
-        $query->where('active', 1);
-    }
-}
-```
-
-```php
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->applyScope('active')
-    ->title('Choose your idea');
-```
-
-You can also pass additional parameters to the method:
-
-```php
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->applyScope('status', 'active')
-    ->title('Choose your idea');
-```
-
-You can add one or several fields, which will be additionally searched for:
-
-```php
-Relation::make('idea')
-     ->fromModel(Idea::class, 'name')
-     ->searchColumns('author', 'description')
-     ->title('Choose your idea');
-```
-
-To set the number of items that will be listed as a result of a search, you can chain the method chunk, passing the
-number of search results as a param:
-
-```php
-Relation::make('users.')
-    ->fromModel(User::class, 'name')
-    ->chunk(20);
-```
-
-Selection options can work with calculated fields, but only to display the result, the search will occur only on one
-column in the database. To do this, use the `displayAppend` method.
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
-{
-    public function getFullAttribute(): string
-    {
-        return sprintf('%s (%s)', $this->name, $this->email);
-    }
-}
-```
-
-To indicate the displayed field you must:
-
-```php
-Relation::make('users.')
-    ->fromModel(User::class, 'name')
-    ->displayAppend('full')
-    ->multiple()
-    ->title('Select users');
-```
 
 ## DateTime
 
@@ -790,11 +669,11 @@ document.addEventListener("orchid:quill", (event) => {
 });
 ```
 
-**Note:** you can add custom scripts and stylesheets through the `platform.php` config file.
+**Note:** you can add custom scripts and stylesheets through the `orchid.php` config file.
 
 Example for [quill-image-compress](https://github.com/benwinding/quill-image-compress):
 
-Add the following in `config/platform.php` into the `resource.scripts` array
+Add the following in `config/orchid.php` into the `resource.scripts` array
 
 ```text
 "https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
@@ -820,21 +699,26 @@ document.addEventListener("orchid:quill", (event) => {
 });
 ```
 
-## Markdown Editor
+## Markdown editor
 
-The Markdown editor field is a powerful tool for creating and editing text using the Markdown markup language. Markdown
-offers a simple and intuitive syntax that allows users to focus on content creation without getting bogged down by
-complex formatting.
-
-![Markdown](/img/ui/markdown.png) ![Markdown Editor Preview](/img/ui/markdown2.png)
-
-To create a Markdown editor field, you can use the `SimpleMDE` class:
+Markdown uses CodeMirror and submits Markdown text. `SimpleMDE` remains a deprecated alias for this field.
 
 ```php
-use Orchid\Screen\Fields\SimpleMDE;
+use Orchid\Screen\Fields\Markdown;
 
-SimpleMDE::make('markdown');
+Markdown::make('post.body')
+    ->title('Body')
+    ->rows(12)
+    ->toolbar([
+        [Markdown::H2, Markdown::H3],
+        [Markdown::BOLD, Markdown::ITALIC, Markdown::LINK],
+        [Markdown::LIST, Markdown::ORDERED_LIST],
+    ]);
 ```
+
+Use `withoutToolbar()` to hide controls. Available identifiers include `H1` through `H5`, `BOLD`, `ITALIC`,
+`LINK`, `QUOTE`, `CODE`, `LIST`, `ORDERED_LIST`, and `UPLOAD`.
+Old SimpleMDE JavaScript options and extensions are not the current editor API.
 
 ## Matrix
 
@@ -899,38 +783,21 @@ Matrix::make('users')
 
 ## Code editor
 
-A field for writing program code with the ability to highlight.
-
-![Code](/img/ui/code.png)
-
-Example:
+Code uses CodeMirror. Configure the language, line numbers, CSS height, and read-only state through field methods.
 
 ```php
 use Orchid\Screen\Fields\Code;
 
-Code::make('code');
+Code::make('settings')
+    ->language('json')
+    ->lineNumbers()
+    ->height('300px')
+    ->readonly();
 ```
 
-To specify code highlighting for a specific programming language, you can use the `language()` method.
-
-```php
-Code::make('code')
-    ->language(Code::CSS);
-```
-
-The following languages are available:
-
-- Markup - `markup`, `html`, `xml`, `svg`, `mathml`
-- CSS - `css`
-- C-like - `clike`
-- JavaScript - `javascript`, `js`
-
-The number of lines is supported:
-
-```php
-Code::make('code')
-    ->lineNumbers();
-```
+Supported language identifiers include `js`, `javascript`, `json`, `css`, `html`, `markup`, `xml`,
+`svg`, `mathml`, and `clike`. Other identifiers fall back to JavaScript highlighting.
+Array and object values are encoded as JSON for editing. TextArea remains a native multiline text field.
 
 ## Picture
 
@@ -1013,7 +880,7 @@ Cropper::make('picture')
     ->targetId();
 ```
 
-The sequence number (`id`) of the`Attachment` record will be returned.
+The attachment primary key is returned. New installations use UUID strings, not integer sequence numbers.
 
 ```php
 Cropper::make('picture')
@@ -1165,96 +1032,6 @@ Attach::make('upload')
     ->errorMaxSizeMessage("File size is too large")
     ->errorTypeMessage("Invalid file type");
 ```
-
-<!--
-## Upload
-
-This field provides an intuitive interface for uploading images and files, including support for grouping and processing
-various file types.
-
-To create a file upload element, use the `make` method of the `Upload` class and specify the field name:
-
-```php
-Upload::make('upload');
-```
-
-You can group files by different categories using the `groups` method. This is especially useful if you need to upload
-different types of files, such as documents and images.
-
-```php
-Upload::make('docs')
-    ->groups('documents');
-
-Upload::make('images')
-    ->groups('photo');
-```
-
-To get specific files via Model relation
-
-```php
-use Orchid\Attachment\Models\Attachment;
-
-// One-to-Many (with foreign id)
-public function hero()
-{
-    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
-}
-
-// Many-to-Many (no foreign id on table, should be uploaded with groups() function)
-public function documents()
-{
-    return $this->attachments('documents');
-}
-```
-
-It can be used to limit the maximum number of files that will be processed:
-
-```php
-Upload::make('upload')
-    ->maxFiles(10);
-```
-
-Determines the number of concurrent downloads for processing files:
-```php
-Upload::make('upload')
-    ->parallelUploads(2);
-```
-
-> **Maximum upload file size:**
-> Default `upload_max_filesize` & `post_max_size` values are 2M , You can change them in `php.ini` to enable setting max
-> file size to be more than 2M
-
-```php
-Upload::make('upload')
-    ->maxFileSize(1024); // Size in MB
-```
-
-The default implementation of `accept` checks the type or extension of the MIME file against this list. This is a
-comma-separated list of MIME types or file extensions.
-
-```php
-Upload::make('upload')
-    ->acceptedFiles('image/*,application/pdf,.psd');
-```
-
-The upload field can work with various repositories. To specify it, you must pass the key specified in `config/filesystems.php`:
-
-```php
-Upload::make('upload')
-    ->storage('s3');
-```
-
-The default storage is `public`.
-
-Sometimes you already know that the file was loaded earlier, then you can use the library search:
-
-```php
-Upload::make('upload')
-    ->media();
-```
-
-It will add a new button with a modal window to preview uploaded files.
--->
 
 ## Map
 
@@ -1492,7 +1269,7 @@ DropDown::make()
     ->icon('bs.options-vertical')
     ->list([
         Link::make('Edit')
-            ->route('platform.systems.users.edit', $user->id),
+            ->route('orchid.users.edit', $user->id),
 
         Button::make('Delete')
             ->method('remove')
@@ -1523,3 +1300,128 @@ Result is an array with keys of `min`, `max`.
 To create custom fields, refer to the "Custom Fields" page in the documentation. This page provides a straightforward
 guide on how to create and customize fields according to your requirements. Access the
 [Custom Fields](/en/docs/custom-field) page for more details.
+
+## KeyValue
+
+KeyValue edits a map as rows containing `key` and `value` cells. Both cells accept scalar values or `null`.
+Use an array cast for the model's `settings` attribute.
+
+```php
+use Orchid\Screen\Fields\KeyValue;
+
+KeyValue::make('post.settings')
+    ->keyLabel('Setting')
+    ->valueLabel('Value')
+    ->reorderable()
+    ->value(['theme' => 'dark', 'locale' => 'en']);
+```
+
+The submitted value is a list of rows. Validate it before converting it back to a map:
+
+```php
+use Orchid\Screen\Fields\KeyValue;
+
+$data = $request->validate([
+    'post.settings' => ['nullable', 'array'],
+    'post.settings.*.key' => ['nullable', 'string'],
+    'post.settings.*.value' => ['nullable', 'string'],
+]);
+
+$post->settings = KeyValue::rowsToArray($data['post']['settings'] ?? []);
+$post->save();
+```
+
+`rowsToArray()` ignores blank keys and keeps the last value for duplicate keys.
+`addable()`, `deletable()`, `editableKeys()`, and `editableValues()` control the field's operations.
+Rejected form input is restored for editing. Invalid nested model values throw an exception.
+
+## BlockEditor
+
+BlockEditor edits a JSON document with a top-level `blocks` list. It submits JSON text rather than HTML.
+The current document format is independent of Editor.js.
+
+```php
+use Orchid\Screen\Fields\BlockEditor;
+
+BlockEditor::make('post.body')
+    ->toolbar([BlockEditor::PARAGRAPH, BlockEditor::HEADING, BlockEditor::IMAGE])
+    ->value(['blocks' => [['type' => 'paragraph', 'text' => 'Hello']]]);
+```
+
+Toolbar identifiers are `PARAGRAPH`, `HEADING`, `QUOTE`, `LIST`, `IMAGE`, `CODE`, and `EMBED`.
+Use `withoutToolbar()` to hide controls. The field accepts a JSON string or an array for its initial value.
+A cleared document is represented by `{"blocks":[]}`.
+
+For an array-cast model attribute, decode the validated JSON before assignment:
+
+```php
+$request->validate(['post.body' => ['nullable', 'json']]);
+
+$post->body = json_decode(
+    $request->input('post.body') ?: '{"blocks":[]}',
+    true,
+    flags: JSON_THROW_ON_ERROR,
+);
+$post->save();
+```
+
+Validate the permitted block structure for your application as well. Escape text when rendering stored blocks and
+use an explicit policy for rich content and embeds. The field does not turn stored JSON into trusted HTML.
+
+## Repeater
+
+Repeater edits a list of records using full fields in each row. Use unprefixed field names inside `fields()`.
+Use an array cast for the model's `links` attribute.
+
+```php
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Repeater;
+use Orchid\Screen\Fields\Select;
+
+Repeater::make('post.links')
+    ->fields([
+        Input::make('label')->title('Label'),
+        Input::make('url')->type('url')->title('URL'),
+        Select::make('kind')->options(['internal' => 'Internal', 'external' => 'External']),
+    ])
+    ->emptyRows(1)
+    ->maxRows(10)
+    ->cloneableRows()
+    ->reorderableRows();
+```
+
+The example submits `post.links` as rows with `label`, `url`, and `kind`.
+Client-side row limits do not replace server-side validation:
+
+```php
+$data = $request->validate([
+    'post.links' => ['nullable', 'array', 'max:10'],
+    'post.links.*.label' => ['required', 'string', 'max:255'],
+    'post.links.*.url' => ['required', 'url'],
+    'post.links.*.kind' => ['required', 'in:internal,external'],
+]);
+
+$post->links = $data['post']['links'] ?? [];
+$post->save();
+```
+
+`emptyRows()` supplies initial blank rows. `maxRows()` limits the row count, and `removableRows()` controls deletion.
+Nested repeaters and KeyValue fields are supported. Rows containing either cannot use `cloneableRows()`.
+This restriction prevents nested values from being discarded during duplication.
+For tabular scalar input, Matrix remains available.
+
+## Attribute translation
+
+Fields translate `title`, `placeholder`, and `help` by default.
+Use `translatable()` to add attribute names and `withoutTranslation()` to exclude names, or all attributes:
+
+```php
+Input::make('title')->title('Title')->withoutTranslation('title');
+Input::make('label')->translatable('value');
+Input::make('text')->withoutTranslation();
+```
+
+These methods control interface text translation, not multilingual model storage.
+To hide the required mark, use `Input::make('name')->required()->requiredWithoutAsterisk()`.
+`requiredWithoutAsterisk()` changes the mark only; it does not make a field required.
+Server-side validation is still required.

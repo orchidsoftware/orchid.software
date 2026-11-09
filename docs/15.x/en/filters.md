@@ -44,7 +44,7 @@ class EmailFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->where('email', $this->request->get('email'));
+        return $builder->where('email', $this->request->input('email'));
     }
 
     /**
@@ -57,7 +57,7 @@ class EmailFilter extends Filter
         return [
             Input::make('email')
                 ->type('text')
-                ->value($this->request->get('email'))
+                ->value($this->request->input('email'))
                 ->placeholder('Search...')
                 ->title('Email'),
         ];
@@ -276,12 +276,13 @@ class Post extends Model
 ### Filtering
 
 As mentioned before, any filtering action can only be performed on an allowed list of filters, which is specified using
-the `allowedFilters` property as a key-value pair. The key represents the name of your columns, and the value is the
+the `AllowedFilters` attribute as a key-value pair. The key represents the name of your columns, and the value is the
 handling class. Here's an example:
 
 ```php
 namespace App\Models;
 
+use Orchid\Filters\AllowedFilters;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
@@ -291,24 +292,18 @@ use Orchid\Filters\Types\WhereMaxMin;
 use Orchid\Filters\Types\WhereDateStartEnd;
 use Orchid\Filters\Types\WhereIn;
 
+#[AllowedFilters([
+    'id'            => Where::class,
+    'user_id'       => WhereIn::class,
+    'rating'        => WhereMaxMin::class,
+    'content'       => Like::class,
+    'publish_at'    => WhereDate::class,
+    'created_at'    => WhereDateStartEnd::class,
+    'deleted_at'    => WhereDateStartEnd::class,
+])]
 class Post extends Model
 {
     use Filterable;
-
-    /**
-     * The attributes for which you can use filters in url.
-     *
-     * @var array
-     */
-    protected $allowedFilters = [
-        'id'            => Where::class,
-        'user_id'       => WhereIn::class,
-        'rating'        => WhereMaxMin::class,
-        'content'       => Like::class,
-        'publish_at'    => WhereDate::class,
-        'created_at'    => WhereDateStartEnd::class,
-        'deleted_at'    => WhereDateStartEnd::class,
-    ];
 }
 ```
 
@@ -453,32 +448,27 @@ $model->orderBy('content->ru->name', 'desc');
 
 ### Sorting
 
-To enable sorting functionality, you need to specify a list of columns in the `allowedSorts` property. This list
+To enable sorting functionality, you need to specify a list of columns in the `AllowedSorts` attribute. This list
 represents the columns in your database table that can be used for sorting. Here's an example:
 
 ```php
 namespace App\Models;
 
+use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 
+#[AllowedSorts([
+    'id',
+    'user_id',
+    'rating',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+])]
 class Post extends Model
 {
     use Filterable;
-
-    /**
-     * The attributes for which can use sort in url.
-     *
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'user_id',
-        'rating',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
 }
 ```
 
@@ -529,3 +519,14 @@ However, you will need to manually handle the HTTP parameters `sort` and `filter
 recognize that the `-` sign before the field name indicates descending order for sorting, and also how to apply filters.
 You can do this using a "Filter." Additionally, you should only use the package methods for sorting or filtering based
 on fields accessible through relationships.
+
+## Attribute inheritance
+
+Declare `AllowedFilters` and `AllowedSorts` on the model class. Each list inherits independently from the nearest
+ancestor that declares its attribute. A child declaration replaces the entire list.
+`#[AllowedFilters([])]` or `#[AllowedSorts([])]` explicitly disables the inherited list.
+Without a declaration anywhere in the hierarchy, that list is empty. Lists are never automatically merged.
+
+The old `$allowedFilters` and `$allowedSorts` properties are no longer read. Migrate child overrides as well,
+or they inherit the parent's attribute. See the [15.x upgrade guide](/en/docs/upgrade).
+URL allowlists do not replace authorization or tenant restrictions in your application.

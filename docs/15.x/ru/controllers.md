@@ -37,7 +37,7 @@ class OrchidController extends Controller
 Метод `index` возвращает шаблон приложения, именно в нём мы будем визуализировать всю стилистику пакета:
 
 ```php
-@extends('platform::dashboard')
+@extends('orchid::dashboard')
 
 @section('title','title')
 @section('description', 'description')
@@ -55,7 +55,7 @@ class OrchidController extends Controller
 @stop
 ```
 
-Созданный контроллер необходимо объявить в файле маршрута, например, в `routes/platform`, чтобы на него распространялись
+Созданный контроллер необходимо объявить в файле маршрута, например, в `routes/orchid`, чтобы на него распространялись
 общие правила, такие как авторизация.
 
 ```php

@@ -85,12 +85,12 @@ The screen's main difference from the controller is the structure defined in adv
 defining data and events.
 
 Like the controller, the screen needs to register in the route file. Define it in the file for the admin panel
-`routes/platform.php`:
+`routes/orchid.php`:
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 
-Route::screen('email', EmailSenderScreen::class)->name('platform.email');
+Route::screen('email', EmailSenderScreen::class)->name('orchid.email');
 ```
 
 After we have registered a new route, you can go to the browser at `/admin/email`, to look at the empty screen, fill it
@@ -122,7 +122,7 @@ To display the input fields, we describe them in the `Layouts` method:
 use App\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
 
 /**
@@ -140,7 +140,7 @@ public function layout(): array
                 ->placeholder('Message subject line')
                 ->help('Enter the subject line for your message'),
 
-            Relation::make('users.')
+            Select::make('users.')->lazy()
                 ->title('Recipients')
                 ->multiple()
                 ->required()
@@ -171,7 +171,7 @@ use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -234,7 +234,7 @@ class EmailSenderScreen extends Screen
                     ->placeholder('Message subject line')
                     ->help('Enter the subject line for your message'),
 
-                Relation::make('users.')
+                Select::make('users.')->lazy()
                     ->title('Recipients')
                     ->multiple()
                     ->required()
@@ -265,15 +265,14 @@ class EmailSenderScreen extends Screen
             'content' => 'required|min:10'
         ]);
 
-        Mail::html($request->get('content'), function (Message $message) use ($request) {
+        Mail::html($request->input('content'), function (Message $message) use ($request) {
             $message->from('sample@email.com');
-            $message->subject($request->get('subject'));
+            $message->subject($request->input('subject'));
 
-            foreach ($request->get('users') as $email) {
+            foreach ($request->input('users') as $email) {
                 $message->to($email);
             }
         });
-
 
         Alert::info('Your email message has been sent successfully.');
     }
@@ -320,7 +319,7 @@ public function registerMainMenu(): array
 
         Menu::make('Email sender')
             ->icon('envelope-letter')
-            ->route('platform.email')
+            ->route('orchid.email')
             ->title('Tools')
     ];
 }
@@ -328,17 +327,17 @@ public function registerMainMenu(): array
 
 Now our utility is displayed on the left menu and is active when visiting. Navigation is carried out not only through
 transitions from the menu but also through breadcrumbs, to add them to our screen, you need to append your route with
-`->breadcrumbs(...)` in `routes/platform.php`.
+`->breadcrumbs(...)` in `routes/orchid.php`.
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 use Tabuna\Breadcrumbs\Trail;
 
 Route::screen('email', EmailSenderScreen::class)
-    ->name('platform.email')
+    ->name('orchid.email')
     ->breadcrumbs(function (Trail $trail){
         return $trail
-                ->parent('platform.index')
+                ->parent('orchid.index')
                 ->push('Email sender');
     });
 ```

@@ -1,117 +1,82 @@
 ---
 title: Presenters
-description:
-    Learn how to use Laravel Orchid's Presenters to format your data for display on your application's views. With
-    Presenters, you can easily customize the appearance of your data, making your application's user interface more
-    consistent and user-friendly.
+description: Format model values with a presenter and declare it through UsePresenter.
 ---
 
-Presenters are classes that wrap objects and provide additional functionality to them. In Orchid, presenters are used to
-format and present data consistently and help keep the views clean and organized. You can move all of the formatting and
-presentation logic into the presenter class, which maintains separation of concerns.
+A presenter formats an object's values for display. Put display logic in a class that extends
+`Orchid\Presenter\Presenter`. The wrapped object is available as `$this->entity`.
 
-## Creating A Presenter
+## Create a presenter
 
-In this example, let’s say we have a "Customer" model:
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Customer extends Model
-{
-    protected $fillable = [
-        'firstName',
-        'lastName'
-    ];
-}
-```
-
-Before an instance of this class is wrapped in a representative, you must create it:
+Generate a presenter with `php artisan orchid:presenter CustomerPresenter`, then define the values your views need:
 
 ```php
-namespace App\Presenters;
+namespace App\Orchid\Presenters;
 
-use Orchid\Support\Presenter;
+use Orchid\Presenter\Presenter;
 
 class CustomerPresenter extends Presenter
 {
     public function fullName(): string
     {
-        return sprintf('%s %s',
-            $this->entity->firstName,
-            $this->entity->lastName
-        );
+        return $this->entity->first_name.' '.$this->entity->last_name;
     }
 }
 ```
 
-After that, we can use it as follows:
+## Assign the presenter to a model
+
+Add `Presentable` and declare the presenter with `UsePresenter`:
 
 ```php
-use App\Customer;
-use App\Presenters\CustomerPresenter;
+namespace App\Models;
 
-$customer = new Customer([
-    'firstName' => 'Alexandr',
-    'lastName' => 'Chernyaev'
-]);
-
-$presenter = new CustomerPresenter($customer);
-
-$presenter->fullName();
-```
-
-> **Note** that the representative receives the `firstName` and `lastName` properties of the model because it does not
-> have these properties.
-
-Usually, there is no need to create and transfer a representative each time separately, for this, we indicate this
-creation in the model:
-
-```php
-namespace App;
-
+use App\Orchid\Presenters\CustomerPresenter;
 use Illuminate\Database\Eloquent\Model;
-use App\Presenters\CustomerPresenter;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 
+#[UsePresenter(CustomerPresenter::class)]
 class Customer extends Model
 {
-    protected $fillable = [
-        'firstName',
-        'lastName'
-    ];
-
-    public function presenter(): CustomerPresenter
-    {
-        return new CustomerPresenter($this);
-    }
+    use Presentable;
 }
 ```
 
-> **Note.** Many platform functions expect a representative in the `presenter` method.
-
-Now its use is becoming easier:
+The model and its descendants use this presenter unless a child declares its own `UsePresenter` attribute.
 
 ```php
-use App\Customer;
+$customer = Customer::findOrFail(1);
+$presenter = $customer->presenter();
 
-$customer = Customer::findOrFail(1)->presenter()->fullName();
+$presenter->fullName();
+$presenter->fullName;
+$presenter->email;
 ```
 
-## Using Presenters with Collections
+Property access calls a same-named presenter method first, then reads the wrapped object's property.
+The base presenter does not forward arbitrary method calls to the model.
 
-If you want to get a list of presenters, use collection methods, for example:
+## Choose a presenter for one call
 
 ```php
-use App\Customer;
-
-$customers = Customer::limit(10)->get()->map->presenter();
-
-foreach($customers as $customer)
-{
-    $customer->fullName();
-}
+$presenter = $customer->presenter(CompactCustomerPresenter::class);
 ```
 
-Using representatives for models is a common practice of automatically displaying data for `Layouts`.
+This override applies to that call. It does not change the model's default presenter.
+Without a class attribute or an explicit override, `presenter()` throws a `RuntimeException`.
+
+## Present a collection
+
+```php
+$customers = Customer::query()->limit(10)->get()->map->presenter();
+```
+
+You can also wrap any object directly with `new CustomerPresenter($object)`.
+For global search, implement the [search presenter contract](/en/docs/global-search).
+
+## Upgrade from 14.x
+
+Change imports from `Orchid\Support\Presenter` to `Orchid\Presenter\Presenter`.
+Replace a model's presenter factory method with `Presentable` and `UsePresenter`.
+Review presenters that relied on forwarding model method calls or old contracts.

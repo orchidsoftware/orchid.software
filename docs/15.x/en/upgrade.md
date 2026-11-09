@@ -1,837 +1,230 @@
 ---
-title: Upgrade Guide
-description:
-    Learn how to upgrade your Laravel Orchid application with the Upgrade Guide. Find tips and best practices for
-    smoothly transitioning to the latest version.
+title: Upgrade to 15.x
+description: Migrate a 14.x application to the current 15.x API.
 ---
 
-## Support Policy
+## Upgrade from 14.x to 15.x
 
-At Laravel Orchid, we aim to provide our users with the best possible support for our package. To ensure that we can
-provide efficient support, we will only provide support for the latest major release of our package. This includes bug
-fixes and security updates.
+15.x is in development. Keep production applications on a released version until you have verified the changes below.
+Back up your database and test the upgrade in a separate environment.
 
-We recommend that you use the latest version of Laravel Orchid in your projects to take advantage of the latest
-features, bug fixes, and security updates.
+## Requirements and dependencies
 
-If you have any questions or concerns about our support policy, please do not hesitate to contact us.
+Use PHP 8.3 or later and Laravel `^12.4 || ^13.0`. Laravel 10 and 11 are no longer supported.
+When 15.0 is released, require `orchid/platform:^15.0` and update related dependencies together.
+For a development installation, use the current development source rather than an unavailable stable tag.
 
-## Release Strategy
+## Database schema and identifiers
 
-We believe in keeping our package up-to-date and modern, and therefore follow a "release early, release often" approach
-for major releases. This means that we won't wait an extended period of time to release a new major version. By
-releasing major versions more frequently, new features will be available sooner, and upgrading between versions will be
-more manageable.
+Existing 14.x databases require an application-specific data migration before they can use the new default models.
+Changed package create-table migrations do not run again after Laravel has recorded them as applied.
+`orchid:install` is not a converter for existing production data.
 
-> We try to document all possible breaking changes. Some of these changes are internal calls, so only some of them may
-> affect your application.
+The new schema uses UUID primary keys for `roles` and `attachments`. `role_users.role_id` is a string,
+`attachmentable.attachment_id` is a UUID foreign key, and `attachmentable.attachmentable_id` is a string.
+The attachment pivot no longer needs its own `id`. Role `name` is unique and replaces the old `slug` field.
 
-## Upgrading to 14.0 from 13.x
+Plan and test forward migrations in your application:
 
-Upgrading Laravel Orchid from version `13.x` to `14.0` can be a straightforward process if done correctly.
+1. Back up the database and inventory every reference to role and attachment IDs, including custom tables.
+2. Create mappings from existing numeric IDs to UUIDs. Update the records, pivots, and application foreign keys together.
+3. Resolve duplicate role names before adding their unique constraint. Replace code that depends on role slugs.
+4. Check attachment names and paths before changing old text columns to strings. Preserve application metadata that
+   previously used `description` or `alt`; those columns are absent from the new default create-table migration.
+5. Verify role assignments, attachment ownership, uploads, downloads, and removals on a copy of production data.
 
-Before starting the upgrade process, it is important to backup your existing application and test the upgrade process in
-a development environment. This will ensure that any unexpected issues can be identified and addressed before affecting
-the production environment.
+Do not discard existing migrations, run `migrate:fresh`, or truncate identifiers to make the schema match.
+If you retain custom key types, configure compatible custom models and relations before creating new records.
 
-### Updating Dependencies
+## Configuration, facade, and routes
 
-In your `composer.json` file, update the `orchid/platform` dependency to `^14.0`
+| 14.x | 15.x |
+| --- | --- |
+| `config/platform.php` | `config/orchid.php` |
+| `routes/platform.php` | `routes/orchid.php` |
+| `platform` middleware group | `orchid` middleware group |
+| `Orchid\Support\Facades\Dashboard` | `Orchid\Support\Facades\Orchid` |
+| `Orchid\Platform\Dashboard` | `Orchid\Platform\Orchid` for container injection |
+| `platform.main` | `orchid.main` |
+| `platform.profile` | `orchid.profile` |
+| `platform.systems.users` | `orchid.users` |
+| `platform.systems.roles` | `orchid.roles` |
+| `platform::` views | `orchid::` views |
 
-### Laravel 10.x
+Use `Orchid::` through the facade for static calls. Inject `Orchid\Platform\Orchid` when you need the kernel instance.
+Update route declarations, menu links, authorization middleware, policies, stored permission keys, and custom templates.
+Built-in user and role permissions use `orchid.users` and `orchid.roles`. File management uses `orchid.attachment`.
+Custom permission slugs remain application-defined. Rename existing assignments together with their registrations.
+The `PLATFORM_DOMAIN`, `PLATFORM_PREFIX`, and `PLATFORM_FILESYSTEM_DISK` environment names remain supported.
 
-Laravel 10 is now required to install or upgrade. Update descriptions for existing projects can be found in the
-[documentation](https://laravel.com/docs/10.x/upgrade).
+Republish resources with `php artisan orchid:publish`. Compare published views with the new package views before
+restoring customizations. The old build output and manifest are not compatible with the new Vite assets.
 
-### Preserving State
+## Presenters
 
-One of the main new features of the release is the ability to save the states of public properties between actions on
-the screen.
-
-Let's take an example. While viewing the screen in the `query` method, we can set public properties that will be
-accessible in the `name/layouts` methods and others.
-
-Now, these public properties will be saved and available for the execution methods.
-
-```php
-public $idea;
-
-public function query() : array
-{
-    return [
-        'idea' => Idea::first()
-    ];
-}
-
-public function yourMethod()
-{
-    $this->idea;
-    // The property is not empty and contains
-    // the value that was set at the beginning.
-}
-```
-
-### Route Binding
-
-For a long time, Orchid has been using its own solution for defining route arguments. However, for the vast majority of
-methods (query/method), the same solution as with Controller is used. This allows you to define:
+Use `Orchid\Presenter\Presenter`, `Presentable`, and `UsePresenter`:
 
 ```php
-Route::screen('/posts/{post:slug}', ExampleScreen::class);
+use App\Orchid\Presenters\PostPresenter;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 
-Route::screen('/task', ExampleScreen::class)->withTrashed();
-```
-
-It also provides other opportunities that were not explicitly tied to what you're used to.
-
-> Please note that in the past, our tutorials sometimes specified the default model, which sometimes resulted in an
-> empty parameter. However, this now triggers a 404 error.
-
-### Listener
-
-Previously, working with Listeners could sometimes confuse users. Therefore, Listeners no longer have a property that
-specifies the screen method. Instead, there is a mandatory default method called `handler`. The current state of the
-screen is passed as the first argument to this method, and the `request` object is passed as the second argument.
-
-```php
-namespace App\Orchid\Layouts;
-
-use Illuminate\Http\Request;
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Layouts\Listener;
-use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
-
-class SubtractListener extends Listener
+#[UsePresenter(PostPresenter::class)]
+class Post extends Model
 {
-    /**
-     * List of field names for which values will be listened.
-     *
-     * @var string[]
-     */
-    protected $targets = [
-        'minuend',
-        'subtrahend',
-    ];
-
-    /**
-     * @return Layout[]
-     */
-    protected function layouts(): iterable
-    {
-        return [
-            Layout::rows([
-                Input::make('minuend')
-                    ->title('First argument')
-                    ->type('number'),
-
-                Input::make('subtrahend')
-                    ->title('Second argument')
-                    ->type('number'),
-
-                Input::make('result')
-                    ->readonly()
-                    ->canSee($this->query->has('result')),
-            ]),
-        ];
-    }
-
-    /**
-     * @param \Orchid\Screen\Repository $repository
-     * @param \Illuminate\Http\Request  $request
-     *
-     * @return \Orchid\Screen\Repository
-     */
-    public function handle(Repository $repository, Request $request): Repository
-    {
-        [$minuend, $subtrahend] = $request->all();
-
-        return $repository
-            ->set('minuend', $minuend)
-            ->set('subtrahend', $subtrahend)
-            ->set('result', $minuend - $subtrahend);
-    }
+    use Presentable;
 }
 ```
 
-### Automatic HTTP Filtering and Sorting
+A child inherits the nearest presenter declaration. `presenter(OtherPresenter::class)` overrides one call.
+Without either declaration or override, `presenter()` throws. Review presenters that depended on forwarding model
+method calls. See [presenters](/en/docs/presenters) and the updated [search contract](/en/docs/global-search).
 
-The automatic filters were previously based on the type of data entered by the user, which often led to errors. For
-example, when the user used a comma to search for text, the filter would sometimes recognize it as an array. Therefore,
-filters now need to specify their behavior explicitly:
+## URL filters and sort columns
+
+Replace `$allowedFilters` and `$allowedSorts` with class attributes:
 
 ```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\AllowedFilters;
+use Orchid\Filters\AllowedSorts;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
-use Orchid\Filters\Types\Where;
 
+#[AllowedFilters(['title' => Like::class])]
+#[AllowedSorts(['title', 'created_at'])]
 class Post extends Model
 {
     use Filterable;
-
-    protected $allowedFilters = [
-        'id' => Where::class,
-        'content' => Like::class,
-    ];
 }
 ```
 
-Another important change is that we now obtain the column name as-is. Therefore, you can no longer use dot notation for
-JSON fields. We are working on finding a more efficient and safer way to handle JSON fields in the future.
+The old properties are no longer read. Migrate overrides on child models as well, or the parent's attribute applies.
+Each list inherits independently. A child attribute replaces the complete list, and `[]` disables it.
+See [URL filters](/en/docs/filters) for supported filter classes and examples.
 
-### Navigation
+## Local scopes
 
-In version 14.0, the profile drop-down menu has been removed. Instead, it is suggested to specify the profile
-information in the main menu or on the screens. Please make sure to remove any references to the
-`Dashboard::MENU_PROFILE` constant and the `registerProfileMenu` method for the service provider from your code.
-
-For example, the following item will no longer work correctly:
+Orchid's local scopes now use Laravel's `Scope` attribute. Keep calls such as `Post::filters()` and
+`User::countByDays()` unchanged. Migrate custom `scope...` overrides and direct parent calls to the new method names:
 
 ```php
-public function registerProfileMenu(): array
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
+
+#[Scope]
+protected function published(Builder $query): void
 {
-    return [
-        Menu::make('Documentation')
-            ->title('Docs')
-            ->icon('docs')
-            ->url('https://orchid.software/en/docs'),
-    ];
+    $query->whereNotNull('published_at');
 }
 ```
 
-Instead, pen your menu items using the `registerMenu` method:
+A child overriding an Orchid scope must keep `#[Scope]` and call the corresponding unprefixed parent method.
+
+## Model casts and permission values
+
+User, Role, and Attachment declare casts through `casts()`. Extend them with `parent::casts()`:
 
 ```php
-public function registerMenu(): array
+protected function casts(): array
 {
-    return [
-        Menu::make('Documentation')
-            ->title('Docs')
-            ->icon('docs')
-            ->url('https://orchid.software/en/docs'),
-    ];
+    return [...parent::casts(), 'settings' => 'array'];
 }
 ```
 
-All methods that depend on `location` no longer need this argument. For example, the `addMenuSubElements` method now
-points directly to the target slug:
+A legacy child `$casts` property does not override the same key returned by the parent's `casts()`.
+Move such overrides to the method. User and Role permissions now use `Orchid\Access\Permissions`:
 
 ```php
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Access\Permissions;
+use Orchid\Support\Facades\Orchid;
 
-Dashboard::addMenuSubElements('sub-menu', [
-    Menu::make('Sub element item 3')->icon('badge')
-]);
+$user->permissions = Orchid::allowedPermissions();
+$user->save();
+
+$user->permissions = Permissions::make(['orchid.users' => true]);
+$user->save();
+
+$states = $user->permissions->toArray();
 ```
 
-### Icons
+Use `allows()` to check a value object, `toArray()` for an array, and `PermissionGroup::make()->add()` to register groups.
+`Orchid::allowedPermissions()` replaces `Dashboard::getAllowAllPermission()`.
+Use `Permissions::fromEncodedForm()` for Orchid's encoded permission checkbox input.
+The removed `Orchid\Access\UserInterface` and `RoleInterface` contracts must not remain on custom models.
+Extend the package models or use the relevant current access traits. See [permissions](/en/docs/permissions).
 
-In the new version, the icons have been updated to a set from Bootstrap. While replacing all the icons in existing
-applications can be a challenge, you have the option to continue using the icons from Orchid.
+## Select replaces Relation
 
-To do this, simply add the following line to your `composer.json` file:
-
-```bash
-"orchid/icons": "^2.0",
-```
-
-And then specify in your configuration file:
+Replace `Relation` with `Select` and opt into lazy model choices:
 
 ```php
-'icons' => [
-    'orc' => \Orchid\IconPack\Path::getFolder(),
-],
+Select::make('user_id')
+    ->lazy(20)
+    ->fromModel(User::class, 'name')
+    ->searchColumns('name', 'email')
+    ->applyScope('active');
 ```
 
-By doing this, you will continue to use the set of icons from Orchid, which has not been updated for some time due to a
-lack of a designer.
+`lazy($chunk)` controls the remote page size. `max($count)` now limits the number of selected items.
+Keep scopes that restrict tenant access. Existing selections are resolved for display.
+`allowCreate()` is the preferred replacement for the deprecated `allowAdd()` name.
+The old relation endpoint is replaced by choices handled by the field. See [Select](/en/docs/field#select).
 
-For the new icons to be displayed as well, add:
+## Editors and collection fields
 
-```php
-'icons' => [
-    // ...
-    'bs' => \Orchid\Support\BootstrapIconsPath::getFolder(),
-],
-```
+`Markdown` replaces the SimpleMDE implementation. `SimpleMDE` remains a deprecated PHP alias.
+Code and Markdown use CodeMirror. Remove old client-side editor plugins and unsupported configuration.
+TextArea remains a native multiline input. The removed `Upload` field is replaced by `Attach`.
 
-### Logout and Quit Impersonation
+[KeyValue](/en/docs/field#keyvalue), [BlockEditor](/en/docs/field#blockeditor), and
+[Repeater](/en/docs/field#repeater) provide map, structured document, and row-list editing.
+Check their submitted data shapes before saving. Keep validation and authorization on the server.
 
-The behavior of the "Logout" and "Quit Impersonation" actions must be explicitly defined by the developer. To do this,
-you can add button definitions to your profile screen.
+## Charts
 
-Here's an example of how you can define these buttons:
-
-```php
-use Orchid\Screen\Actions\Button;
-use Orchid\Access\Impersonation;
-
-public function commandBar(): iterable
-{
-    return [
-        Button::make('Back to my account')
-            ->canSee(Impersonation::isSwitch())
-            ->icon('bs.people')
-            ->route('platform.switch.logout'),
-
-        Button::make('Sign out')
-            ->icon('bs.box-arrow-left')
-            ->route('platform.logout'),
-    ];
-}
-```
-
-- The first button, `Back to my account`, is used to exit impersonation and return to the original user account. This
-  button will only be visible if the user is currently impersonating another account.
-- The second button, `Sign out`, is used to log out of the platform.
-
-By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation actions
-in your Orchid application.
-
-## Upgrading to 13.0 from 12.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^13.0`
-
-### jQuery
-
-This release no longer includes a default jQuery package. If you need it, you can install it separately, for example by
-adding a reference to it in the configuration file:
-
-```php
-'resource' => [
-    'stylesheets' => [],
-    'scripts'     => [
-        'https://code.jquery.com/jquery-3.6.0.min.js'
-    ],
-],
-```
-
-### Select2
-
-Since `select2` had a `jQuery` dependency, it was also replaced with the `tom-select` package. We tried to keep the
-behavior where possible. But `select2` special JS events are no longer available.
-
-## Upgrading to 12.0 from 11.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^12.0`
-
-### Laravel 9.x
-
-Laravel 9 is now required to install or upgrade. Update descriptions for existing projects can be found in the
-[documentation](https://laravel.com/docs/9.x/upgrade).
-
-## Upgrading to 11.0 from 10.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^11.0`
-
-### Publish Assets Files
-
-Instead of creating a symbolic link to download resources, there is a new command to publish them:
-
-```bash
-php artisan orchid:publish
-```
-
-Which would place the `JS/CSS` files in the `public/vendor/orchid` directory. It will also be required to automate
-making changes to composer.json:
-
-```json
-{
-    "scripts": {
-        "post-update-cmd": ["@php artisan orchid:publish --ansi"]
-    }
-}
-```
-
-### Icons
-
-Icons can now be completely replaced and are not forced to load. To continue using them, change the configuration file:
-
-```php
-'icons' => [
-    'orc' => \Orchid\IconPack\Path::getFolder(),
-],
-```
-
-### Screen
-
-Public screen properties are now auto-filled with values by key from the `query()` method. For instance:
-
-```php
-class IdeaScreen extends Screen
-{
-    public $name = 'Edit User';
-
-    public function query(): array
-    {
-        return [
-            'name' => 'Welcome',
-        ];
-    }
-}
-```
-
-The value of the `name` property will be overwritten. To avoid this, change the visibility of the property to
-`protected`
-
-```php
-class IdeaScreen extends Screen
-{
-    protected $name = 'Edit User';
-
-    public function query(): array
-    {
-        return [
-            'name' => 'Welcome',
-        ];
-    }
-}
-```
-
-### Component
-
-Specifying the expected argument name for components is no longer necessary:
-
-```php
-// before
-TD::make('index')->component(OrderShortInformation::class, 'order', [
-    'limit' => 100
-]);
-
-// after
-TD::make('index')->component(OrderShortInformation::class, [
-    'limit' => 100
-]);
-```
-
-### Metrics
-
-Instead of a separate class, the short syntax is now applied:
-
-```php
-use Orchid\Support\Facades\Layout;
-
-public function query(): array
-{
-    return [
-        'metrics' => [
-            'sales'    => ['value' => number_format(6851), 'diff' => 10.08],
-            'total'    => number_format(65661),
-        ],
-    ];
-}
-
-public function layout(): iterable
-{
-    return [
-        Layout::metrics([
-            'Sales Today'    => 'metrics.sales',
-            'Total Earnings' => 'metrics.total',
-        ]),
-    ];
-}
-```
-
-## Upgrading to 10.0 from 9.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^10.0`
-
-### Menu
-
-Sections of the menu have been reduced, the system menu has been removed. Constants are now in the class
-`Orchid\Platform\Dashboard`.
-
-```php
-use Orchid\Platform\Dashboard;
-
-Dashboard::MENU_MAIN;
-Dashboard::MENU_PROFILE;
-```
-
-Menus are now `Field` classes and have a unified syntax. Before:
-
-```php
-ItemMenu::label('Example screen')
-    ->icon('monitor')
-    ->route('platform.example')
-    ->title('Navigation')
-    ->badge(function () {
-        return 6;
-    });
-```
-
-After:
-
-```php
-use Orchid\Screen\Actions\Menu;
-
-Menu::make('Example screen')
-    ->icon('monitor')
-    ->route('platform.example')
-    ->title('Navigation')
-    ->badge(function () {
-        return 6;
-    });
-```
-
-As you can see, the update should be very soft. But the differences will also be, for example, the writing of nested
-elements will be more visual:
-
-Before:
-
-```php
-ItemMenu::label('Dropdown menu')
-    ->slug('example-menu')
-    ->icon('code')
-    ->withChildren(),
-
-ItemMenu::label('Sub element item 1')
-    ->place('example-menu')
-    ->icon('bag'),
-
-ItemMenu::label('Sub element item 2')
-    ->place('example-menu')
-    ->icon('heart'),
-```
-
-After:
-
-```php
-Menu::make('Dropdown menu')
-    ->icon('code')
-    ->list([
-        Menu::make('Sub element item 1')->icon('bag'),
-        Menu::make('Sub element item 2')->icon('heart'),
-    ]),
-```
-
-The default for sorting has been changed from 1000 to 0:
-
-```php
-Menu::make('Example screen')
-    ->icon('monitor')
-    ->route('platform.example')
-    ->title('Navigation')
-    ->sort(2),
-```
-
-This is also true for nested elements:
-
-```php
-Menu::make('Dropdown menu')
-    ->icon('code')
-    ->list([
-        Menu::make('Sub element item 1')->icon('bag')->sort(2),
-        Menu::make('Sub element item 2')->icon('heart')->sort(0),
-    ]),
-```
-
-For dynamic definition, you need to add a slug method in which to pass a unique string:
-
-```php
-Menu::make('Dropdown menu')
-    ->slug('sub-menu')
-    ->icon('code')
-    ->list([
-        Menu::make('Sub element item 1')->icon('bag'),
-        Menu::make('Sub element item 2')->icon('heart'),
-    ]),
-```
-
-And then add new items in our own packages like:
-
-```php
-Dashboard::addMenuSubElements(Dashboard::MENU_MAIN, 'sub-menu', [
-   Menu::make('Sub element item 3')->icon('badge')
-]);
-```
-
-> **Warning.** If the menu is used deferred, then you need to follow the loading order
-
-### CanSee
-
-Now `Fields/Layouts/TD` and have a common trait. Without any restrictions. Now you can do this:
-
-```php
-Input::make()->canSee(false);
-TD::make()->canSee(false);
-Layout::rows([])->canSee(false);
-```
-
-But now the definition inside the layer is different
-
-```php
-// before
-public function canSee(Repository $query): bool
-{
-    return ...;
-}
-
-// after
-public function isSee(): bool
-{
-    return ...;
-}
-```
-
-### Stimulus
-
-The Stimulus framework has been updated to version 2.0. Backward compatibility was retained, but the controller names
-got rid of the prefixes:
-
-```js
-<!--  before: -->
-<div data-controller="fields--checkbox">
-
-<!--  after: -->
-<div data-controller="checkbox">
-```
-
-### Turbo
-
-The Turbolinks library has been updated to Turbo for more details here: <https://turbo.hotwire.dev/>
-
-If you used your own js scripts, then it is recommended to read their changes. For example:
-
-```js
-// before
-document.addEventListener("turbolinks:load", function () {
-    // ...
-});
-
-// after
-document.addEventListener("turbo:load", function () {
-    // ...
-});
-```
-
-### Compendium
-
-The `Compendium` class has been removed. Recommend using a newer `Legend`.
-
-### Collapse
-
-The `Collapse` class has been removed.
-
-## Upgrading to 9.0 from 8.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^9.0`
-
-### Auth
-
-The Laravel team has introduced new products [Jetstream](https://github.com/laravel/jetstream) and
-[Fortify](https://github.com/laravel/fortify), which replace the earlier [Laravel UI](https://github.com/laravel/ui). To
-ensure compatibility with various options, the dependency on `laravel/ui` has been removed. And with it, the ability to
-recover your password.
-
-New products provide two-factor user authentication, as well as a view of the last active sessions. In order not to
-compete with them, the same features were removed from the package.
-
-Although migrations have been removed, the data stored in the database will not be removed automatically. To dismiss
-them, you need to execute the following `SQL` code:
-
-```php
-ALTER TABLE "users"
-    DROP COLUMN "last_login"
-    DROP COLUMN "uses_two_factor_auth"
-    DROP COLUMN "two_factor_secret_code"
-    DROP COLUMN "two_factor_recovery_code";
-
-DELETE FROM migrations
-WHERE migration = '2020_06_07_184338_added_columns_for_2fa';
-```
-
-After that, you need to remove the column data from your user model. If you copied migration
-`2020_06_07_184338_added_columns_for_2fa` in project - don't forget delete it.
-
----
-
-## Upgrading to 8.0 from 7.x
-
-### Updating Dependencies
-
-In your `composer.json` file, update the `orchid/platform` dependency to `^8.0`
-
-### TinyMCE Editor
-
-The `HTML` editor has been removed from the standard distribution. The code has been moved to a separate
-[repository](https://github.com/orchidcommunity/TinyMCE).
-
-### Settings Model
-
-The settings model has also been removed. Data stored in the database will not be deleted automatically. To remove them,
-you need to execute the following `SQL` code:
-
-If you copied migration `2015_12_02_181214_create_table_settings` in project - don't forget delete it.
-
-```php
-DROP TABLE settings;
-
-DELETE FROM migrations
-WHERE migration = '2015_12_02_181214_create_table_settings';
-```
-
-The source code is available for installation as a separate [package](https://github.com/tabuna/settings).
-
-### Bread Crumbs
-
-Package `davejamesmiller/laravel-breadcrumbs` is replaced with `tabuna/breadcrumbs` and should be installed
-automatically when the dependencies are updated.
-
-> **Note:** It may be necessary to remove the boot cache files in the `bootstrap/cache` directory.
-
-The syntax of the new package allows you to display breadcrumbs right in the route definition:
-
-```php
-Route::screen('example', ExampleScreen::class)
-    ->name('platform.example')
-    ->breadcrumbs(function (Trail $trail) {
-        return $trail->parent('platform.index')->push(__('Example screen'));
-    });
-```
-
-Alternatively, you can continue to use a separate file for them. To do this, you need to download it to the service
-provider:
-
-```php
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Bootstrap the application events.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        require base_path('routes/breadcrumbs.php');
-    }
-}
-```
-
-If you used full class names, then you need to replace them with similar ones:
-
-```php
-use Tabuna\Breadcrumbs\Breadcrumbs;
-use Tabuna\Breadcrumbs\Trail;
-```
-
-### Screen Changes
-
-#### Constructor
-
-Passing a `Request` object and calling the parent class is no longer necessary. Before:
-
-```php
-class PublicationScreen extends Screen
-{
-    public function __construct(Request $request, Locator $locator)
-    {
-        $this->request = $request;
-        $this->locator = $locator;
-    }
-}
-```
-
-The definition now looks like this:
-
-```php
-class PublicationScreen extends Screen
-{
-    public function __construct(Locator $locator)
-    {
-        $this->locator = $locator;
-    }
-}
-```
-
-#### Route methods
-
-Methods not used have been removed. It is no longer possible to access screens via the `PUT|PATCH|DELETE` methods, the
-call must use `GET|POSTS` to receive/send data.
-
-```php
-Method           | URI                                  | Name
------------------+--------------------------------------+--------------
-GET|HEAD|POST    | dashboard/idea/{method?}             | platform.idea
-```
-
-Now, screen methods awaiting a model, if not present, will implement an empty model as well as controllers.
-[See the screen routing discussion](https://github.com/orchidsoftware/platform/issues/1150).
-
-#### Data Spoofing (Async)
-
-The `{argument?}` Expectation has been removed from the address bar. Now a separate route is used for the call:
-
-```php
-$this->router
-    ->post('async/{screen}/{method?}/{template?}', [AsyncController::class, 'load'])
-    ->name('async');
-```
-
-### Layouts
-
-Each layer now inherits from the class `Orchid\Screen\Layout`, rather than from `Orchid\Screen\Layouts\Base`.
-
-To declare layers via short syntax, the `Orchid\Support\Facades\Layout` facade should now be used instead of the
-`Orchid\Screen\Layout` class.
-
-It was:
-
-```php
-use Orchid\Screen\Layout;
-
-Layout::row([
-     // ...
-]);
-```
-
-Became:
-
-```php
-use Orchid\Support\Facades\Layout;
-
-Layout::row([
-     // ...
-]);
-```
-
-### Release Message
-
-A system message informed users that a new version of the package was released. But they have no way to update without
-the help of a developer. This was more annoying than keeping the software up to date. Therefore, it was removed, if you
-used it (By default only on the first screen), then you should remove its call as well as the `blade` template. Screen
-call example:
+Orchid Charts replaces Frappe. Provide shared labels and datasets:
 
 ```php
 return [
-    'status' => Dashboard::checkUpdate(),
+    'visits' => [
+        'labels' => ['Mon', 'Tue'],
+        'datasets' => [['name' => 'Visits', 'values' => [12, 18]]],
+    ],
 ];
+
+// In layout():
+Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
 ```
 
-Using a template in the screen:
+`Chartable` collections now return this complete shape from `toChart()`.
+Move presentation properties to fluent methods or supported options. Frappe options and JavaScript APIs are removed.
+Use [the chart reference](/en/docs/charts) to migrate mixed charts, markers, gradients, and generated subclasses.
 
-```php
-Layout::view('platform::partials.update');
-```
+## Navigation, dialogs, and notifications
 
-### Icons
+Use [SideMenu](/en/docs/side-menu) for contextual navigation between related screens.
+Dialog layouts support `Modal::SIZE_COMPACT` and `scrollable()`.
+The notification panel operates through its dialog and read-state endpoints, not the old notification screen.
+Use `OrchidMessage` and `OrchidChannel`. `DashboardMessage` and `DashboardChannel` remain deprecated aliases for
+compatibility with stored notifications. Existing database notification records do not need to be rewritten.
 
-The icon display has been changed from `font` to `SVG` format. Now the `->icon` methods do not accept the `css` value to
-be set, but the file name. In most cases, you only need to remove the `icon-` prefix.
+Global search also uses a dialog. Remove links to the old search screen.
+Review custom Stimulus controllers for `connect()` and `disconnect()` cleanup under Turbo.
+The field and navigation controls now expose keyboard and focus behavior. Preserve that behavior in custom views.
+
+## Screen state and tests
+
+Screen state signs ordinary values and closures. Saved Eloquent models use model identifiers and reload from the
+database. Keep `APP_KEY` stable across requests. The signed state is not an authorization decision: authorize actions
+and validate submitted data on every request.
+
+Update tests for the new route names and Permissions object. For package contributors, the test environment now uses
+Testbench Workbench, PHPStan, and Rector. See [testing](/en/docs/testing).
+
+## Other public API changes
+
+Use `Orchid::permissionGroups()` instead of `Dashboard::getPermission()` when reading the permission catalog.
+`Screen::asyncParticalLayout()` has been corrected to `asyncPartialLayout()`; update custom calls or overrides.
+Use `Orchid\Screen\Concerns\CanSee` and `Orchid\Screen\Concerns\HasCommandBar` for the moved screen traits.
+Prefer enum cases such as `Color::INFO` to the legacy `Color::INFO()` calls in new examples.
+Check third-party Orchid packages for 15.x compatibility before upgrading them with the platform.

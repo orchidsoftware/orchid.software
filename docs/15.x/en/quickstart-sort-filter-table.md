@@ -12,12 +12,19 @@ The sorting in the table is based entirely on the automatic recognition of the `
 ```php
 namespace App\Models;
 
+use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
+#[AllowedSorts([
+    'id',
+    'title',
+    'created_at',
+    'updated_at'
+])]
 class Post extends Model
 {
     use AsSource, Attachable, Filterable;
@@ -33,17 +40,6 @@ class Post extends Model
         'body',
         'author',
         'hero'
-    ];
-
-    /**
-     * Name of columns to which http sorting can be applied
-     *
-     * @var array
-     */
-    protected $allowedSorts = [
-        'title',
-        'created_at',
-        'updated_at'
     ];
 }
 ```
@@ -102,7 +98,7 @@ class PostListLayout extends Table
                 ->sort()
                 ->render(function (Post $post) {
                     return Link::make($post->title)
-                        ->route('platform.post.edit', $post);
+                        ->route('orchid.post.edit', $post);
                 }),
 
             TD::make('created_at', 'Created')
@@ -118,19 +114,27 @@ class PostListLayout extends Table
 After that, the column heading will respond to clicking and change the sorting position.
 
 The trait `Filterable`, allows you to set not only sorting. But also simple `Http` filtering, to set it back to the
-model and add a new property:
+model and declare an `AllowedFilters` attribute:
 
 ```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Attachment\Attachable;
+use Orchid\Screen\AsSource;
+use Orchid\Filters\AllowedFilters;
 use Orchid\Filters\Types\Like;
+use Orchid\Filters\AllowedSorts;
 
-/**
- * Name of columns to which http filter can be applied
- *
- * @var array
- */
-protected $allowedFilters = [
+#[AllowedFilters([
     'title' => Like::class,
-];
+])]
+#[AllowedSorts(['id', 'title', 'created_at', 'updated_at'])]
+class Post extends Model
+{
+    use AsSource, Attachable, Filterable;
+
+    // Keep the remaining model traits, properties, and methods.
+}
 ```
 
 And then call the new `filter` method with a text type for the header column:
@@ -143,7 +147,7 @@ TD::make('title')
     ->filter(Input::make())
     ->render(function (Post $post) {
         return Link::make($post->title)
-            ->route('platform.post.edit', $post);
+            ->route('orchid.post.edit', $post);
     }),
 ```
 

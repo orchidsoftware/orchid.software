@@ -116,16 +116,16 @@ php artisan orchid:screen PostListScreen
 Register new screens in the application route list:
 
 ```php
-// routes/platform.php
+// routes/orchid.php
 
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 
 Route::screen('post/{post?}', PostEditScreen::class)
-    ->name('platform.post.edit');
+    ->name('orchid.post.edit');
 
 Route::screen('posts', PostListScreen::class)
-    ->name('platform.post.list');
+    ->name('orchid.post.list');
 ```
 
 Now the screens are available for viewing at the address `/admin/post` and `/admin/posts`. The resulting screens
@@ -140,9 +140,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Upload;
+use Orchid\Screen\Fields\Attach;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -230,7 +230,7 @@ class PostEditScreen extends Screen
                     ->maxlength(200)
                     ->placeholder('Brief description for preview'),
 
-                Relation::make('post.author')
+                Select::make('post.author')->lazy()
                     ->title('Author')
                     ->fromModel(User::class, 'name'),
 
@@ -248,11 +248,11 @@ class PostEditScreen extends Screen
      */
     public function createOrUpdate(Request $request)
     {
-        $this->post->fill($request->get('post'))->save();
+        $this->post->fill($request->input('post'))->save();
 
         Alert::info('You have successfully created a post.');
 
-        return redirect()->route('platform.post.list');
+        return redirect()->route('orchid.post.list');
     }
 
     /**
@@ -264,7 +264,7 @@ class PostEditScreen extends Screen
 
         Alert::info('You have successfully deleted the post.');
 
-        return redirect()->route('platform.post.list');
+        return redirect()->route('orchid.post.list');
     }
 }
 ```
@@ -308,7 +308,7 @@ class PostListLayout extends Table
             TD::make('title', 'Title')
                 ->render(function (Post $post) {
                     return Link::make($post->title)
-                        ->route('platform.post.edit', $post);
+                        ->route('orchid.post.edit', $post);
                 }),
 
             TD::make('created_at', 'Created'),
@@ -373,7 +373,7 @@ class PostListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('pencil')
-                ->route('platform.post.edit')
+                ->route('orchid.post.edit')
         ];
     }
 

@@ -1,179 +1,96 @@
 ---
-title: Использование JavaScript
-description: Пример использования Stimulus JS с пакетом Laravel Orchid
+title: JavaScript и ресурсы
+description: Подключение Vite и жизненный цикл контроллеров Stimulus при переходах Turbo.
 ---
 
-Основой платформы по части стилей является [Bootstrap](http://getbootstrap.com/), а в браузере выполняется код
-[Hotwired](https://hotwired.dev). Вы можете подключить другие библиотеки по своему вкусу, но мы рекомендуем оставаться в
-этой экосистеме.
+Orchid использует Bootstrap, Turbo и Stimulus. Ресурсы самого пакета публикуются командой
+`php artisan orchid:publish`. Дополнения приложения собирайте его собственной конфигурацией Vite.
 
-## Turbo
+## Подключите ресурсы приложения
 
-Благодаря [Turbo](https://turbo.hotwire.dev) админ-панель эмулирует Single Page Application, загружая ресурсы только при
-первом вызове и создавая впечатление повторной отрисовки контента в браузере вместо стандартных переходов между
-страницами.
-
-Поскольку все ресурсы будут загружены при первом вызове, классические вызовы, подобные этому, работать не будут:
+Задайте точки входа Vite:
 
 ```js
-document.addEventListener("load", () => {
-    console.log("Page load");
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    plugins: [laravel({
+        input: ['resources/js/orchid.js', 'resources/css/orchid.css'],
+        refresh: true,
+    })],
 });
 ```
 
-Он будет выполнен только один раз и больше не будет вызываться при переходах. Чтобы этого избежать, нужно использовать
-события turbo:
-
-```js
-document.addEventListener("turbo:load", () => {
-    console.log("Page load");
-});
-```
-
-Более подробную информацию вы можете найти на сайте [turbo.hotwire.dev](https://turbo.hotwire.dev).
-
-## Stimulus
-
-[Stimulus](https://stimulus.hotwired.dev/) это фреймворк JavaScript от разработчиков Ruby on Rails. Он оснащает
-фронтенд-разработку новыми подходами к JavaScript, при этом не стремится контролировать все ваши действия и не
-навязывает отделение фронтенда от бэкенда.
-
-Построим базовый пример, который отображает текст, введённый в поле. Для этого выполним описанные ниже действия.
-
-В `resources/js` создадим следующую структуру:
+Зарегистрируйте исходные файлы в Orchid:
 
 ```php
-resources
-├── js
-│   ├── controllers
-│   │   └── hello.js
-│   └── dashboard.js
-├── lang
-├── sass
-└── views
-```
-
-Класс контроллера со следующим содержанием:
-
-```php
-// hello.js
-export default class extends window.Controller {
-
-    static get targets() {
-        return [ "name", "output" ]
-    }
-
-    greet() {
-        this.outputTarget.textContent =
-            `Hello, ${this.nameTarget.value}!`
-    }
-}
-```
-
-И точку сборки:
-
-```php
-// dashboard.js
-import HelloController from "./controllers/hello"
-
-application.register("hello", HelloController);
-```
-
-Такая структура не помешает вашему приложению не зависимо от того, какой front-end строится: Angular/React/Vue и т.п.
-
-Останется только описать сборку в webpack.mix.js :
-
-```php
-let mix = require('laravel-mix');
-
-mix.js('resources/js/dashboard.js', 'public/js')
-```
-
-Осталось только подключить полученный сценарий к панели в файле конфигурации или в сервис провайдере, используя метод
-`registerResource`. Точно так же можно поступить и с таблицами стилей, что позволит эффективно строить логику
-приложений.
-
-```php
-// config/platform.php
-'resource' => [
-    'stylesheets' => [],
-    'scripts'     => [
-        '/js/dashboard.js'
-    ],
+// config/orchid.php
+'vite' => [
+    'resources/js/orchid.js',
+    'resources/css/orchid.css',
 ],
 ```
 
-> **Примечание**. Для применения изменений в конфигурационном файле может потребоваться очистить кеш, если он был создан
-> ранее. Это можно сделать с помощью artisan команды `artisan config:clear`.
+Для разработки используйте `npm run dev`, для рабочей сборки `npm run build`.
+Элементы `vite` являются исходными файлами Laravel Vite, а не путями к готовой сборке.
+Ресурсы пакета используют `public/vendor/orchid/manifest.json`.
+При обновлении удалите старые инструкции Mix и устаревшую сборку пакета.
 
-Пример записи для поставщика услуг
+## Зарегистрируйте контроллер
 
-```php
-// app/Providers/AppServiceProvider.php
+Панель предоставляет приложение Stimulus `window.application` и базовый контроллер `window.Controller`.
+Регистрируйте контроллеры в точке входа приложения, загруженной после ресурсов Orchid:
 
-use Orchid\Platform\Dashboard;
+```js
+// resources/js/controllers/hello.js
+export default class extends window.Controller {
+    static targets = ['name', 'output'];
 
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot(Dashboard $dashboard)
-    {
-        $dashboard->registerResource('scripts','/js/dashboard.js');
-        //$dashboard->registerResource('stylesheets','/css/dashboard.css');
+    greet() {
+        this.outputTarget.textContent = this.nameTarget.value;
     }
 }
 ```
 
-Для отображения воспользуемся шаблоном, для которого предварительно нужно определить `Controller` и `Route` в вашем
-приложение:
+```js
+// resources/js/orchid.js
+import HelloController from './controllers/hello.js';
 
-```php
-// hello.blade.php
+window.application.register('hello', HelloController);
+```
+
+```blade
 <div data-controller="hello">
-  <input data-hello-target="name" type="text">
-
-  <button data-action="click->hello#greet">
-    Greet
-  </button>
-
-  <span data-hello-target="output">
-  </span>
+    <input data-hello-target="name" data-action="input->hello#greet">
+    <output data-hello-target="output"></output>
 </div>
 ```
 
-## Обертка Vue.js внутри Stimulus
+## Учитывайте переходы Turbo
 
-Многие разработчики любят простоту и мощность Vue.js для построения интерактивных и отзывчивых frontend приложений. В
-этой секции, мы рассмотрим как просто обернуть и интегрировать Vue компонент внутри Stimulus контроллера.
+Используйте `connect()` и `disconnect()` для инициализации и очистки. В `disconnect()` удаляйте обработчики окна,
+наблюдатели и экземпляры виджетов. Контроллеры могут подключаться повторно при восстановлении страницы Turbo
+или замене разметки Listener. Для действий всей страницы используйте `turbo:load`, а не единственный `load` браузера.
 
-Создайте файл Stimulus контроллера, для примера `hello_controller.js`:
+Регистрируйте контроллеры в `window.application`. Не запускайте второе приложение Stimulus для той же панели.
+Графиками, календарями, списками и редакторами пакета управляют их собственные контроллеры.
 
-```js
-import { createApp } from "vue";
+## Подключите готовые файлы
 
-export default class extends window.Controller {
-    connect() {
-        this.app = createApp({
-            data() {
-                return {
-                    message: "Hello, Vue.js!",
-                };
-            },
-        });
+Для собранных файлов или внешних ресурсов укажите URL в `config/orchid.php`:
 
-        this.app.mount(this.element);
-    }
-
-    disconnect() {
-        this.app.unmount();
-    }
-}
+```php
+'resource' => [
+    'stylesheets' => ['/css/custom.css'],
+    'scripts' => ['/js/custom.js'],
+],
 ```
 
-Укажите ваш контроллер во view, а конкретно в blade шаблоне:
+Не помещайте исходники Vite в `resource`, а URL готовой сборки в `vite`.
+После изменения закешированной конфигурации выполните `php artisan config:clear`.
 
-```html
-<div data-controller="hello">@{{ message }}</div>
-```
+## Настройте собственные поля
 
-Теперь, когда вы перезагрузите страницу, экземпляр Vue.js будет создан и мы увидим наше сообщение `Hello, Vue.js!' на
-экране и внутри HTML элемента. Далее вы можете использывать Vue.js как обычно в рамках контроллера Stimulus.
+Шаблоны Blade и действия контроллеров описаны в разделе [собственных полей](/ru/docs/custom-field).
+Code и Markdown используют CodeMirror. Старые объекты плагинов редакторов и API графиков Frappe недоступны.

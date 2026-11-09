@@ -254,7 +254,6 @@ use Orchid\Screen\Layout;
 use Orchid\Screen\LayoutFactory;
 use Orchid\Screen\Repository;
 
-
 LayoutFactory::macro('hello', function (string $name) {
     return new class($name) extends Layout
     {

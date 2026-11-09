@@ -99,9 +99,9 @@ php artisan orchid:selection MySelection
 ```php
 namespace App\Orchid\Layouts;
 
-use Orchid\Platform\Filters\Filter;
-use Orchid\Press\Http\Filters\CreatedFilter;
-use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Filters\Filter;
+use App\Orchid\Filters\CreatedFilter;
+use App\Orchid\Filters\SearchFilter;
 use Orchid\Screen\Layouts\Selection;
 
 class MySelection extends Selection
@@ -315,3 +315,8 @@ public function layout(): iterable
    ];
 }
 ```
+
+## Сортировка с клавиатуры
+
+Sortable поддерживает перестановку с клавиатуры. Используйте встроенную ручку и её подсказки управления.
+При изменении шаблона сохраняйте фокус ручки и встроенные сообщения о перемещении.

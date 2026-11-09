@@ -235,3 +235,23 @@ Layout::modal('toastModal', [
 ])
     ->rawClick();
 ```
+
+## Compact and scrollable dialogs
+
+Use `SIZE_COMPACT` for a small form and `scrollable()` to keep long content inside the dialog body:
+
+```php
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Support\Facades\Layout;
+
+Layout::modal('editOrder', Layout::rows([
+    // Order fields...
+]))
+    ->title('Edit order')
+    ->size(Modal::SIZE_COMPACT)
+    ->scrollable();
+```
+
+The existing `SIZE_LG` and `SIZE_XL` sizes remain available.
+Give each dialog a meaningful title. Built-in dialogs manage their accessible name and restore focus to the trigger
+when closed. Preserve the close controls, keyboard access, and focus behavior when overriding their views.

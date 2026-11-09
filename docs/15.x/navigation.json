@@ -33,7 +33,8 @@
             "Modals": "/en/docs/modals",
             "Listeners": "/en/docs/listener",
             "Grouping": "/en/docs/grouping",
-            "Views": "/en/docs/custom-template"
+            "Views": "/en/docs/custom-template",
+            "Side Menu": "/en/docs/side-menu"
         },
         "Advanced": {
             "Custom Fields": "/en/docs/custom-field",
@@ -85,7 +86,8 @@
             "Модальные окна": "/ru/docs/modals",
             "Слушатель": "/ru/docs/listener",
             "Макеты группировки": "/ru/docs/grouping",
-            "Универсальные": "/ru/docs/custom-template"
+            "Универсальные": "/ru/docs/custom-template",
+            "Боковое меню": "/ru/docs/side-menu"
         },
         "Дополнительно": {
             "Иконки": "/ru/docs/icons",

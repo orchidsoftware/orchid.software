@@ -105,6 +105,26 @@ $preview = new Crawler($get('/en/docs/15.x'));
 $check($preview->filter('.docs-archive')->attr('aria-label') === 'Development documentation', 'Development is not labeled as archived');
 $check($preview->filter('.docs-archive .action')->attr('href') === '/en/docs', 'Development notice links to stable documentation');
 $check(str_contains($preview->filter('#docs-version option[selected]')->text(), 'development'), 'Switcher labels the development version');
+foreach (['en', 'ru'] as $locale) {
+    foreach ([
+        'presenters' => ['UsePresenter', 'Presentable'],
+        'filters'    => ['AllowedFilters', 'AllowedSorts'],
+        'field'      => ['KeyValue', 'BlockEditor', 'Repeater'],
+        'charts'     => ['labels', 'datasets'],
+        'side-menu'  => ['SideMenu', 'navigations'],
+        'upgrade'    => ['UUID', 'Permissions'],
+    ] as $article => $terms) {
+        $path = "/$locale/docs/15.x/$article";
+        $page = new Crawler($get($path));
+        $check($page->filter('link[rel=canonical]')->attr('href') === "https://orchid.software$path/", "Development article keeps its canonical: $path");
+        foreach ($terms as $term) {
+            $check(str_contains($page->filter('main')->text(), $term), "$path documents $term");
+        }
+        $check($page->filter("a[href=\"/$locale/docs/15.x/presenters\"]")->count() > 0, "Development navigation retains its version: $path");
+    }
+}
+$check(str_contains(file_get_contents(base_path('docs/14.x/en/presenters.md')), 'Orchid\\Support\\Presenter'), '14.x retains its original presenter API');
+
 $legacyTypo = new Documentation('en', '6.x');
 $check($legacyTypo->rewriteUrl('/eb/docs/quickstart') === '/en/docs/6.x/quickstart', 'Historical locale typo resolves within its own version');
 $older = new Documentation('en', '7.x');
@@ -138,11 +158,11 @@ $check(in_array('/en/docs/packages/crud', $paths, true), 'Legacy links are expor
 foreach ($paths as $path) {
     $html = $get($path);
     $page = new Crawler($html);
-    if (preg_match('~^/(en|ru)/docs/14\.x(?:/|$)~', $path)) {
-        $check($page->filter('meta[http-equiv="refresh"]')->count() === 1, 'Stable aliases export as redirects');
+    if (preg_match('~^/(en|ru)/docs/14\.x(?:/|$)~', $path) || $page->filter('meta[http-equiv="refresh"]')->count() > 0) {
+        $check($page->filter('meta[http-equiv="refresh"]')->count() === 1, "Aliases export as redirects: $path");
         $check($page->filter('#docs-version')->count() === 0, 'Redirect pages contain no duplicate article');
     } else {
-        $check($page->filter('meta[name="robots"][content="noindex, follow"]')->count() === (int) (bool) preg_match('~^/(en|ru)/docs/\d+\.x(?:/|$)~', $path), 'Only stable unversioned articles are indexable');
+        $check($page->filter('meta[name="robots"][content="noindex, follow"]')->count() === (int) (bool) preg_match('~^/(en|ru)/docs/\d+\.x(?:/|$)~', $path), "Only stable unversioned articles are indexable: $path");
     }
 }
 

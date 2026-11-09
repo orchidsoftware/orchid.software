@@ -83,12 +83,12 @@ class EmailSenderScreen extends Screen
 страницу, определяя данные и события.
 
 Как и контроллер, экран нужно регистрировать в файле маршрутов. Определим его в файле для панели администрирования
-`routes/platform.php`:
+`routes/orchid.php`:
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 
-Route::screen('email', EmailSenderScreen::class)->name('platform.email');
+Route::screen('email', EmailSenderScreen::class)->name('orchid.email');
 ```
 
 После того, как мы зарегистрировали новый маршрут, можно перейти в браузере по адресу `/admin/email`. Сейчас здесь пока
@@ -120,9 +120,8 @@ public function description(): ?string
 use App\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
-
 
 /**
  * Views.
@@ -139,7 +138,7 @@ public function layout(): array
                 ->placeholder('Message subject line')
                 ->help('Enter the subject line for your message'),
 
-            Relation::make('users.')
+            Select::make('users.')->lazy()
                 ->title('Recipients')
                 ->multiple()
                 ->required()
@@ -170,7 +169,7 @@ use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -233,7 +232,7 @@ class EmailSenderScreen extends Screen
                     ->placeholder('Message subject line')
                     ->help('Enter the subject line for your message'),
 
-                Relation::make('users.')
+                Select::make('users.')->lazy()
                     ->title('Recipients')
                     ->multiple()
                     ->required()
@@ -264,15 +263,14 @@ class EmailSenderScreen extends Screen
             'content' => 'required|min:10'
         ]);
 
-        Mail::raw($request->get('content'), function (Message $message) use ($request) {
+        Mail::raw($request->input('content'), function (Message $message) use ($request) {
             $message->from('sample@email.com');
-            $message->subject($request->get('subject'));
+            $message->subject($request->input('subject'));
 
-            foreach ($request->get('users') as $email) {
+            foreach ($request->input('users') as $email) {
                 $message->to($email);
             }
         });
-
 
         Alert::info('Your email message has been sent successfully.');
     }
@@ -320,7 +318,7 @@ public function registerMainMenu(): array
 
         Menu::make('Email sender')
             ->icon('envelope-letter')
-            ->route('platform.email')
+            ->route('orchid.email')
             ->title('Tools')
     ];
 }
@@ -328,17 +326,17 @@ public function registerMainMenu(): array
 
 Теперь наша утилита отображается в левом меню и активна при посещении. Навигация может осуществляться не только
 посредством переходов из меню, но и через хлебные крошки. Чтобы добавить их к нашему экрану, нужно дописать свой маршрут
-с `->breadcrumbs(...)` в `routes/platform.php`:
+с `->breadcrumbs(...)` в `routes/orchid.php`:
 
 ```php
 use App\Orchid\Screens\EmailSenderScreen;
 use Tabuna\Breadcrumbs\Trail;
 
 Route::screen('email', EmailSenderScreen::class)
-    ->name('platform.email')
+    ->name('orchid.email')
     ->breadcrumbs(function (Trail $trail){
         return $trail
-                ->parent('platform.index')
+                ->parent('orchid.index')
                 ->push('Email sender');
     });
 ```

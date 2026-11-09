@@ -7,7 +7,7 @@ description: Modify the login form, configure user portals, and personalize the 
 
 Orchid provides support for different types of users, such as customers and sellers, who have their own authentication
 portals. To configure Orchid to work with a specific type of user, you can change the value of the `guard` option in the
-`config/platform.php` configuration file:
+`config/orchid.php` configuration file:
 
 ```php
 'guard' => 'sellers',
@@ -23,7 +23,7 @@ vary significantly, from using email or phone numbers for authentication to send
 
 To customize the authentication process, you can write your own controllers following the guidelines in the
 [Laravel documentation](https://laravel.com/docs/authentication). Before doing so, it is recommended to disable the
-built-in login page provided by Orchid. To do this, set the auth option in the config/platform.php configuration file to
+built-in login page provided by Orchid. To do this, set the auth option in the config/orchid.php configuration file to
 `false`:
 
 ```php

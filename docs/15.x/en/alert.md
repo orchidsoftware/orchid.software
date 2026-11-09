@@ -68,7 +68,7 @@ to the template:
 use Orchid\Support\Facades\Alert;
 use Orchid\Support\Color;
 
-Alert::view('alert', Color::INFO(), [
+Alert::view('alert', Color::INFO, [
     'name' => 'Alexandr'
 ]);
 ```
@@ -142,21 +142,21 @@ notify an employee about a new task.
 
 You can view these notifications by clicking the "Notification Bell icon" in the application navigation bar. If there
 are unread notifications, a counter will be displayed. You can disable the notification bell or change the polling
-interval in `config/platform.php` under the `notifications` key (`enabled` and `interval` in seconds).
+interval in `config/orchid.php` under the `notifications` key (`enabled` and `interval` in seconds).
 
 Before using this feature, it's important to check out the
 [Laravel notification documentation](https://laravel.com/docs/notifications) as it provides more details and examples on
 how to use this feature.
 
-To send a notification, you can simply pass a `DashboardMessage` instance to a user’s `notify` method.  
+To send a notification, you can simply pass a `OrchidMessage` instance to a user’s `notify` method.
 Before proceeding, ensure that your user model implements the `Notifiable` trait:
 
 ```php
-use Orchid\Platform\Notifications\DashboardMessage;
+use Orchid\Platform\Notifications\OrchidMessage;
 use Orchid\Support\Color;
 
 $user->notify(
-    DashboardMessage::make()
+    OrchidMessage::make()
         ->title('New Task: January Report')
         ->message('Please review the task details and deadline.')
         ->action('https://example.com/reports/january')
@@ -172,28 +172,28 @@ php artisan make:notification TaskCompleted
 
 This command will create a new class in your `app/Notifications` directory.
 
-To send the notification, you must add the `DashboardChannel` to the `via` notification method:
+To send the notification, you must add the `OrchidChannel` to the `via` notification method:
 
 ```php
-use Orchid\Platform\Notifications\DashboardChannel;
+use Orchid\Platform\Notifications\OrchidChannel;
 
 public function via($notifiable)
 {
     return [
-        DashboardChannel::class
+        OrchidChannel::class
     ];
 }
 ```
 
-Before sending the notification, you must also define a `toDashboard` method in the notification class. This method will
-receive a `$notifiable` object and must return a `DashboardMessage` object:
+Before sending the notification, you must also define a `toOrchid` method in the notification class. This method will
+receive a `$notifiable` object and must return a `OrchidMessage` object:
 
 ```php
-use Orchid\Platform\Notifications\DashboardMessage;
+use Orchid\Platform\Notifications\OrchidMessage;
 
-public function toDashboard($notifiable)
+public function toOrchid($notifiable)
 {
-    return (new DashboardMessage)
+    return (new OrchidMessage)
         ->title('New Task: January Report')
         ->message('Please review the task details and deadline.')
         ->action(url('/'));
@@ -212,3 +212,9 @@ $user = User::find(1);
 
 $user->notify(new TaskCompleted);
 ```
+
+## Upgrading notification integrations
+
+The bell opens a notification dialog with read-state actions. Remove links to the old notification screen.
+Use `OrchidMessage`, `OrchidChannel`, and `toOrchid()` for new code. The old Dashboard class names remain deprecated
+aliases so existing database notification records can still be read.

@@ -219,172 +219,71 @@ CheckBox::make('enabled')
 
 ## Select
 
-Простой выбор из списка массива:
+Select работает с готовыми вариантами, моделями Eloquent, enum и удалённым поиском.
 
 ```php
-Select::make('select')
-    ->options([
-        'index'   => 'Index',
-        'noindex' => 'No index',
-    ])
-    ->title('Select tags')
-    ->help('Allow search bots to index');
+use Orchid\Screen\Fields\Select;
+
+Select::make('status')->options([
+    'draft' => 'Draft',
+    'published' => 'Published',
+]);
+
+Select::make('user_id')->fromModel(User::class, 'email');
+Select::make('user_id')->fromQuery(User::where('active', true), 'name', 'id');
 ```
 
-Работа с источником:
+`fromModel()` по умолчанию получает варианты сразу. `fromQuery()` всегда выполняет запрос немедленно;
+для удалённого поиска используйте ленивый `fromModel()`.
+Третий аргумент задаёт столбец ключа. По умолчанию используется первичный ключ модели, включая UUID.
+
+### Ленивая загрузка вариантов
 
 ```php
-Select::make('user')
-    ->fromModel(User::class, 'email');
-```
-
-Источник с условием:
-
-```php
-Select::make('user')
-    ->fromQuery(User::where('balance', '!=', '0'), 'email');
-```
-
-Изменение ключа:
-
-```php
-Select::make('user')
-    ->fromModel(User::class, 'email', 'uuid');
-```
-
-Возможны ситуации, когда необходимо добавить некоторое значение, которое означает, что поле не выбрано. Для этого можно
-использовать метод `empty`:
-
-```php
-// Для массива
-Select::make('user')
-    ->options([
-        1  => 'Пункт 1',
-        2  => 'Пункт 2',
-    ])
-    ->empty('Не выбрано');
-
-// Для источника
-Select::make('user')
+Select::make('user_id')
+    ->lazy(20)
     ->fromModel(User::class, 'name')
-    ->empty('Не выбрано');
+    ->searchColumns('name', 'email')
+    ->applyScope('active')
+    ->allowEmpty();
 ```
 
-> **Обратите внимание**, что `empty` вызывается позднее заполняющих методов, иначе добавленное значение будет
-> перезаписано.
+Вызывайте `lazy()` перед `fromModel()`, чтобы избежать полной загрузки. Размер порции по умолчанию равен 10.
+`searchColumns()` задаёт столбцы базы для поиска.
+`applyScope()` принимает имя локального scope и его аргументы, например `applyScope('forTenant', $tenantId)`.
+Ограничивайте доступные записи через scope. Шифрование параметров не заменяет авторизацию.
 
-Метод `empty` так же принимает и второй аргумент, отвечающий за значение:
-
-```php
-Select::make('user')
-    ->empty('Не выбрано', 0)
-    ->options([
-        1  => 'Пункт 1',
-        2  => 'Пункт 2',
-    ]);
-```
-
-## Relation
-
-Поля отношения могут подгружать динамические данные, это хорошее решение, если вам нужны связи.
+Объявляйте scopes через атрибут Laravel:
 
 ```php
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->title('Выберите свою идею');
-```
-
-Для множественного выбора примените метод `multiple()`
-
-```php
-Relation::make('ideas.')
-    ->fromModel(Idea::class, 'name')
-    ->multiple()
-    ->title('Выберите свои идеи');
-```
-
-> **Примечание.** Обратите внимание на точку в конце имени. Она необходима для того, чтобы показать ожидаемость массива.
-> Как если бы это был `HTML` код `<input name='ideas[]'>`
-
-Для модификации загрузки можно использовать указание на `scope` модели, например, взять только активные:
-
-```php
-namespace App;
-
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 
-class Idea extends Model
+#[Scope]
+protected function active(Builder $query): void
 {
-    #[Scope]
-    protected function active(Builder $query): void
-    {
-        $query->where('active', 1);
-    }
+    $query->where('active', true);
 }
 ```
 
-```php
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->applyScope('active')
-    ->title('Выберите свою идею');
-```
+`displayAppend('display_name')` позволяет использовать accessor модели для подписи в ленивом режиме.
+В `searchColumns()` оставляйте реальные столбцы базы. Уже выбранные значения разрешаются при отображении поля.
 
-Вы также можете передавать в метод дополнительные параметры:
+### Параметры выбора
 
 ```php
-Relation::make('idea')
-    ->fromModel(Idea::class, 'name')
-    ->applyScope('status', 'active')
-    ->title('Выберите свою идею');
+Select::make('assignees')->lazy()->fromModel(User::class, 'name')->multiple()->max(5);
+Select::make('status')->fromEnum(Status::class, 'label');
+Select::make('tags')->options(['laravel' => 'Laravel'])->multiple()->allowCreate();
+Select::make('category')->options(['news' => 'News'])->empty('Choose a category', '');
 ```
 
-Вы можете добавить одно или несколько полей, по которым будет дополнительно осуществляться поиск:
+`max()` ограничивает число выбранных элементов, а `lazy($chunk)` задаёт размер порции удалённых результатов.
+Enum `Status` из примера должен иметь метод `label()`. Без второго аргумента используются имена вариантов.
+`allowCreate()` разрешает новые значения и заменяет устаревшее имя `allowAdd()`.
+Проверяйте значения, существование записей и принадлежность клиенту на сервере.
 
-```php
-Relation::make('idea')
-     ->fromModel(Idea::class, 'name')
-     ->searchColumns('author', 'description')
-     ->title('Choose your idea');
-```
-
-Чтобы установить количество элементов, которые будут перечислены в результате поиска, Вы можете использовать метод
-chunk, передав количество результатов поиска в качестве параметра:
-
-```php
-Relation::make('users.')
-    ->fromModel(User::class, 'name')
-    ->chunk(20);
-```
-
-Опции выбора могут работать с вычисляемыми полями, но только для отображения результата, поиск будет происходить только
-по одной колонке в базе данных. Для этого используется метод `displayAppend`.
-
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class User extends Model
-{
-    public function getFullAttribute(): string
-    {
-        return sprintf('%s (%s)', $this->name, $this->email);
-    }
-}
-```
-
-Для указания отображаемого поля необходимо:
-
-```php
-Relation::make('users.')
-    ->fromModel(User::class, 'name')
-    ->displayAppend('full')
-    ->multiple()
-    ->title('Select users');
-```
+Удалённый Relation заменяется на `Select::make(...)->lazy()->fromModel(...)`.
 
 ## DateTime
 
@@ -527,11 +426,11 @@ document.addEventListener("orchid:quill", (event) => {
 });
 ```
 
-> **Примечание**: Вы можете добавлять пользовательские сценарии и таблицы стилей через файл конфигурации`platform.php`.
+> **Примечание**: Вы можете добавлять пользовательские сценарии и таблицы стилей через файл конфигурации`orchid.php`.
 
 Пример для [quill-image-compress](https://github.com/benwinding/quill-image-compress):
 
-В файле `config/platform.php` добавьте следующее в массив `resource.scripts` :
+В файле `config/orchid.php` добавьте следующее в массив `resource.scripts` :
 
 ```text
 "https://unpkg.com/quill-image-compress@1.2.11/dist/quill.imageCompressor.min.js",
@@ -559,16 +458,24 @@ document.addEventListener("orchid:quill", (event) => {
 
 ## Markdown редактор
 
-Редактор для облегчённого языка разметки, созданный с целью написания максимально читаемого и удобного для правки
-текста, но пригодного для преобразования в языки для продвинутых публикаций.
-
-![Markdown](/img/ui/markdown.png) ![Markdown2](/img/ui/markdown2.png)
-
-Пример записи:
+Markdown использует CodeMirror и отправляет текст Markdown. `SimpleMDE` сохранён как устаревший псевдоним поля.
 
 ```php
-SimpleMDE::make('markdown');
+use Orchid\Screen\Fields\Markdown;
+
+Markdown::make('post.body')
+    ->title('Body')
+    ->rows(12)
+    ->toolbar([
+        [Markdown::H2, Markdown::H3],
+        [Markdown::BOLD, Markdown::ITALIC, Markdown::LINK],
+        [Markdown::LIST, Markdown::ORDERED_LIST],
+    ]);
 ```
+
+`withoutToolbar()` скрывает панель. Доступны `H1`–`H5`, `BOLD`, `ITALIC`, `LINK`, `QUOTE`, `CODE`,
+`LIST`, `ORDERED_LIST` и `UPLOAD`.
+Старые JavaScript-параметры и расширения SimpleMDE не являются API текущего редактора.
 
 ## Matrix
 
@@ -621,43 +528,28 @@ Matrix::make('users')
 
 ## Редактор кода
 
-Поле для записи программного кода с возможностью подсветки.
-
-![Code](/img/ui/code.png)
-
-Пример записи:
+Code использует CodeMirror. Настройте язык, номера строк, высоту CSS и режим чтения методами поля.
 
 ```php
-Code::make('code');
+use Orchid\Screen\Fields\Code;
+
+Code::make('settings')
+    ->language('json')
+    ->lineNumbers()
+    ->height('300px')
+    ->readonly();
 ```
 
-Для указания подцветки кода под конкретный язык программирования можно использовать метод `language()`.
+Поддерживаются идентификаторы `js`, `javascript`, `json`, `css`, `html`, `markup`, `xml`,
+`svg`, `mathml` и `clike`. Для неизвестного идентификатора используется подсветка JavaScript.
+Массивы и объекты преобразуются в JSON для редактирования. TextArea остаётся обычным многострочным полем.
 
-```php
- Code::make('code')
-     ->language(Code::CSS);
-```
-
-Доступны следующие языки:
-
-- Markup - `markup`, `html`, `xml`, `svg`, `mathml`
-- CSS - `css`
-- C-like - `clike`
-- JavaScript - `javascript`, `js`
-
-Поддерживается указание количества строк:
-
-```php
-Code::make('code')
-    ->lineNumbers();
-```
-
-<!--
 ## Picture
 
 Позволяет загружать изображение.
 
 Пример записи:
+
 ```php
 Picture::make('picture');
 ```
@@ -679,7 +571,6 @@ Picture::make('picture')
 Передаваемая строка представляет собой список   [уникальных спецификаторов типов
 файлов](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#unique_file_type_specifiers), разделённый
 запятыми.
--->
 
 ## Cropper
 
@@ -733,7 +624,7 @@ Cropper::make('picture')
 // 20
 ```
 
-Будет возвращён порядковый номер (`id`) записи `Attachment`.
+Будет возвращён первичный ключ `Attachment`. В новой схеме это строковый UUID.
 
 ```php
 Cropper::make('picture')
@@ -901,95 +792,6 @@ Attach::make('upload')
     ->errorMaxSizeMessage("Размер файла слишком большой")
     ->errorTypeMessage("Неверный тип файла");
 ```
-
-<!--
-## Upload
-
-Поле обеспечивает интуитивно понятный интерфейс для загрузки изображений и файлов, включая поддержку группировки и
-обработки различных типов файлов.
-
-Чтобы создать элемент загрузки файла, используйте метод `make` класса `Upload` и укажите имя поля:
-
-```php
-Upload::make('upload');
-```
-
-Вы можете группировать файлы по различным категориям, используя метод `groups`.
-Это особенно полезно, если вам нужно загружать разные типы файлов, такие как документы и изображения.
-
-```php
-Upload::make('docs')
-    ->groups('documents');
-
-Upload::make('images')
-    ->groups('photo');
-```
-
-Чтобы получить определенные файлы через отношение модели:
-
-```php
-use Orchid\Attachment\Models\Attachment;
-
-// Один ко многим (с внешним  id)
-public function hero()
-{
-    return $this->hasOne(Attachment::class, 'id', 'hero')->withDefault();
-}
-
-// Много ко многим (в таблице нет внешнего идентификатора, его следует загружать с помощью функции groups())
-public function documents()
-{
-    return $this->hasMany(Attachment::class)->where('group','documents');
-}
-```
-
-Может использоваться для ограничения максимального количества файлов, которые будут обрабатываться:
-
-```php
-Upload::make('upload')
-    ->maxFiles(10);
-```
-
-Определяет количество параллельных загрузок для обработки файлов:
-```php
-Upload::make('upload')
-    ->parallelUploads(2);
-```
-
-Максимальный размер загружаемого файла:
-по умолчанию значения `upload_max_filesize` и `post_max_size` равны 2M , Вы можете изменить их в файле `php.ini` , чтобы
-установить максимальный размер файла более 2M.
-```php
-Upload::make('upload')
-    ->maxFileSize(1024); // Size in MB
-```
-
-Реализация по умолчанию `accept` проверяет тип или расширение MIME файла по этому списку. Это разделенный запятыми
-список типов MIME или расширений файлов.
-
-```php
-Upload::make('upload')
-    ->acceptedFiles('image/*,application/pdf,.psd');
-```
-
-Поле загрузки может работать с различными хранилищами, чтобы указать его необходимо передать ключ, указанный в `config/filesystems.php`:
-
-```php
-Upload::make('upload')
-    ->storage('s3');
-```
-
-По умолчанию используется хранилище `public`.
-
-Когда Вы знаете, что файл был загружен ранее, можно воспользоваться поиском по библиотеке:
-
-```php
-Upload::make('upload')
-    ->media();
-```
-
-Добавится новая кнопка с модальным окном для предварительного просмотра загруженных файлов.
--->
 
 ## Group
 
@@ -1198,7 +1000,7 @@ DropDown::make()
     ->icon('bs.options-vertical')
     ->list([
         Link::make('Редактировать')
-            ->route('platform.systems.users.edit', $user->id),
+            ->route('orchid.users.edit', $user->id),
 
         Button::make('Удалить')
             ->method('remove')
@@ -1223,3 +1025,139 @@ TD::make()->filter(TD::FILTER_NUMBER_RANGE)
 ```
 
 Результатом является массив с ключами `min`, `max`.
+
+## Password
+
+```php
+use Orchid\Screen\Fields\Password;
+
+Password::make('password')->title('Password')->revealable(false);
+```
+
+По умолчанию поле показывает кнопку видимости пароля. `revealable(false)` скрывает её.
+Кнопка учитывает отключённое состояние поля и не отправляет форму.
+
+## KeyValue
+
+KeyValue редактирует карту через строки с ячейками `key` и `value`. Допустимы скалярные значения или `null`.
+Добавьте array cast для атрибута модели `settings`.
+
+```php
+use Orchid\Screen\Fields\KeyValue;
+
+KeyValue::make('post.settings')
+    ->keyLabel('Setting')
+    ->valueLabel('Value')
+    ->reorderable()
+    ->value(['theme' => 'dark', 'locale' => 'en']);
+```
+
+Форма отправляет список строк. Проверьте данные перед преобразованием в карту:
+
+```php
+use Orchid\Screen\Fields\KeyValue;
+
+$data = $request->validate([
+    'post.settings' => ['nullable', 'array'],
+    'post.settings.*.key' => ['nullable', 'string'],
+    'post.settings.*.value' => ['nullable', 'string'],
+]);
+
+$post->settings = KeyValue::rowsToArray($data['post']['settings'] ?? []);
+$post->save();
+```
+
+`rowsToArray()` пропускает пустые ключи, для повторяющегося ключа остаётся последнее значение.
+`addable()`, `deletable()`, `editableKeys()` и `editableValues()` управляют действиями поля.
+После ошибки валидации введённые данные восстанавливаются. Вложенные значения модели вызывают исключение.
+
+## BlockEditor
+
+BlockEditor редактирует JSON-документ со списком `blocks` верхнего уровня и отправляет JSON, а не HTML.
+Текущий формат документа не является форматом Editor.js.
+
+```php
+use Orchid\Screen\Fields\BlockEditor;
+
+BlockEditor::make('post.body')
+    ->toolbar([BlockEditor::PARAGRAPH, BlockEditor::HEADING, BlockEditor::IMAGE])
+    ->value(['blocks' => [['type' => 'paragraph', 'text' => 'Hello']]]);
+```
+
+Доступные инструменты: `PARAGRAPH`, `HEADING`, `QUOTE`, `LIST`, `IMAGE`, `CODE` и `EMBED`.
+`withoutToolbar()` скрывает панель. Начальное значение может быть JSON-строкой или массивом.
+Пустой документ представлен как `{"blocks":[]}`.
+
+Для атрибута модели с array cast декодируйте проверенный JSON перед присваиванием:
+
+```php
+$request->validate(['post.body' => ['nullable', 'json']]);
+
+$post->body = json_decode(
+    $request->input('post.body') ?: '{"blocks":[]}',
+    true,
+    flags: JSON_THROW_ON_ERROR,
+);
+$post->save();
+```
+
+Дополнительно проверяйте допустимую структуру блоков. Экранируйте текст при отображении сохранённых данных
+и задайте правила для форматированного содержимого и вставок. Поле не превращает JSON в доверенный HTML.
+
+## Repeater
+
+Repeater редактирует список записей с полноценными полями в каждой строке.
+В `fields()` задавайте имена без префикса родителя. Добавьте array cast для атрибута модели `links`.
+
+```php
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Fields\Repeater;
+use Orchid\Screen\Fields\Select;
+
+Repeater::make('post.links')
+    ->fields([
+        Input::make('label')->title('Label'),
+        Input::make('url')->type('url')->title('URL'),
+        Select::make('kind')->options(['internal' => 'Internal', 'external' => 'External']),
+    ])
+    ->emptyRows(1)
+    ->maxRows(10)
+    ->cloneableRows()
+    ->reorderableRows();
+```
+
+Пример отправляет `post.links` как строки с `label`, `url` и `kind`.
+Ограничения числа строк в интерфейсе не заменяют валидацию на сервере:
+
+```php
+$data = $request->validate([
+    'post.links' => ['nullable', 'array', 'max:10'],
+    'post.links.*.label' => ['required', 'string', 'max:255'],
+    'post.links.*.url' => ['required', 'url'],
+    'post.links.*.kind' => ['required', 'in:internal,external'],
+]);
+
+$post->links = $data['post']['links'] ?? [];
+$post->save();
+```
+
+`emptyRows()` задаёт начальные пустые строки, `maxRows()` ограничивает их количество,
+`removableRows()` управляет удалением. Вложенные Repeater и KeyValue поддерживаются,
+но строки с такими полями нельзя дублировать через `cloneableRows()`.
+Это ограничение предотвращает потерю вложенных значений. Для табличного ввода скаляров остаётся Matrix.
+
+## Перевод атрибутов
+
+Поля переводят `title`, `placeholder` и `help` по умолчанию.
+Через `translatable()` добавляйте имена атрибутов, через `withoutTranslation()` исключайте выбранные или все:
+
+```php
+Input::make('title')->title('Title')->withoutTranslation('title');
+Input::make('label')->translatable('value');
+Input::make('text')->withoutTranslation();
+```
+
+Эти методы управляют переводом интерфейсного текста, а не хранением многоязычных значений модели.
+Для скрытия звёздочки используйте `Input::make('name')->required()->requiredWithoutAsterisk()`.
+`requiredWithoutAsterisk()` меняет только отметку, не делая поле обязательным.
+Валидация на сервере по-прежнему необходима.

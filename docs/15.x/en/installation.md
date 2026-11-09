@@ -5,6 +5,9 @@ description:
     Step-by-step instructions and helpful tips make it easy to get started with Orchid.
 ---
 
+15.x requires PHP 8.3 or later and Laravel `^12.4 || ^13.0`. These are development-version instructions.
+For an existing application, read the [upgrade guide](/en/docs/upgrade) before changing dependencies.
+
 Before you can use the Laravel Orchid, you need to install it. This guide should help you perform a simple installation
 to start the project.
 
@@ -16,7 +19,7 @@ Being a package for the framework, you must first install Laravel. This can be d
 management tool by running the `composer create-project` command in your terminal:
 
 ```shell
-composer create-project laravel/laravel orchid-project "13.*"
+composer create-project laravel/laravel orchid-project "12.*"
 ```
 
 Or if you would prefer Laravel Installer:
@@ -38,7 +41,7 @@ you need to get started. In other words, install your new framework project.
 
 **Do not forget:**
 
-- Set “chmod -R o+w” rights to the `storage` and `bootstrap/cache` directories
+- Give the application server user write access to `storage` and `bootstrap/cache`; avoid world-writable permissions.
 - Edit the `.env` file
 
 > **Note.** If you just installed Laravel, you may need to generate a key with command `php artisan key:generate`
@@ -48,18 +51,25 @@ you need to get started. In other words, install your new framework project.
 Go to the created project directory and run the command:
 
 ```shell
-composer require orchid/platform
+composer require orchid/platform:^15.0
 ```
 
 > **Note.** You also need to create a new database, update the `.env` file with credentials, and add your application's
 > URL to the variable `APP_URL`.
 
+The command above applies once 15.0 is released. For preview testing, install the current development branch
+explicitly instead of expecting an unreleased stable version.
+
+```shell
+composer require orchid/platform:dev-master --with-all-dependencies
+```
+
 ## Package Installation
 
-> **Note:** During the installation process, the package will overwrite the `app/Models/User` model. However, it is
-> important to note that replacing the model is not mandatory. You have the flexibility to customize the model according
-> to your preferences. The package automatically applies certain configurations, such as `hidden` and `casts`, to the
-> Eloquent model.
+The installer publishes resources, runs migrations, and writes the application's User model.
+Commit or back up existing application files first. Do not use a fresh installation as a production data migration.
+The generated User extends `Orchid\Platform\Models\User`, inheriting permissions, casts, presenter, and filter attributes.
+Keep your own methods and merge custom casts through `parent::casts()` when adapting an existing model.
 
 Run the installation process by running the command:
 
@@ -86,7 +96,7 @@ php artisan serve
 Open a browser and go to `http://localhost:8000/admin`. If everything works, you will see the control panel login page.
 Later you can stop the server by pressing `Ctrl + C` in the terminal.
 
-> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/platform.php`, use that path
+> **Note.** The default URL path is `/admin`. If you change the `prefix` option in `config/orchid.php`, use that path
 > instead (for example, `http://localhost:8000/dashboard` if prefix is `dashboard`).
 
 ## Updating

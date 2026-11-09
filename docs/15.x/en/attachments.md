@@ -13,7 +13,7 @@ any model in your application by adding the `Attachable` trait to the model and 
 For example, to attach files to a `Post` model:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
@@ -158,7 +158,7 @@ case, an additional check will proceed. If there no link to the file - it will b
 Let's come back to our example with `hero` relation from ["Manage file attachments"](/en/docs/quickstart-files)
 
 ```php
-// app/Post.php
+// app/Models/Post.php
 
 use Orchid\Attachment\Models\Attachment;
 
@@ -263,7 +263,7 @@ class AttachmentClear extends Command
 ## Default Configuration
 
 When you upload files using Laravel Orchid, the package uses a default configuration that is defined in the
-`config/platform.php` file. This configuration specifies the disk and generator that will be used to handle the files.
+`config/orchid.php` file. This configuration specifies the disk and generator that will be used to handle the files.
 
 ```php
 /*
@@ -309,7 +309,7 @@ Orchid allows you to subscribe to event that are triggered when a file is upload
 additional tasks like video compression, image optimization, or other file processing operations.
 
 To subscribe to an event, you can use
-[Laravel's event listening mechanism](https://laravel.com/docs/11.x/events#defining-listeners). In the example below, an
+[Laravel's event listening mechanism](https://laravel.com/docs/12.x/events#defining-listeners). In the example below, an
 anonymous function is registered to listen for the `UploadFileEvent`:
 
 ```php
@@ -344,3 +344,13 @@ Uploaded files are stored on the configured disk (typically outside `/public`) a
 
 For security, define your own upload rules — for example, via Laravel validation in controllers/routes, access
 restrictions for trusted users only, or server-level file execution protections.
+
+## Identifiers and authorization in 15.x
+
+New installations use UUID attachment IDs. Treat attachment keys as strings in validation, relations, and JSON payloads;
+do not cast them to integers. Use a compatible string or UUID column in application tables that reference attachments.
+The [upgrade guide](/en/docs/upgrade#database-schema-and-identifiers) covers existing numeric identifiers and pivots.
+
+The built-in upload endpoints require the `orchid.attachment` permission and reject guests.
+Protect custom upload, download, and removal handlers with policies for the actual record and owner.
+Knowing a UUID or hiding an attachment field does not grant access.

@@ -12,12 +12,19 @@ description: Laravel CRUD
 ```php
 namespace App\Models;
 
+use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Attachment\Attachable;
 use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
+#[AllowedSorts([
+    'id',
+    'title',
+    'created_at',
+    'updated_at'
+])]
 class Post extends Model
 {
     use AsSource, Attachable, Filterable;
@@ -33,17 +40,6 @@ class Post extends Model
         'body',
         'author',
         'hero'
-    ];
-
-    /**
-     * Name of columns to which http sorting can be applied
-     *
-     * @var array
-     */
-    protected $allowedSorts = [
-        'title',
-        'created_at',
-        'updated_at'
     ];
 }
 ```
@@ -102,7 +98,7 @@ class PostListLayout extends Table
                 ->sort()
                 ->render(function (Post $post) {
                     return Link::make($post->title)
-                        ->route('platform.post.edit', $post);
+                        ->route('orchid.post.edit', $post);
                 }),
 
             TD::make('created_at', 'Created')
@@ -121,16 +117,24 @@ class PostListLayout extends Table
 вернёмся к модели и добавим новое свойство:
 
 ```php
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Filters\Filterable;
+use Orchid\Attachment\Attachable;
+use Orchid\Screen\AsSource;
+use Orchid\Filters\AllowedFilters;
 use Orchid\Filters\Types\Like;
+use Orchid\Filters\AllowedSorts;
 
-/**
- * Name of columns to which http filter can be applied
- *
- * @var array
- */
-protected $allowedFilters = [
+#[AllowedFilters([
     'title' => Like::class,
-];
+])]
+#[AllowedSorts(['id', 'title', 'created_at', 'updated_at'])]
+class Post extends Model
+{
+    use AsSource, Attachable, Filterable;
+
+    // Keep the remaining model traits, properties, and methods.
+}
 ```
 
 А затем вызовем новый метод `filter` с текстовым типом для колонки с заголовком:
@@ -142,7 +146,7 @@ TD::make('title')
    ->sort()
    ->filter(Input::make())
    ->render(function (Post $post) {
-       return Link::make($post->title)->route('platform.post.edit', $post);
+       return Link::make($post->title)->route('orchid.post.edit', $post);
    }),
 ```
 

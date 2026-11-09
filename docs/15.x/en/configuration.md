@@ -6,10 +6,10 @@ description:
 ---
 
 The package uses the standard configuration system for Laravel. It stores the main parameters in the `config` directory,
-and the main file for the platform is the file `platform.php`. Each setting comes with a comment explaining its purpose.
+and the main file for the platform is the file `orchid.php`. Each setting comes with a comment explaining its purpose.
 
 > **Note.** After caching your configuration files, don’t forget to clear the cache if you make changes. Run
-> `php artisan config:clear` so your changes take effect. Prefer reading values via `config('platform.key')` and avoid
+> `php artisan config:clear` so your changes take effect. Prefer reading values via `config('orchid.key')` and avoid
 > using `env()` directly in application code.
 
 In this section, we will delve into the configuration file and provide a detailed description of each parameter.
@@ -62,7 +62,7 @@ For example, if you set the prefix to `dashboard`, the URL for the admin login p
     ],
     'private' => [
         'web',
-        'platform',
+        'orchid',
         'cache.headers:private;must_revalidate;etag'
     ],
 ],
@@ -117,10 +117,10 @@ The `index` parameter controls the main page of the admin panel that the user wi
 on the logo or links in the navigation bar.
 
 ```php
-'index' => 'platform.main',
+'index' => 'orchid.main',
 ```
 
-The default value for this parameter is `platform.main`, which corresponds to the main dashboard page of the platform.
+The default value for this parameter is `orchid.main`, which corresponds to the main dashboard page of the platform.
 
 You can change this to any other route you have defined in your application. For example, if you want to redirect users
 to a custom dashboard page, you can update the `index` parameter to point to that route:
@@ -137,7 +137,7 @@ The `profile` option defines the route name for the user profile page. When user
 will be sent to this route.
 
 ```php
-'profile' => 'platform.profile',
+'profile' => 'orchid.profile',
 ```
 
 You may change this to a custom route name if you have defined your own profile screen.
@@ -292,10 +292,10 @@ documentation for more on Turbo.
 The workspace option sets the template that wraps screen content—either a compact width or full width:
 
 ```php
-'workspace' => 'platform::workspace.compact',
+'workspace' => 'orchid::workspace.compact',
 ```
 
-Options: `platform::workspace.compact`, `platform::workspace.full`.
+Options: `orchid::workspace.compact`, `orchid::workspace.full`.
 
 ## Fallback Page
 
@@ -324,7 +324,7 @@ your model classes instead of its own, it is necessary to register their substit
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
+use Orchid\Support\Facades\Orchid;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -335,7 +335,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Dashboard::useModel(
+        Orchid::useModel(
             \Orchid\Platform\Models\User::class,
             \App\Models\User::class
         );
@@ -366,11 +366,11 @@ override mechanism. This approach works the same for all Laravel packages, not j
 > 🚨 **Alert!** Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.
 
 Following Laravel's mechanism for overriding templates from packages is to create the
-`/resources/views/vendor/platform/` directory in your application and create new templates with the same path as the
+`/resources/views/vendor/orchid/` directory in your application and create new templates with the same path as the
 original templates.
 
-For example, to override `/vendor/orchid/platform/resources/views/partials/search.blade.php`, create a new template at
-`/resources/views/vendor/platform/partials/search.blade.php`. An illustrative example:
+For example, override `/vendor/orchid/platform/resources/views/partials/search/modal.blade.php` with a template at
+`/resources/views/vendor/orchid/partials/search/modal.blade.php`. An illustrative example:
 
 ```php
 your-project/
@@ -378,7 +378,8 @@ your-project/
 └─ resources/
    └─ views/
       └─ vendor/
-         └─ platform/
+         └─ orchid/
             └─ partials/
-                └─ search.blade.php
+                └─ search/
+                   └─ modal.blade.php
 ```

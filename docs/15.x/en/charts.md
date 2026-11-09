@@ -1,324 +1,160 @@
 ---
 title: Charts
-description:
-    Learn how to easily create and customize charts in your Laravel Orchid project with our comprehensive documentation
-    on Charts. Explore options for pie charts, line graphs, bar charts and more, all within the powerful Orchid
-    platform.
+description: Display Orchid Charts with shared labels, datasets, and fluent layout options.
 ---
 
-Chart layout may be generated using the `orchid:chart` Artisan command. By default, all new metrics will be placed in
-the `app/Orchid/Layouts` directory:
+Chart layouts use Orchid Charts. Provide a shared label list and one or more datasets, then configure the layout
+through its fluent methods.
+
+## Prepare the data
 
 ```php
-php artisan orchid:chart ChartsLayout
+public function query(): array
+{
+    return [
+        'visits' => [
+            'labels' => ['Mon', 'Tue', 'Wed'],
+            'datasets' => [
+                ['name' => 'Actual', 'values' => [12, 18, 15]],
+                ['name' => 'Plan', 'values' => [15, 16, 20]],
+            ],
+        ],
+    ];
+}
 ```
 
-Once your chart class has been generated, you're ready to customize it. Example:
+Every dataset's `values` must have exactly as many items as `labels`. Numeric strings are converted to numbers.
+Orchid reindexes the arrays before sending them to the browser.
+
+## Display a chart
 
 ```php
-namespace App\Orchid\Layouts;
-
 use Orchid\Screen\Layouts\Chart;
+use Orchid\Support\Facades\Layout;
 
-class ChartsLayout extends Chart
-{
-    /**
-     * Available options:
-     * 'bar', 'line',
-     * 'pie', 'percentage'
-     *
-     * @var string
-     */
-    protected $type = 'bar';
-}
-```
-
-By creating and setting up a visual representation of the class, we can use it in the future. But before using chart, we
-need to prepare the data we want to display. To do this, let's set the `query` value of the screen:
-
-```php
-public function query() : array
-{
-    $dataset = [
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Some Data',
-            'values' => [25, 40, 30, 35, 8, 52, 17, -4],
-        ],
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Another Set',
-            'values' => [25, 50, -10, 15, 18, 32, 27, 14],
-        ],
-        [
-            'labels' => ['12am-3am', '3am-6am', '6am-9am', '9am-12pm', '12pm-3pm', '3pm-6pm', '6pm-9pm'],
-            'name'  => 'Yet Another',
-            'values' => [15, 20, -3, -15, 58, 12, -17, 37],
-        ],
-    ];
-
-    return [
-        'dataset' => $dataset,
-    ];
-}
-```
-
-Now we can use the layout class by calling the static method `make` and specifying the target key for the data:
-
-```php
-use App\Orchid\Layouts\ChartsLayout;
-
-public function layout(): iterable
+public function layout(): array
 {
     return [
-        ChartsLayout::make('dataset', 'Header for our dataset'),
+        Layout::chart('visits', 'Visits')
+            ->description('Daily traffic')
+            ->type(Chart::TYPE_LINE)
+            ->height(300)
+            ->colors(['#2274a5', '#f75c03'])
+            ->smooth()
+            ->dots(false)
+            ->gradient(['fromOpacity' => 0.25, 'toOpacity' => 0])
+            ->marker('Target', 20)
+            ->export(),
     ];
 }
 ```
 
-Often datasets need a little explanation, we can add a description for that:
+`Layout::chart()` creates a chart without a custom class. `Chart::make('visits', 'Visits')` is also available.
+The default type is `line`, and the default height is 250.
+
+Supported types are `Chart::TYPE_LINE`, `TYPE_BAR`, `TYPE_MIXED`, `TYPE_PIE`, and `TYPE_PERCENTAGE`.
+Pie and percentage charts require exactly one dataset.
+
+## Configure presentation
+
+Merge supported options with `options()`:
 
 ```php
-use App\Orchid\Layouts\ChartsLayout;
-
-public function layout(): iterable
-{
-    return [
-        ChartsLayout::make('dataset', 'Header for our dataset'),
-            ->description('Description of the chart')
-    ];
-}
+Layout::chart('visits')->type(Chart::TYPE_BAR)
+    ->stacked()
+    ->legend(false)
+    ->options(['horizontal' => true, 'radius' => 3]);
 ```
 
-## Basic Configuration
+| Type | Supported options |
+| --- | --- |
+| All | `height`, `width`, `colors`, `legend`, `tooltip` |
+| Line, bar, mixed | `axes`, `grid`, `valueLabels`, `frameless` |
+| Line | `smooth`, `dots`, `dotSize`, `line`, `area`, `gradient`, `strokeWidth` |
+| Bar | `stacked`, `horizontal`, `radius` |
+| Mixed | `gradient` |
+| Pie | `maxSlices`, `startAngle`, `padAngle` |
+| Percentage | `maxSlices` |
 
-The configuration is used to change how the chart behaves. It includes properties to control styling, height, and more.
+Dimension, radius, angle, and slice-count values must be finite numbers. `colors` must be a list.
+Other options are booleans, except `gradient`, which accepts a boolean or an opacity map.
+Gradient keys are `fromOpacity` and `toOpacity`, with numeric values between 0 and 1.
+Unsupported options and invalid types throw `InvalidArgumentException`.
 
-### Adjusting Height
+`marker($label, $value, $options)` adds a marker. `export()` displays the chart download control.
+Options merge with earlier settings, and the last value for a key wins.
 
-Set the height of the chart in pixels by specifying the property:
+## Combine chart types
+
+Use `chartType` on each dataset in a mixed chart:
 
 ```php
-/**
- * Height of the chart.
- *
- * @var int
- */
-protected $height = 250;
-```
-
-### Customizing Colors
-
-Set the colors that will be used for each individual unit type, depending on the type of chart by specifying a property:
-
-```php
-/**
- * Colors used.
- *
- * @var array
- */
-protected $colors = [
-    '#2274A5',
-    '#F75C03',
-    '#F1C40F',
-    '#D90368',
-    '#00CC66',
+return [
+    'sales' => [
+        'labels' => ['Jan', 'Feb'],
+        'datasets' => [
+            ['name' => 'Actual', 'values' => [12, 18], 'chartType' => 'bar', 'radius' => 3],
+            ['name' => 'Plan', 'values' => [15, 16], 'chartType' => 'line', 'smooth' => true],
+        ],
+    ],
 ];
+
+// In layout():
+Layout::chart('sales')->type(Chart::TYPE_MIXED);
 ```
 
-### Exporting Images
+## Use model metrics
 
-Charts can be exported in the `SVG` format, in which they are displayed initially. To do this, specify the property:
+Models with `Orchid\Metrics\Chartable` provide `countByDays()`, `sumByDays()`, `averageByDays()`,
+`minByDays()`, `maxByDays()`, `valuesByDays()`, and `countForGroup()` scopes.
+The User model already includes this trait.
 
 ```php
-/**
- * Determines whether to display the export button.
- *
- * @var bool
- */
-protected $export = true;
+return [
+    'users' => User::countByDays()->toChart('Users'),
+    'names' => User::countForGroup('name')->toChart(),
+];
+
+// In layout():
+Layout::chart('users')->type(Chart::TYPE_LINE);
+Layout::chart('names')->type(Chart::TYPE_PIE);
 ```
 
-### Adding Markers
+`toChart()` returns the complete `labels` and `datasets` structure. Do not wrap it in the old outer dataset array.
 
-Some graphs are difficult to interpret without more information. For example, show the average value. For this you can
-define the `markers` method:
+The date scopes accept a start date, end date, and date column. Aggregate scopes take the value column first:
 
 ```php
-/**
- * To highlight certain values on the Y axis, markers can be set.
- * They will show as dashed lines on the graph.
- */
-protected function markers(): ?array
-{
-    return [
-        [
-            'label'   => 'Medium',
-            'value'   => 40,
-        ],
-    ];
-}
+User::countByDays(now()->subDays(6)->startOfDay(), now(), 'created_at')->toChart('Users');
+Order::sumByDays('total', now()->subDays(6)->startOfDay(), now(), 'paid_at')->toChart('Revenue');
 ```
 
-## Eloquent Model
+The example's Order model must use `Orchid\Metrics\Chartable` and have `total` and `paid_at` columns.
+`valuesByDays()` reads stored values; the other scopes aggregate records by day.
 
-To use chart data methods from the model, add the trait `Chartable`:
+## Reuse a chart class
 
-```php
-namespace App;
-
-use Orchid\Metrics\Chartable;
-use Orchid\Platform\Models\User as Authenticatable;
-
-class User extends Authenticatable
-{
-    use Chartable;
-    // ...
-}
-```
-
-This will add several new methods specifically for charting:
-
-- Grouped data
-- A period of time
-
-## Grouped Data
-
-For example, you might want to build a chart showing the proportion of users who have enabled two-factor authentication.
+Generate a reusable layout with `php artisan orchid:chart VisitsChart`:
 
 ```php
 namespace App\Orchid\Layouts;
 
 use Orchid\Screen\Layouts\Chart;
 
-class BasicPieChart extends Chart
+class VisitsChart extends Chart
 {
-    /**
-     * Available options:
-     * 'bar', 'line',
-     * 'pie', 'percentage'.
-     *
-     * @var string
-     */
-    protected $type = 'pie';
+    public function __construct()
+    {
+        $this->target('visits')->title('Visits')->type(self::TYPE_BAR)->export();
+    }
 }
 ```
 
-Then the model query will serve as a data source `countForGroup()`
+Return `VisitsChart::class` from the screen's `layout()` method.
+Configure inherited charts through methods rather than redefining typed properties.
 
-```php
-public function query(): array
-{
-    $userUsageTwoFactorAuth = User::countForGroup('uses_two_factor_auth')->toChart();
+## Upgrade from Frappe Charts
 
-    return [
-        'userUsageTwoFactorAuth' => $userUsageTwoFactorAuth,
-    ];
-}
-
-public function layout(): array
-{
-    return [
-        BasicPieChart::make('userUsageTwoFactorAuth', 'Usage two-factor authentication'),
-    ];
-}
-```
-
-To change the header text, you can pass a closure as the first argument:
-
-```php
-User::countForGroup('uses_two_factor_auth')
-    ->toChart(fn(bool $value) => $value ? 'Enabled' : 'Disabled'),
-```
-
-## Working with Time Periods
-
-Receives data for a certain period of time, filling in the missing values.
-
-For example, let's display a graph of new users and roles:
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Layouts\Chart;
-
-class BasicLineChart extends Chart
-{
-    /**
-     * Available options:
-     * 'bar', 'line',
-     * 'pie', 'percentage'.
-     *
-     * @var string
-     */
-    protected $type = 'line';
-}
-```
-
-Then the data source will be:
-
-```php
-public function query(): array
-{
-    return [
-        'members' => [
-            User::countByDays()->toChart('Users'),
-            Role::countByDays()->toChart('Roles'),
-        ]
-    ];
-}
-
-public function layout(): array
-{
-    return [
-        BasicLineChart::make('members', 'New members'),
-    ];
-}
-```
-
-By default, the data will be taken for one month. To set your own period, pass the arguments:
-
-```php
-$start = Carbon::now()->subDay(7);
-$end = Carbon::now()->subDay(1);
-
-User::countByDays($start, $end)->toChart('Users')
-```
-
-By default, data is grouped by the `created_at` column, to change it:
-
-```php
-$start = Carbon::now()->subDay(7);
-$end = Carbon::now()->subDay(1);
-
-User::countByDays($start, $end, 'updated_at')->toChart('Users')
-```
-
-### Value Query Types
-
-Value metrics don't just ship with a `countByDays` method. You may also use a variety of other aggregate functions when
-building your metric.
-
-The `average` method may be used to calculate the average of a given column
-
-```php
-Order::averageByDays('price')->toChart('Order'),
-```
-
-The `sum` method may be used to calculate the sum of a given column:
-
-```php
-Order::sumByDays('price')->toChart('Order'),
-```
-
-The `min` method may be used to calculate the min of a given column:
-
-```php
-Order::minByDays('price')->toChart('Order'),
-```
-
-The `max` method may be used to calculate the max of a given column:
-
-```php
-Order::maxByDays('price')->toChart('Order'),
-```
+Replace per-dataset `labels` with a shared top-level `labels` array and put series in `datasets`.
+Move old presentation properties to fluent methods or supported `options()` keys.
+Frappe-specific options and client-side APIs are not supported. Publish the new assets after upgrading.

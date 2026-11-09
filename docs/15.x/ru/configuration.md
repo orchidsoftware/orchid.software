@@ -4,7 +4,7 @@ description: Laravel Orchid использует стандартную сист
 ---
 
 Платформа использует стандартную систему настроек для Laravel. Параметры располагаются в директории `config`, а основным
-источником для платформы является файл `platform.php`. Каждая настройка поставляется с комментарием поясняющим основную
+источником для платформы является файл `orchid.php`. Каждая настройка поставляется с комментарием поясняющим основную
 суть.
 
 > **Примечание.** Если вы кэшируете свои файлы конфигурации, не забудьте очистить их после изменения, используя команду
@@ -42,7 +42,7 @@ description: Laravel Orchid использует стандартную сист
 ```php
 'middleware' => [
     'public'  => ['web'],
-    'private' => ['web', 'platform'],
+    'private' => ['web', 'orchid'],
 ],
 ```
 
@@ -70,7 +70,7 @@ IP адресов.
 на логотипы и ссылки.
 
 ```php
-'index' => 'platform.main',
+'index' => 'orchid.main',
 ```
 
 ## Ресурсы панели управления
@@ -85,20 +85,20 @@ IP адресов.
 В ходе работы вам может потребоваться добавить свои собственные таблицы стилей или javascript сценарии глобально, на
 каждую страницу. В таком случае необходимо добавить пути для них в соответствующие массивы.
 
-Также возможно указывать ресурсы через объект `Dashboard`, например в сервис провайдере:
+Также возможно указывать ресурсы через объект `Orchid`, например в сервис провайдере:
 
 ```php
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Platform\Dashboard;
+use Orchid\Platform\Orchid;
 
 class AppServiceProvider extends ServiceProvider
 {
-    public function boot(Dashboard $dashboard)
+    public function boot(Orchid $orchid)
     {
-        $dashboard->registerResource('stylesheets', 'custom.css');
-        $dashboard->registerResource('scripts', 'custom.js');
+        $orchid->registerResource('stylesheets', 'custom.css');
+        $orchid->registerResource('scripts', 'custom.js');
     }
 }
 ```
@@ -120,11 +120,11 @@ class AppServiceProvider extends ServiceProvider
 Бэкенд-страницы создаются с помощью [Blade](https://laravel.com/docs/blade). Вы можете изменить их, используя механизм
 переопределения шаблонов Laravel (он одинаков для всех пакетов, а не только для Orchid);
 
-Для переопределения шаблонов из пакета создайте директорию `/resources/views/vendor/platform/` в вашем приложении и и
+Для переопределения шаблонов из пакета создайте директорию `/resources/views/vendor/orchid/` в вашем приложении и и
 создайте новые шаблоны по тому же пути, что и исходные.
 
-Например, чтобы переопределить `/vendor/orchid/platform/resources/views/partials/search.blade.php`, создайте новый
-шаблон по адресу `/resources/views/vendor/platform/partials/search.blade.php`. Наглядный пример:
+Например, чтобы переопределить `/vendor/orchid/platform/resources/views/partials/search/modal.blade.php`, создайте новый
+шаблон по адресу `/resources/views/vendor/orchid/partials/search/modal.blade.php`. Наглядный пример:
 
 ```php
 your-project/
@@ -132,9 +132,10 @@ your-project/
 └─ resources/
    └─ views/
       └─ vendor/
-         └─ platform/
+         └─ orchid/
             └─ partials/
-                └─ search.blade.php
+                └─ search/
+                   └─ modal.blade.php
 ```
 
 > **Примечание.** Переопределенные шаблоны не получают обновлений или исправлений ошибок. Думайте об этом как об
@@ -149,7 +150,7 @@ your-project/
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Support\Facades\Orchid;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -160,9 +161,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Dashboard::useModel(
+        Orchid::useModel(
             \Orchid\Platform\Models\User::class,
-            \App\User::class
+            \App\Models\User::class
         );
     }
 }

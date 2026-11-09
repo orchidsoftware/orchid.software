@@ -73,23 +73,23 @@ public function routes(Router $route): void
 
 Laravel Orchid provides a flexible permission system to control access to different parts of your package. To define
 permissions, override the `permissions` method in your service provider. This method should return an array of
-`ItemPermission` instances provided by the Orchid package.
+`PermissionGroup` instances provided by the Orchid package.
 
 ```php
-use Orchid\Platform\ItemPermission;
+use Orchid\Access\PermissionGroup;
 
 /**
  * Register permissions for the application.
  *
- * @return ItemPermission[]
+ * @return PermissionGroup[]
  */
 public function permissions(): array
 {
     // Define your permissions here
     return [
-        ItemPermission::group('Package Name')
-            ->addPermission('platform.package.option', 'View Options')
-            ->addPermission('platform.package.other', 'View Content'),
+        PermissionGroup::make('Package Name')
+            ->add('orchid.package.option', 'View Options')
+            ->add('orchid.package.other', 'View Content'),
     ];
 }
 ```
@@ -193,13 +193,13 @@ within your package's views or components.
 
 When developing a package that supports multiple versions, it is advised to utilize Composer for version management.
 Composer provides comprehensive tools for resolving version conflicts. If, for any reason, Composer is not suitable for
-your project, you can consider using the following constant:
+your project, you can consider using the following method:
 
 ```php
-Orchid\Platform\Dashboard::version()
+Orchid\Support\Facades\Orchid::version()
 ```
 
-This constant returns a string representation of the current version being used.
+This method returns a string representation of the current version being used.
 
 ## Extending Layouts
 

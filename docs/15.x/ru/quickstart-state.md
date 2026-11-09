@@ -85,6 +85,8 @@ class StateScreen extends Screen
 0". Добавим в наш экран простой метод, в котором посмотрим на содержимое запроса:
 
 ```php
+
+use Orchid\Support\Color;
 /**
  * The screen's layout elements.
  *

@@ -88,7 +88,7 @@ To use the new screen in your application, you will need to register it in the r
 
 ## Routing Screens
 
-Before a screen can be accessed at a direct URL, it must be registered in the `routes/platform.php` routes file. Routes
+Before a screen can be accessed at a direct URL, it must be registered in the `routes/orchid.php` routes file. Routes
 registered in this file will be passed through the middleware specified in the [configuration](/en/docs/configuration).
 
 To register a screen, you can use the screen method of the `Route` class. For example:
@@ -96,7 +96,7 @@ To register a screen, you can use the screen method of the `Route` class. For ex
 ```php
 use App\Orchid\Screens\Idea;
 
-Route::screen('/idea', Idea::class)->name('platform.idea');
+Route::screen('/idea', Idea::class)->name('orchid.idea');
 ```
 
 This will register a new route for the Idea screen, accessible at the URL `/idea`.
@@ -107,7 +107,7 @@ address, a whole group registered. For clarity, you can run the `route:list` com
 ```php
 Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | platform.idea
+GET|POST | dashboard/idea/{method?} | orchid.idea
 ```
 
 If you have multiple screens, you can register them in the same way. For example:
@@ -117,10 +117,10 @@ use App\Orchid\Screens\Idea;
 use App\Orchid\Screens\IdeaEdit;
 
 Route::screen('/idea/edit', IdeaEdit::class)
-    ->name('platform.idea.edit');
+    ->name('orchid.idea.edit');
 
 Route::screen('/idea', Idea::class)
-    ->name('platform.idea');
+    ->name('orchid.idea');
 ```
 
 > It's important to note that when registering multiple routes, Laravel will choose the first matching route.
@@ -137,8 +137,8 @@ We get:
 ```php
 URI                           | Name
 ------------------------------+---------------------
-dashboard/idea/{method?}      | platform.idea
-dashboard/idea/edit/{method?} | platform.idea.edit
+dashboard/idea/{method?}      | orchid.idea
+dashboard/idea/edit/{method?} | orchid.idea.edit
 ```
 
 `{method?}` - means an optional argument that may go further. Correspondingly, the name "edit" in the address falls
@@ -166,7 +166,7 @@ easily access and manipulate the model's data from within the screen's query met
 To use the `AsSource` trait, you need to include it in your model class:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -362,12 +362,12 @@ maintainable and easier to understand.
 When working within a screen in Laravel Orchid, all UI actions have a corresponding method that is executed when called.
 To explicitly call a desired method from JavaScript or a Blade template, a `POST` request must be made to a specific
 route. The `method` property must be specified in the attributes using the
-`route('platform.screen.name', ['method' => 'hello'])` helper.
+`route('orchid.screen.name', ['method' => 'hello'])` helper.
 
-For example, to call the `hello` method on the `platform.screens.users` screen, the following code can be used:
+For example, to call the `hello` method on the `orchid.screens.users` screen, the following code can be used:
 
 ```blade
-<form action="{{ route('platform.screens.users', ['method' => 'hello']) }}"
+<form action="{{ route('orchid.screens.users', ['method' => 'hello']) }}"
       method="POST"
 >
     @csrf
@@ -375,7 +375,7 @@ For example, to call the `hello` method on the `platform.screens.users` screen, 
 </form>
 ```
 
-This will send a `POST` request to the 'platform.screens.users' screen with a method attribute of `hello`, which will
+This will send a `POST` request to the 'orchid.screens.users' screen with a method attribute of `hello`, which will
 trigger the corresponding method on the server-side.
 
 You can also use this with the UI buttons:
@@ -384,7 +384,7 @@ You can also use this with the UI buttons:
 use Orchid\Screen\Actions\Button;
 
 Button::make('Say "Hello, World!"')
-    ->action(route('platform.screens.users', [
+    ->action(route('orchid.screens.users', [
         'method' => 'hello',
     ]));
 ```
@@ -551,3 +551,15 @@ public function frontendController(): string
 
 This method returns the name of the base Stimulus controller for the frontend. It is crucial for managing the behavior
 of UI elements and interacting with other components via Hotwire.
+
+## Signed screen state
+
+Orchid restores screen state between requests. Ordinary values and closures are signed; persisted Eloquent models
+are serialized as identifiers and reloaded from the database. Use `#[WithoutRelations]` from
+`Illuminate\Queue\Attributes\WithoutRelations` on a public model property to avoid restoring its loaded relations.
+Keep the same `APP_KEY` across requests and application instances.
+
+Signed state does not authorize an action or make request input trustworthy. Check record policies and validate input
+inside each action handler. Query current database state when a decision depends on changes made since rendering.
+When migrating custom traits, use `Orchid\Screen\Concerns\CanSee` and
+`Orchid\Screen\Concerns\HasCommandBar` instead of the old trait locations.

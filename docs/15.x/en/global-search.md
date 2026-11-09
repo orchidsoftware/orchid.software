@@ -1,151 +1,98 @@
 ---
-title: Global Search
-description:
-    Learn how to use Laravel Orchid's global search feature powered by Laravel Scout to easily search and filter through
-    large amounts of data in your administration-style applications.
+title: Global search
+description: Search registered Scout models with model presenters.
 ---
 
-## Using Full-Text Search
+Global search displays matching models in the header search dialog. Configure Laravel Scout and its driver
+before registering a model. Orchid does not provide the old separate search screen or its route.
 
-Orchid provides full-text search capabilities through the [Laravel Scout](https://github.com/laravel/scout) package.
-This package offers an abstraction for searching through your `Eloquent` models and requires that you specify the search
-driver that you will use for your application. These can be elasticsearch, algolia, sphinx, or other solutions.
+## Register a model
 
-To make your models searchable within the application, you must register them in the Orchid
-[configuration file](/en/docs/configuration). You can do this by adding a new entry to the 'search' array for each model
-you want to make searchable. For example:
+In `config/orchid.php`, list the models that participate in search:
 
 ```php
-'search' => [
-    \App\Models\Idea::class,
-],
+'search' => [App\Models\Idea::class],
 ```
 
-> This example uses [presenters](/en/docs/presenters), it is highly recommended that you familiarize yourself with them.
-> And also, take steps to configure the model from the documentation [Laravel Scout](https://github.com/laravel/scout).
-
-The [Presenter](/en/docs/presenters) is used to display the search results, which calls the `presenter()` method of the
-model:
+Add Scout's `Searchable` trait and Orchid's presenter declaration to the model:
 
 ```php
-namespace App;
+namespace App\Models;
 
 use App\Orchid\Presenters\IdeaPresenter;
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 
+#[UsePresenter(IdeaPresenter::class)]
 class Idea extends Model
 {
-    use Searchable;
+    use Presentable, Searchable;
 
-    /**
-     * Get the presenter for the model.
-     *
-     * @return IdeaPresenter
-     */
-    public function presenter()
+    public function toSearchableArray(): array
     {
-        return new IdeaPresenter($this);
-    }
-
-    /**
-     * Get the indexable data array for the model.
-     *
-     * @return array
-     */
-    public function toSearchableArray()
-    {
-        $array = $this->toArray();
-
-        // Customize array...
-
-        return $array;
+        return ['name' => $this->name, 'active' => (bool) $this->active];
     }
 }
 ```
 
-In the representatives, we indicate the `Searchable` interface and define methods that will return values for a display
-to the user, for example like this:
+## Describe search results
+
+The presenter implements `Orchid\Screen\Contracts\Searchable`. Define the `orchid.ideas.edit` route used below
+in your application's `routes/orchid.php`.
 
 ```php
 namespace App\Orchid\Presenters;
 
 use Laravel\Scout\Builder;
+use Orchid\Presenter\Presenter;
 use Orchid\Screen\Contracts\Searchable;
-use Orchid\Support\Presenter;
 
 class IdeaPresenter extends Presenter implements Searchable
 {
-    /**
-     * @return string
-     */
     public function label(): string
     {
         return 'Ideas';
     }
 
-    /**
-     * @return string
-     */
     public function title(): string
     {
         return $this->entity->name;
     }
 
-    /**
-     * @return string
-     */
     public function subTitle(): string
     {
-        return 'Small descriptions';
+        return $this->entity->description ?? '';
     }
 
-    /**
-     * @return string
-     */
     public function url(): string
     {
-        return url('/');
+        return route('orchid.ideas.edit', $this->entity);
     }
 
-    /**
-     * @return string
-     */
     public function image(): ?string
     {
         return null;
     }
 
-    /**
-     * @param string|null $query
-     *
-     * @return Builder
-     */
-    public function searchQuery(string $query = null): Builder
+    public function searchQuery(?string $query = null): Builder
     {
-        return $this->entity->search($query);
+        return $this->entity->search($query)->where('active', true);
     }
 
-    /**
-     * @return int
-     */
     public function perSearchShow(): int
     {
-        return 3;
+        return 5;
     }
 }
 ```
 
-## Customizing Search Queries
+`perSearchShow()` limits the results displayed for that model group. `image()` may return `null`.
+Use `searchQuery()` to enforce tenant visibility and other access restrictions for the current user.
+Registering a model does not grant permission to view its records.
 
-To customize search queries, you can override the default `searchQuery()` method. This method returns a `Builder`
-instance representing the query used to index the model.
+Search results appear in the dialog. Users can navigate them with the keyboard and follow the presenter's `url()`.
+Do not link to the removed standalone search screen.
 
-```php
-public function searchQuery(string $query = null): Builder
-{
-    return $this->entity->search($query)->where('active', true);
-}
-```
-
-Here, in the `searchQuery()` method, the `where()` method was used to limit the search to only active models
+The example assumes an `active` column. Configure that attribute as filterable if your Scout driver requires it.

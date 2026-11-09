@@ -41,7 +41,7 @@ class QueryFilter extends Filter
      */
     public function run(Builder $builder): Builder
     {
-        return $builder->where('demo', $this->request->get('query'));
+        return $builder->where('demo', $this->request->input('query'));
     }
 
     /**
@@ -52,7 +52,7 @@ class QueryFilter extends Filter
         return [
             Input::make('email')
                 ->type('text')
-                ->value($this->request->get('email'))
+                ->value($this->request->input('email'))
                 ->placeholder('Search...')
                 ->title('Search')
         ];
@@ -89,9 +89,9 @@ php artisan orchid:selection MySelection
 ```php
 namespace App\Orchid\Layouts;
 
-use Orchid\Platform\Filters\Filter;
-use Orchid\Press\Http\Filters\CreatedFilter;
-use Orchid\Press\Http\Filters\SearchFilter;
+use Orchid\Filters\Filter;
+use App\Orchid\Filters\CreatedFilter;
+use App\Orchid\Filters\SearchFilter;
 use Orchid\Screen\Layouts\Selection;
 
 class MySelection extends Selection
@@ -136,42 +136,37 @@ public function layout(): array
 ```php
 namespace App\Models;
 
+use Orchid\Filters\AllowedFilters;
+use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
 use Orchid\Filters\Types\Like;
 use Orchid\Filters\Types\Where;
+use Orchid\Filters\Types\WhereIn;
 use Orchid\Filters\Types\WhereDate;
 use Orchid\Filters\Types\WhereMaxMin;
 use Orchid\Filters\Types\WhereDateStartEnd;
 
+#[AllowedFilters([
+    'id'            => Where::class,
+    'user_id'       => WhereIn::class,
+    'rating'        => WhereMaxMin::class,
+    'content'       => Like::class,
+    'publish_at'    => WhereDate::class,
+    'created_at'    => WhereDateStartEnd::class,
+    'deleted_at'    => WhereDateStartEnd::class,
+])]
+#[AllowedSorts([
+    'id',
+    'user_id',
+    'rating',
+    'publish_at',
+    'created_at',
+    'deleted_at',
+])]
 class Post extends Model
 {
     use Filterable;
-
-    /**
-     * @var array
-     */
-    protected $allowedFilters = [
-        'id'            => Where::class,
-        'user_id'       => WhereIn::class,
-        'rating'        => WhereMaxMin::class,
-        'content'       => Like::class,
-        'publish_at'    => WhereDate::class,
-        'created_at'    => WhereDateStartEnd::class,
-        'deleted_at'    => WhereDateStartEnd::class,
-    ];
-
-    /**
-     * @var array
-     */
-    protected $allowedSorts = [
-        'id',
-        'user_id',
-        'rating',
-        'publish_at',
-        'created_at',
-        'deleted_at',
-    ];
 }
 ```
 
@@ -217,3 +212,14 @@ User::orderByPowerJoins('profile.city', 'desc');
 автоматически распознает, что знак `-` перед названием поля означает порядок сортировки "desc", а также каким образом
 применять фильтры. Вы можете сделать это используя "Фильтр". Кроме того, следует использовать методы пакета только в
 случае сортировки или фильтрации по полям, доступным через связи.
+
+## Наследование атрибутов
+
+Объявляйте `AllowedFilters` и `AllowedSorts` над классом модели. Каждый список независимо наследуется от ближайшего
+родителя с соответствующим атрибутом. Объявление в дочерней модели заменяет весь список.
+`#[AllowedFilters([])]` или `#[AllowedSorts([])]` явно отключает унаследованный список.
+Если объявления нет во всей иерархии, список пуст. Автоматического объединения нет.
+
+Свойства `$allowedFilters` и `$allowedSorts` больше не читаются. Перенесите и переопределения в дочерних моделях,
+иначе начнут действовать атрибуты родителя. См. [руководство по переходу на 15.x](/ru/docs/upgrade).
+Списки URL-параметров не заменяют авторизацию и ограничения доступа к данным клиента.

@@ -21,7 +21,7 @@ use Orchid\Screen\Actions\Menu;
 
 Menu::make('Settings')
     ->icon('bs.gear') // Use the 'bs.' prefix for Bootstrap Icons
-    ->route('platform.settings');
+    ->route('orchid.settings');
 ```
 
 In this example, the icon `bs.gear` will show up next to the "Settings" link.
@@ -47,7 +47,7 @@ example, you can download the
 and place it in the `fontawesome` subdirectory.
 
 Next, you need to configure the package to search for icons in the new directory. You can do this by editing the
-`config/platform.php` configuration file:
+`config/orchid.php` configuration file:
 
 ```php
 'icons' => [

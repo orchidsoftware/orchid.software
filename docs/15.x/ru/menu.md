@@ -79,7 +79,7 @@ Menu::make('Example')
 обстоятельств, для этого:
 
 ```php
-Menu::make('Example')->permission('platform.idea');
+Menu::make('Example')->permission('orchid.idea');
 ```
 
 или любая другая проверка возвращающая булево значение:
@@ -118,7 +118,7 @@ Menu::make('First')->sort(4);
 ```php
 Menu::make('Comments')
     ->icon('bubbles')
-    ->route('platform.systems.comments')
+    ->route('orchid.systems.comments')
     ->badge(function () {
         return 10;
     });
@@ -153,9 +153,9 @@ Menu::make('Dropdown menu')
 А затем добавляем новые элементы, например:
 
 ```php
-use Orchid\Support\Facades\Dashboard;
+use Orchid\Support\Facades\Orchid;
 
-Dashboard::addMenuSubElements('sub-menu', [
+Orchid::addMenuSubElements('sub-menu', [
     Menu::make('Sub element item 3')->icon('badge')
 ]);
 ```

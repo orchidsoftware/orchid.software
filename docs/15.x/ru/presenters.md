@@ -1,106 +1,82 @@
 ---
-title: Представители
-description:
-    Представитель (Presenter) - это класс, который оборачивает другой объект с целью добавления в него функционала.
+title: Presenters
+description: Форматирование значений модели через Presentable и атрибут UsePresenter.
 ---
 
-Представитель (Presenter) - это класс, который оборачивает объект с целью добавления в него функционала.
+Presenter форматирует значения объекта для отображения. Наследуйте класс от
+`Orchid\Presenter\Presenter`. Исходный объект доступен через `$this->entity`.
 
-Допустим у нас есть модель клиента:
+## Создайте presenter
 
-```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Client extends Model
-{
-    protected $fillable = [
-        'firstName',
-        'lastName'
-    ];
-}
-```
-
-Прежде чем экземпляр этого класса будет обёрнут в представителя, необходимо создать его:
+Выполните `php artisan orchid:presenter CustomerPresenter` и определите значения для представлений:
 
 ```php
-namespace App\Presenters;
+namespace App\Orchid\Presenters;
 
-use Orchid\Support\Presenter;
+use Orchid\Presenter\Presenter;
 
-class ClientPresenter extends Presenter
+class CustomerPresenter extends Presenter
 {
     public function fullName(): string
     {
-        return $this->entity->firstName . ' ' . $this->entity->lastName;
+        return $this->entity->first_name.' '.$this->entity->last_name;
     }
 }
 ```
 
-После этого мы можем использовать его следующим образом:
+## Назначьте presenter модели
+
+Добавьте трейт `Presentable` и атрибут `UsePresenter`:
 
 ```php
-use App\Client;
-use App\Presenters\ClientPresenter;
+namespace App\Models;
 
-$client = new Client([
-        'fistName' => 'Alexandr',
-        'lastName' => 'Chernyaev'
-    ]);
+use App\Orchid\Presenters\CustomerPresenter;
+use Illuminate\Database\Eloquent\Model;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 
-$presenter = new ClientPresenter($client);
+#[UsePresenter(CustomerPresenter::class)]
+class Customer extends Model
+{
+    use Presentable;
+}
+```
+
+Дочерняя модель наследует presenter, пока не объявит собственный атрибут `UsePresenter`.
+
+```php
+$customer = Customer::findOrFail(1);
+$presenter = $customer->presenter();
 
 $presenter->fullName();
+$presenter->fullName;
+$presenter->email;
 ```
 
-> **Заметьте**, что представитель получает свойства `firstName` и `lastName` у модели, потому что этих свойств у него
-> нет.
+Обращение к свойству сначала вызывает одноимённый метод presenter, затем читает свойство исходного объекта.
+Базовый presenter не перенаправляет произвольные вызовы методов в модель.
 
-Обычно нет необходимости создавать и передавать представителя каждый раз отдельно, поэтому укажем это создание в модели:
+## Выберите presenter для одного вызова
 
 ```php
-namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-use App\Presenters\ClientPresenter;
-
-class Client extends Model
-{
-    protected $fillable = [
-        'firstName',
-        'lastName'
-    ];
-
-    public function presenter(): ClientPresenter
-    {
-        return new ClientPresenter($this);
-    }
-}
+$presenter = $customer->presenter(CompactCustomerPresenter::class);
 ```
 
-> **Примечание.** Многие функции платформы ожидают представителя в методе `presenter`, но вам необязательно использовать
-> именно его.
+Этот вариант действует только для текущего вызова и не меняет presenter модели по умолчанию.
+Если нет атрибута и явного аргумента, `presenter()` выбрасывает `RuntimeException`.
 
-Теперь его использование становится проще:
+## Преобразуйте коллекцию
 
 ```php
-use App\Client;
-
-$client = Client::findOrFail(1)->presenter()->fullName();
+$customers = Customer::query()->limit(10)->get()->map->presenter();
 ```
 
-Если необходимо получить список представителей, лучшим вариантом будет использование методов коллекций, например:
+Для обычного объекта можно вызвать `new CustomerPresenter($object)`.
+Для глобального поиска реализуйте [контракт поискового presenter](/ru/docs/global-search).
 
-```php
-use App\Client;
+## Переход с 14.x
 
-$clients = Client::limit(10)->get()->map->presenter();
-
-foreach($clients as $client)
-{
-    $client->fullName();
-}
-```
-
-Использование представителей для моделей - распространённая практика автоматического отображения данных для `Layouts`.
+Замените импорт `Orchid\Support\Presenter` на `Orchid\Presenter\Presenter`.
+Вместо метода-фабрики в модели используйте `Presentable` и `UsePresenter`.
+Проверьте presenter, которые полагались на перенаправление методов модели или старые контракты.

@@ -74,12 +74,12 @@ php artisan migrate
 php artisan make:model Post
 ```
 
-В директории `app` будет создан новый файл `Post.php`, опишем поля как доступные для заполнения:
+В директории `app/Models` будет создан новый файл `Post.php`, опишем поля как доступные для заполнения:
 
 ```php
-// app/Post.php
+// app/Models/Post.php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Screen\AsSource;
@@ -118,16 +118,16 @@ php artisan orchid:screen PostListScreen
 Зарегистрируем новые экраны в маршрутном листе приложения:
 
 ```php
-// routes/platform.php
+// routes/orchid.php
 
 use App\Orchid\Screens\PostEditScreen;
 use App\Orchid\Screens\PostListScreen;
 
 Route::screen('post/{post?}', PostEditScreen::class)
-    ->name('platform.post.edit');
+    ->name('orchid.post.edit');
 
 Route::screen('posts', PostListScreen::class)
-    ->name('platform.post.list');
+    ->name('orchid.post.list');
 ```
 
 Теперь экраны доступны для просмотра по адресу `/admin/post` и `/admin/posts`. Полученные экраны на текущий момент не
@@ -142,9 +142,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
-use Orchid\Screen\Fields\Relation;
+use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
-use Orchid\Screen\Fields\Upload;
+use Orchid\Screen\Fields\Attach;
 use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
@@ -232,7 +232,7 @@ class PostEditScreen extends Screen
                     ->maxlength(200)
                     ->placeholder('Brief description for preview'),
 
-                Relation::make('post.author')
+                Select::make('post.author')->lazy()
                     ->title('Author')
                     ->fromModel(User::class, 'name'),
 
@@ -250,11 +250,11 @@ class PostEditScreen extends Screen
      */
     public function createOrUpdate(Request $request)
     {
-        $this->post->fill($request->get('post'))->save();
+        $this->post->fill($request->input('post'))->save();
 
         Alert::info('You have successfully created a post.');
 
-        return redirect()->route('platform.post.list');
+        return redirect()->route('orchid.post.list');
     }
 
     /**
@@ -266,7 +266,7 @@ class PostEditScreen extends Screen
 
         Alert::info('You have successfully deleted the post.');
 
-        return redirect()->route('platform.post.list');
+        return redirect()->route('orchid.post.list');
     }
 }
 ```
@@ -310,7 +310,7 @@ class PostListLayout extends Table
             TD::make('title', 'Title')
                 ->render(function (Post $post) {
                     return Link::make($post->title)
-                        ->route('platform.post.edit', $post);
+                        ->route('orchid.post.edit', $post);
                 }),
 
             TD::make('created_at', 'Created'),
@@ -375,7 +375,7 @@ class PostListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('pencil')
-                ->route('platform.post.edit')
+                ->route('orchid.post.edit')
         ];
     }
 

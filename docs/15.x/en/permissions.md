@@ -1,332 +1,163 @@
 ---
 title: Permissions
-description:
-    Learn how to manage user permissions in your Laravel Orchid application with our comprehensive documentation on
-    Permission. Easily control access to specific routes and actions with our intuitive interface. Get started now with
-    our open-source package for rapid development of admin panels and dashboards.
+description: Register permissions and assign them to users and roles.
 ---
 
-In Orchid, access control is managed through **permissions** and **roles**. Permissions define access rights, which can
-be assigned to a user either directly or through roles, simplifying access management.
+Permissions describe what a user can do. Roles group permissions for assignment. Check permissions in application
+logic, and use Laravel policies for access to individual records. A hidden button or menu is not an authorization check.
 
-It is generally better to use **roles** to group permissions, as this makes managing user rights easier. Instead of
-assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if
-needed, permissions can also be assigned directly to the user.
+## Register permissions
 
-> **Important:** Permissions do not replace Laravel's **Gate** or **Policies** mechanisms. These mechanisms are still
-> necessary for fine-grained access control, and permissions work in conjunction with them.
-
-Although roles simplify management, the focus should be on **permissions**. Application logic should check access based
-on permissions, not roles, using the `can` methods.
-
-> **Important:** Access should always be checked through **permissions**, not **roles**. Roles serve as a convenience
-> for grouping permissions, but access should always be checked based on permissions, not roles.
-
-## Usage
-
-Method `hasAccess` will strictly require passed permission to be valid to grant access.
+Add groups to the `permissions()` method of your application's Orchid service provider:
 
 ```php
-// Check is carried out both for the user and for his role
-Auth::user()->hasAccess($string);
-```
-
-Method `hasAnyAccess` will grant access if any permission passes the check.
-
-```php
-$user = User::find(1);
-
-if ($user->hasAnyAccess(['user.admin', 'user.update'])) {
-    // Execute this code if the user has permission
-}
-```
-
-> **Note.** Permissions can be checked based on wildcards using the `*` character to match any set of permissions.
-
-```php
-$user = User::find(1);
-
-if ($user->hasAccess('user.*')) {
-    // Execute this code if the user has permission
-}
-```
-
-In rare cases, you may need to take users who have permission directly or through a role. To do this, you can use:
-
-```php
-User::byAccess('platform.systems.users')->get();
-
-// Or if the user has at least one of the passed permissions
-User::byAnyAccess([
-   'platform.systems.users',
-   'non existent',
-])->get();
-```
-
-The user has several options for managing roles:
-
-```php
-// Get all user roles
-Auth::user()->getRoles();
-
-// Check whether the user has a role
-Auth::user()->inRole($role);
-
-// Add role to user
-Auth::user()->addRole($role);
-```
-
-## Roles
-
-Roles also have procedures for:
-
-```php
-// Returns all users with this role.
-$role->getUsers();
-```
-
-## Registering Permissions
-
-You can register permissions in your application to manage access to specific features.
-
-Example of registering permissions using a provider:
-
-```php
-use Orchid\Platform\ItemPermission;
+use Orchid\Access\PermissionGroup;
 use Orchid\Platform\OrchidServiceProvider;
 
-class PermissionServiceProvider extends OrchidServiceProvider
+class PlatformProvider extends OrchidServiceProvider
 {
-    /**
-     * Register permissions for the application.
-     *
-     * @return ItemPermission[]
-     */
     public function permissions(): array
     {
         return [
-            ItemPermission::group('modules')
-                ->addPermission('analytics', 'Access to data analytics')
-                ->addPermission('monitor', 'Access to the system monitor'),
+            PermissionGroup::make('Orders')
+                ->add('orders.view', 'View orders')
+                ->add('orders.update', 'Update orders'),
         ];
     }
 }
 ```
 
-## Check-in Screens
+For a regular Laravel service provider, inject `Orchid\Platform\Orchid` into `boot()` and call
+`$orchid->registerPermissionGroup($group)` for each group. Static calls use `Orchid\Support\Facades\Orchid`.
+Registering a permission makes it available for assignment; it does not grant it to existing users.
 
-Each created screen already has a built-in permission check set using method `permission`, which accepts both an array
-and a string value for verification:
+The built-in permission slugs include `orchid.users`, `orchid.roles`, and `orchid.attachment`.
+The [upgrade guide](/en/docs/upgrade) explains how to migrate existing assignments from 14.x.
+
+## Check access
 
 ```php
-namespace App\Orchid\Screens;
+$user->hasAccess('orders.view');
+$user->hasAnyAccess(['orders.view', 'orders.update']);
+$user->hasAccess('orders.*');
+```
 
-use Orchid\Screen\Screen;
+`hasAccess()` checks direct and role permissions. A matching allowed permission in either set grants access.
+A false direct permission does not override a grant from a role. `hasAnyAccess()` succeeds when any entry is allowed;
+an empty list imposes no restriction. The wildcard in the check matches assigned permission names.
 
-class History extends Screen
+```php
+use App\Models\User;
+
+User::byAccess('orders.view')->get();
+User::byAnyAccess(['orders.view', 'orders.update'])->get();
+```
+
+These query scopes check exact keys and do not support wildcards.
+After changing assignments on an existing user instance, call `$user->clearCachePermission()` before checking again.
+The `addRole()`, `removeRole()`, and `replaceRoles()` helpers invalidate this cache themselves.
+
+## Permission values
+
+User and Role cast `permissions` to `Orchid\Access\Permissions`. Assign a map or a Permissions object and save it:
+
+```php
+use Orchid\Access\Permissions;
+
+$user->permissions = Permissions::make(['orders.view' => true]);
+$user->save();
+
+$user->permissions->isActive('orders.view');
+$user->permissions->allows('orders.*');
+$user->permissions->count();
+$user->permissions->toArray();
+```
+
+`count()` counts allowed entries. `isEmpty()` checks whether any states are assigned, including denied states.
+This object is not an array or a mutable Laravel collection. To edit a grant, update the map returned by `toArray()`,
+then assign it back and save. Keep the inherited Permissions cast when extending the package models with `casts()`.
+
+`Orchid::allowedPermissions()` returns a Permissions object containing all currently registered permissions.
+For an authorized handler processing Orchid's permission checkbox payload, use
+`Permissions::fromEncodedForm($request->input('permissions', []))` to decode its keys.
+Only an appropriately authorized administrator should be allowed to change assignments.
+
+## Roles
+
+New installations use UUID role IDs and unique role names. There is no `slug` column.
+Use Eloquent relationships instead of the removed `getRoles()`, `getUsers()`, `getRoleId()`, and `getRoleSlug()` helpers:
+
+```php
+use Orchid\Platform\Models\Role;
+
+$role = Role::create([
+    'name' => 'Editor',
+    'permissions' => ['orders.view' => true, 'orders.update' => true],
+]);
+
+$user->addRole($role);
+$user->roles()->get();
+$user->inRole($role);
+$role->users()->get();
+$user->removeRole($role);
+```
+
+Read the key with `$role->getKey()` and its name with `$role->name`.
+`inRole()` accepts a role model, ID, or name. Prefer a model when assigning and removing roles.
+Existing databases need the [schema migration](/en/docs/upgrade#database-schema-and-identifiers) before using UUID models.
+
+## Protect screens and routes
+
+Define the screen's required permissions:
+
+```php
+public function permission(): ?iterable
 {
-    /**
-     * The permissions required to access this screen.
-     */
-    public function permission(): ?iterable
-    {
-        return [
-            'systems.history'
-        ];
-    }
-
-    // ...
+    return ['orders.view'];
 }
 ```
 
-If several keys are listed, access will be granted if the user has at least one permission.
+With several entries, any allowed permission grants access. The default denial response is HTTP 403.
+Override the screen's static `unaccessed()` method to return a custom response.
+Continue to authorize the specific record in action handlers and validate their submitted data.
 
-If there is no access, the static method `unaccessed` will be called, which by default will show a `403` error. You can
-override this response, for example, to redirect a payment page or return a different response:
-
-```php
-use Illuminate\Http\RedirectResponse;
-
-/**
- * @return \Illuminate\Http\RedirectResponse
- */
-public static function unaccessed(): RedirectResponse
-{
-    return redirect('/other-screen');
-}
-```
-
-## Check-in Middleware
-
-Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their
-availability for routes. To do this, register the `access` middleware. In Laravel 10 and the traditional structure, add
-it to `app/Http/Kernel.php`:
+For routes outside the configured Orchid middleware group, register the access alias in `bootstrap/app.php`:
 
 ```php
-/**
- * The application's route middleware.
- *
- * These middleware may be assigned to groups or used individually.
- *
- * @var array
- */
-protected $routeMiddleware = [
-    //...
-    'access' => \Orchid\Platform\Http\Middleware\Access::class,
-];
+use Illuminate\Foundation\Configuration\Middleware;
+use Orchid\Platform\Http\Middleware\Access;
+
+// In bootstrap/app.php:
+->withMiddleware(function (Middleware $middleware): void {
+    $middleware->alias(['access' => Access::class]);
+})
 ```
-
-If your application uses the Laravel 11+ bootstrap (with `bootstrap/app.php`), register the middleware alias there
-instead, using the `withMiddleware` callback.
-
-After that, it can be used for any route definitions, by passing the parameter `access:my-permission`, just like in
-`Auth::user()->hasAccess($string);`
 
 ```php
-Route::screen('/stories', StoriesScreen::class)
-    ->middleware('access:systems.history');
+Route::screen('/orders', OrderListScreen::class)->middleware('access:orders.view');
 ```
 
-You can also group them into groups:
+In Blade, check the authenticated user with `@if (auth()->user()?->hasAccess('orders.view'))`.
 
-```php
-Route::middleware(['access:systems.history'])->group(function () {
-    Route::screen('/stories', StoriesScreen::class);
-    Route::get('/stories/best', function () {
-        // ...
-    });
-});
-```
+## Create an administrator
 
-## Check-in Blade
-
-For applications that rely on Blade templating to render, it will be convenient to add
-["Custom If Statements"](https://laravel.com/docs/8.x/blade#custom-if-statements) as follows:
-
-```php
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Auth;
-
-/**
- * Bootstrap any application services.
- *
- * @return void
- */
-public function boot()
-{
-    Blade::if('hasAccess', function (string $value) {
-        $user = Auth::user();
-
-        if ($user === null) {
-            return false;
-        }
-
-        return $user->hasAccess($value);
-    });
-}
-```
-
-Once the custom conditional has been defined, you can use it within your templates:
-
-```html
-@hasAccess('platform.index')
-<!-- User has permission for the 'platform.index' action -->
-@elsehasAccess('platform.other')
-<!-- User doesn't have permission for 'platform.index',
-         but has permission for 'platform.other' -->
-@else
-<!-- User doesn't have permission for both 'platform.index'
-         and 'platform.other' -->
-@endhasAccess @unlesshasAccess('platform.index')
-<!-- User doesn't have permission for 'platform.index' -->
-@endhasAccess
-```
-
-## Creating an Admin User via Console
-
-To create a user with the maximum (at the time of creation) permissions, run the following command:
-
-```php
+```shell
 php artisan orchid:admin
-```
-
-To give the existing user the maximum permissions, run with the `--id` option:
-
-```php
 php artisan orchid:admin --id=1
 ```
 
-If you have added new mandatory columns for the user and need to modify the command to add corresponding values, first
-specify Orchid to use your model by adding the following code to the service provider:
+The command grants the permissions registered at that moment. Newly registered permissions must be assigned separately.
+To customize user creation, register your User model with `Orchid::useModel()` and override its `createAdmin()` method.
 
-```php
-use Orchid\Support\Facades\Dashboard;
+## User impersonation
 
-class AppServiceProvider extends ServiceProvider
-{
-    public function boot()
-    {
-        Dashboard::useModel(
-            \Orchid\Platform\Models\User::class,
-            \App\Models\User::class
-        );
-    }
-}
-```
-
-Then override the `createAdmin` method in your `User` model:
-
-```php
-public static function createAdmin(string $name, string $email, string $password): void
-{
-    throw_if(static::where('email', $email)->exists(), 'User already exists');
-
-    static::create([
-        'name'        => $name,
-        'email'       => $email,
-        'password'    => Hash::make($password),
-        'permissions' => Dashboard::getAllowAllPermission(),
-    ]);
-}
-```
-
-Now you can modify this method as per your requirements, and when executing the creation command, this method will be
-executed.
-
-## User Impersonation
-
-The `Orchid\Access\Impersonation` class provides developers with convenient functionality for logging in as another
-user. It allows administrators to impersonate other users to view and perform actions on their behalf. This is useful
-for troubleshooting and resolving issues reported by users.
-
-To switch to another user, use the `loginAs()` method:
+Authorize the impersonation action before switching users. The configured Orchid guard must be a session guard:
 
 ```php
 use Orchid\Access\Impersonation;
 
-// Login as another user
 Impersonation::loginAs($otherUser);
-```
-
-To revert back to the original user, call the `logout()` method:
-
-```php
-// Revert back to the original user
+Impersonation::isImpersonating();
+$originalUser = Impersonation::impersonator();
 Impersonation::logout();
-```
-
-The `isImpersonating()` method checks if the impersonation has been performed:
-
-```php
-if (Impersonation::isImpersonating()) {
-    // The user is impersonating another user
-}
-```
-
-The `impersonator()` method returns information about the original user. If no impersonation has been performed, the
-method will return `null`:
-
-```php
-// Get information about the original user
-$impersonator = Impersonation::impersonator();
 ```

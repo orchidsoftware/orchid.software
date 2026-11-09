@@ -13,6 +13,8 @@ extends: _layouts.documentation
 Карточки принимают только Объекты, которые реализуют интерфейс `Cardable`.
 
 ```php
+
+use Orchid\Support\Color;
 use Orchid\Screen\Contracts\Cardable;
 use Orchid\Screen\Layouts\Card;
 
@@ -47,7 +49,7 @@ public function query(): array
 
             public function color(): ?Color
             {
-                return Color::INFO();
+                return Color::INFO;
             }
         },
     ];
@@ -105,33 +107,36 @@ public function layout(): array
 Вместо создания отдельного класса рекомендуется использовать представителей для `Eloquent` моделей, например:
 
 ```php
-namespace App;
+namespace App\Models;
 
+use App\Orchid\Presenters\ProductPresenter;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
 use Illuminate\Database\Eloquent\Model;
 
+#[UsePresenter(ProductPresenter::class)]
 class Product extends Model
 {
+    use Presentable;
+
     protected $fillable = [
         'title',
         'descriptions',
         'image',
         'amount',
     ];
-
-    public function presenter(): ProductPresenter
-    {
-        return new ProductPresenter($this);
-    }
 }
 ```
 
 Можно записать представителя:
 
 ```php
-namespace App\Presenters;
+namespace App\Orchid\Presenters;
+
+use Orchid\Support\Color;
 
 use Orchid\Screen\Contracts\Cardable;
-use Orchid\Support\Presenter;
+use Orchid\Presenter\Presenter;
 
 class ProductPresenter extends Presenter implements Cardable
 {
@@ -153,8 +158,8 @@ class ProductPresenter extends Presenter implements Cardable
     public function color(): ?Color
     {
         return $this->entity->amount > 0
-            ? Color::SUCCESS()
-            : Color::DANGER();
+            ? Color::SUCCESS
+            : Color::DANGER;
     }
 }
 ```
@@ -204,33 +209,33 @@ public function layout(): array
 Вместо создания отдельного класса рекомендуется использовать представителей для `Eloquent` моделей, например:
 
 ```php
-namespace App;
+namespace App\Models;
 
-use App\Presenters\EmployeePresenter;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
+use App\Orchid\Presenters\EmployeePresenter;
 use Illuminate\Database\Eloquent\Client;
 
+#[UsePresenter(EmployeePresenter::class)]
 class Employee extends Model
 {
+    use Presentable;
+
     protected $fillable = [
         'name',
         'avatar',
         'position',
     ];
-
-    public function presenter(): EmployeePresenter
-    {
-        return new EmployeePresenter($this);
-    }
 }
 ```
 
 Можно записать представителя:
 
 ```php
-namespace App\Presenters;
+namespace App\Orchid\Presenters;
 
 use Orchid\Screen\Contracts\Personable;
-use Orchid\Support\Presenter;
+use Orchid\Presenter\Presenter;
 
 class EmployeePresenter extends Presenter implements Personable
 {
@@ -247,7 +252,7 @@ class EmployeePresenter extends Presenter implements Personable
 
     public function url(): string
     {
-        return route('platform.systems.users.edit', $this->entity);
+        return route('orchid.users.edit', $this->entity);
     }
 
     public function image(): ?string
@@ -303,33 +308,33 @@ public function layout(): array
 Вместо создания отдельного класса рекомендуется использовать представителей для `Eloquent` моделей, например:
 
 ```php
-namespace App;
+namespace App\Models;
 
-use App\Presenters\EmployeePresenter;
+use Orchid\Presenter\Presentable;
+use Orchid\Presenter\UsePresenter;
+use App\Orchid\Presenters\EmployeePresenter;
 use Illuminate\Database\Eloquent\Client;
 
+#[UsePresenter(EmployeePresenter::class)]
 class Employee extends Model
 {
+    use Presentable;
+
     protected $fillable = [
         'name',
         'avatar',
         'position',
     ];
-
-    public function presenter(): EmployeePresenter
-    {
-        return new EmployeePresenter($this);
-    }
 }
 ```
 
 Можно записать представителя:
 
 ```php
-namespace App\Presenters;
+namespace App\Orchid\Presenters;
 
 use Orchid\Screen\Contracts\Personable;
-use Orchid\Support\Presenter;
+use Orchid\Presenter\Presenter;
 
 class EmployeePresenter extends Presenter implements Personable
 {
@@ -346,7 +351,7 @@ class EmployeePresenter extends Presenter implements Personable
 
     public function url(): string
     {
-        return route('platform.systems.users.edit', $this->entity);
+        return route('orchid.users.edit', $this->entity);
     }
 
     public function image(): ?string

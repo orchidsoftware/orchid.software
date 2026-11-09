@@ -249,7 +249,7 @@ class ExampleNavigation extends TabMenu
     {
         return [
             Menu::make('Get Started')
-                ->route('platform.main'),
+                ->route('orchid.main'),
         ];
     }
 }
@@ -408,3 +408,8 @@ public function layout(): array
     ];
 }
 ```
+
+## Keyboard sorting
+
+Sortable lists also support keyboard reordering. Use the provided drag handle and its keyboard instructions.
+Preserve handle focus and the built-in announcements when overriding the list view.
