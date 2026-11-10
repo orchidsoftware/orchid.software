@@ -13,10 +13,16 @@ public function query(): array
 {
     return [
         'visits' => [
-            'labels' => ['Mon', 'Tue', 'Wed'],
+            'labels'   => ['Mon', 'Tue', 'Wed'],
             'datasets' => [
-                ['name' => 'Actual', 'values' => [12, 18, 15]],
-                ['name' => 'Plan', 'values' => [15, 16, 20]],
+                [
+                    'name'   => 'Actual',
+                    'values' => [12, 18, 15],
+                ],
+                [
+                    'name'   => 'Plan',
+                    'values' => [15, 16, 20],
+                ],
             ],
         ],
     ];
@@ -28,22 +34,30 @@ public function query(): array
 
 ## Покажите график
 
+Первый аргумент `Chart::make()` задаёт источник данных (target): ключ массива, возвращённого из `query()`.
+Передайте `visits`, чтобы использовать подготовленные выше данные. Метод `title()` задаёт заголовок над графиком:
+
 ```php
 use Orchid\Screen\Layouts\Chart;
 
 public function layout(): iterable
 {
-    return [Chart::make('visits', 'Visits')];
+    return [
+        Chart::make('visits')
+            ->title('Daily visits'),
+    ];
 }
 ```
 
-График выводит оба набора данных с общими подписями. По умолчанию используется линейный график высотой 250.
-Для создания графика также доступен [фасад Layout](/ru/docs/layouts): `Layout::chart('visits', 'Visits')`.
+Над графиком появится заголовок **Daily visits**. График покажет две линии: **Actual** и **Plan**.
+Значения `name` задают имена этих линий в легенде. Массив `labels` задаёт общие подписи горизонтальной оси.
+По умолчанию используется линейный график высотой 250.
 
 ## Настройте отображение
 
 ```php
-Chart::make('visits', 'Visits')
+Chart::make('visits')
+    ->title('Daily visits')
     ->description('Daily traffic')
     ->height(300)
     ->colors(['#2274a5', '#f75c03'])
@@ -57,7 +71,8 @@ Chart::make('visits', 'Visits')
 Объединяйте допустимые параметры через `options()`:
 
 ```php
-Chart::make('visits')->type(Chart::TYPE_BAR)
+Chart::make('visits')
+    ->type(Chart::TYPE_BAR)
     ->stacked()
     ->legend(false)
     ->options(['horizontal' => true, 'radius' => 3]);
@@ -71,18 +86,37 @@ Chart::make('visits')->type(Chart::TYPE_BAR)
 Для смешанного графика укажите `chartType` в каждом наборе:
 
 ```php
-return [
-    'sales' => [
-        'labels' => ['Jan', 'Feb'],
-        'datasets' => [
-            ['name' => 'Actual', 'values' => [12, 18], 'chartType' => 'bar', 'radius' => 3],
-            ['name' => 'Plan', 'values' => [15, 16], 'chartType' => 'line', 'smooth' => true],
+public function query(): array
+{
+    return [
+        'sales' => [
+            'labels'   => ['Jan', 'Feb'],
+            'datasets' => [
+                [
+                    'name'      => 'Actual',
+                    'values'    => [12, 18],
+                    'chartType' => 'bar',
+                    'radius'    => 3,
+                ],
+                [
+                    'name'      => 'Plan',
+                    'values'    => [15, 16],
+                    'chartType' => 'line',
+                    'smooth'    => true,
+                ],
+            ],
         ],
-    ],
-];
+    ];
+}
 
-// In layout():
-Chart::make('sales')->type(Chart::TYPE_MIXED);
+public function layout(): iterable
+{
+    return [
+        Chart::make('sales')
+            ->title('Monthly sales')
+            ->type(Chart::TYPE_MIXED),
+    ];
+}
 ```
 
 ## Используйте метрики модели
@@ -94,14 +128,25 @@ Chart::make('sales')->type(Chart::TYPE_MIXED);
 ```php
 use Orchid\Platform\Models\User;
 
-return [
-    'users' => User::countByDays()->toChart('Users'),
-    'names' => User::countForGroup('name')->toChart(),
-];
+public function query(): array
+{
+    return [
+        'users' => User::countByDays()->toChart('New users'),
+        'names' => User::countForGroup('name')->toChart(),
+    ];
+}
 
-// In layout():
-Chart::make('users')->type(Chart::TYPE_LINE);
-Chart::make('names')->type(Chart::TYPE_PIE);
+public function layout(): iterable
+{
+    return [
+        Chart::make('users')
+            ->title('New users by day')
+            ->type(Chart::TYPE_LINE),
+        Chart::make('names')
+            ->title('Users by name')
+            ->type(Chart::TYPE_PIE),
+    ];
+}
 ```
 
 `toChart()` возвращает всю структуру `labels` и `datasets`.

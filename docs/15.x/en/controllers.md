@@ -15,7 +15,7 @@ small increments.
 
 To create a new controller, use the `make:controller` Artisan command:
 
-```php
+```shell
 php artisan make:controller OrchidController
 ```
 
@@ -33,13 +33,12 @@ class OrchidController extends Controller
         return view('custom');
     }
 }
-
 ```
 
 The `index` method of your controller should return a view template, which will be rendered using the Orchid package's
 style. Here is an example of a view template:
 
-```php
+```blade
 @extends('orchid::dashboard')
 
 @section('title','title')

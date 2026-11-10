@@ -13,7 +13,7 @@ description: Основные компоненты пользовательск�
 
 Вы можете создать новый экран, выполнив Artisan команду:
 
-```php
+```shell
 php artisan orchid:screen Idea
 ```
 
@@ -27,7 +27,7 @@ class Idea extends Screen
     /**
      * Fetch data to be displayed on the screen.
      */
-    public function query() : array
+    public function query(): array
     {
         return [];
     }
@@ -37,7 +37,7 @@ class Idea extends Screen
      */
     public function name(): ?string
     {
-        return "Idea Screen";
+        return 'Idea Screen';
     }
 
     /**
@@ -45,7 +45,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Action[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }
@@ -55,7 +55,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [];
     }
@@ -179,9 +179,10 @@ public function query(): array
 Использование именно моделей `Eloquent` не обязательно, возможно использование массивов с помощью обёртки `Repository`:
 
 ```php
-//...
 use Orchid\Screen\Repository;
-//...
+
+// ...
+// ...
 
 public function query(): array
 {
@@ -191,7 +192,7 @@ public function query(): array
             'name'       => 'Desk',
             'price'      => 10.24,
             'created_at' => '01.01.2020',
-      ]),
+        ]),
     ];
 }
 ```
@@ -242,7 +243,7 @@ public function commandBar(): array
 
 public function print(): void
 {
-   Toast::warning('Привет мир!');
+    Toast::warning('Привет мир!');
 }
 ```
 
@@ -309,7 +310,7 @@ PHP предлагает мощную возможность наследова�
 ```php
 use Orchid\Screen\Actions\Button;
 
-Button::make("Привет, мир!")
+Button::make('Привет, мир!')
     ->action(route('orchid.screens.users', [
         'method' => 'hello',
     ]));

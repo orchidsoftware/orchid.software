@@ -13,7 +13,9 @@ use Orchid\Screen\Layouts\Rows;
 
 public function query(): array
 {
-    return ['user' => auth()->user()];
+    return [
+        'user' => auth()->user(),
+    ];
 }
 
 public function layout(): iterable
@@ -36,9 +38,6 @@ action](/en/docs/screens#screen-actions).
 Read data-dependent configuration from the screen's public properties in `layout()`.
 For forms that respond to field changes, see [Listeners](/en/docs/listener).
 
-You can also create rows through the [Layout facade](/en/docs/layouts#using-the-layout-facade):
-`Layout::rows($fields)`.
-
 ## Reuse a form
 
 To share a form between screens, create a class with a method that returns a Rows instance:
@@ -59,7 +58,6 @@ class AddressLayout
         ])->title('Address');
     }
 }
-
 ```
 
 Call the method from the screen's `layout()`:
@@ -69,6 +67,8 @@ use App\Orchid\Layouts\AddressLayout;
 
 public function layout(): iterable
 {
-    return [AddressLayout::make('customer.address')];
+    return [
+        AddressLayout::make('customer.address'),
+    ];
 }
 ```

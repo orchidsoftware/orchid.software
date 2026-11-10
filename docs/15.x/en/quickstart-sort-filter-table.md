@@ -21,7 +21,7 @@ use Orchid\Screen\AsSource;
     'id',
     'title',
     'created_at',
-    'updated_at'
+    'updated_at',
 ])]
 class Post extends Model
 {
@@ -36,7 +36,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author'
+        'author',
     ];
 }
 ```
@@ -53,7 +53,7 @@ Now, when calling the `filters` method, the database query will be modified. In 
 public function query(): array
 {
     return [
-        'posts' => Post::filters()->defaultSort('id')->paginate()
+        'posts' => Post::filters()->defaultSort('id')->paginate(),
     ];
 }
 ```

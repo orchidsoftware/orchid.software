@@ -18,8 +18,8 @@ public function query(): array
 {
     return [
         'user' => new Repository([
-            'id' => 1,
-            'name' => 'Alex',
+            'id'    => 1,
+            'name'  => 'Alex',
             'email' => 'alex@example.com',
         ]),
     ];
@@ -39,7 +39,6 @@ public function layout(): iterable
 
 For default cell rendering, the selected record must be a `Repository` or a model using `Orchid\Screen\AsSource`.
 Wrap a plain array in `new Repository($data)`. Without `target()`, Legend reads values from the root screen repository.
-`Layout::legend($sights)` is an alias for `Legend::make($sights)`.
 
 ![Legend displaying a user record.](/img/layouts/legend.png)
 

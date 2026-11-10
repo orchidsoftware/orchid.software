@@ -21,7 +21,7 @@ use Orchid\Screen\TD;
 public function query(): array
 {
     return [
-        'user' => auth()->user(),
+        'user'  => auth()->user(),
         'users' => User::paginate(),
     ];
 }
@@ -72,28 +72,13 @@ Table получает записи из `users`, а Columns располага�
 | Component | Blade-компонент | `Component::make(Hello::class)` |
 | Metric | Подписанные значения | `Metric::make(['Users' => 'users'])` |
 | Browsing | Встроенная веб-страница | `Browsing::make($url)` |
-| [Chart](/ru/docs/charts) | График | `Chart::make('visits', 'Visits')` |
+| [Chart](/ru/docs/charts) | График | `Chart::make('visits')->title('Daily visits')` |
 | [Card](/ru/docs/display-elements) | Карточка из объекта Cardable | `Card::make($card)` |
 | [Persona](/ru/docs/display-elements) | Один пользователь из объекта Personable | `Persona::make($person)` |
 | [Facepile](/ru/docs/display-elements) | Аватары из коллекции объектов Personable | `Facepile::make($people)` |
 
 Интерфейсы Cardable и Personable находятся в `Orchid\Screen\Contracts`.
 Полные примеры приведены в разделе [Элементы отображения](/ru/docs/display-elements).
-
-## Фасад Layout
-
-Фасад Layout предоставляет методы для создания макетов:
-
-```php
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\TD;
-use Orchid\Support\Facades\Layout;
-
-Layout::rows([Input::make('user.name')]);
-Layout::table('users', [TD::make('name'), TD::make('email')]);
-```
-
-Эти методы принимают те же аргументы, что и метод `make()` соответствующего макета.
 
 ## Повторное использование макетов
 

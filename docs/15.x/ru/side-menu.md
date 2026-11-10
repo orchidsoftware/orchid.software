@@ -19,7 +19,9 @@ use Orchid\Screen\Layouts\SideMenu;
 
 public function query(): array
 {
-    return ['user' => auth()->user()];
+    return [
+        'user' => auth()->user(),
+    ];
 }
 
 public function layout(): iterable

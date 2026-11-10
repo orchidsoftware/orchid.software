@@ -15,7 +15,7 @@ Use `commandBar()` for page actions, and define public handler methods to proces
 
 You can create a new screen by running the command:
 
-```php
+```shell
 php artisan orchid:screen Idea
 ```
 
@@ -29,7 +29,7 @@ class Idea extends Screen
     /**
      * Fetch data to be displayed on the screen.
      */
-    public function query() : array
+    public function query(): array
     {
         return [];
     }
@@ -39,7 +39,7 @@ class Idea extends Screen
      */
     public function name(): ?string
     {
-        return "Idea Screen";
+        return 'Idea Screen';
     }
 
     /**
@@ -47,7 +47,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Action[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }
@@ -57,7 +57,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [];
     }
@@ -144,7 +144,7 @@ screen's layouts and views as an array
 For example, you might use the `query` method to response simple string:
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'name'  => 'Alexandr',
@@ -172,7 +172,7 @@ class Order extends Model
 Then, in your screen's `query` method, you can access the model's data like this:
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'order'  => Order::find(1),
@@ -219,7 +219,7 @@ For example, consider the following code:
  */
 public $message;
 
-public function query() : array
+public function query(): array
 {
     return [
         'message'  => 'Hello World!',
@@ -257,7 +257,7 @@ Button actions allow users to trigger a method on the screen when clicked. For e
 use Orchid\Screen\Actions\Button;
 use Orchid\Support\Facades\Toast;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         Button::make('Go print')
@@ -267,7 +267,7 @@ public function commandBar() : array
 
 public function print(): void
 {
-   Toast::warning('Hello, world! This is a toast message.');
+    Toast::warning('Hello, world! This is a toast message.');
 }
 ```
 
@@ -281,7 +281,7 @@ Link actions allow users to navigate to a different URL when clicked. For exampl
 ```php
 use Orchid\Screen\Actions\Link;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         Link::make('External reference')
@@ -301,7 +301,7 @@ use Orchid\Screen\Actions\Toggle;
 use Orchid\Screen\TD;
 
 // Example: displaying toggle in a table column
-TD::make('Enabled')->render(function(User $user) {
+TD::make('Enabled')->render(function (User $user) {
     return Toggle::make('Enabled')
         ->method('switch', ['user' => $user])
         ->status($user->active);
@@ -325,7 +325,7 @@ Modal toggle actions allow users to open a modal window when clicked. For exampl
 ```php
 use Orchid\Screen\Actions\ModalToggle;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         ModalToggle::make('Modal window')

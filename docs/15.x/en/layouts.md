@@ -21,7 +21,7 @@ use Orchid\Screen\TD;
 public function query(): array
 {
     return [
-        'user' => auth()->user(),
+        'user'  => auth()->user(),
         'users' => User::paginate(),
     ];
 }
@@ -72,28 +72,13 @@ Choose a layout for the content you want to display. All classes below are in `O
 | Component | A Blade component | `Component::make(Hello::class)` |
 | Metric | Labeled values | `Metric::make(['Users' => 'users'])` |
 | Browsing | An embedded web page | `Browsing::make($url)` |
-| [Chart](/en/docs/charts) | A chart | `Chart::make('visits', 'Visits')` |
+| [Chart](/en/docs/charts) | A chart | `Chart::make('visits')->title('Daily visits')` |
 | [Card](/en/docs/display-elements) | A card from a Cardable object | `Card::make($card)` |
 | [Persona](/en/docs/display-elements) | One person from a Personable object | `Persona::make($person)` |
 | [Facepile](/en/docs/display-elements) | Avatars from a collection of Personable objects | `Facepile::make($people)` |
 
 The Cardable and Personable contracts are in `Orchid\Screen\Contracts`.
 See [Display elements](/en/docs/display-elements) for complete examples.
-
-## Using the Layout facade
-
-The Layout facade provides methods for creating layouts:
-
-```php
-use Orchid\Screen\Fields\Input;
-use Orchid\Screen\TD;
-use Orchid\Support\Facades\Layout;
-
-Layout::rows([Input::make('user.name')]);
-Layout::table('users', [TD::make('name'), TD::make('email')]);
-```
-
-These methods accept the same arguments as the corresponding layout's `make()` method.
 
 ## Reuse layouts
 

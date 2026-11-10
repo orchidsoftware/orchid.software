@@ -13,10 +13,16 @@ public function query(): array
 {
     return [
         'visits' => [
-            'labels' => ['Mon', 'Tue', 'Wed'],
+            'labels'   => ['Mon', 'Tue', 'Wed'],
             'datasets' => [
-                ['name' => 'Actual', 'values' => [12, 18, 15]],
-                ['name' => 'Plan', 'values' => [15, 16, 20]],
+                [
+                    'name'   => 'Actual',
+                    'values' => [12, 18, 15],
+                ],
+                [
+                    'name'   => 'Plan',
+                    'values' => [15, 16, 20],
+                ],
             ],
         ],
     ];
@@ -27,23 +33,30 @@ Every dataset's `values` must have exactly as many items as `labels`. Numeric st
 
 ## Display a chart
 
+The first argument to `Chart::make()` is the target: the key returned by `query()` that contains the chart data.
+Pass `visits` to read the data prepared above, and use `title()` to set the heading displayed above the chart:
+
 ```php
 use Orchid\Screen\Layouts\Chart;
 
 public function layout(): iterable
 {
-    return [Chart::make('visits', 'Visits')];
+    return [
+        Chart::make('visits')
+            ->title('Daily visits'),
+    ];
 }
 ```
 
-The chart displays both datasets using the shared labels. Charts use the line type and a height of 250 by default.
-You can also create a chart through the [Layout facade](/en/docs/layouts#using-the-layout-facade):
-`Layout::chart('visits', 'Visits')`.
+The chart displays the heading **Daily visits** and two lines, **Actual** and **Plan**.
+The dataset `name` values label these lines in the legend; `labels` provides their shared horizontal-axis labels.
+Charts use the line type and a height of 250 by default.
 
 ## Configure presentation
 
 ```php
-Chart::make('visits', 'Visits')
+Chart::make('visits')
+    ->title('Daily visits')
     ->description('Daily traffic')
     ->height(300)
     ->colors(['#2274a5', '#f75c03'])
@@ -57,7 +70,8 @@ Chart::make('visits', 'Visits')
 Merge supported options with `options()`:
 
 ```php
-Chart::make('visits')->type(Chart::TYPE_BAR)
+Chart::make('visits')
+    ->type(Chart::TYPE_BAR)
     ->stacked()
     ->legend(false)
     ->options(['horizontal' => true, 'radius' => 3]);
@@ -71,18 +85,37 @@ Pie and percentage charts require exactly one dataset.
 Use `chartType` on each dataset in a mixed chart:
 
 ```php
-return [
-    'sales' => [
-        'labels' => ['Jan', 'Feb'],
-        'datasets' => [
-            ['name' => 'Actual', 'values' => [12, 18], 'chartType' => 'bar', 'radius' => 3],
-            ['name' => 'Plan', 'values' => [15, 16], 'chartType' => 'line', 'smooth' => true],
+public function query(): array
+{
+    return [
+        'sales' => [
+            'labels'   => ['Jan', 'Feb'],
+            'datasets' => [
+                [
+                    'name'      => 'Actual',
+                    'values'    => [12, 18],
+                    'chartType' => 'bar',
+                    'radius'    => 3,
+                ],
+                [
+                    'name'      => 'Plan',
+                    'values'    => [15, 16],
+                    'chartType' => 'line',
+                    'smooth'    => true,
+                ],
+            ],
         ],
-    ],
-];
+    ];
+}
 
-// In layout():
-Chart::make('sales')->type(Chart::TYPE_MIXED);
+public function layout(): iterable
+{
+    return [
+        Chart::make('sales')
+            ->title('Monthly sales')
+            ->type(Chart::TYPE_MIXED),
+    ];
+}
 ```
 
 ## Use model metrics
@@ -94,14 +127,25 @@ The `Orchid\Platform\Models\User` model includes this trait.
 ```php
 use Orchid\Platform\Models\User;
 
-return [
-    'users' => User::countByDays()->toChart('Users'),
-    'names' => User::countForGroup('name')->toChart(),
-];
+public function query(): array
+{
+    return [
+        'users' => User::countByDays()->toChart('New users'),
+        'names' => User::countForGroup('name')->toChart(),
+    ];
+}
 
-// In layout():
-Chart::make('users')->type(Chart::TYPE_LINE);
-Chart::make('names')->type(Chart::TYPE_PIE);
+public function layout(): iterable
+{
+    return [
+        Chart::make('users')
+            ->title('New users by day')
+            ->type(Chart::TYPE_LINE),
+        Chart::make('names')
+            ->title('Users by name')
+            ->type(Chart::TYPE_PIE),
+    ];
+}
 ```
 
 `toChart()` returns the complete `labels` and `datasets` structure.

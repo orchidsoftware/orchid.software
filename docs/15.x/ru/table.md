@@ -36,8 +36,6 @@ public function layout(): iterable
 каждая запись должна быть моделью с трейтом `Orchid\Screen\AsSource` или объектом `Repository`.
 Метод `Repository::elements()` оборачивает каждый массив в Repository, как в примере выше.
 
-Для создания таблицы также доступен [фасад Layout](/ru/docs/layouts): `Layout::table('patients', $columns)`.
-
 ## Ячейки
 
 Таблица является только общей оболочкой, для которой необходимо указать классы TD, предназначенные для создания одной
@@ -131,7 +129,7 @@ TD::make('last_name')->defaultHidden();
 
 ```php
 TD::make('full_name')
-    ->render(fn ($user) => e($user->first_name . ' ' . $user->last_name));
+    ->render(fn ($user) => e($user->first_name.' '.$user->last_name));
 ```
 
 Замыкание также может вернуть Blade-представление:
@@ -140,7 +138,7 @@ TD::make('full_name')
 TD::make('full_name')
     ->render(function ($user) {
         return view('blade_template', [
-            'user' => $user
+            'user' => $user,
         ]);
     });
 ```
@@ -174,12 +172,12 @@ TD::make()
 
 ```php
 TD::make()
-    ->render(function (User $user){
+    ->render(function (User $user) {
         return CheckBox::make('users[]')
             ->value($user->id)
             ->placeholder($user->name)
             ->checked(false);
-});
+    });
 ```
 
 Если ячейке нужны данные вне набора таблицы, объявите публичное свойство Screen и верните его значение из `query()`.
@@ -200,7 +198,7 @@ class ProductListScreen extends Screen
     {
         return [
             'products' => [(object) ['price' => 100]],
-            'tax' => 20,
+            'tax'      => 20,
         ];
     }
 
@@ -224,7 +222,7 @@ class ProductListScreen extends Screen
 ```php
 TD::make()->render(function (Model $model, object $loop) {
     return $loop->index;
-})
+});
 ```
 
 Переменная `$loop` содержит множество полезных параметров, подробнее можно ознакомиться в
@@ -305,8 +303,8 @@ TD::make('price')->asComponent(Numeric::class);
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [
-    'decimals' => 2,
-    'decimal_separator' => ',',
+    'decimals'            => 2,
+    'decimal_separator'   => ',',
     'thousands_separator' => ' ',
 ]);
 // 1 234,56
@@ -346,7 +344,7 @@ Table::make('orders', [
 
 // In query():
 return [
-    'orders' => $orders,
+    'orders'      => $orders,
     'total_price' => $orders->sum('price'),
 ];
 ```

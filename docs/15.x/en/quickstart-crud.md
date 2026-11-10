@@ -15,7 +15,7 @@ At this stage, it is advisable that you already familiarize yourself with the ba
 
 First, we need to create a new table. To do this, execute the command:
 
-```php
+```shell
 php artisan make:migration create_posts_table
 ```
 
@@ -62,13 +62,13 @@ return new class extends Migration
 
 To apply the new scheme to the connected database, we will do:
 
-```php
+```shell
 php artisan migrate
 ```
 
 After successfully creating the table, add a new `Eloquent` model, to do this:
 
-```php
+```shell
 php artisan make:model Post
 ```
 
@@ -93,7 +93,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author'
+        'author',
     ];
 }
 ```
@@ -106,7 +106,7 @@ Now we are ready for the real use of the platform.
 displaying posts, but now we need to both display the records and edit them, so we’ll add two new screens for each
 action, alternately executing the commands:
 
-```php
+```shell
 php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen
 ```
@@ -135,6 +135,7 @@ fields:
 ```php
 namespace App\Orchid\Screens;
 
+use Orchid\Screen\Layouts\Rows;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -143,7 +144,6 @@ use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Attach;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -165,7 +165,7 @@ class PostEditScreen extends Screen
     public function query(Post $post): array
     {
         return [
-            'post' => $post
+            'post' => $post,
         ];
     }
 
@@ -182,7 +182,7 @@ class PostEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Blog posts";
+        return 'Blog posts';
     }
 
     /**
@@ -196,7 +196,7 @@ class PostEditScreen extends Screen
             Button::make('Create post')
                 ->icon('pencil')
                 ->method('createOrUpdate')
-                ->canSee(!$this->post->exists),
+                ->canSee(! $this->post->exists),
 
             Button::make('Update')
                 ->icon('note')
@@ -213,12 +213,12 @@ class PostEditScreen extends Screen
     /**
      * Views.
      *
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('post.title')
                     ->title('Title')
                     ->placeholder('Attractive but mysterious title')
@@ -237,7 +237,7 @@ class PostEditScreen extends Screen
                 Quill::make('post.body')
                     ->title('Main text'),
 
-            ])
+            ]),
         ];
     }
 
@@ -249,10 +249,10 @@ class PostEditScreen extends Screen
     public function createOrUpdate(Request $request)
     {
         $validated = $request->validate([
-            'post.title' => 'required|string|max:255',
+            'post.title'       => 'required|string|max:255',
             'post.description' => 'required|string|max:200',
-            'post.body' => 'required|string',
-            'post.author' => 'required|integer|exists:users,id',
+            'post.body'        => 'required|string',
+            'post.author'      => 'required|integer|exists:users,id',
         ]);
 
         $this->post->fill($validated['post'])->save();
@@ -302,7 +302,7 @@ class PostListScreen extends Screen
     public function query(): array
     {
         return [
-            'posts' => Post::paginate()
+            'posts' => Post::paginate(),
         ];
     }
 
@@ -319,7 +319,7 @@ class PostListScreen extends Screen
      */
     public function description(): ?string
     {
-        return "All blog posts";
+        return 'All blog posts';
     }
 
     /**
@@ -332,14 +332,14 @@ class PostListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('pencil')
-                ->route('orchid.post.edit')
+                ->route('orchid.post.edit'),
         ];
     }
 
     /**
      * Views.
      *
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): array
     {

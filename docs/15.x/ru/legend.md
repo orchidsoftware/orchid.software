@@ -18,8 +18,8 @@ public function query(): array
 {
     return [
         'user' => new Repository([
-            'id' => 1,
-            'name' => 'Alex',
+            'id'    => 1,
+            'name'  => 'Alex',
             'email' => 'alex@example.com',
         ]),
     ];
@@ -40,7 +40,6 @@ public function layout(): iterable
 Для стандартного вывода ячеек выбранная запись должна быть объектом `Repository` или моделью с трейтом
 `Orchid\Screen\AsSource`. Обычный массив оберните в `new Repository($data)`.
 Без `target()` Legend читает значения из корня репозитория экрана.
-`Layout::legend($sights)` создаёт тот же объект, что и `Legend::make($sights)`.
 
 ![Legend с данными пользователя.](/img/layouts/legend.png)
 

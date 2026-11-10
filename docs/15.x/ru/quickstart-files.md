@@ -39,7 +39,7 @@ return new class extends Migration
             $table->dropColumn('hero');
         });
     }
-}
+};
 ```
 
 Добавим в модель для автоматической записи:
@@ -52,21 +52,23 @@ protected $fillable = [
     'description',
     'body',
     'author',
-    'hero'
+    'hero',
 ];
-//..
+// ..
 ```
 
 Для записи данных в новую колонку, необходимо добавить подходящее поле в наш экран создания/редактирования. Используем
 `Cropper`, чтобы обрезать изображение:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
+
 // app/Orchid/Screens/PostEditScreen.php
 
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Input::make('post.title')
                 ->title('Title')
                 ->placeholder('Attractive but mysterious title'),
@@ -89,7 +91,7 @@ public function layout(): array
             Quill::make('post.body')
                 ->title('Main text'),
 
-        ])
+        ]),
     ];
 }
 ```
@@ -101,7 +103,7 @@ public function layout(): array
 пользователю. После сохранения записи с изображением, в колонку базы данных будет записан полный `url` адрес до
 изображения, например:
 
-```php
+```text
 http://localhost:8000/storage/2019/08/02/0f92ef...e98310.png
 ```
 
@@ -131,10 +133,12 @@ Cropper::make('post.hero')
 Чаще всего некоторые файлы объединяют, например, для показа целыми группами. Для этого подойдет поле `Attach`.
 
 ```php
+use Orchid\Screen\Layouts\Rows;
+
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Input::make('post.title')
                 ->title('Title')
                 ->placeholder('Attractive but mysterious title'),
@@ -159,9 +163,9 @@ public function layout(): array
                 ->title('Main text'),
 
             Attach::make('post.attachments')
-                ->title('All files')
+                ->title('All files'),
 
-        ])
+        ]),
     ];
 }
 ```
@@ -178,7 +182,7 @@ use Orchid\Screen\AsSource;
 class Post extends Model
 {
     use AsSource, Attachable;
-    //...
+    // ...
 }
 ```
 
@@ -216,7 +220,7 @@ public function query(Post $post): array
     $post->load('attachments');
 
     return [
-        'post' => $post
+        'post' => $post,
     ];
 }
 ```

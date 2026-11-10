@@ -21,7 +21,7 @@ use Orchid\Screen\AsSource;
     'id',
     'title',
     'created_at',
-    'updated_at'
+    'updated_at',
 ])]
 class Post extends Model
 {
@@ -36,7 +36,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author'
+        'author',
     ];
 }
 ```
@@ -53,7 +53,7 @@ class Post extends Model
 public function query(): array
 {
     return [
-        'posts' => Post::filters()->defaultSort('id')->paginate()
+        'posts' => Post::filters()->defaultSort('id')->paginate(),
     ];
 }
 ```
@@ -126,11 +126,11 @@ class Post extends Model
 use Orchid\Screen\Fields\Input;
 
 TD::make('title')
-   ->sort()
-   ->filter(Input::make())
-   ->render(function (Post $post) {
-       return Link::make($post->title)->route('orchid.post.edit', $post);
-   }),
+    ->sort()
+    ->filter(Input::make())
+    ->render(function (Post $post) {
+        return Link::make($post->title)->route('orchid.post.edit', $post);
+    }),
 ```
 
 После этого рядом с именем колонки появится иконка открывающая текстовое поле, устанавливая значение которого можно

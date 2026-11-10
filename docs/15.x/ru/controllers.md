@@ -12,7 +12,7 @@ description: Использование контроллеров в прилож
 
 Для создания нового контроллера необходимо выполнить команду `make:controller`:
 
-```php
+```shell
 php artisan make:controller OrchidController
 ```
 
@@ -31,12 +31,11 @@ class OrchidController extends Controller
         return view('custom');
     }
 }
-
 ```
 
 Метод `index` возвращает шаблон приложения, именно в нём мы будем визуализировать всю стилистику пакета:
 
-```php
+```blade
 @extends('orchid::dashboard')
 
 @section('title','title')

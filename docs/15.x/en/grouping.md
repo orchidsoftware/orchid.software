@@ -11,18 +11,17 @@ description:
 Allows you to divide the screen into two customizable sections. This layout is particularly useful when you want to
 display two separate pieces of information side-by-side.
 
-Orchid provides a shortcut method for creating a Split layout with two views using the `Layout::split()` method. To
-create a Split layout, simply pass an array of two Layout objects as the first parameter to the `split()` method. You
-can also set the ratio of the two sections using the optional `ratio()` method as the second parameter.
+Pass two layouts to `Split::make()`. Set their relative widths with `ratio()`:
 
 Here's an example of how to create a Split layout:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Split;
+use Orchid\Screen\Layouts\View;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
+Split::make([
+    View::make('first-view'),
+    View::make('second-view'),
 ]);
 ```
 
@@ -42,11 +41,12 @@ the `ratio()` method. This method takes a string argument that specifies the des
 For example, to create a `Split` layout with a `40/60` ratio:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Split;
+use Orchid\Screen\Layouts\View;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
+Split::make([
+    View::make('first-view'),
+    View::make('second-view'),
 ])->ratio('40/60'),
 ```
 
@@ -56,11 +56,12 @@ By default, the order of the two sections in a `Split` layout is fixed. However,
 sections on mobile devices by calling the `reverseOnPhone()` method. Here's an example:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Split;
+use Orchid\Screen\Layouts\View;
 
-Layout::split([
-    Layout::view('first-view'),
-    Layout::view('second-view'),
+Split::make([
+    View::make('first-view'),
+    View::make('second-view'),
 ])->ratio('40/60')->reverseOnPhone(),
 ```
 
@@ -85,19 +86,19 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddOrderColumnToTable extends Migration
 {
-   /**
-    * Run the migrations.
-    *
-    * @return void
-    */
-   public function up()
-   {
-       Schema::table('table_name', function (Blueprint $table) {
-           $table->integer('order')->default(1);
-       });
-   }
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('table_name', function (Blueprint $table) {
+            $table->integer('order')->default(1);
+        });
+    }
 
-   // ...
+    // ...
 }
 ```
 
@@ -118,7 +119,7 @@ class Idea extends Model
 {
     use Sortable;
 
-    //...
+    // ...
 }
 ```
 
@@ -135,7 +136,7 @@ class Idea extends Model
 {
     use Sortable;
 
-    //...
+    // ...
 
     /**
      * Get the column name for sorting.
@@ -160,28 +161,28 @@ use Orchid\Screen\Repository;
 
 public function query(): array
 {
-   return [
-       'models' => Idea::sorted()->get(),
-   ];
+    return [
+        'models' => Idea::sorted()->get(),
+    ];
 }
 ```
 
 Here, we use the `sorted()` method provided by the `Sortable` trait to get a sorted list of models. It also has an
 optional argument for sorting direction (ASC - ascending, DESC - descending). By default, the value is set to ASC.
 
-In the `layout()` method of your screen, add the graphical interface using the `Layout::sortable()` layer:
+In the `layout()` method of your screen, add the graphical interface using the `Sortable::make()` layer:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Sortable;
 use Orchid\Screen\Sight;
 
 public function layout(): iterable
 {
-   return [
-       Layout::sortable('models', [
-           Sight::make('title'),
-       ]),
-   ];
+    return [
+        Sortable::make('models', [
+            Sight::make('title'),
+        ]),
+    ];
 }
 ```
 
@@ -196,20 +197,20 @@ Here is an example of columns:
 
 ![Columns](/img/layouts/columns.png)
 
-To create columns in Orchid, you can use the `Layout::columns()` method. This method accepts an array of content, which
+To create columns in Orchid, you can use the `Columns::make()` method. This method accepts an array of content, which
 will be displayed in the columns.
 
 Here is an example of how to create columns using the short syntax:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Columns;
 
 public function layout(): array
 {
     return [
-        Layout::columns([
-           UserProfileForm::class,
-           ContactInformationForm::class,
+        Columns::make([
+            UserProfileForm::class,
+            ContactInformationForm::class,
         ]),
     ];
 }
@@ -263,7 +264,7 @@ use App\Orchid\Layouts\ExampleNavigation;
 public function layout(): array
 {
     return [
-        ExampleNavigation::class
+        ExampleNavigation::class,
     ];
 }
 ```
@@ -278,14 +279,15 @@ content:
 Tabs support short syntax by calling a static method, which does not require creating a separate class:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Tabs;
 
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => [
-                Layout::rows([
+                Rows::make([
                     Input::make('user.name')
                         ->type('text')
                         ->required()
@@ -300,7 +302,7 @@ public function layout(): array
                 ]),
             ],
             'Billing Address'      => [
-                Layout::rows([
+                Rows::make([
                     Input::make('address')
                         ->type('text')
                         ->required(),
@@ -316,10 +318,12 @@ Keys will be used as headers.
 Please note that you can specify the lowercase name of the class as values:
 
 ```php
+use Orchid\Screen\Layouts\Tabs;
+
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ]),
@@ -331,10 +335,12 @@ By default, the active tab will be either the first or the last active one. If y
 explicitly, you can do this using the `->activeTab($key)` method
 
 ```php
+use Orchid\Screen\Layouts\Tabs;
+
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ])->activeTab('Billing Address'),
@@ -352,21 +358,22 @@ Here is an example of an accordion:
 
 ![Accordion](/img/layouts/accordion.png)
 
-To create an accordion in Orchid, you can use the `Layout::accordion()` method. This method accepts an array of panel
+To create an accordion in Orchid, you can use the `Accordion::make()` method. This method accepts an array of panel
 names and content, where the keys of the array will be used as the panel headers and the values will be used as the
 panel content.
 
 Here is an example of how to create an accordion using the short syntax:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Accordion;
+use Orchid\Screen\Layouts\Rows;
 
 public function layout(): array
 {
     return [
-        Layout::accordion([
+        Accordion::make([
             'Personal Information' => [
-                Layout::rows([
+                Rows::make([
                     Input::make('user.name')
                         ->type('text')
                         ->required()
@@ -381,7 +388,7 @@ public function layout(): array
                 ]),
             ],
             'Billing Address'      => [
-                Layout::rows([
+                Rows::make([
                     Input::make('address')
                         ->type('text')
                         ->required(),
@@ -393,15 +400,17 @@ public function layout(): array
 ```
 
 In the example above, the accordion has two panels: "Personal Information" and "Billing Address." The content of each
-panel is specified as an array of rows created using the `Layout::rows()` method.
+panel is specified as an array of rows created using the `Rows::make()` method.
 
 You can also specify the content of each panel as the lowercase name of a class that returns an array of rows:
 
 ```php
+use Orchid\Screen\Layouts\Accordion;
+
 public function layout(): array
 {
     return [
-        Layout::accordion([
+        Accordion::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ]),

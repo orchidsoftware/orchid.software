@@ -186,15 +186,17 @@ TextArea остаётся обычным многострочным полем. 
 Orchid Charts заменяет Frappe. Передавайте общие подписи и наборы данных:
 
 ```php
+use Orchid\Screen\Layouts\Chart;
+
 return [
     'visits' => [
-        'labels' => ['Mon', 'Tue'],
+        'labels'   => ['Mon', 'Tue'],
         'datasets' => [['name' => 'Visits', 'values' => [12, 18]]],
     ],
 ];
 
 // In layout():
-Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
+Chart::make('visits')->title('Daily visits')->type(Chart::TYPE_LINE)->height(300);
 ```
 
 `toChart()` коллекций `Chartable` возвращает всю эту структуру.
@@ -234,11 +236,25 @@ Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
 
 ## Fluent-объекты макетов
 
+Фасад `Orchid\Support\Facades\Layout` и класс `Orchid\Screen\LayoutFactory` удалены.
+Импортируйте классы макетов и замените вызовы фабрики их методами `make()`:
+
+```php
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
+
+Rows::make($fields);
+Table::make('users', $columns);
+```
+
+Вместо `Layout::metrics()` используйте `Metric::make()`: имя класса записано в единственном числе.
+Пользовательские макросы фабрики перенесите в обычные PHP-методы, возвращающие настроенные объекты макетов.
+
 Объявляйте стандартные макеты через `Rows::make()`, `Table::make()` и другие фабрики из
-[обзора макетов](/ru/docs/layouts). Методы фасада Layout возвращают те же конкретные объекты.
+[обзора макетов](/ru/docs/layouts).
 
 Table и Sortable сохраняют ключ данных первым аргументом: `Table::make('users', $columns)`
-и `Layout::table('users', $columns)`. Непустой ключ обязателен при создании объекта. Legend принимает массив Sight
+и `Sortable::make('users', $columns)`. Непустой ключ обязателен при создании объекта. Legend принимает массив Sight
 и может выбрать вложенную запись через `target('user')`; без target он читает корень репозитория.
 
 Вместо переопределений оформления таблицы используйте `striped()`, `compact()`, `bordered()`, `hoverable()`

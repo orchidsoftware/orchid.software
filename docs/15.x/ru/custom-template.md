@@ -6,15 +6,15 @@ extends: _layouts.documentation
 ## Пользовательский шаблон
 
 Вполне ожидаемая ситуация, когда необходимо отобразить собственный `blade` шаблон. Для этого необходимо вызвать
-`Layout::view`, передав параметром строку имени:
+`View::make`, передав параметром строку имени:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\View;
 
 public function layout(): array
 {
     return [
-        Layout::view('myTemplate'),
+        View::make('myTemplate'),
     ];
 }
 ```
@@ -22,6 +22,8 @@ public function layout(): array
 Все данные из метода `query` будут переданы в Ваш шаблон.
 
 ```php
+use Orchid\Screen\Layouts\View;
+
 // ... Screen
 
 public function query(): array
@@ -34,14 +36,14 @@ public function query(): array
 public function layout(): array
 {
     return [
-        Layout::view('hello'),
+        View::make('hello'),
     ];
 }
 ```
 
 Вы можете отобразить содержимое `name` вот так:
 
-```php
+```blade
 // ... /views/hello.blade.php
 
 Hello {{ $name }}!
@@ -53,10 +55,12 @@ Hello {{ $name }}!
 указывать, где именно должны отображаться другие слои.
 
 ```php
+use Orchid\Screen\Layouts\Wrapper;
+
 public function layout(): array
 {
     return [
-        Layout::wrapper('myTemplate', [
+        Wrapper::make('myTemplate', [
             'foo' => [
                 RowLayout::class,
                 RowLayout::class,
@@ -85,7 +89,7 @@ public function layout(): array
 
 Для того чтобы создать новый компонент, воспользуемся `artisan` командой:
 
-```php
+```shell
 php artisan make:component Hello --inline
 ```
 
@@ -94,7 +98,7 @@ php artisan make:component Hello --inline
 
 В результате будет новый класс `Hello`, приведём его в следующий вид:
 
-```php
+```blade
 namespace App\View\Components;
 
 use Illuminate\View\Component;
@@ -135,6 +139,8 @@ blade;
 Для использования этого класса в экранах необходимо передать его строчное представление:
 
 ```php
+use Orchid\Screen\Layouts\Component;
+
 /**
  * Query data.
  *
@@ -150,12 +156,12 @@ public function query(): array
 /**
  * Views.
  *
- * @return Layout[]
+ * @return \Orchid\Screen\Layout[]
  */
 public function layout(): array
 {
     return [
-        Layout::component(Hello::class),
+        Component::make(Hello::class),
     ];
 }
 ```
@@ -163,7 +169,7 @@ public function layout(): array
 Значения из `query` будут подставлены в компонент по имени. При этом отсутствующие значения могут быть добавлены из
 контейнера, например:
 
-```php
+```blade
 namespace App\View\Components;
 
 use Illuminate\Contracts\Foundation\Application;
@@ -220,12 +226,12 @@ blade;
 Чтобы избежать этого, вы можете открыть iframe для просмотра другой страницы:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Browsing;
 
 public function layout(): array
 {
     return [
-        Layout::browsing('http://127.0.0.1:8000/telescope'),
+        Browsing::make('http://127.0.0.1:8000/telescope'),
     ];
 }
 ```
@@ -233,7 +239,9 @@ public function layout(): array
 Attributes are also available to the html definition:
 
 ```php
-Layout::browsing('http://127.0.0.1:8000/telescope')
+use Orchid\Screen\Layouts\Browsing;
+
+Browsing::make('http://127.0.0.1:8000/telescope')
     ->allow('...')
     ->loading('...')
     ->csp('...')
@@ -244,57 +252,39 @@ Layout::browsing('http://127.0.0.1:8000/telescope')
     ->srcdoc('...');
 ```
 
-## Расширение
+## Повторное использование макетов
 
-Класс `Layouts` является группирующим нескольких различных. Для того чтобы добавить в него новую возможность, достаточно
-указать её в сервис провайдере как:
+Чтобы использовать настроенный макет на нескольких экранах, создайте класс, возвращающий этот макет:
 
 ```php
-use Orchid\Screen\Layout;
-use Orchid\Screen\LayoutFactory;
-use Orchid\Screen\Repository;
+namespace App\Orchid\Layouts;
 
-LayoutFactory::macro('hello', function (string $name) {
-    return new class($name) extends Layout
+use Orchid\Screen\Layouts\View;
+
+class GreetingLayout
+{
+    public static function make(string $name): View
     {
-        /**
-         * @ string
-         */
-        public $name;
-
-        /**
-         * Hello constructor.
-         *
-         * @param string $name
-         */
-        public function __construct(string $name)
-        {
-            $this->name = $name;
-        }
-
-        /**
-         * @param Repository $repository
-         *
-         * @return mixed
-         */
-        public function build(Repository $repository)
-        {
-            return view('hello')->with('name', $this->name);
-        }
-
-    };
-});
+        return View::make('hello', ['name' => $name]);
+    }
+}
 ```
 
-Тогда в экране вызов будет выглядеть как:
+Создайте `resources/views/hello.blade.php`:
+
+```blade
+<p>Hello, {{ $name }}.</p>
+```
+
+Верните настроенный макет из экрана:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use App\Orchid\Layouts\GreetingLayout;
 
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::hello('Alexandr Chernyaev')
+        GreetingLayout::make('Alex'),
     ];
 }
 ```

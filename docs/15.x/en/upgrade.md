@@ -187,15 +187,17 @@ Check their submitted data shapes before saving. Keep validation and authorizati
 Orchid Charts replaces Frappe. Provide shared labels and datasets:
 
 ```php
+use Orchid\Screen\Layouts\Chart;
+
 return [
     'visits' => [
-        'labels' => ['Mon', 'Tue'],
+        'labels'   => ['Mon', 'Tue'],
         'datasets' => [['name' => 'Visits', 'values' => [12, 18]]],
     ],
 ];
 
 // In layout():
-Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
+Chart::make('visits')->title('Daily visits')->type(Chart::TYPE_LINE)->height(300);
 ```
 
 `Chartable` collections now return this complete shape from `toChart()`.
@@ -234,10 +236,24 @@ Check third-party Orchid packages for 15.x compatibility before upgrading them w
 
 ## Fluent layout objects
 
-Declare standard layouts with `Rows::make()`, `Table::make()`, and the other factories listed in
-[layout objects](/en/docs/layouts). Layout facade methods return those same concrete objects.
+The `Orchid\Support\Facades\Layout` facade and `Orchid\Screen\LayoutFactory` are removed.
+Import the concrete layout classes and replace factory calls with their `make()` methods:
 
-Table and Sortable keep the data key first: `Table::make('users', $columns)` and `Layout::table('users', $columns)`.
+```php
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
+
+Rows::make($fields);
+Table::make('users', $columns);
+```
+
+Replace `Layout::metrics()` with `Metric::make()`; the class name is singular.
+Move custom factory macros to ordinary PHP methods returning configured layout objects.
+
+Declare standard layouts with `Rows::make()`, `Table::make()`, and the other factories listed in
+[layout objects](/en/docs/layouts).
+
+Table and Sortable keep the data key first: `Table::make('users', $columns)` and `Sortable::make('users', $columns)`.
 Both require a nonempty data key at construction. Legend takes its sights first and can select a nested record with
 `target('user')`; without a target it reads the root repository.
 

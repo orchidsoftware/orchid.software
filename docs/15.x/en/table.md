@@ -38,9 +38,6 @@ The source can be an array, collection, paginator, or cursor paginator. For defa
 each record must be a model using `Orchid\Screen\AsSource` or a `Repository`.
 `Repository::elements()` wraps each array in a Repository, as shown above.
 
-You can also create a table through the [Layout facade](/en/docs/layouts#using-the-layout-facade):
-`Layout::table('patients', $columns)`.
-
 ## Introduction to Cells
 
 Each `TD` object defines one column. Its name selects a value from each record:
@@ -101,7 +98,6 @@ TD::make('color')->filter(
         ->options(['red' => 'Red', 'green' => 'Green'])
         ->empty()
 );
-
 ```
 
 > **Note:** there is no need to specify the field name. It will be delivered and overwritten automatically by the column
@@ -114,7 +110,7 @@ filter values. For example, you can replace an ID value with a display name. Her
 ```php
 TD::make('id')->filterValue(function ($value) {
     return User::find($value)?->name ?? $value;
-})
+});
 ```
 
 The `$value` value passed to the function will contain the filter value that was applied.
@@ -150,7 +146,7 @@ Use `render()` to calculate a cell value from the current record:
 
 ```php
 TD::make('full_name')
-    ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
+    ->render(fn ($user) => e($user->first_name.' '.$user->last_name)),
 ```
 
 > **Note.** The returned string will not be escaped. You need to take care of this yourself with the `e()` helper or use
@@ -160,7 +156,7 @@ The callback can also return a Blade view:
 
 ```php
 TD::make('full_name')
-    ->render(fn($user) => view('blade_template', [
+    ->render(fn ($user) => view('blade_template', [
         'user' => $user,
     ])),
 ```
@@ -181,7 +177,7 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
 
 TD::make()
-    ->render(fn($user) => Group::make([
+    ->render(fn ($user) => Group::make([
         Link::make('Edit')->route('orchid.users.edit', $user),
         Link::make('Email')->href('mailto:'.$user->email),
     ])),
@@ -191,7 +187,7 @@ For example, display a checkbox for each line for a bulk action:
 
 ```php
 TD::make()
-    ->render(fn(User $user) => CheckBox::make('users[]')
+    ->render(fn (User $user) => CheckBox::make('users[]')
         ->value($user->id)
         ->placeholder($user->name)
         ->checked(false)
@@ -216,7 +212,7 @@ class ProductListScreen extends Screen
     {
         return [
             'products' => [(object) ['price' => 100]],
-            'tax' => 20,
+            'tax'      => 20,
         ];
     }
 
@@ -322,8 +318,8 @@ Pass formatting parameters as an array:
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [
-    'decimals' => 2,
-    'decimal_separator' => ',',
+    'decimals'            => 2,
+    'decimal_separator'   => ',',
     'thousands_separator' => ' ',
 ]);
 // 1 234,56
@@ -390,7 +386,7 @@ Table::make('orders', [
 
 // In query():
 return [
-    'orders' => $orders,
+    'orders'      => $orders,
     'total_price' => $orders->sum('price'),
 ];
 ```

@@ -2,7 +2,9 @@
 title: Модальные окна
 ---
 
-Эмуляция модального диалогового окна,  появляющегося поверх основного содержимого страницы  в ответ на действия
+Эмуляция модального диалогового окна,
+появляющегося поверх основного содержимого страницы
+в ответ на действия
 пользователя.
 
 ![Modals](/img/layouts/modals.png)
@@ -26,7 +28,8 @@ title: Модальные окна
 класса:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Support\Facades\Toast;
 
@@ -53,8 +56,8 @@ public function commandBar(): array
 public function layout(): array
 {
     return [
-        Layout::modal('exampleModal', [
-            Layout::rows([]),
+        Modal::make('exampleModal', [
+            Rows::make([]),
         ]),
     ];
 }
@@ -73,11 +76,15 @@ public function action(): void
 > массива. Например, не стоит делать вот так:
 
 ```php
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Tabs;
+
 public function layouts(): array
 {
     return [
-        Layout::tabs([
-            'Name' => Layout::modal('exampleModal', [Layout::rows([])]),
+        Tabs::make([
+            'Name' => Modal::make('exampleModal', [Rows::make([])]),
         ]),
     ];
 }
@@ -90,8 +97,11 @@ public function layouts(): array
 Для установки заголовка используется метод `title`:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->title('Заголовок окна');
 ```
@@ -101,10 +111,11 @@ Layout::modal('exampleModals', [
 В зависимости от содержимого окна, может потребоваться изменить его размер, это можно сделать указав метод `size`:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->size(Modal::SIZE_LG);
 ```
@@ -119,8 +130,11 @@ Layout::modal('exampleModals', [
 Вы можете установить собственные названия для них:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->applyButton('Отправить')
     ->closeButton('Закрыть');
@@ -131,8 +145,11 @@ Layout::modal('exampleModals', [
 Для отключения каждой кнопки имеется собственный метод:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->withoutApplyButton()
     ->withoutCloseButton();
@@ -143,10 +160,11 @@ Layout::modal('exampleModals', [
 Модальное окно можно отображать не только по центру экрана, но и по правой стороне:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->type(Modal::TYPE_RIGHT);
 ```
@@ -157,10 +175,11 @@ Layout::modal('exampleModals', [
 метод `->open`:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->open();
 ```
@@ -172,8 +191,11 @@ Layout::modal('exampleModals', [
 вызов метода `rawClick`:
 
 ```php
-Layout::modal('exampleModals', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('exampleModals', [
+    Rows::make([]),
 ])
     ->rawClick();
 ```
@@ -188,7 +210,9 @@ Layout::modal('exampleModals', [
 метода, который должен использоваться вместо `query`:
 
 ```php
-Layout::modal('asyncModal', [
+use Orchid\Screen\Layouts\Modal;
+
+Modal::make('asyncModal', [
     ExampleRow::class,
 ])->async('asyncGetData');
 ```
@@ -228,10 +252,10 @@ ModalToggle::make('Open async modal')
 Для небольшой формы используйте `SIZE_COMPACT`, для прокрутки длинного содержимого внутри окна вызовите `scrollable()`:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
-use Orchid\Support\Facades\Layout;
 
-Layout::modal('editOrder', Layout::rows([
+Modal::make('editOrder', Rows::make([
     // Order fields...
 ]))
     ->title('Edit order')

@@ -141,7 +141,7 @@ class TaskScreen extends Screen
      */
     public function name(): ?string
     {
-        return "TaskScreen";
+        return 'TaskScreen';
     }
 
     /**
@@ -150,7 +150,7 @@ class TaskScreen extends Screen
      */
     public function description(): ?string
     {
-        return "TaskScreen";
+        return 'TaskScreen';
     }
 
     /**
@@ -243,7 +243,7 @@ public function menu(): array
         Menu::make('Tasks')
             ->icon('bag')
             ->route('orchid.task')
-            ->title('Tools')
+            ->title('Tools'),
     ];
 }
 ```
@@ -285,8 +285,9 @@ the page.
 To add a modal window with an input field for the task name, we can update the `layout` method as follows:
 
 ```php
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\Input;
-use Orchid\Support\Facades\Layout;
 
 /**
  * The screen's layout elements.
@@ -296,7 +297,7 @@ use Orchid\Support\Facades\Layout;
 public function layout(): iterable
 {
     return [
-        Layout::modal('taskModal', Layout::rows([
+        Modal::make('taskModal', Rows::make([
             Input::make('task.name')
                 ->title('Name')
                 ->placeholder('Enter task name')
@@ -411,8 +412,10 @@ display the list of tasks, and will include columns for the task name and action
 To define the task list layout, we can update the layouts method of the screen class as follows:
 
 ```php
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
-
 
 /**
  * The screen's layout elements.
@@ -422,11 +425,11 @@ use Orchid\Screen\TD;
 public function layout(): iterable
 {
     return [
-        Layout::table('tasks', [
+        Table::make('tasks', [
             TD::make('name'),
         ]),
 
-        Layout::modal('taskModal', Layout::rows([
+        Modal::make('taskModal', Rows::make([
             Input::make('task.name')
                 ->title('Name')
                 ->placeholder('Enter task name')
@@ -450,9 +453,10 @@ add that next.
 Let's add a delete button to each row of our task listing.
 
 ```php
+use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Actions\Button;
 
-Layout::table('tasks', [
+Table::make('tasks', [
     TD::make('name'),
 
     TD::make('Actions')

@@ -49,7 +49,7 @@ class EmailSenderScreen extends Screen
      */
     public function name(): ?string
     {
-        return "EmailSenderScreen";
+        return 'EmailSenderScreen';
     }
 
     /**
@@ -57,7 +57,7 @@ class EmailSenderScreen extends Screen
      */
     public function description(): ?string
     {
-        return "EmailSenderScreen";
+        return 'EmailSenderScreen';
     }
 
     /**
@@ -104,7 +104,7 @@ Add a name and description:
  */
 public function name(): ?string
 {
-    return "Email sender";
+    return 'Email sender';
 }
 
 /**
@@ -112,28 +112,28 @@ public function name(): ?string
  */
 public function description(): ?string
 {
-    return "Tool that sends ad-hoc email messages.";
+    return 'Tool that sends ad-hoc email messages.';
 }
 ```
 
 To display the input fields, we describe them in the `Layouts` method:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use App\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
-use Orchid\Support\Facades\Layout;
 
 /**
  * Views.
  *
- * @return Layout[]
+ * @return \Orchid\Screen\Layout[]
  */
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Input::make('subject')
                 ->title('Subject')
                 ->required()
@@ -146,15 +146,15 @@ public function layout(): array
                 ->required()
                 ->placeholder('Email addresses')
                 ->help('Enter the users that you would like to send this message to.')
-                ->fromModel(User::class,'name','email'),
+                ->fromModel(User::class, 'name', 'email'),
 
             Quill::make('content')
                 ->title('Content')
                 ->required()
                 ->placeholder('Insert text here ...')
-                ->help('Add the content for the message that you would like to send.')
+                ->help('Add the content for the message that you would like to send.'),
 
-        ])
+        ]),
     ];
 }
 ```
@@ -165,6 +165,7 @@ and specify a link to it in `commandBar`:
 ```php
 namespace App\Orchid\Screens;
 
+use Orchid\Screen\Layouts\Rows;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Message;
@@ -172,7 +173,6 @@ use Illuminate\Support\Facades\Mail;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -194,7 +194,7 @@ class EmailSenderScreen extends Screen
      */
     public function name(): ?string
     {
-        return "Email sender";
+        return 'Email sender';
     }
 
     /**
@@ -202,7 +202,7 @@ class EmailSenderScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Tool that sends ad-hoc email messages.";
+        return 'Tool that sends ad-hoc email messages.';
     }
 
     /**
@@ -215,19 +215,19 @@ class EmailSenderScreen extends Screen
         return [
             Button::make('Send Message')
                 ->icon('paper-plane')
-                ->method('sendMessage')
+                ->method('sendMessage'),
         ];
     }
 
     /**
      * Views.
      *
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('subject')
                     ->title('Subject')
                     ->required()
@@ -240,15 +240,15 @@ class EmailSenderScreen extends Screen
                     ->required()
                     ->placeholder('Email addresses')
                     ->help('Enter the users that you would like to send this message to.')
-                    ->fromModel(User::class,'name','email'),
+                    ->fromModel(User::class, 'name', 'email'),
 
                 Quill::make('content')
                     ->title('Content')
                     ->required()
                     ->placeholder('Insert text here ...')
-                    ->help('Add the content for the message that you would like to send.')
+                    ->help('Add the content for the message that you would like to send.'),
 
-            ])
+            ]),
         ];
     }
 
@@ -262,7 +262,7 @@ class EmailSenderScreen extends Screen
         $request->validate([
             'subject' => 'required|min:6|max:50',
             'users'   => 'required',
-            'content' => 'required|min:10'
+            'content' => 'required|min:10',
         ]);
 
         Mail::html($request->input('content'), function (Message $message) use ($request) {
@@ -320,7 +320,7 @@ public function registerMainMenu(): array
         Menu::make('Email sender')
             ->icon('envelope-letter')
             ->route('orchid.email')
-            ->title('Tools')
+            ->title('Tools'),
     ];
 }
 ```
@@ -335,10 +335,10 @@ use Tabuna\Breadcrumbs\Trail;
 
 Route::screen('email', EmailSenderScreen::class)
     ->name('orchid.email')
-    ->breadcrumbs(function (Trail $trail){
+    ->breadcrumbs(function (Trail $trail) {
         return $trail
-                ->parent('orchid.index')
-                ->push('Email sender');
+            ->parent('orchid.index')
+            ->push('Email sender');
     });
 ```
 
