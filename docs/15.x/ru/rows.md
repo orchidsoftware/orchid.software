@@ -1,17 +1,20 @@
 ---
 title: Rows
-description: Формы из полей и fluent-объектов макета.
+description: Располагайте поля формы друг под другом.
 ---
 
-Rows объединяет [поля формы](/ru/docs/field) в вертикальный макет. Создавайте его напрямую или через фасад Layout.
-Оба способа возвращают один и тот же конкретный объект Rows. Подкласс и команда Artisan для этого не нужны.
+Rows располагает [поля формы](/ru/docs/field) друг под другом.
 
 ## Создание формы
 
 ```php
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
-use Orchid\Support\Facades\Layout;
+
+public function query(): array
+{
+    return ['user' => auth()->user()];
+}
 
 public function layout(): iterable
 {
@@ -20,24 +23,23 @@ public function layout(): iterable
             Input::make('user.name')->title('Name'),
             Input::make('user.email')->type('email')->title('Email'),
         ])->title('Profile'),
-
-        Layout::rows([
-            Input::make('user.phone')->title('Phone'),
-        ]),
     ];
 }
 ```
 
-Имена полей связываются с результатом `query()` экрана. Например, `user.name` читает атрибут `name` модели `user`.
+Группа Profile показывает имя и email текущего пользователя. Имена полей, например `user.name`, читают значения
+из записи `user`, возвращённой методом `query()`.
 Метод `title()` задаёт заголовок группы, `canSee($condition)` управляет видимостью.
-Скрытие формы не заменяет авторизацию на сервере.
+Скрытие формы не заменяет авторизацию на сервере. Для обработки данных добавьте [действие экрана](/ru/docs/screens).
 
 Конфигурацию, зависящую от данных, задавайте в `layout()` через публичные свойства экрана.
-Асинхронные изменения данных остаются в обработчике Listener.
+Для форм, реагирующих на изменение полей, используйте [Listener](/ru/docs/listener).
+
+Для создания формы также доступен [фасад Layout](/ru/docs/layouts): `Layout::rows($fields)`.
 
 ## Повторное использование
 
-Выносите форму в фабрику, когда она нужна нескольким экранам. Обычный класс возвращает настроенный объект Rows:
+Чтобы использовать форму на нескольких экранах, создайте класс с методом, возвращающим объект Rows:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -56,10 +58,15 @@ class AddressLayout
     }
 }
 
-// In the screen's layout():
-return [AddressLayout::make('customer.address')];
 ```
 
-Возвращайте результат фабрики, а не `AddressLayout::class`: этот класс не наследует Layout.
-Существующие именованные подклассы Rows остаются допустимыми. Новым формам не нужно переопределять `fields()` или `$title`.
-Генератор `orchid:rows` удалён.
+Вызовите метод в `layout()` экрана:
+
+```php
+use App\Orchid\Layouts\AddressLayout;
+
+public function layout(): iterable
+{
+    return [AddressLayout::make('customer.address')];
+}
+```

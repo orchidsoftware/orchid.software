@@ -283,7 +283,7 @@ class PostEditScreen extends Screen
 
 Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!
 
-Соберите таблицу прямо в `PostListScreen::layout()`. Генерировать отдельный класс таблицы не нужно.
+Задайте колонки в `PostListScreen::layout()`.
 
 ```php
 namespace App\Orchid\Screens;

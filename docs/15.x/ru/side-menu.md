@@ -1,25 +1,58 @@
 ---
 title: Боковое меню
-description: Контекстная навигация между связанными экранами.
+description: Добавьте навигацию для группы связанных экранов.
 ---
 
-SideMenu выводит вертикальную навигацию внутри экрана. Используйте его для ссылок, общих для группы экранов,
-например настроек. Главное меню приложения по-прежнему определяется в поставщике сервисов.
+SideMenu выводит вертикальную навигацию внутри экрана. Используйте его для ссылок между связанными экранами,
+например страницами настроек. Главное меню приложения настраивается в поставщике сервисов.
 
-Для одного экрана создавайте объект напрямую. Именованный класс удобен для общего меню нескольких экранов:
+## Добавьте боковое меню
+
+Расположите меню рядом с содержимым экрана через Columns:
 
 ```php
 use Orchid\Screen\Actions\Menu;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Columns;
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\SideMenu;
 
-SideMenu::make([
-    Menu::make('Profile')->route('orchid.profile'),
-])->label('Account navigation');
+public function query(): array
+{
+    return ['user' => auth()->user()];
+}
+
+public function layout(): iterable
+{
+    return [
+        Columns::make([
+            SideMenu::make([
+                Menu::make('Profile')->route('orchid.profile'),
+                Menu::make('Users')->route('orchid.users')->permission('orchid.users'),
+            ])->label('Account navigation'),
+            Rows::make([
+                Input::make('user.name')->title('Name'),
+            ]),
+        ]),
+    ];
+}
 ```
 
-## Создание меню
+В примере имя читается из значения `user`, возвращённого методом `query()`.
+Метод `label()` задаёт название области навигации для вспомогательных технологий.
 
-Создайте макет, задайте ссылки и доступное имя навигации:
+Элементы поддерживают методы `route()`, `list()`, `permission()` и `canSee()`, как и главное меню.
+Скрытые пункты не выводятся. Если видимых пунктов не осталось, весь макет скрывается.
+На узких экранах меню сворачивается.
+
+Конечная ссылка `/settings/profile` также активна на `/settings/profile?tab=security`, но не на вложенных путях.
+Родительские пункты учитывают дочерние ссылки и вложенные пути. Для собственных правил используйте `active()`.
+
+Скрытие пункта не защищает его адрес. Отдельно проверяйте доступ к экрану и его действиям.
+
+## Используйте меню на нескольких экранах
+
+Создайте именованный макет для общей навигации:
 
 ```shell
 php artisan orchid:side-menu SettingsMenu
@@ -46,31 +79,23 @@ class SettingsMenu extends SideMenu
 }
 ```
 
-## Добавление на экран
-
-Верните класс макета из `layout()`. Например, разместите меню рядом с полями экрана:
+Верните класс из метода `layout()` каждого экрана:
 
 ```php
 use App\Orchid\Layouts\SettingsMenu;
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Columns;
+use Orchid\Screen\Layouts\Rows;
 
 public function layout(): iterable
 {
     return [
-        Layout::columns([
+        Columns::make([
             SettingsMenu::class,
-            Layout::rows([
-                // Fields for this screen...
+            Rows::make([
+                Input::make('user.name')->title('Name'),
             ]),
         ]),
     ];
 }
 ```
-
-Элементы поддерживают те же методы `route()`, `list()`, `permission()` и `canSee()`, что и главное меню.
-Скрытые пункты удаляются; если доступных пунктов не осталось, макет не выводится.
-На узких экранах меню сворачивается. Конечная ссылка `/settings/profile` также активна на
-`/settings/profile?tab=security`, но не на вложенных путях. Родительские пункты учитывают дочерние ссылки и вложенные
-пути. Для собственных правил используйте `active()`.
-
-Скрытие пункта не защищает его адрес. Отдельно проверяйте доступ к экрану и его действиям.

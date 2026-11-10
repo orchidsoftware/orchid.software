@@ -3,31 +3,13 @@ title: Table
 description: Display records with configurable columns, pagination, totals, and empty states.
 ---
 
-A Table displays records from a screen repository. Pass the data key first and its columns second to `make()`.
-`Layout::table()` is an alias for the same object. No subclass or generator is required.
+A Table displays records returned by a screen's `query()` method. Pass the data key and columns to `make()`,
+then return the table from `layout()`:
 
 ```php
 use Orchid\Screen\Layouts\Table;
-use Orchid\Screen\TD;
-use Orchid\Support\Facades\Layout;
-
-Table::make('patients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-])->title('Patients');
-
-Layout::table('patients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-]);
-```
-
-Return a collection, array, paginator, or cursor paginator under `patients` from the screen's `query()` method.
-For default cell rendering, each record must be a model using `Orchid\Screen\AsSource` or a `Repository`.
-Wrap plain arrays with `Repository::elements()`:
-
-```php
 use Orchid\Screen\Repository;
+use Orchid\Screen\TD;
 
 public function query(): array
 {
@@ -37,9 +19,27 @@ public function query(): array
         ]),
     ];
 }
+
+public function layout(): iterable
+{
+    return [
+        Table::make('patients', [
+            TD::make('name'),
+            TD::make('created_at'),
+        ])->title('Patients'),
+    ];
+}
 ```
 
-Table and Sortable require a nonempty data key when they are constructed.
+The first argument selects the data returned by `query()`. The second argument defines the columns.
+The data key must be nonempty.
+
+The source can be an array, collection, paginator, or cursor paginator. For default cell rendering,
+each record must be a model using `Orchid\Screen\AsSource` or a `Repository`.
+`Repository::elements()` wraps each array in a Repository, as shown above.
+
+You can also create a table through the [Layout facade](/en/docs/layouts#using-the-layout-facade):
+`Layout::table('patients', $columns)`.
 
 ## Introduction to Cells
 
@@ -170,8 +170,8 @@ You can also return fields and actions:
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::make()
-    ->render(fn ($user) => Link::make($user->last_name)->route('orchid.user.edit', $user)),
+TD::make('name')
+    ->render(fn ($user) => Link::make($user->name)->route('orchid.users.edit', $user)),
 ```
 
 Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a `Group`:
@@ -182,8 +182,8 @@ use Orchid\Screen\Fields\Group;
 
 TD::make()
     ->render(fn($user) => Group::make([
-        Link::make('Show')->route('orchid.user.show', $user),
-        Link::make('Edit')->route('orchid.user.edit', $user),
+        Link::make('Edit')->route('orchid.users.edit', $user),
+        Link::make('Email')->href('mailto:'.$user->email),
     ])),
 ```
 
@@ -411,7 +411,5 @@ Table::make('orders', [TD::make('name')])
     ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Define the example's create route in your application. Omitting `emptyAction()` preserves the default clear-filters
-action;
-`emptyAction(null)` explicitly removes it. No protected-method overrides are needed.
-Existing named table classes remain available for reusable definitions. The `orchid:table` generator is removed.
+The example expects a route named `orchid.orders.create`. Use `emptyAction(null)` to hide the empty-state action.
+Without a custom action, the table offers the default clear-filters action when filters are active.

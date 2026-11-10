@@ -281,7 +281,7 @@ with validation errors; `$fillable` only controls mass assignment.
 
 Now we can create, edit, and delete records. But the records do not appear as a list yet. Let's change that.
 
-Build the list directly in `PostListScreen::layout()`. No generated table class is needed.
+Define the columns in `PostListScreen::layout()`.
 
 ```php
 namespace App\Orchid\Screens;

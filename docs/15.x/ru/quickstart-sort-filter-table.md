@@ -14,8 +14,6 @@ namespace App\Models;
 
 use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -27,7 +25,7 @@ use Orchid\Screen\AsSource;
 ])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     /**
      * The attributes that are mass assignable.
@@ -38,8 +36,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author',
-        'hero'
+        'author'
     ];
 }
 ```
@@ -100,13 +97,12 @@ public function layout(): iterable
 
 После этого заголовок колонки будет реагировать на нажатие и менять положение сортировки.
 
-Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию. Для её установки
-вернёмся к модели и добавим новое свойство:
+Для фильтрации по заголовку добавьте атрибут `AllowedFilters` к модели Post.
+Сохраните атрибут `AllowedSorts` и остальные свойства модели:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
-use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 use Orchid\Filters\AllowedFilters;
 use Orchid\Filters\Types\Like;
@@ -118,7 +114,7 @@ use Orchid\Filters\AllowedSorts;
 #[AllowedSorts(['id', 'title', 'created_at', 'updated_at'])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     // Keep the remaining model traits, properties, and methods.
 }

@@ -203,10 +203,7 @@ public function query(): array
 }
 ```
 
-In this example, the `order` key will contain an array of ideas with the given data.
-
-The `query` method is an important part of a screen, as it is used to load the data that will be displayed to the user.
-Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.
+The `order` key contains a Repository. Fields and cells can read its values using names such as `order.price`.
 
 ## Autocompleting Public Properties
 
@@ -274,8 +271,8 @@ public function print(): void
 }
 ```
 
-In this example, when the Print button is clicked, the `print` method of the screen will be called. All of the data that
-the user has seen on the screen will be available in the request.
+Clicking the button calls the screen's `print()` method. Submitted form fields are available through
+`Illuminate\Http\Request`.
 
 ### Link
 
@@ -383,84 +380,36 @@ Button::make('Say "Hello, World!"')
 
 ## Screen Layouts
 
-Layouts are responsible for the screen's appearance: how the data is displayed and in what form.
-
-Separation of logic and presentation is one of the design principles with Laravel Orchid. One of the elements of the
-presentation are "Layouts" (layouts), which can be displayed in various variations. If you try to explain briefly, it
-turns out that this is a `view` on steroids.
-
-In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name,
-signature, and profile avatar:
-
-```html
-<div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
-    <span class="thumb-sm avatar m-r-xs">
-        <img src="/avatar/maria.jpg" class="bg-light" alt="Maria" />
-    </span>
-    <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
-        <h6 class="mb-0">Maria</h6>
-        <p class="text-muted mb-1">maria@exaple.com</p>
-    </div>
-</div>
-```
-
-A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their
-appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component
-approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in
-`React/Vue/Angular`.
-
-It is precisely such components that the platform layers consist of, the only difference is that it is necessary to
-operate with the classes, creating which you explicitly determine that the accepted parameter `avatar` will be inserted
-in the `<img>` tag, without having to edit the source code every time.
-
-Each layout may include a different layout, that is, nesting. For example, the screen is divided into two columns. In
-the left-field for filling, on the right, there are a reference table and a graph. You can come up with your examples of
-attachments.
-
-```php
-public function layout() : array
-{
-    return [
-        Layout::columns([
-            'Left column' => [
-                FirstRows::class,
-            ],
-            'Right column' => [
-                SecondRows::class,
-            ],
-        ]),
-
-        // Modal window
-        Layout::modal('Appointments', [
-            ThirdRows::class,
-        ]),
-    ];
-}
-```
-
-Reuse a configured object factory when the same fields appear more than once:
+Return layouts from the screen's `layout()` method. A layout can contain other layouts.
+For example, Columns places a form beside a table:
 
 ```php
 use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Layouts\Columns;
 use Orchid\Screen\Layouts\Rows;
-
-private function address(string $prefix, string $title): Rows
-{
-    return Rows::make([
-        Input::make($prefix.'.address')->title('Address')->required(),
-    ])->title($title);
-}
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
 public function layout(): iterable
 {
     return [
-        $this->address('order.shipping_address', 'Shipping address'),
-        $this->address('order.invoice_address', 'Invoice address'),
+        Columns::make([
+            Rows::make([
+                Input::make('order.name')->title('Name'),
+                Input::make('order.price')->type('number')->title('Price'),
+            ]),
+            Table::make('orders', [
+                TD::make('name'),
+                TD::make('price'),
+            ]),
+        ]),
     ];
 }
 ```
 
-See [layout objects](/en/docs/layouts) for direct construction and facade aliases.
+The form reads values from `order`, and the table displays records from `orders`, as returned by `query()`.
+See [Layouts](/en/docs/layouts) to choose a layout and [Rows](/en/docs/rows#reuse-a-form) to share forms between
+screens.
 
 ## Additional Methods
 
@@ -480,18 +429,15 @@ This method returns a message if the HTML form validation fails, for example, if
 
 #### Prevent Data Loss on Navigation
 
+Orchid warns users before they leave a form with unsaved changes. The `orchid.prevents_abandonment`
+configuration option enables this behavior by default. To disable the warning for a screen, return `false`:
+
 ```php
-/**
- * Determines whether to prevent data loss on navigation attempt.
- */
 public function needPreventsAbandonment(): bool
 {
     return false;
 }
 ```
-
-No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks
-refreshing or navigating away from the current page if changes have been made to the data on it.
 
 #### Stimulus Controller
 
@@ -523,5 +469,3 @@ Keep the same `APP_KEY` across requests and application instances.
 
 Signed state does not authorize an action or make request input trustworthy. Check record policies and validate input
 inside each action handler. Query current database state when a decision depends on changes made since rendering.
-When migrating custom traits, use `Orchid\Screen\Concerns\CanSee` and
-`Orchid\Screen\Concerns\HasCommandBar` instead of the old trait locations.

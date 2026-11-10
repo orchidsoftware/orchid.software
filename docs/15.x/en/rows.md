@@ -1,17 +1,20 @@
 ---
 title: Rows
-description: Build forms with fields and fluent layout objects.
+description: Arrange form fields in a vertical layout.
 ---
 
-Rows groups [form fields](/en/docs/field) into a vertical form. Construct it directly or use the Layout facade.
-Both forms create the same concrete Rows object; neither requires a subclass or an Artisan command.
+Rows groups [form fields](/en/docs/field) into a vertical form.
 
 ## Create rows
 
 ```php
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Rows;
-use Orchid\Support\Facades\Layout;
+
+public function query(): array
+{
+    return ['user' => auth()->user()];
+}
 
 public function layout(): iterable
 {
@@ -20,24 +23,25 @@ public function layout(): iterable
             Input::make('user.name')->title('Name'),
             Input::make('user.email')->type('email')->title('Email'),
         ])->title('Profile'),
-
-        Layout::rows([
-            Input::make('user.phone')->title('Phone'),
-        ]),
     ];
 }
 ```
 
-Field names bind to the data returned by the screen's `query()` method. For example, `user.name` reads the `name`
-attribute of the `user` model. Use `title()` for the group's heading and `canSee($condition)` to control visibility.
-Visibility does not replace server-side authorization.
+The Profile group displays the signed-in user's name and email. Field names such as `user.name` read values from
+the `user` entry returned by `query()`. Use `title()` for the group's heading and `canSee($condition)` to control
+visibility.
+Visibility does not replace server-side authorization. To handle submissions, add a [screen
+action](/en/docs/screens#screen-actions).
 
 Read data-dependent configuration from the screen's public properties in `layout()`.
-Keep asynchronous data changes in the Listener handler.
+For forms that respond to field changes, see [Listeners](/en/docs/listener).
+
+You can also create rows through the [Layout facade](/en/docs/layouts#using-the-layout-facade):
+`Layout::rows($fields)`.
 
 ## Reuse a form
 
-Extract a factory only when multiple screens need the same form. Return a configured Rows object from an ordinary class:
+To share a form between screens, create a class with a method that returns a Rows instance:
 
 ```php
 namespace App\Orchid\Layouts;
@@ -56,10 +60,15 @@ class AddressLayout
     }
 }
 
-// In the screen's layout():
-return [AddressLayout::make('customer.address')];
 ```
 
-Return the factory result, not `AddressLayout::class`: this class is a factory, not a Layout subclass.
-Existing named Rows subclasses can still be used. New forms do not need to override `fields()` or `$title`.
-The `orchid:rows` generator has been removed.
+Call the method from the screen's `layout()`:
+
+```php
+use App\Orchid\Layouts\AddressLayout;
+
+public function layout(): iterable
+{
+    return [AddressLayout::make('customer.address')];
+}
+```

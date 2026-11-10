@@ -1,19 +1,30 @@
 ---
-title: Объекты макетов
-description: Композиция экранов из конкретных макетов с fluent-настройкой.
+title: Макеты
+description: Располагайте формы, таблицы и другое содержимое на экране.
 ---
 
-Макеты превращают данные `query()` в интерфейс экрана. Создавайте обычные объекты и настраивайте их методами.
-Для объявления полей, колонок или вложенных макетов подкласс не нужен.
+Макеты отображают данные из метода `query()` экрана. Верните макеты из `layout()` и объедините их,
+чтобы расположить поля формы, записи, графики и другое содержимое.
 
-## Композиция экрана
+## Соберите экран
+
+В примере поля профиля текущего пользователя расположены рядом со списком пользователей с пагинацией:
 
 ```php
+use Orchid\Platform\Models\User;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Columns;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
+
+public function query(): array
+{
+    return [
+        'user' => auth()->user(),
+        'users' => User::paginate(),
+    ];
+}
 
 public function layout(): iterable
 {
@@ -21,68 +32,72 @@ public function layout(): iterable
         Columns::make([
             Rows::make([
                 Input::make('user.name')->title('Name'),
+                Input::make('user.email')->type('email')->title('Email'),
             ])->title('Profile'),
 
             Table::make('users', [
                 TD::make('name'),
                 TD::make('email'),
-            ])->compact(),
+            ])->title('Users'),
         ]),
     ];
 }
 ```
 
-Пример ожидает `user` и `users` в репозитории экрана. Привязка полей, callbacks ячеек, пагинация и проверки доступа
-сохраняют прежнее поведение.
+Rows выводит поля профиля. Имена полей, например `user.name`, выбирают значения из записи `user`.
+Table получает записи из `users`, а Columns располагает форму и таблицу рядом.
 
-## Прямое создание и фасад
+## Выберите макет
 
-Фасад Layout сокращённо вызывает те же фабрики объектов:
+Выберите макет по его назначению. Все перечисленные классы находятся в `Orchid\Screen\Layouts`.
+
+| Макет | Назначение | Создание |
+| --- | --- | --- |
+| [Rows](/ru/docs/rows) | Поля формы | `Rows::make($fields)` |
+| [Table](/ru/docs/table) | Список записей | `Table::make('users', $columns)` |
+| [Legend](/ru/docs/legend) | Одна запись | `Legend::make($sights)->target('user')` |
+| [Sortable](/ru/docs/grouping#sortable) | Перетаскиваемые записи | `Sortable::make('items', $sights)` |
+| Selection | Группа фильтров | `Selection::make($filters)->inline()` |
+| TabMenu | Вкладки навигации | `TabMenu::make($menus)` |
+| [SideMenu](/ru/docs/side-menu) | Вертикальная навигация | `SideMenu::make($menus)` |
+| [Columns](/ru/docs/grouping) | Колонки одинаковой ширины | `Columns::make($layouts)` |
+| [Split](/ru/docs/grouping) | Две секции с настраиваемой шириной | `Split::make($layouts)` |
+| [Tabs](/ru/docs/grouping) | Группы макетов с переключением по вкладкам | `Tabs::make($namedLayouts)` |
+| [Accordion](/ru/docs/grouping) | Сворачиваемые группы макетов | `Accordion::make($namedLayouts)` |
+| [Block](/ru/docs/grouping) | Макеты с заголовком, описанием и действиями | `Block::make($layouts)` |
+| Blank | Макеты без дополнительного оформления | `Blank::make($layouts)` |
+| [Modal](/ru/docs/modals) | Диалог с макетами | `Modal::make('edit', $layouts)` |
+| [Wrapper](/ru/docs/custom-template) | Blade-представление с макетами | `Wrapper::make('custom-view', $namedLayouts)` |
+| [View](/ru/docs/custom-template) | Blade-представление с данными | `View::make('custom-view', $data)` |
+| Component | Blade-компонент | `Component::make(Hello::class)` |
+| Metric | Подписанные значения | `Metric::make(['Users' => 'users'])` |
+| Browsing | Встроенная веб-страница | `Browsing::make($url)` |
+| [Chart](/ru/docs/charts) | График | `Chart::make('visits', 'Visits')` |
+| [Card](/ru/docs/display-elements) | Карточка из объекта Cardable | `Card::make($card)` |
+| [Persona](/ru/docs/display-elements) | Один пользователь из объекта Personable | `Persona::make($person)` |
+| [Facepile](/ru/docs/display-elements) | Аватары из коллекции объектов Personable | `Facepile::make($people)` |
+
+Интерфейсы Cardable и Personable находятся в `Orchid\Screen\Contracts`.
+Полные примеры приведены в разделе [Элементы отображения](/ru/docs/display-elements).
+
+## Фасад Layout
+
+Фасад Layout предоставляет методы для создания макетов:
 
 ```php
-Rows::make([Input::make('name')]);
-Layout::rows([Input::make('name')]);
+use Orchid\Screen\Fields\Input;
+use Orchid\Screen\TD;
+use Orchid\Support\Facades\Layout;
 
-Table::make('users', [TD::make('name')]);
-Layout::table('users', [TD::make('name')]);
+Layout::rows([Input::make('user.name')]);
+Layout::table('users', [TD::make('name'), TD::make('email')]);
 ```
 
-Для фасада импортируйте `Orchid\Support\Facades\Layout`. Оба способа используют одну реализацию вывода.
-Для Table и Sortable ключ данных обязателен первым аргументом. Legend без target читает корень репозитория.
+Эти методы принимают те же аргументы, что и метод `make()` соответствующего макета.
 
-## Доступные объекты
+## Повторное использование макетов
 
-Все перечисленные классы находятся в `Orchid\Screen\Layouts`:
+Если один макет нужен нескольким экранам, вынесите его создание в метод или класс, возвращающий настроенный объект.
+Верните этот объект из `layout()`. Пример приведён в разделе [повторного использования форм](/ru/docs/rows).
 
-| Object | Construction |
-| --- | --- |
-| Rows | `Rows::make($fields)` |
-| Table | `Table::make('users', $columns)` |
-| Legend | `Legend::make($sights)->target('user')` |
-| Sortable | `Sortable::make('items', $sights)` |
-| Selection | `Selection::make($filters)->inline()` |
-| TabMenu | `TabMenu::make($menus)` |
-| SideMenu | `SideMenu::make($menus)->label('Settings')` |
-| Columns, Split | `Columns::make($layouts)`, `Split::make($layouts)` |
-| Tabs, Accordion | `Tabs::make($namedLayouts)`, `Accordion::make($namedLayouts)` |
-| Block, Blank | `Block::make($layouts)`, `Blank::make($layouts)` |
-| Modal | `Modal::make('edit', $layouts)` |
-| Wrapper | `Wrapper::make('custom-view', $namedLayouts)` |
-| View | `View::make('custom-view', $data)` |
-| Component | `Component::make(Hello::class)` |
-| Metric | `Metric::make(['Users' => 'users'])` |
-| Browsing | `Browsing::make($url)` |
-| Chart | `Chart::make('visits', 'Visits')` |
-| Card, Persona, Facepile | `Card::make($card)`, `Persona::make($person)`, `Facepile::make($people)` |
-
-## Повторное использование
-
-Локальные определения оставляйте в экране. Общее определение можно вынести в обычную фабрику настроенного объекта.
-Возвращайте этот объект из `layout()`: само имя класса фабрики не является Layout.
-Именованные подклассы остаются доступны для общих меню и особого поведения. `make()` сохраняет их класс.
-
-Listener остаётся классом поведения: `handle()` обрабатывает асинхронный запрос, а маршрут восстанавливает именованный
-обработчик. Этот контракт не заменяется сериализацией callbacks.
-
-Генераторы `orchid:rows`, `orchid:table` и `orchid:chart` удалены. Генераторы Selection, TabMenu, SideMenu и Listener сохранены
-для случаев, когда приложению нужен именованный класс. Для прямого создания генератор не требуется.
+Для форм, реагирующих на изменение полей, используйте [Listener](/ru/docs/listener).

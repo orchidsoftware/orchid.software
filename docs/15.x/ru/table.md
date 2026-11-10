@@ -2,32 +2,13 @@
 title: Таблицы
 ---
 
-Table выводит записи из репозитория экрана. Передайте в `make()` сначала ключ данных, затем массив колонок.
-`Layout::table()` создаёт такой же объект. Подкласс и генератор для этого не нужны.
+Table выводит записи, возвращённые из `query()` экрана. Передайте ключ данных и колонки в `make()`,
+затем верните таблицу из `layout()`:
 
 ```php
 use Orchid\Screen\Layouts\Table;
-use Orchid\Screen\TD;
-use Orchid\Support\Facades\Layout;
-
-Table::make('patients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-])->title('Patients');
-
-Layout::table('patients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-]);
-```
-
-Верните коллекцию, массив, paginator или cursor paginator под ключом `patients` из `query()` экрана.
-Для стандартного вывода ячеек каждая запись должна быть моделью с трейтом `Orchid\Screen\AsSource` или объектом
-`Repository`.
-Обычные массивы преобразуйте через `Repository::elements()`:
-
-```php
 use Orchid\Screen\Repository;
+use Orchid\Screen\TD;
 
 public function query(): array
 {
@@ -37,9 +18,25 @@ public function query(): array
         ]),
     ];
 }
+
+public function layout(): iterable
+{
+    return [
+        Table::make('patients', [
+            TD::make('name'),
+            TD::make('created_at'),
+        ])->title('Patients'),
+    ];
+}
 ```
 
-Для Table и Sortable непустой ключ данных обязателен при создании объекта.
+Первый аргумент выбирает данные из `query()`, второй задаёт колонки. Ключ данных не может быть пустым.
+
+Источником может быть массив, коллекция, paginator или cursor paginator. Для стандартного вывода ячеек
+каждая запись должна быть моделью с трейтом `Orchid\Screen\AsSource` или объектом `Repository`.
+Метод `Repository::elements()` оборачивает каждый массив в Repository, как в примере выше.
+
+Для создания таблицы также доступен [фасад Layout](/ru/docs/layouts): `Layout::table('patients', $columns)`.
 
 ## Ячейки
 
@@ -129,20 +126,15 @@ TD::make('last_name')->defaultHidden();
 
 ## Вывод данных
 
-В некоторый случаях, может потребоваться отобразить комбинированные данные, для этого предназначен метод `render`. Он
-реализует возможность генерации ячейки согласно функции:
+Метод `render()` получает текущую запись и возвращает содержимое ячейки.
+Результат выводится как HTML. Экранируйте пользовательский текст через `e()`:
 
 ```php
 TD::make('full_name')
-    ->render(function ($user) {
-        return $user->first_name . ' ' . $user->last_name;
-    });
+    ->render(fn ($user) => e($user->first_name . ' ' . $user->last_name));
 ```
 
-> **Примечание.** Возвращаемая строка не будет экранирована! Вам нужно позаботиться об этом самостоятельно с помощью
-> помощника `e()` помощника или использовать `Blade` представление.
->
-> Функция замыкания должна возвращать любое строчное значение:
+Замыкание также может вернуть Blade-представление:
 
 ```php
 TD::make('full_name')
@@ -158,11 +150,8 @@ TD::make('full_name')
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::make('full_name')
-    ->render(function ($user) {
-        return Link::make($user->last_name)
-               ->route('orchid.user.edit', $user);
-    });
+TD::make('name')
+    ->render(fn ($user) => Link::make($user->name)->route('orchid.users.edit', $user));
 ```
 
 Иногда требуется отобразить больше элементов в одном столбце, например, больше кнопок. Для этого вы можете использовать
@@ -175,8 +164,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     ->render(function ($user) {
         return Group::make([
-            Link::make('Show')->route('orchid.user.show', $user),
-            Link::make('Edit')->route('orchid.user.edit', $user),
+            Link::make('Edit')->route('orchid.users.edit', $user),
+            Link::make('Email')->href('mailto:'.$user->email),
         ]);
     });
 ```
@@ -194,7 +183,7 @@ TD::make()
 ```
 
 Если ячейке нужны данные вне набора таблицы, объявите публичное свойство Screen и верните его значение из `query()`.
-Orchid заполнит свойство перед вызовом `layout()`. В callback переменная `$this` по-прежнему указывает на Screen:
+Orchid заполнит свойство перед вызовом `layout()`. В замыкании `$this` указывает на объект экрана:
 
 ```php
 namespace App\Orchid\Screens;
@@ -378,6 +367,5 @@ Table::make('orders', [TD::make('name')])
     ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Определите маршрут создания из примера в приложении. Без `emptyAction()` сохраняется стандартный сброс фильтров;
-`emptyAction(null)` явно убирает действие. Переопределять protected-методы не нужно.
-Именованные классы таблиц остаются доступны для повторного использования. Генератор `orchid:table` удалён.
+Для примера нужен маршрут `orchid.orders.create`. Метод `emptyAction(null)` скрывает действие пустого состояния.
+Без собственного действия таблица предлагает стандартный сброс активных фильтров.
