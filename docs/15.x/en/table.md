@@ -5,7 +5,7 @@ description:
     customization options and integrations with other Orchid features.
 ---
 
-A Table displays records from a screen repository. Pass its columns to `make()` and set the data key with `target()`.
+A Table displays records from a screen repository. Pass the data key first and its columns second to `make()`.
 `Layout::table()` is an alias for the same object. No subclass or generator is required.
 
 ```php
@@ -13,19 +13,19 @@ use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
-Table::make([
+Table::make('patients', [
     TD::make('name'),
     TD::make('created_at')->sort(),
-])->target('patients')->title('Patients');
+])->title('Patients');
 
-Layout::table([
+Layout::table('patients', [
     TD::make('name'),
     TD::make('created_at')->sort(),
-])->target('patients');
+]);
 ```
 
 Return a collection, array, paginator, or cursor paginator under `patients` from the screen's `query()` method.
-Table and Sortable require an explicit nonempty target before rendering.
+Table and Sortable require a nonempty data key when they are constructed.
 
 ## Introduction to Cells
 
@@ -386,10 +386,10 @@ receive only the value of the selected cell.
 Configure presentation through fluent methods:
 
 ```php
-Table::make([
+Table::make('users', [
     TD::make('name'),
     TD::make('email'),
-])->target('users')
+])
     ->striped()
     ->compact()
     ->bordered()
@@ -402,13 +402,13 @@ These methods enable a presentation option and do not take boolean flags.
 
 ## Add totals
 
-Use `totals()` for the footer cells. Their values come from the root query repository, rather than the table target:
+Use `totals()` for the footer cells. Their values come from the root query repository, rather than the table data key:
 
 ```php
-Table::make([
+Table::make('orders', [
     TD::make('name'),
     TD::make('price'),
-])->target('orders')->totals([
+])->totals([
     TD::make('label')->render(fn () => 'Total:'),
     TD::make('total_price'),
 ]);
@@ -429,7 +429,7 @@ Override only the pieces your application needs:
 ```php
 use Orchid\Screen\Actions\Link;
 
-Table::make([TD::make('name')])->target('orders')
+Table::make('orders', [TD::make('name')])
     ->emptyIcon('bs.inbox')
     ->emptyTitle('No orders')
     ->emptyDescription('New orders will appear here.')

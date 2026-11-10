@@ -23,10 +23,10 @@ public function layout(): iterable
                 Input::make('user.name')->title('Name'),
             ])->title('Profile'),
 
-            Table::make([
+            Table::make('users', [
                 TD::make('name'),
                 TD::make('email'),
-            ])->target('users')->compact(),
+            ])->compact(),
         ]),
     ];
 }
@@ -43,12 +43,12 @@ The Layout facade is a short alias for the same object factories:
 Rows::make([Input::make('name')]);
 Layout::rows([Input::make('name')]);
 
-Table::make([TD::make('name')])->target('users');
-Layout::table([TD::make('name')])->target('users');
+Table::make('users', [TD::make('name')]);
+Layout::table('users', [TD::make('name')]);
 ```
 
 Import `Orchid\Support\Facades\Layout` to use the aliases. There is one rendering implementation for both forms.
-For Table and Sortable, set a nonempty `target()` before rendering. Legend can read the root repository without a target.
+Table and Sortable take a required data key as their first argument. Legend can read the root repository without a target.
 
 ## Available objects
 
@@ -57,9 +57,9 @@ All classes below live in `Orchid\Screen\Layouts`:
 | Object | Construction |
 | --- | --- |
 | Rows | `Rows::make($fields)` |
-| Table | `Table::make($columns)->target('users')` |
+| Table | `Table::make('users', $columns)` |
 | Legend | `Legend::make($sights)->target('user')` |
-| Sortable | `Sortable::make($sights)->target('items')` |
+| Sortable | `Sortable::make('items', $sights)` |
 | Selection | `Selection::make($filters)->inline()` |
 | TabMenu | `TabMenu::make($menus)` |
 | SideMenu | `SideMenu::make($menus)->label('Settings')` |

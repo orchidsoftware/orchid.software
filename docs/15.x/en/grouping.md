@@ -178,9 +178,9 @@ use Orchid\Screen\Sight;
 public function layout(): iterable
 {
    return [
-       Layout::sortable([
+       Layout::sortable('models', [
            Sight::make('title'),
-       ])->target('models'),
+       ]),
    ];
 }
 ```

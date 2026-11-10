@@ -411,8 +411,8 @@ display the list of tasks, and will include columns for the task name and action
 To define the task list layout, we can update the layouts method of the screen class as follows:
 
 ```php
-
 use Orchid\Screen\TD;
+
 
 /**
  * The screen's layout elements.
@@ -422,9 +422,9 @@ use Orchid\Screen\TD;
 public function layout(): iterable
 {
     return [
-        Layout::table([
+        Layout::table('tasks', [
             TD::make('name'),
-        ])->target('tasks'),
+        ]),
 
         Layout::modal('taskModal', Layout::rows([
             Input::make('task.name')
@@ -438,8 +438,7 @@ public function layout(): iterable
 }
 ```
 
-`target('tasks')` selects the dataset returned under `tasks` by `query()`.
-The array passed to `Layout::table()` defines the columns.
+The first argument, `'tasks'`, selects the dataset returned by `query()`. The second argument defines the table columns.
 
 Our task application is almost complete. However, we have no way to delete our existing tasks when they're done. Let's
 add that next.
@@ -453,7 +452,7 @@ Let's add a delete button to each row of our task listing.
 ```php
 use Orchid\Screen\Actions\Button;
 
-Layout::table([
+Layout::table('tasks', [
     TD::make('name'),
 
     TD::make('Actions')
@@ -463,7 +462,7 @@ Layout::table([
                 ->confirm('After deleting, the task will be gone forever.')
                 ->method('delete', ['task' => $task->id]);
         }),
-])->target('tasks'),
+]),
 ```
 
 ### Deleting the Task

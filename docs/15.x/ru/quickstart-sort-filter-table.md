@@ -80,7 +80,7 @@ use Orchid\Screen\TD;
 public function layout(): iterable
 {
     return [
-        Table::make([
+        Table::make('posts', [
             TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
@@ -93,7 +93,7 @@ public function layout(): iterable
 
             TD::make('updated_at', 'Last edit')
                 ->sort(),
-        ])->target('posts'),
+        ]),
     ];
 }
 ```

@@ -336,7 +336,7 @@ class PostListScreen extends Screen
     public function layout(): array
     {
         return [
-            Table::make([
+            Table::make('posts', [
             TD::make('title', 'Title')
                 ->render(function (Post $post) {
                     return Link::make($post->title)
@@ -345,7 +345,7 @@ class PostListScreen extends Screen
 
             TD::make('created_at', 'Created'),
             TD::make('updated_at', 'Last edit'),
-        ])->target('posts')
+        ])
         ];
     }
 }

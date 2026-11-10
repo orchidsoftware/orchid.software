@@ -23,10 +23,10 @@ public function layout(): iterable
                 Input::make('user.name')->title('Name'),
             ])->title('Profile'),
 
-            Table::make([
+            Table::make('users', [
                 TD::make('name'),
                 TD::make('email'),
-            ])->target('users')->compact(),
+            ])->compact(),
         ]),
     ];
 }
@@ -43,12 +43,12 @@ public function layout(): iterable
 Rows::make([Input::make('name')]);
 Layout::rows([Input::make('name')]);
 
-Table::make([TD::make('name')])->target('users');
-Layout::table([TD::make('name')])->target('users');
+Table::make('users', [TD::make('name')]);
+Layout::table('users', [TD::make('name')]);
 ```
 
 Для фасада импортируйте `Orchid\Support\Facades\Layout`. Оба способа используют одну реализацию вывода.
-Для Table и Sortable непустой `target()` обязателен. Legend без target читает корень репозитория.
+Для Table и Sortable ключ данных обязателен первым аргументом. Legend без target читает корень репозитория.
 
 ## Доступные объекты
 
@@ -57,9 +57,9 @@ Layout::table([TD::make('name')])->target('users');
 | Object | Construction |
 | --- | --- |
 | Rows | `Rows::make($fields)` |
-| Table | `Table::make($columns)->target('users')` |
+| Table | `Table::make('users', $columns)` |
 | Legend | `Legend::make($sights)->target('user')` |
-| Sortable | `Sortable::make($sights)->target('items')` |
+| Sortable | `Sortable::make('items', $sights)` |
 | Selection | `Selection::make($filters)->inline()` |
 | TabMenu | `TabMenu::make($menus)` |
 | SideMenu | `SideMenu::make($menus)->label('Settings')` |

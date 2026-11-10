@@ -2,7 +2,7 @@
 title: Таблицы
 ---
 
-Table выводит записи из репозитория экрана. Передайте колонки в `make()`, а ключ данных задайте через `target()`.
+Table выводит записи из репозитория экрана. Передайте в `make()` сначала ключ данных, затем массив колонок.
 `Layout::table()` создаёт такой же объект. Подкласс и генератор для этого не нужны.
 
 ```php
@@ -10,19 +10,19 @@ use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 
-Table::make([
+Table::make('patients', [
     TD::make('name'),
     TD::make('created_at')->sort(),
-])->target('patients')->title('Patients');
+])->title('Patients');
 
-Layout::table([
+Layout::table('patients', [
     TD::make('name'),
     TD::make('created_at')->sort(),
-])->target('patients');
+]);
 ```
 
 Верните коллекцию, массив или paginator под ключом `patients` из `query()` экрана.
-Для Table и Sortable непустой `target()` обязателен перед выводом.
+Для Table и Sortable непустой ключ данных обязателен при создании объекта.
 
 ## Ячейки
 
@@ -355,10 +355,10 @@ TD::make('price')->asComponent(Numeric::class, [
 Оформление задаётся цепочкой методов:
 
 ```php
-Table::make([
+Table::make('users', [
     TD::make('name'),
     TD::make('email'),
-])->target('users')
+])
     ->striped()
     ->compact()
     ->bordered()
@@ -370,13 +370,13 @@ Table::make([
 
 ## Итоговая строка
 
-Передайте ячейки подвала в `totals()`. Значения берутся из корня репозитория, а не из `target()` таблицы:
+Передайте ячейки подвала в `totals()`. Значения берутся из корня репозитория, а не из источника данных таблицы:
 
 ```php
-Table::make([
+Table::make('orders', [
     TD::make('name'),
     TD::make('price'),
-])->target('orders')->totals([
+])->totals([
     TD::make('label')->render(fn () => 'Total:'),
     TD::make('total_price'),
 ]);
@@ -397,7 +397,7 @@ return [
 ```php
 use Orchid\Screen\Actions\Link;
 
-Table::make([TD::make('name')])->target('orders')
+Table::make('orders', [TD::make('name')])
     ->emptyIcon('bs.inbox')
     ->emptyTitle('No orders')
     ->emptyDescription('New orders will appear here.')

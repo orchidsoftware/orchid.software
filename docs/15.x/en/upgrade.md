@@ -234,8 +234,9 @@ Check third-party Orchid packages for 15.x compatibility before upgrading them w
 Declare standard layouts with `Rows::make()`, `Table::make()`, and the other factories listed in
 [layout objects](/en/docs/layouts). Layout facade methods return those same concrete objects.
 
-Change target-based calls from `Layout::table('users', $columns)` to `Layout::table($columns)->target('users')`.
-The same change applies to `legend()` and `sortable()`. Table and Sortable reject a missing or empty data source.
+Table and Sortable keep the data key first: `Table::make('users', $columns)` and `Layout::table('users', $columns)`.
+Both require a nonempty data key at construction. Legend takes its sights first and can select a nested record with
+`target('user')`; without a target it reads the root repository.
 
 Replace table presentation overrides with `striped()`, `compact()`, `bordered()`, `hoverable()`, and `onEachSide($count)`.
 Use `totals($columns)` for footer cells and `emptyTitle()`, `emptyDescription()`, `emptyIcon()`, and `emptyAction()`
@@ -247,3 +248,9 @@ If a layout subclass defines a custom constructor, keep the parent signature or 
 
 The constructors store `fields`, `columns`, `filters`, and `navigations` as protected arrays where applicable.
 If a custom subclass already declares one of those properties, match the array type and visibility or rename its storage.
+
+Table and Sortable subclasses must call the parent constructor with the data key and columns. Return a configured
+instance from the screen; a bare class name needs a constructor that can supply its own configuration.
+
+Remove the old untyped `$target` property when moving the data key to the parent constructor.
+If you still redeclare it, use the inherited `string` type and compatible visibility. This applies to Table and Sortable.
