@@ -85,6 +85,12 @@ pre {
     tab-size: 4;
 }
 
+pre::selection,
+pre ::selection {
+    color: var(--color-code);
+    background: var(--color-code-ink);
+}
+
 pre code {
     display: block;
     padding: var(--space-relative-unit) var(--space-code-inline);
