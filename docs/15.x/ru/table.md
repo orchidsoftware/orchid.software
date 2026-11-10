@@ -21,7 +21,24 @@ Layout::table('patients', [
 ]);
 ```
 
-Верните коллекцию, массив или paginator под ключом `patients` из `query()` экрана.
+Верните коллекцию, массив, paginator или cursor paginator под ключом `patients` из `query()` экрана.
+Для стандартного вывода ячеек каждая запись должна быть моделью с трейтом `Orchid\Screen\AsSource` или объектом
+`Repository`.
+Обычные массивы преобразуйте через `Repository::elements()`:
+
+```php
+use Orchid\Screen\Repository;
+
+public function query(): array
+{
+    return [
+        'patients' => Repository::elements([
+            ['name' => 'Alex', 'created_at' => '2026-01-01'],
+        ]),
+    ];
+}
+```
+
 Для Table и Sortable непустой ключ данных обязателен при создании объекта.
 
 ## Ячейки
@@ -69,7 +86,7 @@ TD::make('last_name')->sort();
 
 Он будет определять только видимую часть. Вы можете указать логику фильтрации самостоятельно или положиться на
 «Автоматическую HTTP фильтрацию». Подробнее вы можете узнать на
-[странице "Фильтры"](/en/docs/filters/#automatic-http-filtering-and-sorting).
+[странице «Фильтры»](/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka).
 
 Чтобы добавить поле, вызовите метод фильтра и передайте экземпляр класса, который Вы хотите отобразить:
 
@@ -80,7 +97,7 @@ TD::make('color')->filter(
     Select::make()
         ->options(['red' => 'Red', 'green' => 'Green'])
         ->empty()
-),
+);
 ```
 
 > **Примечание**: Нет необходимости указывать имя поля. Оно будет доставлено и автоматически перезаписано именем
@@ -108,8 +125,7 @@ TD::make('last_name')->cantHide();
 TD::make('last_name')->defaultHidden();
 ```
 
-> **Примечание**: Чтобы скрыть из подвала таблицы кнопку и модальное окно для выбора отображаемых столбцов, нужно
-> сделать все столбцы таблицы скрытыми по-умолчанию.
+> Чтобы убрать выбор колонок из подвала таблицы, вызовите `cantHide()` для каждой колонки.
 
 ## Вывод данных
 
@@ -227,88 +243,42 @@ TD::make()->render(function (Model $model, object $loop) {
 
 ## Компоненты
 
-Сложные или динамические данные могут быть утомительными для указания в методе рендеринга или казаться чрезмерными.
-Поэтому ячейки поддерживают рендеринг с использованием [компонентов laravel](https://laravel.com/docs/blade#components).
-Это позволяет вынести логику отображения и использовать повторно.
-
-Например, есть модель `Order` и в зависимости от статуса мы можем показывать разное описание в наших компонентах. Это
-намного удобнее, чем указывать вещи прямо в представлении или создавать определенные области для такой обработки.
+Используйте [Blade-компонент](https://laravel.com/docs/blade#components), если несколько колонок или экранов
+используют одну логику отображения. Например, этот компонент выводит статус заказа:
 
 ```php
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use App\Models\Order;
+use Illuminate\View\Component;
 
 class OrderShortInformation extends Component
 {
-    public function __construct(
-        public readonly Order $order
-    ) {}
+    public function __construct(public readonly Order $order) {}
 
-    /**
-     * Get the status description.
-     *
-     * @return string
-     */
-    public function status(): string
+    public function render(): string
     {
-        return match ($this->order->status) {
-            Order::STATUS_PROCESS      => __('In the process'),
-            Order::STATUS_PAID         => __('Paid'),
-            Order::STATUS_CANCELLATION => __('Cancellation'),
-            Order::STATUS_REFUND       => __('Refund'),
-            default                    => __('Unknown'),
-        };
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|\Closure|string
-     */
-    public function render(): \Illuminate\View\View|\Closure|string
-    {
-        return view('components.order.short-information');
+        return '<span>{{ $order->status }}</span>';
     }
 }
 ```
 
-Чтобы использовать компонент в ячейке, вы должны передать его:
+В примере используется модель Order с атрибутом `status`. Передайте класс компонента в колонку:
 
 ```php
-use App\View\CompochangingOrderShortInformation;
+use App\View\Components\OrderShortInformation;
 
 TD::make('status')->component(OrderShortInformation::class);
 ```
 
-В качестве первого аргумента компонент получит всю строку, а не только данные ячейки.
-
-Поэтому, если вы используете deep injection в своем компоненте, важно указать имя переменной.
-
-```php
-public function __construct(Application $application, Order $order, int $limit = 300)
-{
-    $this->order = $order;
-    // ...
-}
-```
-
-Другие дополнительные аргументы, например, limit. Вы можете указать следующим образом:
-
-```php
-TD::make('status')->component(OrderShortInformation::class, [
-    'limit' => 100
-]);
-```
+Метод `component()` передаёт всю запись параметру `$order` компонента. Blade экранирует значение статуса.
 
 ## Компонент - Значение
 
 Это очень похоже на использование компонента выше, только предыдущий пример получает объект. Но это не всегда нужно,
 иногда нужно обработать только значение.
 
-Для этого нужно добавить новый метод, который бы по умолчанию получал только значение ячейки без дополнительной
-информации. Например, я хочу отображать значения определенного формата:
+Метод `asComponent()` передаёт компоненту только значение ячейки. Например, создайте компонент форматирования числа:
 
 ```php
 namespace App\View\Components;
@@ -317,50 +287,32 @@ use Illuminate\View\Component;
 
 class Numeric extends Component
 {
-    /**
-     * @var float
-     */
-    public float $value;
+    public string $value;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param  float        $value
-     * @param  int          $decimals
-     * @param  string|null  $decimal_separator
-     * @param  string|null  $thousands_separator
-     */
     public function __construct(
-        float   $value,
-        int     $decimals = 0,
-        ?string $decimal_separator = ".",
-        ?string $thousands_separator = ","
+        float $value,
+        int $decimals = 0,
+        string $decimal_separator = '.',
+        string $thousands_separator = ',',
     ) {
         $this->value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
     }
 
-    /**
-     * Get the view/contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): string
     {
-        return <<<'blade'
-    {{ $value }}
-blade;
+        return '{{ $value }}';
     }
 }
 ```
 
-Тогда вызов таблицы может выглядеть так:
+Для цены `1234.56` следующая колонка выведет `1,235`:
 
 ```php
 TD::make('price')->asComponent(Numeric::class);
 // 1,235
 ```
 
-Также с дополнительными параметрами:
+Передайте параметры форматирования массивом:
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [
@@ -387,7 +339,8 @@ Table::make('users', [
     ->onEachSide(2);
 ```
 
-Эти методы включают оформление без boolean-флагов. `onEachSide()` задаёт число ссылок рядом с текущей страницей пагинации.
+Эти методы включают оформление без boolean-флагов. `onEachSide()` задаёт число ссылок рядом с текущей страницей
+пагинации.
 
 ## Итоговая строка
 

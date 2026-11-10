@@ -69,7 +69,8 @@ public function layout(): iterable
 
 Menu items support the same `route()`, `list()`, `permission()`, and `canSee()` methods as the main menu.
 Hidden entries are removed; the layout does not render when no entries remain.
-The menu collapses on smaller screens. Leaf links match their exact URL, including query strings;
-parent entries also cover their descendants. Use `active()` to supply custom matching rules.
+The menu collapses on smaller screens. A leaf link such as `/settings/profile` also matches
+`/settings/profile?tab=security`, but not descendant paths.
+Parent entries cover their child links and descendant paths. Use `active()` to supply custom matching rules.
 
 Hiding a menu item does not authorize its destination. Protect the target screen and its actions separately.

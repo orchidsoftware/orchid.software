@@ -1,38 +1,34 @@
 ---
 title: Legend
-description:
-    Learn how to use the Legend and Summary features in Laravel Orchid to organize and display important information in
-    your administration-style applications. Improve the clarity and usability of your project with these easy to use
-    tools.
+description: Display a single record with labeled values.
 ---
 
-The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports
-short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of
-individual data points using closures or Blade components.
+Legend displays one record as labeled values. Use `Sight` objects to choose the values to display.
 
-Here is an example of how to use the Legend layout:
+## Display a record
+
+Return the record from the screen's `query()` method and select it with `target()`:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Legend;
+use Orchid\Screen\Repository;
 use Orchid\Screen\Sight;
 
-/**
- * Fetch data to be displayed on the screen.
- */
-public function query(): iterable
+public function query(): array
 {
     return [
-        'user' => Auth::user(),
+        'user' => new Repository([
+            'id' => 1,
+            'name' => 'Alex',
+            'email' => 'alex@example.com',
+        ]),
     ];
 }
 
-/**
- * The screen's layout elements.
- */
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::legend([
+        Legend::make([
             Sight::make('id'),
             Sight::make('name'),
             Sight::make('email'),
@@ -41,37 +37,26 @@ public function layout(): array
 }
 ```
 
-Pass the `Sight` objects to `make()` or `Layout::legend()`. `target('user')` selects the model or array returned
-under `user` by the screen's `query()` method. Omit the target to read from the root repository.
+For default cell rendering, the selected record must be a `Repository` or a model using `Orchid\Screen\AsSource`.
+Wrap a plain array in `new Repository($data)`. Without `target()`, Legend reads values from the root screen repository.
+`Layout::legend($sights)` is an alias for `Legend::make($sights)`.
 
-![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
+![Legend displaying a user record.](/img/layouts/legend.png)
 
-Many methods of the `Sight` class are similar to those of the `TD` class used in the [Table](/en/docs/table) layout. For
-example, you can add a popover to provide additional information about a data point:
+## Configure values
 
-```php
-Layout::legend([
-    Sight::make('id')->popover('Unique number in the system'),
-])->target('user'),
-```
-
-If you need to perform additional processing or rendering for a particular data point, you can use the `render` method
-and pass in a closure function:
+Use `popover()` to explain a value:
 
 ```php
-Layout::legend([
-    Sight::make('id')->render(fn() => 'Any html'),
-])->target('user'),
+Sight::make('id')->popover('Unique number in the system');
 ```
 
-If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a
-Blade component and specify it using the `component` method:
+A `render()` callback receives the selected record. Return the value to display:
 
 ```php
-Layout::legend([
-    Sight::make('id')->component(IdInformation::class),
-])->target('user'),
+Sight::make('name')->render(fn (Repository $user) => e(strtoupper($user->get('name'))));
 ```
 
-Blade components work in a similar way to those used in the [Table](/en/docs/table) layout. You can find more examples
-and information about using Blade components [in the Blade components documentation](https://laravel.com/docs/blade#components).
+Default values are escaped. Callback results are rendered as HTML, so escape untrusted text with `e()`.
+For reusable rendering, use a Blade component. The component receives the selected record, as described in
+[Table components](/en/docs/table#using-components).

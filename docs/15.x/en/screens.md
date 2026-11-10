@@ -7,18 +7,9 @@ description:
 
 ## Introduction
 
-Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a
-class that defines the UI components, their properties, and how they interact with one another.
-
-Screens don't handle data fetching directly. Instead, they focus on rendering the UI using predefined templates
-(layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or
-external service—without affecting the screen logic.
-
-At the core, each screen is essentially an HTML `<form>`, which streamlines handling user input, submitting data, and
-managing interactions in a standardized way. This ensures a predictable and consistent user experience.
-
-By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain
-complex web applications.
+A screen loads data through `query()` and defines its presentation through `layout()`.
+Data can come from a database, an API, or another source. Layouts display the values returned by `query()`.
+Use `commandBar()` for page actions, and define public handler methods to process form submissions.
 
 ## Creating Screens
 
@@ -99,15 +90,16 @@ use App\Orchid\Screens\Idea;
 Route::screen('/idea', Idea::class)->name('orchid.idea');
 ```
 
-This will register a new route for the Idea screen, accessible at the URL `/idea`.
+With the default `/admin` prefix, the Idea screen is available at `/admin/idea`. If you changed `orchid.prefix`, use
+that prefix instead.
 
 Adding a screen is slightly different from the usual registration, for example, a `GET` request. Instead of a single
 address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
 
-```php
+```text
 Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | orchid.idea
+GET|POST | admin/idea/{method?} | orchid.idea
 ```
 
 If you have multiple screens, you can register them in the same way. For example:
@@ -128,21 +120,21 @@ Route::screen('/idea', Idea::class)
 By writing the following routes:
 
 ```php
-Route::screen('/idea', ...
-Route::screen('/idea/edit',...
+Route::screen('/idea', Idea::class)->name('orchid.idea');
+Route::screen('/idea/edit', IdeaEdit::class)->name('orchid.idea.edit');
 ```
 
 We get:
 
-```php
+```text
 URI                           | Name
 ------------------------------+---------------------
-dashboard/idea/{method?}      | orchid.idea
-dashboard/idea/edit/{method?} | orchid.idea.edit
+admin/idea/{method?}      | orchid.idea
+admin/idea/edit/{method?} | orchid.idea.edit
 ```
 
 `{method?}` - means an optional argument that may go further. Correspondingly, the name "edit" in the address falls
-under it. The result will be a redirect to "dashboard/idea/". To avoid this, make sure to order your routes correctly.
+under it. The result will be a redirect to "admin/idea/". To avoid this, make sure to order your routes correctly.
 
 ## Querying Data
 

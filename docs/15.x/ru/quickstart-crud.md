@@ -59,7 +59,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('posts');
     }
-}
+};
 ```
 
 Для применения новой схемы к подключенной базе данных выполним:
@@ -250,9 +250,16 @@ class PostEditScreen extends Screen
      */
     public function createOrUpdate(Request $request)
     {
-        $this->post->fill($request->input('post'))->save();
+        $validated = $request->validate([
+            'post.title' => 'required|string|max:255',
+            'post.description' => 'required|string|max:200',
+            'post.body' => 'required|string',
+            'post.author' => 'required|integer|exists:users,id',
+        ]);
 
-        Alert::info('You have successfully created a post.');
+        $this->post->fill($validated['post'])->save();
+
+        Alert::info('You have successfully saved the post.');
 
         return redirect()->route('orchid.post.list');
     }
@@ -270,6 +277,9 @@ class PostEditScreen extends Screen
     }
 }
 ```
+
+Обработчик проверяет обязательные поля и существование автора перед сохранением. При ошибках проверки пользователь
+возвращается к форме. Свойство `$fillable` ограничивает массовое присваивание, но не проверяет данные.
 
 Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!
 
@@ -337,15 +347,12 @@ class PostListScreen extends Screen
     {
         return [
             Table::make('posts', [
-            TD::make('title', 'Title')
-                ->render(function (Post $post) {
-                    return Link::make($post->title)
-                        ->route('orchid.post.edit', $post);
-                }),
-
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
-        ])
+                TD::make('title', 'Title')
+                    ->render(fn (Post $post) => Link::make($post->title)
+                        ->route('orchid.post.edit', $post)),
+                TD::make('created_at', 'Created'),
+                TD::make('updated_at', 'Last edit'),
+            ]),
         ];
     }
 }

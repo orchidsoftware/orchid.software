@@ -1,22 +1,34 @@
 ---
 title: Legend
-extends: _layouts.documentation
+description: Покажите одну запись в виде подписанных значений.
 ---
 
-Макет легенда используется для просмотра одной модели:
+Legend выводит одну запись в виде подписанных значений. Ячейки `Sight` определяют, какие значения показать.
 
-![Legend](/img/layouts/legend.png)
+## Покажите запись
 
-Легенда поддерживает краткое написание без создания отдельного класса, например:
+Верните запись из `query()` экрана и выберите её через `target()`:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Legend;
+use Orchid\Screen\Repository;
 use Orchid\Screen\Sight;
 
-public function layout(): array
+public function query(): array
 {
     return [
-        Layout::legend([
+        'user' => new Repository([
+            'id' => 1,
+            'name' => 'Alex',
+            'email' => 'alex@example.com',
+        ]),
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Legend::make([
             Sight::make('id'),
             Sight::make('name'),
             Sight::make('email'),
@@ -25,36 +37,28 @@ public function layout(): array
 }
 ```
 
-Передайте ячейки Sight в `Legend::make()` или `Layout::legend()`. Метод `target('user')` выбирает модель или массив
-под ключом `user` из `query()` экрана. Без target используется корень репозитория.
+Для стандартного вывода ячеек выбранная запись должна быть объектом `Repository` или моделью с трейтом
+`Orchid\Screen\AsSource`. Обычный массив оберните в `new Repository($data)`.
+Без `target()` Legend читает значения из корня репозитория экрана.
+`Layout::legend($sights)` создаёт тот же объект, что и `Legend::make($sights)`.
 
-Многие методы у класса `Sight` класса общие с `TD` (используется в [таблице](/en/docs/table/)). Например, можно добавить
-пояснение:
+![Legend с данными пользователя.](/img/layouts/legend.png)
 
-```php
-Layout::legend([
-    Sight::make('id')->popover('Unique number in the system'),
-])->target('user'),
-```
+## Настройте значения
 
-Для того, чтобы использовать собственный шаблон или выполнить дополнительную обработку, вы можете использовать
-замыкание, переданное в метод `render` :
+Метод `popover()` добавляет пояснение к значению:
 
 ```php
-Layout::legend([
-    Sight::make('id')->render(function (){
-        return 'Any html';
-    }),
-])->target('user'),
+Sight::make('id')->popover('Unique number in the system');
 ```
 
-Если такая обработка нужна часто, то более подходящим решением будет создать `Blade компонент`
-([Подробнее](https://laravel.com/docs/blade#components)) и указать его:
+Замыкание `render()` получает выбранную запись. Верните значение для отображения:
 
 ```php
-Layout::legend([
-    Sight::make('id')->component(IdInformation::class),
-])->target('user'),
+Sight::make('name')->render(fn (Repository $user) => e(strtoupper($user->get('name'))));
 ```
 
-Компоненты работают так же, как таблица. Вы можете увидеть больше примеров [здесь](/ru/docs/table#components).
+Стандартные значения экранируются. Результат замыкания выводится как HTML, поэтому экранируйте недоверенный текст
+через `e()`.
+Для повторного использования отображения создайте Blade-компонент. Он получает выбранную запись, как и
+[компоненты таблицы](/ru/docs/table).
