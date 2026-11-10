@@ -185,14 +185,37 @@ TD::make()
     ),
 ```
 
-Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You
-can get the value as follows:
+When a cell needs data outside the table's dataset, declare a public property on the Screen and return its value from
+`query()`. Orchid fills that property before `layout()` runs. The callback keeps the Screen as `$this`:
 
 ```php
-use Orchid\Screen\Actions\Link;
+namespace App\Orchid\Screens;
 
-TD::make('price')
-    ->render(fn ($product) => $product->price + $this->query->get('tax')),
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\Screen;
+use Orchid\Screen\TD;
+
+class ProductListScreen extends Screen
+{
+    public int $tax = 0;
+
+    public function query(): array
+    {
+        return [
+            'products' => [(object) ['price' => 100]],
+            'tax' => 20,
+        ];
+    }
+
+    public function layout(): iterable
+    {
+        return [
+            Table::make('products', [
+                TD::make('price')->render(fn (object $product) => $product->price + $this->tax),
+            ]),
+        ];
+    }
+}
 ```
 
 ## Working with the Loop Variable

@@ -159,8 +159,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     ->render(function ($user) {
         return Group::make([
-            Link::make('Show')->route('orchid.user.show', $user);
-            Link::make('Edit')->route('orchid.user.edit', $user);
+            Link::make('Show')->route('orchid.user.show', $user),
+            Link::make('Edit')->route('orchid.user.edit', $user),
         ]);
     });
 ```
@@ -177,16 +177,37 @@ TD::make()
 });
 ```
 
-Иногда может потребоваться получить значение из `query` экрана, а не полагаться только на `target`. Вы можете получить
-значение следующим образом:
+Если ячейке нужны данные вне набора таблицы, объявите публичное свойство Screen и верните его значение из `query()`.
+Orchid заполнит свойство перед вызовом `layout()`. В callback переменная `$this` по-прежнему указывает на Screen:
 
 ```php
-use Orchid\Screen\Actions\Link;
+namespace App\Orchid\Screens;
 
-TD::make('price')
-    ->render(function ($product) {
-        return $product->price + $this->query->get('tax');
-    });
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\Screen;
+use Orchid\Screen\TD;
+
+class ProductListScreen extends Screen
+{
+    public int $tax = 0;
+
+    public function query(): array
+    {
+        return [
+            'products' => [(object) ['price' => 100]],
+            'tax' => 20,
+        ];
+    }
+
+    public function layout(): iterable
+    {
+        return [
+            Table::make('products', [
+                TD::make('price')->render(fn (object $product) => $product->price + $this->tax),
+            ]),
+        ];
+    }
+}
 ```
 
 ## Объект итератора (Loop variable)
