@@ -14,7 +14,7 @@ description: Фильтры служат для упрощения поиска 
 Для создания сложных запросов, вы можете использовать фильтры Eloquent, которые позволяют вам полностью управлять собой.
 Существует команда для создания нового фильтра:
 
-```php
+```shell
 php artisan orchid:filter QueryFilter
 ```
 
@@ -28,7 +28,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class QueryFilter extends Filter
 {
-
     /**
      * @var array
      */
@@ -47,14 +46,14 @@ class QueryFilter extends Filter
     /**
      * @return Field[]
      */
-    public function display() : array
+    public function display(): array
     {
         return [
             Input::make('email')
                 ->type('text')
                 ->value($this->request->input('email'))
                 ->placeholder('Search...')
-                ->title('Search')
+                ->title('Search'),
         ];
     }
 }
@@ -79,7 +78,7 @@ Model::filters([Filter::class])->simplePaginate();
 Когда вам нужно отобразить фильтры и применить их к модели, их удобнее сгруппировать, создав отдельный слой «Selection».
 Для создания нового слоя выполните команду:
 
-```php
+```shell
 php artisan orchid:selection MySelection
 ```
 
@@ -102,8 +101,8 @@ class MySelection extends Selection
     public function filters(): array
     {
         return [
-          SearchFilter::class,
-          CreatedFilter::class
+            SearchFilter::class,
+            CreatedFilter::class,
         ];
     }
 }
@@ -118,8 +117,6 @@ Model::filters(MySelection::class)->simplePaginate();
 Поскольку это слой, его также можно использовать для отображения полей на экране:
 
 ```php
-use Orchid\Support\Facades\Layout;
-
 public function layout(): array
 {
     return [
@@ -181,7 +178,7 @@ Post::filters()->defaultSort('id')->paginate();
 
 Как будет реагировать сортировка на HTTP параметры:
 
-```php
+```text
 http://example.com/demo?sort=content
 $model->orderBy('content', 'asc');
 

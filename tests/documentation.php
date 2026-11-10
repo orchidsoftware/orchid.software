@@ -109,6 +109,7 @@ foreach (['en', 'ru'] as $locale) {
     foreach ([
         'presenters' => ['UsePresenter', 'Presentable'],
         'filters'    => ['AllowedFilters', 'AllowedSorts'],
+        'layouts'    => ['Rows::make', 'Table::make'],
         'field'      => ['KeyValue', 'BlockEditor', 'Repeater'],
         'charts'     => ['labels', 'datasets'],
         'side-menu'  => ['SideMenu', 'navigations'],

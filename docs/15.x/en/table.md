@@ -1,72 +1,46 @@
 ---
 title: Table
-description:
-    Learn how to use the Laravel Orchid Table to display and organize data in your application. Discover various
-    customization options and integrations with other Orchid features.
+description: Display records with configurable columns, pagination, totals, and empty states.
 ---
 
-With the table layout, you can easily display large amounts of data in a structured and organized manner. Simply specify
-the fields you want to include in the table, and the table layout will take care of the rest, including sorting,
-filtering, and pagination. You can also customize the appearance of the table by setting various options, such as the
-table headings, row value, and more. Whether you are displaying a list of users, products, orders, or any other data,
-the table layout is a powerful and flexible tool for presenting your data in a clear and concise way.
-
-To create a new table layout, you can use the following Artisan command:
+A Table displays records returned by a screen's `query()` method. Pass the data key and columns to `make()`,
+then return the table from `layout()`:
 
 ```php
-php artisan orchid:table PatientListLayout
-```
-
-Example:
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\TD;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\Repository;
+use Orchid\Screen\TD;
 
-class PatientListLayout extends Table
+public function query(): array
 {
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the table.
-     *
-     * @var string
-     */
-    protected $target = 'patients';
+    return [
+        'patients' => Repository::elements([
+            ['name' => 'Alex', 'created_at' => '2026-01-01'],
+        ]),
+    ];
+}
 
-    /**
-     * @return TD[]
-     */
-    protected function columns() : iterable
-    {
-        return [
+public function layout(): iterable
+{
+    return [
+        Table::make('patients', [
             TD::make('name'),
-            TD::make('created_at')->sort(),
-        ];
-    }
+            TD::make('created_at'),
+        ])->title('Patients'),
+    ];
 }
 ```
 
-Tables also support writing through short syntax without creating a class:
+The first argument selects the data returned by `query()`. The second argument defines the columns.
+The data key must be nonempty.
 
-```php
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\TD;
-
-Layout::table('clients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-]);
-```
-
-![This image shows an illustrative table, which is a common way to display data in a structured and organized format.](/img/layouts/table.png)
+The source can be an array, collection, paginator, or cursor paginator. For default cell rendering,
+each record must be a model using `Orchid\Screen\AsSource` or a `Repository`.
+`Repository::elements()` wraps each array in a Repository, as shown above.
 
 ## Introduction to Cells
 
-A table is only a general wrapper for which you need to specify `TD` classes. Designed to create a single cell.
+Each `TD` object defines one column. Its name selects a value from each record:
 
 ```php
 use Orchid\Screen\TD;
@@ -74,7 +48,7 @@ use Orchid\Screen\TD;
 TD::make('last_name');
 ```
 
-The `make` method is the main method, sets the key name from the array and the display name.
+The optional second argument sets the column heading:
 
 ```php
 TD::make('last_name', 'Last name');
@@ -86,7 +60,7 @@ TD::make('last_name', 'Last name');
 
 ## Alignment
 
-Content alignment control can be controlled using the `align` method:
+Set cell alignment with `align()`:
 
 ```php
 TD::make('last_name')->align(TD::ALIGN_LEFT);
@@ -96,10 +70,10 @@ TD::make('last_name')->align(TD::ALIGN_RIGHT);
 
 ## Sorting
 
-Sorting the selection should be done in the `query` screen, for models, you can use automatic `http`
-[sorting and filtering](/en/docs/filters/#automatic-http-filtering-and-sorting)
+Apply sorting to the database query in the screen's `query()` method. For Eloquent models, configure
+[automatic HTTP sorting and filtering](/en/docs/filters/#automatic-http-filtering-and-sorting).
 
-To enable active sorting by this column you must specify the `sort` method:
+Call `sort()` to make the column heading a sorting control:
 
 ```php
 TD::make('last_name')->sort();
@@ -123,8 +97,7 @@ TD::make('color')->filter(
     Select::make()
         ->options(['red' => 'Red', 'green' => 'Green'])
         ->empty()
-),
-
+);
 ```
 
 > **Note:** there is no need to specify the field name. It will be delivered and overwritten automatically by the column
@@ -136,8 +109,8 @@ filter values. For example, you can replace an ID value with a display name. Her
 
 ```php
 TD::make('id')->filterValue(function ($value) {
-    return User::find($value)->name;
-})
+    return User::find($value)?->name ?? $value;
+});
 ```
 
 The `$value` value passed to the function will contain the filter value that was applied.
@@ -152,50 +125,49 @@ TD::make('last_name')->width('100px');
 
 ## Show/Hide
 
-By default, the user can hide any column for himself, but you can prohibit doing this by specifying:
+Users can hide columns by default. Use `cantHide()` to keep a column visible:
 
 ```php
 TD::make('last_name')->cantHide();
 ```
 
-And also hide by default, but can be shown at the request of the user.
+Use `defaultHidden()` to hide a column initially while allowing users to show it:
 
 ```php
 TD::make('last_name')->defaultHidden();
 ```
 
-> **Note**: To hide the button and modal for selecting visible columns from the table footer, you need to make all table
-> columns hidden by default.
+> **Note**: To hide the button and modal for selecting visible columns from the table footer, you need to call
+> `cantHide()` on every column.
 
 ## Data Output
 
-In some cases, you may need to display combined data, the `render` method is for this purpose intended. It implements
-the ability to generate cells according to the function:
+Use `render()` to calculate a cell value from the current record:
 
 ```php
 TD::make('full_name')
-    ->render(fn($user) => e($user->first_name . ' ' . $user->last_name)),
+    ->render(fn ($user) => e($user->first_name.' '.$user->last_name)),
 ```
 
 > **Note.** The returned string will not be escaped. You need to take care of this yourself with the `e()` helper or use
 > a `Blade` view.
 
-The loopback function must return any string value:
+The callback can also return a Blade view:
 
 ```php
 TD::make('full_name')
-    ->render(fn($user) => view('blade_template', [
+    ->render(fn ($user) => view('blade_template', [
         'user' => $user,
     ])),
 ```
 
-Please note that you can use fields and actions:
+You can also return fields and actions:
 
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::make()
-    ->render(fn ($user) => Link::make($user->last_name)->route('orchid.user.edit', $user)),
+TD::make('name')
+    ->render(fn ($user) => Link::make($user->name)->route('orchid.users.edit', $user)),
 ```
 
 Sometimes you want to show more elements in a single column, for example more buttons. For this you can use a `Group`:
@@ -205,9 +177,9 @@ use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
 
 TD::make()
-    ->render(fn($user) => Group::make([
-        Link::make('Show')->route('orchid.user.show', $user),
-        Link::make('Edit')->route('orchid.user.edit', $user),
+    ->render(fn ($user) => Group::make([
+        Link::make('Edit')->route('orchid.users.edit', $user),
+        Link::make('Email')->href('mailto:'.$user->email),
     ])),
 ```
 
@@ -215,21 +187,44 @@ For example, display a checkbox for each line for a bulk action:
 
 ```php
 TD::make()
-    ->render(fn(User $user) => CheckBox::make('users[]')
+    ->render(fn (User $user) => CheckBox::make('users[]')
         ->value($user->id)
         ->placeholder($user->name)
         ->checked(false)
     ),
 ```
 
-Sometimes it may be necessary to get the value from the `query` screen, rather than relying only on the `target`. You
-can get the value as follows:
+When a cell needs data outside the table's dataset, declare a public property on the Screen and return its value from
+`query()`. Orchid fills that property before `layout()` runs. The callback keeps the Screen as `$this`:
 
 ```php
-use Orchid\Screen\Actions\Link;
+namespace App\Orchid\Screens;
 
-TD::make('price')
-    ->render(fn ($product) => $product->price + $this->query->get('tax')),
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\Screen;
+use Orchid\Screen\TD;
+
+class ProductListScreen extends Screen
+{
+    public int $tax = 0;
+
+    public function query(): array
+    {
+        return [
+            'products' => [(object) ['price' => 100]],
+            'tax'      => 20,
+        ];
+    }
+
+    public function layout(): iterable
+    {
+        return [
+            Table::make('products', [
+                TD::make('price')->render(fn (object $product) => $product->price + $this->tax),
+            ]),
+        ];
+    }
+}
 ```
 
 ## Working with the Loop Variable
@@ -247,55 +242,28 @@ The `$loop` variable contains a variety of other useful properties which you can
 
 ## Using Components
 
-Complex or dynamic data can be tedious to specify in the render method or seem overwhelming. Therefore, cells support
-rendering using [Laravel components](https://laravel.com/docs/blade#components). It allows you to take out the display
-logic, as well as reuse.
-
-For example, there is an `Order` model, and depending on the status, we can show different descriptions in our
-components. It is much nicer than specifying things directly in the view or creating particular areas for such
-processing.
+Use a [Blade component](https://laravel.com/docs/blade#components) when several columns or screens share rendering
+logic.
+For example, this component displays an order's status:
 
 ```php
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use App\Models\Order;
+use Illuminate\View\Component;
 
 class OrderShortInformation extends Component
 {
-    public function __construct(
-        public readonly Order $order
-    ) {}
+    public function __construct(public readonly Order $order) {}
 
-    /**
-     * Get the status description.
-     *
-     * @return string
-     */
-    public function status(): string
+    public function render(): string
     {
-        return match ($this->order->status) {
-            Order::STATUS_PROCESS      => __('In the process'),
-            Order::STATUS_PAID         => __('Paid'),
-            Order::STATUS_CANCELLATION => __('Cancellation'),
-            Order::STATUS_REFUND       => __('Refund'),
-            default                    => __('Unknown'),
-        };
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|\Closure|string
-     */
-    public function render(): \Illuminate\View\View|\Closure|string
-    {
-        return view('components.order.short-information');
+        return '<span>{{ $order->status }}</span>';
     }
 }
 ```
 
-To use a component in a cell, you must pass it:
+This example expects an Order model with a `status` attribute. Pass the component class to the column:
 
 ```php
 use App\View\Components\OrderShortInformation;
@@ -303,30 +271,14 @@ use App\View\Components\OrderShortInformation;
 TD::make('status')->component(OrderShortInformation::class);
 ```
 
-The component will receive the entire row as its first argument, not just the cell data.
-
-Therefore, if you are using a deep injection in your component, it is essential to specify the variable's name.
-
-```php
-public function __construct(Application $application, Order $order, int $limit = 300)
-{
-    $this->order = $order;
-    // ...
-}
-```
-
-Other additional arguments, for example, limit. You can specify in the following way:
-
-```php
-TD::make('status')->component(OrderShortInformation::class, [
-    'limit' => 100
-]);
-```
+`component()` passes the entire row to the component's `$order` parameter. Blade escapes the status value.
+Use named arguments for additional constructor parameters, as shown in [Customizing component
+arguments](#customizing-component-arguments).
 
 ## Passing Cell Values to Components
 
 The `component` method passes the entire row to the component. When a component only needs the value of the current
-cell, use `usingComponent` instead.
+cell, use `asComponent()` instead.
 
 For example, you might want to display a value in a specific format:
 
@@ -337,55 +289,37 @@ use Illuminate\View\Component;
 
 class Numeric extends Component
 {
-    /**
-     * @var float
-     */
-    public float $value;
+    public string $value;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param  float        $value
-     * @param  int          $decimals
-     * @param  string|null  $decimal_separator
-     * @param  string|null  $thousands_separator
-     */
     public function __construct(
-        float   $value,
-        int     $decimals = 0,
-        ?string $decimal_separator = ".",
-        ?string $thousands_separator = ","
+        float $value,
+        int $decimals = 0,
+        string $decimal_separator = '.',
+        string $thousands_separator = ',',
     ) {
         $this->value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
     }
 
-    /**
-     * Get the view/contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): string
     {
-        return <<<'blade'
-    {{ $value }}
-blade;
+        return '{{ $value }}';
     }
 }
 ```
 
-Then the table call might look like this:
+For a price of `1234.56`, the following column displays `1,235`:
 
 ```php
 TD::make('price')->asComponent(Numeric::class);
 // 1,235
 ```
 
-Also with additional parameters:
+Pass formatting parameters as an array:
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [
-    'decimals' => 2,
-    'decimal_separator' => ',',
+    'decimals'            => 2,
+    'decimal_separator'   => ',',
     'thousands_separator' => ' ',
 ]);
 // 1 234,56
@@ -415,153 +349,63 @@ TD::make('last_activity', 'Last Updated')
     );
 ```
 
-Use `component` rather than `usingComponent` when the closure needs the entire row. Closures passed to `usingComponent`
+Use `component` rather than `asComponent()` when the closure needs the entire row. Closures passed to `asComponent()`
 receive only the value of the selected cell.
 
-## Table Options
+## Table options
 
-You can specify the text to be displayed if the table is empty specifying methods:
+Configure presentation through fluent methods:
 
 ```php
-/**
- * Icon displayed when no data is found.
- */
-protected function iconNotFound(): string
-{
-    return 'bs.journal-x';
-}
-
-/**
- * Text displayed when no data is found.
- */
-protected function textNotFound(): string
-{
-    return 'There are no records in this view';
-}
-
-/**
- * Subtext displayed when no data is found.
- */
-protected function subNotFound(): string
-{
-    return '';
-}
+Table::make('users', [
+    TD::make('name'),
+    TD::make('email'),
+])
+    ->striped()
+    ->compact()
+    ->bordered()
+    ->hoverable()
+    ->onEachSide(2);
 ```
 
-If the table rows do not seem contrasting to you, then you can enable `striped` mode:
+These methods enable a presentation option and do not take boolean flags.
+`onEachSide()` controls pagination links around the current page.
+
+## Add totals
+
+Use `totals()` for the footer cells. Their values come from the root query repository, rather than the table data key:
 
 ```php
-/**
- * Usage for zebra-striping to any table row.
- */
-protected function striped(): bool
-{
-    return true;
-}
+Table::make('orders', [
+    TD::make('name'),
+    TD::make('price'),
+])->totals([
+    TD::make('label')->render(fn () => 'Total:'),
+    TD::make('total_price'),
+]);
+
+// In query():
+return [
+    'orders'      => $orders,
+    'total_price' => $orders->sum('price'),
+];
 ```
 
-If you need a compact table, then you can enable `compact` mode:
+## Empty states
+
+The default empty state distinguishes an empty collection from a filtered query with no matches.
+When filters are active, it offers an action that removes `filter`, `page`, and `cursor` parameters.
+Override only the pieces your application needs:
 
 ```php
-/**
- * Usage for compact display of table rows.
- */
-protected function compact(): bool
-{
-    return true;
-}
-```
-
-If you need a hoverable table, then you can enable `hoverable` mode:
-
-```php
-/**
- * Enable a hover state on table rows.
- */
-protected function hoverable(): bool
-{
-    return true;
-}
-```
-
-You can dynamically change the amount of links to display in the table pagination with the following method:
-
-```php
-/**
- * The number of links to display on each side of current page link.
- */
-protected function onEachSide(): int
-{
-    return 3;
-}
-```
-
-## Adding a Total Row
-
-Adds a summary row at the bottom of the table, for this you need to define the `total` method and describe the required
-cells. For example:
-
-```php
-public function total():array
-{
-    return [
-        TD::make('total')
-            ->align(TD::ALIGN_RIGHT)
-            ->colspan(2)
-            ->render(fn () => 'Total:'),
-
-        TD::make('total_count')
-            ->align(TD::ALIGN_RIGHT),
-
-        TD::make('total_active_count')
-            ->align(TD::ALIGN_RIGHT),
-    ];
-}
-```
-
-This line will ignore the specified `target` based on the result of the `query` screen:
-
-```php
-public function query(): array
-{
-    return [
-        'total_active_count' => '$93 960',
-        'total_count' => '$103 783',
-        // ...
-    ];
-}
-```
-
-## Empty states and presentation
-
-An empty table distinguishes an empty collection from a filtered query with no matches.
-The filtered state offers a link that clears `filter`, `page`, and `cursor` parameters.
-To customize a table subclass, override `iconNotFound(): string`, `textNotFound(): string`,
-`subNotFound(): string`, or `actionNotFound(): ?Action`:
-
-```php
-use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 
-protected function actionNotFound(): ?Action
-{
-    return Link::make('Create order')->route('orchid.orders.create');
-}
-
-protected function hoverable(): bool
-{
-    return true;
-}
+Table::make('orders', [TD::make('name')])
+    ->emptyIcon('bs.inbox')
+    ->emptyTitle('No orders')
+    ->emptyDescription('New orders will appear here.')
+    ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Define the example's `orchid.orders.create` route in your application.
-The `striped(): bool`, `compact(): bool`, `bordered(): bool`, and `hoverable(): bool` hooks control table presentation.
-Keep the parent empty-state behavior if users need its clear-filters action.
-
-For an empty state in a custom view, use the shared Blade component:
-
-```blade
-<x-orchid-empty-state icon="bs.inbox" title="No orders" description="New orders will appear here.">
-    <a href="{{ route('orchid.orders.create') }}">Create order</a>
-</x-orchid-empty-state>
-```
+The example expects a route named `orchid.orders.create`. Use `emptyAction(null)` to hide the empty-state action.
+Without a custom action, the table offers the default clear-filters action when filters are active.

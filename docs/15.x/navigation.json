@@ -25,6 +25,7 @@
             "Notifications": "/en/docs/alert"
         },
         "Layouts": {
+            "Overview": "/en/docs/layouts",
             "Rows": "/en/docs/rows",
             "Tables": "/en/docs/table",
             "Legend": "/en/docs/legend",
@@ -79,6 +80,7 @@
             "Уведомления": "/ru/docs/alert"
         },
         "Макеты": {
+            "Обзор макетов": "/ru/docs/layouts",
             "Строки": "/ru/docs/rows",
             "Таблицы": "/ru/docs/table",
             "Легенда": "/ru/docs/legend",

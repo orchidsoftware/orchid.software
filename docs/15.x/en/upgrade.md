@@ -27,7 +27,8 @@ The attachment pivot no longer needs its own `id`. Role `name` is unique and rep
 Plan and test forward migrations in your application:
 
 1. Back up the database and inventory every reference to role and attachment IDs, including custom tables.
-2. Create mappings from existing numeric IDs to UUIDs. Update the records, pivots, and application foreign keys together.
+2. Create mappings from existing numeric IDs to UUIDs. Update the records, pivots, and application foreign keys
+together.
 3. Resolve duplicate role names before adding their unique constraint. Replace code that depends on role slugs.
 4. Check attachment names and paths before changing old text columns to strings. Preserve application metadata that
    previously used `description` or `alt`; those columns are absent from the new default create-table migration.
@@ -147,7 +148,8 @@ $user->save();
 $states = $user->permissions->toArray();
 ```
 
-Use `allows()` to check a value object, `toArray()` for an array, and `PermissionGroup::make()->add()` to register groups.
+Use `allows()` to check a value object, `toArray()` for an array, and `PermissionGroup::make()->add()` to register
+groups.
 `Orchid::allowedPermissions()` replaces `Dashboard::getAllowAllPermission()`.
 Use `Permissions::fromEncodedForm()` for Orchid's encoded permission checkbox input.
 The removed `Orchid\Access\UserInterface` and `RoleInterface` contracts must not remain on custom models.
@@ -185,20 +187,23 @@ Check their submitted data shapes before saving. Keep validation and authorizati
 Orchid Charts replaces Frappe. Provide shared labels and datasets:
 
 ```php
+use Orchid\Screen\Layouts\Chart;
+
 return [
     'visits' => [
-        'labels' => ['Mon', 'Tue'],
+        'labels'   => ['Mon', 'Tue'],
         'datasets' => [['name' => 'Visits', 'values' => [12, 18]]],
     ],
 ];
 
 // In layout():
-Layout::chart('visits', 'Visits')->type(Chart::TYPE_LINE)->height(300);
+Chart::make('visits')->title('Daily visits')->type(Chart::TYPE_LINE)->height(300);
 ```
 
 `Chartable` collections now return this complete shape from `toChart()`.
 Move presentation properties to fluent methods or supported options. Frappe options and JavaScript APIs are removed.
-Use [the chart reference](/en/docs/charts) to migrate mixed charts, markers, gradients, and generated subclasses.
+Replace per-dataset labels with shared top-level `labels` and move the series into `datasets`.
+Publish the new assets after upgrading. See [Charts](/en/docs/charts) for types and supported options.
 
 ## Navigation, dialogs, and notifications
 
@@ -228,3 +233,48 @@ Use `Orchid::permissionGroups()` instead of `Dashboard::getPermission()` when re
 Use `Orchid\Screen\Concerns\CanSee` and `Orchid\Screen\Concerns\HasCommandBar` for the moved screen traits.
 Prefer enum cases such as `Color::INFO` to the legacy `Color::INFO()` calls in new examples.
 Check third-party Orchid packages for 15.x compatibility before upgrading them with the platform.
+
+## Fluent layout objects
+
+The `Orchid\Support\Facades\Layout` facade and `Orchid\Screen\LayoutFactory` are removed.
+Import the concrete layout classes and replace factory calls with their `make()` methods:
+
+```php
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
+
+Rows::make($fields);
+Table::make('users', $columns);
+```
+
+Replace `Layout::metrics()` with `Metric::make()`; the class name is singular.
+Move custom factory macros to ordinary PHP methods returning configured layout objects.
+
+Declare standard layouts with `Rows::make()`, `Table::make()`, and the other factories listed in
+[layout objects](/en/docs/layouts).
+
+Table and Sortable keep the data key first: `Table::make('users', $columns)` and `Sortable::make('users', $columns)`.
+Both require a nonempty data key at construction. Legend takes its sights first and can select a nested record with
+`target('user')`; without a target it reads the root repository.
+
+Replace table presentation overrides with `striped()`, `compact()`, `bordered()`, `hoverable()`, and
+`onEachSide($count)`.
+Use `totals($columns)` for footer cells and `emptyTitle()`, `emptyDescription()`, `emptyIcon()`, and `emptyAction()`
+for empty states. SideMenu's old `label(): string` override becomes `->label('Settings')` or a protected string
+`$label`.
+
+The `orchid:rows`, `orchid:table`, and `orchid:chart` commands and their published stubs are removed.
+Named menu classes and their generators remain supported. Listener's class-based request handler is unchanged.
+If a layout subclass defines a custom constructor, keep the parent signature or extract a factory that returns an
+object.
+
+The constructors store `fields`, `columns`, `filters`, and `navigations` as protected arrays where applicable.
+If a custom subclass already declares one of those properties, match the array type and visibility or rename its
+storage.
+
+Table and Sortable subclasses must call the parent constructor with the data key and columns. Return a configured
+instance from the screen; a bare class name needs a constructor that can supply its own configuration.
+
+Remove the old untyped `$target` property when moving the data key to the parent constructor.
+If you still redeclare it, use the inherited `string` type and compatible visibility. This applies to Table and
+Sortable.

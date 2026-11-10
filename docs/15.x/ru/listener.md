@@ -12,7 +12,7 @@ extends: _layouts.documentation
 
 Для создания макета слушателя вам необходимо выполнить следующую команду `artisan` в вашем терминале:
 
-```php
+```shell
 php artisan orchid:listener SubtractListener
 ```
 
@@ -24,11 +24,11 @@ php artisan orchid:listener SubtractListener
 ```php
 namespace App\Orchid\Layouts;
 
+use Orchid\Screen\Layouts\Rows;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Listener;
 use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
 
 class SubtractListener extends Listener
 {
@@ -40,12 +40,12 @@ class SubtractListener extends Listener
     protected $targets = [];
 
     /**
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     protected function layouts(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('minuend')
                     ->title('Первый аргумент')
                     ->type('number'),
@@ -95,11 +95,11 @@ protected $targets = [
 ```php
 namespace App\Orchid\Layouts;
 
+use Orchid\Screen\Layouts\Rows;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Listener;
 use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
 
 class SubtractListener extends Listener
 {
@@ -114,12 +114,12 @@ class SubtractListener extends Listener
     ];
 
     /**
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     protected function layouts(): iterable
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('minuend')
                     ->title('Первый аргумент')
                     ->type('number'),

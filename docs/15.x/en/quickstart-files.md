@@ -39,7 +39,7 @@ return new class extends Migration
             $table->dropColumn('hero');
         });
     }
-}
+};
 ```
 
 Add to the model for automatic recording:
@@ -52,21 +52,23 @@ protected $fillable = [
     'description',
     'body',
     'author',
-    'hero'
+    'hero',
 ];
-//..
+// ..
 ```
 
 To write data to a new column, you need to add a suitable field to our create/edit screen, take `Cropper` to crop the
 image:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
+
 // app/Orchid/Screens/PostEditScreen.php
 
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Input::make('post.title')
                 ->title('Title')
                 ->placeholder('Attractive but mysterious title'),
@@ -89,7 +91,7 @@ public function layout(): array
             Quill::make('post.body')
                 ->title('Main text'),
 
-        ])
+        ]),
     ];
 }
 ```
@@ -101,7 +103,7 @@ For such a field, the width and height were additionally indicated to ensure the
 After saving the record with the image, the full `url` address to the image will be written to the database column, for
 example:
 
-```php
+```text
 http://localhost:8000/storage/2019/08/02/0f92ef693c26f3c1dbe2e3792abac9254ee98310.png
 ```
 
@@ -131,10 +133,12 @@ Let us dwell on the records of the number, but first, delete all existing record
 Most often, some files are combined, for example, for display in whole groups, the `Attach` field is suitable for this.
 
 ```php
+use Orchid\Screen\Layouts\Rows;
+
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Input::make('post.title')
                 ->title('Title')
                 ->placeholder('Attractive but mysterious title'),
@@ -159,9 +163,9 @@ public function layout(): array
                 ->title('Main text'),
 
             Attach::make('post.attachments')
-                ->title('All files')
+                ->title('All files'),
 
-        ])
+        ]),
     ];
 }
 ```
@@ -178,7 +182,7 @@ use Orchid\Screen\AsSource;
 class Post extends Model
 {
     use AsSource, Attachable;
-    //...
+    // ...
 }
 ```
 
@@ -216,7 +220,7 @@ public function query(Post $post): array
     $post->load('attachments');
 
     return [
-        'post' => $post
+        'post' => $post,
     ];
 }
 ```

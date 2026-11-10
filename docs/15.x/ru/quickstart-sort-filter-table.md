@@ -14,8 +14,6 @@ namespace App\Models;
 
 use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -23,11 +21,11 @@ use Orchid\Screen\AsSource;
     'id',
     'title',
     'created_at',
-    'updated_at'
+    'updated_at',
 ])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,7 +37,6 @@ class Post extends Model
         'description',
         'body',
         'author',
-        'hero'
     ];
 }
 ```
@@ -56,7 +53,7 @@ class Post extends Model
 public function query(): array
 {
     return [
-        'posts' => Post::filters()->defaultSort('id')->paginate()
+        'posts' => Post::filters()->defaultSort('id')->paginate(),
     ];
 }
 ```
@@ -69,31 +66,18 @@ public function query(): array
 > **Обратите внимание.** Таким способом вы не можете сортировать связанные модели.
 
 Для того чтобы отобразить в графическом интерфейсе возможность сортировки, мы должны вызвать метод `sort` для
-необходимых колонок таблицы в `PostListLayout`:
+необходимых колонок таблицы в `PostListScreen::layout()`:
 
 ```php
-namespace App\Orchid\Layouts;
-
 use App\Models\Post;
-use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
-class PostListLayout extends Table
+public function layout(): iterable
 {
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    public $target = 'posts';
-
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
-    {
-        return [
+    return [
+        Table::make('posts', [
             TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
@@ -106,20 +90,19 @@ class PostListLayout extends Table
 
             TD::make('updated_at', 'Last edit')
                 ->sort(),
-        ];
-    }
+        ]),
+    ];
 }
 ```
 
 После этого заголовок колонки будет реагировать на нажатие и менять положение сортировки.
 
-Трейт `Filterable` позволяет устанавливать не только сортировку, но и простую `Http` фильтрацию. Для её установки
-вернёмся к модели и добавим новое свойство:
+Для фильтрации по заголовку добавьте атрибут `AllowedFilters` к модели Post.
+Сохраните атрибут `AllowedSorts` и остальные свойства модели:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
-use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 use Orchid\Filters\AllowedFilters;
 use Orchid\Filters\Types\Like;
@@ -131,7 +114,7 @@ use Orchid\Filters\AllowedSorts;
 #[AllowedSorts(['id', 'title', 'created_at', 'updated_at'])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     // Keep the remaining model traits, properties, and methods.
 }
@@ -143,11 +126,11 @@ class Post extends Model
 use Orchid\Screen\Fields\Input;
 
 TD::make('title')
-   ->sort()
-   ->filter(Input::make())
-   ->render(function (Post $post) {
-       return Link::make($post->title)->route('orchid.post.edit', $post);
-   }),
+    ->sort()
+    ->filter(Input::make())
+    ->render(function (Post $post) {
+        return Link::make($post->title)->route('orchid.post.edit', $post);
+    }),
 ```
 
 После этого рядом с именем колонки появится иконка открывающая текстовое поле, устанавливая значение которого можно

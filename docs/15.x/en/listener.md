@@ -14,7 +14,7 @@ this by using a listener layout.
 
 To create a listener layout, you need to run the following `artisan` command in your terminal:
 
-```php
+```shell
 php artisan orchid:listener SubtractListener
 ```
 
@@ -24,11 +24,11 @@ created, you can now add the required fields in the `layouts` method as shown be
 ```php
 namespace App\Orchid\Layouts;
 
+use Orchid\Screen\Layouts\Rows;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Listener;
 use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
 
 class SubtractListener extends Listener
 {
@@ -40,12 +40,12 @@ class SubtractListener extends Listener
     protected $targets = [];
 
     /**
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     protected function layouts(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('minuend')
                     ->title('First argument')
                     ->type('number'),
@@ -95,11 +95,11 @@ all the fields on the screen, while `$request` represents the new state of the s
 ```php
 namespace App\Orchid\Layouts;
 
+use Orchid\Screen\Layouts\Rows;
 use Illuminate\Http\Request;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Layouts\Listener;
 use Orchid\Screen\Repository;
-use Orchid\Support\Facades\Layout;
 
 class SubtractListener extends Listener
 {
@@ -114,12 +114,12 @@ class SubtractListener extends Listener
     ];
 
     /**
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     protected function layouts(): iterable
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('minuend')
                     ->title('First argument')
                     ->type('number'),

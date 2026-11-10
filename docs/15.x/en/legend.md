@@ -1,78 +1,61 @@
 ---
 title: Legend
-description:
-    Learn how to use the Legend and Summary features in Laravel Orchid to organize and display important information in
-    your administration-style applications. Improve the clarity and usability of your project with these easy to use
-    tools.
+description: Display a single record with labeled values.
 ---
 
-The Legend layout is used to display a single model or array of data in a clear and concise way. The layout supports
-short, concise syntax for defining the data to be displayed, as well as the ability to customize the rendering of
-individual data points using closures or Blade components.
+Legend displays one record as labeled values. Use `Sight` objects to choose the values to display.
 
-Here is an example of how to use the Legend layout:
+## Display a record
+
+Return the record from the screen's `query()` method and select it with `target()`:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Legend;
+use Orchid\Screen\Repository;
 use Orchid\Screen\Sight;
 
-/**
- * Fetch data to be displayed on the screen.
- */
-public function query(): iterable
+public function query(): array
 {
     return [
-        'user' => Auth::user(),
-    ];
-}
-
-/**
- * The screen's layout elements.
- */
-public function layout(): array
-{
-    return [
-        Layout::legend('user', [
-            Sight::make('id'),
-            Sight::make('name'),
-            Sight::make('email'),
+        'user' => new Repository([
+            'id'    => 1,
+            'name'  => 'Alex',
+            'email' => 'alex@example.com',
         ]),
     ];
 }
+
+public function layout(): iterable
+{
+    return [
+        Legend::make([
+            Sight::make('id'),
+            Sight::make('name'),
+            Sight::make('email'),
+        ])->target('user'),
+    ];
+}
 ```
 
-In the example above, the first argument passed to the `Layout::legend()` method is the key for the data to be
-displayed. This key should correspond to an array or model that has been passed to the screen's `query` method. The
-second argument is an array of `Sight` objects, each representing a data point to be displayed.
+For default cell rendering, the selected record must be a `Repository` or a model using `Orchid\Screen\AsSource`.
+Wrap a plain array in `new Repository($data)`. Without `target()`, Legend reads values from the root screen repository.
 
-![This image shows an illustrative legend for a User model.](/img/layouts/legend.png)
+![Legend displaying a user record.](/img/layouts/legend.png)
 
-Many methods of the `Sight` class are similar to those of the `TD` class used in the [Table](/en/docs/table) layout. For
-example, you can add a popover to provide additional information about a data point:
+## Configure values
+
+Use `popover()` to explain a value:
 
 ```php
-Layout::legend('user', [
-    Sight::make('id')->popover('Unique number in the system'),
-]),
+Sight::make('id')->popover('Unique number in the system');
 ```
 
-If you need to perform additional processing or rendering for a particular data point, you can use the `render` method
-and pass in a closure function:
+A `render()` callback receives the selected record. Return the value to display:
 
 ```php
-Layout::legend('user', [
-    Sight::make('id')->render(fn() => 'Any html'),
-]),
+Sight::make('name')->render(fn (Repository $user) => e(strtoupper($user->get('name'))));
 ```
 
-If you need to perform similar processing for multiple data points, a more appropriate solution would be to create a
-Blade component and specify it using the `component` method:
-
-```php
-Layout::legend('user', [
-    Sight::make('id')->component(IdInformation::class),
-]),
-```
-
-Blade components work in a similar way to those used in the [Table](/en/docs/table) layout. You can find more examples
-and information about using Blade components [in the Blade components documentation](https://laravel.com/docs/blade#components).
+Default values are escaped. Callback results are rendered as HTML, so escape untrusted text with `e()`.
+For reusable rendering, use a Blade component. The component receives the selected record, as described in
+[Table components](/en/docs/table#using-components).

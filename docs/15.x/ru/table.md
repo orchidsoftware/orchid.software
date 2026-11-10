@@ -2,92 +2,39 @@
 title: Таблицы
 ---
 
-## Таблицы
-
-Макет таблицы используется для вывода минимальной информации для просмотра и выборки.
-
-![Table](/img/layouts/table.png)
-
-Для создания выполните команду:
+Table выводит записи, возвращённые из `query()` экрана. Передайте ключ данных и колонки в `make()`,
+затем верните таблицу из `layout()`:
 
 ```php
-php artisan orchid:table PatientListLayout
-```
-
-Пример:
-
-```php
-namespace App\Layouts\Clinic\Patient;
-
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Screen\Layouts\Table;
-use App\Orchid\Filters\SearchFilter;
-use App\Http\Filters\LastNamePatient;
+use Orchid\Screen\Repository;
+use Orchid\Screen\TD;
 
-class PatientListLayout extends Table
+public function query(): array
 {
-    /**
-     * Data source.
-     *
-     * The name of the key to fetch it from the query.
-     * The results of which will be elements of the table.
-     *
-     * @var string
-     */
-    protected $target = 'patients';
+    return [
+        'patients' => Repository::elements([
+            ['name' => 'Alex', 'created_at' => '2026-01-01'],
+        ]),
+    ];
+}
 
-    /**
-     * @return TD[]
-     */
-    protected function columns() : array
-    {
-        return [
-            TD::make('last_name','Last name')
-                ->align('center')
-                ->width('100px')
-                ->render(function ($patient) {
-                    return Link::make($patient->last_name)
-                        ->route('orchid.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('first_name', 'First Name')
-                ->sort()
-                ->render(function ($patient) {
-                    return Link::make($patient->first_name)
-                        ->route('orchid.clinic.patient.edit', $patient);
-                }),
-
-            TD::make('phone','Phone')
-                ->render(function ($patient){
-                    return ModalToggle::make($patient->phone)
-                        ->modal('oneAsyncModal')
-                        ->modalTitle('Phone')
-                        ->method('saveUser')
-                        ->asyncParameters([
-                            'id' => $patient->id,
-                        ]);
-                }),
-
-            TD::make('email','Email'),
-            TD::make('created_at','Date of publication'),
-        ];
-    }
+public function layout(): iterable
+{
+    return [
+        Table::make('patients', [
+            TD::make('name'),
+            TD::make('created_at'),
+        ])->title('Patients'),
+    ];
 }
 ```
 
-Таблицы так же поддерживают запись через короткий синтаксис без создания класса:
+Первый аргумент выбирает данные из `query()`, второй задаёт колонки. Ключ данных не может быть пустым.
 
-```php
-use Orchid\Support\Facades\Layout;
-use Orchid\Screen\TD;
-
-Layout::table('clients', [
-    TD::make('name'),
-    TD::make('created_at')->sort(),
-]);
-```
+Источником может быть массив, коллекция, paginator или cursor paginator. Для стандартного вывода ячеек
+каждая запись должна быть моделью с трейтом `Orchid\Screen\AsSource` или объектом `Repository`.
+Метод `Repository::elements()` оборачивает каждый массив в Repository, как в примере выше.
 
 ## Ячейки
 
@@ -134,7 +81,7 @@ TD::make('last_name')->sort();
 
 Он будет определять только видимую часть. Вы можете указать логику фильтрации самостоятельно или положиться на
 «Автоматическую HTTP фильтрацию». Подробнее вы можете узнать на
-[странице "Фильтры"](/en/docs/filters/#automatic-http-filtering-and-sorting).
+[странице «Фильтры»](/ru/docs/filters/#avtomaticheskaya-http-filtratsiya-i-sortirovka).
 
 Чтобы добавить поле, вызовите метод фильтра и передайте экземпляр класса, который Вы хотите отобразить:
 
@@ -145,7 +92,7 @@ TD::make('color')->filter(
     Select::make()
         ->options(['red' => 'Red', 'green' => 'Green'])
         ->empty()
-),
+);
 ```
 
 > **Примечание**: Нет необходимости указывать имя поля. Оно будет доставлено и автоматически перезаписано именем
@@ -173,31 +120,25 @@ TD::make('last_name')->cantHide();
 TD::make('last_name')->defaultHidden();
 ```
 
-> **Примечание**: Чтобы скрыть из подвала таблицы кнопку и модальное окно для выбора отображаемых столбцов, нужно
-> сделать все столбцы таблицы скрытыми по-умолчанию.
+> Чтобы убрать выбор колонок из подвала таблицы, вызовите `cantHide()` для каждой колонки.
 
 ## Вывод данных
 
-В некоторый случаях, может потребоваться отобразить комбинированные данные, для этого предназначен метод `render`. Он
-реализует возможность генерации ячейки согласно функции:
+Метод `render()` получает текущую запись и возвращает содержимое ячейки.
+Результат выводится как HTML. Экранируйте пользовательский текст через `e()`:
 
 ```php
 TD::make('full_name')
-    ->render(function ($user) {
-        return $user->first_name . ' ' . $user->last_name;
-    });
+    ->render(fn ($user) => e($user->first_name.' '.$user->last_name));
 ```
 
-> **Примечание.** Возвращаемая строка не будет экранирована! Вам нужно позаботиться об этом самостоятельно с помощью
-> помощника `e()` помощника или использовать `Blade` представление.
->
-> Функция замыкания должна возвращать любое строчное значение:
+Замыкание также может вернуть Blade-представление:
 
 ```php
 TD::make('full_name')
     ->render(function ($user) {
         return view('blade_template', [
-            'user' => $user
+            'user' => $user,
         ]);
     });
 ```
@@ -207,11 +148,8 @@ TD::make('full_name')
 ```php
 use Orchid\Screen\Actions\Link;
 
-TD::make('full_name')
-    ->render(function ($user) {
-        return Link::make($user->last_name)
-               ->route('orchid.user.edit', $user);
-    });
+TD::make('name')
+    ->render(fn ($user) => Link::make($user->name)->route('orchid.users.edit', $user));
 ```
 
 Иногда требуется отобразить больше элементов в одном столбце, например, больше кнопок. Для этого вы можете использовать
@@ -224,8 +162,8 @@ use Orchid\Screen\Fields\Group;
 TD::make()
     ->render(function ($user) {
         return Group::make([
-            Link::make('Show')->route('orchid.user.show', $user);
-            Link::make('Edit')->route('orchid.user.edit', $user);
+            Link::make('Edit')->route('orchid.users.edit', $user),
+            Link::make('Email')->href('mailto:'.$user->email),
         ]);
     });
 ```
@@ -234,24 +172,45 @@ TD::make()
 
 ```php
 TD::make()
-    ->render(function (User $user){
+    ->render(function (User $user) {
         return CheckBox::make('users[]')
             ->value($user->id)
             ->placeholder($user->name)
             ->checked(false);
-});
+    });
 ```
 
-Иногда может потребоваться получить значение из `query` экрана, а не полагаться только на `target`. Вы можете получить
-значение следующим образом:
+Если ячейке нужны данные вне набора таблицы, объявите публичное свойство Screen и верните его значение из `query()`.
+Orchid заполнит свойство перед вызовом `layout()`. В замыкании `$this` указывает на объект экрана:
 
 ```php
-use Orchid\Screen\Actions\Link;
+namespace App\Orchid\Screens;
 
-TD::make('price')
-    ->render(function ($product) {
-        return $product->price + $this->query->get('tax');
-    });
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\Screen;
+use Orchid\Screen\TD;
+
+class ProductListScreen extends Screen
+{
+    public int $tax = 0;
+
+    public function query(): array
+    {
+        return [
+            'products' => [(object) ['price' => 100]],
+            'tax'      => 20,
+        ];
+    }
+
+    public function layout(): iterable
+    {
+        return [
+            Table::make('products', [
+                TD::make('price')->render(fn (object $product) => $product->price + $this->tax),
+            ]),
+        ];
+    }
+}
 ```
 
 ## Объект итератора (Loop variable)
@@ -263,7 +222,7 @@ TD::make('price')
 ```php
 TD::make()->render(function (Model $model, object $loop) {
     return $loop->index;
-})
+});
 ```
 
 Переменная `$loop` содержит множество полезных параметров, подробнее можно ознакомиться в
@@ -271,88 +230,42 @@ TD::make()->render(function (Model $model, object $loop) {
 
 ## Компоненты
 
-Сложные или динамические данные могут быть утомительными для указания в методе рендеринга или казаться чрезмерными.
-Поэтому ячейки поддерживают рендеринг с использованием [компонентов laravel](https://laravel.com/docs/blade#components).
-Это позволяет вынести логику отображения и использовать повторно.
-
-Например, есть модель `Order` и в зависимости от статуса мы можем показывать разное описание в наших компонентах. Это
-намного удобнее, чем указывать вещи прямо в представлении или создавать определенные области для такой обработки.
+Используйте [Blade-компонент](https://laravel.com/docs/blade#components), если несколько колонок или экранов
+используют одну логику отображения. Например, этот компонент выводит статус заказа:
 
 ```php
 namespace App\View\Components;
 
-use Illuminate\View\Component;
 use App\Models\Order;
+use Illuminate\View\Component;
 
 class OrderShortInformation extends Component
 {
-    public function __construct(
-        public readonly Order $order
-    ) {}
+    public function __construct(public readonly Order $order) {}
 
-    /**
-     * Get the status description.
-     *
-     * @return string
-     */
-    public function status(): string
+    public function render(): string
     {
-        return match ($this->order->status) {
-            Order::STATUS_PROCESS      => __('In the process'),
-            Order::STATUS_PAID         => __('Paid'),
-            Order::STATUS_CANCELLATION => __('Cancellation'),
-            Order::STATUS_REFUND       => __('Refund'),
-            default                    => __('Unknown'),
-        };
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|\Closure|string
-     */
-    public function render(): \Illuminate\View\View|\Closure|string
-    {
-        return view('components.order.short-information');
+        return '<span>{{ $order->status }}</span>';
     }
 }
 ```
 
-Чтобы использовать компонент в ячейке, вы должны передать его:
+В примере используется модель Order с атрибутом `status`. Передайте класс компонента в колонку:
 
 ```php
-use App\View\CompochangingOrderShortInformation;
+use App\View\Components\OrderShortInformation;
 
 TD::make('status')->component(OrderShortInformation::class);
 ```
 
-В качестве первого аргумента компонент получит всю строку, а не только данные ячейки.
-
-Поэтому, если вы используете deep injection в своем компоненте, важно указать имя переменной.
-
-```php
-public function __construct(Application $application, Order $order, int $limit = 300)
-{
-    $this->order = $order;
-    // ...
-}
-```
-
-Другие дополнительные аргументы, например, limit. Вы можете указать следующим образом:
-
-```php
-TD::make('status')->component(OrderShortInformation::class, [
-    'limit' => 100
-]);
-```
+Метод `component()` передаёт всю запись параметру `$order` компонента. Blade экранирует значение статуса.
 
 ## Компонент - Значение
 
 Это очень похоже на использование компонента выше, только предыдущий пример получает объект. Но это не всегда нужно,
 иногда нужно обработать только значение.
 
-Для этого нужно добавить новый метод, который бы по умолчанию получал только значение ячейки без дополнительной
-информации. Например, я хочу отображать значения определенного формата:
+Метод `asComponent()` передаёт компоненту только значение ячейки. Например, создайте компонент форматирования числа:
 
 ```php
 namespace App\View\Components;
@@ -361,228 +274,96 @@ use Illuminate\View\Component;
 
 class Numeric extends Component
 {
-    /**
-     * @var float
-     */
-    public float $value;
+    public string $value;
 
-    /**
-     * Create a new component instance.
-     *
-     * @param  float        $value
-     * @param  int          $decimals
-     * @param  string|null  $decimal_separator
-     * @param  string|null  $thousands_separator
-     */
     public function __construct(
-        float   $value,
-        int     $decimals = 0,
-        ?string $decimal_separator = ".",
-        ?string $thousands_separator = ","
+        float $value,
+        int $decimals = 0,
+        string $decimal_separator = '.',
+        string $thousands_separator = ',',
     ) {
         $this->value = number_format($value, $decimals, $decimal_separator, $thousands_separator);
     }
 
-    /**
-     * Get the view/contents that represent the component.
-     *
-     * @return \Illuminate\Contracts\View\View|\Closure|string
-     */
-    public function render()
+    public function render(): string
     {
-        return <<<'blade'
-    {{ $value }}
-blade;
+        return '{{ $value }}';
     }
 }
 ```
 
-Тогда вызов таблицы может выглядеть так:
+Для цены `1234.56` следующая колонка выведет `1,235`:
 
 ```php
 TD::make('price')->asComponent(Numeric::class);
 // 1,235
 ```
 
-Также с дополнительными параметрами:
+Передайте параметры форматирования массивом:
 
 ```php
 TD::make('price')->asComponent(Numeric::class, [
-    'decimals' => 2,
-    'decimal_separator' => ',',
+    'decimals'            => 2,
+    'decimal_separator'   => ',',
     'thousands_separator' => ' ',
 ]);
 // 1 234,56
 ```
 
-## Параметры таблицы
+## Настройка таблицы
 
-Вы можете указать текст, который будет отображён если таблица пуста, дополнительно указав методы:
+Оформление задаётся цепочкой методов:
 
 ```php
-/**
- * @return string
- */
-protected function iconNotFound(): string
-{
-    return 'icon-table';
-}
-
-/**
- * @return string
- */
-protected function textNotFound(): string
-{
-    return __('There are no records in this view');
-}
-
-/**
- * @return string
- */
-protected function subNotFound(): string
-{
-    return '';
-}
+Table::make('users', [
+    TD::make('name'),
+    TD::make('email'),
+])
+    ->striped()
+    ->compact()
+    ->bordered()
+    ->hoverable()
+    ->onEachSide(2);
 ```
 
-Если строки таблицы кажутся вам не контрастными, то Вы можете включить `striped` режим:
+Эти методы включают оформление без boolean-флагов. `onEachSide()` задаёт число ссылок рядом с текущей страницей
+пагинации.
+
+## Итоговая строка
+
+Передайте ячейки подвала в `totals()`. Значения берутся из корня репозитория, а не из источника данных таблицы:
 
 ```php
-/**
- * @return bool
- */
-protected function striped(): bool
-{
-    return true;
-}
+Table::make('orders', [
+    TD::make('name'),
+    TD::make('price'),
+])->totals([
+    TD::make('label')->render(fn () => 'Total:'),
+    TD::make('total_price'),
+]);
+
+// In query():
+return [
+    'orders'      => $orders,
+    'total_price' => $orders->sum('price'),
+];
 ```
 
-Вы можете динамически изменять количество навигационных ссылок, отображаемых в постраничной навигации таблицы, следующим
-способом:
+## Пустые состояния
+
+По умолчанию таблица различает отсутствие записей и отсутствие совпадений после фильтрации.
+При активных фильтрах доступно действие сброса параметров `filter`, `page` и `cursor`.
+Настраивайте только необходимые части:
 
 ```php
-/**
- * Количество ссылок, отображаемых с каждой стороны от ссылки на текущую страницу.
- *
- * @return int
- */
-protected function onEachSide(): int
-{
-    return 3;
-}
-```
-
-## Строка итога
-
-Добавляет итоговую строку внизу таблицы, для этого необходимо определить метод `total` и описать требуемые ячейки.
-Например:
-
-```php
-public function total():array
-{
-    return [
-        TD::make('total')
-            ->align(TD::ALIGN_RIGHT)
-            ->colspan(2)
-            ->render(function () {
-                return 'Total:';
-            }),
-
-        TD::make('total_count')
-            ->align(TD::ALIGN_RIGHT),
-
-        TD::make('total_active_count')
-            ->align(TD::ALIGN_RIGHT),
-    ];
-}
-```
-
-Данная строка будет игнорировать указанный `target` смотря на результат `query` экрана:
-
-```php
-public function query(): array
-{
-    return [
-        'total_active_count' => '$93 960',
-        'total_count' => '$103 783',
-        // ...
-    ];
-}
-```
-
-## Расширение колонок
-
-Работая с однотипными данными, часто требуется и обрабатывать их одинаковым образом. Для того чтобы не дублировать код,
-в слоях имеется возможность расширять класс `TD` собственными методами. Для этого необходимо в сервис-провайдере
-зарегистрировать функцию замыкания.
-
-Пример регистрации:
-
-```php
-// AppServiceProvider.php
-TD::macro('bool', function () {
-
-    $column = $this->column;
-
-    $this->render(function ($datum) use ($column) {
-        return view('bool',[
-            'bool' => $datum->$column
-        ]);
-    });
-
-    return $this;
-});
-```
-
-Пример шаблона:
-
-```php
-// bool.blade.php
-
-<span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>
-```
-
-Пример использования:
-
-```php
-public function grid(): array
-{
-    return [
-        TD::make('status')->bool(),
-    ];
-}
-```
-
-## Пустые состояния и оформление
-
-Пустая таблица различает отсутствие записей и отсутствие совпадений после фильтрации.
-Во втором случае доступна ссылка сброса параметров `filter`, `page` и `cursor`.
-В подклассе таблицы можно переопределить `iconNotFound(): string`, `textNotFound(): string`,
-`subNotFound(): string` или `actionNotFound(): ?Action`:
-
-```php
-use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Link;
 
-protected function actionNotFound(): ?Action
-{
-    return Link::make('Create order')->route('orchid.orders.create');
-}
-
-protected function hoverable(): bool
-{
-    return true;
-}
+Table::make('orders', [TD::make('name')])
+    ->emptyIcon('bs.inbox')
+    ->emptyTitle('No orders')
+    ->emptyDescription('New orders will appear here.')
+    ->emptyAction(Link::make('Create order')->route('orchid.orders.create'));
 ```
 
-Маршрут `orchid.orders.create` из примера нужно определить в приложении.
-Методы `striped(): bool`, `compact(): bool`, `bordered(): bool` и `hoverable(): bool` управляют оформлением таблицы.
-Сохраните родительское пустое состояние, если пользователю нужна встроенная ссылка сброса фильтров.
-
-В своём шаблоне используйте общий компонент:
-
-```blade
-<x-orchid-empty-state icon="bs.inbox" title="Нет заказов" description="Здесь появятся новые заказы.">
-    <a href="{{ route('orchid.orders.create') }}">Создать заказ</a>
-</x-orchid-empty-state>
-```
+Для примера нужен маршрут `orchid.orders.create`. Метод `emptyAction(null)` скрывает действие пустого состояния.
+Без собственного действия таблица предлагает стандартный сброс активных фильтров.

@@ -39,7 +39,7 @@ use Orchid\Platform\OrchidServiceProvider;
 
 class MyPackageServiceProvider extends OrchidServiceProvider
 {
-   // Your package-specific code here
+    // Your package-specific code here
 }
 ```
 
@@ -196,59 +196,44 @@ Composer provides comprehensive tools for resolving version conflicts. If, for a
 your project, you can consider using the following method:
 
 ```php
-Orchid\Support\Facades\Orchid::version()
+Orchid\Support\Facades\Orchid::version();
 ```
 
 This method returns a string representation of the current version being used.
 
-## Extending Layouts
+## Reusing layouts
 
-The `Layouts` class groups several layouts. To add a new feature to it, specify it in the service provider as follows:
+To share a configured layout between screens, create a class that returns the layout:
 
 ```php
-use Orchid\Screen\Layout;
-use Orchid\Screen\LayoutFactory;
-use Orchid\Screen\Repository;
+namespace App\Orchid\Layouts;
 
-/**
- * Define a custom macro for LayoutFactory.
- *
- * @param string $name
- * @return Layout
- */
-LayoutFactory::macro('hello', fn (string $name) => new class($name) extends Layout
+use Orchid\Screen\Layouts\View;
+
+class GreetingLayout
 {
-    /**
-     * The name to be used in the view.
-     *
-     * @var string
-     */
-    public function __construct(
-        private string $name
-    ) {}
-
-    /**
-     * Build the layout and return the view.
-     *
-     * @param Repository $repository
-     * @return \Illuminate\View\View
-     */
-    protected function build(Repository $repository)
+    public static function make(string $name): View
     {
-        return view('hello', ['name' => $this->name]);
+        return View::make('hello', ['name' => $name]);
     }
-});
+}
 ```
 
-Then on the screen, the call will look like:
+Create `resources/views/hello.blade.php`:
+
+```blade
+<p>Hello, {{ $name }}.</p>
+```
+
+Return the configured layout from the screen:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use App\Orchid\Layouts\GreetingLayout;
 
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::hello('Alexandr Chernyaev')
+        GreetingLayout::make('Alex'),
     ];
 }
 ```
@@ -268,8 +253,8 @@ TD::macro('bool', function () {
     $column = $this->column;
 
     $this->render(function ($datum) use ($column) {
-        return view('bool',[
-            'bool' => $datum->$column
+        return view('bool', [
+            'bool' => $datum->$column,
         ]);
     });
 
@@ -279,7 +264,7 @@ TD::macro('bool', function () {
 
 Template example:
 
-```php
+```blade
 // bool.blade.php
 
 <span class="{{ $bool ? 'text-success' : 'text-danger' }}">●</span>

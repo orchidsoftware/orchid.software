@@ -15,7 +15,7 @@ description: Laravel CRUD
 
 Для начала нам необходимо создать новую таблицу. Для этого выполним команду:
 
-```php
+```shell
 php artisan make:migration create_posts_table
 ```
 
@@ -59,18 +59,18 @@ return new class extends Migration
     {
         Schema::dropIfExists('posts');
     }
-}
+};
 ```
 
 Для применения новой схемы к подключенной базе данных выполним:
 
-```php
+```shell
 php artisan migrate
 ```
 
 После успешного создания таблицы, добавим новую `Eloquent` модель, для этого выполним:
 
-```php
+```shell
 php artisan make:model Post
 ```
 
@@ -95,7 +95,7 @@ class Post extends Model
         'title',
         'description',
         'body',
-        'author'
+        'author',
     ];
 }
 ```
@@ -108,7 +108,7 @@ class Post extends Model
 постов, но теперь нам необходимо как отображать записи, так и редактировать их. Поэтому добавим два новых экрана на
 каждое действие, поочередно выполнив команды:
 
-```php
+```shell
 php artisan orchid:screen PostEditScreen
 php artisan orchid:screen PostListScreen
 ```
@@ -137,6 +137,7 @@ Route::screen('posts', PostListScreen::class)
 ```php
 namespace App\Orchid\Screens;
 
+use Orchid\Screen\Layouts\Rows;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -145,7 +146,6 @@ use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\Select;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Attach;
-use Orchid\Support\Facades\Layout;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -167,7 +167,7 @@ class PostEditScreen extends Screen
     public function query(Post $post): array
     {
         return [
-            'post' => $post
+            'post' => $post,
         ];
     }
 
@@ -184,7 +184,7 @@ class PostEditScreen extends Screen
      */
     public function description(): ?string
     {
-        return "Blog posts";
+        return 'Blog posts';
     }
 
     /**
@@ -198,7 +198,7 @@ class PostEditScreen extends Screen
             Button::make('Create post')
                 ->icon('pencil')
                 ->method('createOrUpdate')
-                ->canSee(!$this->post->exists),
+                ->canSee(! $this->post->exists),
 
             Button::make('Update')
                 ->icon('note')
@@ -215,12 +215,12 @@ class PostEditScreen extends Screen
     /**
      * Views.
      *
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Input::make('post.title')
                     ->title('Title')
                     ->placeholder('Attractive but mysterious title')
@@ -239,7 +239,7 @@ class PostEditScreen extends Screen
                 Quill::make('post.body')
                     ->title('Main text'),
 
-            ])
+            ]),
         ];
     }
 
@@ -250,9 +250,16 @@ class PostEditScreen extends Screen
      */
     public function createOrUpdate(Request $request)
     {
-        $this->post->fill($request->input('post'))->save();
+        $validated = $request->validate([
+            'post.title'       => 'required|string|max:255',
+            'post.description' => 'required|string|max:200',
+            'post.body'        => 'required|string',
+            'post.author'      => 'required|integer|exists:users,id',
+        ]);
 
-        Alert::info('You have successfully created a post.');
+        $this->post->fill($validated['post'])->save();
+
+        Alert::info('You have successfully saved the post.');
 
         return redirect()->route('orchid.post.list');
     }
@@ -271,66 +278,18 @@ class PostEditScreen extends Screen
 }
 ```
 
+Обработчик проверяет обязательные поля и существование автора перед сохранением. При ошибках проверки пользователь
+возвращается к форме. Свойство `$fillable` ограничивает массовое присваивание, но не проверяет данные.
+
 Теперь мы можем создавать, редактировать и удалять записи. Но не просматривать в виде списка, изменим это!
 
-Во всех предыдущих определениях слоёв использовалась только короткая запись вида `Layout:rows()`, но для отображения
-сложной или объемной информации желательно создавать отдельные классы.
-
-Добавим новый класс `Layout`, выполнив команду:
-
-```php
-php artisan orchid:table PostListLayout
-```
-
-Укажем какие данные мы ходим видеть:
-
-```php
-namespace App\Orchid\Layouts;
-
-use App\Models\Post;
-use Orchid\Screen\TD;
-use Orchid\Screen\Actions\Link;
-use Orchid\Screen\Layouts\Table;
-
-class PostListLayout extends Table
-{
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    public $target = 'posts';
-
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
-    {
-        return [
-            TD::make('title', 'Title')
-                ->render(function (Post $post) {
-                    return Link::make($post->title)
-                        ->route('orchid.post.edit', $post);
-                }),
-
-            TD::make('created_at', 'Created'),
-            TD::make('updated_at', 'Last edit'),
-        ];
-    }
-}
-```
-
-Свойство `target` указывает ключ, который будет источником для нашей таблицы на экране.
-
-> **Примечание.** Формирование `HTML` непосредственно в классе необходимо только для примера и является плохой
-> практикой. Пожалуйста, используйте `Blade` шаблоны.
-
-Определив слой таблицы, вернемся к экрану просмотра, изменим его:
+Задайте колонки в `PostListScreen::layout()`.
 
 ```php
 namespace App\Orchid\Screens;
 
-use App\Orchid\Layouts\PostListLayout;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 use App\Models\Post;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Screen;
@@ -345,7 +304,7 @@ class PostListScreen extends Screen
     public function query(): array
     {
         return [
-            'posts' => Post::paginate()
+            'posts' => Post::paginate(),
         ];
     }
 
@@ -362,7 +321,7 @@ class PostListScreen extends Screen
      */
     public function description(): ?string
     {
-        return "All blog posts";
+        return 'All blog posts';
     }
 
     /**
@@ -375,19 +334,25 @@ class PostListScreen extends Screen
         return [
             Link::make('Create new')
                 ->icon('pencil')
-                ->route('orchid.post.edit')
+                ->route('orchid.post.edit'),
         ];
     }
 
     /**
      * Views.
      *
-     * @return Layout[]
+     * @return \Orchid\Screen\Layout[]
      */
     public function layout(): array
     {
         return [
-            PostListLayout::class
+            Table::make('posts', [
+                TD::make('title', 'Title')
+                    ->render(fn (Post $post) => Link::make($post->title)
+                        ->route('orchid.post.edit', $post)),
+                TD::make('created_at', 'Created'),
+                TD::make('updated_at', 'Last edit'),
+            ]),
         ];
     }
 }

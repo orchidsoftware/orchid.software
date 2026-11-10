@@ -7,24 +7,15 @@ description:
 
 ## Introduction
 
-Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a
-class that defines the UI components, their properties, and how they interact with one another.
-
-Screens don't handle data fetching directly. Instead, they focus on rendering the UI using predefined templates
-(layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or
-external service—without affecting the screen logic.
-
-At the core, each screen is essentially an HTML `<form>`, which streamlines handling user input, submitting data, and
-managing interactions in a standardized way. This ensures a predictable and consistent user experience.
-
-By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain
-complex web applications.
+A screen loads data through `query()` and defines its presentation through `layout()`.
+Data can come from a database, an API, or another source. Layouts display the values returned by `query()`.
+Use `commandBar()` for page actions, and define public handler methods to process form submissions.
 
 ## Creating Screens
 
 You can create a new screen by running the command:
 
-```php
+```shell
 php artisan orchid:screen Idea
 ```
 
@@ -38,7 +29,7 @@ class Idea extends Screen
     /**
      * Fetch data to be displayed on the screen.
      */
-    public function query() : array
+    public function query(): array
     {
         return [];
     }
@@ -48,7 +39,7 @@ class Idea extends Screen
      */
     public function name(): ?string
     {
-        return "Idea Screen";
+        return 'Idea Screen';
     }
 
     /**
@@ -56,7 +47,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Action[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }
@@ -66,7 +57,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [];
     }
@@ -99,15 +90,16 @@ use App\Orchid\Screens\Idea;
 Route::screen('/idea', Idea::class)->name('orchid.idea');
 ```
 
-This will register a new route for the Idea screen, accessible at the URL `/idea`.
+With the default `/admin` prefix, the Idea screen is available at `/admin/idea`. If you changed `orchid.prefix`, use
+that prefix instead.
 
 Adding a screen is slightly different from the usual registration, for example, a `GET` request. Instead of a single
 address, a whole group registered. For clarity, you can run the `route:list` command by Artisan:
 
-```php
+```text
 Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | orchid.idea
+GET|POST | admin/idea/{method?} | orchid.idea
 ```
 
 If you have multiple screens, you can register them in the same way. For example:
@@ -128,21 +120,21 @@ Route::screen('/idea', Idea::class)
 By writing the following routes:
 
 ```php
-Route::screen('/idea', ...
-Route::screen('/idea/edit',...
+Route::screen('/idea', Idea::class)->name('orchid.idea');
+Route::screen('/idea/edit', IdeaEdit::class)->name('orchid.idea.edit');
 ```
 
 We get:
 
-```php
+```text
 URI                           | Name
 ------------------------------+---------------------
-dashboard/idea/{method?}      | orchid.idea
-dashboard/idea/edit/{method?} | orchid.idea.edit
+admin/idea/{method?}      | orchid.idea
+admin/idea/edit/{method?} | orchid.idea.edit
 ```
 
 `{method?}` - means an optional argument that may go further. Correspondingly, the name "edit" in the address falls
-under it. The result will be a redirect to "dashboard/idea/". To avoid this, make sure to order your routes correctly.
+under it. The result will be a redirect to "admin/idea/". To avoid this, make sure to order your routes correctly.
 
 ## Querying Data
 
@@ -152,7 +144,7 @@ screen's layouts and views as an array
 For example, you might use the `query` method to response simple string:
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'name'  => 'Alexandr',
@@ -180,7 +172,7 @@ class Order extends Model
 Then, in your screen's `query` method, you can access the model's data like this:
 
 ```php
-public function query() : array
+public function query(): array
 {
     return [
         'order'  => Order::find(1),
@@ -211,10 +203,7 @@ public function query(): array
 }
 ```
 
-In this example, the `order` key will contain an array of ideas with the given data.
-
-The `query` method is an important part of a screen, as it is used to load the data that will be displayed to the user.
-Be sure to carefully consider the data that you need to load and how it will be used in your layouts and views.
+The `order` key contains a Repository. Fields and cells can read its values using names such as `order.price`.
 
 ## Autocompleting Public Properties
 
@@ -230,7 +219,7 @@ For example, consider the following code:
  */
 public $message;
 
-public function query() : array
+public function query(): array
 {
     return [
         'message'  => 'Hello World!',
@@ -268,7 +257,7 @@ Button actions allow users to trigger a method on the screen when clicked. For e
 use Orchid\Screen\Actions\Button;
 use Orchid\Support\Facades\Toast;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         Button::make('Go print')
@@ -278,12 +267,12 @@ public function commandBar() : array
 
 public function print(): void
 {
-   Toast::warning('Hello, world! This is a toast message.');
+    Toast::warning('Hello, world! This is a toast message.');
 }
 ```
 
-In this example, when the Print button is clicked, the `print` method of the screen will be called. All of the data that
-the user has seen on the screen will be available in the request.
+Clicking the button calls the screen's `print()` method. Submitted form fields are available through
+`Illuminate\Http\Request`.
 
 ### Link
 
@@ -292,7 +281,7 @@ Link actions allow users to navigate to a different URL when clicked. For exampl
 ```php
 use Orchid\Screen\Actions\Link;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         Link::make('External reference')
@@ -312,7 +301,7 @@ use Orchid\Screen\Actions\Toggle;
 use Orchid\Screen\TD;
 
 // Example: displaying toggle in a table column
-TD::make('Enabled')->render(function(User $user) {
+TD::make('Enabled')->render(function (User $user) {
     return Toggle::make('Enabled')
         ->method('switch', ['user' => $user])
         ->status($user->active);
@@ -336,7 +325,7 @@ Modal toggle actions allow users to open a modal window when clicked. For exampl
 ```php
 use Orchid\Screen\Actions\ModalToggle;
 
-public function commandBar() : array
+public function commandBar(): array
 {
     return [
         ModalToggle::make('Modal window')
@@ -391,114 +380,36 @@ Button::make('Say "Hello, World!"')
 
 ## Screen Layouts
 
-Layouts are responsible for the screen's appearance: how the data is displayed and in what form.
-
-Separation of logic and presentation is one of the design principles with Laravel Orchid. One of the elements of the
-presentation are "Layouts" (layouts), which can be displayed in various variations. If you try to explain briefly, it
-turns out that this is a `view` on steroids.
-
-In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name,
-signature, and profile avatar:
-
-```html
-<div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
-    <span class="thumb-sm avatar m-r-xs">
-        <img src="/avatar/maria.jpg" class="bg-light" alt="Maria" />
-    </span>
-    <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
-        <h6 class="mb-0">Maria</h6>
-        <p class="text-muted mb-1">maria@exaple.com</p>
-    </div>
-</div>
-```
-
-A simple display of a block with a profile can appear on dozens of pages, and if they are copied, then maintaining their
-appearance can take a lot of time. Therefore, various reuse options are being worked out. This is called a component
-approach, regardless of the delivery method and level of responsibility, it is practiced both in Blade and in
-`React/Vue/Angular`.
-
-It is precisely such components that the platform layers consist of, the only difference is that it is necessary to
-operate with the classes, creating which you explicitly determine that the accepted parameter `avatar` will be inserted
-in the `<img>` tag, without having to edit the source code every time.
-
-Each layout may include a different layout, that is, nesting. For example, the screen is divided into two columns. In
-the left-field for filling, on the right, there are a reference table and a graph. You can come up with your examples of
-attachments.
+Return layouts from the screen's `layout()` method. A layout can contain other layouts.
+For example, Columns places a form beside a table:
 
 ```php
-public function layout() : array
-{
-    return [
-        Layout::columns([
-            'Left column' => [
-                FirstRows::class,
-            ],
-            'Right column' => [
-                SecondRows::class,
-            ],
-        ]),
-
-        // Modal window
-        Layout::modal('Appointments', [
-            ThirdRows::class,
-        ]),
-    ];
-}
-```
-
-Sometimes you will want to use the same layout for different things. To reduce code duplication, you can create a
-configurable design. To pass custom parameters to your layout you can use the class constructor to handle them:
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Columns;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
-class ReusableLayout extends Rows
-{
-    public function __construct(
-        private readonly string $prefix,
-        private readonly string $title
-    ) {}
-
-    /**
-     * Define the fields for the layout.
-     *
-     * @return Field[]
-     */
-    protected function fields(): array
-    {
-        return [
-            new Label('label')
-                ->title($this->title),
-
-            new Input($this->prefix . '.address')
-                ->required()
-                ->title('Address')
-                ->placeholder('177A Bleecker Street'),
-        ];
-    }
-}
-```
-
-Instances can be used in the same way, but they can accept parameters
-
-```php
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        new ReusableLayout('order.shipping_address', 'Shipping Address'),
-        new ReusableLayout('order.invoice_address', 'Invoice Address'),
+        Columns::make([
+            Rows::make([
+                Input::make('order.name')->title('Name'),
+                Input::make('order.price')->type('number')->title('Price'),
+            ]),
+            Table::make('orders', [
+                TD::make('name'),
+                TD::make('price'),
+            ]),
+        ]),
     ];
 }
 ```
 
-More details can be found in the [Layouts](/en/docs/rows) section. See also [Rows](/en/docs/rows) and
-[Table](/en/docs/table). For related layout patterns, review [Grouping (Tabs, Split, etc.)](/en/docs/grouping) and
-[Modals](/en/docs/modals).
+The form reads values from `order`, and the table displays records from `orders`, as returned by `query()`.
+See [Layouts](/en/docs/layouts) to choose a layout and [Rows](/en/docs/rows#reuse-a-form) to share forms between
+screens.
 
 ## Additional Methods
 
@@ -518,18 +429,15 @@ This method returns a message if the HTML form validation fails, for example, if
 
 #### Prevent Data Loss on Navigation
 
+Orchid warns users before they leave a form with unsaved changes. The `orchid.prevents_abandonment`
+configuration option enables this behavior by default. To disable the warning for a screen, return `false`:
+
 ```php
-/**
- * Determines whether to prevent data loss on navigation attempt.
- */
 public function needPreventsAbandonment(): bool
 {
     return false;
 }
 ```
-
-No one wants to lose the data they just entered. To prevent this, this method triggers a mechanism that blocks
-refreshing or navigating away from the current page if changes have been made to the data on it.
 
 #### Stimulus Controller
 
@@ -561,5 +469,3 @@ Keep the same `APP_KEY` across requests and application instances.
 
 Signed state does not authorize an action or make request input trustworthy. Check record policies and validate input
 inside each action handler. Query current database state when a decision depends on changes made since rendering.
-When migrating custom traits, use `Orchid\Screen\Concerns\CanSee` and
-`Orchid\Screen\Concerns\HasCommandBar` instead of the old trait locations.

@@ -32,14 +32,15 @@ A classic example is counting the number of clicks. Let's add the following code
 ```php
 <?php
 
+
 namespace App\Orchid\Screens;
 
+use Orchid\Screen\Layouts\Rows;
 use Illuminate\Http\Request;
 use Orchid\Screen\Screen;
 use Orchid\Support\Color;
 use Orchid\Screen\Fields\Label;
 use Orchid\Screen\Actions\Button;
-use Orchid\Support\Facades\Layout;
 
 class StateScreen extends Screen
 {
@@ -73,7 +74,7 @@ class StateScreen extends Screen
     public function layout(): array
     {
         return [
-            Layout::rows([
+            Rows::make([
                 Label::make('clicks')->title('Click Count:'),
             ]),
         ];
@@ -85,8 +86,9 @@ Let's open the page in a browser and see how the screen looks. It should display
 add a simple method to the screen to see the request content:
 
 ```php
-
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Support\Color;
+
 /**
  * The screen's layout elements.
  *
@@ -95,7 +97,7 @@ use Orchid\Support\Color;
 public function layout(): array
 {
     return [
-        Layout::rows([
+        Rows::make([
             Label::make('clicks')
                 ->title('Click Count:'),
 
@@ -110,6 +112,7 @@ public function layout(): array
  * Increment the click count.
  *
  * @param Request $request
+ *
  * @return \Illuminate\Http\RedirectResponse
  */
 public function increment(Request $request)
@@ -135,7 +138,7 @@ class StateScreen extends Screen
      */
     public $clicks;
 
-    //...
+    // ...
 
     /**
      * Increment the click count.

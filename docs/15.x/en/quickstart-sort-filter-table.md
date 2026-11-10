@@ -14,8 +14,6 @@ namespace App\Models;
 
 use Orchid\Filters\AllowedSorts;
 use Illuminate\Database\Eloquent\Model;
-use Orchid\Attachment\Attachable;
-use Orchid\Attachment\Models\Attachment;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;
 
@@ -23,11 +21,11 @@ use Orchid\Screen\AsSource;
     'id',
     'title',
     'created_at',
-    'updated_at'
+    'updated_at',
 ])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     /**
      * The attributes that are mass assignable.
@@ -39,7 +37,6 @@ class Post extends Model
         'description',
         'body',
         'author',
-        'hero'
     ];
 }
 ```
@@ -56,7 +53,7 @@ Now, when calling the `filters` method, the database query will be modified. In 
 public function query(): array
 {
     return [
-        'posts' => Post::filters()->defaultSort('id')->paginate()
+        'posts' => Post::filters()->defaultSort('id')->paginate(),
     ];
 }
 ```
@@ -69,31 +66,18 @@ Now the data will be different, depending on the parameters in the `url` address
 > **Note.** In this way, you cannot sort related models.
 
 To display the sorting feature in the graphical interface, call the `sort` method for the necessary table columns in the
-`PostListLayout`:
+`PostListScreen::layout()`:
 
 ```php
-namespace App\Orchid\Layouts;
-
 use App\Models\Post;
-use Orchid\Screen\TD;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
-class PostListLayout extends Table
+public function layout(): iterable
 {
-    /**
-     * Data source.
-     *
-     * @var string
-     */
-    public $target = 'posts';
-
-    /**
-     * @return TD[]
-     */
-    public function columns(): array
-    {
-        return [
+    return [
+        Table::make('posts', [
             TD::make('title')
                 ->sort()
                 ->render(function (Post $post) {
@@ -106,20 +90,19 @@ class PostListLayout extends Table
 
             TD::make('updated_at', 'Last edit')
                 ->sort(),
-        ];
-    }
+        ]),
+    ];
 }
 ```
 
 After that, the column heading will respond to clicking and change the sorting position.
 
-The trait `Filterable`, allows you to set not only sorting. But also simple `Http` filtering, to set it back to the
-model and declare an `AllowedFilters` attribute:
+To filter posts by title, add `AllowedFilters` to the Post model. Keep `AllowedSorts` and the remaining model
+properties:
 
 ```php
 use Illuminate\Database\Eloquent\Model;
 use Orchid\Filters\Filterable;
-use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 use Orchid\Filters\AllowedFilters;
 use Orchid\Filters\Types\Like;
@@ -131,7 +114,7 @@ use Orchid\Filters\AllowedSorts;
 #[AllowedSorts(['id', 'title', 'created_at', 'updated_at'])]
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource, Filterable;
 
     // Keep the remaining model traits, properties, and methods.
 }

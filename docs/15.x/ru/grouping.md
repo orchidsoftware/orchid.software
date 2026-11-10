@@ -11,14 +11,15 @@ title: Макеты группировки
 Аккордеоны поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Accordion;
+use Orchid\Screen\Layouts\Rows;
 
 public function layout(): array
 {
     return [
-        Layout::accordion([
+        Accordion::make([
             'Personal Information' => [
-                Layout::rows([
+                Rows::make([
                     Input::make('user.name')
                         ->type('text')
                         ->required()
@@ -33,7 +34,7 @@ public function layout(): array
                 ]),
             ],
             'Billing Address'      => [
-                Layout::rows([
+                Rows::make([
                     Input::make('address')
                         ->type('text')
                         ->required()
@@ -51,10 +52,12 @@ public function layout(): array
 Обратите внимание, что Вы можете указывать в качестве значений и имя класса в нижнем регистре:
 
 ```php
+use Orchid\Screen\Layouts\Accordion;
+
 public function layout(): array
 {
     return [
-        Layout::accordion([
+        Accordion::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ]),
@@ -71,14 +74,14 @@ public function layout(): array
 Колонки поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Columns;
 
 public function layout(): array
 {
     return [
-        Layout::columns([
-           TableExample::class,
-           RowExample::class,
+        Columns::make([
+            TableExample::class,
+            RowExample::class,
         ]),
     ];
 }
@@ -90,7 +93,7 @@ public function layout(): array
 
 Для создания исполните команду:
 
-```php
+```shell
 php artisan orchid:selection MySelection
 ```
 
@@ -112,8 +115,8 @@ class MySelection extends Selection
     public function filters(): array
     {
         return [
-          SearchFilter::class,
-          CreatedFilter::class
+            SearchFilter::class,
+            CreatedFilter::class,
         ];
     }
 }
@@ -129,14 +132,15 @@ class MySelection extends Selection
 Табы поддерживают короткий синтаксис через вызов статического метода, что не требует создания отдельного класса:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Tabs;
 
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => [
-                Layout::rows([
+                Rows::make([
                     Input::make('user.name')
                         ->type('text')
                         ->required()
@@ -151,7 +155,7 @@ public function layout(): array
                 ]),
             ],
             'Billing Address'      => [
-                Layout::rows([
+                Rows::make([
                     Input::make('address')
                         ->type('text')
                         ->required()
@@ -169,10 +173,12 @@ public function layout(): array
 Обратите внимание, что Вы можете указывать в качестве значений и строчное имя класса:
 
 ```php
+use Orchid\Screen\Layouts\Tabs;
+
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ]),
@@ -184,10 +190,12 @@ public function layout(): array
 вкладку, вы можете сделать это с помощью метода `->activeTab($key)`:
 
 ```php
+use Orchid\Screen\Layouts\Tabs;
+
 public function layout(): array
 {
     return [
-        Layout::tabs([
+        Tabs::make([
             'Personal Information' => PersonalInformationRow::class,
             'Billing Address'      => BillingAddressRow::class,
         ])->activeTab('Billing Address'),
@@ -214,19 +222,19 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddOrderColumnToTable extends Migration
 {
-   /**
-    * Run the migrations.
-    *
-    * @return void
-    */
-   public function up()
-   {
-       Schema::table('table_name', function (Blueprint $table) {
-           $table->integer('order')->default(1);
-       });
-   }
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('table_name', function (Blueprint $table) {
+            $table->integer('order')->default(1);
+        });
+    }
 
-   // ...
+    // ...
 }
 ```
 
@@ -247,7 +255,7 @@ class Idea extends Model
 {
     use Sortable;
 
-    //...
+    // ...
 }
 ```
 
@@ -265,7 +273,7 @@ class Idea extends Model
 {
     use Sortable;
 
-    //...
+    // ...
 
     /**
      * Get the column name for sorting.
@@ -290,9 +298,9 @@ use Orchid\Screen\Repository;
 
 public function query(): array
 {
-   return [
-       'models' => Idea::sorted()->get(),
-   ];
+    return [
+        'models' => Idea::sorted()->get(),
+    ];
 }
 ```
 
@@ -300,19 +308,19 @@ public function query(): array
 Он так же имеет необязательный аргумент - направление сортировки (ASC - по возрастанию, DESC - по убыванию). По
 умолчанию установлено значение ASC.
 
-В методе `layout()` вашего экрана добавим графический интерфейс с использованием слоя `Layout::sortable()`:
+В методе `layout()` вашего экрана добавим графический интерфейс с использованием слоя `Sortable::make()`:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Sortable;
 use Orchid\Screen\Sight;
 
 public function layout(): iterable
 {
-   return [
-       Layout::sortable('models', [
-           Sight::make('title'),
-       ]),
-   ];
+    return [
+        Sortable::make('models', [
+            Sight::make('title'),
+        ]),
+    ];
 }
 ```
 

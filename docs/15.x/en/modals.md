@@ -26,7 +26,8 @@ Modal windows can be implemented using a short syntax by calling a static method
 separate class. The following example demonstrates how to create a modal window:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Actions\ModalToggle;
 use Orchid\Support\Facades\Toast;
 
@@ -49,7 +50,7 @@ public function commandBar(): array
 public function layout(): array
 {
     return [
-        Layout::modal('toastModal', Layout::rows([
+        Modal::make('toastModal', Rows::make([
             // ...
         ])),
     ];
@@ -76,8 +77,11 @@ the `layout()` method. It should not be added inside of another layout such as `
 To set the title of the modal window, the `title` method can be used:
 
 ```php
-Layout::modal('toastModal', Layout::rows([
-   // ...
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('toastModal', Rows::make([
+    // ...
 ]))
     ->title('Window title');
 ```
@@ -85,19 +89,20 @@ Layout::modal('toastModal', Layout::rows([
 ## Passing Multiple Layouts
 
 Sometimes a modal window may need to contain **more than one layout**. In Orchid, you can pass an array of layouts
-directly to `Layout::modal`:
+directly to `Modal::make`:
 
 ```php
+use Orchid\Screen\Layouts\Table;
 use Orchid\Screen\Layouts\Modal;
 use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Fields\Input;
 
-Layout::modal('notifModal', [
-    Layout::rows([
+Modal::make('notifModal', [
+    Rows::make([
         // Fields definition
     ]),
 
-    Layout::table('users', [
+    Table::make('users', [
         // Table columns definition
     ]),
 ]);
@@ -109,10 +114,11 @@ Depending on the contents of the window, it may be necessary to resize it. This 
 method:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('toastModal', Layout::rows([
-   // ...
+Modal::make('toastModal', Rows::make([
+    // ...
 ]))
     ->size(Modal::SIZE_LG);
 ```
@@ -127,8 +133,11 @@ A modal window has two actions:
 You can set your own names for them:
 
 ```php
-Layout::modal('toastModal', Layout::rows([
-   // ...
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('toastModal', Rows::make([
+    // ...
 ]))
     ->applyButton('Send')
     ->closeButton('Close');
@@ -139,8 +148,11 @@ Layout::modal('toastModal', Layout::rows([
 To disable each button has its own method:
 
 ```php
-Layout::modal('toastModal', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('toastModal', [
+    Rows::make([]),
 ])
     ->withoutApplyButton()
     ->withoutCloseButton();
@@ -151,10 +163,11 @@ Layout::modal('toastModal', [
 The modal window can be displayed, not only in the center of the screen, but also on the right side:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('toastModal', Layout::rows([
-   // ...
+Modal::make('toastModal', Rows::make([
+    // ...
 ]))
     ->type(Modal::TYPE_RIGHT);
 ```
@@ -165,10 +178,11 @@ Sometimes you may need to open a modal window right after the page is displayed.
 method:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
 
-Layout::modal('toastModal', Layout::rows([
-   // ...
+Modal::make('toastModal', Rows::make([
+    // ...
 ]))
     ->open();
 ```
@@ -182,8 +196,11 @@ To declare a modal window asynchronous, call the `deferred` method and pass the 
 of `query`:
 
 ```php
-Layout::modal('deferredModal', Layout::rows([
-    Input::make('welcome')
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('deferredModal', Rows::make([
+    Input::make('welcome'),
 ]))->deferred('loadDataOnOpen'),
 ```
 
@@ -230,8 +247,11 @@ suitable if you need to perform complex processing or download a file. To disabl
 call to the `rawClick` method:
 
 ```php
-Layout::modal('toastModal', [
-    Layout::rows([]),
+use Orchid\Screen\Layouts\Modal;
+use Orchid\Screen\Layouts\Rows;
+
+Modal::make('toastModal', [
+    Rows::make([]),
 ])
     ->rawClick();
 ```
@@ -241,10 +261,10 @@ Layout::modal('toastModal', [
 Use `SIZE_COMPACT` for a small form and `scrollable()` to keep long content inside the dialog body:
 
 ```php
+use Orchid\Screen\Layouts\Rows;
 use Orchid\Screen\Layouts\Modal;
-use Orchid\Support\Facades\Layout;
 
-Layout::modal('editOrder', Layout::rows([
+Modal::make('editOrder', Rows::make([
     // Order fields...
 ]))
     ->title('Edit order')

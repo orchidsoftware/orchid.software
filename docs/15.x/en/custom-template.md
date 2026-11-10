@@ -8,15 +8,15 @@ description:
 ## Views
 
 Sometimes you may want to display your own `blade` template in your application. To do this, you can use the
-`Layout::view` method and pass it a string containing the name of your template.
+`View::make` method and pass it a string containing the name of your template.
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\View;
 
 public function layout(): array
 {
     return [
-        Layout::view('greeting'),
+        View::make('greeting'),
     ];
 }
 ```
@@ -25,6 +25,8 @@ Any data returned by the `query` method will be passed to your template and can 
 example:
 
 ```php
+use Orchid\Screen\Layouts\View;
+
 // ... Screen
 
 public function query(): array
@@ -37,7 +39,7 @@ public function query(): array
 public function layout(): array
 {
     return [
-        Layout::view('greeting'),
+        View::make('greeting'),
     ];
 }
 ```
@@ -54,12 +56,14 @@ Note that the `layout` method should return an array of views to be displayed in
 include multiple custom templates, you can add them to the array like this:
 
 ```php
+use Orchid\Screen\Layouts\View;
+
 public function layout(): array
 {
     return [
-        Layout::view('dashboard'),
-        Layout::view('users'),
-        Layout::view('settings'),
+        View::make('dashboard'),
+        View::make('users'),
+        View::make('settings'),
     ];
 }
 ```
@@ -69,14 +73,14 @@ public function layout(): array
 Blade components are a way to reuse templates in your Laravel application. To create a new Blade component, you can use
 the `Artisan` command:
 
-```php
+```shell
 php artisan make:component Hello --inline
 ```
 
 This will create a new class called `Hello` in the `App\View\Components` namespace. The class should look something like
 this:
 
-```php
+```blade
 namespace App\View\Components;
 
 use Illuminate\View\Component;
@@ -114,9 +118,11 @@ blade;
 }
 ```
 
-To use the component in your screens, you can pass its lowercase representation to the `Layout::component` method:
+To use the component in your screens, you can pass its lowercase representation to the `Component::make` method:
 
 ```php
+use Orchid\Screen\Layouts\Component;
+
 /**
  * Query data.
  *
@@ -132,12 +138,12 @@ public function query(): array
 /**
  * Views.
  *
- * @return Layout[]
+ * @return \Orchid\Screen\Layout[]
  */
 public function layout(): array
 {
     return [
-        Layout::component(Hello::class),
+        Component::make(Hello::class),
     ];
 }
 ```
@@ -145,14 +151,14 @@ public function layout(): array
 The values returned by the `query` method will be passed to the component and can be accessed using Blade syntax. For
 example, in the `Hello` component class, you can access the name variable like this:
 
-```php
+```blade
 Hello {{ $name }}!
 ```
 
 If you want to pass additional variables to the component, you can do so by modifying the constructor and adding them as
 arguments. For example:
 
-```php
+```blade
 namespace App\View\Components;
 
 use Illuminate\Contracts\Foundation\Application;
@@ -206,15 +212,17 @@ You can learn more about Blade components in the [Laravel documentation](https:/
 A "Wrapper" is an intermediate link between a custom template and the standard layout layers. It allows you to specify
 where other layout layers should be displayed within your custom template.
 
-To use a wrapper, you can pass an array of views to the `Layout::wrapper` method, along with the name of your custom
+To use a wrapper, you can pass an array of views to the `Wrapper::make` method, along with the name of your custom
 template. The array should contain keys representing the variables that will be available in the template, and the
 values should be the views to be rendered.
 
 ```php
+use Orchid\Screen\Layouts\Wrapper;
+
 public function layout(): array
 {
     return [
-        Layout::wrapper('settings', [
+        Wrapper::make('settings', [
             'foo' => [
                 RowLayout::class,
                 RowLayout::class,
@@ -249,34 +257,36 @@ public function query(): array
 
 You can display the contents of the name variable in your template like this:
 
-```php
+```blade
 Hello, {{ $name }}.
 ```
 
 ## Browsing
 
 Sometimes it can be inconvenient to switch between multiple browser tabs when working in the admin panel. To avoid this,
-you can use the `Layout::browsing` method to display the contents of a different web page within an iframe in your
+you can use the `Browsing::make` method to display the contents of a different web page within an iframe in your
 application.
 
 For example:
 
 ```php
-use Orchid\Support\Facades\Layout;
+use Orchid\Screen\Layouts\Browsing;
 
 public function layout(): array
 {
     return [
-        Layout::browsing('http://127.0.0.1:8000/telescope'),
+        Browsing::make('http://127.0.0.1:8000/telescope'),
     ];
 }
 ```
 
-You can also specify various attributes for the iframe element by chaining method calls onto the `Layout::browsing`
+You can also specify various attributes for the iframe element by chaining method calls onto the `Browsing::make`
 method. For example:
 
 ```php
-Layout::browsing('http://127.0.0.1:8000/telescope')
+use Orchid\Screen\Layouts\Browsing;
+
+Browsing::make('http://127.0.0.1:8000/telescope')
     ->allow('...')
     ->loading('...')
     ->csp('...')

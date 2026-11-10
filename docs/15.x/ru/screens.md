@@ -5,25 +5,15 @@ description: Основные компоненты пользовательск�
 
 ## Введение
 
-Экраны в Orchid являются основой для определения структуры и поведения страницы. Каждый экран представляет собой класс,
-который описывает компоненты пользовательского интерфейса, их свойства и взаимодействие между ними.
-
-Экраны не занимаются напрямую получением данных, их основная задача — рендерить интерфейс с использованием заранее
-определённых шаблонов (макетов) и указывать, где и как должны отображаться данные. Источник данных может быть любым —
-база данных, API или внешний сервис — это не влияет на логику экрана.
-
-В своей основе каждый экран является HTML-формой (`<form>`), что упрощает обработку пользовательского ввода, отправку
-данных и взаимодействие с системой в стандартизированном виде. Это обеспечивает предсказуемое и последовательное
-взаимодействие с пользователем.
-
-Разделение ответственности между управлением данными и рендерингом интерфейса позволяет экранам Orchid упрощать
-разработку и поддержку сложных веб-приложений.
+Экран получает данные через `query()` и определяет их отображение через `layout()`.
+Источником может быть база данных, API или внешний сервис. Макеты отображают значения, возвращённые из `query()`.
+Метод `commandBar()` задаёт действия страницы, а публичные методы-обработчики принимают отправленные данные формы.
 
 ## Создание экранов
 
 Вы можете создать новый экран, выполнив Artisan команду:
 
-```php
+```shell
 php artisan orchid:screen Idea
 ```
 
@@ -37,7 +27,7 @@ class Idea extends Screen
     /**
      * Fetch data to be displayed on the screen.
      */
-    public function query() : array
+    public function query(): array
     {
         return [];
     }
@@ -47,7 +37,7 @@ class Idea extends Screen
      */
     public function name(): ?string
     {
-        return "Idea Screen";
+        return 'Idea Screen';
     }
 
     /**
@@ -55,7 +45,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Action[]
      */
-    public function commandBar() : array
+    public function commandBar(): array
     {
         return [];
     }
@@ -65,7 +55,7 @@ class Idea extends Screen
      *
      * @return \Orchid\Screen\Layout[]|string[]
      */
-    public function layout() : array
+    public function layout(): array
     {
         return [];
     }
@@ -100,13 +90,16 @@ use App\Orchid\Screens\Idea;
 Route::screen('/idea', Idea::class)->name('orchid.idea');
 ```
 
-Добавление экрана немного отличаться от привычной регистрации, например, `GET` запроса, тем, что вместо одного адреса,
+С префиксом `/admin` по умолчанию экран доступен по адресу `/admin/idea`. Если вы изменили `orchid.prefix`,
+используйте свой префикс.
+
+Добавление экрана немного отличается от привычной регистрации, например, `GET` запроса, тем, что вместо одного адреса,
 регистрируется целая группа. Для наглядности можно выполнить Artisan команду `route:list`:
 
-```php
+```text
 Method   | URI                      | Name
 ---------+--------------------------+--------------
-GET|POST | dashboard/idea/{method?} | orchid.idea
+GET|POST | admin/idea/{method?} | orchid.idea
 ```
 
 Если вы регистрируете несколько маршрутов:
@@ -127,21 +120,21 @@ Route::screen('/idea', Idea::class)
 Написав такие маршруты:
 
 ```php
-Route::screen('/idea', ...
-Route::screen('/idea/edit',...
+Route::screen('/idea', Idea::class)->name('orchid.idea');
+Route::screen('/idea/edit', IdeaEdit::class)->name('orchid.idea.edit');
 ```
 
 Мы получаем:
 
-```php
+```text
 URI                           | Name
 ------------------------------+----------------------
-dashboard/idea/{method?}      | orchid.idea
-dashboard/idea/edit/{method?} | orchid.idea.edit
+admin/idea/{method?}      | orchid.idea
+admin/idea/edit/{method?} | orchid.idea.edit
 ```
 
 `{method?}` - означает необязательный аргумент, который может идти далее. Соответственно под него попадает имя "edit" в
-адресе. В итоге будет редирект на "dashboard/idea/"
+адресе. В итоге будет редирект на "admin/idea/"
 
 ## Получение данных
 
@@ -186,9 +179,10 @@ public function query(): array
 Использование именно моделей `Eloquent` не обязательно, возможно использование массивов с помощью обёртки `Repository`:
 
 ```php
-//...
 use Orchid\Screen\Repository;
-//...
+
+// ...
+// ...
 
 public function query(): array
 {
@@ -198,7 +192,7 @@ public function query(): array
             'name'       => 'Desk',
             'price'      => 10.24,
             'created_at' => '01.01.2020',
-      ]),
+        ]),
     ];
 }
 ```
@@ -249,13 +243,12 @@ public function commandBar(): array
 
 public function print(): void
 {
-   Toast::warning('Привет мир!');
+    Toast::warning('Привет мир!');
 }
 ```
 
-Класс `Button` отвечает за то, что будет происходить по нажатию на кнопку. В примере выше, при нажатии на кнопку
-`Вывести на печать`, будет вызван метод экрана `print`, в Request будут доступны все данные, которые пользователь видел
-на экране.
+При нажатии кнопки вызывается метод `print()` экрана. Отправленные поля формы доступны через
+`Illuminate\Http\Request`.
 
 ```php
 // По нажатию будет вызван метод 'create'
@@ -300,7 +293,7 @@ PHP предлагает мощную возможность наследова�
 
 Например, чтобы вызвать метод `hello` на экране `orchid.screens.users`, можно использовать следующий код:
 
-```php
+```blade
 <form action="{{ route('orchid.screens.users', ['method' => 'hello']) }}"
       method="POST"
 >
@@ -317,7 +310,7 @@ PHP предлагает мощную возможность наследова�
 ```php
 use Orchid\Screen\Actions\Button;
 
-Button::make("Привет, мир!")
+Button::make('Привет, мир!')
     ->action(route('orchid.screens.users', [
         'method' => 'hello',
     ]));
@@ -325,117 +318,36 @@ Button::make("Привет, мир!")
 
 ## Макеты
 
-Макеты отвечают за внешний вид экрана, то есть за то, как и в каком виде будут отображаться данные.
-
-Отображение внешнего вида элементов пользовательского интерфейса в приложении играет большое значение, делает приложение
-проще в использовании и помогает пользователям интуитивно отображать элементы экрана для выполнения своих задач.
-
-Разделение логики и презентации является одним из принципов разработки с Orchid. Одним из элементов презентации являются
-"Layouts" (макеты/слои), которые могут отображаться в различных вариациях. Если попытаться объяснить коротко, то
-получится, что это `view` на стероидах.
-
-Для формирования страницы в большинстве случаев мы используем однотипные элементы. Например, представим блок, который
-отображает имя, подпись и аватар профиля:
+Верните макеты из метода `layout()` экрана. Макет может содержать другие макеты.
+Например, Columns располагает форму рядом с таблицей:
 
 ```php
-<div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
- <span class="thumb-sm avatar m-r-xs">
-        <img src="/avatar/maria.jpg" class="bg-light" alt="Maria">
-    </span>
-    <div class="ml-sm-3 ml-md-0 ml-xl-3 mt-2 mt-sm-0 mt-md-2 mt-xl-0">
-        <h6 class="mb-0">Maria</h6>
-        <p class="text-muted mb-1">maria@exaple.com</p>
-    </div>
-</div>
-```
-
-Простое отображение блока с профилем может фигурировать на десятках страниц и если они скопированы, то поддержание их
-внешнего вида может потребовать много времени. Поэтому прорабатываются различные варианты повторного использования. Это
-называется компонентным подходом. Вне зависимости от способа доставки и уровня ответственности, практикуется как в
-`Blade` так и в `React/Vue/Angular`.
-
-Именно из таких компонентов и состоят слои платформы. Явным отличием является только то, что необходимо оперировать
-именно классами, создавая которые Вы явно определяете, что принятый параметр `avatar` будет вставлен в теге `<img>`, без
-необходимости каждый раз править исходный код.
-
-Каждый макет может включать в себя другой макет, то есть возможна вложенность. Например, экран разделен на две колонки,
-в левой поля для заполнения, справа справочная таблица и график. Вы можете придумать свои примеры вложения.
-
-```php
-public function layout(): array
-{
-    return [
-        Layout::columns([
-            'Левая колонка' => [
-                FirstRows::class,
-            ],
-            'Правая колонка' => [
-                SecondRows::class,
-            ],
-        ]),
-
-        // Модальное окно
-        Layout::modal('Appointments', [
-            ThirdRows::class,
-        ]),
-    ];
-}
-```
-
-Иногда Вы захотите использовать один и тот же макет для разных целей. Чтобы уменьшить дублирование кода, Вы можете
-создать настраиваемый дизайн. Чтобы передать пользовательские параметры в ваш макет, вы можете использовать конструктор
-класса для их обработки::
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Field;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Label;
+use Orchid\Screen\Layouts\Columns;
 use Orchid\Screen\Layouts\Rows;
+use Orchid\Screen\Layouts\Table;
+use Orchid\Screen\TD;
 
-class ReusableLayout extends Rows
-{
-    public function __construct(
-        private readonly string $prefix,
-        private readonly string $title
-    ) {}
-
-    /**
-     * Define the fields for the layout.
-     *
-     * @return Field[]
-     */
-    protected function fields(): array
-    {
-        return [
-            new Label('label')
-                ->title($this->title),
-
-            new Input($this->prefix . '.address')
-                ->required()
-                ->title('Address')
-                ->placeholder('177A Bleecker Street'),
-        ];
-    }
-}
-```
-
-Экземпляры могут быть использованы таким же образом, принимая параметры
-
-```php
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::columns([
-            new ReusableEditLayout('order.shipping_address', 'Shipping Address'),
-            new ReusableEditLayout('order.invoice_address', 'Invoice Address'),
+        Columns::make([
+            Rows::make([
+                Input::make('order.name')->title('Name'),
+                Input::make('order.price')->type('number')->title('Price'),
+            ]),
+            Table::make('orders', [
+                TD::make('name'),
+                TD::make('price'),
+            ]),
         ]),
     ];
 }
 ```
 
-Более подробно можно прочитать в разделе "Макеты".
+Форма читает значения из `order`, а таблица выводит записи из `orders`, возвращённые методом `query()`.
+Выбор макетов описан в разделе [Макеты](/ru/docs/layouts).
+Повторное использование форм описано в разделе [Rows](/ru/docs/rows).
 
 ## Дополнительные методы
 
@@ -456,18 +368,16 @@ public function formValidateMessage(): string
 
 #### Предотвращение потери данных при переходе
 
+Orchid предупреждает пользователя перед уходом с формы с несохранёнными изменениями.
+По умолчанию это поведение включено настройкой `orchid.prevents_abandonment`.
+Чтобы отключить предупреждение для отдельного экрана, верните `false`:
+
 ```php
-/**
- * Определяет, нужно ли предотвращать потерю данных при попытке перехода.
- */
 public function needPreventsAbandonment(): bool
 {
     return false;
 }
 ```
-
-Никто не хочет потерять данные, которые только что ввел. Для предотвращения этого этот метод запускает механизм, который
-блокирует обновление или переход с текущей страницы, если на ней были внесены изменения в данные.
 
 ## Подписанное состояние экрана
 
@@ -478,5 +388,3 @@ Orchid восстанавливает состояние экрана между
 
 Подпись не заменяет авторизацию действий и проверку входных данных. В каждом обработчике проверяйте политики
 и валидируйте запрос. Если решение зависит от изменений после показа экрана, читайте актуальное состояние базы.
-При миграции своих трейтов используйте `Orchid\Screen\Concerns\CanSee` и
-`Orchid\Screen\Concerns\HasCommandBar` вместо старых расположений.

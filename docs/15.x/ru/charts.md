@@ -13,10 +13,16 @@ public function query(): array
 {
     return [
         'visits' => [
-            'labels' => ['Mon', 'Tue', 'Wed'],
+            'labels'   => ['Mon', 'Tue', 'Wed'],
             'datasets' => [
-                ['name' => 'Actual', 'values' => [12, 18, 15]],
-                ['name' => 'Plan', 'values' => [15, 16, 20]],
+                [
+                    'name'   => 'Actual',
+                    'values' => [12, 18, 15],
+                ],
+                [
+                    'name'   => 'Plan',
+                    'values' => [15, 16, 20],
+                ],
             ],
         ],
     ];
@@ -24,47 +30,138 @@ public function query(): array
 ```
 
 Число элементов `values` в каждом наборе должно совпадать с числом `labels`.
-Числовые строки преобразуются в числа. Перед отправкой в браузер массивы получают последовательные индексы.
+Числовые строки преобразуются в числа.
 
 ## Покажите график
 
+Первый аргумент `Chart::make()` задаёт источник данных (target): ключ массива, возвращённого из `query()`.
+Передайте `visits`, чтобы использовать подготовленные выше данные. Метод `title()` задаёт заголовок над графиком:
+
 ```php
 use Orchid\Screen\Layouts\Chart;
-use Orchid\Support\Facades\Layout;
 
-public function layout(): array
+public function layout(): iterable
 {
     return [
-        Layout::chart('visits', 'Visits')
-            ->description('Daily traffic')
-            ->type(Chart::TYPE_LINE)
-            ->height(300)
-            ->colors(['#2274a5', '#f75c03'])
-            ->smooth()
-            ->dots(false)
-            ->gradient(['fromOpacity' => 0.25, 'toOpacity' => 0])
-            ->marker('Target', 20)
-            ->export(),
+        Chart::make('visits')
+            ->title('Daily visits'),
     ];
 }
 ```
 
-`Layout::chart()` создаёт график без отдельного класса. Также доступен `Chart::make('visits', 'Visits')`.
-По умолчанию используется тип `line` и высота 250.
-
-Поддерживаются `Chart::TYPE_LINE`, `TYPE_BAR`, `TYPE_MIXED`, `TYPE_PIE` и `TYPE_PERCENTAGE`.
-Для кругового и процентного графиков требуется ровно один набор данных.
+Над графиком появится заголовок **Daily visits**. График покажет две линии: **Actual** и **Plan**.
+Значения `name` задают имена этих линий в легенде. Массив `labels` задаёт общие подписи горизонтальной оси.
+По умолчанию используется линейный график высотой 250.
 
 ## Настройте отображение
+
+```php
+Chart::make('visits')
+    ->title('Daily visits')
+    ->description('Daily traffic')
+    ->height(300)
+    ->colors(['#2274a5', '#f75c03'])
+    ->smooth()
+    ->dots(false)
+    ->gradient(['fromOpacity' => 0.25, 'toOpacity' => 0])
+    ->marker('Target', 20)
+    ->export();
+```
 
 Объединяйте допустимые параметры через `options()`:
 
 ```php
-Layout::chart('visits')->type(Chart::TYPE_BAR)
+Chart::make('visits')
+    ->type(Chart::TYPE_BAR)
     ->stacked()
     ->legend(false)
     ->options(['horizontal' => true, 'radius' => 3]);
 ```
+
+Доступные типы графиков: `Chart::TYPE_LINE`, `TYPE_BAR`, `TYPE_MIXED`, `TYPE_PIE` и `TYPE_PERCENTAGE`.
+Круговая и процентная диаграммы принимают ровно один набор данных.
+
+## Объедините типы графиков
+
+Для смешанного графика укажите `chartType` в каждом наборе:
+
+```php
+public function query(): array
+{
+    return [
+        'sales' => [
+            'labels'   => ['Jan', 'Feb'],
+            'datasets' => [
+                [
+                    'name'      => 'Actual',
+                    'values'    => [12, 18],
+                    'chartType' => 'bar',
+                    'radius'    => 3,
+                ],
+                [
+                    'name'      => 'Plan',
+                    'values'    => [15, 16],
+                    'chartType' => 'line',
+                    'smooth'    => true,
+                ],
+            ],
+        ],
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Chart::make('sales')
+            ->title('Monthly sales')
+            ->type(Chart::TYPE_MIXED),
+    ];
+}
+```
+
+## Используйте метрики модели
+
+Трейт `Orchid\Metrics\Chartable` добавляет scopes `countByDays()`, `sumByDays()`, `averageByDays()`,
+`minByDays()`, `maxByDays()`, `valuesByDays()` и `countForGroup()`.
+В модели `Orchid\Platform\Models\User` трейт подключён.
+
+```php
+use Orchid\Platform\Models\User;
+
+public function query(): array
+{
+    return [
+        'users' => User::countByDays()->toChart('New users'),
+        'names' => User::countForGroup('name')->toChart(),
+    ];
+}
+
+public function layout(): iterable
+{
+    return [
+        Chart::make('users')
+            ->title('New users by day')
+            ->type(Chart::TYPE_LINE),
+        Chart::make('names')
+            ->title('Users by name')
+            ->type(Chart::TYPE_PIE),
+    ];
+}
+```
+
+`toChart()` возвращает всю структуру `labels` и `datasets`.
+
+Scopes по датам принимают начало периода, конец и колонку даты. Агрегаты первым аргументом принимают колонку значения:
+
+```php
+User::countByDays(now()->subDays(6)->startOfDay(), now(), 'created_at')->toChart('Users');
+Order::sumByDays('total', now()->subDays(6)->startOfDay(), now(), 'paid_at')->toChart('Revenue');
+```
+
+Модель Order из примера должна использовать `Orchid\Metrics\Chartable` и иметь колонки `total` и `paid_at`.
+`valuesByDays()` читает сохранённые значения, остальные scopes агрегируют записи по дням.
+
+## Допустимые параметры
 
 | Тип | Допустимые параметры |
 | --- | --- |
@@ -83,78 +180,3 @@ Layout::chart('visits')->type(Chart::TYPE_BAR)
 
 `marker($label, $value, $options)` добавляет отметку. `export()` показывает кнопку скачивания графика.
 При повторной настройке параметра действует последнее значение.
-
-## Объедините типы графиков
-
-Для смешанного графика укажите `chartType` в каждом наборе:
-
-```php
-return [
-    'sales' => [
-        'labels' => ['Jan', 'Feb'],
-        'datasets' => [
-            ['name' => 'Actual', 'values' => [12, 18], 'chartType' => 'bar', 'radius' => 3],
-            ['name' => 'Plan', 'values' => [15, 16], 'chartType' => 'line', 'smooth' => true],
-        ],
-    ],
-];
-
-// In layout():
-Layout::chart('sales')->type(Chart::TYPE_MIXED);
-```
-
-## Используйте метрики модели
-
-Трейт `Orchid\Metrics\Chartable` добавляет scopes `countByDays()`, `sumByDays()`, `averageByDays()`,
-`minByDays()`, `maxByDays()`, `valuesByDays()` и `countForGroup()`.
-В модели User трейт уже подключён.
-
-```php
-return [
-    'users' => User::countByDays()->toChart('Users'),
-    'names' => User::countForGroup('name')->toChart(),
-];
-
-// In layout():
-Layout::chart('users')->type(Chart::TYPE_LINE);
-Layout::chart('names')->type(Chart::TYPE_PIE);
-```
-
-`toChart()` возвращает всю структуру `labels` и `datasets`. Не помещайте её в старый внешний массив наборов.
-
-Scopes по датам принимают начало периода, конец и колонку даты. Агрегаты первым аргументом принимают колонку значения:
-
-```php
-User::countByDays(now()->subDays(6)->startOfDay(), now(), 'created_at')->toChart('Users');
-Order::sumByDays('total', now()->subDays(6)->startOfDay(), now(), 'paid_at')->toChart('Revenue');
-```
-
-Модель Order из примера должна использовать `Orchid\Metrics\Chartable` и иметь колонки `total` и `paid_at`.
-`valuesByDays()` читает сохранённые значения, остальные scopes агрегируют записи по дням.
-
-## Создайте повторно используемый макет
-
-Выполните `php artisan orchid:chart VisitsChart`:
-
-```php
-namespace App\Orchid\Layouts;
-
-use Orchid\Screen\Layouts\Chart;
-
-class VisitsChart extends Chart
-{
-    public function __construct()
-    {
-        $this->target('visits')->title('Visits')->type(self::TYPE_BAR)->export();
-    }
-}
-```
-
-Верните `VisitsChart::class` из `layout()` экрана.
-Настраивайте унаследованный график через методы, не переопределяйте типизированные свойства.
-
-## Переход с Frappe Charts
-
-Перенесите подписи из каждого набора в общий массив `labels`, а серии поместите в `datasets`.
-Замените старые свойства отображения методами или допустимыми ключами `options()`.
-Параметры и клиентский API Frappe не поддерживаются. После обновления опубликуйте новые ресурсы.
