@@ -245,7 +245,7 @@ Table и Sortable сохраняют ключ данных первым аргу
 `emptyTitle()`, `emptyDescription()`, `emptyIcon()` и `emptyAction()`.
 Старый метод SideMenu `label(): string` заменяется на `->label('Settings')` или защищённое строковое свойство `$label`.
 
-Команды `orchid:rows` и `orchid:table` и их публикуемые stubs удалены.
+Команды `orchid:rows`, `orchid:table` и `orchid:chart` и их публикуемые stubs удалены.
 Именованные классы меню и их генераторы сохранены. Классовый обработчик Listener не изменяется.
 Если подкласс задаёт свой конструктор, сохраните сигнатуру родителя или вынесите создание в фабрику объекта.
 

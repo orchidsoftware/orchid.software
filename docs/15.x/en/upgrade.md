@@ -242,7 +242,7 @@ Replace table presentation overrides with `striped()`, `compact()`, `bordered()`
 Use `totals($columns)` for footer cells and `emptyTitle()`, `emptyDescription()`, `emptyIcon()`, and `emptyAction()`
 for empty states. SideMenu's old `label(): string` override becomes `->label('Settings')` or a protected string `$label`.
 
-The `orchid:rows` and `orchid:table` commands and their published stubs are removed.
+The `orchid:rows`, `orchid:table`, and `orchid:chart` commands and their published stubs are removed.
 Named menu classes and their generators remain supported. Listener's class-based request handler is unchanged.
 If a layout subclass defines a custom constructor, keep the parent signature or extract a factory that returns an object.
 

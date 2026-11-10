@@ -84,5 +84,5 @@ Layout::table('users', [TD::make('name')]);
 Listener остаётся классом поведения: `handle()` обрабатывает асинхронный запрос, а маршрут восстанавливает именованный
 обработчик. Этот контракт не заменяется сериализацией callbacks.
 
-Генераторы `orchid:rows` и `orchid:table` удалены. Генераторы Chart, Selection, TabMenu, SideMenu и Listener сохранены
+Генераторы `orchid:rows`, `orchid:table` и `orchid:chart` удалены. Генераторы Selection, TabMenu, SideMenu и Listener сохранены
 для случаев, когда приложению нужен именованный класс. Для прямого создания генератор не требуется.

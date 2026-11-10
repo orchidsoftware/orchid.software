@@ -84,5 +84,5 @@ Named layout subclasses remain available for reusable menus and specialized beha
 Listener remains a behavior class: its `handle()` method processes an asynchronous request, and its route reconstructs
 that named handler. Its contract has not been replaced with serialized callbacks.
 
-The generators `orchid:rows` and `orchid:table` are removed. Generators for Chart, Selection, TabMenu, SideMenu,
+The generators `orchid:rows`, `orchid:table`, and `orchid:chart` are removed. Generators for Selection, TabMenu, SideMenu,
 and Listener remain available when an application needs a named class. No generator is required for direct construction.

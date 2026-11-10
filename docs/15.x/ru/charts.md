@@ -132,26 +132,20 @@ Order::sumByDays('total', now()->subDays(6)->startOfDay(), now(), 'paid_at')->to
 Модель Order из примера должна использовать `Orchid\Metrics\Chartable` и иметь колонки `total` и `paid_at`.
 `valuesByDays()` читает сохранённые значения, остальные scopes агрегируют записи по дням.
 
-## Создайте повторно используемый макет
+## Создавайте графики напрямую
 
-Выполните `php artisan orchid:chart VisitsChart`:
+Генератор `orchid:chart` удалён. Верните настроенный график из метода `layout()` экрана:
 
 ```php
-namespace App\Orchid\Layouts;
-
 use Orchid\Screen\Layouts\Chart;
 
-class VisitsChart extends Chart
-{
-    public function __construct()
-    {
-        $this->target('visits')->title('Visits')->type(self::TYPE_BAR)->export();
-    }
-}
+Chart::make('visits', 'Visits')
+    ->type(Chart::TYPE_BAR)
+    ->export();
 ```
 
-Верните `VisitsChart::class` из `layout()` экрана.
-Настраивайте унаследованный график через методы, не переопределяйте типизированные свойства.
+Общее определение можно вынести в обычную фабрику, возвращающую настроенный объект.
+Существующие подклассы Chart поддерживаются; настраивайте их через методы, не переопределяйте типизированные свойства.
 
 ## Переход с Frappe Charts
 
