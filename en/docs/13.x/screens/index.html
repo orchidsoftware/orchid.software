@@ -461,7 +461,7 @@ described by a class that specifies the components that should be displayed, as 
 interactions.</p>
 <p>Screens do not need to be concerned with where the data comes from, as it can be retrieved from a database, API, or
 any other external source. Instead, screens focus on defining the appearance of the page using provided templates
-(called &ldquo;layouts&rdquo;), and specifying which data should be displayed in each layout.</p>
+(called “layouts”), and specifying which data should be displayed in each layout.</p>
 <p>In this way, screens provide a separation of concerns between the data and the presentation, making it easy to
 build and maintain complex web applications.</p>
 <h2><a href='#creating-screens' id='creating-screens'>Creating Screens</a></h2>
@@ -528,7 +528,7 @@ These include:</p>
 <p><picture alt='This schematic illustrates how screens work in Orchid.'><img src="/img/scheme/screens.jpg" alt="This schematic illustrates how screens work in Orchid."></picture></p>
 <ul>
 <li><p><strong>query</strong>: This method is used to load data from the database or other sources. It should return an array of data
-that will be available to the screen&rsquo;s layouts and views.</p></li>
+that will be available to the screen’s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
 <li><p><strong>layout</strong>: This method is used to define the structure and content of the screen. It should return an array of
 layout objects, which can be used to display data, forms, and other elements on the screen.</p></li>
@@ -558,7 +558,7 @@ single address, a whole group registered. For clarity, you can run the <code>rou
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'platform.idea'</span>);
 </code></pre>
 <blockquote>
-<p>It&rsquo;s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
+<p>It’s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
 </blockquote>
 <p>By writing the following routes:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
@@ -570,12 +570,12 @@ single address, a whole group registered. For clarity, you can run the <code>rou
 dashboard/idea/{method?}      | platform<span class="hl-delimeter">.</span>idea
 dashboard/idea/edit/{method?} | platform<span class="hl-delimeter">.</span>idea<span class="hl-delimeter">.</span>edit
 </code></pre>
-<p><code>{method?}</code> &ndash; means an optional argument that may go further.
-Correspondingly, the name &ldquo;edit&rdquo; in the address falls under it.
-The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, make sure to order your routes correctly.</p>
+<p><code>{method?}</code> – means an optional argument that may go further.
+Correspondingly, the name “edit” in the address falls under it.
+The result will be a redirect to “dashboard/idea/”. To avoid this, make sure to order your routes correctly.</p>
 <h2><a href='#querying-data' id='querying-data'>Querying Data</a></h2>
 <p>The <code>query</code> method of a screen is used to load data from the database or other sources.
-This data is then passed to the screen&rsquo;s layouts and views as an array</p>
+This data is then passed to the screen’s layouts and views as an array</p>
 <p>For example, you might use the <code>query</code> method to response simple string:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
@@ -585,7 +585,7 @@ This data is then passed to the screen&rsquo;s layouts and views as an array</p>
 }
 </code></pre>
 <p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows
-you to easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
+you to easily access and manipulate the model’s data from within the screen’s query method.</p>
 <p>To use the <code>AsSource</code> trait, you need to include it in your model class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
@@ -597,7 +597,7 @@ you to easily access and manipulate the model&rsquo;s data from within the scree
     <span class="hl-keyword">use</span> <span class="hl-type">AsSource</span>;
 }
 </code></pre>
-<p>Then, in your screen&rsquo;s <code>query</code> method, you can access the model&rsquo;s data like this:</p>
+<p>Then, in your screen’s <code>query</code> method, you can access the model’s data like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -607,9 +607,9 @@ you to easily access and manipulate the model&rsquo;s data from within the scree
 }
 </code></pre>
 <p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain
-a paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and
+a paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen’s layouts and
 views to display the data to the user.</p>
-<p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen&rsquo;s layouts and views. For example:</p>
+<p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen’s layouts and views. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
@@ -653,7 +653,7 @@ properties of the same name.</p>
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code>
 property.</p>
 <p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is
-displayed, the page title will contain the words &ldquo;Hello World!&rdquo;</p>
+displayed, the page title will contain the words “Hello World!”</p>
 <p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and
 can be especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
@@ -723,7 +723,7 @@ specific route. The <code>method</code> property must be specified in the attrib
     &lt;button type=<span class="hl-value">"submit"</span>&gt;Say <span class="hl-value">"Hello, World!"</span>&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
-<p>This will send a <code>POST</code> request to the 'platform.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which
+<p>This will send a <code>POST</code> request to the 'platform.screens.users’ screen with a method attribute of <code>hello</code>, which
 will trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
@@ -734,9 +734,9 @@ will trigger the corresponding method on the server-side.</p>
     ]));
 </code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
-<p>Layouts are responsible for the screen&rsquo;s appearance, that is, how and in what form the data will be displayed.</p>
+<p>Layouts are responsible for the screen’s appearance, that is, how and in what form the data will be displayed.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid.
-One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations.
+One of the elements of the presentation are “Layouts” (layouts), which can be displayed in various variations.
 If you try to explain briefly, it turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page, for example, imagine a block that displays the
 name, signature and profile avatar:</p>

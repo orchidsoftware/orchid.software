@@ -436,10 +436,10 @@ administration-style applications. It abstracts typical business application tem
 implement beautiful and elegant interfaces with little effort.</p>
 <p>Some features:</p>
 <ul>
-<li><strong>Form builder</strong> &ndash; no need to describe HTML fields of the same type each time.</li>
-<li><strong>Screen</strong> &ndash; a comfortable balance between CRUD generation and tedious coding.</li>
-<li><strong>Fields</strong> &ndash; over 40&nbsp;varieties.</li>
-<li><strong>Permissions</strong> &ndash; offers convenient management in development and support.</li>
+<li><strong>Form builder</strong> – no need to describe HTML fields of the same type each time.</li>
+<li><strong>Screen</strong> – a comfortable balance between CRUD generation and tedious coding.</li>
+<li><strong>Fields</strong> – over 40 varieties.</li>
+<li><strong>Permissions</strong> – offers convenient management in development and support.</li>
 <li>Menus, charts, notifications, etc.</li>
 </ul>
 <p>Because it is delivered as a Laravel package, it interacts well with other components and can serve as a base for
@@ -449,8 +449,8 @@ applications like a content management system</p>
 is strongly recommended you read the <a href="https://laravel.com/docs/">Laravel documentation</a>.</p>
 </blockquote>
 <h2><a href='#what-orchid-is-not' id='what-orchid-is-not'>What Orchid is not</a></h2>
-<p>Laravel Orchid is not a &ldquo;turnkey boxed solution.&rdquo; You need good programming skills to use it. It is designed to
-make developers&rsquo; lives easier when building complex systems, not to give you a ready-made solution.</p>
+<p>Laravel Orchid is not a “turnkey boxed solution.” You need good programming skills to use it. It is designed to
+make developers’ lives easier when building complex systems, not to give you a ready-made solution.</p>
 <h2><a href='#looking-for-something-simple' id='looking-for-something-simple'>Looking for something simple?</a></h2>
 <p><strong>Orchid CRUD</strong> makes it easy to create applications with less code. Its straightforward syntax means you can
 quickly build simple applications with little effort. To get started, check out <a href="/en/docs/12.x/packages/crud#introduction">the here
@@ -467,35 +467,35 @@ We hope that we can answer this question.</p>
 <p>All the previous packages were developed to simplify the work with the CRUD database, and they can be divided into
 several methods:</p>
 <ul>
-<li><p><strong>Scaffolding</strong> &ndash; The scaffolding method consists in creating physical files according to certain specifications, and thus it&rsquo;s the fastest at the initial stage of application development. As a rule, developers delete such
+<li><p><strong>Scaffolding</strong> – The scaffolding method consists in creating physical files according to certain specifications, and thus it’s the fastest at the initial stage of application development. As a rule, developers delete such
 packages after they age, as they cannot update the files with manual changes for updated criteria.</p></li>
-<li><p><strong>Visual programming</strong> &ndash; is a method where the developer drags or selects prepared objects and thus creates the
+<li><p><strong>Visual programming</strong> – is a method where the developer drags or selects prepared objects and thus creates the
 application instead of writing program code. This view is based on the assumption that most programs are simple
 procedural flows. However, once a program becomes more than a fairly trivial example, its complexity will soon
 trouble the inexperienced programmer.</p></li>
-<li><p><strong>One class</strong> &ndash; a method that invites the developer to describe all necessary actions in a class bound to the
-Eloquent model. But let&rsquo;s assume that we&rsquo;re trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won&rsquo;t help us because we&rsquo;re not working with this class.</p></li>
+<li><p><strong>One class</strong> – a method that invites the developer to describe all necessary actions in a class bound to the
+Eloquent model. But let’s assume that we’re trying to go beyond the scope of a CRUD application. In this case, libraries concentrated in such a paradigm won’t help us because we’re not working with this class.</p></li>
 </ul>
 <p>Unlike scaffolding, this package is helpful at any stage of development, not just at the beginning, because it can
 grow quickly thanks to the pre-built components.
-It doesn&rsquo;t offer visual programming, so you&rsquo;ve to write the code with the keyboard and not click with the mouse.
+It doesn’t offer visual programming, so you’ve to write the code with the keyboard and not click with the mouse.
 And instead of one, the main class offers many small components for encapsulation and reuse.</p>
 <h2><a href='#what-is-rapid-development' id='what-is-rapid-development'>What is rapid development?</a></h2>
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
 <ul>
-<li><p><strong>Presentation level</strong> &ndash; a graphical interface presented to the user (browser), including scripts, styles, and
+<li><p><strong>Presentation level</strong> – a graphical interface presented to the user (browser), including scripts, styles, and
 other resources.</p></li>
-<li><p><strong>The level of applied logic</strong> &ndash; in our cases, this framework is the link where most business logic is
+<li><p><strong>The level of applied logic</strong> – in our cases, this framework is the link where most business logic is
 concentrated, works with the database (Eloquent), sending resources, and various processing.</p></li>
-<li><p><strong>Level of resource management</strong> &ndash; We implement data storage&nbsp;using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
+<li><p><strong>Level of resource management</strong> – We implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
 </ul>
 <p><picture alt='Architecture'><img src="/img/docs-archive/17bed5f36394b4ca-architecture.jpg" alt="Architecture"></picture></p>
 <p>It reduces development time, which is directly related to the distribution of responsibilities between levels. This
-is especially noticeable when it&rsquo;s necessary to create auxiliary code. At the same time, most of the useful work is
+is especially noticeable when it’s necessary to create auxiliary code. At the same time, most of the useful work is
 done by the application layer.</p>
 <p>As various examples of conflicting tasks can be cited:</p>
 <ul>
-<li>Generation of &ldquo;HTML&rdquo; using the &ldquo;Blade&rdquo; template engine or the &ldquo;Vue&rdquo; framework.</li>
+<li>Generation of “HTML” using the “Blade” template engine or the “Vue” framework.</li>
 <li>Use of ORM or stored procedures.</li>
 </ul>
 <p>Depending on the choice of decisions, responsibilities are assigned, each decision having both advantages and

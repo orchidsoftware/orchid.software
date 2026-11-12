@@ -437,7 +437,7 @@
                     </ul>
     </nav>
                             <head></head><body><p>The platform uses the standard configuration system for Laravel.
-It locates the main parameters&nbsp;in the <code>config</code> directory, and the main file for the platform is
+It locates the main parameters in the <code>config</code> directory, and the main file for the platform is
 file <code>platform.php</code>. Each set comes with a commentary explaining the main point.</p>
 <blockquote>
 <p><strong>Note.</strong> If you cache your configuration files, do not forget to clear them after the change. Using the command
@@ -465,7 +465,7 @@ third-party domain.</p>
 ],
 </code></pre>
 <p>You can add/change intermediate layers (middleware) for the graphical interface.
-Currently, two groups of <code>public</code> can be seen by an unauthorized user, for example, the &ldquo;Login&rdquo; page and <code>private</code> which, on the contrary, only authorized users to see.</p>
+Currently, two groups of <code>public</code> can be seen by an unauthorized user, for example, the “Login” page and <code>private</code> which, on the contrary, only authorized users to see.</p>
 <p>You can add as many new intermediate layers as you like.
 For example, the filtering layer requests only from the white list of IP addresses.</p>
 <h2><a href='#login-page' id='login-page'>Login page</a></h2>
@@ -513,9 +513,9 @@ interface to specify a logo, accompanying documents, etc.</p>
 ],
 </code></pre>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel’s
 template override mechanism (this is the same for all packages, not just Orchid);</p>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the
+<p>Following Laravel’s mechanism for overriding templates from packages is to create the
 <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as
 the original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template

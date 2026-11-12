@@ -342,28 +342,28 @@
                     </ul>
     </nav>
                             <head></head><body><p>Screens are the main components of user interface that are described by a composition hierarchy, according to it
-every element has several properties that affect it&rsquo;s own apparel and entity.  By changing
+every element has several properties that affect it’s own apparel and entity.  By changing
 the layout structure and element properties you may create completely new layouts almost in a few minutes.</p>
-<p>A screen doesn&rsquo;t know where the data is from, it may be from database, API or other external sources. A screen has
+<p>A screen doesn’t know where the data is from, it may be from database, API or other external sources. A screen has
 standard functionality of modern user interface. You may configure the screen layout and also add or delete
 commands.
-Screen&rsquo;s apparel is defined by the <code>Layouts</code>, so everything you need to do is to define what data is to be
+Screen’s apparel is defined by the <code>Layouts</code>, so everything you need to do is to define what data is to be
 displayed in particular layout.</p>
 <p><picture alt='Screens'><img src="/img/docs-archive/9da4398f0689ed84-screens.jpg" alt="Screens"></picture></p>
 <h2><a href='#why-not-crud' id='why-not-crud'>Why not CRUD?</a></h2>
-<p>Almost every popular extensions use CRUD for user models, and it&rsquo;s a good solution, but an application cannot
+<p>Almost every popular extensions use CRUD for user models, and it’s a good solution, but an application cannot
 consist of the basic functions. You probably will extend and update the generated logic. A good example showing
-that standard CRUD operations are not enough is an ability to &ldquo;Print&rdquo;. ORCHID allows to create CRUD using
-&ldquo;screens&rdquo;, but it&rsquo;s not their main purpose.</p>
+that standard CRUD operations are not enough is an ability to “Print”. ORCHID allows to create CRUD using
+“screens”, but it’s not their main purpose.</p>
 <h2><a href='#informational-objects-and-screens' id='informational-objects-and-screens'>Informational objects and screens</a></h2>
 <p>When using the traditional development instruments, the creation of several layouts for displaying and changing is
-more complicated and hard tas than creation of data tables. It&rsquo;s especially noticeable when you follow the three
+more complicated and hard tas than creation of data tables. It’s especially noticeable when you follow the three
 level application architecture andyou need to add a lot of proxy code for level binding. Instruments for fast
 development make this process drastically easier and cheaper.</p>
 <p>Screens are used in ORCHID to display and control data, and are based on preset layouts. To bind data and screen
 you only need to define the displayed entities or requests.</p>
 <h2><a href='#creation' id='creation'>Creation</a></h2>
-<p>With ORCHID it&rsquo;s easier to do it, and you may create a set of screens in a few minutes.</p>
+<p>With ORCHID it’s easier to do it, and you may create a set of screens in a few minutes.</p>
 <p>To create a new screen you must perform the following command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:screen Users
 </code></pre>
@@ -422,13 +422,13 @@ you only need to define the displayed entities or requests.</p>
 
 </code></pre>
 <h2><a href='#routing-registration' id='routing-registration'>Routing registration</a></h2>
-<p>You may register every screen with the Route&rsquo;s <code>screen</code> method</p>
+<p>You may register every screen with the Route’s <code>screen</code> method</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/news'</span>, <span class="hl-value">'Users'</span>,<span class="hl-value">'platform.screens.users.list'</span>);
 <span class="hl-comment">//or</span>
 $route<span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'/news'</span>, <span class="hl-value">'Users'</span>,<span class="hl-value">'platform.screens.users.list'</span>);
 </code></pre>
 <h2><a href='#data' id='data'>Data</a></h2>
-<p>Most of data-oriented applications work with several tables, and these tables are connected to each other. It&rsquo;s
+<p>Most of data-oriented applications work with several tables, and these tables are connected to each other. It’s
 often required to display the data fetched from different sources or linked tables.</p>
 <p>For example in the process of displaying an order information a screen usually contains the following information
 about order: date, shipment address, shipment method etc. and one or more connected entries: product, amount, unit

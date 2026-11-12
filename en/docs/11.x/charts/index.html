@@ -616,7 +616,7 @@ authentication.</p>
 </code></pre>
 <h2><a href='#a-period-of-time' id='a-period-of-time'>A period of time</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
-<p>For example, let&rsquo;s display a graph of new users and roles:</p>
+<p>For example, let’s display a graph of new users and roles:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
@@ -681,7 +681,7 @@ $end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span
 <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end, <span class="hl-value">'updated_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>)
 </code></pre>
 <h2><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h2>
-<p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions
+<p>Value metrics don’t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions
 when building your metric.</p>
 <h3><a href='#average' id='average'>Average</a></h3>
 <p>The <code>average</code> method may be used to calculate the average of a given column</p>

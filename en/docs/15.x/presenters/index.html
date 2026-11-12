@@ -458,7 +458,7 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>A presenter formats an object&rsquo;s values for display. Put display logic in a class that extends
+                            <head></head><body><p>A presenter formats an object’s values for display. Put display logic in a class that extends
 <code>Orchid\Presenter\Presenter</code>. The wrapped object is available as <code>$this-&gt;entity</code>.</p>
 <h2><a href='#create-a-presenter' id='create-a-presenter'>Create a presenter</a></h2>
 <p>Generate a presenter with <code>php artisan orchid:presenter CustomerPresenter</code>, then define the values your views need:</p>
@@ -497,12 +497,12 @@ $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-function">fullN
 $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">fullName</span>;
 $presenter<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">email</span>;
 </code></pre>
-<p>Property access calls a same-named presenter method first, then reads the wrapped object&rsquo;s property.
+<p>Property access calls a same-named presenter method first, then reads the wrapped object’s property.
 The base presenter does not forward arbitrary method calls to the model.</p>
 <h2><a href='#choose-a-presenter-for-one-call' id='choose-a-presenter-for-one-call'>Choose a presenter for one call</a></h2>
 <pre><code data-lang="php" class="notranslate">$presenter <span class="hl-operator">=</span> $customer<span class="hl-delimeter">-&gt;</span><span class="hl-function">presenter</span>(<span class="hl-type">CompactCustomerPresenter</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>);
 </code></pre>
-<p>This override applies to that call. It does not change the model&rsquo;s default presenter.
+<p>This override applies to that call. It does not change the model’s default presenter.
 Without a class attribute or an explicit override, <code>presenter()</code> throws a <code>RuntimeException</code>.</p>
 <h2><a href='#present-a-collection' id='present-a-collection'>Present a collection</a></h2>
 <pre><code data-lang="php" class="notranslate">$customers <span class="hl-operator">=</span> <span class="hl-type">Customer</span><span class="hl-delimeter">::</span><span class="hl-function">query</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">limit</span>(<span class="hl-number">10</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">map</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">presenter</span>();
@@ -511,7 +511,7 @@ Without a class attribute or an explicit override, <code>presenter()</code> thro
 For global search, implement the <a href="/en/docs/15.x/global-search">search presenter contract</a>.</p>
 <h2><a href='#upgrade-from-14x' id='upgrade-from-14x'>Upgrade from 14.x</a></h2>
 <p>Change imports from <code>Orchid\Support\Presenter</code> to <code>Orchid\Presenter\Presenter</code>.
-Replace a model&rsquo;s presenter factory method with <code>Presentable</code> and <code>UsePresenter</code>.
+Replace a model’s presenter factory method with <code>Presentable</code> and <code>UsePresenter</code>.
 Review presenters that relied on forwarding model method calls or old contracts.</p>
 </body>
 

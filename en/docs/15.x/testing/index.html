@@ -503,7 +503,7 @@ $user <span class="hl-operator">=</span> <span class="hl-type">User</span><span 
 
 $screen <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-function">screen</span>(<span class="hl-value">'orchid.example'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">actingAs</span>($user);
 </code></pre>
-<p>You may get a <code>403|401 Error</code> when prompted &ndash; which means that the user does not have enough rights. One option is to
+<p>You may get a <code>403|401 Error</code> when prompted – which means that the user does not have enough rights. One option is to
 get all available permissions through the <code>Orchid</code> facade.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Orchid</span>;
 
@@ -532,7 +532,7 @@ $screen <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</
 }
 </code></pre>
 <h2><a href='#database-isolation' id='database-isolation'>Database isolation</a></h2>
-<p>Application feature tests that use a database may use Laravel&rsquo;s lazy refresh trait:</p>
+<p>Application feature tests that use a database may use Laravel’s lazy refresh trait:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Foundation\Testing\<span class="hl-type">LazilyRefreshDatabase</span>;
 
 <span class="hl-keyword">class</span> <span class="hl-type">OrderTest</span> <span class="hl-keyword">extends</span> <span class="hl-template">TestCase</span>
@@ -542,7 +542,7 @@ $screen <span class="hl-operator">=</span> <span class="hl-this-keyword">$this</
 }
 </code></pre>
 <p>This defers the database refresh until the first query. It still uses transactions for isolation.
-A browser runs requests in a separate process and cannot share the test&rsquo;s transaction. Use the appropriate Dusk
+A browser runs requests in a separate process and cannot share the test’s transaction. Use the appropriate Dusk
 migration or truncation lifecycle and a dedicated test database. Never point a refresh trait at production data.</p>
 <h2><a href='#temporary-screen-routes' id='temporary-screen-routes'>Temporary screen routes</a></h2>
 <p>Register a screen without adding a permanent application route:</p>
@@ -552,12 +552,12 @@ migration or truncation lifecycle and a dedicated test database. Never point a r
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">display</span>()
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">assertOk</span>();
 </code></pre>
-<p><code>register()</code> uses the <code>web</code> middleware by default. Supply the actual application&rsquo;s middleware when testing those checks.
+<p><code>register()</code> uses the <code>web</code> middleware by default. Supply the actual application’s middleware when testing those checks.
 <code>screen($name, $parameters)</code> also accepts route parameters directly. The helper supports <code>session()</code>, <code>from()</code>,
 <code>followingRedirects()</code>, and <code>method()</code> for request scenarios. Assert outcomes, validation failures, and access denial.</p>
 <h2><a href='#contributing-to-the-platform-package' id='contributing-to-the-platform-package'>Contributing to the platform package</a></h2>
 <p>These commands run in a platform checkout, not in an application that merely requires Orchid.
-The package uses Testbench Workbench, PHPStan level 3&nbsp;with Larastan, and Rector. Psalm is no longer used.</p>
+The package uses Testbench Workbench, PHPStan level 3 with Larastan, and Rector. Psalm is no longer used.</p>
 <pre><code data-lang="shell" class="notranslate">composer install
 vendor/bin/phpunit <span class="hl-constant">--testsuite=Main</span> <span class="hl-constant">--no-coverage</span>
 vendor/bin/phpstan analyse <span class="hl-constant">--no-progress</span> <span class="hl-constant">--memory-limit=3G</span>

@@ -360,7 +360,7 @@
 application
 is easier to use and helps users intuitively display screen elements to complete their tasks.</p>
 <p>The separation of logic and presentation is one of the principles of development with ORCHID.
-One of the elements of the presentation are &ldquo;Layouts&rdquo; (layouts) that can be displayed in different variations, if
+One of the elements of the presentation are “Layouts” (layouts) that can be displayed in different variations, if
 you try to explain briefly, it turns out that this is the <code>view</code> on steroids.</p>
 <h2><a href='#approach-through-layouts' id='approach-through-layouts'>Approach through layouts</a></h2>
 <p>For the formation of the page, we in most cases we use the same type of elements, for example, we will present a
@@ -435,7 +435,7 @@ be inserted in the <code>&lt;img&gt;</code> tag without having to edit the sourc
 </code></pre>
 <h3><a href='#allow-method' id='allow-method'>Allow method</a></h3>
 <ul>
-<li><p><code>align()</code> horizontal text alignment, takes the values: 'left&rsquo;, 'center&rsquo;, 'right&rsquo;</p></li>
+<li><p><code>align()</code> horizontal text alignment, takes the values: 'left’, 'center’, 'right’</p></li>
 <li><p><code>link($route,$key)</code> adds a link to the cell, for example, to edit this entry.</p></li>
 <li><p><code>locale()</code> displaying column data according to the current locale language.</p></li>
 <li><p><code>loadModalAsync($modal, $method, $options, $text)</code> adds a modal window to each column cell. Where $ modal
@@ -644,7 +644,7 @@ in which they are listed.</p>
 <p>To create, execute the command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:selection MySelection
 </code></pre>
-<p>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1082;&#1083;&#1072;&#1089;&#1089;&#1072;:</p>
+<p>Пример класса:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Platform\Filters\<span class="hl-type">Filter</span>;
@@ -745,7 +745,7 @@ in which they are listed.</p>
 </code></pre>
 <p>All data from the <code>query</code> method will be passed to your template.</p>
 <h2><a href='#wrapper' id='wrapper'>Wrapper</a></h2>
-<p>The &ldquo;Wrap&rdquo; can serve as an intermediary between the &ldquo;User Pattern&rdquo; and standard layers, with which
+<p>The “Wrap” can serve as an intermediary between the “User Pattern” and standard layers, with which
 available indicate exactly where the other layers should be displayed.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">layout</span>(): <span class="hl-keyword">array</span>
 {

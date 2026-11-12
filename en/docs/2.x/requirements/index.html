@@ -462,15 +462,15 @@ that support CSS and JavaScript (Insubstantional changes in layout may occur).</
 <li>Safari</li>
 <li>Google Chrome</li>
 </ul>
-<p>The layout is based on the most popular <code>Bootstrap</code> structure. Recommended display resolution is 1920&times;1080 (Full
+<p>The layout is based on the most popular <code>Bootstrap</code> structure. Recommended display resolution is 1920×1080 (Full
 HD)</p>
 <h2><a href='#database-server' id='database-server'>Database server</a></h2>
 <h3><a href='#mysql' id='mysql'>MySQL</a></h3>
-<p>The required MySQL version is 5.7.8&nbsp;or higher, with InnoDB as the main data storing mechanism, also requires the expansion of the database PDO.</p>
+<p>The required MySQL version is 5.7.8 or higher, with InnoDB as the main data storing mechanism, also requires the expansion of the database PDO.</p>
 <h3><a href='#postgresql' id='postgresql'>PostgreSQL</a></h3>
-<p>PostgreSQL 9.3&nbsp;or newer is required.</p>
+<p>PostgreSQL 9.3 or newer is required.</p>
 <h3><a href='#mariadb' id='mariadb'>Mariadb</a></h3>
-<p>Mariadb 10.3.2&nbsp;or newer is required.</p>
+<p>Mariadb 10.3.2 or newer is required.</p>
 <h3><a href='#other-database-servers' id='other-database-servers'>Other database servers</a></h3>
 <p>Others servers are not so abstract from code specific for MySQL/PostgreSQL, as some might desire. Startup and use on other servers is possible but it may require
 changes in some functions.</p>
@@ -489,16 +489,16 @@ changes in some functions.</p>
 <h2><a href='#web-server' id='web-server'>Web server</a></h2>
 <p>ORCHID perfectly works at every servers with PHP <code>7.0</code> or higher.</p>
 <p>Many hosting-providers allow to choose PHP version.
-PHP may be lower 7.0&nbsp;by default, that&rsquo;s why you better check your host dashboard
+PHP may be lower 7.0 by default, that’s why you better check your host dashboard
 to see which version of PHP is supported now and change it to match the requirements.</p>
 <p>If you want to create and develop ORCHID projects at your own computeer you may install everything required
 locally.</p>
 <h3><a href='#apache' id='apache'>Apache</a></h3>
-<p>There is the file <code>public/.htaccess</code> in Laravel that&rsquo;s used to display links without defining the
+<p>There is the file <code>public/.htaccess</code> in Laravel that’s used to display links without defining the
 front=end controller <code>index.php</code> in requested address.
 Before you start the Laravel to work with Apache server you should make sure that the <code>mod_rewrite</code> module is
-active, it&rsquo;s required to correctly process the .htaccess file.</p>
-<p>If the file <code>.htaccess</code> provided with Laravel doesn&rsquo;t work with your Apache server, try the alternative:</p>
+active, it’s required to correctly process the .htaccess file.</p>
+<p>If the file <code>.htaccess</code> provided with Laravel doesn’t work with your Apache server, try the alternative:</p>
 <pre><code data-lang="php" class="notranslate">Options +FollowSymLinks
 RewriteEngine On
 
@@ -514,12 +514,12 @@ redirect all requests to the <code>index.php</code> front-end controller:</p>
 }
 </code></pre>
 <h3><a href='#built-in-php-server-develop-only' id='built-in-php-server-develop-only'>Built-in PHP server (develop only)</a></h3>
-<p>The Built-in PHP is included as the CLI instrument in PHP 5.4.0&nbsp;and higher.</p>
+<p>The Built-in PHP is included as the CLI instrument in PHP 5.4.0 and higher.</p>
 <p>PHP web server was developed to help the development of applications.
 It also may be useful for testing or demonstrating of apps
 that are started in controlled environments.
-It&rsquo;s not meant to be fully functional web server
-that&rsquo;s why it should not be used as the production server for public use.</p>
+It’s not meant to be fully functional web server
+that’s why it should not be used as the production server for public use.</p>
 </body>
 
                                                                         </main>

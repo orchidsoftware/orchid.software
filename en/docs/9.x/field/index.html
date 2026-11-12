@@ -510,7 +510,7 @@ interaction with the user. Mainly designed to create text fields.</p>
 <h3><a href='#types' id='types'>Types</a></h3>
 <p>One of the most universal fields, by specifying a type, all <code>html</code> values are supported:</p>
 <blockquote>
-<p><strong>Please note</strong>. Support for the new HTML5&nbsp;attributes is completely dependent on the browser used.</p>
+<p><strong>Please note</strong>. Support for the new HTML5 attributes is completely dependent on the browser used.</p>
 </blockquote>
 <p>Text field. Designed to enter characters using the keyboard.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'text'</span>);
@@ -536,7 +536,7 @@ interaction with the user. Mainly designed to create text fields.</p>
 <p>To specify web addresses.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Input</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'name'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'url'</span>);
 </code></pre>
-<p>You can learn more about attribute types at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla&rsquo;s
+<p>You can learn more about attribute types at <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input">Mozilla’s
 website</a>.</p>
 <h3><a href='#mask-for-entering-values' id='mask-for-entering-values'>Mask for entering values</a></h3>
 <p>Great if the values should be written in a standard form, such as TIN or phone number</p>
@@ -576,7 +576,7 @@ data to the server.</p>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">rows</span>(<span class="hl-number">5</span>);
 </code></pre>
 <h2><a href='#checkbox' id='checkbox'>CheckBox</a></h2>
-<p>A graphical user interface element that allows the user to control a parameter with two states &ndash; &#9745; on and &#9744; off.</p>
+<p>A graphical user interface element that allows the user to control a parameter with two states – ☑ on and ☐ off.</p>
 <p>Example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">CheckBox</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'free'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">value</span>(<span class="hl-number">1</span>)
@@ -783,7 +783,7 @@ one column in the database. To do this, use the <code>displayAppend</code> metho
 <p>Example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>);
 </code></pre>
-<p>There are 6&nbsp;groups of controls available:</p>
+<p>There are 6 groups of controls available:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Quill</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'html'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">toolbar</span>([<span class="hl-value">"text"</span>, <span class="hl-value">"color"</span>, <span class="hl-value">"header"</span>, <span class="hl-value">"list"</span>, <span class="hl-value">"format"</span>, <span class="hl-value">"media"</span>]);
 </code></pre>
@@ -839,10 +839,10 @@ write using the keys:</p>
 </code></pre>
 <p>The following languages are available:</p>
 <ul>
-<li>Markup &ndash; <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
-<li>CSS &ndash; <code>css</code></li>
-<li>C-like &ndash; <code>clike</code></li>
-<li>JavaScript &ndash; <code>javascript</code>, <code>js</code></li>
+<li>Markup – <code>markup</code>, <code>html</code>, <code>xml</code>, <code>svg</code>, <code>mathml</code></li>
+<li>CSS – <code>css</code></li>
+<li>C-like – <code>clike</code></li>
+<li>JavaScript – <code>javascript</code>, <code>js</code></li>
 </ul>
 <p>The number of lines is supported:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Code</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'code'</span>)
@@ -974,11 +974,11 @@ And to add a simple link in the form.</p>
 </code></pre>
 <p>Available modifiers:</p>
 <ul>
-<li><code>right()</code> &ndash; Positioning the element on the right edge of the screen</li>
-<li><code>block()</code> &ndash; Positioning the element across the entire width of the screen</li>
-<li><code>class('class-names')</code> &ndash; rewrites the standard button classes</li>
-<li><code>method('methodName')</code> &ndash; when clicked, the form will be sent to the specified method within the current screen</li>
-<li><code>icon('icon-wallet')</code> &ndash; sets an icon for the button</li>
+<li><code>right()</code> – Positioning the element on the right edge of the screen</li>
+<li><code>block()</code> – Positioning the element across the entire width of the screen</li>
+<li><code>class('class-names')</code> – rewrites the standard button classes</li>
+<li><code>method('methodName')</code> – when clicked, the form will be sent to the specified method within the current screen</li>
+<li><code>icon('icon-wallet')</code> – sets an icon for the button</li>
 </ul>
 <h2><a href='#dropdown' id='dropdown'>Dropdown</a></h2>
 <p>You can easily create a DropDown action button combining all other actions.

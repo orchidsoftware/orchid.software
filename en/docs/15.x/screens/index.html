@@ -500,9 +500,9 @@
                             <head></head><body><h2><a href='#introduction' id='introduction'>Introduction</a></h2>
 <p>Screens in the Orchid serve as the core structure for defining page layout and behavior. Each screen is represented by a
 class that defines the UI components, their properties, and how they interact with one another.</p>
-<p>Screens don&rsquo;t handle data fetching directly. Instead, they focus on rendering the UI using predefined templates
-(layouts) and specify where and how data should be displayed. Data can come from any source&mdash;be it a database, API, or
-external service&mdash;without affecting the screen logic.</p>
+<p>Screens don’t handle data fetching directly. Instead, they focus on rendering the UI using predefined templates
+(layouts) and specify where and how data should be displayed. Data can come from any source—be it a database, API, or
+external service—without affecting the screen logic.</p>
 <p>At the core, each screen is essentially an HTML <code>&lt;form&gt;</code>, which streamlines handling user input, submitting data, and
 managing interactions in a standardized way. This ensures a predictable and consistent user experience.</p>
 <p>By separating the concerns of data management and UI rendering, Orchid screens make it easier to build and maintain
@@ -557,7 +557,7 @@ complex web applications.</p>
 include:</p>
 <ul>
 <li><p><strong>query</strong>: This method loads data from the database or other sources. It should return an array of data that will be
-available to the screen&rsquo;s layouts and views.</p></li>
+available to the screen’s layouts and views.</p></li>
 <li><p><strong>commandBar</strong>: This method is used to define buttons and other actions that will be displayed on the screen.</p></li>
 <li><p><strong>layout</strong>: This method is used to define the structure and content of the screen. It should return an array of layout
 objects, which can be used to display data, forms, and other elements on the screen.</p></li>
@@ -589,7 +589,7 @@ address, a whole group registered. For clarity, you can run the <code>route:list
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'orchid.idea'</span>);
 </code></pre>
 <blockquote>
-<p>It&rsquo;s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
+<p>It’s important to note that when registering multiple routes, Laravel will choose the first matching route.</p>
 </blockquote>
 <p>By writing the following routes:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/idea'</span>, <span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span>
@@ -601,11 +601,11 @@ address, a whole group registered. For clarity, you can run the <code>route:list
 dashboard/idea/{method?}      | orchid<span class="hl-delimeter">.</span>idea
 dashboard/idea/edit/{method?} | orchid<span class="hl-delimeter">.</span>idea<span class="hl-delimeter">.</span>edit
 </code></pre>
-<p><code>{method?}</code> &ndash; means an optional argument that may go further. Correspondingly, the name &ldquo;edit&rdquo; in the address falls
-under it. The result will be a redirect to &ldquo;dashboard/idea/&rdquo;. To avoid this, make sure to order your routes correctly.</p>
+<p><code>{method?}</code> – means an optional argument that may go further. Correspondingly, the name “edit” in the address falls
+under it. The result will be a redirect to “dashboard/idea/”. To avoid this, make sure to order your routes correctly.</p>
 <h2><a href='#querying-data' id='querying-data'>Querying Data</a></h2>
 <p>The <code>query</code> method of a screen is used to load data from the database or other sources. This data is then passed to the
-screen&rsquo;s layouts and views as an array</p>
+screen’s layouts and views as an array</p>
 <p>For example, you might use the <code>query</code> method to response simple string:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
@@ -615,7 +615,7 @@ screen&rsquo;s layouts and views as an array</p>
 }
 </code></pre>
 <p>You can use the <code>AsSource</code> trait to make an <code>Eloquent</code> model available as a data source for a screen. This allows you to
-easily access and manipulate the model&rsquo;s data from within the screen&rsquo;s query method.</p>
+easily access and manipulate the model’s data from within the screen’s query method.</p>
 <p>To use the <code>AsSource</code> trait, you need to include it in your model class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
@@ -627,7 +627,7 @@ easily access and manipulate the model&rsquo;s data from within the screen&rsquo
     <span class="hl-keyword">use</span> <span class="hl-type">AsSource</span>;
 }
 </code></pre>
-<p>Then, in your screen&rsquo;s <code>query</code> method, you can access the model&rsquo;s data like this:</p>
+<p>Then, in your screen’s <code>query</code> method, you can access the model’s data like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
     <span class="hl-keyword">return</span> [
@@ -637,9 +637,9 @@ easily access and manipulate the model&rsquo;s data from within the screen&rsquo
 }
 </code></pre>
 <p>In this example, the <code>order</code> key will contain a single <code>Order</code> model instance, while the <code>orders</code> key will contain a
-paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen&rsquo;s layouts and views to
+paginated list of all <code>Order</code> models in the database. These keys can then be used in the screen’s layouts and views to
 display the data to the user.</p>
-<p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen&rsquo;s layouts and views. For example:</p>
+<p>You can also use the <code>Repository</code> wrapper to pass an array of data to the screen’s layouts and views. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Repository</span>;
 
 <span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>(): <span class="hl-keyword">array</span>
@@ -682,7 +682,7 @@ the same name.</p>
 <p>In this example, we have declared a public property called $message. When a <code>GET</code> request is made to the screen, the
 <code>query</code> method is executed, and the value of the message key in the returned array is assigned to the <code>message</code>
 property.</p>
-<p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words &ldquo;Hello World!&rdquo;</p>
+<p>Then, in the <code>name</code> method, we return the value of the $message property. This means that when the screen is displayed, the page title will contain the words “Hello World!”</p>
 <p>Using public properties in this way is a useful way to pass data between different methods of a screen class, and can be
 especially helpful when building complex screens with multiple layouts and views.</p>
 <h2><a href='#screen-actions' id='screen-actions'>Screen Actions</a></h2>
@@ -776,7 +776,7 @@ route. The <code>method</code> property must be specified in the attributes usin
     <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">button</span> <span class="hl-attribute">type</span><span class="hl-delimeter">=</span><span class="hl-value">"submit"</span><span class="hl-start-end-tag">&gt;</span>Say "Hello, World!"<span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">button</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">form</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>This will send a <code>POST</code> request to the 'orchid.screens.users&rsquo; screen with a method attribute of <code>hello</code>, which will
+<p>This will send a <code>POST</code> request to the 'orchid.screens.users’ screen with a method attribute of <code>hello</code>, which will
 trigger the corresponding method on the server-side.</p>
 <p>You can also use this with the UI buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
@@ -787,9 +787,9 @@ trigger the corresponding method on the server-side.</p>
     ]));
 </code></pre>
 <h2><a href='#screen-layouts' id='screen-layouts'>Screen Layouts</a></h2>
-<p>Layouts are responsible for the screen&rsquo;s appearance: how the data is displayed and in what form.</p>
+<p>Layouts are responsible for the screen’s appearance: how the data is displayed and in what form.</p>
 <p>Separation of logic and presentation is one of the design principles with Laravel Orchid. One of the elements of the
-presentation are &ldquo;Layouts&rdquo; (layouts), which can be displayed in various variations. If you try to explain briefly, it
+presentation are “Layouts” (layouts), which can be displayed in various variations. If you try to explain briefly, it
 turns out that this is a <code>view</code> on steroids.</p>
 <p>In most cases, we use the same type of elements to form a page. For example, imagine a block that displays the name, signature, and profile avatar:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">class</span><span class="hl-delimeter">=</span><span class="hl-value">"d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center"</span><span class="hl-start-end-tag">&gt;</span>

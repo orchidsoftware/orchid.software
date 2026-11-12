@@ -453,7 +453,7 @@ be assigned to a user either directly or through roles, simplifying access manag
 assigning individual permissions to each user, roles allow you to assign one or more roles to a user. However, if
 needed, permissions can also be assigned directly to the user.</p>
 <blockquote>
-<p><strong>Important:</strong> Permissions do not replace Laravel&rsquo;s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still
+<p><strong>Important:</strong> Permissions do not replace Laravel’s <strong>Gate</strong> or <strong>Policies</strong> mechanisms. These mechanisms are still
 necessary for fine-grained access control, and permissions work in conjunction with them.</p>
 </blockquote>
 <p>Although roles simplify management, the focus should be on <strong>permissions</strong>. Application logic should check access based
@@ -567,7 +567,7 @@ override this response, for example, to redirect a payment page or return a diff
 </code></pre>
 <h2><a href='#check-in-middleware' id='check-in-middleware'>Check-in Middleware</a></h2>
 <p>Small applications may not need to define permissions for each screen or class, instead, it makes sense to check their
-availability for routes. To do this, register the <code>access</code> middleware. In Laravel 10&nbsp;and the traditional structure, add
+availability for routes. To do this, register the <code>access</code> middleware. In Laravel 10 and the traditional structure, add
 it to <code>app/Http/Kernel.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * The application's route middleware.
@@ -598,7 +598,7 @@ instead, using the <code>withMiddleware</code> callback.</p>
 </code></pre>
 <h2><a href='#check-in-blade' id='check-in-blade'>Check-in Blade</a></h2>
 <p>For applications that rely on Blade templating to render, it will be convenient to add
-<a href="https://laravel.com/docs/8.x/blade#custom-if-statements">&ldquo;Custom If Statements&rdquo;</a> as follows:</p>
+<a href="https://laravel.com/docs/8.x/blade#custom-if-statements">“Custom If Statements”</a> as follows:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Blade</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Auth</span>;
 

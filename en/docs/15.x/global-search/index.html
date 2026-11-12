@@ -455,7 +455,7 @@ before registering a model. Orchid does not provide the old separate search scre
 <p>In <code>config/orchid.php</code>, list the models that participate in search:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'search'</span> <span class="hl-operator">=&gt;</span> [App\Models\<span class="hl-type">Idea</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>],
 </code></pre>
-<p>Add Scout&rsquo;s <code>Searchable</code> trait and Orchid&rsquo;s presenter declaration to the model:</p>
+<p>Add Scout’s <code>Searchable</code> trait and Orchid’s presenter declaration to the model:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
 <span class="hl-keyword">use</span> App\Orchid\Presenters\<span class="hl-type">IdeaPresenter</span>;
@@ -477,7 +477,7 @@ before registering a model. Orchid does not provide the old separate search scre
 </code></pre>
 <h2><a href='#describe-search-results' id='describe-search-results'>Describe search results</a></h2>
 <p>The presenter implements <code>Orchid\Screen\Contracts\Searchable</code>. Define the <code>orchid.ideas.edit</code> route used below
-in your application&rsquo;s <code>routes/orchid.php</code>.</p>
+in your application’s <code>routes/orchid.php</code>.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Presenters;
 
 <span class="hl-keyword">use</span> Laravel\Scout\<span class="hl-type">Builder</span>;
@@ -525,7 +525,7 @@ in your application&rsquo;s <code>routes/orchid.php</code>.</p>
 <p><code>perSearchShow()</code> limits the results displayed for that model group. <code>image()</code> may return <code>null</code>.
 Use <code>searchQuery()</code> to enforce tenant visibility and other access restrictions for the current user.
 Registering a model does not grant permission to view its records.</p>
-<p>Search results appear in the dialog. Users can navigate them with the keyboard and follow the presenter&rsquo;s <code>url()</code>.
+<p>Search results appear in the dialog. Users can navigate them with the keyboard and follow the presenter’s <code>url()</code>.
 Do not link to the removed standalone search screen.</p>
 <p>The example assumes an <code>active</code> column. Configure that attribute as filterable if your Scout driver requires it.</p>
 </body>

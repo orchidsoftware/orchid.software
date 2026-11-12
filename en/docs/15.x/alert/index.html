@@ -468,7 +468,7 @@ your application looks exceptional.</p>
 </blockquote>
 <h2><a href='#flash-messages' id='flash-messages'>Flash Messages</a></h2>
 <p>A flash notification is a one-time message that is automatically deleted after the user views it. Designed to inform the
-user of a recent event&mdash;such as the successful saving of data&mdash;flash notifications provide quick, concise feedback without
+user of a recent event—such as the successful saving of data—flash notifications provide quick, concise feedback without
 cluttering the interface. If you need to retain notification data, consider using persistent notifications instead.</p>
 <h3><a href='#alert-messages' id='alert-messages'>Alert Messages</a></h3>
 <p>To create a flash notification, you can use the following code:</p>
@@ -547,13 +547,13 @@ default, data passed to the toast is escaped to prevent XSS attacks. Calling thi
 <p>Persistent notification are different from flash messages, they are not deleted after being viewed and can be sent to
 users even when they are offline. They are an excellent way to inform, for example, for a task manager application to
 notify an employee about a new task.</p>
-<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If there
+<p>You can view these notifications by clicking the “Notification Bell icon” in the application navigation bar. If there
 are unread notifications, a counter will be displayed. You can disable the notification bell or change the polling
 interval in <code>config/orchid.php</code> under the <code>notifications</code> key (<code>enabled</code> and <code>interval</code> in seconds).</p>
-<p>Before using this feature, it&rsquo;s important to check out the
+<p>Before using this feature, it’s important to check out the
 <a href="https://laravel.com/docs/notifications">Laravel notification documentation</a> as it provides more details and examples on
 how to use this feature.</p>
-<p>To send a notification, you can simply pass a <code>OrchidMessage</code> instance to a user&rsquo;s <code>notify</code> method.
+<p>To send a notification, you can simply pass a <code>OrchidMessage</code> instance to a user’s <code>notify</code> method.
 Before proceeding, ensure that your user model implements the <code>Notifiable</code> trait:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Notifications\<span class="hl-type">OrchidMessage</span>;
 <span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
@@ -596,7 +596,7 @@ receive a <code>$notifiable</code> object and must return a <code>OrchidMessage<
 <code>Notification</code> facade. You can take a look at
 <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification Documentation</a> to learn more about
 these two approaches to sending notifications.</p>
-<p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
+<p>Here is an example of how to send notifications to a user using the 'notify’ method:</p>
 <pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
 $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</span>(<span class="hl-constant">new</span> <span class="hl-type">TaskCompleted</span>);

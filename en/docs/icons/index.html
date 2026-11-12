@@ -439,11 +439,11 @@
                             <head></head><body><p>The package comes with a set of icons that can be found on the <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>. These
 icons are prefixed with <code>bs.*</code> which is used as a prefix to identify the icons in your code.</p>
 <blockquote>
-<p>If you&rsquo;re looking for a list of icons for previous versions, please visit the
+<p>If you’re looking for a list of icons for previous versions, please visit the
 <a href="/en/docs/orchid-icons">Orchid Icon Pack page</a>.</p>
 </blockquote>
 <h2><a href='#how-to-use-icons' id='how-to-use-icons'>How to Use Icons</a></h2>
-<p>You can easily add icons to elements like buttons, links, or menus in your application. Here&rsquo;s a simple example to help
+<p>You can easily add icons to elements like buttons, links, or menus in your application. Here’s a simple example to help
 you get started:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Menu</span>;
 
@@ -451,7 +451,7 @@ you get started:</p>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'bs.gear'</span>) <span class="hl-comment">// Use the 'bs.' prefix for Bootstrap Icons</span>
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.settings'</span>);
 </code></pre>
-<p>In this example, the icon <code>bs.gear</code> will show up next to the &ldquo;Settings&rdquo; link.</p>
+<p>In this example, the icon <code>bs.gear</code> will show up next to the “Settings” link.</p>
 <h2><a href='#custom-icons' id='custom-icons'>Custom Icons</a></h2>
 <p>To include an icon from a popular icon set such as Font Awesome, you can create a new directory for storing the icons.
 For example, you can create a new <code>icons</code> directory and a <code>fontawesome</code> subdirectory in your <code>resources</code> folder:</p>
@@ -474,8 +474,8 @@ and place it in the <code>fontawesome</code> subdirectory.</p>
     <span class="hl-value">'fa'</span> <span class="hl-operator">=&gt;</span> <span class="hl-function">resource_path</span>(<span class="hl-value">'icons/fontawesome'</span>)
 ],
 </code></pre>
-<p>In the example above, we have declared the prefix &ldquo;fa&rdquo; and the directory where the icons are located.</p>
-<p>To display the icons in the package&rsquo;s components, you only need to pass the prefix and the icon&rsquo;s name. For example, the
+<p>In the example above, we have declared the prefix “fa” and the directory where the icons are located.</p>
+<p>To display the icons in the package’s components, you only need to pass the prefix and the icon’s name. For example, the
 icon definition in a menu would look like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example of custom icons'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'fa.address-book'</span>)
@@ -497,7 +497,7 @@ icons in your views:</p>
 <p>You can also use the <code>Blade Icon Component</code> outside of the admin panel by
 <a href="https://github.com/orchidsoftware/blade-icons">using the Blade component</a>.</p>
 <h2><a href='#server-side-rendering-with-templates' id='server-side-rendering-with-templates'>Server-side Rendering with Templates</a></h2>
-<p>In our application, we rely solely on server-side rendering, which means we don&rsquo;t specifically prepare icons for
+<p>In our application, we rely solely on server-side rendering, which means we don’t specifically prepare icons for
 JavaScript control. However, it is still possible to use existing icons within JavaScript by utilizing the <code>&lt;template&gt;</code>
 tag.</p>
 <p>To illustrate this, you can include the following code on your page:</p>
@@ -510,7 +510,7 @@ tag.</p>
     <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">tr</span><span class="hl-start-end-tag">&gt;</span>
 <span class="hl-start-end-tag">&lt;/</span><span class="hl-tag">template</span><span class="hl-start-end-tag">&gt;</span>
 </code></pre>
-<p>In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here&rsquo;s
+<p>In the corresponding JavaScript code, you can use the template to create a DOM element with the desired content. Here’s
 an example:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-keyword">let</span> template <span class="hl-operator">=</span> document.<span class="hl-property"><span class="hl-function">querySelector</span></span>("#product-row");
 

@@ -407,8 +407,8 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>Notifications are a great way to let your users know what&rsquo;s going on in your app. For example, they can alert the
-user when a long process is complete or a new message arrives. In this section, we&rsquo;ll show you how to use them in
+                            <head></head><body><p>Notifications are a great way to let your users know what’s going on in your app. For example, they can alert the
+user when a long process is complete or a new message arrives. In this section, we’ll show you how to use them in
 your app.</p>
 <h2><a href='#flash-messages' id='flash-messages'>Flash messages</a></h2>
 <p>Flash notification is a one-time message that will be deleted upon the next access.
@@ -440,8 +440,8 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
 <p>When used, several keys will be set per session:</p>
 <ul>
-<li>'flash_notification.message&rsquo; &ndash; Message to display</li>
-<li>'flash_notification.level&rsquo; &ndash; A string representing the type of notification</li>
+<li>'flash_notification.message’ – Message to display</li>
+<li>'flash_notification.level’ – A string representing the type of notification</li>
 </ul>
 <p>The default display is already built into the template. Still, you can call it explicitly in the <code>blade</code> templates
 for this, you must specify:</p>
@@ -466,7 +466,7 @@ methods:</p>
 <p>The notification in the administration panel differs from flash-messages. They are not deleted after viewing and
 can be added to any users even when they are offline. It is another excellent way to inform, for example, for a
 task manager application to notify an employee about a new task.</p>
-<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If
+<p>You can view these notifications by clicking the “Notification Bell icon” in the application navigation bar. If
 there are unread notifications, a counter will be displayed.</p>
 <blockquote>
 <p><strong>Note:</strong> Before using this feature, check out the <a href="https://laravel.com/docs/notifications">Laravel notification
@@ -500,7 +500,7 @@ This method will receive a <code>$notifiable</code> object and must return a <co
 <code>Notification</code> facade. You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification
 Documentation</a> to learn more about these two
 approaches to sending notifications.</p>
-<p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
+<p>Here is an example of how to send notifications to a user using the 'notify’ method:</p>
 <pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
 $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</span>(<span class="hl-constant">new</span> <span class="hl-type">TaskCompleted</span>);

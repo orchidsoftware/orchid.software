@@ -440,7 +440,7 @@ actions that are only applicable when the particular route is active.</p>
 <span class="hl-function">is_active</span>()
 </code></pre>
 <h2>The use of <code>active()</code></h2>
-<p>You pass an array of routes or URLs you want to see as the main page and if there&rsquo;s some match, an <code>active</code> string
+<p>You pass an array of routes or URLs you want to see as the main page and if there’s some match, an <code>active</code> string
 will be returned to Bootstrap. Also, you may pass the user return string as the second argument.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Returns «active» if current route matches any route or resource address.</span>
 <span class="hl-function">active</span>(<span class="hl-value">'login'</span>, <span class="hl-value">'users/*'</span>, <span class="hl-value">'posts.*'</span>, <span class="hl-value">'pages.contact'</span>);
@@ -473,7 +473,7 @@ current page matches the rule or not:</p>
 <p>If your routing is performed by a request controller there are two functions that allow to define current
 controller and available actions.
 These functions will return controller name without request method.
-Below is the example of request redirected to `FooController@getBar&rsquo;:</p>
+Below is the example of request redirected to `FooController@getBar’:</p>
 <pre><code data-lang="php" class="notranslate">$controller <span class="hl-operator">=</span> <span class="hl-function">controller_name</span>(); <span class="hl-comment">// foo</span>
 
 $action <span class="hl-operator">=</span> <span class="hl-function">action_name</span>(); <span class="hl-comment">// bar</span>

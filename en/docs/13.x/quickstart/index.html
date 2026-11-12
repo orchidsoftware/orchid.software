@@ -478,19 +478,19 @@ link</a>.</p>
 <p>Welcome to this tutorial on building an admin panel with Orchid! Admin panels and line of business applications are
 important for many web applications as they allow administrators to manage content, users, and other data.</p>
 <p>In this tutorial, we will be creating a simple task list application to demonstrate some features of Orchid. This
-task list allows us to track all the tasks we need to complete, just like a traditional &ldquo;to-do list&rdquo;.</p>
+task list allows us to track all the tasks we need to complete, just like a traditional “to-do list”.</p>
 <p>Before beginning this tutorial, make sure that you have already installed <a href="/en/docs/13.x/installation">the framework and
-package</a>, and started the web server. Let&rsquo;s get started!</p>
+package</a>, and started the web server. Let’s get started!</p>
 <blockquote>
-<p>Before we begin, we strongly recommend that you don&rsquo;t copy and paste. Typing each piece of code will help you
+<p>Before we begin, we strongly recommend that you don’t copy and paste. Typing each piece of code will help you
 practice and remember it.</p>
 </blockquote>
 <h2><a href='#prepping-the-database' id='prepping-the-database'>Prepping the Database</a></h2>
 <h3><a href='#database-migrations' id='database-migrations'>Database Migrations</a></h3>
-<p>First, let&rsquo;s use a migration to define a database table to hold all of our tasks.</p>
+<p>First, let’s use a migration to define a database table to hold all of our tasks.</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:migration create_tasks_table --create=tasks
 </code></pre>
-<p>Let&rsquo;s edit this file and add an additional string column for the <code>name</code> and boolean column for the <code>active</code> of our
+<p>Let’s edit this file and add an additional string column for the <code>name</code> and boolean column for the <code>active</code> of our
 tasks:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Migrations\<span class="hl-type">Migration</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Schema\<span class="hl-type">Blueprint</span>;
@@ -528,7 +528,7 @@ tasks:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan migrate
 </code></pre>
 <h3><a href='#eloquent-models' id='eloquent-models'>Eloquent Models</a></h3>
-<p>So, let&rsquo;s define a <code>Task</code> model that corresponds to our <code>tasks</code> database table we just created.</p>
+<p>So, let’s define a <code>Task</code> model that corresponds to our <code>tasks</code> database table we just created.</p>
 <pre><code data-lang="shell" class="notranslate">php artisan make:model Task
 </code></pre>
 <p>In the <code>app/Models</code> directory, a new file <code>Task.php</code> will be created, we will describe the fields as available for
@@ -548,7 +548,7 @@ filling:</p>
 <p><strong>Note.</strong> The model has the <code>AsSource</code> trait, for convenient handling via dot notation.</p>
 </blockquote>
 <h2><a href='#screen' id='screen'>Screen</a></h2>
-<p>Now that we have the basic setup out of the way, it&rsquo;s time to add our first <a href="/en/docs/13.x/screens">screen</a> to the
+<p>Now that we have the basic setup out of the way, it’s time to add our first <a href="/en/docs/13.x/screens">screen</a> to the
 application. A screen in Orchid is similar to a controller, but it has a pre-defined structure that is used to
 define data and events for a single page. The structure of a screen allows us to easily define the layout and
 behavior of the page, and helps to keep our code organized and maintainable.</p>
@@ -647,7 +647,7 @@ follows:</p>
 </code></pre>
 <h2><a href='#navigation' id='navigation'>Navigation</a></h2>
 <h3><a href='#menu' id='menu'>Menu</a></h3>
-<p>To make it easier for users to access our screen, we can add a new menu item to the admin panel&rsquo;s navigation menu.
+<p>To make it easier for users to access our screen, we can add a new menu item to the admin panel’s navigation menu.
 This will allow users to click on a link in the menu to access the screen, rather than having to manually type the
 URL into the browser.</p>
 <p>To add a new menu item to the navigation menu, we will need to open the <code>app/Orchid/PlatformProvider.php</code> file and
@@ -718,8 +718,8 @@ content of the page.</p>
     ];
 }
 </code></pre>
-<p>This will create a modal window with the title &ldquo;Create Task&rdquo;. The modal will contain an input field for the task
-name, with the label &ldquo;Name&rdquo;.</p>
+<p>This will create a modal window with the title “Create Task”. The modal will contain an input field for the task
+name, with the label “Name”.</p>
 <h3><a href='#launch-modal' id='launch-modal'>Launch Modal</a></h3>
 <p>If you visit the screen in the browser, you will notice that the modal window is not displayed, even though we have
 defined it in the <code>layout</code> method. This is because the modal is hidden by default, and must be called in order to
@@ -744,7 +744,7 @@ screen.</p>
     ];
 }
 </code></pre>
-<p>This will create a button with the label &ldquo;Add Task&rdquo; and an icon of a plus sign.
+<p>This will create a button with the label “Add Task” and an icon of a plus sign.
 When the button is clicked, it will open the <code>taskModal</code> modal window, and when clicked again, it will close the
 modal.</p>
 <p>In the following sections, we will go over the details of how to define the <code>create</code> method and control the
@@ -773,12 +773,12 @@ form is sent to the server. This method can be used to validate the form data, s
     $task<span class="hl-delimeter">-&gt;</span><span class="hl-function">save</span>();
 }
 </code></pre>
-<p>Great! We can now successfully create tasks. Next, let&rsquo;s continue adding to our screen by building a list of all
+<p>Great! We can now successfully create tasks. Next, let’s continue adding to our screen by building a list of all
 existing tasks.</p>
 <h3><a href='#displaying-existing-tasks' id='displaying-existing-tasks'>Displaying Existing Tasks</a></h3>
 <p>The query method specifies what data should be shown on the screen.
 This data can be collected or generated within the method. The data is returned in an array,</p>
-<p>Let&rsquo;s return a simple sample with the key <code>tasks</code>:</p>
+<p>Let’s return a simple sample with the key <code>tasks</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Models\<span class="hl-type">Task</span>;
 
 <span class="hl-comment">/**
@@ -827,11 +827,11 @@ to display the list of tasks, and will include columns for the task name and act
 passed to the table.
 And the second one, we pass the set of columns we want to display. The values in them will be automatically set
 according to the specified property name.</p>
-<p>Our task application is almost complete. But, we have no way to delete our existing tasks when they&rsquo;re done. Let&rsquo;s
+<p>Our task application is almost complete. But, we have no way to delete our existing tasks when they’re done. Let’s
 add that next!</p>
 <h2><a href='#deleting-tasks' id='deleting-tasks'>Deleting Tasks</a></h2>
 <h3><a href='#adding-the-delete-button' id='adding-the-delete-button'>Adding the Delete Button</a></h3>
-<p>So, let&rsquo;s add a delete button to each row of our task listing&hellip;</p>
+<p>So, let’s add a delete button to each row of our task listing…</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 
 <span class="hl-type">Layout</span><span class="hl-delimeter">::</span><span class="hl-function">table</span>(<span class="hl-value">'tasks'</span>, [

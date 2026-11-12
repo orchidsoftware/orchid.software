@@ -477,7 +477,7 @@ any model in your application by adding the <code>Attachable</code> trait to the
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">attachments</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</span>();
 </code></pre>
 <h2><a href='#uploading-a-file-via-http' id='uploading-a-file-via-http'>Uploading a File via HTTP</a></h2>
-<p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here&rsquo;s an example of a controller
+<p>To upload a file via HTTP, you can use the <code>File</code> class and the <code>load()</code> method. Here’s an example of a controller
 method that handles file uploads:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Attachment\<span class="hl-type">File</span>;
 
@@ -541,7 +541,7 @@ the <code>allowDuplicates()</code> method.</p>
     <span class="hl-keyword">return</span> <span class="hl-function">response</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">json</span>();
 }
 </code></pre>
-<p>Keep in mind that allowing duplicate files may increase storage usage and affect your application&rsquo;s performance.
+<p>Keep in mind that allowing duplicate files may increase storage usage and affect your application’s performance.
 Therefore, it should be used with caution and only when necessary.</p>
 <h2><a href='#customizing-the-upload-path' id='customizing-the-upload-path'>Customizing the Upload Path</a></h2>
 <p>By default, Laravel Orchid uses a default upload path for all files of <code>Y/m/d</code>, for example: <code>2022/06/11</code>. This path is
@@ -564,13 +564,13 @@ default path and all files will be uploaded to the <code>photos</code> folder.</
 <p>You can also use dynamic parameters like <code>path('photos/'.$user-&gt;id)</code> or <code>path('photos/'.$file-&gt;name)</code> to create specific
 folders for each user or file type.</p>
 <h2><a href='#remove' id='remove'>Remove</a></h2>
-<p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a
+<p>Attachments won’t be removed after model removal automatically. In case when your attachments can’t exist without a
 model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code> table, the
-file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that
-case, an additional check will proceed. If there no link to the file &ndash; it will be deleted. You can do it using
+file won’t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the <code>Attachment</code> model. In that
+case, an additional check will proceed. If there no link to the file – it will be deleted. You can do it using
 <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and
 <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
-<p>Let&rsquo;s come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">&ldquo;Manage file attachments&rdquo;</a></p>
+<p>Let’s come back to our example with <code>hero</code> relation from <a href="/en/docs/quickstart-files">“Manage file attachments”</a></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Post.php</span>
 
 <span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
@@ -588,7 +588,7 @@ case, an additional check will proceed. If there no link to the file &ndash; it 
 <blockquote>
 <p><strong>Note.</strong> You should build your relation using <code>withDefault()</code> function to avoid the null pointer exception.</p>
 </blockquote>
-<p>Let&rsquo;s generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
+<p>Let’s generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
 <pre><code data-lang="shell" class="notranslate">php artisan make:observer PostObserver
 </code></pre>
 <p>In PostObserver we create <code>deleting</code> function</p>
@@ -606,7 +606,7 @@ case, an additional check will proceed. If there no link to the file &ndash; it 
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done to
-access the filesystem to delete a file (The database won&rsquo;t do it for us).</p>
+access the filesystem to delete a file (The database won’t do it for us).</p>
 </blockquote>
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
@@ -673,10 +673,10 @@ available.</p>
 ],
 </code></pre>
 <ul>
-<li><p><strong>disk</strong> &ndash; The name of the storage disk that will be used to store the files. The disk should be defined in the
+<li><p><strong>disk</strong> – The name of the storage disk that will be used to store the files. The disk should be defined in the
 <code>/config/filesystems.php</code> file.</p></li>
-<li><p><strong>generator</strong> &ndash; The generator class that defines how the files will be named, where they will be located in the
-storage, and how to avoid duplicating them. By default, Orchid uses the <code>\Orchid\Attachment\Engines\Generator</code> class, which uses a hash of the file&rsquo;s contents to avoid duplicating files.</p></li>
+<li><p><strong>generator</strong> – The generator class that defines how the files will be named, where they will be located in the
+storage, and how to avoid duplicating them. By default, Orchid uses the <code>\Orchid\Attachment\Engines\Generator</code> class, which uses a hash of the file’s contents to avoid duplicating files.</p></li>
 </ul>
 <p>You can modify these settings to suit your needs, for example, you can change the disk and generator to customize the
 way files are handled and stored.</p>
@@ -693,7 +693,7 @@ purposes.</p>
 <p>Orchid allows you to subscribe to event that are triggered when a file is uploaded. This feature enables you to execute
 additional tasks like video compression, image optimization, or other file processing operations.</p>
 <p>To subscribe to an event, you can use
-<a href="https://laravel.com/docs/11.x/events#defining-listeners">Laravel&rsquo;s event listening mechanism</a>. In the example below, an
+<a href="https://laravel.com/docs/11.x/events#defining-listeners">Laravel’s event listening mechanism</a>. In the example below, an
 anonymous function is registered to listen for the <code>UploadFileEvent</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Platform\Events\<span class="hl-type">UploadFileEvent</span>;
 <span class="hl-keyword">use</span> Illuminate\Support\Facades\<span class="hl-type">Event</span>;
@@ -717,10 +717,10 @@ validations, or triggering additional actions.</p>
 <blockquote>
 <p><strong>Note.</strong> File upload validation is not enforced by default.</p>
 </blockquote>
-<p>By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes &mdash; giving you full
+<p>By design, the attachment system imposes no restrictions on file extensions, MIME types, or sizes — giving you full
 flexibility.</p>
 <p>Uploaded files are stored on the configured disk (typically outside <code>/public</code>) and are not meant to be executed as code.</p>
-<p>For security, define your own upload rules &mdash; for example, via Laravel validation in controllers/routes, access
+<p>For security, define your own upload rules — for example, via Laravel validation in controllers/routes, access
 restrictions for trusted users only, or server-level file execution protections.</p>
 </body>
 

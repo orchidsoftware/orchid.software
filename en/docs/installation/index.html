@@ -466,14 +466,14 @@ laravel new orchid-project
 <p>For more information on how to install Laravel, follow
 <a href="https://laravel.com/docs/installation">Official Laravel Installation Guide</a>.</p>
 <blockquote>
-<p><strong>Don&rsquo;t you have Composer?</strong> It&rsquo;s easy to install by following the instructions on the
+<p><strong>Don’t you have Composer?</strong> It’s easy to install by following the instructions on the
 <a href="https://getcomposer.org/download/">download page</a>.</p>
 </blockquote>
 <p>It will create a new <code>orchid-project</code> directory, load the dependencies, and generate the leading directories and files
 you need to get started. In other words, install your new framework project.</p>
 <p><strong>Do not forget:</strong></p>
 <ul>
-<li>Set &ldquo;chmod -R o+w&rdquo; rights to the <code>storage</code> and <code>bootstrap/cache</code> directories</li>
+<li>Set “chmod -R o+w” rights to the <code>storage</code> and <code>bootstrap/cache</code> directories</li>
 <li>Edit the <code>.env</code> file</li>
 </ul>
 <blockquote>
@@ -484,7 +484,7 @@ you need to get started. In other words, install your new framework project.</p>
 <pre><code data-lang="shell" class="notranslate">composer require orchid/platform
 </code></pre>
 <blockquote>
-<p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application&rsquo;s
+<p><strong>Note.</strong> You also need to create a new database, update the <code>.env</code> file with credentials, and add your application’s
 URL to the variable <code>APP_URL</code>.</p>
 </blockquote>
 <h2><a href='#package-installation' id='package-installation'>Package Installation</a></h2>
@@ -502,7 +502,7 @@ Eloquent model.</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:admin
 </code></pre>
 <h2><a href='#start-the-development-server' id='start-the-development-server'>Start the Development Server</a></h2>
-<p>If you haven&rsquo;t installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:</p>
+<p>If you haven’t installed a server (Nginx, Apache, etc.) to run the project, you can use the built-in server:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan serve
 </code></pre>
 <p>Open a browser and go to <code>http://localhost:8000/admin</code>. If everything works, you will see the control panel login page.
@@ -525,7 +525,7 @@ php artisan view:clear
 </code></pre>
 <h2><a href='#keeping-assets-updated' id='keeping-assets-updated'>Keeping Assets Updated</a></h2>
 <p>To make sure that your assets are promptly updated whenever a new version is downloaded, you can easily add a Composer
-hook to your project&rsquo;s <code>composer.json</code> file. This will automatically publish the latest assets for you:</p>
+hook to your project’s <code>composer.json</code> file. This will automatically publish the latest assets for you:</p>
 <pre><code data-lang="json" class="notranslate">{
     "<span class="hl-value">scripts</span>": {
         "<span class="hl-value">post-update-cmd</span>": ["<span class="hl-json-value">@php artisan orchid:publish --ansi</span>"]
@@ -538,7 +538,7 @@ check:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan about
 </code></pre>
 <p>This command will provide you with an importance of information, including some of the details about the package itself.
-It&rsquo;s ensuring that your environment is correctly configured and running as expected.</p>
+It’s ensuring that your environment is correctly configured and running as expected.</p>
 <blockquote>
 <p><strong>Problems encountered during installation?</strong> It is possible that someone already had this problem
 <a href="https://github.com/orchidsoftware/platform/issues">https://github.com/orchidsoftware/platform/issues</a>. If not, you can send a message or ask for

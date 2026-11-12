@@ -445,7 +445,7 @@ probably seen this before, for example, <code>operation?result=success</code>. E
 applicable.</p>
 <p>However, in Laravel Orchid, there is a convenient solution for storing small amounts of information, such as an Eloquent
 model. This is made possible because each request carries the state of all public properties of the screen.</p>
-<p>Let&rsquo;s try it out and create a new screen called <code>StateScreen</code> using the Artisan command:</p>
+<p>Let’s try it out and create a new screen called <code>StateScreen</code> using the Artisan command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:screen StateScreen
 </code></pre>
 <p>Next, we need to register it in the route file:</p>
@@ -453,7 +453,7 @@ model. This is made possible because each request carries the state of all publi
 
 <span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'state'</span>, <span class="hl-type">StateScreen</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'state'</span>);
 </code></pre>
-<p>A classic example is counting the number of clicks. Let&rsquo;s add the following code to the newly created screen:</p>
+<p>A classic example is counting the number of clicks. Let’s add the following code to the newly created screen:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-system-tag">&lt;?php</span>
 
 <span class="hl-keyword">namespace</span> App\Orchid\Screens;
@@ -504,7 +504,7 @@ model. This is made possible because each request carries the state of all publi
     }
 }
 </code></pre>
-<p>Let&rsquo;s open the page in a browser and see how the screen looks. It should display the label &ldquo;Click Count: 0&rdquo; Now, let&rsquo;s
+<p>Let’s open the page in a browser and see how the screen looks. It should display the label “Click Count: 0” Now, let’s
 add a simple method to the screen to see the request content:</p>
 <pre><code data-lang="php" class="notranslate">
 <span class="hl-keyword">use</span> Orchid\Support\<span class="hl-type">Color</span>;
@@ -538,7 +538,7 @@ add a simple method to the screen to see the request content:</p>
     <span class="hl-function">dd</span>($request<span class="hl-delimeter">-&gt;</span><span class="hl-function">all</span>());
 }
 </code></pre>
-<p>Upon clicking the &ldquo;Submit&rdquo; button, you will see the request content. However, please note that the click count value is
+<p>Upon clicking the “Submit” button, you will see the request content. However, please note that the click count value is
 missing. In a conventional server application, we could have achieved this by adding a hidden form field
 <code>&lt;input type="hidden"&gt;</code> and redirecting with a GET parameter <code>?count=1</code>.</p>
 <p>Fortunately, Orchid provides a convenient solution that automatically saves the state of public properties of the
@@ -571,8 +571,8 @@ type, but it can also be used for more complex objects like Eloquent models.</p>
 <p>Storing large amounts of data in public screen properties may cause performance issues. Therefore, it is recommended
 to exercise caution and avoid storing excessive information in public properties.</p>
 </blockquote>
-<p>To update the screen state, we simply need to modify the public property. But before that, let&rsquo;s update our <code>query</code>
-method to return an array with the key <code>clicks</code> containing the current value of the property. If it&rsquo;s absent, we&rsquo;ll set
+<p>To update the screen state, we simply need to modify the public property. But before that, let’s update our <code>query</code>
+method to return an array with the key <code>clicks</code> containing the current value of the property. If it’s absent, we’ll set
 it to <code>0</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">class</span> <span class="hl-type">StateScreen</span> <span class="hl-keyword">extends</span> <span class="hl-template">Screen</span>
 {
@@ -596,7 +596,7 @@ it to <code>0</code>:</p>
     }
 }
 </code></pre>
-<p>Let&rsquo;s update the <code>increment()</code> method to increment the value of the <code>clicks</code> property by one each time it&rsquo;s called.</p>
+<p>Let’s update the <code>increment()</code> method to increment the value of the <code>clicks</code> property by one each time it’s called.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Increment the click count.
  */</span>
@@ -605,7 +605,7 @@ it to <code>0</code>:</p>
     <span class="hl-this-keyword">$this</span><span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">clicks</span><span class="hl-constant">++</span>;
 }
 </code></pre>
-<p>Now, when the user clicks the &ldquo;Increment Click&rdquo; button, the click counter will be updated. If you refresh the page, the
+<p>Now, when the user clicks the “Increment Click” button, the click counter will be updated. If you refresh the page, the
 counter will be reset.</p>
 </body>
 

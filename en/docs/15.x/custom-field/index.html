@@ -468,7 +468,7 @@
                     </ul>
     </nav>
                             <head></head><body><h2><a href='#creating-a-new-field' id='creating-a-new-field'>Creating a New Field</a></h2>
-<p>Orchid provides a rich set of built-in form fields, but sometimes those aren&rsquo;t enough for specific use cases. In such
+<p>Orchid provides a rich set of built-in form fields, but sometimes those aren’t enough for specific use cases. In such
 cases, you can create a custom field tailored to your needs.</p>
 <p>A field in Orchid consists of two main parts:</p>
 <ul>
@@ -483,8 +483,8 @@ cases, you can create a custom field tailored to your needs.</p>
 <li><strong>PHP Class</strong>: <code>app/Orchid/Fields/EmojiPicker.php</code></li>
 <li><strong>Blade Template</strong>: <code>resources/views/orchid/fields/emoji-picker.blade.php</code></li>
 </ul>
-<p>You can modify these files as needed&mdash;update the HTML markup, apply styles, include external libraries, and define user
-interactions. Here&rsquo;s a look at the generated class:</p>
+<p>You can modify these files as needed—update the HTML markup, apply styles, include external libraries, and define user
+interactions. Here’s a look at the generated class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Fields;
 
 <span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Field</span>;
@@ -516,17 +516,17 @@ interactions. Here&rsquo;s a look at the generated class:</p>
 }
 </code></pre>
 <ul>
-<li><strong><code>$view</code></strong>: Points to the Blade template that will be used for rendering the field. In this case, it&rsquo;s
+<li><strong><code>$view</code></strong>: Points to the Blade template that will be used for rendering the field. In this case, it’s
 <code>orchid.fields.emoji-picker</code>.</li>
 <li><strong><code>$attributes</code></strong>: Defines default values like <code>placeholder</code>, <code>class</code>, and <code>type</code>.</li>
 <li><strong><code>$inlineAttributes</code></strong>: Lists the attributes that should be rendered as inline HTML attributes.</li>
 </ul>
-<p>You don&rsquo;t need to manually register your custom field&mdash;it&rsquo;s immediately usable. For example:</p>
+<p>You don’t need to manually register your custom field—it’s immediately usable. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">EmojiPicker</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'reaction'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">placeholder</span>(<span class="hl-value">'Pick an emoji'</span>);
 </code></pre>
 <h3>Blade Template (<code>view</code>)</h3>
-<p>Let&rsquo;s examine the generated Blade template:</p>
+<p>Let’s examine the generated Blade template:</p>
 <pre><code data-lang="html" class="notranslate">@component($typeForm, get_defined_vars())
 <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">div</span> <span class="hl-attribute">data-controller</span><span class="hl-delimeter">=</span><span class="hl-value">"emoji-picker"</span><span class="hl-start-end-tag">&gt;</span>
     <span class="hl-start-end-tag">&lt;</span><span class="hl-tag">input</span> {{ $attributes- <span class="hl-start-end-tag">/&gt;</span>merge([ 'data-emoji-picker-target' =&gt; 'name', 'data-action' =&gt; 'input-&gt;emoji-picker#greet',
@@ -561,7 +561,7 @@ attribute. You can leverage the full power of Stimulus to make your field intera
 <p>Orchid uses Stimulus to add interactivity to UI components. This lightweight JavaScript framework connects logic to HTML
 via data attributes, making it especially suitable for dynamic form fields.</p>
 <h3><a href='#controller-structure' id='controller-structure'>Controller Structure</a></h3>
-<p>Here&rsquo;s a simplified view of the <code>EmojiPicker</code> controller:</p>
+<p>Here’s a simplified view of the <code>EmojiPicker</code> controller:</p>
 <pre><code data-lang="html" class="notranslate"><span class="hl-start-end-tag">&lt;</span><span class="hl-tag">script</span><span class="hl-start-end-tag">&gt;</span>
     Orchid.<span class="hl-property"><span class="hl-function">register</span></span>(
         "emoji-picker",
@@ -585,7 +585,7 @@ via data attributes, making it especially suitable for dynamic form fields.</p>
 <li><p><strong>Lifecycle Methods:</strong></p>
 <ul>
 <li><code>connect()</code> is called when the controller is attached to the DOM</li>
-<li><code>disconnect()</code> is triggered when it&rsquo;s removed</li>
+<li><code>disconnect()</code> is triggered when it’s removed</li>
 </ul></li>
 <li><p><strong>Methods:</strong> Custom functions for handling events (like <code>greet()</code>)</p></li>
 </ul>
@@ -599,8 +599,8 @@ via data attributes, making it especially suitable for dynamic form fields.</p>
 <li><strong><code>data-controller="emoji-picker"</code></strong> initializes the controller.</li>
 <li><strong>Targets:</strong>
 <ul>
-<li><code>data-emoji-picker-target="name"</code> &rarr; accessed via <code>this.nameTarget</code></li>
-<li><code>data-emoji-picker-target="output"</code> &rarr; accessed via <code>this.outputTarget</code></li>
+<li><code>data-emoji-picker-target="name"</code> → accessed via <code>this.nameTarget</code></li>
+<li><code>data-emoji-picker-target="output"</code> → accessed via <code>this.outputTarget</code></li>
 </ul></li>
 <li><strong>Actions:</strong>
 <ul>
@@ -622,8 +622,8 @@ via data attributes, making it especially suitable for dynamic form fields.</p>
 <li><strong>Multiple elements</strong>: <code>this.&lt;target&gt;Targets</code> (array)</li>
 <li><strong>DOM Queries:</strong>
 <ul>
-<li><code>this.element</code> &mdash; the main controller element</li>
-<li><code>this.findElement(selector)</code> &mdash; find elements within the controller&rsquo;s scope</li>
+<li><code>this.element</code> — the main controller element</li>
+<li><code>this.findElement(selector)</code> — find elements within the controller’s scope</li>
 </ul></li>
 </ul>
 <hr>

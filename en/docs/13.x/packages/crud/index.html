@@ -487,7 +487,7 @@
 when it might seem overkill.
 Therefore, we have created a new package aimed at developers who want to quickly create a user interface for
 eloquent models with functions such as creating, reading, updating, and deleting.</p>
-<p>You can describe the entire process using one file. And when you need more options, it&rsquo;s easy to switch to using
+<p>You can describe the entire process using one file. And when you need more options, it’s easy to switch to using
 the platform.
 All fields, filters, and traits are compatible.</p>
 <h2><a href='#installation' id='installation'>Installation</a></h2>
@@ -495,7 +495,7 @@ All fields, filters, and traits are compatible.</p>
 <p>The manual assumes that you already have a copy of <a href="https://laravel.com/docs/installation">Laravel</a> with
 <a href="/en/docs/13.x/installation">Orchid</a></p>
 </blockquote>
-<p>You can install the package using the &#1057;omposer. Run this at the command line:</p>
+<p>You can install the package using the Сomposer. Run this at the command line:</p>
 <pre><code data-lang="php" class="notranslate">composer <span class="hl-keyword">require</span> orchid/crud
 </code></pre>
 <p>This will update <code>composer.json</code> and install the package into the <code>vendor/</code> directory.</p>
@@ -515,9 +515,9 @@ This property tells the generator which Eloquent model the resource corresponds 
  */</span>
 <span class="hl-keyword">public</span> <span class="hl-keyword">static</span> $model <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>;
 </code></pre>
-<p>These classes are completely static. They don&rsquo;t have any state at all due to their declarative nature.
-They only tell what to do. They don&rsquo;t hold any data. So if you add custom methods, make sure they&rsquo;re static.</p>
-<p>Freshly created resources contain nothing. Don&rsquo;t worry. We&rsquo;ll add more fields to our resource soon.</p>
+<p>These classes are completely static. They don’t have any state at all due to their declarative nature.
+They only tell what to do. They don’t hold any data. So if you add custom methods, make sure they’re static.</p>
+<p>Freshly created resources contain nothing. Don’t worry. We’ll add more fields to our resource soon.</p>
 <h2><a href='#registering-resources' id='registering-resources'>Registering Resources</a></h2>
 <p>All resources within the <code>app/Orchid/Resources</code> directory will automatically be registered by default.
 You are not required to register them manually. But if this is required, for example, when creating an additional
@@ -556,8 +556,8 @@ goals. But we will assume that you have set these for your model:</p>
 </code></pre>
 <h2><a href='#defining-fields' id='defining-fields'>Defining Fields</a></h2>
 <p>Each resource contains a <code>fields</code> method. This method returns an array of fields, which generally extend the
-<code>Orchid\Screen\Field</code> class. To add a field to a resource, we can add it to the resource&rsquo;s <code>fields</code> method.
-Typically, fields may be created using their static <code>make</code> method. This method accepts several arguments; however, you usually only need to pass the field&rsquo;s name.</p>
+<code>Orchid\Screen\Field</code> class. To add a field to a resource, we can add it to the resource’s <code>fields</code> method.
+Typically, fields may be created using their static <code>make</code> method. This method accepts several arguments; however, you usually only need to pass the field’s name.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Fields\<span class="hl-type">Input</span>;
 
 <span class="hl-comment">/**
@@ -577,7 +577,7 @@ Typically, fields may be created using their static <code>make</code> method. Th
 <p>In the package to generate CRUD, you can use the fields Orchid platform. Review <a href="/en/docs/13.x/field">all available fields on the
 documentation site</a>.</p>
 <h2><a href='#defining-solumns' id='defining-solumns'>Defining Сolumns</a></h2>
-<p>Each resource contains a <code>&#1089;olumns</code> method. To add a column to a resource, we can add it to the resource&rsquo;s <code>column</code>
+<p>Each resource contains a <code>сolumns</code> method. To add a column to a resource, we can add it to the resource’s <code>column</code>
 method. Typically, columns may be created using their static <code>make</code> method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-constant"><span class="hl-type">TD</span></span>;
 
@@ -597,7 +597,7 @@ method. Typically, columns may be created using their static <code>make</code> m
 <p>The CRUD generation package is entirely based on the table layer. You can <a href="/en/docs/13.x/table">read more about this on the
 documentation page</a>.</p>
 <h2><a href='#defining-legend' id='defining-legend'>Defining Legend</a></h2>
-<p>Each resource contains a <code>legend</code> method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource&rsquo;s <code>legend</code> method. Typically, columns may be created using their static <code>make</code>
+<p>Each resource contains a <code>legend</code> method. It determines how the model will look when viewed. To add to a resource, we can add it to the resource’s <code>legend</code> method. Typically, columns may be created using their static <code>make</code>
 method.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\<span class="hl-type">Sight</span>;
 
@@ -662,8 +662,8 @@ rendered and, if necessary, swapped out for the viewed model.</p>
 </code></pre>
 <p>We already offer some prepared filters:</p>
 <ul>
-<li><code>Orchid\Crud\Filters\DefaultSorted</code> &ndash; Setting default column sorting</li>
-<li><code>Orchid\Crud\Filters\WithTrashed</code> &ndash; To display deleted records</li>
+<li><code>Orchid\Crud\Filters\DefaultSorted</code> – Setting default column sorting</li>
+<li><code>Orchid\Crud\Filters\WithTrashed</code> – To display deleted records</li>
 </ul>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">filters</span>(): <span class="hl-keyword">array</span>
 {
@@ -687,7 +687,7 @@ your resource class:</p>
 }
 </code></pre>
 <h2><a href='#eager-loading' id='eager-loading'>Eager Loading</a></h2>
-<p>Suppose you routinely need to access a resource&rsquo;s relationships within your fields. In that case, it may be a good
+<p>Suppose you routinely need to access a resource’s relationships within your fields. In that case, it may be a good
 idea to add the relationship to the <code>with</code> property of your resource. This property instructs to always eager to
 load the listed relationships when retrieving the resource.</p>
 <pre><code data-lang="php" class="notranslate"> <span class="hl-comment">/**
@@ -828,12 +828,12 @@ method. To attach an action to a resource, you should add it to the array of act
 }
 </code></pre>
 <h2><a href='#policies' id='policies'>Policies</a></h2>
-<p>To limit which users may view, create, update, or delete resources leverages Laravel&rsquo;s <a href="https://laravel.com/docs/authorization#creating-policies">authorization
+<p>To limit which users may view, create, update, or delete resources leverages Laravel’s <a href="https://laravel.com/docs/authorization#creating-policies">authorization
 policies</a>. Policies are simple PHP classes that organize
 authorization logic for a particular model or resource. For example, if your application is a blog, you may have a
 <code>Post</code> model and a corresponding <code>PostPolicy</code> within your application.</p>
-<p>Typically, these policies will be registered in your application&rsquo;s <code>AuthServiceProvider</code>. If CRUD detects a policy
-has been registered for the model, it will automatically check that policy&rsquo;s relevant authorization methods before
+<p>Typically, these policies will be registered in your application’s <code>AuthServiceProvider</code>. If CRUD detects a policy
+has been registered for the model, it will automatically check that policy’s relevant authorization methods before
 performing their respective actions, such as:</p>
 <ul>
 <li>viewAny</li>
@@ -845,7 +845,7 @@ performing their respective actions, such as:</p>
 <li>forceDelete</li>
 </ul>
 <p>No additional configuration is required! So, for example, to determine which users are allowed to update a <code>Post</code>
-model, you need to define an <code>update</code> method on the model&rsquo;s corresponding policy class:</p>
+model, you need to define an <code>update</code> method on the model’s corresponding policy class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;
 
 <span class="hl-keyword">use</span> App\Models\<span class="hl-type">User</span>;
@@ -871,9 +871,9 @@ model, you need to define an <code>update</code> method on the model&rsquo;s cor
 </code></pre>
 <blockquote>
 <p>If a policy exists but is missing a particular action method, the user will not be allowed to perform that
-action. So, if you have defined a policy, don&rsquo;t forget to define all of its relevant authorization methods.</p>
+action. So, if you have defined a policy, don’t forget to define all of its relevant authorization methods.</p>
 </blockquote>
-<p>If you don&rsquo;t want the policy to affect CRUD generation users, you may wish to authorize all actions within a given
+<p>If you don’t want the policy to affect CRUD generation users, you may wish to authorize all actions within a given
 policy. To accomplish this, define a <code>before</code> method on the policy. Before any other policy methods, the before
 method will be executed, allowing you to authorize the action before the intended policy method is actually called.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Policies;

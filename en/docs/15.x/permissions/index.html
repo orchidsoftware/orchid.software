@@ -467,7 +467,7 @@
                             <head></head><body><p>Permissions describe what a user can do. Roles group permissions for assignment. Check permissions in application
 logic, and use Laravel policies for access to individual records. A hidden button or menu is not an authorization check.</p>
 <h2><a href='#register-permissions' id='register-permissions'>Register permissions</a></h2>
-<p>Add groups to the <code>permissions()</code> method of your application&rsquo;s Orchid service provider:</p>
+<p>Add groups to the <code>permissions()</code> method of your application’s Orchid service provider:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">PermissionGroup</span>;
 <span class="hl-keyword">use</span> Orchid\Platform\<span class="hl-type">OrchidServiceProvider</span>;
 
@@ -520,7 +520,7 @@ $user<span class="hl-delimeter">-&gt;</span><span class="hl-delimeter">permissio
 This object is not an array or a mutable Laravel collection. To edit a grant, update the map returned by <code>toArray()</code>,
 then assign it back and save. Keep the inherited Permissions cast when extending the package models with <code>casts()</code>.</p>
 <p><code>Orchid::allowedPermissions()</code> returns a Permissions object containing all currently registered permissions.
-For an authorized handler processing Orchid&rsquo;s permission checkbox payload, use
+For an authorized handler processing Orchid’s permission checkbox payload, use
 <code>Permissions::fromEncodedForm($request-&gt;input('permissions', []))</code> to decode its keys.
 Only an appropriately authorized administrator should be allowed to change assignments.</p>
 <h2><a href='#roles' id='roles'>Roles</a></h2>
@@ -543,14 +543,14 @@ $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">removeRole
 <code>inRole()</code> accepts a role model, ID, or name. Prefer a model when assigning and removing roles.
 Existing databases need the <a href="/en/docs/15.x/upgrade#database-schema-and-identifiers">schema migration</a> before using UUID models.</p>
 <h2><a href='#protect-screens-and-routes' id='protect-screens-and-routes'>Protect screens and routes</a></h2>
-<p>Define the screen&rsquo;s required permissions:</p>
+<p>Define the screen’s required permissions:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">permission</span>(): ?<span class="hl-type">iterable</span>
 {
     <span class="hl-keyword">return</span> [<span class="hl-value">'orders.view'</span>];
 }
 </code></pre>
 <p>With several entries, any allowed permission grants access. The default denial response is HTTP 403.
-Override the screen&rsquo;s static <code>unaccessed()</code> method to return a custom response.
+Override the screen’s static <code>unaccessed()</code> method to return a custom response.
 Continue to authorize the specific record in action handlers and validate their submitted data.</p>
 <p>For routes outside the configured Orchid middleware group, register the access alias in <code>bootstrap/app.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Foundation\Configuration\<span class="hl-type">Middleware</span>;

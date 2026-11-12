@@ -468,8 +468,8 @@ Hello &lt;strong&gt;{{ $name }}&lt;/strong&gt;
 </code></pre>
 <p>When a notification is displayed, package sets several keys in the session:</p>
 <ul>
-<li>'flash_notification.message&rsquo; &ndash; the message to be displayed</li>
-<li>'flash_notification.level&rsquo; &ndash; a string representing the type of notification (e.g. &ldquo;info&rdquo;, &ldquo;success&rdquo;, &ldquo;error&rdquo;, &ldquo;warning&rdquo;)</li>
+<li>'flash_notification.message’ – the message to be displayed</li>
+<li>'flash_notification.level’ – a string representing the type of notification (e.g. “info”, “success”, “error”, “warning”)</li>
 </ul>
 <p>Package also includes a default display for notifications, which can be included in your blade templates by
 specifying:</p>
@@ -505,9 +505,9 @@ one argument, which is the number of milliseconds to wait before showing the mes
 to users even when they are offline.
 They are an excellent way to inform, for example, for a task manager application to notify an employee about a new
 task.</p>
-<p>You can view these notifications by clicking the &ldquo;Notification Bell icon&rdquo; in the application navigation bar. If
+<p>You can view these notifications by clicking the “Notification Bell icon” in the application navigation bar. If
 there are unread notifications, a counter will be displayed.</p>
-<p>Before using this feature, it&rsquo;s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification
+<p>Before using this feature, it’s important to check out the <a href="https://laravel.com/docs/notifications">Laravel notification
 documentation</a> as it provides more details and examples on how to use this
 feature.</p>
 <p>To create a notification, you can use the following <code>Artisan</code> command:</p>
@@ -539,7 +539,7 @@ This method will receive a <code>$notifiable</code> object and must return a <co
 You can take a look at <a href="https://laravel.com/docs/notifications#sending-notifications">Laravel Notification
 Documentation</a> to learn more about these two
 approaches to sending notifications.</p>
-<p>Here is an example of how to send notifications to a user using the 'notify&rsquo; method:</p>
+<p>Here is an example of how to send notifications to a user using the 'notify’ method:</p>
 <pre><code data-lang="php" class="notranslate">$user <span class="hl-operator">=</span> <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">1</span>);
 
 $user<span class="hl-delimeter">-&gt;</span><span class="hl-function">notify</span>(<span class="hl-constant">new</span> <span class="hl-type">TaskCompleted</span>);

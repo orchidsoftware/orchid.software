@@ -468,7 +468,7 @@
 customize your search criteria. You can use Eloquent filters to filter your product catalog based on attributes, brands, and other criteria.</p>
 <p>To create a new Eloquent filter, you can use the <code>php artisan orchid:filter</code> command followed by the desired filter
 name. This command will generate a new filter class in the <code>app/Orchid/Filters</code> folder.</p>
-<p>Here&rsquo;s an example of creating an <code>EmailFilter</code>:</p>
+<p>Here’s an example of creating an <code>EmailFilter</code>:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:filter EmailFilter
 </code></pre>
 <p>The generated filter class will look like this:</p>
@@ -572,16 +572,16 @@ However, when dealing with IDs or system names, you might prefer to display a mo
 <p>This approach is particularly useful when using filters that rely on IDs or system-specific names, allowing you to
 provide more meaningful or descriptive output for the end user.</p>
 <h2><a href='#selection' id='selection'>Selection</a></h2>
-<p>The &ldquo;Selection&rdquo; layer provides a convenient way to group and organize filters for both displaying and applying them to a
+<p>The “Selection” layer provides a convenient way to group and organize filters for both displaying and applying them to a
 model. This layer acts as an intermediary between the user interface and the model, simplifying the process of managing
 filters.</p>
-<p>To create a &ldquo;Selection&rdquo; layer, you can use the following command:</p>
+<p>To create a “Selection” layer, you can use the following command:</p>
 <pre><code data-lang="shell" class="notranslate">php artisan orchid:selection MailingSelection
 </code></pre>
 <p>This command will generate a new PHP file called <code>MailingSelection</code> in the <code>App\Orchid\Layouts</code> directory. Inside this
 class, you will find a single method called <code>filters()</code>. This method is where you should list all the filters that need
 to be displayed and applied.</p>
-<p>For example, let&rsquo;s say you want to display and apply two filters: a email filter and a created filter. Your
+<p>For example, let’s say you want to display and apply two filters: a email filter and a created filter. Your
 <code>MailingSelection</code> class would look like this:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
@@ -610,7 +610,7 @@ to be displayed and applied.</p>
 <p>By calling the <code>filters()</code> method on your model and passing <code>MailingSelection::class</code> as the argument, you can apply the
 filters defined in the <code>MailingSelection</code> class to the model.</p>
 <h3><a href='#displaying-on-a-screen' id='displaying-on-a-screen'>Displaying on a Screen</a></h3>
-<p>The &ldquo;Selection&rdquo; layer can also be used to display filters on a <a href="/en/docs/screens">screen</a>. In the <code>layout()</code> method of
+<p>The “Selection” layer can also be used to display filters on a <a href="/en/docs/screens">screen</a>. In the <code>layout()</code> method of
 your screen, you can include the <code>MailingSelection</code> class to display the filters on the screen. For example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> App\Orchid\Layouts\<span class="hl-type">MailingSelection</span>;
 
@@ -651,7 +651,7 @@ You can define this using the <code>template</code> property. For instance:</p>
 </code></pre>
 <p>Moreover, you have the flexibility to define your own <code>Blade</code> template within this property.</p>
 <h2><a href='#handling-http-parameters' id='handling-http-parameters'>Handling HTTP Parameters</a></h2>
-<p>To automatically filter and sort your application&rsquo;s data based on user-supplied HTTP parameters, the package provides a
+<p>To automatically filter and sort your application’s data based on user-supplied HTTP parameters, the package provides a
 powerful and flexible set of tools. The key to effectively utilizing these tools is to ensure that your model includes
 the <code>Filterable</code> trait and implements a whitelist of acceptable filter and sort parameters.</p>
 <p>To make your <code>App\Models\Post</code> model filterable, follow these steps:</p>
@@ -674,7 +674,7 @@ the <code>Filterable</code> trait and implements a whitelist of acceptable filte
 <h3><a href='#filtering' id='filtering'>Filtering</a></h3>
 <p>As mentioned before, any filtering action can only be performed on an allowed list of filters, which is specified using
 the <code>allowedFilters</code> property as a key-value pair. The key represents the name of your columns, and the value is the
-handling class. Here&rsquo;s an example:</p>
+handling class. Here’s an example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -706,7 +706,7 @@ handling class. Here&rsquo;s an example:</p>
     ];
 }
 </code></pre>
-<p>For range filters on a single column (for example, &ldquo;price between 10&nbsp;and 20&rdquo;), use <code>WhereBetween</code>:</p>
+<p>For range filters on a single column (for example, “price between 10 and 20”), use <code>WhereBetween</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'price'</span> <span class="hl-operator">=&gt;</span> \Orchid\Filters\Types\<span class="hl-type">WhereBetween</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 </code></pre>
 <p>Example: <code>?filter[price][]=10&amp;filter[price][]=20</code> applies <code>whereBetween('price', [10, 20])</code>.</p>
@@ -723,20 +723,20 @@ example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">filters</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">paginate</span>();
 </code></pre>
 <p>By leveraging this approach, you can easily apply filters to your query and paginate the results.</p>
-<p>This code will automatically apply any filters or sorting rules that were included in the user&rsquo;s HTTP request.</p>
+<p>This code will automatically apply any filters or sorting rules that were included in the user’s HTTP request.</p>
 <h4><a href='#query-examples' id='query-examples'>Query Examples</a></h4>
-<p>To use this feature effectively, it&rsquo;s important to understand how the HTTP parameters are translated into database
+<p>To use this feature effectively, it’s important to understand how the HTTP parameters are translated into database
 queries. For example:</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[id]=1</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'id'</span>, <span class="hl-value">'='</span>, <span class="hl-number">1</span>)
 </code></pre>
-<p>This query will apply a <code>where</code> clause to the <code>id</code> column of your model, filtering out any records that don&rsquo;t match the
+<p>This query will apply a <code>where</code> clause to the <code>id</code> column of your model, filtering out any records that don’t match the
 value provided by the user.</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[name]=A</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'name'</span>, <span class="hl-value">'like'</span>, <span class="hl-value">'%A%'</span>)
 </code></pre>
 <p>This query will apply a <code>like</code> clause to the <code>name</code> column of your model, searching for any records that contain the
-letter &ldquo;A&rdquo; in their name.</p>
+letter “A” in their name.</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[id]=1,2,3,4,5</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">whereIn</span>(<span class="hl-value">'id'</span>, [<span class="hl-number">1</span>,<span class="hl-number">2</span>,<span class="hl-number">3</span>,<span class="hl-number">4</span>,<span class="hl-number">5</span>]);
 </code></pre>
@@ -746,7 +746,7 @@ the specified IDs.</p>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">whereBetween</span>(<span class="hl-value">'id'</span>, [<span class="hl-number">1</span>,<span class="hl-number">5</span>]);
 </code></pre>
 <p>This query will apply a <code>wherebetween</code> clause to the <code>id</code> column of your model, filtering for records where the ID is
-between 1&nbsp;and 5.</p>
+between 1 and 5.</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[id][]=1&amp;filter[id][]=2&amp;filter[id][]=3</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">whereIn</span>(<span class="hl-value">'id'</span>, [<span class="hl-number">1</span>,<span class="hl-number">2</span>,<span class="hl-number">3</span>]);
 </code></pre>
@@ -757,7 +757,7 @@ $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</sp
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'rating'</span>, <span class="hl-value">'&lt;='</span>, <span class="hl-number">5</span>);
 </code></pre>
 <p>This query will apply two separate <code>where</code> clauses to the <code>rating</code> column of your model, filtering for records where the
-rating is between 1&nbsp;and 5.</p>
+rating is between 1 and 5.</p>
 <pre><code data-lang="php" class="notranslate">http:<span class="hl-comment">//example.com/demo?filter[rating][min]=1</span>
 $model<span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'rating'</span>, <span class="hl-value">'&gt;='</span>, <span class="hl-number">1</span>);
 </code></pre>
@@ -803,7 +803,7 @@ $model->orderBy('content->ru->name', 'desc');
 </blockquote>
 <h3><a href='#sorting' id='sorting'>Sorting</a></h3>
 <p>To enable sorting functionality, you need to specify a list of columns in the <code>allowedSorts</code> property. This list
-represents the columns in your database table that can be used for sorting. Here&rsquo;s an example:</p>
+represents the columns in your database table that can be used for sorting. Here’s an example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Models;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -857,7 +857,7 @@ this issue:</p>
 </code></pre>
 <p>However, you will need to manually handle the HTTP parameters <code>sort</code> and <code>filter</code>, as the package does not automatically
 recognize that the <code>-</code> sign before the field name indicates descending order for sorting, and also how to apply filters.
-You can do this using a &ldquo;Filter.&rdquo; Additionally, you should only use the package methods for sorting or filtering based
+You can do this using a “Filter.” Additionally, you should only use the package methods for sorting or filtering based
 on fields accessible through relationships.</p>
 </body>
 

@@ -450,7 +450,7 @@
 By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code> directory:</p>
 <pre><code data-lang="php" class="notranslate">php artisan orchid:chart ChartsLayout
 </code></pre>
-<p>Once your chart class has been generated, you&rsquo;re ready to customize it. Example:</p>
+<p>Once your chart class has been generated, you’re ready to customize it. Example:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
@@ -468,7 +468,7 @@ By default, all new metrics will be placed in the <code>app/Orchid/Layouts</code
 }
 </code></pre>
 <p>By creating and setting up a visual representation of the class, we can use it in the future. But before using
-chart, we need to prepare the data we want to display. To do this, let&rsquo;s set the <code>query</code> value of the screen:</p>
+chart, we need to prepare the data we want to display. To do this, let’s set the <code>query</code> value of the screen:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">query</span>() : <span class="hl-keyword">array</span>
 {
     $dataset <span class="hl-operator">=</span> [
@@ -627,7 +627,7 @@ authentication.</p>
 </code></pre>
 <h2><a href='#a-period-of-time' id='a-period-of-time'>A Period of Time</a></h2>
 <p>Receives data for a certain period of time, filling in the missing values.</p>
-<p>For example, let&rsquo;s display a graph of new users and roles:</p>
+<p>For example, let’s display a graph of new users and roles:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
@@ -675,7 +675,7 @@ $end <span class="hl-operator">=</span> <span class="hl-type">Carbon</span><span
 <span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>($start, $end, <span class="hl-value">'updated_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>)
 </code></pre>
 <h3><a href='#value-query-types' id='value-query-types'>Value Query Types</a></h3>
-<p>Value metrics don&rsquo;t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions
+<p>Value metrics don’t just ship with a <code>countByDays</code> method. You may also use a variety of other aggregate functions
 when building your metric.</p>
 <p>The <code>average</code> method may be used to calculate the average of a given column</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">averageByDays</span>(<span class="hl-value">'price'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Order'</span>),

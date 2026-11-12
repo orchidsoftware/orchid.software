@@ -425,7 +425,7 @@ role is associated with the permission set, not with the individual user.</p>
 <p><strong>Note.</strong> Permissions are not a substitute for <code>Gate</code> or <code>Policies</code> included in the framework frame.</p>
 </blockquote>
 <p>Typically, you manage several dozen permits in a typical business process.
-You can also have, say, 10&nbsp;to 100&nbsp;users.
+You can also have, say, 10 to 100 users.
 Although these users are not entirely different from each other, You can divide them into logical groups according to what they do with the program.
 These groups are called roles.</p>
 <p>If you needed to manage users directly by assigning them permissions, it would be tedious and erroneous
@@ -512,7 +512,7 @@ Using them, you explicitly implement access to certain functions.</p>
 <p>It is generally best to code your app around permissions only.</p>
 <p>Roles can still be used to group permissions for easy assignment, and you can still use the role-based helper
 methods if truly necessary. But most app-related logic can usually be best controlled using the can methods, which
-allows Laravel&rsquo;s Gate layer to do all the heavy lifting.</p>
+allows Laravel’s Gate layer to do all the heavy lifting.</p>
 <p>eg: <code>users</code> have <code>roles</code>, and <code>roles</code> have <code>permissions</code>, and your app always checks for <code>permissions</code>, not
 <code>roles</code>.</p>
 <h2><a href='#check-in-screens' id='check-in-screens'>Check-in Screens</a></h2>

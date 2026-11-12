@@ -475,7 +475,7 @@ is already in use by another part of your application.</p>
 <p>To change the prefix, you can update the prefix parameter in the configuration file:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'prefix'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'dashboard'</span>,
 </code></pre>
-<p>It&rsquo;s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make
+<p>It’s worth noting that changing the prefix will also change the URL of all routes within the admin panel, so make
 sure to update any links or redirects that reference the old prefix.</p>
 <h2><a href='#middleware' id='middleware'>Middleware</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'middleware'</span> <span class="hl-operator">=&gt;</span> [
@@ -513,7 +513,7 @@ platform.</p>
 users to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
 </code></pre>
-<p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
+<p>It’s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
 <h2><a href='#dashboard-resources' id='dashboard-resources'>Dashboard Resources</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],
@@ -548,7 +548,7 @@ the <code>stylesheets</code> array:</p>
     }
 }
 </code></pre>
-<p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
+<p>It’s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#appearance-patterns' id='appearance-patterns'>Appearance Patterns</a></h2>
 <p>To change some templates, it is unnecessary to publish the entire package; you can customize a part of the user
 interface to specify a logo, accompanying documents, etc.</p>
@@ -558,9 +558,9 @@ interface to specify a logo, accompanying documents, etc.</p>
 ],
 </code></pre>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel’s
 template override mechanism (this is the same for all packages, not just Orchid);</p>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the
+<p>Following Laravel’s mechanism for overriding templates from packages is to create the
 <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as
 the original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template

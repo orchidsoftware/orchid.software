@@ -490,7 +490,7 @@ For example:</p>
     }
 }
 </code></pre>
-<p>If the screen&rsquo;s <code>query</code> method returns the specified key, then the field will be displayed:</p>
+<p>If the screen’s <code>query</code> method returns the specified key, then the field will be displayed:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Query data
  *
@@ -512,11 +512,11 @@ For example:</p>
 <h2><a href='#reuse-layers' id='reuse-layers'>Reuse Layers</a></h2>
 <p>Layouts are easy to reuse when fields are related to the relations of different models. During installation, we
 have a layer for defining permissions, which is used immediately at the user and roles editing screen. But
-sometimes you want to apply the same set of fields with different values. Let&rsquo;s consider an example when you need
+sometimes you want to apply the same set of fields with different values. Let’s consider an example when you need
 to specify an address.</p>
 <p>Such a set will be both for the client, the customer, and it will appear twice on the same form (for example, in
 order, delivery and invoice). To solve this situation, you do not need to create and describe almost identical
-layouts. Instead, let&rsquo;s add logic to one single layer.</p>
+layouts. Instead, let’s add logic to one single layer.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Orchid\Layouts;
 
 <span class="hl-keyword">use</span> Illuminate\Support\<span class="hl-type">Str</span>;

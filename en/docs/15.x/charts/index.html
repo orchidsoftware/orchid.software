@@ -480,7 +480,7 @@ through its fluent methods.</p>
     ];
 }
 </code></pre>
-<p>Every dataset&rsquo;s <code>values</code> must have exactly as many items as <code>labels</code>. Numeric strings are converted to numbers.
+<p>Every dataset’s <code>values</code> must have exactly as many items as <code>labels</code>. Numeric strings are converted to numbers.
 Orchid reindexes the arrays before sending them to the browser.</p>
 <h2><a href='#display-a-chart' id='display-a-chart'>Display a chart</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Layouts\<span class="hl-type">Chart</span>;
@@ -553,7 +553,7 @@ Pie and percentage charts require exactly one dataset.</p>
 </table>
 <p>Dimension, radius, angle, and slice-count values must be finite numbers. <code>colors</code> must be a list.
 Other options are booleans, except <code>gradient</code>, which accepts a boolean or an opacity map.
-Gradient keys are <code>fromOpacity</code> and <code>toOpacity</code>, with numeric values between 0&nbsp;and 1.
+Gradient keys are <code>fromOpacity</code> and <code>toOpacity</code>, with numeric values between 0 and 1.
 Unsupported options and invalid types throw <code>InvalidArgumentException</code>.</p>
 <p><code>marker($label, $value, $options)</code> adds a marker. <code>export()</code> displays the chart download control.
 Options merge with earlier settings, and the last value for a key wins.</p>
@@ -590,7 +590,7 @@ The User model already includes this trait.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-function">countByDays</span>(<span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDays</span>(<span class="hl-number">6</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">startOfDay</span>(), <span class="hl-function">now</span>(), <span class="hl-value">'created_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Users'</span>);
 <span class="hl-type">Order</span><span class="hl-delimeter">::</span><span class="hl-function">sumByDays</span>(<span class="hl-value">'total'</span>, <span class="hl-function">now</span>()<span class="hl-delimeter">-&gt;</span><span class="hl-function">subDays</span>(<span class="hl-number">6</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">startOfDay</span>(), <span class="hl-function">now</span>(), <span class="hl-value">'paid_at'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">toChart</span>(<span class="hl-value">'Revenue'</span>);
 </code></pre>
-<p>The example&rsquo;s Order model must use <code>Orchid\Metrics\Chartable</code> and have <code>total</code> and <code>paid_at</code> columns.
+<p>The example’s Order model must use <code>Orchid\Metrics\Chartable</code> and have <code>total</code> and <code>paid_at</code> columns.
 <code>valuesByDays()</code> reads stored values; the other scopes aggregate records by day.</p>
 <h2><a href='#reuse-a-chart-class' id='reuse-a-chart-class'>Reuse a chart class</a></h2>
 <p>Generate a reusable layout with <code>php artisan orchid:chart VisitsChart</code>:</p>
@@ -606,7 +606,7 @@ The User model already includes this trait.</p>
     }
 }
 </code></pre>
-<p>Return <code>VisitsChart::class</code> from the screen&rsquo;s <code>layout()</code> method.
+<p>Return <code>VisitsChart::class</code> from the screen’s <code>layout()</code> method.
 Configure inherited charts through methods rather than redefining typed properties.</p>
 <h2><a href='#upgrade-from-frappe-charts' id='upgrade-from-frappe-charts'>Upgrade from Frappe Charts</a></h2>
 <p>Replace per-dataset <code>labels</code> with a shared top-level <code>labels</code> array and put series in <code>datasets</code>.

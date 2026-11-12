@@ -489,8 +489,8 @@
 <p>15.x is in development. Keep production applications on a released version until you have verified the changes below.
 Back up your database and test the upgrade in a separate environment.</p>
 <h2><a href='#requirements-and-dependencies' id='requirements-and-dependencies'>Requirements and dependencies</a></h2>
-<p>Use PHP 8.3&nbsp;or later and Laravel <code>^12.4 || ^13.0</code>. Laravel 10&nbsp;and 11&nbsp;are no longer supported.
-When 15.0&nbsp;is released, require <code>orchid/platform:^15.0</code> and update related dependencies together.
+<p>Use PHP 8.3 or later and Laravel <code>^12.4 || ^13.0</code>. Laravel 10 and 11 are no longer supported.
+When 15.0 is released, require <code>orchid/platform:^15.0</code> and update related dependencies together.
 For a development installation, use the current development source rather than an unavailable stable tag.</p>
 <h2><a href='#database-schema-and-identifiers' id='database-schema-and-identifiers'>Database schema and identifiers</a></h2>
 <p>Existing 14.x databases require an application-specific data migration before they can use the new default models.
@@ -596,11 +596,11 @@ method calls. See <a href="/en/docs/15.x/presenters">presenters</a> and the upda
     <span class="hl-keyword">use</span> <span class="hl-type">Filterable</span>;
 }
 </code></pre>
-<p>The old properties are no longer read. Migrate overrides on child models as well, or the parent&rsquo;s attribute applies.
+<p>The old properties are no longer read. Migrate overrides on child models as well, or the parent’s attribute applies.
 Each list inherits independently. A child attribute replaces the complete list, and <code>[]</code> disables it.
 See <a href="/en/docs/15.x/filters">URL filters</a> for supported filter classes and examples.</p>
 <h2><a href='#local-scopes' id='local-scopes'>Local scopes</a></h2>
-<p>Orchid&rsquo;s local scopes now use Laravel&rsquo;s <code>Scope</code> attribute. Keep calls such as <code>Post::filters()</code> and
+<p>Orchid’s local scopes now use Laravel’s <code>Scope</code> attribute. Keep calls such as <code>Post::filters()</code> and
 <code>User::countByDays()</code> unchanged. Migrate custom <code>scope...</code> overrides and direct parent calls to the new method names:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Illuminate\Database\Eloquent\Attributes\<span class="hl-type">Scope</span>;
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Builder</span>;
@@ -619,7 +619,7 @@ See <a href="/en/docs/15.x/filters">URL filters</a> for supported filter classes
     <span class="hl-keyword">return</span> [<span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-delimeter">.</span><span class="hl-keyword"><span class="hl-type">parent</span></span><span class="hl-delimeter">::</span><span class="hl-function">casts</span>(), <span class="hl-value">'settings'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'array'</span>];
 }
 </code></pre>
-<p>A legacy child <code>$casts</code> property does not override the same key returned by the parent&rsquo;s <code>casts()</code>.
+<p>A legacy child <code>$casts</code> property does not override the same key returned by the parent’s <code>casts()</code>.
 Move such overrides to the method. User and Role permissions now use <code>Orchid\Access\Permissions</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Permissions</span>;
 <span class="hl-keyword">use</span> Orchid\Support\Facades\<span class="hl-type">Orchid</span>;
@@ -634,7 +634,7 @@ $states <span class="hl-operator">=</span> $user<span class="hl-delimeter">-&gt;
 </code></pre>
 <p>Use <code>allows()</code> to check a value object, <code>toArray()</code> for an array, and <code>PermissionGroup::make()-&gt;add()</code> to register groups.
 <code>Orchid::allowedPermissions()</code> replaces <code>Dashboard::getAllowAllPermission()</code>.
-Use <code>Permissions::fromEncodedForm()</code> for Orchid&rsquo;s encoded permission checkbox input.
+Use <code>Permissions::fromEncodedForm()</code> for Orchid’s encoded permission checkbox input.
 The removed <code>Orchid\Access\UserInterface</code> and <code>RoleInterface</code> contracts must not remain on custom models.
 Extend the package models or use the relevant current access traits. See <a href="/en/docs/15.x/permissions">permissions</a>.</p>
 <h2><a href='#select-replaces-relation' id='select-replaces-relation'>Select replaces Relation</a></h2>

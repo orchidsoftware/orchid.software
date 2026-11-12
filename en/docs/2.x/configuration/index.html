@@ -465,15 +465,15 @@
     </nav>
                             <head></head><body><p>ORCHID uses the standard Laravel configuration system.
 All parameters can be found in <code>config</code> directory, and the <code>platform.php</code> file is main for platform. Every setting
-is prompted with commentary summing it&rsquo;s essence.</p>
+is prompted with commentary summing it’s essence.</p>
 <h2><a href='#headless-mode' id='headless-mode'>Headless mode</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'headless'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">false</span>,
 </code></pre>
-<p>It&rsquo;s obvious that platform is not able to cover all the developer work so it provides an ability to completely turn
+<p>It’s obvious that platform is not able to cover all the developer work so it provides an ability to completely turn
 the graphical interface off.
 It may be useful if you create the application with user-generated content that will not need external
 administration.
-It&rsquo;s a great solution also in case you want to use your own graphical interface (For example, if you want to embed
+It’s a great solution also in case you want to use your own graphical interface (For example, if you want to embed
 a dashboard into your interface).</p>
 <p>When this mode is active, ORCHID will not register your application routes and you will have to to implement all
 the required functionality by yourself.</p>
@@ -493,7 +493,7 @@ at external domain.</p>
 <p>The system installed on the website can be easily defined by the dashboard prefix, for example it is <code>wp-admin</code> for
 WordPress, and it gives an opportunity to automatically search for old vulnerable versions of software and gain
 control over it.</p>
-<p>There are other reasons but we won&rsquo;t speak of them in this section.
+<p>There are other reasons but we won’t speak of them in this section.
 The point is that ORCHID allows to change<code>dashboard</code> prefix to every other name, <code>admin</code> or <code>administrator</code> for
 example.</p>
 <h2><a href='#middlewares' id='middlewares'>Middlewares</a></h2>
@@ -551,7 +551,7 @@ different languages; to add new language you only need to add new element to arr
 </code></pre>
 <p>In field configuration field aliases are used to abstract away from elements used, for example, <code>wysiwyg</code> is an
 alias for TinyMCEField redactor. If you came to decide that the functionality of redactor you use is not enough you
-will only have to change it&rsquo;s alias to other&rsquo;s instead of changing it&rsquo;s full name in every file of your project.</p>
+will only have to change it’s alias to other’s instead of changing it’s full name in every file of your project.</p>
 <p><a href="/en/docs/2.x/field">More about fields</a></p>
 <h2><a href='#single-behaviours' id='single-behaviours'>Single behaviours</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'single'</span> <span class="hl-operator">=&gt;</span> [
@@ -559,7 +559,7 @@ will only have to change it&rsquo;s alias to other&rsquo;s instead of changing i
 ],
 </code></pre>
 <p>Single behaviors is the many behavior type that exists only in one exemplary.
-It&rsquo;s a great solution for creation of unique (Non-generic!) website pages.</p>
+It’s a great solution for creation of unique (Non-generic!) website pages.</p>
 <h2><code>Many</code> behaviors</h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'many'</span> <span class="hl-operator">=&gt;</span> [
     App\Core\Behaviors\Many\<span class="hl-type">DemoPage</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
@@ -643,7 +643,7 @@ You may add or delete them if you need.</p>
 <p>Main dashboard page by default has only one widget informing about new stable software version. ORCHID is not
 created to solve individual problems so it cannot provide any types of metrics (For example about quantity of
 created posts or user visits)</p>
-<p>You may create and add any widgets you want to view. See the &ldquo;Widgets&rdquo; section to find more about.</p>
+<p>You may create and add any widgets you want to view. See the “Widgets” section to find more about.</p>
 <h2><a href='#dashboard-resources' id='dashboard-resources'>Dashboard resources</a></h2>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'resource'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'stylesheets'</span> <span class="hl-operator">=&gt;</span> [],

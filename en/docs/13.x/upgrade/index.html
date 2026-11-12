@@ -559,8 +559,8 @@ includes bug fixes and security updates.</p>
 features, bug fixes, and security updates.</p>
 <p>If you have any questions or concerns about our support policy, please do not hesitate to contact us.</p>
 <h2><a href='#release-strategy' id='release-strategy'>Release Strategy</a></h2>
-<p>We believe in keeping our package up-to-date and modern, and therefore follow a &ldquo;release early, release often&rdquo;
-approach for major releases. This means that we won&rsquo;t wait an extended period of time to release a new major
+<p>We believe in keeping our package up-to-date and modern, and therefore follow a “release early, release often”
+approach for major releases. This means that we won’t wait an extended period of time to release a new major
 version. By releasing major versions more frequently, new features will be available sooner, and upgrading between
 versions will be more manageable.</p>
 <blockquote>
@@ -614,7 +614,7 @@ constant and <code>registerProfileMenu</code> method for service provider in you
 }
 </code></pre>
 <h3><a href='#logout-and-quit-impersonation' id='logout-and-quit-impersonation'>Logout and Quit Impersonation</a></h3>
-<p>the behavior of the &ldquo;Logout&rdquo; and &ldquo;Quit Impersonation&rdquo; actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
+<p>the behavior of the “Logout” and “Quit Impersonation” actions must now be specified by the developer. To do this, you can add button definitions to your profile screen.</p>
 <p>Here is an example of how you can define these buttons:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">use</span> Orchid\Screen\Actions\<span class="hl-type">Button</span>;
 <span class="hl-keyword">use</span> Orchid\Access\<span class="hl-type">Impersonation</span>;
@@ -634,9 +634,9 @@ constant and <code>registerProfileMenu</code> method for service provider in you
 }
 </code></pre>
 <ul>
-<li>The first button, &ldquo;Back to my account&rdquo;, is used to exit impersonation and return to the original user account.
+<li>The first button, “Back to my account”, is used to exit impersonation and return to the original user account.
 This button will only be visible if the user is currently impersonating another account.</li>
-<li>The second button, &ldquo;Sign out&rdquo;, is used to log out of the platform.</li>
+<li>The second button, “Sign out”, is used to log out of the platform.</li>
 </ul>
 <p>By specifying the behavior of these buttons yourself, you have more control over the exit and quit impersonation
 actions in your Orchid application.</p>
@@ -659,7 +659,7 @@ behavior where possible. But <code>select2</code> special JS events are no longe
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
 <p>In your <code>composer.json</code> file, update the <code>orchid/platform</code> dependency to <code>^12.0</code></p>
 <h3><a href='#laravel-9x' id='laravel-9x'>Laravel 9.x</a></h3>
-<p>Laravel 9&nbsp;is now required to install or upgrade. Update descriptions for existing projects can be found in the
+<p>Laravel 9 is now required to install or upgrade. Update descriptions for existing projects can be found in the
 <a href="https://laravel.com/docs/9.x/upgrade">documentation</a>.</p>
 <h2><a href='#upgrading-to-110-from-10x' id='upgrading-to-110-from-10x'>Upgrading to 11.0 from 10.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
@@ -804,7 +804,7 @@ But the differences will also be, for example, the writing of nested elements wi
         <span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Sub element item 2'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'heart'</span>),
     ]),
 </code></pre>
-<p>The default for sorting has been changed from 1000&nbsp;to 0:</p>
+<p>The default for sorting has been changed from 1000 to 0:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Menu</span><span class="hl-delimeter">::</span><span class="hl-function">make</span>(<span class="hl-value">'Example screen'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">icon</span>(<span class="hl-value">'monitor'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">route</span>(<span class="hl-value">'platform.example'</span>)
@@ -903,7 +903,7 @@ dismiss them, you need to execute the following <code>SQL</code> code:</p>
 <span class="hl-constant">WHERE</span> migration <span class="hl-operator">=</span> <span class="hl-value">'2020_06_07_184338_added_columns_for_2fa'</span>;
 </code></pre>
 <p>After that, you need to remove the column data from your user model.
-If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in project &ndash; don&rsquo;t forget delete it.</p>
+If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in project – don’t forget delete it.</p>
 <hr>
 <h2><a href='#upgrading-to-80-from-7x' id='upgrading-to-80-from-7x'>Upgrading to 8.0 from 7.x</a></h2>
 <h3><a href='#updating-dependencies' id='updating-dependencies'>Updating Dependencies</a></h3>
@@ -914,7 +914,7 @@ If you copied migration <code>2020_06_07_184338_added_columns_for_2fa</code> in 
 <h3><a href='#settings-model' id='settings-model'>Settings Model</a></h3>
 <p>The settings model has also been removed. Data stored in the database will not be deleted automatically.
 To remove them, you need to execute the following <code>SQL</code> code:</p>
-<p>If you copied migration <code>2015_12_02_181214_create_table_settings</code> in project &ndash; don&rsquo;t forget delete it.</p>
+<p>If you copied migration <code>2015_12_02_181214_create_table_settings</code> in project – don’t forget delete it.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-constant">DROP</span> <span class="hl-constant">TABLE</span> settings;
 
 <span class="hl-constant">DELETE</span> <span class="hl-constant">FROM</span> migrations

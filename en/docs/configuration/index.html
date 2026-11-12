@@ -489,7 +489,7 @@
     </nav>
                             <head></head><body><p>The package uses the standard configuration system for Laravel. It stores the main parameters in the <code>config</code> directory, and the main file for the platform is the file <code>platform.php</code>. Each setting comes with a comment explaining its purpose.</p>
 <blockquote>
-<p><strong>Note.</strong> After caching your configuration files, don&rsquo;t forget to clear the cache if you make changes. Run
+<p><strong>Note.</strong> After caching your configuration files, don’t forget to clear the cache if you make changes. Run
 <code>php artisan config:clear</code> so your changes take effect. Prefer reading values via <code>config('platform.key')</code> and avoid
 using <code>env()</code> directly in application code.</p>
 </blockquote>
@@ -568,7 +568,7 @@ on the logo or links in the navigation bar.</p>
 to a custom dashboard page, you can update the <code>index</code> parameter to point to that route:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'index'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'custom.dashboard'</span>,
 </code></pre>
-<p>It&rsquo;s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
+<p>It’s worth noting that you will need to create the corresponding route and controller for the new home page.</p>
 <h2><a href='#profile-route' id='profile-route'>Profile Route</a></h2>
 <p>The <code>profile</code> option defines the route name for the user profile page. When users click their profile or avatar, they
 will be sent to this route.</p>
@@ -595,7 +595,7 @@ globally add paths to the corresponding arrays in the configuration file.</p>
     ],
 ],
 </code></pre>
-<p>It&rsquo;s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
+<p>It’s worth noting that the resource file must be present in the <code>public</code> directory to be able to access it.</p>
 <h2><a href='#vite' id='vite'>Vite</a></h2>
 <p>If you use <a href="https://laravel.com/docs/vite">Vite</a> for frontend assets, add the entry paths to the <code>vite</code> array so they
 are included on Orchid pages:</p>
@@ -616,7 +616,7 @@ to specify a logo, accompanying documents, and more.</p>
 <p>For a full guide on customizing the logo, header, footer, and overall look of the Orchid, see
 <a href="/en/docs/brand">Branding</a>.</p>
 <h2><a href='#attachment-defaults' id='attachment-defaults'>Attachment Defaults</a></h2>
-<p>Orchid stores uploaded files using Laravel&rsquo;s filesystem. You can set the default disk and an optional custom filename
+<p>Orchid stores uploaded files using Laravel’s filesystem. You can set the default disk and an optional custom filename
 generator:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'attachment'</span> <span class="hl-operator">=&gt;</span> [
     <span class="hl-value">'disk'</span>      <span class="hl-operator">=&gt;</span> <span class="hl-function">env</span>(<span class="hl-value">'PLATFORM_FILESYSTEM_DISK'</span>, <span class="hl-value">'public'</span>),
@@ -650,7 +650,7 @@ interval:</p>
 <p><code>interval</code> is the number of seconds between polling requests.</p>
 <h2><a href='#search' id='search'>Search</a></h2>
 <p>The sidebar search feature uses <a href="https://laravel.com/docs/scout">Laravel Scout</a> to search through the models you list
-here. Each model must be searchable (using Scout&rsquo;s <code>Searchable</code> trait) and have a <a href="/en/docs/presenters">Presenter</a> that
+here. Each model must be searchable (using Scout’s <code>Searchable</code> trait) and have a <a href="/en/docs/presenters">Presenter</a> that
 implements the search display interface.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'search'</span> <span class="hl-operator">=&gt;</span> [
     \App\Models\<span class="hl-type">User</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
@@ -675,13 +675,13 @@ actions:</p>
 to <code>preserve</code> often give the best experience. See the <a href="/en/docs/screens">Screens</a> and <a href="/en/docs/javascript">JavaScript</a>
 documentation for more on Turbo.</p>
 <h2><a href='#workspace' id='workspace'>Workspace</a></h2>
-<p>The workspace option sets the template that wraps screen content&mdash;either a compact width or full width:</p>
+<p>The workspace option sets the template that wraps screen content—either a compact width or full width:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'workspace'</span> <span class="hl-operator">=&gt;</span> <span class="hl-value">'platform::workspace.compact'</span>,
 </code></pre>
 <p>Options: <code>platform::workspace.compact</code>, <code>platform::workspace.full</code>.</p>
 <h2><a href='#fallback-page' id='fallback-page'>Fallback Page</a></h2>
-<p>When a request does not match any Orchid route, Orchid can render its own 404&nbsp;page. Set to <code>false</code> if you register your
-own routes under the same domain and prefix and want to handle 404&nbsp;responses yourself:</p>
+<p>When a request does not match any Orchid route, Orchid can render its own 404 page. Set to <code>false</code> if you register your
+own routes under the same domain and prefix and want to handle 404 responses yourself:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-value">'fallback'</span> <span class="hl-operator">=&gt;</span> <span class="hl-constant">true</span>,
 </code></pre>
 <h2><a href='#prevents-abandonment' id='prevents-abandonment'>Prevents Abandonment</a></h2>
@@ -718,19 +718,19 @@ your model classes instead of its own, it is necessary to register their substit
 </code></pre>
 <p>The <code>provider</code> value is the class name of the service provider where the platform registers its menu, permissions, and
 other bootstrap logic. By default, this is <code>\App\Orchid\PlatformProvider::class</code>.</p>
-<p>You only need to change this if you move Orchid&rsquo;s bootstrap (for example, the <code>PlatformProvider</code> class) to another
+<p>You only need to change this if you move Orchid’s bootstrap (for example, the <code>PlatformProvider</code> class) to another
 namespace. In that case, point this option to your custom provider class.</p>
 <blockquote>
 <p><strong>Note.</strong> The provider class should extend <code>Orchid\Platform\OrchidServiceProvider</code> and implement <code>menu()</code> and, if
 needed, <code>permissions()</code>.</p>
 </blockquote>
 <h2><a href='#overriding-blade-templates' id='overriding-blade-templates'>Overriding Blade Templates</a></h2>
-<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel&rsquo;s template
+<p>Backend pages are created using <a href="https://laravel.com/docs/blade">Blade</a>. You can change these using Laravel’s template
 override mechanism. This approach works the same for all Laravel packages, not just Orchid.</p>
 <blockquote>
-<p>&#128680; <strong>Alert!</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
+<p>🚨 <strong>Alert!</strong> Overridden templates do not receive updates or bug fixes. Think of this as turning off the autopilot.</p>
 </blockquote>
-<p>Following Laravel&rsquo;s mechanism for overriding templates from packages is to create the
+<p>Following Laravel’s mechanism for overriding templates from packages is to create the
 <code>/resources/views/vendor/platform/</code> directory in your application and create new templates with the same path as the
 original templates.</p>
 <p>For example, to override <code>/vendor/orchid/platform/resources/views/partials/search.blade.php</code>, create a new template at

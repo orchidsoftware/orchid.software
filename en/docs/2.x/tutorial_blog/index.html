@@ -444,11 +444,11 @@ picked up to help the newcomer to handle all the problems from start to end.</p>
 <h2><a href='#installation' id='installation'>Installation</a></h2>
 <p>First we install the Laravel and the ORCHID package</p>
 <h2><a href='#layout' id='layout'>Layout</a></h2>
-<p>Let&rsquo;s pick the calm and clean <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a> on
+<p>Let’s pick the calm and clean <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a> on
 bootstrap for our layout.</p>
 <p>First we install all the styles and javascript to compose them with webpack.
 By default there is the sass styles directory in assets folder but our theme uses ess.
-Let&rsquo;s create the new directory instead of old one (You may use sass, it won&rsquo;t affect the main process) and copy
+Let’s create the new directory instead of old one (You may use sass, it won’t affect the main process) and copy
 files to js and less accordingly.</p>
 <p>Then we install bootstrap</p>
 <pre><code data-lang="php" class="notranslate">npm install bootstrap --save
@@ -466,15 +466,15 @@ files to js and less accordingly.</p>
 @import <span class="hl-value">"variables.less"</span>;
 @import <span class="hl-value">"mixins.less"</span>;
 </code></pre>
-<p>For the sake of standardization we rename the clean-blog.less to app.less. That&rsquo;s all, now we may build the
+<p>For the sake of standardization we rename the clean-blog.less to app.less. That’s all, now we may build the
 application.</p>
-<p>Let&rsquo;s open webpack.mix.js and add the following instruction:</p>
+<p>Let’s open webpack.mix.js and add the following instruction:</p>
 <pre><code data-lang="php" class="notranslate">mix<span class="hl-delimeter">.</span><span class="hl-function">js</span>(<span class="hl-value">'resources/assets/js/app.js'</span>, <span class="hl-value">'public/js'</span>)
    <span class="hl-delimeter">.</span><span class="hl-function">less</span>(<span class="hl-value">'resources/assets/less/app.less'</span>, <span class="hl-value">'public/css'</span>);
 </code></pre>
 <p>Great, now all the dependencies of our blog are ready.</p>
 <h2><a href='#templates' id='templates'>Templates</a></h2>
-<p>Let&rsquo;s open the main template of our blog view/layouts/app.blade.php and change it like the following:</p>
+<p>Let’s open the main template of our blog view/layouts/app.blade.php and change it like the following:</p>
 <pre><code data-lang="php" class="notranslate">&lt;!<span class="hl-constant">DOCTYPE</span> html&gt;
 &lt;html lang=<span class="hl-value">"{{ config('app.locale') }}"</span>&gt;
 &lt;head&gt;
@@ -533,11 +533,11 @@ application.</p>
 </code></pre>
 <p>There are new features aside from standard Laravel:</p>
 <ul>
-<li>setting&#8202;&mdash;&#8202;the helper that allows to get values from the storage.</li>
-<li>widget&#8202;&mdash;&#8202;user view and code execution.</li>
+<li>setting — the helper that allows to get values from the storage.</li>
+<li>widget — user view and code execution.</li>
 </ul>
 <h2><a href='#widget' id='widget'>Widget</a></h2>
-<p>Now let&rsquo;s create our one-level menu widget that we will be able to control from panel:</p>
+<p>Now let’s create our one-level menu widget that we will be able to control from panel:</p>
 <p>To do so execute the following command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:widget MenuWidget
 </code></pre>
@@ -547,7 +547,7 @@ We will only need to register it in the config file <code>config/widget.php</cod
     <span class="hl-value">'menu'</span> <span class="hl-operator">=&gt;</span> App\Http\Widgets\<span class="hl-type">MenuWidget</span><span class="hl-delimeter">::</span><span class="hl-keyword">class</span>,
 ],
 </code></pre>
-<p>Let&rsquo;s change it so it will gather all the menu elements and pass them to the view:</p>
+<p>Let’s change it so it will gather all the menu elements and pass them to the view:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Widgets;
 
 <span class="hl-keyword">use</span> Orchid\Platform\Widget\<span class="hl-type">Widget</span>;
@@ -594,10 +594,10 @@ We will only need to register it in the config file <code>config/widget.php</cod
 &lt;!-- /<span class="hl-delimeter">.</span>navbar-collapse -<span class="hl-delimeter">-&gt;</span>
 </code></pre>
 <h2><a href='#behavior' id='behavior'>Behavior</a></h2>
-<p>Great, let&rsquo;s display our blog posts, to do it we will use or platform&rsquo;s <code>many posts</code>:</p>
+<p>Great, let’s display our blog posts, to do it we will use or platform’s <code>many posts</code>:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:manyBehavior Blog
 </code></pre>
-<p>At the address <code>/app/Behaviors/Many</code> the empty <code>Blog.php</code> will be created, now let&rsquo;s fill it:</p>
+<p>At the address <code>/app/Behaviors/Many</code> the empty <code>Blog.php</code> will be created, now let’s fill it:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Behaviors\Many;
 
 <span class="hl-keyword">use</span> Orchid\Platform\Behaviors\<span class="hl-type">Many</span>;
@@ -770,7 +770,7 @@ $router<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</spa
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">where</span>(<span class="hl-value">'blog'</span>,<span class="hl-value">'^(?!dashboard).*$'</span>)
     <span class="hl-delimeter">-&gt;</span><span class="hl-function">name</span>(<span class="hl-value">'blog.post'</span>);
 </code></pre>
-<p>To display the human friendly url let&rsquo;s add the blog route binding to RouteServiceProvider:</p>
+<p>To display the human friendly url let’s add the blog route binding to RouteServiceProvider:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">bind</span>(<span class="hl-value">'blog'</span>, <span class="hl-keyword">function</span> (<span class="hl-injection">$value</span>) {
     <span class="hl-keyword">return</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">where</span>(<span class="hl-value">'slug'</span>, $value)
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">type</span>(<span class="hl-value">'blog'</span>)
@@ -778,9 +778,9 @@ $router<span class="hl-delimeter">-&gt;</span><span class="hl-function">get</spa
         <span class="hl-delimeter">-&gt;</span><span class="hl-function">firstOrFail</span>();
 });
 </code></pre>
-<p>Well, there&rsquo;s a little left to do: create views for all the data to do so we create <code>pages</code> directory with
+<p>Well, there’s a little left to do: create views for all the data to do so we create <code>pages</code> directory with
 <code>main.blade.php</code> and <code>post.blade.php</code> in the <code>views</code> directory</p>
-<p><code>post.blade.php</code> &#1073;&#1091;&#1076;&#1077;&#1090; &#1074;&#1099;&#1075;&#1083;&#1103;&#1076;&#1077;&#1090;&#1100; &#1090;&#1072;&#1082;:</p>
+<p><code>post.blade.php</code> будет выглядеть так:</p>
 <pre><code data-lang="php" class="notranslate">@<span class="hl-keyword"><span class="hl-function">extends</span></span>(<span class="hl-value">'layouts.app'</span>)
 
 @<span class="hl-function">section</span>(<span class="hl-value">'title'</span>,$post<span class="hl-delimeter">-&gt;</span><span class="hl-function">getContent</span>(<span class="hl-value">'title'</span>))

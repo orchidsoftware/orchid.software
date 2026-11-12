@@ -338,7 +338,7 @@
                 </li>
                     </ul>
     </nav>
-                            <head></head><body><p>The platform is shipped with CMS functionatily and it&rsquo;s assumed that by default all elementst that contain website
+                            <head></head><body><p>The platform is shipped with CMS functionatily and it’s assumed that by default all elementst that contain website
 data are instances of <code>Post</code> model.
 This structure suits well to most of public web sites as their structure is mostly the same.
 An example of similarities:</p>
@@ -371,8 +371,8 @@ $post <span class="hl-operator">=</span> <span class="hl-type">Post</span><span 
 
 </code></pre>
 <p>An ability to store data in JSON does not mean you should fill in every value for every language, eg: an
-information about a bar may be in English and Russian but it does&rsquo;n&rsquo;t mean that there may be different number of
-free seats for different languages. Therefore there&rsquo;s no sense in duplicating these parameters, instead put them
+information about a bar may be in English and Russian but it does’n’t mean that there may be different number of
+free seats for different languages. Therefore there’s no sense in duplicating these parameters, instead put them
 into <code>options</code>.</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// Specific post</span>
 $post <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">find</span>(<span class="hl-number">42</span>);
@@ -404,7 +404,7 @@ $taxonomy <span class="hl-operator">=</span> $post<span class="hl-delimeter">-&g
 <p>Or you may search for posts using your own taxonomy:</p>
 <pre><code data-lang="php" class="notranslate">$post <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">taxonomy</span>(<span class="hl-value">'category'</span>, <span class="hl-value">'php'</span>)<span class="hl-delimeter">-&gt;</span><span class="hl-function">first</span>();
 </code></pre>
-<p>More complex forms are also possible, for example, you may get all posts of <code>main</code> category including it&rsquo;s children
+<p>More complex forms are also possible, for example, you may get all posts of <code>main</code> category including it’s children
 categories:</p>
 <pre><code data-lang="php" class="notranslate">$posts  <span class="hl-operator">=</span> <span class="hl-type">Post</span><span class="hl-delimeter">::</span><span class="hl-function">whereHas</span>(<span class="hl-value">'taxonomies.term'</span>, <span class="hl-keyword"><span class="hl-function">function</span></span>(<span class="hl-injection">$query</span>){
  $query<span class="hl-delimeter">-&gt;</span><span class="hl-function">whereIn</span>(<span class="hl-value">'slug'</span>,
@@ -442,7 +442,7 @@ $image<span class="hl-delimeter">-&gt;</span><span class="hl-function">url</span
 <h2><a href='#full-text-search' id='full-text-search'>Full-text search</a></h2>
 <p>The platform is shipped with the Scout package which acts as the abstraction for full-text search in your Eloquent
 model.
-Scout does not include the search &ldquo;driver&rdquo; itself, you must install the required solution by yourself, it may be, for example elasticsearch, algolia, sphinx or others.</p>
+Scout does not include the search “driver” itself, you must install the required solution by yourself, it may be, for example elasticsearch, algolia, sphinx or others.</p>
 <p>To use the full text search you need to add a new method to your entity class:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">/**
  * Get the indexable data array for the model.
@@ -459,7 +459,7 @@ Scout does not include the search &ldquo;driver&rdquo; itself, you must install 
 }
 </code></pre>
 <p>It will receive all different models and return the elements required for indexing.</p>
-<p>Lets take standard &ldquo;DemoPost.php&rdquo; as example, it has a lot of parameters but we truly need only two of them:</p>
+<p>Lets take standard “DemoPost.php” as example, it has a lot of parameters but we truly need only two of them:</p>
 <ul>
 <li>Article title</li>
 <li>Article content</li>
@@ -479,7 +479,7 @@ Scout does not include the search &ldquo;driver&rdquo; itself, you must install 
     <span class="hl-keyword">return</span> $array[<span class="hl-value">'content'</span>][<span class="hl-value">'en'</span>];
 }
 </code></pre>
-<p>We&rsquo;ve returned all data in English with index.</p>
+<p>We’ve returned all data in English with index.</p>
 <p>To import it we have to perform the following command:</p>
 <pre><code data-lang="php" class="notranslate">php artisan scout:import Orchid\\Press\\Models\\Post
 </code></pre>

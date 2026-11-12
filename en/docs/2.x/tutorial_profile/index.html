@@ -459,7 +459,7 @@ help the newcomer to handle all the problems from start to end.</p>
 <h2><a href='#installation' id='installation'>Installation</a></h2>
 <p>At the beginning lets <a href="/en/docs/2.x/installation">install</a> the Laravel ORCHID package</p>
 <h2><a href='#migrations' id='migrations'>Migrations</a></h2>
-<p>Let&rsquo;s perform the changes in ou database scheme to make it contain <code>Surname</code>, <code>Name</code> and authorization logging.</p>
+<p>Let’s perform the changes in ou database scheme to make it contain <code>Surname</code>, <code>Name</code> and authorization logging.</p>
 <p>To do so perform the following:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:migration create_table_users_history
 </code></pre>
@@ -500,7 +500,7 @@ help the newcomer to handle all the problems from start to end.</p>
     }
 }
 </code></pre>
-<p>Also let&rsquo;s create the second migration file that is related directly to our user:</p>
+<p>Also let’s create the second migration file that is related directly to our user:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:migration create_fields_for_users
 </code></pre>
 <p>With content:</p>
@@ -549,7 +549,7 @@ help the newcomer to handle all the problems from start to end.</p>
 To do so we create a new model using with the following:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:model History
 </code></pre>
-<p>In the <code>app</code> directory a file called <code>History.php</code> will be created let&rsquo;s put the following code into it:</p>
+<p>In the <code>app</code> directory a file called <code>History.php</code> will be created let’s put the following code into it:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App;
 
 <span class="hl-keyword">use</span> Illuminate\Database\Eloquent\<span class="hl-type">Model</span>;
@@ -748,15 +748,15 @@ able to use it in future.</p>
 <code>Screen</code>, to do so we perform the following:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:screen ProfileScreen
 </code></pre>
-<p>Artisan will create a new file in <code>app/Http/Controllers/Screens</code> directory, and if you are a skillful user it&rsquo;s
+<p>Artisan will create a new file in <code>app/Http/Controllers/Screens</code> directory, and if you are a skillful user it’s
 recommended to change this folder name to <code>app/Http/Screens</code>,</p>
-<p>Let&rsquo;s add our new screen to the routing file <code>routes/web.php</code>:</p>
+<p>Let’s add our new screen to the routing file <code>routes/web.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-type">Route</span><span class="hl-delimeter">::</span><span class="hl-function">screen</span>(<span class="hl-value">'/dashboard/profile'</span>, <span class="hl-value">'Screens\ProfileScreen'</span>,<span class="hl-value">'dashboard.screens.profile'</span>);
 </code></pre>
 <h2><a href='#registration-of-the-new-screen' id='registration-of-the-new-screen'>Registration of the new screen</a></h2>
 <p>To view our screen in the elements menu we need to add <code>View::composer</code> registrations to
 <code>app/Providers/AppServiceProvider.php</code></p>
-<p>Let&rsquo;s create the registration class <code>app/Http/Composers/MenuComposer.php</code>:</p>
+<p>Let’s create the registration class <code>app/Http/Composers/MenuComposer.php</code>:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Composer;
 
 <span class="hl-keyword">use</span> Orchid\Platform\Kernel\<span class="hl-type">Dashboard</span>;
@@ -821,11 +821,11 @@ recommended to change this folder name to <code>app/Http/Screens</code>,</p>
     }
 }
 </code></pre>
-<p>Now, as our screen is displayed in menu, lret&rsquo;s proceed to filling it with content.</p>
+<p>Now, as our screen is displayed in menu, lret’s proceed to filling it with content.</p>
 <h2><a href='#creation-of-ajax-data-vidget' id='creation-of-ajax-data-vidget'>Creation of AJAX data vidget</a></h2>
 <p>It might be noticed that we added the new <code>city_id</code> row to user without creating city model.
 The standard laravel configuration file will be good enough for us.</p>
-<p>Let&rsquo;s create the new file <code>config/city.php</code> and fill it with some cities of Russia:</p>
+<p>Let’s create the new file <code>config/city.php</code> and fill it with some cities of Russia:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">return</span> [
 
     <span class="hl-value">'list'</span> <span class="hl-operator">=&gt;</span> [
@@ -852,10 +852,10 @@ The standard laravel configuration file will be good enough for us.</p>
     ]
 ];
 </code></pre>
-<p>Let&rsquo;s create the widget to further be able to pass them on demand:</p>
+<p>Let’s create the widget to further be able to pass them on demand:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:widget CityWidget
 </code></pre>
-<p>A new file will be created in <code>app/Http/Widgets/CityWidget.php</code> and we don&rsquo;t need to register it like the template
+<p>A new file will be created in <code>app/Http/Widgets/CityWidget.php</code> and we don’t need to register it like the template
 widgets.</p>
 <p>We change it to always return the array of parameters:</p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Widgets;
@@ -896,10 +896,10 @@ widgets.</p>
 
 }
 </code></pre>
-<p>We&rsquo;ve used the collections to be able to search by <code>id</code> and our city name.</p>
-<p>it&rsquo;s not necessary to use the configuration parameters as storage, it may also be the cities model or even API.</p>
+<p>We’ve used the collections to be able to search by <code>id</code> and our city name.</p>
+<p>it’s not necessary to use the configuration parameters as storage, it may also be the cities model or even API.</p>
 <h2><a href='#base-profile-template-creation' id='base-profile-template-creation'>Base profile template creation</a></h2>
-<p>To be able to change the profile data it&rsquo;s necessary to generate a form with input fields, let&rsquo;s create a new
+<p>To be able to change the profile data it’s necessary to generate a form with input fields, let’s create a new
 string template:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:row ProfileLayout
 </code></pre>
@@ -1016,7 +1016,7 @@ string template:</p>
 
 }
 </code></pre>
-<p>The source of all our data is the <code>query</code> method, that&rsquo;s why we must pass the general data array. You could notice
+<p>The source of all our data is the <code>query</code> method, that’s why we must pass the general data array. You could notice
 that
 in the template implementation we used the names <code>profile.</code>, that means the data will be further required from
 <code>profile</code> key.</p>
@@ -1036,7 +1036,7 @@ in the template implementation we used the names <code>profile.</code>, that mea
 
 </code></pre>
 <p>Great, now as we may see all the form fields, lets add a button that will save everything when pressed.</p>
-<p>To do so let&rsquo;s add the following to <code>commandBar</code> method:</p>
+<p>To do so let’s add the following to <code>commandBar</code> method:</p>
 <pre><code data-lang="php" class="notranslate">    <span class="hl-comment">/**
      * Button commands
      *
@@ -1052,7 +1052,7 @@ in the template implementation we used the names <code>profile.</code>, that mea
 
 </code></pre>
 <p>This will add the button to our screen that will trigger the <code>update</code> method on our screen.</p>
-<p>Let&rsquo;s add this method:</p>
+<p>Let’s add this method:</p>
 <pre><code data-lang="php" class="notranslate">
     <span class="hl-comment">/**
      * <span class="hl-keyword">@param</span> <span class="hl-type">Request</span> $request
@@ -1068,7 +1068,7 @@ in the template implementation we used the names <code>profile.</code>, that mea
 </code></pre>
 <p>Great, now we may not only display the required information but also change it.</p>
 <h2><a href='#creation-of-password-change-window' id='creation-of-password-change-window'>Creation of password change window</a></h2>
-<p>Our profile screen will not be complete without an ability to change the password, so let&rsquo;s add it!</p>
+<p>Our profile screen will not be complete without an ability to change the password, so let’s add it!</p>
 <p>To do so we create a new template:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:row ProfilePasswordLayout
 </code></pre>
@@ -1159,7 +1159,7 @@ As we can see, the method <code>method</code> stands for pressing the button.</p
 </code></pre>
 <p>Great, our profile screen is almost ready.</p>
 <h2><a href='#creation-of-history-layout' id='creation-of-history-layout'>Creation of history layout</a></h2>
-<p>Let&rsquo;s add a table that will contain data about devices that were used to authorize, to do it we create a table
+<p>Let’s add a table that will contain data about devices that were used to authorize, to do it we create a table
 layout:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:table HistoryLayout
 </code></pre>
@@ -1215,7 +1215,7 @@ layout:</p>
     }
 }
 </code></pre>
-<p>It&rsquo;s necessary to register the layout for the screen and pass on our data:</p>
+<p>It’s necessary to register the layout for the screen and pass on our data:</p>
 <pre><code data-lang="php" class="notranslate">    <span class="hl-comment">/**
      * Query data
      *
@@ -1247,7 +1247,7 @@ layout:</p>
         ];
     }
 </code></pre>
-<p>Now as we have our table displayed at the screen let&rsquo;s add an ability to filter it, to do it we create two filters:</p>
+<p>Now as we have our table displayed at the screen let’s add an ability to filter it, to do it we create two filters:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:filter BrowserFilter
 </code></pre>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">namespace</span> App\Http\Filters;
@@ -1363,7 +1363,7 @@ layout:</p>
     }
 }
 </code></pre>
-<p>Let&rsquo;s register our filters for our layout and access:</p>
+<p>Let’s register our filters for our layout and access:</p>
 <p>Add <code>filters</code> to <code>app/Layouts/HistoryLayout.php</code></p>
 <pre><code data-lang="php" class="notranslate">    <span class="hl-comment">/**
      * <span class="hl-keyword">@return</span> <span class="hl-keyword">array</span>
@@ -1395,7 +1395,7 @@ layout:</p>
 </code></pre>
 <p>Now we may select entries by browser and OS.</p>
 <h2><a href='#layout-view-and-statistics' id='layout-view-and-statistics'>Layout view and statistics</a></h2>
-<p>Let&rsquo;s add charts that will display user statistics:</p>
+<p>Let’s add charts that will display user statistics:</p>
 <pre><code data-lang="php" class="notranslate">php artisan make:chart BrowserLayout
 </code></pre>
 <p>With content:</p>

@@ -472,13 +472,13 @@ $attachment <span class="hl-operator">=</span> (<span class="hl-constant">new</s
 <p>Thanks to the hash, attachments are not upload again; instead, a link is created in the database to the required
 physical file, allowing efficient use of resources. The file will be deleted only when all links are destroyed.</p>
 <h2><a href='#remove' id='remove'>Remove</a></h2>
-<p>Attachments won&rsquo;t be removed after model removal automatically. In case when your attachments can&rsquo;t exist without a
+<p>Attachments won’t be removed after model removal automatically. In case when your attachments can’t exist without a
 model, you should remove them on model <code>deleting</code> events manually. If you delete a row from the <code>attachments</code>
-table, the file won&rsquo;t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the
-<code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file &ndash; it will be
+table, the file won’t be deleted. To clear your attachments, you need to use <code>delete()</code> function on the
+<code>Attachment</code> model. In that case, an additional check will proceed. If there no link to the file – it will be
 deleted. You can do it using <a href="https://laravel.com/docs/master/eloquent-relationships">relationships</a> and
 <a href="https://laravel.com/docs/master/eloquent#observers">observers</a>.</p>
-<p>Let&rsquo;s come back to our example with <code>hero</code> relation from <a href="/en/docs/10.x/quickstart-files">&ldquo;Manage file attachments&rdquo;</a></p>
+<p>Let’s come back to our example with <code>hero</code> relation from <a href="/en/docs/10.x/quickstart-files">“Manage file attachments”</a></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-comment">// app/Post.php</span>
 
 <span class="hl-keyword">use</span> Orchid\Attachment\Models\<span class="hl-type">Attachment</span>;
@@ -496,7 +496,7 @@ class, that also has <code>delete()</code> function. But, it will execute sql qu
 <blockquote>
 <p><strong>Note.</strong> You should build your relation using <code>withDefault()</code> function to avoid the null pointer exception.</p>
 </blockquote>
-<p>Let&rsquo;s generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
+<p>Let’s generate <a href="https://laravel.com/docs/master/eloquent#observers">observer</a> for our example model.</p>
 <pre><code data-lang="shell" class="notranslate">php artisan make:observer PostObserver
 </code></pre>
 <p>In PostObserver we create <code>deleting</code> function</p>
@@ -514,7 +514,7 @@ class, that also has <code>delete()</code> function. But, it will execute sql qu
 </code></pre>
 <blockquote>
 <p><strong>Note.</strong> An experienced Laravel developer will see that there is an <code>N+1</code> problem here. It is intentionally done
-to access the filesystem to delete a file (The database won&rsquo;t do it for us).</p>
+to access the filesystem to delete a file (The database won’t do it for us).</p>
 </blockquote>
 <p>Subscribe example model to the observer in <code>AppServiceProvider</code></p>
 <pre><code data-lang="php" class="notranslate"><span class="hl-keyword">public</span> <span class="hl-keyword">function</span> <span class="hl-function">boot</span>()
@@ -541,9 +541,9 @@ to access the filesystem to delete a file (The database won&rsquo;t do it for us
 ],
 </code></pre>
 <ul>
-<li><p><strong>disk</strong> &ndash; storage name used to store files. The entire settings of which should be defined in
+<li><p><strong>disk</strong> – storage name used to store files. The entire settings of which should be defined in
 <code>/config/filesystems.php</code>.</p></li>
-<li><p><strong>generator</strong> &ndash; a class that defines how the uploaded files will be named and in which directories they will be
+<li><p><strong>generator</strong> – a class that defines how the uploaded files will be named and in which directories they will be
 located and how to avoid duplicating them.</p></li>
 </ul>
 <h2><a href='#event-subscription' id='event-subscription'>Event subscription</a></h2>

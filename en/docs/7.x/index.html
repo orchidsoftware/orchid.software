@@ -494,10 +494,10 @@ administration. It abstracts common business application templates so that devel
 beautiful and elegant interfaces with little effort.</p>
 <p>Some features:</p>
 <ul>
-<li><strong>Form Builder</strong> &ndash; no need to describe HTML fields of the same type every time.</li>
-<li><strong>Screens</strong> &ndash; a good balance between CRUD generation and manual writing.</li>
-<li><strong>Fields</strong> &ndash; over 40&nbsp;types.</li>
-<li><strong>Permissions</strong> &ndash; offers convenient management in development and support.</li>
+<li><strong>Form Builder</strong> – no need to describe HTML fields of the same type every time.</li>
+<li><strong>Screens</strong> – a good balance between CRUD generation and manual writing.</li>
+<li><strong>Fields</strong> – over 40 types.</li>
+<li><strong>Permissions</strong> – offers convenient management in development and support.</li>
 <li>Menus, graphics, settings, notifications, etc.</li>
 </ul>
 <p>Delivered as a Laravel package and interacted with other components. It can act as a basis for back-office based
@@ -512,16 +512,16 @@ We hope to answer this question.</p>
 <p>All previous packages are designed to simplify CRUD database operations and
 they can be divided into several methods:</p>
 <ul>
-<li><p><strong>Scaffolding</strong> &ndash; scaffolding method, consists in the generation of physical files
+<li><p><strong>Scaffolding</strong> – scaffolding method, consists in the generation of physical files
 according to specified specifications, thereby being the fastest at the initial stage of application development.
 As a rule, after generation, developers delete such packages, since they are not able to update
 files with manual changes for updated criteria.</p></li>
-<li><p><strong>Visual programming</strong> &ndash; a method in which the developer drags or selects pre-prepared
+<li><p><strong>Visual programming</strong> – a method in which the developer drags or selects pre-prepared
 objects thus build the application, instead of writing program code. This view is based on the assumption that most
 programs are simple procedural
 sequences. However, once a program becomes more than a pretty trivial example, its complexity will soon afflict the novice programmer. Beginners find it very difficult to reason about a large
 codebase and bogged down in attempts to create stable and efficient large-scale software.</p></li>
-<li><p><strong>One file</strong> &ndash; a method that invites the developer to describe all the basic actions in one single file
+<li><p><strong>One file</strong> – a method that invites the developer to describe all the basic actions in one single file
 (Resource, Section, CrudController), which binds to the Eloquent model. This is another very good solution, but if we try to go beyond the scope of a
 CRUD application, then
 libraries concentrated in such a paradigm will not help us, because we do not work with that single class.</p></li>
@@ -533,15 +533,15 @@ And instead of one, the main class, provides many small components for encapsula
 <h2><a href='#why-is-rapid-development' id='why-is-rapid-development'>Why is rapid development?</a></h2>
 <p>A classic web application is a subsystem with a common three-tier architecture, which comprises:</p>
 <ul>
-<li><p><strong>Presentation level</strong> &ndash; a graphical interface presented to the user (browser), including scripts, styles, and
+<li><p><strong>Presentation level</strong> – a graphical interface presented to the user (browser), including scripts, styles, and
 other resources.</p></li>
-<li><p><strong>The level of applied logic</strong> &ndash; in our cases, this framework is the link where most business logic concentrated, work with the database (Eloquent), sending resources and various processing.</p></li>
-<li><p><strong>Level of resource management</strong> &ndash; provides we implement data storage&nbsp;using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
+<li><p><strong>The level of applied logic</strong> – in our cases, this framework is the link where most business logic concentrated, work with the database (Eloquent), sending resources and various processing.</p></li>
+<li><p><strong>Level of resource management</strong> – provides we implement data storage using database management systems (MySQL, PostgreSQL, Microsoft SQL Server, SQLite).</p></li>
 </ul>
 <p><picture alt='Architecture'><img src="/img/docs-archive/17bed5f36394b4ca-architecture.jpg" alt="Architecture"></picture></p>
 <p>Reducing development time directly related to the distribution of responsibilities between each of the levels. This
 is especially noticeable when it is necessary to create auxiliary code, while it takes most of the really useful
-work&nbsp;over by the application layer.</p>
+work over by the application layer.</p>
 <p>As various examples of opposing duties can be cited:</p>
 <ul>
 <li>Generation of <code>HTML</code> with the <code>Blade</code> template engine or the <code>Vue</code> framework.</li>

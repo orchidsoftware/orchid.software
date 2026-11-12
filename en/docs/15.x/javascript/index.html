@@ -459,7 +459,7 @@
                     </ul>
     </nav>
                             <head></head><body><p>Orchid uses Bootstrap, Turbo, and Stimulus. The package publishes its own Vite assets through
-<code>php artisan orchid:publish</code>. Build your application&rsquo;s additions with its own Vite configuration.</p>
+<code>php artisan orchid:publish</code>. Build your application’s additions with its own Vite configuration.</p>
 <h2><a href='#load-application-assets' id='load-application-assets'>Load application assets</a></h2>
 <p>Configure application entry points:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-keyword">import</span> { defineConfig } <span class="hl-keyword">from</span> <span class="hl-value">'vite'</span>;
@@ -481,11 +481,11 @@
 </code></pre>
 <p>Run <code>npm run dev</code> during development and <code>npm run build</code> for production.
 The <code>vite</code> entries refer to source files handled by Laravel Vite, not published output paths.
-Orchid&rsquo;s own assets use <code>public/vendor/orchid/manifest.json</code>.
+Orchid’s own assets use <code>public/vendor/orchid/manifest.json</code>.
 Remove old Mix-based build instructions and stale package assets when upgrading.</p>
 <h2><a href='#register-a-controller' id='register-a-controller'>Register a controller</a></h2>
 <p>The panel exposes <code>window.application</code>, its Stimulus application, and <code>window.Controller</code>, its base controller.
-Register custom controllers in an application entry point loaded after Orchid&rsquo;s core resources:</p>
+Register custom controllers in an application entry point loaded after Orchid’s core resources:</p>
 <pre><code data-lang="js" class="notranslate"><span class="hl-comment">// resources/js/controllers/hello.js</span>
 <span class="hl-keyword">export</span> <span class="hl-keyword">default</span> <span class="hl-keyword">class</span> <span class="hl-keyword">extends</span> window.<span class="hl-property">Controller</span> {
     <span class="hl-keyword">static</span> targets <span class="hl-operator">=</span> [<span class="hl-value">'name'</span>, <span class="hl-value">'output'</span>];
